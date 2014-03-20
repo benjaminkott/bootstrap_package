@@ -1,0 +1,51 @@
+{namespace bp = BK2K\BootstrapPackage\ViewHelpers}
+<bp:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
+<f:if condition="{items}">   
+    <div id="carousel-{data.uid}" class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}" data-interval="10000" data-ride="carousel">
+        <div class="carousel-inner">
+        <f:for each="{items}" as="item" iteration="iteration">
+            <f:switch expression="{item.background_style}">
+                <f:case value="0">
+                    <bp:var name="itemStyle">
+                        <f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
+                    </bp:var>
+                </f:case>
+                <f:case value="1">
+                    <bp:fal data="{item}" as="images" field="background_image" table="tx_bootstrappackage_carousel_item">
+                        <f:if condition="{images}">
+                            <bp:var name="backgroundImagePath" value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1)}" />
+                            <bp:var name="itemStyle">
+                                background-image: url('{backgroundImagePath}'); 
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}', sizingMethod='scale');
+                                -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}', sizingMethod='scale')";
+                            </bp:var>
+                        </f:if>
+                    </bp:fal>
+                </f:case>
+            </f:switch>
+            <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}" data-itemno="{iteration.index}" style="{itemStyle}">
+                <f:switch expression="{item.item_type}">
+                    <f:case value="header"><f:render partial="Carousel/Item/Header" arguments="{_all}" /></f:case>
+                    <f:case value="textandimage"><f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" /></f:case>
+                    <f:case value="html">{item.bodytext->f:format.raw()}</f:case>
+                </f:switch>
+            </div>
+        </f:for>
+        </div>
+        <f:if condition="{items -> f:count()} > 1">
+            <ol class="carousel-indicators">
+            <f:for each="{items}" as="item" iteration="iteration">
+                <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
+            </f:for>
+            </ol>
+            <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev'}" section="carousel-{data.uid}">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </f:link.page>
+            <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next'}" section="carousel-{data.uid}">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </f:link.page>
+        </f:if>
+
+    </div>
+</f:if>
+</bp:dataRelation>

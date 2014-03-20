@@ -1,0 +1,10 @@
+<div class="body-bg">
+    <f:render partial="Navigation/Main" arguments="{_all}" />
+    <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb" />
+    <!--TYPO3SEARCH_begin-->
+    <div class="main-section">
+        <f:render section="Main" />
+    </div>
+    <!--TYPO3SEARCH_end-->
+    <f:render partial="Structure/Footer" arguments="{_all}" />
+</div>

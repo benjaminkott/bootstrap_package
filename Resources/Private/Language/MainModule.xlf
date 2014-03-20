@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z" product-name="bootstrap_package">
+        <header/>
+        <body>
+
+            <trans-unit id="mlang_tabs_tab">
+                <source>Bootstrap Package</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

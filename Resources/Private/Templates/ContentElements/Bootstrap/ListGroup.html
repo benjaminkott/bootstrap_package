@@ -1,0 +1,10 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<bk2k:explode data="{data.bodytext}" as="rows">
+    <f:if condition="{rows}">
+    <ul class="list-group">
+    <f:for each="{rows}" as="content" iteration="iterateRow">
+        <li class="list-group-item">{content}</li>
+    </f:for>
+    </ul>
+    </f:if>
+</bk2k:explode>

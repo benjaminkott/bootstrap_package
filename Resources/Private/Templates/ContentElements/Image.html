@@ -1,0 +1,20 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:layout name="Default" />
+<f:section name="Main">
+
+<bk2k:fal data="{data}" as="images" field="image">
+    <f:if condition="{images}">
+        <f:for each="{images}" as="image" iteration="iteration">
+            
+            <f:image src="{image.uid}" treatIdAsReference="1" />
+            
+        </f:for>
+    </f:if>
+</bk2k:fal>
+    
+</f:section>
+<f:section name="Header">
+    
+    <f:render partial="Structure/Header" arguments="{_all}" />
+    
+</f:section>

@@ -1,0 +1,23 @@
+<f:be.container>
+    <div class="typo3-fullDoc">
+        <div id="typo3-docheader">
+            <div class="typo3-docheader-functions">
+                
+            </div>
+            <div class="typo3-docheader-buttons">
+                <div class="left">
+                    <f:render section="DocHeaderButtonsLeft" />
+                </div>
+                <div class="right">
+                    <f:render section="DocHeaderButtonsRight" />
+                </div>
+            </div>
+        </div>
+        <div id="typo3-docbody">
+            <div id="typo3-inner-docbody">
+                <f:flashMessages class="tx-extbase-flash-message" />
+                <f:render section="Main" />
+            </div>
+        </div>
+    </div>
+</f:be.container>

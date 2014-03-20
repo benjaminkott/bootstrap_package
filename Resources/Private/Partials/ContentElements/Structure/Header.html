@@ -1,0 +1,18 @@
+<f:if condition="{data.header}">
+    <f:if condition="{data.header_layout} == 100">
+        <f:else>
+
+            <div class="page-header">
+            <f:if condition="{data.header_layout} == 0">
+                <f:then>
+                    <h1>{data.header}</h1>
+                </f:then>
+                <f:else>
+                    <h{data.header_layout}>{data.header}</h{data.header_layout}>
+                </f:else>
+            </f:if>
+            </div>
+
+        </f:else>
+    </f:if>
+</f:if>

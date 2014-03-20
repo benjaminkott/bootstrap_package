@@ -1,0 +1,435 @@
+###########################
+#### CONTENT RENDERING ####
+###########################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Base.ts">
+
+
+#######################
+#### LANGUAGE MENU ####
+#######################
+lib.language = COA
+lib.language {
+
+    ###################################################
+    #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
+    #### its not needed in this example            ####
+    ###################################################
+    #10 = TEXT
+    #10 {
+    #    value = Language
+    #    value.lang.da = Sprog
+    #    value.lang.de = Sprache
+    #    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
+    #}
+
+    20 = HMENU
+    20 {
+        special = language
+        special.value = 0,1,2
+        special.normalWhenNoLanguage = 0
+        wrap = 
+        1 = TMENU
+        1 {
+            noBlur = 1
+            NO = 1
+            NO {
+                linkWrap = <li>|</li>
+                stdWrap.override = English || Dansk || Deutsch
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = page:uid
+                        additionalParams = &L=0 || &L=1 || &L=2
+                        addQueryString = 1
+                        addQueryString.exclude = L,id,cHash,no_cache
+                        addQueryString.method = GET
+                        useCacheHash = 1
+                        no_cache = 0
+                    }
+                }
+            }
+            ACT < .NO
+            ACT.linkWrap = <li class="active">|</li>
+            #### NO TRANSLATION AVAILABLE STATES ####
+            USERDEF1 < .NO
+            USERDEF1 {
+                linkWrap = <li class="text-muted">|</li>
+                stdWrap.typolink >
+            }
+            USERDEF2 < .ACT
+            USERDEF2 {
+                linkWrap = <li class="text-muted">|</li>
+                stdWrap.typolink >
+            }
+        }
+    }
+    wrap = <ul id="language_menu" class="list-inline">|</ul>
+}
+
+
+####################
+#### NAVIGATION ####
+####################
+lib.navigation.main = COA
+lib.navigation.main {
+    10 = HMENU
+    10 {
+        1 = TMENU
+        1 {
+            wrap = <ul class="nav navbar-nav navbar-main">|</ul>
+            expAll = 1
+            noBlur = 1
+            NO = 1
+            NO {
+                ATagTitle.field = abstract // description // title
+                ATagBeforeWrap = 1
+                linkWrap = |<mark class="bar"></mark>
+                wrapItemAndSub = <li>|</li>
+                wrapItemAndSub.override.cObject = COA
+                wrapItemAndSub.override.cObject {
+                    if {
+                        value = 4
+                        equals.field = doktype
+                        isTrue = 1
+                        isTrue.if {
+                            value.data = TSFE:page|uid
+                            equals.field = shortcut
+                        }
+                    }
+                    10 = TEXT
+                    10.value = <li class="active">|</li>
+                }
+            }
+            ACT < .NO
+            ACT {
+                wrapItemAndSub = <li class="active">|</li>
+            }
+            CUR < .ACT
+            IFSUB < .NO
+            IFSUB {
+                doNotLinkIt = 1
+                allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
+                wrapItemAndSub = <li class="dropdown">|</li>
+            }
+            ACTIFSUB < .IFSUB
+            ACTIFSUB {
+                wrapItemAndSub = <li class="active dropdown">|</li>
+            }
+            CURIFSUB < .ACTIFSUB
+        }
+        2 < .1
+        2 {
+            wrap =  <ul class="dropdown-menu">|</ul>
+            SPC = 1
+            SPC {
+                wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
+            }
+            IFSUB >
+            ACTIFSUB >
+            CURIFSUB >
+        }
+    }
+}
+lib.navigation.subnavigation = COA
+lib.navigation.subnavigation {
+    10 = HMENU
+    10 {
+        entryLevel = 1
+        1 = TMENU
+        1 {
+            wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><div class="list-group">|</div></div>
+            expAll = 1
+            noBlur = 1
+            NO = 1
+            NO {
+                ATagTitle.field = abstract // description // title
+                ATagParams = class="list-group-item"
+                wrapItemAndSub = |
+            }
+            
+            ACT < .NO
+            ACT {
+                ATagParams = class="list-group-item active"
+            }
+            CUR < .ACT
+        }
+    }
+}
+[globalVar = LIT:1 = {$page.theme.breadcrumb}]
+lib.navigation.breadcrumb = COA
+lib.navigation.breadcrumb {
+    required = 1
+    wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
+    10 = HMENU
+    10 {
+        special = rootline
+        special.range = 1|-1
+        includeNotInMenu = 1
+        1 = TMENU
+        1 {
+            noBlur = 1
+            target = _self
+            wrap = <ol class="breadcrumb">|</ol>
+            NO = 1
+            NO {
+                stdWrap.field = title
+                ATagTitle.field = nav_title // title
+                wrapItemAndSub = <li>|</li>
+            }
+            CUR = 1
+            CUR {
+                stdWrap.field = title
+                doNotLinkIt = 1
+            	wrapItemAndSub = <li class="active">|</li>
+            }
+        }
+    }
+}
+[end]
+[treeLevel = 0] || [treeLevel = 1]
+lib.navigation.breadcrumb >
+[end]
+lib.navigation.buttongroup = COA
+lib.navigation.buttongroup {
+    wrap (
+        <ul class="nav navbar-nav navbar-right hidden-xs" aria-hidden="true">
+            <li>
+                <div class="btn-group">|</div>
+            </li>
+        </ul>                
+    )
+    required = 1
+    10 = TEXT
+    10 {
+        typolink.parameter = {$page.specialPages.loginPid}
+        typolink.ATagParams = class="btn navbar-btn"
+        value (
+            <span class="glyphicon glyphicon-log-in"></span>
+            <span class="sr-only">Login</span>
+        )
+    }
+    20 = TEXT
+    20.value (
+        <button type="button" class="btn navbar-btn navbar-btn-search" data-toggle="collapse" data-target=".searchbar-background">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="sr-only">Search</span>
+        </button>
+    )
+}
+
+
+##############
+#### PAGE ####
+##############
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = {$page.includePath.icons}favicon.ico
+
+    headerData {
+
+        // Flip ahead browsing for IE10/11
+        10 = HMENU
+        10 {
+            special = browse
+            special {
+                items = prev|next
+            }
+            1 = TMENU
+            1.NO {
+                allWrap = <link rel="prev" href="|" /> |*| <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = field:uid
+                        useCacheHash = 1
+                        returnLast = url
+                    }
+                }
+            }
+        }
+
+    }
+
+    5 <  styles.content.editPanelPage
+    5 {
+        stdWrap.wrap = <div class="typo3-feedit-page">|</div>
+        stdWrap.required = 1
+    }
+    10 = FLUIDTEMPLATE
+    10 {
+        file.stdWrap.cObject = CASE
+        file.stdWrap.cObject {
+
+            key.data = levelfield:-1, backend_layout_next_level, slide
+            key.override.field = backend_layout
+
+            bootstrap_package__default_2_columns = TEXT
+            bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
+            bootstrap_package__default_2_columns.insertData = 1
+
+            bootstrap_package__default_2_columns_offset_right = TEXT
+            bootstrap_package__default_2_columns_offset_right.value = {$page.fluidtemplate.templateRootPath}Default2ColumnsOffsetRight.html
+            bootstrap_package__default_2_columns_offset_right.insertData = 1
+
+            bootstrap_package__default_3_columns = TEXT
+            bootstrap_package__default_3_columns.value = {$page.fluidtemplate.templateRootPath}Default3Columns.html
+            bootstrap_package__default_3_columns.insertData = 1
+
+            bootstrap_package__default_subnavigation = TEXT
+            bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNav.html
+            bootstrap_package__default_subnavigation.insertData = 1
+
+            bootstrap_package__default_subnavigation_2_columns = TEXT
+            bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNav2Columns.html
+            bootstrap_package__default_subnavigation_2_columns.insertData = 1
+
+            bootstrap_package__special_start = TEXT
+            bootstrap_package__special_start.value = {$page.fluidtemplate.templateRootPath}SpecialStart.html
+            bootstrap_package__special_start.insertData = 1
+
+            bootstrap_package__special_feature = TEXT
+            bootstrap_package__special_feature.value = {$page.fluidtemplate.templateRootPath}SpecialFeature.html
+            bootstrap_package__special_feature.insertData = 1
+
+            default = TEXT
+            default.value = {$page.fluidtemplate.templateRootPath}Default.html
+            default.insertData = 1
+
+        }
+        partialRootPath     = {$page.fluidtemplate.partialRootPath}
+        layoutRootPath      = {$page.fluidtemplate.layoutRootPath}
+        variables {
+
+            pageTitle = TEXT
+            pageTitle.data = page:title
+
+            siteTitle = TEXT
+            siteTitle.data = TSFE:tmpl|setup|sitetitle
+
+            rootPage = TEXT
+            rootPage.data = leveluid:0
+
+            logoFile = TEXT
+            logoFile.value = {$page.logo.file}
+            logoHeight = TEXT
+            logoHeight.value = {$page.logo.height}
+            logoWidth = TEXT
+            logoWidth.value = {$page.logo.width}
+
+            themeNavigationstyle = TEXT
+            themeNavigationstyle.value = {$page.theme.navigationstyle}
+            themeCopyright = TEXT
+            themeCopyright.value = {$page.theme.copyright.enable}
+            themeCopyrightText = TEXT
+            themeCopyrightText.value = {$page.theme.copyright.text}
+
+        }
+    }
+    meta {
+        viewport = {$page.meta.viewport}
+        robots = {$page.meta.robots}
+        google = {$page.meta.google}
+        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+        X-UA-Compatible = {$page.meta.compatible}
+        X-UA-Compatible.httpEquivalent = 1
+        description = {$page.meta.description}
+        description.override.field = description
+        author = {$page.meta.author}
+        author.override.field = author
+        keywords = {$page.meta.keywords}
+        keywords.override.field = keywords
+    }
+    includeCSS {
+        theme = {$page.includePath.css}theme.min.css
+    }
+    includeJSlibs {
+        modernizr = {$page.includePath.javascript}Libs/modernizr-2.6.3.min.js
+        modernizr.forceOnTop = 1
+        wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
+    }
+    includeJSFooterlibs  {
+        jquery = {$page.includePath.javascript}Libs/jquery-1.10.2.min.js
+        jquery.forceOnTop = 1
+        theme = {$page.includePath.javascript}Libs/bootstrap.min.js
+        responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
+        main = {$page.includePath.javascript}main.min.js
+    }
+}
+
+
+#############################################
+#### INCLUDE RESPOND JS FOR IE DINOSAURS ####
+#############################################
+[browser = msie] && [version = 8]
+page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
+[end]
+
+
+################
+#### CONFIG ####
+################
+config {
+    no_cache                            = {$config.no_cache}
+    absRefPrefix                        = /
+    uniqueLinkVars                      = 1
+    pageTitleFirst                      = 1
+    linkVars                            = L
+    renderCharset                       = utf-8
+    metaCharset                         = utf-8
+    doctype                             = html5
+    removeDefaultJS                     = external
+    inlineStyle2TempFile                = 1
+    admPanel                            = 1
+    debug                               = 0
+    cache_period                        = 43200
+    sendCacheHeaders                    = 0
+    intTarget                           =
+    extTarget                           =
+    disablePrefixComment                = 1
+    index_enable                        = 1
+    index_externals                     = 1
+    headerComment                       = {$config.headerComment}
+
+    // Enable RealUrl
+    tx_realurl_enable                   = 1
+    simulateStaticDocuments             = 0
+
+    // Disable Image Upscaling
+    noScaleUp                           = 1
+
+    // Language Settings
+    sys_language_uid                    = 0
+    sys_language_overlay                = 1
+    sys_language_mode                   = content_fallback
+    language                            = en
+    locale_all                          = en_US.UTF-8
+    htmlTag_setParams                   = lang="en" dir="ltr" class="no-js"
+
+    // Compression and Concatenation of CSS and JS Files
+    compressJs                          = {$config.compressJs}
+    compressCss                         = {$config.compressCss}
+    concatenateJs                       = {$config.concatenateJs}
+    concatenateCss                      = {$config.concatenateCss}
+}
+
+
+#############################
+#### LANGUAGE CONDITIONS ####
+#############################
+[globalVar = GP:L = 1]
+config {
+    sys_language_uid                    = 1
+    language                            = da
+    locale_all                          = da_DK.UTF-8
+    htmlTag_setParams                   = lang="da" dir="ltr" class="no-js"
+}
+[global]
+[globalVar = GP:L = 2]
+config {
+    sys_language_uid                    = 2
+    language                            = de
+    locale_all                          = de_DE.UTF-8
+    htmlTag_setParams                   = lang="de" dir="ltr" class="no-js"
+}
+[global]

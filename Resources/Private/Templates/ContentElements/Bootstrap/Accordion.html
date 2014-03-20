@@ -1,0 +1,27 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_accordion_item">
+<f:if condition="{items}">
+
+    <div class="panel-group" id="accordion-{data.uid}">
+    <f:for each="{items}" as="item" iteration="iteration">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <f:link.page additionalAttributes="{data-toggle: 'collapse',data-parent: 'accordion-{data.uid}'}" section="accordion-{data.uid}-{item.uid}">
+                        {item.header}
+                    </f:link.page>
+                </h4>
+            </div>
+            <div id="accordion-{data.uid}-{item.uid}" class="panel-collapse collapse{f:if(condition: iteration.isFirst,then:' in')}">
+                <div class="panel-body">
+                    <f:format.html>{item.bodytext}</f:format.html>
+                </div>
+            </div>
+        </div>
+
+    </f:for>
+    </div>
+
+</f:if>
+</bk2k:dataRelation>

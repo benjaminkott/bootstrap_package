@@ -1,0 +1,10 @@
+tt_content.bootstrap_package_carousel = COA
+tt_content.bootstrap_package_carousel {
+    10 =< lib.stdheader
+    20 = FLUIDTEMPLATE
+    20 {
+        file = {$plugin.bootstrap_package_contentelements.view.templateRootPath}Bootstrap/Carousel.html
+        partialRootPath = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
+        layoutRootPath = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+    }
+}

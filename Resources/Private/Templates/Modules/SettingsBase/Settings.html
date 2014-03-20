@@ -1,0 +1,19 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="DocHeaderButtonsLeft">
+    <f:be.buttons.icon icon="actions-document-save" uri="#" title="{f:translate(key: 'LLL:EXT:lang/locallang_core.xlf:rm.saveDoc')}" additionalAttributes="{onclick:'document.{formName}.submit();'}" />
+</f:section>
+<f:section name="DocHeaderButtonsRight">
+    <f:be.buttons.shortcut />
+</f:section>
+
+<f:section name="Main">
+
+    <h1>{f:translate(key: 'LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.settings.base.short')}</h1>
+
+    <f:form action="save" name="{formName}" enctype="multipart/form-data" onsubmit="document.{formName}._scrollPosition.value=(document.documentElement.scrollTop || document.body.scrollTop); return TBE_EDITOR.checkSubmit(1);">
+        <bk2k:be.forms.formEngine table="{formName}" data="{variables}" />
+    </f:form>
+    
+</f:section>

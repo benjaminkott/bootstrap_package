@@ -1,0 +1,21 @@
+{namespace bp = BK2K\BootstrapPackage\ViewHelpers}
+<div class="valign">
+    <div class="carousel-text vcontainer" {f:if(condition: item.text_color,then:'style="color: {item.text_color};"')}>
+        <h1>{item.header}</h1>
+        <f:format.html>{item.bodytext}</f:format.html>
+    </div>
+    <div class="carousel-image vcontainer">
+        <bp:fal data="{item}" as="images" table="tx_bootstrappackage_carousel_item">
+            <f:if condition="{images}">
+                <f:if condition="{data.layout} == 110">
+                    <f:then>
+                        <f:image src="{images.0.uid}" alt="" width="400" height="400c" treatIdAsReference="1" />
+                    </f:then>
+                    <f:else>
+                        <f:image src="{images.0.uid}" alt="" width="600" height="600c" treatIdAsReference="1" />
+                    </f:else>
+                </f:if>
+            </f:if>
+        </bp:fal>
+    </div>    
+</div>

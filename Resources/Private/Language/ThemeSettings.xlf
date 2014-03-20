@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z" product-name="bootstrap_package">
+        <header/>
+        <body>
+
+            <trans-unit id="theme.title">
+                <source>Bootstrap</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.settings.style">
+                <source>Bootstrap Package - Style Settings</source>
+            </trans-unit>
+            <trans-unit id="theme.settings.style.short">
+                <source>Style Settings</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.settings.base">
+                <source>Bootstrap Package - Base Settings</source>
+            </trans-unit>
+            <trans-unit id="theme.settings.base.short">
+                <source>Base Settings</source>
+            </trans-unit>
+
+            <trans-unit id="theme.group.mainnavigation">
+                <source>Main Navigation</source>
+            </trans-unit>
+            <trans-unit id="theme.group.basics">
+                <source>Basics</source>
+            </trans-unit>
+            <trans-unit id="theme.group.colorsystem">
+                <source>Color system</source>
+            </trans-unit>           
+            <trans-unit id="theme.group.bodyscaffolding">
+                <source>Body scaffolding</source>
+            </trans-unit>   
+            <trans-unit id="theme.group.typography">
+                <source>Typography</source>
+            </trans-unit>   
+            <trans-unit id="theme.group.genericfontvariables">
+                <source>Generic font variables</source>
+            </trans-unit>
+            <trans-unit id="theme.group.basetypestyles">
+                <source>Base type styles</source>
+            </trans-unit>
+            <trans-unit id="theme.group.headingfontsizes">
+                <source>Heading font sizes</source>
+            </trans-unit>
+            <trans-unit id="theme.group.headings">
+                <source>Headings</source>
+            </trans-unit>
+            <trans-unit id="theme.group.codeblocks">
+                <source>Code blocks</source>
+            </trans-unit>
+            <trans-unit id="theme.group.mediaqueriesbreakpoints">
+                <source>Media queries breakpoints</source>
+            </trans-unit>
+            <trans-unit id="theme.group.layoutandgridsystem">
+                <source>Layout and grid system</source>
+            </trans-unit>
+            <trans-unit id="theme.group.layout">
+                <source>Layout</source>
+            </trans-unit>
+            <trans-unit id="theme.group.padding">
+                <source>Padding</source>
+            </trans-unit>
+            <trans-unit id="theme.group.roundedcorners">
+                <source>Rounded corners</source>
+            </trans-unit>
+            <trans-unit id="theme.group.componentactivestate">
+                <source>Component active state</source>
+            </trans-unit>
+            <trans-unit id="theme.group.carets">
+                <source>Carets</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttons">
+                <source>Buttons</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonsbasic">
+                <source>Basic</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonsdefault">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonssuccess">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonsprimary">
+                <source>Primary</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonswarning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonsinfo">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttonsdanger">
+                <source>Danger</source>
+            </trans-unit>
+            <trans-unit id="theme.group.states">
+                <source>States</source>
+            </trans-unit>
+            <trans-unit id="theme.group.statesuccess">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="theme.group.statedanger">
+                <source>Danger</source>
+            </trans-unit>
+            <trans-unit id="theme.group.statewarning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="theme.group.stateinfo">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alerts">
+                <source>Alerts</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alertsbasestyles">
+                <source>Base styles</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alertswarning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alertsdanger">
+                <source>Danger</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alertssuccess">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alertsinfo">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="theme.group.dropdownmenu">
+                <source>Dropdown menu</source>
+            </trans-unit>
+            <trans-unit id="theme.group.dropdownitems">
+                <source>Dropdown items</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panels">
+                <source>Panels</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelsbasic">
+                <source>Common panel styles</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelsdefault">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelsinfo">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelsprimary">
+                <source>Primary</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelswarning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelssuccess">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="theme.group.panelsdanger">
+                <source>Danger</source>
+            </trans-unit>
+            <trans-unit id="theme.group.wells">
+                <source>Wells</source>
+            </trans-unit>
+            <trans-unit id="theme.group.badgestyles">
+                <source>Badge styles</source>
+            </trans-unit>
+            <trans-unit id="theme.group.badgestates">
+                <source>Badge states</source>
+            </trans-unit>
+            <trans-unit id="theme.group.breadcrumbs">
+                <source>Breadcrumbs</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navigation">
+                <source>Navigation</source>
+            </trans-unit>
+            <trans-unit id="theme.group.components">
+                <source>Components</source>
+            </trans-unit>
+            <trans-unit id="theme.group.tables">
+                <source>Tables</source>
+            </trans-unit>
+            <trans-unit id="theme.group.inputs">
+                <source>Inputs</source>
+            </trans-unit>
+            <trans-unit id="theme.group.inputstates">
+                <source>Input states</source>
+            </trans-unit>
+            <trans-unit id="theme.group.inputgroups">
+                <source>Input groups</source>
+            </trans-unit>
+            <trans-unit id="theme.group.legend">
+                <source>Legend</source>
+            </trans-unit>
+            <trans-unit id="theme.group.jumbotron">
+                <source>Jumbotron</source>
+            </trans-unit>
+            <trans-unit id="theme.group.modal">
+                <source>Modal</source>
+            </trans-unit>
+            <trans-unit id="theme.group.carousel">
+                <source>Carousel</source>
+            </trans-unit>
+            <trans-unit id="theme.group.listgroup">
+                <source>List group</source>
+            </trans-unit>
+            <trans-unit id="theme.group.thumbnail">
+                <source>Thumbnails</source>
+            </trans-unit>
+            <trans-unit id="theme.group.progressbars">
+                <source>Progress bars</source>
+            </trans-unit>
+            <trans-unit id="theme.group.pagination">
+                <source>Pagination</source>
+            </trans-unit>
+            <trans-unit id="theme.group.pager">
+                <source>Pager</source>
+            </trans-unit>
+            <trans-unit id="theme.group.labels">
+                <source>Labels</source>
+            </trans-unit>
+            <trans-unit id="theme.group.tooltip">
+                <source>Tooltip</source>
+            </trans-unit>
+            <trans-unit id="theme.group.popover">
+                <source>Popover</source>
+            </trans-unit>
+            <trans-unit id="theme.group.icons">
+                <source>Icons</source>
+            </trans-unit>
+            <trans-unit id="theme.group.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="theme.group.close">
+                <source>Close</source>
+            </trans-unit>
+            <trans-unit id="theme.group.other">
+                <source>Other</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navbarbasic">
+                <source>Navbar Basic</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navbardefault">
+                <source>Navbar Default</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navbarinverted">
+                <source>Navbar Inverted</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navbasic">
+                <source>Nav Basic</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navpills">
+                <source>Nav Pills</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navtabs">
+                <source>Nav Tabs</source>
+            </trans-unit>
+            <trans-unit id="theme.group.buttons">
+                <source>Buttons</source>
+            </trans-unit>
+            <trans-unit id="theme.group.formandstates">
+                <source>Form states and alerts</source>
+            </trans-unit>
+            <trans-unit id="theme.group.alerts">
+                <source>Alerts</source>
+            </trans-unit>
+            <trans-unit id="theme.group.navbar">
+                <source>Navbar</source>
+            </trans-unit>
+            <trans-unit id="theme.group.nav">
+                <source>Nav</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.field.mainnavigation_style">
+                <source>Mainnavigation Style</source>
+            </trans-unit>
+            <trans-unit id="theme.field.mainnavigation_style.item.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="theme.field.mainnavigation_style.item.inverse">
+                <source>Inverse</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.field.breadcrumb_enable">
+                <source>Enable Breadcrumb</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.field.copyright_enable">
+                <source>Enable Copyright</source>
+            </trans-unit>
+            
+            <trans-unit id="theme.global.yes">
+                <source>Yes</source>
+            </trans-unit>
+            <trans-unit id="theme.global.no">
+                <source>No</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
