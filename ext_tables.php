@@ -670,12 +670,12 @@ if (TYPO3_MODE === 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
  * Backend Styling
  */
 if (TYPO3_MODE == 'BE') {
-    $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bootstrap_package']);
+    $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
     if(!isset($settings['Logo'])){
-        $settings['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
+        $settings['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
     }
     if(!isset($settings['LoginLogo'])){
-        $settings['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Images/Backend/LoginLogo.png';
+        $settings['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/LoginLogo.png';
     }
     $GLOBALS['TBE_STYLES']['logo'] = $settings['Logo'];
     $GLOBALS['TBE_STYLES']['logo_login'] = $settings['LoginLogo'];

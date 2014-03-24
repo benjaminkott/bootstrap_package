@@ -30,6 +30,7 @@ $EM_CONF[$_EXTKEY] = array (
 		'depends' => array(
 			'typo3' => '6.2.0-6.2.99',
             'css_styled_content' => '6.2.0-6.2.99',
+            'realurl' => '1.12.8-1.12.99',
 		),
 		'conflicts' => array(),
 		'suggests' => array()

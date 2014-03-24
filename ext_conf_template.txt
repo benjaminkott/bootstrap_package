@@ -3,3 +3,6 @@ Logo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBar
 
 # cat=Basic/Skin/20; type=string; label=Logo Login: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png]
 LoginLogo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png
+
+# cat=Basic/RealUrl/10; type=boolean; label=Use RealUrl Config from BootstrapPackage
+UseRealUrlConfig = 1
