@@ -5,14 +5,14 @@ $(document).ready(function() {
 });
 
 $(function(){
-    
+
     // RESPONSIVE IMAGES
     $("img.lazyload").responsiveimages({}, function() {
         $(this).load(function() {
             this.style.opacity = 1;
         });
     });
-    
+
     // MENU
     $('.navbar-collapse').on('show.bs.collapse', function () {
         toggleIcon = $('.navbar-toggle-menu .glyphicon');
@@ -22,7 +22,7 @@ $(function(){
         toggleIcon = $('.navbar-toggle-menu .glyphicon');
         toggleIcon.removeClass('glyphicon-remove').addClass('glyphicon-list');
     });
-    
+
     // LIGHTBOX PREPARATION
     if($('a.lightbox').length > 0){
         var $lightboxModal = "\
@@ -35,7 +35,7 @@ $(function(){
             </div>\
         ";
         $('body').append($lightboxModal);
-        $('.lightbox').click(function(event){    
+        $('.lightbox').click(function(event){
             event.preventDefault();
             var $lightbox = $('#lightbox');
             var $modalBody = $lightbox.find('.modal-body');
@@ -44,7 +44,7 @@ $(function(){
             $modalBody.append('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>');
             var $src = $(this).attr("href");
             var $image = "<img class=\"img-responsive\" src=\"" + $src + "\">";
-                
+
             // FIX IMAGEWIDTH
             var img = new Image();
             img.onload = function(){
@@ -53,8 +53,8 @@ $(function(){
             };
             img.src = $src;
 
-            $modalBody.append($image);             
-            var $title = $(this).attr("title");        
+            $modalBody.append($image);
+            var $title = $(this).attr("title");
             var $text = $(this).parent().find('.caption').html();
             if($title || $text){
                 $modalBody.append('<div class="modal-caption"></div>');
@@ -66,8 +66,7 @@ $(function(){
                 }
             }
             $('#lightbox').modal({show:true});
-            console.log(imgWidth);
         });
-    }  
+    }
 
 });
