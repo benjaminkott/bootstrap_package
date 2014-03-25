@@ -6271,6 +6271,9 @@ h5 {
     float: left;
   }
 }
+.image-wrap {
+  max-width: 100%;
+}
 .image-below .image-wrap {
   margin-top: 20px;
 }

@@ -232,7 +232,7 @@ h5 {
                     left: 0px;
                 }
             }
-            
+
             &.dropdown {
                 > a {
                     padding-right: 40px;
@@ -296,10 +296,10 @@ h5 {
 }
 
 
-// 
-// Dropdowns         
 //
-.dropdown-header { 
+// Dropdowns
+//
+.dropdown-header {
     padding: 9px 20px;
 }
 .dropdown-menu {
@@ -423,7 +423,9 @@ h5 {
         float: left;
     }
 }
-
+.image-wrap {
+    max-width: 100%;
+}
 .image-below {
     .image-wrap {
         margin-top: @line-height-computed;
@@ -640,9 +642,9 @@ h5 {
             padding-left: @grid-gutter-width;
             padding-right: @grid-gutter-width;
         }
-        .valign { 
-            width: 100%; 
-            
+        .valign {
+            width: 100%;
+
         }
     }
 }
@@ -702,7 +704,7 @@ h5 {
     .glyphicon {
         line-height: 2.3em;
         height: 2.3em;
-        width: 2.3em;  
+        width: 2.3em;
     }
 }
 .texticon-type-circle {
@@ -716,11 +718,11 @@ h5 {
         position: relative;
         min-height: 1px;
         padding-left:  (@grid-gutter-width / 2);
-        padding-right: (@grid-gutter-width / 2);  
+        padding-right: (@grid-gutter-width / 2);
     }
 }
-.texticon-left .texticon-icon { 
-    float: left; 
+.texticon-left .texticon-icon {
+    float: left;
     margin-left: -1 * (@grid-gutter-width / 2);
 }
 .texticon-right .texticon-icon {
@@ -779,7 +781,7 @@ h5 {
     margin-top: @line-height-computed*2;
     padding: @line-height-computed 0 @line-height-computed*1.5;
     background: @gray-dark;
-    
+
     a {
         color: contrast(@gray-dark, black, white, 43%);
         &:hover,
@@ -873,7 +875,7 @@ body .typo3-feedit-element-hidden {
     vertical-align: middle;
 }
 .typo3-feedit-page {
-    .clearfix();  
+    .clearfix();
     .typo3-feedit-element {
         outline: none!important;
         border-bottom: 3px solid @brand-primary;
@@ -902,10 +904,10 @@ body .typo3-feedit-element-hidden {
     .modal-content {
         border: none;
     }
-    .modal-caption {       
+    .modal-caption {
         background-color: @brand-primary;
         background-color: fade(@brand-primary,90%);
-        color: #FFFFFF;       
+        color: #FFFFFF;
         padding: @line-height-computed/2 @line-height-computed;
     }
     .modal-caption-title {
