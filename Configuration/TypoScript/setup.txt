@@ -27,7 +27,7 @@ lib.language {
         special = language
         special.value = 0,1,2
         special.normalWhenNoLanguage = 0
-        wrap = 
+        wrap =
         1 = TMENU
         1 {
             noBlur = 1
@@ -146,7 +146,7 @@ lib.navigation.subnavigation {
                 ATagParams = class="list-group-item"
                 wrapItemAndSub = |
             }
-            
+
             ACT < .NO
             ACT {
                 ATagParams = class="list-group-item active"
@@ -180,7 +180,7 @@ lib.navigation.breadcrumb {
             CUR {
                 stdWrap.field = title
                 doNotLinkIt = 1
-            	wrapItemAndSub = <li class="active">|</li>
+                wrapItemAndSub = <li class="active">|</li>
             }
         }
     }
@@ -196,7 +196,7 @@ lib.navigation.buttongroup {
             <li>
                 <div class="btn-group">|</div>
             </li>
-        </ul>                
+        </ul>
     )
     required = 1
     10 = TEXT
@@ -371,7 +371,7 @@ page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.mi
 ################
 config {
     no_cache                            = {$config.no_cache}
-    absRefPrefix                        = /
+    absRefPrefix                        = {$config.absRefPrefix}
     uniqueLinkVars                      = 1
     pageTitleFirst                      = 1
     linkVars                            = L
