@@ -226,9 +226,9 @@ page {
     typeNum = 0
     shortcutIcon = {$page.includePath.icons}favicon.ico
 
-	// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
-	// This is sadly needed to get automatic baseurl setting to work
-	headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
+    // Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+    // This is sadly needed to get automatic baseurl setting to work
+    headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
 
     headerData {
 
@@ -393,8 +393,8 @@ config {
     headerComment                       = {$config.headerComment}
 
 
-	// Set the headTag again and get an automatic baseURL if config.baseURL is not set
-	htmlTag_stdWrap {
+    // Set the headTag again and get an automatic baseURL if config.baseURL is not set
+    htmlTag_stdWrap {
         setContentToCurrent = 1
         cObject = COA
         cObject {
@@ -410,23 +410,23 @@ config {
             }
             20 = TEXT
             20 {
-				value = <html {register:tagEnd}
-				wrap = |{register:newLine}
-				insertData = 1
-			}
-			30 < .20
-			30.value = <head>
-			40 = TEXT
-			40 {
-				data = getIndpEnv:TYPO3_SITE_URL
-				override = {$config.baseURL}
-				wrap = <base href="|">{register:newLine}
-				insertData = 1
-			}
+                value = <html {register:tagEnd}
+                wrap = |{register:newLine}
+                insertData = 1
+            }
+            30 < .20
+            30.value = <head>
+            40 = TEXT
+            40 {
+                data = getIndpEnv:TYPO3_SITE_URL
+                override = {$config.baseURL}
+                wrap = <base href="|">{register:newLine}
+                insertData = 1
+            }
         }
     }
 
-	// Enable RealUrl
+    // Enable RealUrl
     tx_realurl_enable                   = 1
     simulateStaticDocuments             = 0
 
