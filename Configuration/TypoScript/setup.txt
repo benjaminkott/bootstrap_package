@@ -226,6 +226,10 @@ page {
     typeNum = 0
     shortcutIcon = {$page.includePath.icons}favicon.ico
 
+	// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+	// This is sadly needed to get automatic baseurl setting to work
+	headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
+
     headerData {
 
         // Flip ahead browsing for IE10/11
@@ -331,8 +335,6 @@ page {
         robots = {$page.meta.robots}
         google = {$page.meta.google}
         apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
-        X-UA-Compatible = {$page.meta.compatible}
-        X-UA-Compatible.httpEquivalent = 1
         description = {$page.meta.description}
         description.override.field = description
         author = {$page.meta.author}
@@ -371,7 +373,6 @@ page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.mi
 ################
 config {
     no_cache                            = {$config.no_cache}
-    absRefPrefix                        = {$config.absRefPrefix}
     uniqueLinkVars                      = 1
     pageTitleFirst                      = 1
     linkVars                            = L
@@ -391,7 +392,41 @@ config {
     index_externals                     = 1
     headerComment                       = {$config.headerComment}
 
-    // Enable RealUrl
+
+	// Set the headTag again and get an automatic baseURL if config.baseURL is not set
+	htmlTag_stdWrap {
+        setContentToCurrent = 1
+        cObject = COA
+        cObject {
+            10 = LOAD_REGISTER
+            10 {
+                newLine.char = 10
+                tagEnd {
+                    current = 1
+                    split.max = 2
+                    split.token = <html
+                    split.returnKey = 1
+                }
+            }
+            20 = TEXT
+            20 {
+				value = <html {register:tagEnd}
+				wrap = |{register:newLine}
+				insertData = 1
+			}
+			30 < .20
+			30.value = <head>
+			40 = TEXT
+			40 {
+				data = getIndpEnv:TYPO3_SITE_URL
+				override = {$config.baseURL}
+				wrap = <base href="|">{register:newLine}
+				insertData = 1
+			}
+        }
+    }
+
+	// Enable RealUrl
     tx_realurl_enable                   = 1
     simulateStaticDocuments             = 0
 

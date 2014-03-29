@@ -3,10 +3,17 @@
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array (
     '_DEFAULT' => array (
         'init' => array (
-            'enableCHashCache' => '1',
+            'enableCHashCache' => TRUE,
             'appendMissingSlash' => 'ifNotFile',
-            'enableUrlDecodeCache' => '1',
-            'enableUrlEncodeCache' => '1',
+            'enableUrlDecodeCache' => TRUE,
+            'enableUrlEncodeCache' => TRUE,
+            'emptyUrlReturnValue' => \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL'),
+        ),
+        'pagePath' => array (
+            'type' => 'user',
+            'userFunc' => 'EXT:realurl/class.tx_realurl_advanced.php:&tx_realurl_advanced->main',
+            'spaceCharacter' => '-',
+            'languageGetVar' => 'L',
         ),
         'redirects' => array (
         ),
@@ -27,13 +34,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array (
                 'noMatch' => 'bypass',
             ),
         ),
-        'pagePath' => array (
-            'type' => 'user',
-            'userFunc' => 'EXT:realurl/class.tx_realurl_advanced.php:&tx_realurl_advanced->main',
-            'spaceCharacter' => '-',
-            'languageGetVar' => 'L',
-            'expireDays' => '7',
-        ),
         'fixedPostVars' => array (
         ),
         'postVarSets' => array (
@@ -47,28 +47,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array (
         ),
         'fileName' => array (
             'defaultToHTMLsuffixOnPrev' => true,
-            'index' => array (
-                'rss.xml' => array (
-                    'keyValues' => array (
-                        'type' => '100',
-                    ),
-                ),
-                'rss091.xml' => array (
-                    'keyValues' => array (
-                        'type' => '101',
-                    ),
-                ),
-                'rdf.xml' => array (
-                    'keyValues' => array (
-                        'type' => '102',
-                    ),
-                ),
-                'atom.xml' => array (
-                    'keyValues' => array (
-                        'type' => '103',
-                    ),
-                ),
-            ),
         ),
     )
 );
