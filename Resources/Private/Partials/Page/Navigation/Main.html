@@ -11,10 +11,12 @@
                     <f:link.page pageUid="{rootPage}" class="navbar-brand">{siteTitle}</f:link.page>
                 </f:else>
             </f:if>
+            <f:if condition="{f:cObject(typoscriptObjectPath:'lib.navigation.main')}">
             <button type="button" class="navbar-toggle navbar-toggle-menu" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="glyphicon glyphicon-list"></span>
                 <span class="sr-only">Toggle navigation</span>
             </button>
+            </f:if>
             <span class="navbar-header-border-bottom"></span>
         </div>
         <div class="navbar-collapse collapse">
