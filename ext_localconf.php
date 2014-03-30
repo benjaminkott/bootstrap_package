@@ -26,3 +26,18 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])
 if($settings['UseRealUrlConfig'] == 1){
     @include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY,'Configuration/RealURL/Default.php'));    
 }
+
+
+if (TYPO3_MODE === 'BE') {
+
+    /**
+     * Provides an example .htaccess file for Apache after extension is installed and shows a warning if TYPO3 is not running on Apache.
+     */
+    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
+    $signalSlotDispatcher->connect(
+        'TYPO3\\CMS\\Extensionmanager\\Service\\ExtensionManagementService',
+        'hasInstalledExtensions',
+        'BK2K\\BootstrapPackage\\Service\\InstallService',
+        'generateApacheHtaccess'
+    );
+}
