@@ -6015,6 +6015,7 @@ h5 {
   font-weight: bold;
   text-transform: uppercase;
   line-height: 160px;
+  height: 160px;
   -webkit-transition: opacity 0.15s ease-in-out 0s;
   transition: opacity 0.15s ease-in-out 0s;
 }
@@ -6050,6 +6051,7 @@ h5 {
     padding: 30px 15px;
     font-size: 18px;
     line-height: 20px;
+    height: auto;
   }
   .navbar-header-main .navbar-brand.navbar-brand-image {
     padding-top: 15px;
