@@ -6,10 +6,10 @@
 
 $EM_CONF[$_EXTKEY] = array (
     'title' => 'Bootstrap Package',
-    'description' => 'Boostrap Package delivers a full configured frontend for TYPO3 CMS 6.2, based on the Bootstrap CSS Framework, and is basicly a THEME.',
+    'description' => 'Boostrap Package delivers a full configured frontend for TYPO3 CMS 6.2, based on the Bootstrap CSS Framework.',
     'category' => 'templates',
     'shy' => 0,
-    'version' => '6.2.3',
+    'version' => '6.2.2.1',
     'dependencies' => '',
     'conflicts' => '',
     'priority' => 'top',
