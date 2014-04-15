@@ -26,11 +26,12 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ContextualClassViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class ContextualClassViewHelper extends AbstractViewHelper {
 
     /**
      * contextualAlternatives

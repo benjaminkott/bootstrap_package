@@ -26,11 +26,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExplodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class ExplodeViewHelper extends AbstractViewHelper {
 
     /**
      * @param string $data
@@ -40,7 +42,7 @@ class ExplodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHel
      */
     public function render($data,$as = "items", $delimiter = LF) {
         if($data){            
-            $items = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode($delimiter, $data);
+            $items = GeneralUtility::trimExplode($delimiter, $data);
             $this->templateVariableContainer->add($as, $items);        
             $content = $this->renderChildren();            
             $this->templateVariableContainer->remove($as); 

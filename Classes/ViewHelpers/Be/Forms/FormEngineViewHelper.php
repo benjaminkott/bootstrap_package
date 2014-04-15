@@ -27,12 +27,14 @@ namespace BK2K\BootstrapPackage\ViewHelpers\Be\Forms;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class FormEngineViewHelper extends AbstractViewHelper {
 
     /**
      * @var \TYPO3\CMS\Core\Page\PageRenderer
@@ -47,12 +49,12 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
     /**
      * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
      */
-    public function injectPageRenderer(\TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+    public function injectPageRenderer(PageRenderer $pageRenderer) {
         $this->pageRenderer = $pageRenderer;
     }
     
     /**
-     * @return fieldnameprefix for form
+     * @return string fieldnameprefix for form
      */
     protected function getFieldNamePrefix() {
         $fieldNamePrefix = (string) $this->viewHelperVariableContainer->get('TYPO3\\CMS\\Fluid\\ViewHelpers\\FormViewHelper', 'fieldNamePrefix');

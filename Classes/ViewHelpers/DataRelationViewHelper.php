@@ -26,10 +26,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataRelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class DataRelationViewHelper extends AbstractViewHelper {
 
     /**
      * @param integer $uid
@@ -45,8 +48,8 @@ class DataRelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVi
     public function render($uid,$table,$foreignField = "tt_content",$selectFields = "*", $as = "items", $sortby = "sorting ASC", $additionalWhere = "") {
 
         if($uid && $table && $foreignField){
-            $cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
             $selectFields = $selectFields;
+            $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
             $fromTable    = $table;
             $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' AND deleted = 0 AND hidden = 0 '.$additionalWhere. $cObj->enableFields($table);
             $groupBy      = '';

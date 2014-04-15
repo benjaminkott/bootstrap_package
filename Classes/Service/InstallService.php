@@ -67,7 +67,6 @@ class InstallService {
     /**
 	 * Creates .htaccess file inside the root directory
 	 *
-	 * @param string $htaccessFile Path of .htaccess file
 	 * @return void
 	 */
     public function createDefaultHtaccessFile(){
