@@ -658,8 +658,8 @@ if (TYPO3_MODE === 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
             'hideTable' => true,
             'canNotCollapse' => true,
             'dividers2tabs' => true,
-            'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/Forms/SettingsStyle.php',
-            'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif'
+            'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/Forms/SettingsStyle.php',
+            'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
         ),
     );
 

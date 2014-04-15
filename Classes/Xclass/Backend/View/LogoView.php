@@ -26,6 +26,7 @@ namespace BK2K\BootstrapPackage\Xclass\Backend\View;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -45,7 +46,7 @@ class LogoView extends \TYPO3\CMS\Backend\View\LogoView {
 
 		// Overwrite with custom logo
 		if ($GLOBALS['TBE_STYLES']['logo']) {
-			$imgInfo = @getimagesize(\TYPO3\CMS\Core\Utility\GeneralUtility::resolveBackPath((PATH_typo3 . $GLOBALS['TBE_STYLES']['logo']), 3));
+			$imgInfo = @getimagesize(GeneralUtility::resolveBackPath((PATH_typo3 . $GLOBALS['TBE_STYLES']['logo']), 3));
 			$imgUrl = $GLOBALS['TBE_STYLES']['logo'];
 		}
 

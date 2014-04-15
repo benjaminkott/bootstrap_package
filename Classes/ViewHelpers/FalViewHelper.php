@@ -26,11 +26,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class FalViewHelper extends AbstractViewHelper {
 
     /**
      * @var \TYPO3\CMS\Core\Resource\FileRepository
@@ -45,9 +47,9 @@ class FalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
      *
      * @return string
      */
-    public function render($data,$as = "items", $table = "tt_content", $field = "image") {
+    public function render($data,$as = 'items', $table = 'tt_content', $field = 'image') {
         if(is_array($data) && $data['uid'] && $data[$field]){
-            $this->fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');            
+            $this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
             $items = $this->fileRepository->findByRelation($table, $field, $data['uid']);            
         }else{
             $items = NULL;

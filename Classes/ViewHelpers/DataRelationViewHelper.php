@@ -26,10 +26,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  *
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataRelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class DataRelationViewHelper extends AbstractViewHelper {
 
     /**
      * @param integer $uid
@@ -42,18 +45,18 @@ class DataRelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVi
      * 
      * @return string
      */
-    public function render($uid,$table,$foreignField = "tt_content",$selectFields = "*", $as = "items", $sortby = "sorting ASC", $additionalWhere = "") {
+    public function render($uid,$table,$foreignField = 'tt_content',$selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
 
-        if($uid && $table && $foreignField){
-            $cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
-            $selectFields = $selectFields;
-            $fromTable    = $table;
+        if($uid && $table){
+            $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
+            /**
+             * The query contains 2 times "AND deleted = 0 AND hidden = 0 " because of "$cObj->enableFields($table)" and this is not nessesary
+             */
             $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' AND deleted = 0 AND hidden = 0 '.$additionalWhere. $cObj->enableFields($table);
             $groupBy      = '';
-            $orderBy      = $sortby;
             $limit        = '';
             $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
-            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $fromTable, $whereClause, $groupBy, $orderBy, $limit);
+            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
             $items = array();
             foreach ($data as $record) {
                 $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
