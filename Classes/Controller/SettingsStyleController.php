@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\Controller;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,25 +27,29 @@ namespace BK2K\BootstrapPackage\Controller;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class SettingsStyleController extends ActionController {
 
     /**
      * LESS compiler and parser.
      * @var \Less_Parser
      */
-    protected $less; 
-    
+    protected $less;
+
     /**
      * LESS compile options (not working yet)
      * @var array
      */
     protected $lessOptions = array(
         'compress'=> true
-    );   
-    
+    );
+
     /**
      * LESS files
      * @var array
@@ -54,37 +58,37 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
         'EXT:bootstrap_package/Resources/Private/Less/Bootstrap-3-1-1/bootstrap.less',
         'EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less'
     );
-    
+
     /**
      * @var string
      */
     protected $lessDefaultVariablesFile = 'EXT:bootstrap_package/Resources/Private/Less/Bootstrap-3-1-1/Default/variables.less';
-    
+
     /**
      * @var string
      */
     protected $lessSavedVariablesFile = 'EXT:bootstrap_package/Resources/Private/Less/Bootstrap-3-1-1/variables.less';
-    
+
     /**
      * @var array
      */
     protected $defaultVariables;
-    
+
     /**
      * @var array
      */
     protected $savedVariables;
-    
+
     /**
      * @var array
      */
     protected $mergedVariables;
-    
+
     /**
      * @var string
      */
-    protected $formName = "__bootstrappackage_form_style";
-    
+    protected $formName = '__bootstrappackage_form_style';
+
     /**
      * @var string
      */
@@ -96,22 +100,23 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      */
     protected function initializeAction() {
         if(!class_exists('Less_Parser')){
-            $autoload = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Less_Autoloader');
+            $autoload = GeneralUtility::makeInstance('Less_Autoloader');
             $autoload::register();
         }
-        $this->less = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Less_Parser');
+
+        $this->less = GeneralUtility::makeInstance('Less_Parser');
         $this->setBackendModuleTemplates();
         $this->injectDefaultLessVariables();
         $this->injectSavedLessVariables();
         $this->mergeDefaultAndSavedVariables();
     }
-    
+
     /**
      * Set Backend Module Templates
      * @return void
      */
     private function setBackendModuleTemplates(){
-        $frameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $frameworkConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
         $viewConfiguration = array(
             'view' => array(
                 'templateRootPath' => 'EXT:bootstrap_package/Resources/Private/Templates/Modules/',
@@ -119,39 +124,39 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
                 'layoutRootPath' => 'EXT:bootstrap_package/Resources/Private/Layouts/Modules/',
             )
         );
-        $this->configurationManager->setConfiguration(array_merge($frameworkConfiguration, $viewConfiguration));        
+        $this->configurationManager->setConfiguration(array_merge($frameworkConfiguration, $viewConfiguration));
     }
-    
+
     /**
      * @return void
      */
     private function injectDefaultLessVariables(){
         $this->defaultVariables = $this->readLessVariablesFile($this->lessDefaultVariablesFile);
     }
-    
+
     /**
      * @return void
      */
     private function injectSavedLessVariables(){
         $this->savedVariables = $this->readLessVariablesFile($this->lessSavedVariablesFile);
     }
-    
+
     /**
      * Get Default Less Variables and Values
      * @return array
      */
-    private function getDefaultLessVariables(){     
+    private function getDefaultLessVariables(){
         return $this->defaultVariables;
     }
-    
+
     /**
      * Get Saved Less Variables and Values
      * @return array
      */
-    private function getSavedLessVariables(){     
+    private function getSavedLessVariables(){
         return $this->savedVariables;
     }
-       
+
     /**
      * Merges default and saved variables
      * @return array
@@ -159,7 +164,7 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
     private function mergeDefaultAndSavedVariables(){
         $this->mergedVariables = array_merge($this->defaultVariables, $this->savedVariables);
     }
-    
+
     /**
      * action settings
      * @return void
@@ -167,12 +172,12 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
     public function settingsAction(){
         $data = array();
         foreach($this->mergedVariables as $key => $value){
-            $data[$key] = $value['value']; 
-        }        
+            $data[$key] = $value['value'];
+        }
         $this->view->assign('formName', $this->formName);
         $this->view->assign('variables', $data);
     }
-    
+
     /**
      * action save
      * @return void
@@ -191,16 +196,16 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      * @return array
      */
     private function readLessVariablesFile($filename){
-        $file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($filename);
+        $file = GeneralUtility::getFileAbsFileName($filename);
         $variables = array();
         if(file_exists($file)){
             $contents = \file_get_contents($file);
-            $contentsArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(LF, $contents);
+            $contentsArray = GeneralUtility::trimExplode(LF, $contents);
             foreach($contentsArray as $row){
                 if(strpos($row,'@') === 0){
-                    $split = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(':', $row);
+                    $split = GeneralUtility::trimExplode(':', $row);
                     $name = $split[0];
-                    $splittwo = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('//', $split[1]);
+                    $splittwo = GeneralUtility::trimExplode('//', $split[1]);
                     $value = $splittwo[0];
                     $comment = $splittwo[1];
                     $variable = array(
@@ -213,8 +218,8 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
             }
         }
         return $variables;
-    }   
-    
+    }
+
     /**
      * Write Less File
      * @param array $variables
@@ -233,13 +238,13 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
                 $output .= $values['value'].";";
             }
         }
-        $file = fopen(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->lessSavedVariablesFile),"w");
+        $file = fopen(GeneralUtility::getFileAbsFileName($this->lessSavedVariablesFile),"w");
         if(!fwrite($file, $output)){
-            throw new \RuntimeException('Something went wrong check if you have permissions to write the '.\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->lessSavedVariablesFile).' file ', 1384966952);
+            throw new \RuntimeException('Something went wrong check if you have permissions to write the '.GeneralUtility::getFileAbsFileName($this->lessSavedVariablesFile).' file ', 1384966952);
         }
         fclose($file);
     }
-    
+
     /**
      * Compiles and saves the css file
      * @throws \RuntimeException
@@ -249,20 +254,20 @@ class SettingsStyleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
         try {
             foreach($this->lessFiles as $file){
                 $this->less->parseFile(
-                    \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($file)
+                    GeneralUtility::getFileAbsFileName($file)
                 );
             }
             $output = $this->less->getCss();
-            $fileName = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->outputFile);
+            $fileName = GeneralUtility::getFileAbsFileName($this->outputFile);
             $file = fopen($fileName,"w");
             if(!fwrite($file, $output)){
                 throw new \RuntimeException('Something went wrong check if you have permissions to write the '.$this->outputFile.' file ', 1385495429);
             }
             fclose($file);
         }
-        catch (exception $e) {
+        catch (\Exception $e) {
             throw new \RuntimeException('Something went wrong: '.$e->getMessage(), 1384966952);
         }
-    }    
-    
+    }
+
 }

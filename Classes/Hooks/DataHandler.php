@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\Hooks;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -31,33 +31,33 @@ namespace BK2K\BootstrapPackage\Hooks;
  * @author Benjamin Kott <info@bk2k.info>
  */
 class DataHandler {
-    
+
     /**
      * @param array|mixed $incomingFieldArray
      * @param string $table
      * @param integer $id
-     * @param TYPO3\CMS\Core\DataHandling\DataHandler $pObj
+     * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      */
     public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, $pObj){
-        
+
         /**
          * Set the correct classes within the flexform according to the layout
          */
-        if($table == "tt_content" && $incomingFieldArray['CType'] == "table"){
+        if($table == 'tt_content' && $incomingFieldArray['CType'] == 'table'){
             $acctables_tableclasses = array();
-            $acctables_tableclasses[] = "table"; 
+            $acctables_tableclasses[] = 'table';
             switch($incomingFieldArray['layout']){
                 case '120':
-                    $acctables_tableclasses[] = "table-striped";
+                    $acctables_tableclasses[] = 'table-striped';
                     break;
                 case '130':
-                    $acctables_tableclasses[] = "table-bordered";
+                    $acctables_tableclasses[] = 'table-bordered';
                     break;
                 case '140':
-                    $acctables_tableclasses[] = "table-hover";
+                    $acctables_tableclasses[] = 'table-hover';
                     break;
                 case '150':
-                    $acctables_tableclasses[] = "table-condensed";
+                    $acctables_tableclasses[] = 'table-condensed';
                     break;
             }
             $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_nostyles']['vDEF'] = 1;

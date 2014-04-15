@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\Service;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -36,9 +36,9 @@ use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
  * @author Benjamin Kott <info@bk2k.info>
  */
 class InstallService {
-    
+
     protected $extKey = 'bootstrap_package';
-    
+
     /**
      * @param string $extension
      */
@@ -65,16 +65,15 @@ class InstallService {
     }
 
     /**
-	 * Creates .htaccess file inside the root directory
-	 *
-	 * @param string $htaccessFile Path of .htaccess file
-	 * @return void
-	 */
+     * Creates .htaccess file inside the root directory
+     *
+     * @return void
+     */
     public function createDefaultHtaccessFile(){
         $htaccessFile = GeneralUtility::getFileAbsFileName(".htaccess");
-                
+
         if(file_exists($htaccessFile)){
-            
+
             /**
              * Add Flashmessage that there is already an .htaccess file and we are not going to override this.
              */
@@ -86,12 +85,12 @@ class InstallService {
                 TRUE
             );
             FlashMessageQueue::addMessage($message);
-			return;
-		}
-                   
+            return;
+        }
+
         $htaccessContent = GeneralUtility::getUrl(ExtensionManagementUtility::extPath($this->extKey).'/Configuration/Apache/.htaccess');
         GeneralUtility::writeFile($htaccessFile, $htaccessContent, TRUE);
-        
+
         /**
          * Add Flashmessage that the example htaccess file was placed in the root directory
          */
@@ -104,5 +103,5 @@ class InstallService {
        );
        FlashMessageQueue::addMessage($message);
     }
-    
+
 }

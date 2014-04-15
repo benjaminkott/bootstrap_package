@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,10 +27,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExplodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class ExplodeViewHelper extends AbstractViewHelper {
 
     /**
      * @param string $data
@@ -38,12 +41,12 @@ class ExplodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHel
      * @param string $delimiter
      * @return string
      */
-    public function render($data,$as = "items", $delimiter = LF) {
-        if($data){            
-            $items = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode($delimiter, $data);
-            $this->templateVariableContainer->add($as, $items);        
-            $content = $this->renderChildren();            
-            $this->templateVariableContainer->remove($as); 
+    public function render($data,$as = 'items', $delimiter = LF) {
+        if($data){
+            $items = GeneralUtility::trimExplode($delimiter, $data);
+            $this->templateVariableContainer->add($as, $items);
+            $content = $this->renderChildren();
+            $this->templateVariableContainer->remove($as);
         }
         return $content;
     }

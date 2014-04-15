@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\Hooks\Options;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,19 +27,19 @@ namespace BK2K\BootstrapPackage\Hooks\Options;
  *
  ***************************************************************/
 
-use \TYPO3\CMS\Backend\View\BackendLayout\BackendLayout;
-use \TYPO3\CMS\Backend\View\BackendLayout\DataProviderContext;
-use \TYPO3\CMS\Backend\View\BackendLayout\BackendLayoutCollection;
-use \TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Backend\View\BackendLayout\BackendLayout;
+use TYPO3\CMS\Backend\View\BackendLayout\BackendLayoutCollection;
+use TYPO3\CMS\Backend\View\BackendLayout\DataProviderContext;
+use TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class BackendLayoutDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface {
+class BackendLayoutDataProvider implements DataProviderInterface {
 
     /**
      * Default Backend Layouts for Bootstrap Theme
-     * 
+     *
      * @var array
      */
     protected $backendLayouts = array(
@@ -365,7 +365,7 @@ class BackendLayoutDataProvider implements \TYPO3\CMS\Backend\View\BackendLayout
                                     colspan = 3
                                 }
                             }
-                        }                        
+                        }
                         4 {
                             columns {
                                 1 {

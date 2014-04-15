@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\Hooks\Backend;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,6 +27,8 @@ namespace BK2K\BootstrapPackage\Hooks\Backend;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
@@ -37,7 +39,7 @@ class PreHeaderRender {
      * @param \TYPO3\CMS\Backend\Template\DocumentTemplate $documentTemplate
      */
     public function addStyles(&$params, &$documentTemplate){
-        $backendCssFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/backend.css';
+        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/backend.css';
         $params['pageRenderer']->addCssFile($backendCssFile);
     }
 

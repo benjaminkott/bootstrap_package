@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,14 +27,16 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ContextualClassViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class ContextualClassViewHelper extends AbstractViewHelper {
 
     /**
      * contextualAlternatives
-     * 
+     *
      * @var array
      */
     protected $contextualAlternatives = array(
@@ -51,11 +53,7 @@ class ContextualClassViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstrac
      * @return string
      */
     public function render($code = 100) {
-        $class = NULL;
-        if($this->contextualAlternatives[$code]){
-           $class = $this->contextualAlternatives[$code];
-        }
-        return $class;
-    }    
+        return ($this->contextualAlternatives[$code]) ? $this->contextualAlternatives[$code] : NULL;
+    }
 
 }

@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\ViewHelpers\Be\Forms;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,12 +27,14 @@ namespace BK2K\BootstrapPackage\ViewHelpers\Be\Forms;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class FormEngineViewHelper extends AbstractViewHelper {
 
     /**
      * @var \TYPO3\CMS\Core\Page\PageRenderer
@@ -47,12 +49,12 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
     /**
      * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
      */
-    public function injectPageRenderer(\TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+    public function injectPageRenderer(PageRenderer $pageRenderer) {
         $this->pageRenderer = $pageRenderer;
     }
-    
+
     /**
-     * @return fieldnameprefix for form
+     * @return string fieldnameprefix for form
      */
     protected function getFieldNamePrefix() {
         $fieldNamePrefix = (string) $this->viewHelperVariableContainer->get('TYPO3\\CMS\\Fluid\\ViewHelpers\\FormViewHelper', 'fieldNamePrefix');
@@ -65,11 +67,11 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
      * @return string
      */
     public function render($table = NULL, $data = NULL) {
-        
+
         if(!$data){
             $data = array();
         }
-                
+
         if($table){
             if(!$data['uid']){
                 $data['uid'] = "none";
@@ -81,14 +83,14 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
             $this->pageRenderer->loadPrototype();
             $this->pageRenderer->loadExtJS();
 
-            $this->tceforms = GeneralUtility::makeInstance('TYPO3\CMS\Backend\Form\FormEngine');
+            $this->tceforms = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Form\\FormEngine');
             $this->tceforms->initDefaultBEMode();
-            
-            // EXTBASE FORMS 
+
+            // EXTBASE FORMS
             $this->tceforms->prependFormFieldNames = $this->getFieldNamePrefix();
             $this->tceforms->formName = $table;
             $this->tceforms->totalWrap = '<div class="typo3-TCEforms"> |  </div>';
-            
+
             $this->tceforms->doSaveFieldName = 'doSave';
             $this->tceforms->localizationMode = GeneralUtility::inList('text,media',$this->localizationMode) ? $this->localizationMode : '';
             $this->tceforms->returnUrl = $this->R_URI;
@@ -96,9 +98,9 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
             $this->tceforms->disableRTE = !$GLOBALS['BE_USER']->isRTE();
             $this->tceforms->enableClickMenu = TRUE;
             $this->tceforms->enableTabMenu = TRUE;
-                        
+
             $panel = $this->tceforms->getMainFields($table,$data);
-            $body.= $this->tceforms->printNeededJSFunctions_top();
+            $body = $this->tceforms->printNeededJSFunctions_top();
             $body.= $this->tceforms->wrapTotal($panel,$data,$table);
             $body.= $this->tceforms->printNeededJSFunctions();
             if (count($this->tceforms->commentMessages))	{
@@ -108,11 +110,11 @@ class FormEngineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
                     -->
                 ';
             }
-            
+
         }else{
             return "Tabelle wurde nicht angegeben.";
         }
-                
+
         return $body;
     }
 

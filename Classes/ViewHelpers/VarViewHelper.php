@@ -2,7 +2,7 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 /***************************************************************
- * 
+ *
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -27,10 +27,12 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class VarViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class VarViewHelper extends AbstractViewHelper {
 
     /**
      * @param string $name
