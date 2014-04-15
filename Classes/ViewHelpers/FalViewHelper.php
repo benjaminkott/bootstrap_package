@@ -47,7 +47,7 @@ class FalViewHelper extends AbstractViewHelper {
      *
      * @return string
      */
-    public function render($data,$as = "items", $table = "tt_content", $field = "image") {
+    public function render($data,$as = 'items', $table = 'tt_content', $field = 'image') {
         if(is_array($data) && $data['uid'] && $data[$field]){
             $this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
             $items = $this->fileRepository->findByRelation($table, $field, $data['uid']);            

@@ -83,7 +83,7 @@ class FormEngineViewHelper extends AbstractViewHelper {
             $this->pageRenderer->loadPrototype();
             $this->pageRenderer->loadExtJS();
 
-            $this->tceforms = GeneralUtility::makeInstance('TYPO3\CMS\Backend\Form\FormEngine');
+            $this->tceforms = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Form\\FormEngine');
             $this->tceforms->initDefaultBEMode();
             
             // EXTBASE FORMS 
@@ -100,7 +100,7 @@ class FormEngineViewHelper extends AbstractViewHelper {
             $this->tceforms->enableTabMenu = TRUE;
                         
             $panel = $this->tceforms->getMainFields($table,$data);
-            $body.= $this->tceforms->printNeededJSFunctions_top();
+            $body = $this->tceforms->printNeededJSFunctions_top();
             $body.= $this->tceforms->wrapTotal($panel,$data,$table);
             $body.= $this->tceforms->printNeededJSFunctions();
             if (count($this->tceforms->commentMessages))	{

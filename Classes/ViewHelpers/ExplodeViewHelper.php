@@ -40,7 +40,7 @@ class ExplodeViewHelper extends AbstractViewHelper {
      * @param string $delimiter
      * @return string
      */
-    public function render($data,$as = "items", $delimiter = LF) {
+    public function render($data,$as = 'items', $delimiter = LF) {
         if($data){            
             $items = GeneralUtility::trimExplode($delimiter, $data);
             $this->templateVariableContainer->add($as, $items);        

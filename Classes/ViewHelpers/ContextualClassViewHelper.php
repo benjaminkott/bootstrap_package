@@ -52,11 +52,7 @@ class ContextualClassViewHelper extends AbstractViewHelper {
      * @return string
      */
     public function render($code = 100) {
-        $class = NULL;
-        if($this->contextualAlternatives[$code]){
-           $class = $this->contextualAlternatives[$code];
-        }
-        return $class;
-    }    
+        return ($this->contextualAlternatives[$code]) ? $this->contextualAlternatives[$code] : NULL;
+    }
 
 }

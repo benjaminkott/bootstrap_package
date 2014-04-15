@@ -45,18 +45,18 @@ class DataRelationViewHelper extends AbstractViewHelper {
      * 
      * @return string
      */
-    public function render($uid,$table,$foreignField = "tt_content",$selectFields = "*", $as = "items", $sortby = "sorting ASC", $additionalWhere = "") {
+    public function render($uid,$table,$foreignField = 'tt_content',$selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
 
-        if($uid && $table && $foreignField){
-            $selectFields = $selectFields;
+        if($uid && $table){
             $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
-            $fromTable    = $table;
+            /**
+             * The query contains 2 times "AND deleted = 0 AND hidden = 0 " because of "$cObj->enableFields($table)" and this is not nessesary
+             */
             $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' AND deleted = 0 AND hidden = 0 '.$additionalWhere. $cObj->enableFields($table);
             $groupBy      = '';
-            $orderBy      = $sortby;
             $limit        = '';
             $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
-            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $fromTable, $whereClause, $groupBy, $orderBy, $limit);
+            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
             $items = array();
             foreach ($data as $record) {
                 $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);

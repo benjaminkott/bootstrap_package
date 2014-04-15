@@ -263,7 +263,7 @@ class SettingsStyleController extends ActionController {
             }
             fclose($file);
         }
-        catch (exception $e) {
+        catch (\Exception $e) {
             throw new \RuntimeException('Something went wrong: '.$e->getMessage(), 1384966952);
         }
     }    
