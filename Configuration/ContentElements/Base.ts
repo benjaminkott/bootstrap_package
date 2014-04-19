@@ -91,7 +91,7 @@ lib.dynamicContent = COA
 lib.dynamicContent {
     5 = LOAD_REGISTER
     5  {
-        colPos.cObject = TEXT 
+        colPos.cObject = TEXT
         colPos.cObject {
             value.current = 1
             ifEmpty = 0
@@ -117,7 +117,7 @@ lib.parseFunc_RTE {
         }
     }
     nonTypoTagStdWrap.encapsLines {
-        addAttributes.P.class >        
+        addAttributes.P.class >
     }
 }
 
@@ -152,7 +152,7 @@ lib.stdheader {
             ifEmpty.override.data = register: defaultHeaderType
         }
         1 = COA
-        1 {   
+        1 {
             10 = TEXT
             10.current = 1
             20 = TEXT
@@ -164,14 +164,14 @@ lib.stdheader {
             stdWrap.dataWrap = <h1{register:headerClass}>|</h1>
             stdWrap.required = 1
         }
-	2 < .1
-	2.stdWrap.dataWrap = <h2{register:headerClass}>|</h2>
-	3 < .1
-	3.stdWrap.dataWrap = <h3{register:headerClass}>|</h3>
-	4 < .1
-	4.stdWrap.dataWrap = <h4{register:headerClass}>|</h4>
-	5 < .1
-	5.stdWrap.dataWrap = <h5{register:headerClass}>|</h5>
+    2 < .1
+    2.stdWrap.dataWrap = <h2{register:headerClass}>|</h2>
+    3 < .1
+    3.stdWrap.dataWrap = <h3{register:headerClass}>|</h3>
+    4 < .1
+    4.stdWrap.dataWrap = <h4{register:headerClass}>|</h4>
+    5 < .1
+    5.stdWrap.dataWrap = <h5{register:headerClass}>|</h5>
     }
     20 >
     40 >
@@ -210,7 +210,7 @@ lib.stdheader {
             isTrue {
                 field = date
             }
-	}
+    }
     }
     stdWrap {
         dataWrap >
@@ -255,7 +255,7 @@ lib.newsheader {
         }
         20 = TEXT
         20 {
-            field = starttime 
+            field = starttime
             override.field = crdate
             override.if {
                 value = 0
@@ -309,7 +309,7 @@ tt_content.stdWrap.innerWrap.cObject {
         menu < .default
         menu {
             default {
-				value = >|</nav>
+                value = >|</nav>
                 override = ><div class="container">|</div></nav>
             }
         }
@@ -328,7 +328,7 @@ tt_content.stdWrap.innerWrap.cObject {
     11.20.10.value = frame col-xs-9 col-xs-push-3
     12 =< tt_content.stdWrap.innerWrap.cObject.10
     12.20.10.value = frame col-xs-9
-    20.20.10.value = frame well   
+    20.20.10.value = frame well
     21.20.10.value = frame jumbotron
 }
 
@@ -497,7 +497,7 @@ tt_content.image.20 {
         }
     }
 
-    addClassesCol.ifEmpty = 
+    addClassesCol.ifEmpty =
     addClassesCol.override.cObject = COA
     addClassesCol.override.cObject {
         10 = CASE
@@ -508,7 +508,7 @@ tt_content.image.20 {
             default.value = col-md-12
 
             2 < .default
-            2.value = col-md-6 
+            2.value = col-md-6
 
             3 < .default
             3.value = col-md-4 col-sm-4 col-xs-4
@@ -520,12 +520,12 @@ tt_content.image.20 {
             6.value = col-md-2 col-sm-2 col-xs-4
         }
     }
-    addClassesCol.override = 
+    addClassesCol.override =
     addClassesCol.override.if {
         isGreaterThan.field = imagecols
         value = 1
     }
-    addClassesImage > 
+    addClassesImage >
     layout {
         default.override >
         default.value = <div class="image-center image-above###CLASSES###">###IMAGES######TEXT###</div>
@@ -689,7 +689,7 @@ tt_content.image.20 {
                                     equals.field = imageborder
                                 }
                             }
-                        }                  
+                        }
                     }
                 }
             }
@@ -701,7 +701,7 @@ tt_content.image.20 {
             noRowsStdWrap.wrap = <div class="image-row"> | </div>
             lastRowStdWrap.wrap = <div class="image-row"> | </div>
             columnStdWrap.wrap = <div class="image-column###CLASSES###"> | </div>
-        }        
+        }
     }
 }
 
@@ -729,27 +729,26 @@ tt_content.mailform.20 {
         )
         containerWrap (
             <div>
-                <elements />                
+                <elements />
             </div>
         )
         elementWrap (
-            <div>      
+            <div>
                 <element />
             </div>
         )
         fieldset (
-            <fieldset><legend /><containerWrap /></fieldset>    
+            <fieldset><legend /><containerWrap /></fieldset>
         )
         label (
             <label>
                 <labelvalue />
                 <mandatory />
             </label>
-	)
+        )
         error (
             <span class="help-block text-danger"><errorvalue /></span>
         )
-
         textline (
             <div class="form-group">
                 <div class="col-sm-3 control-label">
@@ -774,20 +773,20 @@ tt_content.mailform.20 {
         )
         submit (
             <div class="form-group">
-		<div class="col-sm-offset-3 col-sm-9">
+                <div class="col-sm-offset-3 col-sm-9">
                     <input class="btn btn-primary" />
-		</div>
+                </div>
             </div>
         )
         checkbox (
             <div class="form-group">
-		<div class="col-sm-offset-3 col-sm-9">
+                <div class="col-sm-offset-3 col-sm-9">
                     <div class="checkbox">
                         <input />
                         <label />
                     </div>
                     <error />
-		</div>
+                </div>
             </div>
         )
     }
@@ -901,7 +900,7 @@ tt_content.menu.20 {
                     10 {
                         10 = COA
                         10 {
-                            10 = TEXT 
+                            10 = TEXT
                             10.value = <li
                             20 = TEXT
                             20 {
@@ -922,6 +921,7 @@ tt_content.menu.20 {
                                 parameter.data = page:uid
                                 additionalParams = &page={register:paginatePreviousPage}
                                 additionalParams.insertData = 1
+                                useCacheHash = 1
                             }
                         }
                         30 = TEXT
@@ -932,7 +932,7 @@ tt_content.menu.20 {
                     ###########
                     20 = TEXT
                     20 {
-                        value = 
+                        value =
                         split {
                             token = ,
                             cObjNum = 1
@@ -955,7 +955,7 @@ tt_content.menu.20 {
                                 }
                                 10 = COA
                                 10 {
-                                    10 = TEXT 
+                                    10 = TEXT
                                     10.value = <li
                                     20 = TEXT
                                     20 {
@@ -975,9 +975,8 @@ tt_content.menu.20 {
                                     typolink {
                                         parameter.data = page:uid
                                         additionalParams = &page={register:currPageLink}
-                                        additionalParams {
-                                            insertData = 1
-                                        }
+                                        additionalParams.insertData = 1
+                                        useCacheHash = 1
                                     }
                                 }
                                 30 = TEXT
