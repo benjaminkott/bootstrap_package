@@ -164,14 +164,14 @@ lib.stdheader {
             stdWrap.dataWrap = <h1{register:headerClass}>|</h1>
             stdWrap.required = 1
         }
-    2 < .1
-    2.stdWrap.dataWrap = <h2{register:headerClass}>|</h2>
-    3 < .1
-    3.stdWrap.dataWrap = <h3{register:headerClass}>|</h3>
-    4 < .1
-    4.stdWrap.dataWrap = <h4{register:headerClass}>|</h4>
-    5 < .1
-    5.stdWrap.dataWrap = <h5{register:headerClass}>|</h5>
+        2 < .1
+        2.stdWrap.dataWrap = <h2{register:headerClass}>|</h2>
+        3 < .1
+        3.stdWrap.dataWrap = <h3{register:headerClass}>|</h3>
+        4 < .1
+        4.stdWrap.dataWrap = <h4{register:headerClass}>|</h4>
+        5 < .1
+        5.stdWrap.dataWrap = <h5{register:headerClass}>|</h5>
     }
     20 >
     40 >
@@ -210,7 +210,7 @@ lib.stdheader {
             isTrue {
                 field = date
             }
-    }
+        }
     }
     stdWrap {
         dataWrap >
