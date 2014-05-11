@@ -45,6 +45,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
         'textandimage' => array('showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
+            text_color,
             image,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             --palette--;;background,
