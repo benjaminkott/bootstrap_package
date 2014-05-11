@@ -44,7 +44,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
         '),
         'textandimage' => array('showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-            header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+            header,
             image,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             --palette--;;background,
@@ -69,7 +69,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
         ),
         'access' => array(
             'showitem' => '
-                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel, 
+                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
             ',
             'canNotCollapse' => 1
@@ -86,7 +86,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
         'general' => array(
             'showitem' => '
                 tt_content,
-                item_type;LLL:EXT:cms/locallang_ttc.xlf:CType_formlabel, 
+                item_type;LLL:EXT:cms/locallang_ttc.xlf:CType_formlabel,
             ',
             'canNotCollapse' => 1
         ),
@@ -251,7 +251,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image', 
+                'image',
                 array(
                     'foreign_types' => array(
                         '0' => array(
@@ -327,7 +327,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'background_image', 
+                'background_image',
                 array(
                     'foreign_types' => array(
                         '0' => array(
