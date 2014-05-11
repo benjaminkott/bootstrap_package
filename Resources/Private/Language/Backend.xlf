@@ -17,8 +17,7 @@
             <trans-unit id="backend_layout.default_2_columns_offset_right">
                 <source>Bootstrap Package: Default, 2 Columns, Offset Right</source>
             </trans-unit>
-            
-            
+
             <trans-unit id="backend_layout.default_3_columns">
                 <source>Bootstrap Package: Default, 3 Columns</source>
             </trans-unit>
@@ -27,7 +26,7 @@
             </trans-unit>
             <trans-unit id="backend_layout.default_subnavigation_2_columns">
                 <source>Bootstrap Package: Default, Subnavigation and 2 Columns</source>
-            </trans-unit>            
+            </trans-unit>
             <trans-unit id="backend_layout.special_start">
                 <source>Bootstrap Package: Special Startpage</source>
             </trans-unit>
@@ -48,11 +47,11 @@
             <trans-unit id="backend_layout.column.middle3">
                 <source>Middle: Right</source>
             </trans-unit>
-            
+
             <trans-unit id="backend_layout.column.main2">
                 <source>Normal 2</source>
             </trans-unit>
-            
+
             <trans-unit id="backend_layout.column.special1">
                 <source>Special 1</source>
             </trans-unit>
@@ -83,7 +82,7 @@
             <trans-unit id="backend_layout.column.special10">
                 <source>Special 10</source>
             </trans-unit>
-            
+
             <trans-unit id="backend_layout.column.footer1">
                 <source>Footer: Left</source>
             </trans-unit>
@@ -127,6 +126,19 @@
             </trans-unit>
             <trans-unit id="content_element.listgroup.description">
                 <source>...</source>
+            </trans-unit>
+
+            <trans-unit id="carousel.options">
+                <source>Carousel Options</source>
+            </trans-unit>
+            <trans-unit id="carousel.interval">
+                <source>Interval in ms</source>
+            </trans-unit>
+            <trans-unit id="carousel.wrap">
+                <source>Wrap</source>
+            </trans-unit>
+            <trans-unit id="carousel.wrap.description">
+                <source>Start the Carousel from the beginning once it has arrived at the end.</source>
             </trans-unit>
 
             <trans-unit id="carousel_item">
@@ -219,7 +231,7 @@
             <trans-unit id="field.icon_background">
                 <source>Background</source>
             </trans-unit>
-            
+
             <trans-unit id="option.none">
                 <source>None</source>
             </trans-unit>
@@ -295,19 +307,26 @@
             <trans-unit id="uploadslayout.iconsandpreview">
                 <source>Display Icons and Preview Images</source>
             </trans-unit>
-            
+
             <trans-unit id="carousellayout.default">
                 <source>Default</source>
             </trans-unit>
             <trans-unit id="carousellayout.small">
                 <source>Small</source>
             </trans-unit>
-            
+
             <trans-unit id="tabs.background">
                 <source>Background</source>
             </trans-unit>
             <trans-unit id="colorpicker">
                 <source>Colorpicker</source>
+            </trans-unit>
+
+            <trans-unit id="advanced">
+                <source>Advanced</source>
+            </trans-unit>
+            <trans-unit id="settings">
+                <source>Settings</source>
             </trans-unit>
 
         </body>

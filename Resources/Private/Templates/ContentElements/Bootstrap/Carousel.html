@@ -1,7 +1,12 @@
 {namespace bp = BK2K\BootstrapPackage\ViewHelpers}
 <bp:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
-<f:if condition="{items}">   
-    <div id="carousel-{data.uid}" class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}" data-interval="10000" data-ride="carousel">
+<f:if condition="{items}">
+    <bp:flexForm />
+    <div id="carousel-{data.uid}"
+         class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}"
+         data-interval="{data.pi_flexform.interval}"
+         data-wrap="{data.pi_flexform.wrap}"
+         data-ride="carousel">
         <div class="carousel-inner">
         <f:for each="{items}" as="item" iteration="iteration">
             <f:switch expression="{item.background_style}">
@@ -15,7 +20,7 @@
                         <f:if condition="{images}">
                             <bp:var name="backgroundImagePath" value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1)}" />
                             <bp:var name="itemStyle">
-                                background-image: url('{backgroundImagePath}'); 
+                                background-image: url('{backgroundImagePath}');
                                 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}', sizingMethod='scale');
                                 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}', sizingMethod='scale')";
                             </bp:var>

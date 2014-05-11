@@ -35,11 +35,11 @@ $TCA['tt_content']['palettes']['bootstrap_package_header'] = array(
     'canNotCollapse' => 1,
     'showitem' => '
         header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
-        --linebreak--, 
+        --linebreak--,
         subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel,
-        --linebreak--, 
+        --linebreak--,
         header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel,
-        --linebreak--, 
+        --linebreak--,
         header_link;LLL:EXT:cms/locallang_ttc.xlf:header_link_formlabel
     '
 );
@@ -47,7 +47,7 @@ $TCA['tt_content']['palettes']['bootstrap_package_headersimple'] = array(
     'canNotCollapse' => 1,
     'showitem' => '
         header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
-        --linebreak--, 
+        --linebreak--,
         header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel
     '
 );
@@ -412,7 +412,7 @@ $TCA['tt_content']['ctrl']['typeicons']['bootstrap_package_panel'] = 'tt_content
 $TCA['tt_content']['types']['bootstrap_package_panel']['showitem'] = "
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_headersimple,
-    bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], 
+    bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css],
     rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
     --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
@@ -512,6 +512,8 @@ $TCA['tt_content']['types']['bootstrap_package_carousel']['showitem'] = "
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
     tx_bootstrappackage_carousel_item,
+    --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
+    pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
     --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
     --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
@@ -521,6 +523,7 @@ $TCA['tt_content']['types']['bootstrap_package_carousel']['showitem'] = "
     --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
     categories
 ";
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*','FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/Carousel.xml','bootstrap_package_carousel');
 
 
 /***************
@@ -556,7 +559,7 @@ $accordion_columns = array(
 unset($accordion_columns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_accordion_item');
 $TCA['tx_bootstrappackage_accordion_item'] = array(
-    'ctrl' => array(  
+    'ctrl' => array(
         'label' => 'header',
 		'label_alt' => 'bodytext',
 		'sortby' => 'sorting',

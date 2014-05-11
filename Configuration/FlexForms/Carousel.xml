@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<interval>
+						<TCEforms>
+							<label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval</label>
+							<config>
+								<type>input</type>
+                                <size>8</size>
+                                <default>5000</default>
+                                <eval>required,int</eval>
+							</config>
+						</TCEforms>
+					</interval>
+                    <wrap>
+						<TCEforms>
+							<label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>
+							<config>
+								<type>check</type>
+                                <default>1</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</numIndex>
+                                    </numIndex>
+                                </items>
+							</config>
+						</TCEforms>
+					</wrap>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
