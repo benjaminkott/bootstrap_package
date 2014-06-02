@@ -494,6 +494,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'languageField' => 'sys_language_uid',
         'dividers2tabs' => TRUE,
+        'requestUpdate' => 'background_style',
         'enablecolumns' => array(
             'disabled' => 'hidden',
             'starttime' => 'starttime',

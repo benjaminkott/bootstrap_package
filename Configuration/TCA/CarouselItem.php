@@ -255,15 +255,12 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                 'image',
                 array(
                     'foreign_types' => array(
-                        '0' => array(
-                            'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
-                        ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                                title,
+                                alternative,
+                                link
+                            '
                         ),
                     ),
                     'minitems' => 0,
@@ -331,15 +328,23 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                 'background_image',
                 array(
                     'foreign_types' => array(
-                        '0' => array(
-                            'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
+                            'showitem' => ''
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
+                            'showitem' => ''
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
-                            'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                            'showitem' => ''
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
+                            'showitem' => ''
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
+                            'showitem' => ''
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
+                            'showitem' => ''
                         ),
                     ),
                     'minitems' => 1,
