@@ -366,12 +366,14 @@ $texticon_columns = array(
             'default' => '#FFFFFF',
             'wizards' => array(
                 'colorChoice' => array(
-                     'type' => 'colorbox',
-                     'title' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:colorpicker',
-                     'script' => 'wizard_colorpicker.php',
-                     'dim' => '20x20',
-                     'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                 ),
+                    'type' => 'colorbox',
+                    'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
+                    'module' => array(
+                        'name' => 'wizard_colorpicker'
+                    ),
+                    'dim' => '20x20',
+                    'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+                ),
             ),
         ),
     ),
@@ -385,12 +387,14 @@ $texticon_columns = array(
             'default' => '#333333',
             'wizards' => array(
                 'colorChoice' => array(
-                     'type' => 'colorbox',
-                     'title' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:colorpicker',
-                     'script' => 'wizard_colorpicker.php',
-                     'dim' => '20x20',
-                     'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                 ),
+                    'type' => 'colorbox',
+                    'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
+                    'module' => array(
+                        'name' => 'wizard_colorpicker'
+                    ),
+                    'dim' => '20x20',
+                    'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+                ),
             ),
         ),
     ),

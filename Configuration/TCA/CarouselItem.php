@@ -239,7 +239,9 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                         'userFunc' => 'TYPO3\\CMS\\T3editor\\FormWizard->main',
                         'title' => 't3editor',
                         'icon' => 'wizard_table.gif',
-                        'script' => 'wizard_table.php',
+                        'module' => array(
+                            'name' => 'wizard_table'
+                        ),
                         'params' => array(
                             'format' => 'html',
                             'style' => 'width:98%; height: 60%;'
@@ -279,12 +281,14 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                 'default' => '#FFFFFF',
                 'wizards' => array(
                     'colorChoice' => array(
-                         'type' => 'colorbox',
-                         'title' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.colorPick',
-                         'script' => 'wizard_colorpicker.php',
-                         'dim' => '20x20',
-                         'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                     ),
+                        'type' => 'colorbox',
+                        'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
+                        'module' => array(
+                            'name' => 'wizard_colorpicker'
+                        ),
+                        'dim' => '20x20',
+                        'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+                    ),
                 ),
             ),
         ),
@@ -311,12 +315,14 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                 'default' => '#333333',
                 'wizards' => array(
                     'colorChoice' => array(
-                         'type' => 'colorbox',
-                         'title' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.colorPick',
-                         'script' => 'wizard_colorpicker.php',
-                         'dim' => '20x20',
-                         'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                     ),
+                        'type' => 'colorbox',
+                        'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
+                        'module' => array(
+                            'name' => 'wizard_colorpicker'
+                        ),
+                        'dim' => '20x20',
+                        'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+                    ),
                 ),
             ),
         ),
