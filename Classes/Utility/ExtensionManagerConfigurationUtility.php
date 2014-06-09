@@ -78,7 +78,7 @@ class ExtensionManagerConfigurationUtility {
                 if ($this->errorType < FlashMessage::ERROR) {
                     $this->errorType = FlashMessage::WARNING;
                     $this->header = 'Warnings about your configuration';
-                    $this->preText = 'Bootstra pPackage might behave different than expected:<br />';
+                    $this->preText = 'Bootstrap Package might behave different than expected:<br />';
                 }
                 break;
             case 'info':
