@@ -8,6 +8,7 @@ if(!defined('TYPO3_MODE')){
  * Load functions only if themes extension is not installed
  *
  * - let themes handle the includion of the needed static files
+ * - enable backendskin only if themes is not installed
  */
 if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 
@@ -15,6 +16,23 @@ if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
      * Default TypoScript
      */
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Bootstrap Package');
+
+    /***************
+     * Backend Styling
+     */
+    if (TYPO3_MODE == 'BE') {
+        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+        if(!isset($settings['Logo'])){
+            $settings['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
+        }
+        if(!isset($settings['LoginLogo'])){
+            $settings['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/LoginLogo.png';
+        }
+        $GLOBALS['TBE_STYLES']['logo'] = $settings['Logo'];
+        $GLOBALS['TBE_STYLES']['logo_login'] = $settings['LoginLogo'];
+        $GLOBALS['TBE_STYLES']['htmlTemplates']['EXT:backend/Resources/Private/Templates/login.html'] = 'EXT:bootstrap_package/Resources/Private/Templates/Backend/Login.html';
+        unset($settings);
+    }
 
 }
 
@@ -680,22 +698,4 @@ if (TYPO3_MODE === 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
         ),
     );
 
-}
-
-
-/***************
- * Backend Styling
- */
-if (TYPO3_MODE == 'BE') {
-    $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
-    if(!isset($settings['Logo'])){
-        $settings['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
-    }
-    if(!isset($settings['LoginLogo'])){
-        $settings['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/LoginLogo.png';
-    }
-    $GLOBALS['TBE_STYLES']['logo'] = $settings['Logo'];
-    $GLOBALS['TBE_STYLES']['logo_login'] = $settings['LoginLogo'];
-    $GLOBALS['TBE_STYLES']['htmlTemplates']['EXT:backend/Resources/Private/Templates/login.html'] = 'EXT:bootstrap_package/Resources/Private/Templates/Backend/Login.html';
-    unset($settings);
 }
