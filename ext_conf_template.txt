@@ -1,8 +1,21 @@
-# cat=Basic/Skin/10; type=string; label=Logo Top: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png]
+############################
+### CUSTOM SUBCATEGORIES ###
+###########################
+# customsubcategory=100_compat=Compatibility
+# customsubcategory=110_skin=Backend Skin
+# customsubcategory=120_realurl=RealUrl
+
+# cat=General/120_realurl/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:realUrl.useRealUrlConfig
+UseRealUrlConfig = 1
+
+# cat=General/110_skin/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:backendSkin.alwaysEnableBackendSkin
+AlwaysEnableBackendSkin = 0
+
+# cat=General/110_skin/20; type=string; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:backendSkin.logoTop
 Logo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png
 
-# cat=Basic/Skin/20; type=string; label=Logo Login: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png]
+# cat=General/110_skin/30; type=string; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:backendSkin.logoLogin
 LoginLogo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png
 
-# cat=Basic/RealUrl/10; type=boolean; label=Use RealUrl Config from BootstrapPackage
-UseRealUrlConfig = 1
+# cat=General/100_compat/10; type=user[\BK2K\BootstrapPackage\Utility\ExtensionManagerConfigurationUtility->checkIfThemesIsLoaded]; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:compat.extThemes
+checkIfThemesIsLoaded = 0

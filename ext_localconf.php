@@ -5,6 +5,14 @@ if(!defined('TYPO3_MODE')){
 
 
 /***************
+ * Make the extension configuration accessible
+ */
+if(!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])){
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+}
+
+
+/***************
  * Default TsConfig
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:'.$_EXTKEY.'/Configuration/PageTS/mod_wizards.txt">');
@@ -20,9 +28,9 @@ if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 
 
 /***************
- * Load functions only if themes extension is not installed
+ * Disable the backend skin if ext:themes is loaded and loading of the backend skin is not forced
  */
-if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
+if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes') || $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['AlwaysEnableBackendSkin']) {
 
     /***************
      * Backend Styling
@@ -37,8 +45,7 @@ if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 /***************
  * Use RealUrl Config from Bootstrap Package
  */
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
-if($settings['UseRealUrlConfig'] == 1){
+if($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['UseRealUrlConfig'] == 1){
     @include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY,'Configuration/RealURL/Default.php'));
 }
 
@@ -56,4 +63,12 @@ if (TYPO3_MODE === 'BE') {
         'generateApacheHtaccess'
     );
 
+}
+
+
+/***************
+ * Reset extConf array to avoid errors
+ */
+if(is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])){
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
 }

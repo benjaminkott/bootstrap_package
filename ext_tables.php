@@ -5,10 +5,15 @@ if(!defined('TYPO3_MODE')){
 
 
 /***************
- * Load functions only if themes extension is not installed
- *
- * - let themes handle the includion of the needed static files
- * - enable backendskin only if themes is not installed
+ * Make the extension configuration accessible
+ */
+if(!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])){
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+}
+
+
+/***************
+ * Let ext:themes the inclusion of the needed static files handle if loaded
  */
 if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 
@@ -17,21 +22,27 @@ if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
      */
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Bootstrap Package');
 
+}
+
+
+/***************
+ * Disable the backend skin if ext:themes is loaded and loading of the backend skin is not forced
+ */
+if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes') || $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['AlwaysEnableBackendSkin']) {
+
     /***************
      * Backend Styling
      */
     if (TYPO3_MODE == 'BE') {
-        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
-        if(!isset($settings['Logo'])){
-            $settings['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
+        if(!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['Logo'])){
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['Logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
         }
-        if(!isset($settings['LoginLogo'])){
-            $settings['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/LoginLogo.png';
+        if(!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['LoginLogo'])){
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['LoginLogo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Images/Backend/LoginLogo.png';
         }
-        $GLOBALS['TBE_STYLES']['logo'] = $settings['Logo'];
-        $GLOBALS['TBE_STYLES']['logo_login'] = $settings['LoginLogo'];
+        $GLOBALS['TBE_STYLES']['logo'] = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['Logo'];
+        $GLOBALS['TBE_STYLES']['logo_login'] = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['LoginLogo'];
         $GLOBALS['TBE_STYLES']['htmlTemplates']['EXT:backend/Resources/Private/Templates/login.html'] = 'EXT:bootstrap_package/Resources/Private/Templates/Backend/Login.html';
-        unset($settings);
     }
 
 }
@@ -698,4 +709,12 @@ if (TYPO3_MODE === 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
         ),
     );
 
+}
+
+
+/***************
+ * Reset extConf array to avoid errors
+ */
+if(is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])){
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
 }

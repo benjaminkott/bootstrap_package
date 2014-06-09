@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z" product-name="bootstrap_package">
+        <header/>
+        <body>
+
+            <trans-unit id="compat.extThemes">
+                <source>Themes</source>
+            </trans-unit>
+
+            <trans-unit id="backendSkin.alwaysEnableBackendSkin">
+                <source>Always enable the backend skin: The backend skin is disabled by default if ext:themes is installed, but you can force to load the backend_skin.</source>
+            </trans-unit>
+            <trans-unit id="backendSkin.logoTop">
+                <source>Logo Top: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png]</source>
+            </trans-unit>
+            <trans-unit id="backendSkin.logoLogin">
+                <source>Logo Login: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png]</source>
+            </trans-unit>
+
+            <trans-unit id="realUrl.useRealUrlConfig">
+                <source>Use RealUrl Config from BootstrapPackage</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
