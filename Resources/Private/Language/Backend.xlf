@@ -144,7 +144,7 @@
             <trans-unit id="carousel_item">
                 <source>Carousel Item</source>
             </trans-unit>
-			<trans-unit id="carousel_item.tt_content">
+            <trans-unit id="carousel_item.tt_content">
                 <source>Carousel</source>
             </trans-unit>
             <trans-unit id="carousel_item.header">
@@ -181,7 +181,7 @@
             <trans-unit id="accordion_item">
                 <source>Accordion Item</source>
             </trans-unit>
-			<trans-unit id="accordion_item.tt_content">
+            <trans-unit id="accordion_item.tt_content">
                 <source>Accordion</source>
             </trans-unit>
             <trans-unit id="accordion_item.header">

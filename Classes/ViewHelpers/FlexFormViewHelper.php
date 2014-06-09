@@ -35,10 +35,10 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 class FlexFormViewHelper extends AbstractViewHelper {
 
     /**
-	 * @var \TYPO3\CMS\Extbase\Service\FlexFormService
+     * @var \TYPO3\CMS\Extbase\Service\FlexFormService
      * @inject
-	 */
-	protected $flexFormService;
+     */
+    protected $flexFormService;
 
     /**
      * @param string $record

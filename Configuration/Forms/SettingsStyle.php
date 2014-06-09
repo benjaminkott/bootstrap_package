@@ -50,7 +50,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.alertsdanger;alertsdanger,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.alertssuccess;alertssuccess,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.alertsinfo;alertsinfo,
-            
+
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.panels,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.panelsbasic;panelsbasic,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.panelsdefault;panelsdefault,
@@ -90,10 +90,10 @@ $TCA['__bootstrappackage_form_style'] = array(
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.navtabs;navtabs,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.breadcrumbs;breadcrumbs,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.pagination;pagination,
-            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.pager;pager,            
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/ThemeSettings.xlf:theme.group.pager;pager,
         '),
     ),
-    'palettes' => array(               
+    'palettes' => array(
         'colorsystem' => array(
             'canNotCollapse' => 1,
             'showitem' => '
@@ -223,7 +223,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'canNotCollapse' => 1,
             'showitem' => '
                 btn-font-weight,
-                btn-link-disabled-color,                
+                btn-link-disabled-color,
             '
         ),
         'buttonsdefault' => array(
@@ -231,7 +231,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-default-color,
                 btn-default-bg,
-                btn-default-border,               
+                btn-default-border,
             '
         ),
         'buttonssuccess' => array(
@@ -239,7 +239,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-success-color,
                 btn-success-bg,
-                btn-success-border,             
+                btn-success-border,
             '
         ),
         'buttonsprimary' => array(
@@ -247,7 +247,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-primary-color,
                 btn-primary-bg,
-                btn-primary-border,          
+                btn-primary-border,
             '
         ),
         'buttonswarning' => array(
@@ -255,7 +255,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-warning-color,
                 btn-warning-bg,
-                btn-warning-border,        
+                btn-warning-border,
             '
         ),
         'buttonsinfo' => array(
@@ -263,7 +263,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-info-color,
                 btn-info-bg,
-                btn-info-border,       
+                btn-info-border,
             '
         ),
         'buttonsdanger' => array(
@@ -271,7 +271,7 @@ $TCA['__bootstrappackage_form_style'] = array(
             'showitem' => '
                 btn-danger-color,
                 btn-danger-bg,
-                btn-danger-border,    
+                btn-danger-border,
             '
         ),
         'statesuccess' => array(
@@ -395,7 +395,7 @@ $TCA['__bootstrappackage_form_style'] = array(
                 dropdown-border,
                 dropdown-fallback-border,--linebreak--,
                 dropdown-divider-bg,
-                dropdown-header-color,                
+                dropdown-header-color,
             '
         ),
         'dropdownitems' => array(
@@ -540,7 +540,7 @@ $TCA['__bootstrappackage_form_style'] = array(
                 carousel-indicator-active-bg,--linebreak--,
                 carousel-control-width,
                 carousel-control-opacity,
-                carousel-control-font-size,                
+                carousel-control-font-size,
             '
         ),
         'listgroup' => array(
@@ -619,7 +619,7 @@ $TCA['__bootstrappackage_form_style'] = array(
                 label-success-bg,
                 label-info-bg,--linebreak--,
                 label-warning-bg,
-                label-danger-bg,                
+                label-danger-bg,
             '
         ),
         'tooltip' => array(

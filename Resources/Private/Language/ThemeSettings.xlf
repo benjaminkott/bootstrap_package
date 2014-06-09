@@ -7,14 +7,14 @@
             <trans-unit id="theme.title">
                 <source>Bootstrap</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.settings.style">
                 <source>Bootstrap Package - Style Settings</source>
             </trans-unit>
             <trans-unit id="theme.settings.style.short">
                 <source>Style Settings</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.settings.base">
                 <source>Bootstrap Package - Base Settings</source>
             </trans-unit>
@@ -30,13 +30,13 @@
             </trans-unit>
             <trans-unit id="theme.group.colorsystem">
                 <source>Color system</source>
-            </trans-unit>           
+            </trans-unit>
             <trans-unit id="theme.group.bodyscaffolding">
                 <source>Body scaffolding</source>
-            </trans-unit>   
+            </trans-unit>
             <trans-unit id="theme.group.typography">
                 <source>Typography</source>
-            </trans-unit>   
+            </trans-unit>
             <trans-unit id="theme.group.genericfontvariables">
                 <source>Generic font variables</source>
             </trans-unit>
@@ -271,7 +271,7 @@
             <trans-unit id="theme.group.nav">
                 <source>Nav</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.field.mainnavigation_style">
                 <source>Mainnavigation Style</source>
             </trans-unit>
@@ -281,15 +281,15 @@
             <trans-unit id="theme.field.mainnavigation_style.item.inverse">
                 <source>Inverse</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.field.breadcrumb_enable">
                 <source>Enable Breadcrumb</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.field.copyright_enable">
                 <source>Enable Copyright</source>
             </trans-unit>
-            
+
             <trans-unit id="theme.global.yes">
                 <source>Yes</source>
             </trans-unit>

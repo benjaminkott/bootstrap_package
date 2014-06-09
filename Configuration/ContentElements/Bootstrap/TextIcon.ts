@@ -3,11 +3,11 @@
 ###########################################
 tt_content.bootstrap_package_texticon = COA
 tt_content.bootstrap_package_texticon {
-	5 = LOAD_REGISTER
-	5 {
-		iconClass {
-			cObject = COA
-			cObject {
+    5 = LOAD_REGISTER
+    5 {
+        iconClass {
+            cObject = COA
+            cObject {
                 10 = CASE
                 10 {
                     key.field = icon_size
@@ -36,36 +36,36 @@ tt_content.bootstrap_package_texticon {
                     2 < .default
                     2.value = circle
                 }
-			}
-		}
+            }
+        }
         iconStyle {
             cObject = COA
-			cObject {
-				10 = TEXT
-				10 {
-					field = icon_color
-					required = 1
-					noTrimWrap = |color: |;|
-				}
-				20 = TEXT
-				20 {
-					field = icon_background
-					required = 1
-					noTrimWrap = |background-color: |;|
-				}
-				stdWrap {
-					trim = 1
-					noTrimWrap = | style="|"|
-					required = 1
-				}
+            cObject {
+                10 = TEXT
+                10 {
+                    field = icon_color
+                    required = 1
+                    noTrimWrap = |color: |;|
+                }
+                20 = TEXT
+                20 {
+                    field = icon_background
+                    required = 1
+                    noTrimWrap = |background-color: |;|
+                }
+                stdWrap {
+                    trim = 1
+                    noTrimWrap = | style="|"|
+                    required = 1
+                }
                 if {
                     value = 0
                     equals.field = icon_type
                     negate = 1
                 }
-			}
+            }
         }
-	}
+    }
     10 = TEXT
     10 {
         field = icon

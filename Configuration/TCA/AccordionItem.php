@@ -30,7 +30,7 @@ $TCA['tx_bootstrappackage_accordion_item'] = array(
         ),
         'access' => array(
             'showitem' => '
-                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel, 
+                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
             ',
             'canNotCollapse' => 1
@@ -101,42 +101,42 @@ $TCA['tx_bootstrappackage_accordion_item'] = array(
             'l10n_display' => 'defaultAsReadonly'
         ),
         'sys_language_uid' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
-				'items' => array(
-					array(
-						'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
-						-1
-					),
-					array(
-						'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
-						0
-					)
-				)
-			)
-		),
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'sys_language',
+                'foreign_table_where' => 'ORDER BY sys_language.title',
+                'items' => array(
+                    array(
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        -1
+                    ),
+                    array(
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
+                        0
+                    )
+                )
+            )
+        ),
         'l10n_parent' => Array (
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-			'config' => Array (
-				'type' => 'select',
-				'items' => Array (
-					Array('', 0),
-				),
-				'foreign_table' => 'tx_bootstrappackage_accordion_item',
-				'foreign_table_where' => 'AND tx_bootstrappackage_accordion_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_accordion_item.sys_language_uid IN (-1,0)',
-			)
-		),
-		'l10n_diffsource' => Array(
-			'config'=>array(
-				'type'=>'passthrough'
-			)
-		),
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
+            'config' => Array (
+                'type' => 'select',
+                'items' => Array (
+                    Array('', 0),
+                ),
+                'foreign_table' => 'tx_bootstrappackage_accordion_item',
+                'foreign_table_where' => 'AND tx_bootstrappackage_accordion_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_accordion_item.sys_language_uid IN (-1,0)',
+            )
+        ),
+        'l10n_diffsource' => Array(
+            'config'=>array(
+                'type'=>'passthrough'
+            )
+        ),
         'header' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.header',

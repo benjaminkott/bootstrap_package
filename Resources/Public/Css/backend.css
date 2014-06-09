@@ -1,22 +1,22 @@
 #typo3-logo {
     line-height: 30px;
-	width: auto;
+    width: auto;
     margin-top: 5px;
 }
 #typo3-logo img {
-	vertical-align: top;
+    vertical-align: top;
     margin: 4px 10px 4px 0px;
 }
 #typo3-logo a {
     display: block;
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 #typo3-logo .typo3-sitename {
-	color: #FFFFFF;
-	padding-left: 10px;
-	display: inline-block;
+    color: #FFFFFF;
+    padding-left: 10px;
+    display: inline-block;
     border-left: 1px solid #585858;
-	-webkit-box-shadow: -1px 0 #000;
+    -webkit-box-shadow: -1px 0 #000;
     box-shadow: -1px 0 #000;
 }
 #typo3-index-php {

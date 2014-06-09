@@ -21,7 +21,7 @@ TCEMAIN {
         groupid = 1
         user = show, editcontent, edit, new, delete
         group = show, editcontent, edit, new, delete
-        everybody = 
+        everybody =
     }
     translateToHidden = 1
     clearCacheCmd = all
@@ -110,7 +110,7 @@ TCEFORM {
             addItems {
             }
             altLabels {
-                20 = Well 
+                20 = Well
                 21 = Jumbotron
             }
             types {
