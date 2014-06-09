@@ -43,7 +43,7 @@ page {
                 imageorient             = 25
                 # cat=bootstrap package: basic/170/130; type=options[1=1,2=2,3=3,4=4,6=6]; label=Image Columns
                 imagecols               = 1
-                # cat=bootstrap package: basic/170/170; label= Max Image Width: This indicates that maximum number of pixels (width) a block of images inserted as content is allowed to consume.
+                # cat=bootstrap package: basic/170/170; type=int+; label= Max Image Width: This indicates that maximum number of pixels (width) a block of images inserted as content is allowed to consume.
                 maxW                    = 1140
                 # cat=bootstrap package: basic/170/180; type=int+; label= Max Image Width (Text): Same as above, but this is the maximum width when text is wrapped around an imageblock. Default is 50% of the normal Max Image Width.
                 maxWInText =
@@ -99,7 +99,7 @@ page {
 ##############
 config {
     # cat=bootstrap package: advanced/150/100; type=boolean; label=BaseURL: This will override the default automatic BaseURL determination
-    baseURL								= 
+    baseURL								=
     # cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
     no_cache                            = 0
     # cat=bootstrap package: advanced/150/120; type=boolean; label=Compress JavaScript
@@ -110,7 +110,7 @@ config {
     concatenateJs                       = 1
     # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate Css
     concatenateCss                      = 1
-    # cat=bootstrap package: advanced/150/160; type=text; label=Header Comment
+    # cat=bootstrap package: advanced/150/160; type=string; label=Header Comment
     headerComment                       = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
 }
 
