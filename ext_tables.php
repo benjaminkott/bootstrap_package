@@ -5,9 +5,18 @@ if(!defined('TYPO3_MODE')){
 
 
 /***************
- * Default TypoScript
+ * Load functions only if themes extension is not installed
+ *
+ * - let themes handle the includion of the needed static files
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Bootstrap Package');
+if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
+
+    /***************
+     * Default TypoScript
+     */
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Bootstrap Package');
+
+}
 
 
 /***************
@@ -483,20 +492,20 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
     'ctrl' => array(
         'label' => 'header',
         'sortby' => 'sorting',
-		'tstamp' => 'tstamp',
-		'crdate' => 'crdate',
-		'cruser_id' => 'cruser_id',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
         'title'	=> 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:carousel_item',
         'type' => 'item_type',
-		'delete' => 'deleted',
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-		'origUid' => 't3_origuid',
-		'hideAtCopy' => FALSE,
-		'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
-		'languageField' => 'sys_language_uid',
+        'delete' => 'deleted',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'hideAtCopy' => FALSE,
+        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'languageField' => 'sys_language_uid',
         'dividers2tabs' => TRUE,
         'requestUpdate' => 'background_style',
         'enablecolumns' => array(
@@ -566,21 +575,21 @@ unset($accordion_columns);
 $TCA['tx_bootstrappackage_accordion_item'] = array(
     'ctrl' => array(
         'label' => 'header',
-		'label_alt' => 'bodytext',
-		'sortby' => 'sorting',
-		'tstamp' => 'tstamp',
-		'crdate' => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'title' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:accordion_item',
-		'delete' => 'deleted',
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-		'origUid' => 't3_origuid',
-		'hideAtCopy' => FALSE,
-		'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
-		'languageField' => 'sys_language_uid',
+        'label_alt' => 'bodytext',
+        'sortby' => 'sorting',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'title' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:accordion_item',
+        'delete' => 'deleted',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'hideAtCopy' => FALSE,
+        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'languageField' => 'sys_language_uid',
         'dividers2tabs' => TRUE,
         'enablecolumns' => array(
             'disabled' => 'hidden',

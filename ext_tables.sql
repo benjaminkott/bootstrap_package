@@ -64,7 +64,7 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     t3_origuid int(11) DEFAULT '0' NOT NULL,
     sys_language_uid int(11) DEFAULT '0' NOT NULL,
     l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob NOT NULL,
+    l10n_diffsource mediumblob NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid),
@@ -106,7 +106,7 @@ CREATE TABLE tx_bootstrappackage_accordion_item (
     t3_origuid int(11) DEFAULT '0' NOT NULL,
     sys_language_uid int(11) DEFAULT '0' NOT NULL,
     l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob NOT NULL,
+    l10n_diffsource mediumblob NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid),

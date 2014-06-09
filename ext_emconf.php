@@ -23,16 +23,16 @@ $EM_CONF[$_EXTKEY] = array (
     'lockType' => '',
     'author' => 'Benjamin Kott',
     'author_email' => 'info@bk2k.info',
-    'author_company' => '',
+    'author_company' => 'private',
     'CGLcompliance' => NULL,
     'CGLcompliance_note' => NULL,
     'constraints' => array(
-		'depends' => array(
-			'typo3' => '6.2.0-6.2.99',
+        'depends' => array(
+            'typo3' => '6.2.0-6.2.99',
             'css_styled_content' => '6.2.0-6.2.99',
             'realurl' => '1.12.8-1.12.99',
-		),
-		'conflicts' => array(),
-		'suggests' => array()
-	),
+        ),
+        'conflicts' => array(),
+        'suggests' => array()
+    ),
 );

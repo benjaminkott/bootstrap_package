@@ -1,0 +1,3 @@
+mod.tx_themes {
+    constantCategoriesToShow = bootstrap package: basic,bootstrap package: advanced
+}
