@@ -36,6 +36,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
             text_color,
+            link,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             --palette--;;background,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
@@ -47,6 +48,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             header,
             text_color,
             image,
+            link,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             --palette--;;background,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
@@ -215,6 +217,32 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
                 'type'=>'passthrough'
             )
         ),
+        'link' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
+            'config' => array(
+                'eval' => 'trim',
+                'max' => 256,
+                'size' => 50,
+                'softref' => 'typolink',
+                'type' => 'input',
+                'wizards' => array(
+                    'link' => array(
+                        'icon' => 'link_popup.gif',
+                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+                        'module' => array(
+                            'name' => 'wizard_element_browser',
+                            'urlParameters' => array(
+                                'mode' => 'wizard',
+                            ),
+                        ),
+                        'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
+                        'type' => 'popup'
+                    ),
+                    '_PADDING' => 2
+                ),
+            ),
+        ),
         'header' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header',
@@ -256,12 +284,40 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image',
                 array(
+                    'appearance' => array(
+                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                    ),
                     'foreign_types' => array(
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
+                        ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
                                 title,
                                 alternative,
-                                link
+                                 --palette--;;filePalette
+                            '
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
+                            'showitem' => '
+                                --palette--;;filePalette
                             '
                         ),
                     ),
@@ -333,24 +389,39 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'background_image',
                 array(
+                    'appearance' => array(
+                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                    ),
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
-                            'showitem' => ''
+                            'showitem' => '
+                                --palette--;;filePalette
+                            '
                         ),
                     ),
                     'minitems' => 1,

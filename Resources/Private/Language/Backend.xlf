@@ -147,6 +147,9 @@
             <trans-unit id="carousel_item.tt_content">
                 <source>Carousel</source>
             </trans-unit>
+            <trans-unit id="carousel_item.link">
+                <source>Link</source>
+            </trans-unit>
             <trans-unit id="carousel_item.header">
                 <source>Header</source>
             </trans-unit>

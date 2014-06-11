@@ -30,8 +30,8 @@
             </f:switch>
             <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}" data-itemno="{iteration.index}" style="{itemStyle}">
                 <f:switch expression="{item.item_type}">
-                    <f:case value="header"><f:render partial="Carousel/Item/Header" arguments="{_all}" /></f:case>
-                    <f:case value="textandimage"><f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" /></f:case>
+                    <f:case value="header"><f:link.page pageUid="{item.link}"><f:render partial="Carousel/Item/Header" arguments="{_all}" /></f:link.page></f:case>
+                    <f:case value="textandimage"><f:link.page pageUid="{item.link}"><f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" /></f:link.page></f:case>
                     <f:case value="html">{item.bodytext->f:format.raw()}</f:case>
                 </f:switch>
             </div>
