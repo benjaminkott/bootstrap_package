@@ -1,11 +1,30 @@
 <?php
-if(!defined('TYPO3_MODE')){
-    die('Access denied.');
-}
-
-
-$TCA['tx_bootstrappackage_accordion_item'] = array(
-    'ctrl' => $TCA['tx_bootstrappackage_accordion_item']['ctrl'],
+return array(
+    'ctrl' => array(
+        'label' => 'header',
+        'label_alt' => 'bodytext',
+        'sortby' => 'sorting',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item',
+        'delete' => 'deleted',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'hideAtCopy' => FALSE,
+        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'languageField' => 'sys_language_uid',
+        'dividers2tabs' => TRUE,
+        'enablecolumns' => array(
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ),
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Icons/bootstrap_package_item_accordion.gif'
+    ),
     'interface' => array(
         'showRecordFieldList' => '
             hidden,

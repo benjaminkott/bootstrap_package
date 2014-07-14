@@ -1,11 +1,36 @@
 <?php
-if(!defined('TYPO3_MODE')){
-    die('Access denied.');
-}
-
-
-$TCA['tx_bootstrappackage_carousel_item'] = array(
-    'ctrl' => $TCA['tx_bootstrappackage_carousel_item']['ctrl'],
+return array(
+    'ctrl' => array(
+        'label' => 'header',
+        'sortby' => 'sorting',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'title'	=> 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
+        'type' => 'item_type',
+        'delete' => 'deleted',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'hideAtCopy' => FALSE,
+        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'languageField' => 'sys_language_uid',
+        'dividers2tabs' => TRUE,
+        'requestUpdate' => 'background_style',
+        'enablecolumns' => array(
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ),
+        'typeicons' => array(
+            'header' => 'tt_content_header.gif',
+            'html' => 'tt_content_html.gif',
+            'textandimage' => 'tt_content_textpic.gif',
+        ),
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Icons/bootstrap_package_item_teaser.gif'
+    ),
     'interface' => array(
         'showRecordFieldList' => '
             hidden,
