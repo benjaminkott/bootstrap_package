@@ -46,6 +46,7 @@ $TCA['tx_bootstrappackage_carousel_item'] = array(
         'textandimage' => array('showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
+            bodytext,
             text_color,
             image,
             link,

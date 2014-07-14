@@ -154,6 +154,7 @@ $TCA['tx_bootstrappackage_accordion_item'] = array(
                 'cols' => 40,
                 'rows' => 3,
             ),
+            'defaultExtras' => 'richtext[]'
         ),
     ),
 );
