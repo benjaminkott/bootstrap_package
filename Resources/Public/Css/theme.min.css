@@ -6279,6 +6279,9 @@ h5 {
 .image-below .image-wrap {
   margin-top: 20px;
 }
+.image-center .image > img {
+  margin: 0 auto;
+}
 .image-center-outer {
   width: 100%;
   position: relative;
