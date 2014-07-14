@@ -153,7 +153,7 @@ RTE {
         showButtons = *
 
         // Toolbar order
-        toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, orderedlist, unorderedlist, bar, left, center, right, copy, cut, paste, bar, undo, redo, removeformat, bar, link, unlink, linkcreator, bar, imageeditor, bar, line, insertparagraphbefore, insertparagraphafter, bar, chMode
+        toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, orderedlist, unorderedlist, bar, left, center, right, copy, cut, paste, bar, undo, redo, removeformat, bar, link, unlink, linkcreator, bar, imageeditor, bar, line, insertparagraphbefore, insertparagraphafter, bar, chMode, linebreak, table, tableproperties, tablerestyle, bar, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar, columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
 
         RTEHeightOverride = 700
         RTEWidthOverride = 700
@@ -182,10 +182,10 @@ RTE {
             overruleMode = ts_css
             dontConvBRtoParagraph = 1
             remapParagraphTag = p
-            allowTags = a, abbr, acronym, address, blockquote, b, br, caption, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, u, ul
+            allowTags = a, abbr, acronym, address, blockquote, b, br, caption, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, u, ul, table,thead,tfoot,tbody,tr,th,td
             denyTags >
             keepPDIVattribs = xml:lang,class,style,align
-            allowTagsOutside = img,hr,h1,h2,h3,h4,h5,h6,br,ul,ol,li,pre,address,span,blockquote
+            allowTagsOutside = img,hr,h1,h2,h3,h4,h5,h6,br,ul,ol,li,pre,address,span,blockquote,table
             allowTagsInTypolists = br,font,b,i,u,a,img,span
             dontRemoveUnknownTags_db = 1
             preserveTables = 0
@@ -198,6 +198,7 @@ RTE {
                 tags.img >
                 tags.div.allowedAttribs = class,style,align
                 tags.p.allowedAttribs = class,style,align
+                tags.table.allowedAttribs = class,style
                 removeTags = center, font, o:p, sdfield, strike, u
                 keepNonMatchedTags = protect
             }
