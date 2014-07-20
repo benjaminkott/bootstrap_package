@@ -15,7 +15,7 @@ class Less_Tree_Mixin_Definition extends Less_Tree_Ruleset{
 
 
 	// less.js : /lib/less/tree/mixin.js : tree.mixin.Definition
-	public function __construct($name, $params, $rules, $condition, $variadic = false, $frames = null ){
+	public function __construct($name, $params, $rules, $condition, $variadic = false, $frames = array() ){
 		$this->name = $name;
 		$this->selectors = array(new Less_Tree_Selector(array( new Less_Tree_Element(null, $name))));
 
