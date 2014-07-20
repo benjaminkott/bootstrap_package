@@ -343,7 +343,8 @@ page {
         keywords.override.field = keywords
     }
     includeCSS {
-        theme = {$page.includePath.css}theme.min.css
+        bootstrap = EXT:bootstrap_package/Resources/Private/Less/Bootstrap-3-1-1/bootstrap.less
+        theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
     }
     includeJSlibs {
         modernizr = {$page.includePath.javascript}Libs/modernizr-2.6.3.min.js

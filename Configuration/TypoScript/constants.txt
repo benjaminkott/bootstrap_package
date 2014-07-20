@@ -142,3 +142,9 @@ plugin.bootstrap_package_contentelements {
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
     }
 }
+
+
+##################################
+#### BOOTSTRAP LESS CONSTANTS ####
+##################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap-3-1-1/constants.txt">

@@ -67,3 +67,19 @@
 #typo3-index-php #t3-meta-links {
     margin-bottom: 2em;
 }
+
+
+
+dl.typo3-tstemplate-ceditor-constant {
+    padding: 0.8em 1em;
+    background-color: #FAFAFA;
+    margin: 2px 0;
+}
+
+div.typo3-tstemplate-ceditor-row {
+    line-height: 22px;
+}
+
+div.typo3-tstemplate-ceditor-row input {
+    margin-bottom: 0;
+}
