@@ -147,4 +147,4 @@ plugin.bootstrap_package_contentelements {
 ##################################
 #### BOOTSTRAP LESS CONSTANTS ####
 ##################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap-3-1-1/constants.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap/constants.txt">
