@@ -69,6 +69,9 @@ class CompileService {
     public function getVariablesFromConstants(){
         $variables = array();
         $prefix = "plugin.bootstrap_package.settings.less.";
+        if(!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0){
+            $GLOBALS['TSFE']->tmpl->generateConfig();
+        }
         foreach($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value){
             if(strpos($constant, $prefix) === 0){
                 $variables[substr($constant, strlen($prefix))] = $value;
