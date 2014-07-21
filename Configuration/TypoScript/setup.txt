@@ -83,7 +83,7 @@ lib.navigation.main {
             NO {
                 ATagTitle.field = abstract // description // title
                 ATagBeforeWrap = 1
-                linkWrap = |<mark class="bar"></mark>
+                linkWrap = |<span class="bar"></span>
                 wrapItemAndSub = <li>|</li>
                 wrapItemAndSub.override.cObject = COA
                 wrapItemAndSub.override.cObject {

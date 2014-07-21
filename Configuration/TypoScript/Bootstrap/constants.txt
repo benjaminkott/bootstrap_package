@@ -1,5 +1,5 @@
 #######################
-### BOOTSTRAP 3.1.1 ###
+### BOOTSTRAP 3.2.0 ###
 #######################
 
 ############################
@@ -42,7 +42,6 @@
 # customsubcategory=334=Close
 # customsubcategory=335=Code
 # customsubcategory=336=Type
-# customsubcategory=337=Miscellaneous
 
 plugin.bootstrap_package {
     settings {
@@ -113,11 +112,11 @@ plugin.bootstrap_package {
             headings-line-height = 1.1
             # cat=bootstrap package: styling/302/headings-color; type=string; label=@headings-color:
             headings-color = inherit
-            # cat=bootstrap package: styling/303/icon-font-path; type=string; label=@icon-font-path:
+            # cat=bootstrap package: styling/303/icon-font-path; type=string; label=@icon-font-path: Load fonts from this directory.
             icon-font-path = "/typo3conf/ext/bootstrap_package/Resources/Public/Fonts/"
-            # cat=bootstrap package: styling/303/icon-font-name; type=string; label=@icon-font-name:
+            # cat=bootstrap package: styling/303/icon-font-name; type=string; label=@icon-font-name: File name for all font files.
             icon-font-name = "glyphicons-halflings-regular"
-            # cat=bootstrap package: styling/303/icon-font-svg-id; type=string; label=@icon-font-svg-id:
+            # cat=bootstrap package: styling/303/icon-font-svg-id; type=string; label=@icon-font-svg-id: Element ID within SVG icon file.
             icon-font-svg-id = "glyphicons_halflingsregular"
             # cat=bootstrap package: styling/304/padding-base-vertical; type=string; label=@padding-base-vertical:
             padding-base-vertical = 6px
@@ -257,45 +256,45 @@ plugin.bootstrap_package {
             dropdown-link-disabled-color = @gray-light
             # cat=bootstrap package: styling/308/dropdown-header-color; type=string; label=@dropdown-header-color: Text color for headers within dropdown menus.
             dropdown-header-color = @gray-light
-            # cat=bootstrap package: styling/308/dropdown-caret-color; type=string; label=@dropdown-caret-color:
+            # cat=bootstrap package: styling/308/dropdown-caret-color; type=string; label=@dropdown-caret-color: Deprecated `@dropdown-caret-color` as of v3.1.0
             dropdown-caret-color = #000
             # cat=bootstrap package: styling/309/zindex-navbar; type=string; label=@zindex-navbar:
             zindex-navbar = 1000
             # cat=bootstrap package: styling/309/zindex-dropdown; type=string; label=@zindex-dropdown:
             zindex-dropdown = 1000
             # cat=bootstrap package: styling/309/zindex-popover; type=string; label=@zindex-popover:
-            zindex-popover = 1010
+            zindex-popover = 1060
             # cat=bootstrap package: styling/309/zindex-tooltip; type=string; label=@zindex-tooltip:
-            zindex-tooltip = 1030
+            zindex-tooltip = 1070
             # cat=bootstrap package: styling/309/zindex-navbar-fixed; type=string; label=@zindex-navbar-fixed:
             zindex-navbar-fixed = 1030
             # cat=bootstrap package: styling/309/zindex-modal-background; type=string; label=@zindex-modal-background:
             zindex-modal-background = 1040
             # cat=bootstrap package: styling/309/zindex-modal; type=string; label=@zindex-modal:
             zindex-modal = 1050
-            # cat=bootstrap package: styling/310/screen-xs; type=string; label=@screen-xs:
+            # cat=bootstrap package: styling/310/screen-xs; type=string; label=@screen-xs: Deprecated `@screen-xs` as of v3.0.1
             screen-xs = 480px
-            # cat=bootstrap package: styling/310/screen-xs-min; type=string; label=@screen-xs-min:
+            # cat=bootstrap package: styling/310/screen-xs-min; type=string; label=@screen-xs-min: Deprecated `@screen-xs-min` as of v3.2.0
             screen-xs-min = @screen-xs
-            # cat=bootstrap package: styling/310/screen-phone; type=string; label=@screen-phone:
+            # cat=bootstrap package: styling/310/screen-phone; type=string; label=@screen-phone: Deprecated `@screen-phone` as of v3.0.1
             screen-phone = @screen-xs-min
-            # cat=bootstrap package: styling/310/screen-sm; type=string; label=@screen-sm:
+            # cat=bootstrap package: styling/310/screen-sm; type=string; label=@screen-sm: Deprecated `@screen-sm` as of v3.0.1
             screen-sm = 768px
             # cat=bootstrap package: styling/310/screen-sm-min; type=string; label=@screen-sm-min:
             screen-sm-min = @screen-sm
-            # cat=bootstrap package: styling/310/screen-tablet; type=string; label=@screen-tablet:
+            # cat=bootstrap package: styling/310/screen-tablet; type=string; label=@screen-tablet: Deprecated `@screen-tablet` as of v3.0.1
             screen-tablet = @screen-sm-min
-            # cat=bootstrap package: styling/310/screen-md; type=string; label=@screen-md:
+            # cat=bootstrap package: styling/310/screen-md; type=string; label=@screen-md: Deprecated `@screen-md` as of v3.0.1
             screen-md = 992px
             # cat=bootstrap package: styling/310/screen-md-min; type=string; label=@screen-md-min:
             screen-md-min = @screen-md
-            # cat=bootstrap package: styling/310/screen-desktop; type=string; label=@screen-desktop:
+            # cat=bootstrap package: styling/310/screen-desktop; type=string; label=@screen-desktop: Deprecated `@screen-desktop` as of v3.0.1
             screen-desktop = @screen-md-min
-            # cat=bootstrap package: styling/310/screen-lg; type=string; label=@screen-lg:
+            # cat=bootstrap package: styling/310/screen-lg; type=string; label=@screen-lg: Deprecated `@screen-lg` as of v3.0.1
             screen-lg = 1200px
             # cat=bootstrap package: styling/310/screen-lg-min; type=string; label=@screen-lg-min:
             screen-lg-min = @screen-lg
-            # cat=bootstrap package: styling/310/screen-lg-desktop; type=string; label=@screen-lg-desktop:
+            # cat=bootstrap package: styling/310/screen-lg-desktop; type=string; label=@screen-lg-desktop: Deprecated `@screen-lg-desktop` as of v3.0.1
             screen-lg-desktop = @screen-lg-min
             # cat=bootstrap package: styling/310/screen-xs-max; type=string; label=@screen-xs-max:
             screen-xs-max = (@screen-sm-min - 1)
@@ -308,7 +307,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/311/grid-gutter-width; type=string; label=@grid-gutter-width: Padding between columns. Gets divided in half for the left and right.
             grid-gutter-width = 30px
             # cat=bootstrap package: styling/311/grid-float-breakpoint; type=string; label=@grid-float-breakpoint: Point at which the navbar becomes uncollapsed.
-            grid-float-breakpoint = @screen-sm-min
+            grid-float-breakpoint = @screen-md-min
             # cat=bootstrap package: styling/311/grid-float-breakpoint-max; type=string; label=@grid-float-breakpoint-max: Point at which the navbar begins collapsing.
             grid-float-breakpoint-max = (@grid-float-breakpoint - 1)
             # cat=bootstrap package: styling/312/container-tablet; type=string; label=@container-tablet:
@@ -466,7 +465,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/318/pager-active-color; type=string; label=@pager-active-color:
             pager-active-color = @pagination-active-color
             # cat=bootstrap package: styling/318/pager-disabled-color; type=string; label=@pager-disabled-color:
-            pager-disabled-color = @gray-light
+            pager-disabled-color = @pagination-disabled-color
             # cat=bootstrap package: styling/319/jumbotron-padding; type=string; label=@jumbotron-padding:
             jumbotron-padding = 30px
             # cat=bootstrap package: styling/319/jumbotron-color; type=string; label=@jumbotron-color:
@@ -625,24 +624,36 @@ plugin.bootstrap_package {
             list-group-border = #ddd
             # cat=bootstrap package: styling/327/list-group-border-radius; type=string; label=@list-group-border-radius: List group border radius
             list-group-border-radius = @border-radius-base
-            # cat=bootstrap package: styling/327/list-group-hover-bg; type=string; label=@list-group-hover-bg: Background color of single list elements on hover
+            # cat=bootstrap package: styling/327/list-group-hover-bg; type=string; label=@list-group-hover-bg: Background color of single list items on hover
             list-group-hover-bg = #f5f5f5
-            # cat=bootstrap package: styling/327/list-group-active-color; type=string; label=@list-group-active-color: Text color of active list elements
+            # cat=bootstrap package: styling/327/list-group-active-color; type=string; label=@list-group-active-color: Text color of active list items
             list-group-active-color = @component-active-color
-            # cat=bootstrap package: styling/327/list-group-active-bg; type=string; label=@list-group-active-bg: Background color of active list elements
+            # cat=bootstrap package: styling/327/list-group-active-bg; type=string; label=@list-group-active-bg: Background color of active list items
             list-group-active-bg = @component-active-bg
             # cat=bootstrap package: styling/327/list-group-active-border; type=string; label=@list-group-active-border: Border color of active list elements
             list-group-active-border = @list-group-active-bg
-            # cat=bootstrap package: styling/327/list-group-active-text-color; type=string; label=@list-group-active-text-color:
+            # cat=bootstrap package: styling/327/list-group-active-text-color; type=string; label=@list-group-active-text-color: Text color for content within active list items
             list-group-active-text-color = lighten(@list-group-active-bg, 40%)
+            # cat=bootstrap package: styling/327/list-group-disabled-color; type=string; label=@list-group-disabled-color: Text color of disabled list items
+            list-group-disabled-color = @gray-light
+            # cat=bootstrap package: styling/327/list-group-disabled-bg; type=string; label=@list-group-disabled-bg: Background color of disabled list items
+            list-group-disabled-bg = @gray-lighter
+            # cat=bootstrap package: styling/327/list-group-disabled-text-color; type=string; label=@list-group-disabled-text-color: Text color for content within disabled list items
+            list-group-disabled-text-color = @list-group-disabled-color
             # cat=bootstrap package: styling/327/list-group-link-color; type=string; label=@list-group-link-color:
             list-group-link-color = #555
+            # cat=bootstrap package: styling/327/list-group-link-hover-color; type=string; label=@list-group-link-hover-color:
+            list-group-link-hover-color = @list-group-link-color
             # cat=bootstrap package: styling/327/list-group-link-heading-color; type=string; label=@list-group-link-heading-color:
             list-group-link-heading-color = #333
             # cat=bootstrap package: styling/328/panel-bg; type=string; label=@panel-bg:
             panel-bg = #fff
             # cat=bootstrap package: styling/328/panel-body-padding; type=string; label=@panel-body-padding:
             panel-body-padding = 15px
+            # cat=bootstrap package: styling/328/panel-heading-padding; type=string; label=@panel-heading-padding:
+            panel-heading-padding = 10px 15px
+            # cat=bootstrap package: styling/328/panel-footer-padding; type=string; label=@panel-footer-padding:
+            panel-footer-padding = @panel-heading-padding
             # cat=bootstrap package: styling/328/panel-border-radius; type=string; label=@panel-border-radius:
             panel-border-radius = @border-radius-base
             # cat=bootstrap package: styling/328/panel-inner-border; type=string; label=@panel-inner-border: Border color for elements within panels
@@ -767,6 +778,8 @@ plugin.bootstrap_package {
             pre-border-color = #ccc
             # cat=bootstrap package: styling/335/pre-scrollable-max-height; type=string; label=@pre-scrollable-max-height:
             pre-scrollable-max-height = 340px
+            # cat=bootstrap package: styling/336/component-offset-horizontal; type=string; label=@component-offset-horizontal: Horizontal offset for forms and lists.
+            component-offset-horizontal = 180px
             # cat=bootstrap package: styling/336/text-muted; type=string; label=@text-muted: Text muted color
             text-muted = @gray-light
             # cat=bootstrap package: styling/336/abbr-border-color; type=string; label=@abbr-border-color: Abbreviations and acronyms border color
@@ -781,10 +794,10 @@ plugin.bootstrap_package {
             blockquote-border-color = @gray-lighter
             # cat=bootstrap package: styling/336/page-header-border-color; type=string; label=@page-header-border-color: Page header border color
             page-header-border-color = @gray-lighter
-            # cat=bootstrap package: styling/337/hr-border; type=string; label=@hr-border: Horizontal line color.
+            # cat=bootstrap package: styling/336/dl-horizontal-offset; type=string; label=@dl-horizontal-offset: Width of horizontal description list titles
+            dl-horizontal-offset = @component-offset-horizontal
+            # cat=bootstrap package: styling/336/hr-border; type=string; label=@hr-border: Horizontal line color.
             hr-border = @gray-lighter
-            # cat=bootstrap package: styling/337/component-offset-horizontal; type=string; label=@component-offset-horizontal: Horizontal offset for forms and lists.
-            component-offset-horizontal = 180px
 
         }
     }
