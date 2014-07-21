@@ -94,7 +94,7 @@ AddDefaultCharset utf-8
 # ------------------------------------------------------------------------------
 <IfModule mod_rewrite.c>
 
-    Options +FollowSymlinks
+    Options +SymLinksIfOwnerMatch
 
     # Enable URL rewriting
     RewriteEngine On
