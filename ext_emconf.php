@@ -34,6 +34,7 @@ $EM_CONF[$_EXTKEY] = array (
         ),
         'conflicts' => array(
             'fluidpages' => '*',
+            'dyncss' => '*',
         ),
         'suggests' => array()
     ),
