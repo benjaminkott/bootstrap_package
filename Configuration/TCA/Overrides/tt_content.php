@@ -6,31 +6,31 @@
 $backupCTypeItems = $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'];
 $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:theme_name',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name',
         '--div--'
     ),
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:content_element.texticon',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon',
         'bootstrap_package_texticon',
         'i/tt_content_header.gif'
     ),
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:content_element.carousel',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
         'bootstrap_package_carousel',
         'i/tt_content_header.gif'
     ),
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:content_element.accordion',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
         'bootstrap_package_accordion',
         'i/tt_content_header.gif'
     ),
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:content_element.panel',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
         'bootstrap_package_panel',
         'i/tt_content_header.gif'
     ),
     array(
-        'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Backend.xlf:content_element.listgroup',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
         'bootstrap_package_listgroup',
         'i/tt_content_header.gif'
     )
