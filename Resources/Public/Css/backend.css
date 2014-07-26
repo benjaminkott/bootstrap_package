@@ -1,3 +1,6 @@
+/**
+ * Custom logo on top in backend
+ */
 #typo3-logo {
     line-height: 30px;
     width: auto;
@@ -19,24 +22,57 @@
     -webkit-box-shadow: -1px 0 #000;
     box-shadow: -1px 0 #000;
 }
+
+
+/**
+ * Contant-Editor adjustments
+ */
+dl.typo3-tstemplate-ceditor-constant {
+    background-color: #FAFAFA;
+    padding: 0.8em 1em;
+    margin: 2px 0;
+}
+div.typo3-tstemplate-ceditor-row {
+    line-height: 22px;
+}
+
+div.typo3-tstemplate-ceditor-row input {
+    margin-bottom: 0;
+}
+
+
+/**
+ * Login Screen
+ */
 #typo3-index-php {
     background-image: none;
     background-color: #333333;
 }
-#typo3-index-php .t3-login-form-image {
-    margin-bottom: 2em;
-}
-#typo3-index-php .t3-login-form-image img {
+#typo3-index-php .t3-login-logo {
     display: block;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0 auto 2em auto;
 }
-#typo3-index-php .shadow {
+#typo3-index-php .shadow  {
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+.t3-headline {
+    border-radius: 3px 3px 0 0;
+}
+.t3-headline h2 {
+    background-position: 12px center!important;
+    padding: 7px 20px 7px 40px!important;
+    line-height: 24px!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .t3-login-box-body {
     background-image: none;
-    background-color: #dddddd;
+    background-color: #eeeeee;
+    border-radius: 0 0 3px 3px;
 }
 #typo3-index-php .t3-login-field input {
     border-radius: 3px;
@@ -63,23 +99,8 @@
     margin-top: 2em;
     padding-top: 0px;
     border-top: none;
+    line-height: 1.5em;
 }
 #typo3-index-php #t3-meta-links {
     margin-bottom: 2em;
-}
-
-
-
-dl.typo3-tstemplate-ceditor-constant {
-    padding: 0.8em 1em;
-    background-color: #FAFAFA;
-    margin: 2px 0;
-}
-
-div.typo3-tstemplate-ceditor-row {
-    line-height: 22px;
-}
-
-div.typo3-tstemplate-ceditor-row input {
-    margin-bottom: 0;
 }
