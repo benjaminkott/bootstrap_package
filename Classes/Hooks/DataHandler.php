@@ -63,5 +63,14 @@ class DataHandler {
             $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_nostyles']['vDEF'] = 1;
             $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_tableclass']['vDEF'] = implode(" ",$acctables_tableclasses);
         }
+
+        /**
+         * Unset height and width for textpic and image to avoid wrong image rendering
+         */
+        if($table == 'tt_content' && ($incomingFieldArray['CType'] == 'textpic' || $incomingFieldArray['CType'] == 'image')){
+            $incomingFieldArray['imageheight'] = '';
+            $incomingFieldArray['imagewidth'] = '';
+        }
+
     }
 }

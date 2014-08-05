@@ -121,6 +121,21 @@ TCEFORM {
             disableNoMatchingValueElement = 1
         }
 
+        // Disable imageheight and imagewidth for textpic and image
+        // to avoid incorrect rendering in frontend 
+        imageheight {
+            types {
+                textpic.disabled = 1
+                image.disabled = 1
+            }
+        }
+        imagewidth {
+            types {
+                textpic.disabled = 1
+                image.disabled = 1
+            }
+        }
+
         // NOBODY wants or should edit this - really, let them disappear
         table_bgColor.disabled = 1
         table_border.disabled = 1
