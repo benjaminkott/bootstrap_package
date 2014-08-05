@@ -352,7 +352,7 @@ page {
         wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
     }
     includeJSFooterlibs  {
-        jquery = {$page.includePath.javascript}Libs/jquery-1.10.2.min.js
+        jquery = {$page.includePath.javascript}Libs/jquery-1.11.1.min.js
         jquery.forceOnTop = 1
         bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
         responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
