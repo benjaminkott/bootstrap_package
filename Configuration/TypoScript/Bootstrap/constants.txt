@@ -113,7 +113,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/302/headings-color; type=string; label=@headings-color:
             headings-color = inherit
             # cat=bootstrap package: styling/303/icon-font-path; type=string; label=@icon-font-path: Load fonts from this directory.
-            icon-font-path = "/typo3conf/ext/bootstrap_package/Resources/Public/Fonts/"
+            icon-font-path = "../../typo3conf/ext/bootstrap_package/Resources/Public/Fonts/"
             # cat=bootstrap package: styling/303/icon-font-name; type=string; label=@icon-font-name: File name for all font files.
             icon-font-name = "glyphicons-halflings-regular"
             # cat=bootstrap package: styling/303/icon-font-svg-id; type=string; label=@icon-font-svg-id: Element ID within SVG icon file.
