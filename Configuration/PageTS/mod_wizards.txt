@@ -1,3 +1,6 @@
+####################################
+#### BOOTSTRAP CONTENT ELEMENTS ####
+####################################
 mod.wizards {
     newContentElement {
         wizardItems {
@@ -38,6 +41,32 @@ mod.wizards {
                     }
                 }
                 show = *
+            }
+        }
+    }
+}
+
+
+##############
+#### FORM ####
+##############
+mod.wizards {
+    form {
+        defaults {
+            tabs {
+                elements {
+                    accordions {
+                        basic {
+                            showButtons = textarea, textline, select, fileupload, submit,
+                        }
+                        predefined {
+                            showButtons = email, radiogroup, checkboxgroup
+                        }
+                        content {
+                            showButtons = header, textblock
+                        }
+                    }
+                }
             }
         }
     }

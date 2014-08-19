@@ -718,74 +718,194 @@ tt_content.textpic.20 {
 plugin.tx_form._CSS_DEFAULT_STYLE >
 
 tt_content.mailform.20 {
-    layout {
-        form (
-            <form class="form-horizontal">
-                <containerWrap />
-            </form>
-        )
-        containerWrap (
-            <div>
-                <elements />
-            </div>
-        )
-        elementWrap (
-            <div>
-                <element />
-            </div>
-        )
-        fieldset (
-            <fieldset><legend /><containerWrap /></fieldset>
-        )
-        label (
-            <label>
-                <labelvalue />
-                <mandatory />
-            </label>
-        )
-        error (
-            <span class="help-block text-danger"><errorvalue /></span>
-        )
-        textline (
-            <div class="form-group">
-                <div class="col-sm-3 control-label">
+    form {
+        layout {
+            form (
+                <form class="form-horizontal">
+                    <containerWrap />
+                </form>
+            )
+            containerWrap (
+                <div>
+                    <elements />
+                </div>
+            )
+            elementWrap (
+                <div>
+                    <element />
+                </div>
+            )
+            fieldset (
+                <fieldset>
+                    <legend />
+                    <containerWrap />
+                </fieldset>
+            )
+            checkbox (
+                <div class="checkbox">
+                    <input />
                     <label />
                 </div>
-                <div class="col-sm-5">
-                    <input class="form-control" />
-                    <error />
-                </div>
-            </div>
-        )
-        textarea (
-            <div class="form-group">
-                <div class="col-sm-3 control-label">
+            )
+            radio (
+                <div class="radio">
+                    <input />
                     <label />
                 </div>
-                <div class="col-sm-5">
-                    <textarea class="form-control" />
+            )
+            radiogroup (
+                <div class="form-group">
+                    <div class="col-sm-3 control-label">
+                        <legend />
+                    </div>
+                    <div class="col-sm-5">
+                        <elements />
+                    </div>
+                </div>
+            )
+            checkboxgroup < .radiogroup
+            label (
+                <label>
+                    <labelvalue />
+                    <mandatory />
                     <error />
-                </div>
-            </div>
-        )
-        submit (
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <input class="btn btn-primary" />
-                </div>
-            </div>
-        )
-        checkbox (
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <div class="checkbox">
-                        <input />
+                </label>
+            )
+            legend (
+                <legend>
+                    <legendvalue />
+                    <mandatory />
+                    <error />
+                </legend>
+            )
+            error (
+                <span class="help-block text-danger"><errorvalue /></span>
+            )
+            textline (
+                <div class="form-group">
+                    <div class="col-sm-3 control-label">
                         <label />
                     </div>
-                    <error />
+                    <div class="col-sm-5">
+                        <input class="form-control" />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+            fileupload < .textline
+            textarea (
+                <div class="form-group">
+                    <div class="col-sm-3 control-label">
+                        <label />
+                    </div>
+                    <div class="col-sm-5">
+                        <textarea class="form-control" />
+                    </div>
+                </div>
+            )
+            submit (
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input class="btn btn-primary" />
+                    </div>
+                </div>
+            )
+            select (
+                <div class="form-group">
+                    <div class="col-sm-3 control-label">
+                        <label />
+                    </div>
+                    <div class="col-sm-5">
+                        <select class="form-control">
+                            <elements />
+                        </select>
+                    </div>
+                </div>
+            )
+        }
+    }
+    confirmation {
+        layout {
+            confirmation (
+                <div class="form-horizontal">
+                    <containerWrap />
+                </div>
+            )
+            containerWrap (
+                <div>
+                    <elements />
+                </div>
+            )
+            elementWrap (
+                <div>
+                    <element />
+                </div>
+            )
+            fieldset (
+                <containerWrap />
+            )
+            checkbox (
+                <label />
+                <inputvalue />
+            )
+            radio (
+                <label />
+                <inputvalue />
+            )
+            radiogroup (
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <strong><legend /></strong>
+                    </div>
+                    <div class="col-sm-5">
+                        <elements />
+                    </div>
+                </div>
+            )
+            checkboxgroup < .radiogroup
+            label (
+                <labelvalue />
+            )
+            legend (
+                <legendvalue />
+            )
+            textline (
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <strong>
+                            <label />
+                        </strong>
+                    </div>
+                    <div class="col-sm-5">
+                        <inputvalue />
+                    </div>
+                </div>
+            )
+            fileupload < .textline
+            textarea (
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <strong>
+                            <label />
+                        </strong>
+                    </div>
+                    <div class="col-sm-5">
+                        <inputvalue />
+                    </div>
+                </div>
+            )
+            select (
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <strong>
+                            <label />
+                        </strong>
+                    </div>
+                    <div class="col-sm-5">
+                        <elements />
+                    </div>
+                </div>
+            )
+        }
     }
     stdWrap.wrap = |
 }
