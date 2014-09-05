@@ -47,7 +47,6 @@ class DataRelationViewHelper extends AbstractViewHelper {
      * @return string
      */
     public function render($uid,$table,$foreignField = 'tt_content',$selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
-
         if($uid && $table){
             $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
             $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' '.$additionalWhere. $cObj->enableFields($table);
@@ -57,18 +56,18 @@ class DataRelationViewHelper extends AbstractViewHelper {
             $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
             $items = array();
             foreach ($data as $record) {
-                $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
+                $GLOBALS['TSFE']->sys_page->versionOL($table,$record);                
+                if(is_array($record)) {
+                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
+                }
             }
         }else{
             $items = NULL;
         }
-
         $this->templateVariableContainer->add($as, $items);
         $content = $this->renderChildren();
         $this->templateVariableContainer->remove($as);
-
         return $content;
-
     }
 
 }
