@@ -1,4 +1,4 @@
-<div class="navbar navbar-{themeNavigationstyle} navbar-top{f:if(condition:logoFile,then:' navbar-has-image')}" role="navigation">
+<div class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}" role="navigation">
     <div class="container">
         <div class="navbar-header navbar-header-main">
             <f:if condition="{logoFile}">

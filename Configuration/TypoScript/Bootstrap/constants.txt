@@ -323,7 +323,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/312/container-lg; type=string; label=@container-lg: For `@screen-lg-min` and up.
             container-lg = @container-large-desktop
             # cat=bootstrap package: styling/313/navbar-height; type=string; label=@navbar-height:
-            navbar-height = 80px
+            navbar-height = 70px
             # cat=bootstrap package: styling/313/navbar-margin-bottom; type=string; label=@navbar-margin-bottom:
             navbar-margin-bottom = @line-height-computed
             # cat=bootstrap package: styling/313/navbar-border-radius; type=string; label=@navbar-border-radius:

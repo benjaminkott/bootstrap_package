@@ -323,6 +323,8 @@ page {
 
             themeNavigationstyle = TEXT
             themeNavigationstyle.value = {$page.theme.navigationstyle}
+            themeNavigationtype = TEXT
+            themeNavigationtype.value = {$page.theme.navigationtype}
             themeCopyright = TEXT
             themeCopyright.value = {$page.theme.copyright.enable}
             themeCopyrightText = TEXT

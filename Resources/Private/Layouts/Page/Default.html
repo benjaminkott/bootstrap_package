@@ -1,4 +1,4 @@
-<div class="body-bg">
+<div class="body-bg{f:if(condition:themeNavigationtype, then:' body-bg-{themeNavigationtype}')}">
     <f:render partial="Navigation/Main" arguments="{_all}" />
     <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb" />
     <!--TYPO3SEARCH_begin-->
