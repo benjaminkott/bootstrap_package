@@ -27,491 +27,166 @@ namespace BK2K\BootstrapPackage\Hooks\Options;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendLayout\BackendLayout;
 use TYPO3\CMS\Backend\View\BackendLayout\BackendLayoutCollection;
 use TYPO3\CMS\Backend\View\BackendLayout\DataProviderContext;
 use TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
+ * This Provider adds Backend Layouts based on PageTsConfig
+ * 
+ * = Example =
+ * mod {
+ *   web_layout {
+ *     BackendLayouts {
+ *       example {
+ *         title = Example
+ *         config {
+ *           backend_layout {
+ *             colCount = 1
+ *             rowCount = 2
+ *             rows {
+ *               1 {
+ *                 columns {
+ *                   1 {
+ *                     name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.3
+ *                     colPos = 3
+ *                     colspan = 1
+ *                   }
+ *                 }
+ *               }
+ *               2 {
+ *                 columns {
+ *                   1 {
+ *                     name = Main
+ *                     colPos = 0
+ *                     colspan = 1
+ *                   }
+ *                 }
+ *               }
+ *             }
+ *           }
+ *         }
+ *         icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default.gif
+ *       }
+ *     }
+ *   }
+ * }
+ * 
  * @author Benjamin Kott <info@bk2k.info>
  */
 class BackendLayoutDataProvider implements DataProviderInterface {
 
     /**
-     * Default Backend Layouts for Bootstrap Theme
+     * Internal Backend Layout stack
      *
      * @var array
      */
-    protected $backendLayouts = array(
-        'default' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 3
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.3
-                                    colPos = 3
-                                    colspan = 6
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 6
-                                }
-                            }
-                        }
-                        3 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default.gif'
-        ),
-        'default_2_columns' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_2_columns',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 2
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 4
-                                }
-                                2 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.2
-                                    colPos = 2
-                                    colspan = 2
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_2_columns.gif'
-        ),
-        'default_2_columns_offset_right' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_2_columns_offset_right',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 2
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 4
-                                }
-                                2 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.2
-                                    colPos = 2
-                                    colspan = 2
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_2_columns_offset_right.gif'
-        ),
-        'default_3_columns' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_3_columns',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 2
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.0
-                                    colPos = 1
-                                    colspan = 1
-                                }
-                                2 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 4
-                                }
-                                3 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.2
-                                    colPos = 2
-                                    colspan = 1
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_3_columns.gif'
-        ),
-        'default_subnavigation' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 2
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 5
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.subnav
-                                    colspan = 1
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation.gif'
-        ),
-        'default_subnavigation_2_columns' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation_2_columns',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 2
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 4
-                                }
-                                2 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.2
-                                    colPos = 2
-                                    colspan = 1
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.subnav
-                                    colspan = 1
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation_2_columns.gif'
-        ),
-        'special_start' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.special_start',
-            'config' => '
-                backend_layout {
-                    colCount = 3
-                    rowCount = 4
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.3
-                                    colPos = 3
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.middle1
-                                    colPos = 20
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.middle2
-                                    colPos = 21
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.middle3
-                                    colPos = 22
-                                }
-                            }
-                        }
-                        3 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        4 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/special_start.gif'
-        ),
-        'special_feature' => array(
-            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.special_feature',
-            'config' => '
-                backend_layout {
-                    colCount = 6
-                    rowCount = 8
-                    rows {
-                        1 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.3
-                                    colPos = 3
-                                    colspan = 6
-                                }
-                            }
-                        }
-                        2 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.1
-                                    colPos = 0
-                                    colspan = 6
-                                }
-                            }
-                        }
-                        3 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special1
-                                    colPos = 30
-                                    colspan = 3
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special2
-                                    colPos = 31
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        4 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special3
-                                    colPos = 32
-                                    colspan = 3
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special4
-                                    colPos = 33
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        5 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.main2
-                                    colPos = 4
-                                    colspan = 6
-                                }
-                            }
-                        }
-                        6 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special5
-                                    colPos = 34
-                                    colspan = 3
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special6
-                                    colPos = 35
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        7 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special7
-                                    colPos = 36
-                                    colspan = 3
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special8
-                                    colPos = 37
-                                    colspan = 3
-                                }
-                            }
-                        }
-                        8 {
-                            columns {
-                                1 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
-                                    colPos = 10
-                                    colspan = 2
-                                }
-                                2 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
-                                    colPos = 11
-                                    colspan = 2
-                                }
-                                3 {
-                                    name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
-                                    colPos = 12
-                                    colspan = 2
-                                }
-                            }
-                        }
-                    }
-                }
-            ',
-            'icon' => 'EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/special_feature.gif'
-        )
-    );
+    protected $backendLayouts = array();
+
+    /**
+     * PageTs Config
+     *
+     * @var array
+     */
+    protected $pageTsConfig = array();
+
+    /**
+     * Set PageTsConfig
+     * 
+     * @param array $pageTsConfig
+     * @return void
+     */
+    protected function setPageTsConfig($pageTsConfig){
+        $this->pageTsConfig = $pageTsConfig;
+    }
+    
+    /**
+     * Get PageTsConfig
+     * 
+     * @return array
+     */
+    protected function getPageTsConfig(){
+        return $this->pageTsConfig;
+    }
+    
+    /**
+     * Gets PageTsConfig from DataProviderContext if available,
+     * if not it will be generated for the current Page.
+     * 
+     * @param DataProviderContext $dataProviderContext
+     * @return void
+     */
+    protected function generatePageTsConfig($dataProviderContext = NULL){
+        if($dataProviderContext === NULL){
+            $pageId = (int) GeneralUtility::_GP('id');
+            $this->setPageTsConfig((array) BackendUtility::getPagesTSconfig($pageId));
+        }else{
+            $this->setPageTsConfig((array) $dataProviderContext->getPageTsConfig());
+        }    
+    }
+    
+    /**
+     * Generate the Backend Layout configs
+     * 
+     * @param DataProviderContext $dataProviderContext
+     * @return void
+     */
+    protected function generateBackendLayouts($dataProviderContext = NULL){
+        $this->generatePageTsConfig($dataProviderContext);
+        $pageTsConfig = $this->getPageTsConfig();
+        if(!empty($pageTsConfig['mod.']['web_layout.']['BackendLayouts.'])) {
+            $backendLayouts = (array) $pageTsConfig['mod.']['web_layout.']['BackendLayouts.'];
+            foreach($backendLayouts as $identifier => $data){
+                $backendLayout = $this->generateBackendLayoutFromTsConfig($identifier, $data);
+                $this->attachBackendLayout($backendLayout);
+            }
+        }
+    }
+    
+    /**
+     * Generates a Backend Layout from PageTsConfig array
+     * 
+     * @return mixed
+     */
+    protected function generateBackendLayoutFromTsConfig($identifier, $data){
+        if(!empty($data['config.']['backend_layout.']) && is_array($data['config.']['backend_layout.'])){
+            $backendLayout['uid'] = substr($identifier, 0, -1);
+            $backendLayout['title'] = ($data['title']) ? $data['title'] : $backendLayout['uid'];
+            $backendLayout['icon'] = ($data['icon']) ? $data['icon'] : '';
+            /* Convert PHP array back to plain TypoScript so it can be procecced */
+            $config = \TYPO3\CMS\Core\Utility\ArrayUtility::flatten($data['config.']);
+            $backendLayout['config'] = '';
+            foreach($config as $row => $value){
+                $backendLayout['config'] .= $row . " = " . $value. "\r\n";
+            }
+            return $backendLayout;
+        }
+        return NULL;
+    }
+    
+    /**
+     * Attach Backend Layout to internal Stack
+     * 
+     * @param mixed $backendLayout
+     */
+    protected function attachBackendLayout($backendLayout = NULL){
+        if($backendLayout){
+            $this->backendLayouts[$backendLayout['uid']] = $backendLayout;
+        }
+    }
 
     /**
      * @param DataProviderContext $dataProviderContext
      * @param BackendLayoutCollection $backendLayoutCollection
      * @return void
      */
-    public function addBackendLayouts(DataProviderContext $dataProviderContext, BackendLayoutCollection $backendLayoutCollection) {
-        foreach ($this->backendLayouts as $key => $data) {
-            $data['uid'] = $key;
-            $backendLayout = $this->createBackendLayout($data);
+    public function addBackendLayouts(DataProviderContext $dataProviderContext, BackendLayoutCollection $backendLayoutCollection) {       
+        $this->generateBackendLayouts($dataProviderContext);
+        foreach ($this->backendLayouts as $backendLayoutConfig) {
+            $backendLayout = $this->createBackendLayout($backendLayoutConfig);
             $backendLayoutCollection->add($backendLayout);
         }
     }
@@ -524,6 +199,7 @@ class BackendLayoutDataProvider implements DataProviderInterface {
      * @return NULL|BackendLayout
      */
     public function getBackendLayout($identifier, $pageId){
+        $this->generateBackendLayouts();
         $backendLayout = NULL;
         if(array_key_exists($identifier,$this->backendLayouts)) {
             return $this->createBackendLayout($this->backendLayouts[$identifier]);

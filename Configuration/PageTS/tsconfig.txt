@@ -1,3 +1,16 @@
+########################
+#### BACKENDLAYOUTS ####
+########################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default_2_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default_2_columns_offset_right.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default_3_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default_subnavigation.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/default_subnavigation_2_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/special_feature.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/BackendLayouts/special_start.txt">
+
+
 ##################
 #### ADMPANEL ####
 ##################
@@ -122,7 +135,7 @@ TCEFORM {
         }
 
         // Disable imageheight and imagewidth for textpic and image
-        // to avoid incorrect rendering in frontend 
+        // to avoid incorrect rendering in frontend
         imageheight {
             types {
                 textpic.disabled = 1
