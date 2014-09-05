@@ -6,9 +6,9 @@
 .. include:: ../../Includes.txt
 
 
-==============================
+=======================
 Extension Configuration
-==============================
+=======================
 
 Use the extension manager to adjust the Bootstrap Package to your needs.
 
@@ -16,9 +16,12 @@ Use the extension manager to adjust the Bootstrap Package to your needs.
 	:width: 500px
 	:alt: Bootstrap Package Extension Configuration
 
+Backend Skin
+============
+The backend skin is disabled by default if ext:themes is installed, but you can force to load the backend_skin.
 
 Use RealURL Config from BootstrapPackage
-==========
+========================================
 The Boostrap Package comes with its own RealURL configuration and will override your Configuration by default.
 If you want to use your own RealURL config you can disable this option.
 
@@ -26,7 +29,7 @@ If you want to use your own RealURL config you can disable this option.
 typo3conf/ext/bootstrap_package/RealURL/Default.php
 
 Backend Logo & Login Logo
-==========
+=========================
 You can replace the default TYPO3 logos in the backend with the logo of your company or your customer.
 The path to the logofile has to be relative to the TYPO3 backend.
 

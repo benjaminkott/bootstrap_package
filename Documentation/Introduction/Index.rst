@@ -10,20 +10,23 @@
 Introduction
 ==============================
 
-The Boostrap Package is a Theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 3.1.1
+The Boostrap Package is a Theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 3.2.0
 
 Features
 ==============================
 
-* Full configured TypoScript setup
-* Completly adjustable via TypoScript
+* Full configured TypoScript Setup provided as Static Template
+* Completely adjustable via TypoScript Constants
 * Preconfigured RealURL for SEO-Friendly URLs
+
+  * Apache Configuration included
+
 * TYPO3 CMS rendering is adjusted to the needs of `Bootstrap CSS Framework <http://getbootstrap.com/>`_
-  
+
   * Layouts for all Content Elements
   * Section Frames
 
-* Bootstrap specific content elements
+* Bootstrap specific Content Elements
 
   * Carousel
   * Accordion
@@ -32,9 +35,12 @@ Features
   * List Group
 
 * Individual Page Layouts
-* Buit in Less Parser: 
-  Edit all Variables of Boostrap in a custom Backend Module
-* ...
+* Built-in Less Parser
+
+  * All Variables are configurable via Constant Editor
+  * Less support in page.includeCSS property
+
+* Backend Layouts via PageTsConfig
 
 
 Screenshots
@@ -51,5 +57,5 @@ Screenshots
 .. figure:: ../Images/Screens/Mobile.jpg
 	:width: 180px
 	:alt: Mobile
-    
+
 

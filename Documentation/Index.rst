@@ -58,3 +58,4 @@ Bootstrap Package
 
     Introduction/Index
     Configuration/Index
+    AdministratorManual/Index
