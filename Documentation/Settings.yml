@@ -7,7 +7,7 @@ conf.py:
   copyright: 2014
   project: Bootstrap Package
   version: 1.0
-  release: 6.2.2.1
+  release: 6.2.5
   latex_documents:
   - - Index
     - BootstrapPackage.tex
@@ -18,14 +18,7 @@ conf.py:
     papersize: a4paper
     pointsize: 10pt
     preamble: \usepackage{typo3}
-  intersphinx_mapping:
-    t3tsref:
-    - http://docs.typo3.org/typo3cms/TyposcriptReference/
-    - null
-    t3start:
-    - http://docs.typo3.org/typo3cms/GettingStartedTutorial/
-    - null
-    t3editors:
-    - http://docs.typo3.org/typo3cms/EditorsTutorial/
-    - null
+  html_theme_options:
+    github_repository: benjaminkott/bootstrap_package
+    github_branch: master
 ...
