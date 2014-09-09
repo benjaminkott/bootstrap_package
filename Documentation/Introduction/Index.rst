@@ -10,7 +10,7 @@
 Introduction
 ==============================
 
-The Boostrap Package is a Theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 3.2.0
+The Bootstrap Package is a Theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 3.2.0
 
 Features
 ==============================
