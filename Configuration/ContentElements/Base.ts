@@ -93,15 +93,22 @@ lib.dynamicContent {
     5  {
         colPos.cObject = TEXT
         colPos.cObject {
-            value.current = 1
+            field = colPos
             ifEmpty = 0
+        }
+        pageUid.cObject = TEXT
+        pageUid.cObject {
+            field = pageUid
+            ifEmpty.data = TSFE:id
         }
     }
     20 < styles.content.get
     20.select.where = colPos={register:colPos}
     20.select.where.insertData = 1
+    20.select.pidInList.data = register:pageUid
+    90 = RESTORE_REGISTER
 }
-lib.dynamicContentSlide < lib.dynamicContent
+lib.dynamicContentSlide =< lib.dynamicContent
 lib.dynamicContentSlide.20.slide = -1
 
 

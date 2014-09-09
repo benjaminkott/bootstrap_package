@@ -1,10 +1,17 @@
 <div class="body-bg{f:if(condition:themeNavigationtype, then:' body-bg-{themeNavigationtype}')}">
-    <f:render partial="Navigation/Main" arguments="{_all}" />
-    <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb" />
+    <f:if condition="{showHeader}">
+        <f:render partial="Navigation/Main" arguments="{_all}" />
+        <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb" />
+    </f:if>
     <!--TYPO3SEARCH_begin-->
     <div class="main-section">
         <f:render section="Main" />
+        <f:if condition="{onePage}">
+            <f:cObject typoscriptObjectPath="lib.content.onepage" />
+        </f:if>
     </div>
     <!--TYPO3SEARCH_end-->
-    <f:render partial="Structure/Footer" arguments="{_all}" />
+    <f:if condition="{showFooter}">
+        <f:render partial="Structure/Footer" arguments="{_all}" />
+    </f:if>
 </div>

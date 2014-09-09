@@ -26,6 +26,12 @@ if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 
 
 /***************
+ * Bootstrap Package OnePage TypoScript Setup
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/OnePage', 'Bootstrap Package: OnePage');
+
+
+/***************
  * Disable the backend skin if ext:themes is loaded and loading of the backend skin is not forced
  */
 if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes') || $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['AlwaysEnableBackendSkin']) {

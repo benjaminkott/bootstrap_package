@@ -1,9 +1,9 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
-    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="3" />
+    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '3'}" />
     <div class="container">
-        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="0" />
+        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
     </div>
 
 </f:section>

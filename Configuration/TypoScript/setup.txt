@@ -305,6 +305,15 @@ page {
         layoutRootPath      = {$page.fluidtemplate.layoutRootPath}
         variables {
 
+            onePage = TEXT
+            onePage.value = 0
+
+            showHeader = TEXT
+            showHeader.value = 1
+
+            showFooter = TEXT
+            showFooter.value = 1
+
             pageTitle = TEXT
             pageTitle.data = page:title
 
