@@ -1,17 +1,4 @@
 #
-# Table structure for table 'tx_bootstrappackage_carousel_item'
-# This table is not in use anyway it is only created so the RecordHistroy will not break.
-#
-CREATE TABLE __bootstrappackage_form_style (
-    uid int(11) NOT NULL auto_increment,
-    pid int(11) DEFAULT '0' NOT NULL,
-
-    PRIMARY KEY (uid),
-    KEY parent (pid)
-);
-
-
-#
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
