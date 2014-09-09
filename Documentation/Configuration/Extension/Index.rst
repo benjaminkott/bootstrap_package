@@ -22,7 +22,7 @@ The backend skin is disabled by default if ext:themes is installed, but you can 
 
 Use RealURL Config from BootstrapPackage
 ========================================
-The Boostrap Package comes with its own RealURL configuration and will override your Configuration by default.
+The Bootstrap Package comes with its own RealURL configuration and will override your Configuration by default.
 If you want to use your own RealURL config you can disable this option.
 
 **Configuration can be found here:**
