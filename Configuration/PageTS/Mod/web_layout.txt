@@ -1,0 +1,11 @@
+########################
+#### BACKENDLAYOUTS ####
+########################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default_2_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default_2_columns_offset_right.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default_3_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default_subnavigation.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/default_subnavigation_2_columns.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/special_feature.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts/special_start.txt">

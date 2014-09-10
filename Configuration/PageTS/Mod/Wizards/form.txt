@@ -1,0 +1,24 @@
+##############
+#### FORM ####
+##############
+mod.wizards {
+    form {
+        defaults {
+            tabs {
+                elements {
+                    accordions {
+                        basic {
+                            showButtons = textarea, textline, select, fileupload, submit,
+                        }
+                        predefined {
+                            showButtons = email, radiogroup, checkboxgroup
+                        }
+                        content {
+                            showButtons = header, textblock
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
