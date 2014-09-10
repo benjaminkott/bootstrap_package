@@ -11,6 +11,9 @@
             <trans-unit id="backend_layout.default">
                 <source>Bootstrap Package: Default</source>
             </trans-unit>
+            <trans-unit id="backend_layout.default_clean">
+                <source>Bootstrap Package: Default, Clean</source>
+            </trans-unit>
             <trans-unit id="backend_layout.default_2_columns">
                 <source>Bootstrap Package: Default, 2 Columns</source>
             </trans-unit>

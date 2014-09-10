@@ -268,6 +268,10 @@ page {
             key.data = levelfield:-1, backend_layout_next_level, slide
             key.override.field = backend_layout
 
+            bootstrap_package__default_clean = TEXT
+            bootstrap_package__default_clean.value = {$page.fluidtemplate.templateRootPath}DefaultClean.html
+            bootstrap_package__default_clean.insertData = 1
+
             bootstrap_package__default_2_columns = TEXT
             bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
             bootstrap_package__default_2_columns.insertData = 1
