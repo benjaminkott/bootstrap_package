@@ -1,0 +1,38 @@
+//
+// Frontend Editing
+// --------------------------------------------------
+body .typo3-feedit-element {
+    outline: 3px solid fade(@brand-primary, 50%) !important;
+    &:hover {
+        outline: 3px solid @brand-primary !important;
+    }
+}
+.typo3-editPanel {
+    .clearfix();
+    background-color: #eaeaea!important;
+    color: #333333;
+    padding: 0px 5px;
+    line-height: 2em;
+    margin-bottom: @line-height-computed;
+}
+body .typo3-feedit-element-hidden {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    &:hover {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+}
+.t3-icon {
+    vertical-align: middle;
+}
+.typo3-feedit-page {
+    .clearfix();
+    .typo3-feedit-element {
+        outline: none!important;
+        border-bottom: 3px solid @brand-primary;
+    }
+    .typo3-editPanel {
+        margin-bottom: 0;
+    }
+}

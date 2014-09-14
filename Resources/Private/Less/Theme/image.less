@@ -1,0 +1,131 @@
+//
+// Images
+// --------------------------------------------------
+.image {
+    display: block;
+    margin-bottom: @line-height-computed;
+    line-height: @line-height-base;
+
+    > img,
+    a > img {
+        .img-responsive();
+        @media (max-width: @screen-xs-max) {
+            margin: 0 auto;
+        }
+    }
+
+    .caption {
+        padding: @thumbnail-caption-padding;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+}
+.image-row {
+    .make-row();
+}
+.image-column {
+    max-width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-left:  (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+    @media (min-width: @screen-md-min) {
+        float: left;
+    }
+}
+.image-wrap {
+    max-width: 100%;
+}
+.image-below {
+    .image-wrap {
+        margin-top: @line-height-computed;
+    }
+}
+.image-center .image > img {
+    margin: 0 auto;
+}
+.image-center-outer {
+    width: 100%;
+    position: relative;
+    float: right;
+    right: 50%;
+}
+.image-center-inner {
+    width: 100%;
+    position: relative;
+    float: right;
+    right: -50%;
+}
+.image-left {
+    .image-wrap {
+        float: left;
+    }
+    .text {
+        clear: left;
+    }
+}
+.image-right {
+    .image-wrap {
+        float: right;
+    }
+    .text {
+        clear: right;
+    }
+}
+.image-wrap,
+.image-below,
+.image-above,
+.image-beside,
+.image-intext {
+    .clearfix();
+}
+.image-beside-left .image-wrap,
+.image-intext-left .image-wrap {
+    float: left;
+    margin-left: -1 * (@grid-gutter-width / 2);
+}
+.image-beside-right .image-wrap,
+.image-intext-right .image-wrap {
+    float: right;
+    margin-right: -1 * (@grid-gutter-width / 2);
+}
+.image-beside-left .image-wrap,
+.image-beside-right .image-wrap,
+.image-intext-left .image-wrap,
+.image-intext-right .image-wrap {
+    max-width: 50%;
+    padding-left:  (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+}
+.image-beside-right,
+.image-beside-left {
+    overflow: hidden;
+    zoom: 1;
+    .text {
+        overflow: hidden;
+        zoom: 1;
+    }
+    @media (max-width: @screen-xs-max) {
+        .image-wrap {
+            margin-left: -1 * (@grid-gutter-width / 2);
+            margin-right: -1 * (@grid-gutter-width / 2);
+            max-width: none;
+            float: none;
+        }
+    }
+}
+.image-header-1,
+.image-header-2,
+.image-header-3  {
+    .image-wrap {
+        margin-top: @line-height-computed;
+    }
+}
+.image-header-4,
+.image-header-5,
+.image-header-6  {
+    .image-wrap {
+        margin-top: (@line-height-computed / 2);
+    }
+}

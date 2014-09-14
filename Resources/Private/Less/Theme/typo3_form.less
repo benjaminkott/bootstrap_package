@@ -1,0 +1,55 @@
+//
+// TYPO3 FORM
+// --------------------------------------------------
+.csc-form-element {
+    .form-group {
+        .clearfix();
+    }
+    .control-label {
+        text-align: left;
+        legend {
+            font-family: @font-family-base;
+            font-size: @font-size-base;
+            line-height: @line-height-base;
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: bold;
+            border: none;
+        }
+    }
+    .help-block.text-danger {
+        .text-emphasis-variant(@state-danger-text);
+        font-weight: normal;
+    }
+}
+.csc-form-element-radio .radio input[type="radio"],
+.csc-form-element-checkbox .checkbox input[type="checkbox"] {
+    margin-left: 0;
+}
+.csc-form-confirmation {
+    ol {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        li {
+            display: inline-block;
+        }
+    }
+}
+.csc-form-confirmation-false,
+.csc-form-confirmation-true {
+    input {
+        .btn();
+    }
+}
+.csc-form-confirmation-true {
+    input {
+        .btn-primary();
+    }
+}
+.csc-form-confirmation-false {
+    input {
+        .btn-default();
+    }
+}

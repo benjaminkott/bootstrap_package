@@ -1,0 +1,33 @@
+//
+// Meta Section
+// --------------------------------------------------
+.meta-section {
+    color: contrast(@gray-dark, black, white, 43%);
+    border-top: 1px solid darken(@gray-dark,3%);
+    background-color: @gray-dark;
+    padding: @line-height-computed/2 0;
+    a {
+        font-weight: bold;
+        color: contrast(@gray-dark, black, white, 43%);
+        &:hover,
+        &:focus {
+          color: @link-color;
+        }
+    }
+    .active a {
+        color: @link-color;
+    }
+    ul,
+    p {
+        margin: 10px 0;
+    }
+    @media (min-width: @screen-md) {
+        ul,
+        p {
+            margin: 0;
+        }
+        .copyright {
+            text-align: right;
+        }
+    }
+}

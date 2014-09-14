@@ -1,0 +1,55 @@
+//
+// Lightbox / Modals
+// --------------------------------------------------
+.modal-lightbox {
+    margin: 10px auto;
+    .close {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 0px 15px;
+        line-height: 40px;
+    }
+    .modal-body {
+        padding: 0px;
+    }
+    .modal-content {
+        border: none;
+    }
+    .modal-caption {
+        background-color: @brand-primary;
+        background-color: fade(@brand-primary,90%);
+        color: #FFFFFF;
+        padding: @line-height-computed/2 @line-height-computed;
+    }
+    .modal-caption-title {
+        display: block;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .img-responsive {
+        margin-bottom: 0px;
+    }
+}
+@media screen and (min-width: @screen-sm-min) {
+    .modal-lightbox {
+        .modal-caption {
+            position: absolute;
+            left: 0px;
+            bottom: @line-height-computed;
+            max-width: 80%;
+        }
+        margin: 30px auto;
+        width: 600px;
+    }
+}
+@media screen and (min-width: @screen-md-min) {
+    .modal-lightbox {
+        width: 800px;
+    }
+}
+.modal-backdrop {
+    &.in {
+        .opacity(.8);
+    }
+}
