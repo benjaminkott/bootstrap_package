@@ -719,6 +719,28 @@ tt_content.textpic.20 {
 }
 
 
+#####################
+#### CTYPE: HTML ####
+#####################
+tt_content.html {
+    parseFunc {
+        tags {
+            link = TEXT
+            link {
+                current = 1
+                typolink {
+                    parameter.data = parameters : allParams
+                    extTarget = _self
+                    target = _self
+                    wrap = |
+                }
+                parseFunc.constants = 1
+            }
+        }
+    }
+}
+
+
 #########################
 #### CTYPE: MAILFORM ####
 #########################
