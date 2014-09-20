@@ -94,7 +94,11 @@ lib.dynamicContent {
         colPos.cObject = TEXT
         colPos.cObject {
             field = colPos
-            ifEmpty = 0
+            ifEmpty.cObject = TEXT
+            ifEmpty.cObject {
+                value.current = 1
+                ifEmpty = 0
+            }
         }
         pageUid.cObject = TEXT
         pageUid.cObject {
