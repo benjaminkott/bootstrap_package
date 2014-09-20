@@ -36,7 +36,7 @@ lib.navigation.main {
                                     ifEmpty = p{field:uid}
                                     ifEmpty.insertData = 1
                                 }
-                                ATagTitle.field = abstract // description // title
+                                title.field = abstract // description // title
                                 ATagBeforeWrap = 1
                                 wrap = |<span class="bar"></span>
                             }
@@ -48,7 +48,7 @@ lib.navigation.main {
                         field = nav_title // title
                         typolink {
                             parameter.field = url
-                            ATagTitle.field = abstract // description // title
+                            title.field = abstract // description // title
                             ATagBeforeWrap = 1
                             wrap = |<span class="bar"></span>
                         }
