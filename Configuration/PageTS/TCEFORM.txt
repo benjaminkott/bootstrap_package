@@ -70,6 +70,9 @@ TCEFORM {
         imagecols {
             removeItems = 5,7,8
         }
+        imageorient {
+            removeItems = 1,2,9,10
+        }
         menu_type {
             addItems {
                 news = Display Subpages as News Entries
