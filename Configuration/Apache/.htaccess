@@ -100,12 +100,10 @@ AddDefaultCharset utf-8
     # Using mod_rewrite in .htaccess files without knowing the RewriteBase
     # http://www.zeilenwechsel.de/it/articles/8/Using-mod_rewrite-in-.htaccess-files-without-knowing-the-RewriteBase.html
     RewriteBase /
+
     # Store the current location in an environment variable CWD
     RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
     RewriteRule ^.*$ - [E=CWD:%2]
-    # Just by prefixing the environment variable, we can safely rewrite anything now
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -114,10 +112,12 @@ AddDefaultCharset utf-8
     RewriteRule ^fileadmin/templates/.*(\.txt|\.ts)$ - [F]
     RewriteRule ^typo3conf/ext/[^/]+/Resources/Private/ - [F]
     RewriteRule ^(typo3/|t3lib/|fileadmin/|typo3conf/|typo3temp/|uploads/|favicon\.ico) - [L]
+
+    # Just by prefixing the environment variable, we can safely rewrite anything now
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule .* index.php [L]
+    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
 
 </IfModule>
 
