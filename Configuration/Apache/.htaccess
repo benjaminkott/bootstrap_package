@@ -97,8 +97,15 @@ AddDefaultCharset utf-8
     # Enable URL rewriting
     RewriteEngine On
 
-    # Change this path, if your TYPO3 installation is located in a subdirectory of the website root.
-    #RewriteBase /
+    # Using mod_rewrite in .htaccess files without knowing the RewriteBase
+    # http://www.zeilenwechsel.de/it/articles/8/Using-mod_rewrite-in-.htaccess-files-without-knowing-the-RewriteBase.html
+    RewriteBase /
+    # Store the current location in an environment variable CWD
+    RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+    RewriteRule ^.*$ - [E=CWD:%2]
+    # Just by prefixing the environment variable, we can safely rewrite anything now
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
