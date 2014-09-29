@@ -9,6 +9,7 @@
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=170=News
+# customsubcategory=180=Tracking
 
 ############
 ### PAGE ###
@@ -26,7 +27,7 @@ page {
         # cat=bootstrap package: basic/160/100; type=options[Default=default, Inverse=inverse]; label=Navigation Style
         navigationstyle                 = default
         # cat=bootstrap package: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
-        navigationtype                  = 
+        navigationtype                  =
         # cat=bootstrap package: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
         breadcrumb                      = 1
         copyright {
@@ -92,6 +93,12 @@ page {
     }
     specialPages {
         loginPid                        = 28
+    }
+    tracking {
+        google {
+            # cat=bootstrap package: basic/180/100; type=string; label=Google Tracking-ID
+            trackingID                  =
+        }
     }
 }
 
