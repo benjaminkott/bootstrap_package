@@ -254,6 +254,25 @@ page {
             }
         }
 
+        // Open Graph
+        // http://ogp.me/
+        20 = COA
+        20 {
+            // og:image
+            10 = FILES
+            10 {
+                references {
+                    data = levelfield:-1, media, slide
+                }
+                maxItems = 1
+                renderObj = TEXT
+                renderObj {
+                    data = file:current:publicUrl
+                    wrap = <meta property="og:image" content="|" />
+                }
+            }
+        }
+
     }
 
     5 <  styles.content.editPanelPage
