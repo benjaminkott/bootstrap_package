@@ -233,6 +233,7 @@ page {
     headerData {
 
         // Flip ahead browsing for IE10/11
+        // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
         10 = HMENU
         10 {
             special = browse
@@ -241,7 +242,7 @@ page {
             }
             1 = TMENU
             1.NO {
-                allWrap = <link rel="prev" href="|" /> |*| <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
+                allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
                 doNotLinkIt = 1
                 stdWrap {
                     typolink {
