@@ -91,9 +91,6 @@ page {
         # cat=bootstrap package: advanced/120/140; type=string; label=google
         google                          = notranslate
     }
-    specialPages {
-        loginPid                        = 28
-    }
     tracking {
         google {
             # cat=bootstrap package: basic/180/100; type=string; label=Google Tracking-ID

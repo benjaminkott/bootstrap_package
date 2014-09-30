@@ -189,33 +189,6 @@ lib.navigation.breadcrumb {
 [treeLevel = 0] || [treeLevel = 1]
 lib.navigation.breadcrumb >
 [end]
-lib.navigation.buttongroup = COA
-lib.navigation.buttongroup {
-    wrap (
-        <ul class="nav navbar-nav navbar-right hidden-xs" aria-hidden="true">
-            <li>
-                <div class="btn-group">|</div>
-            </li>
-        </ul>
-    )
-    required = 1
-    10 = TEXT
-    10 {
-        typolink.parameter = {$page.specialPages.loginPid}
-        typolink.ATagParams = class="btn navbar-btn"
-        value (
-            <span class="glyphicon glyphicon-log-in"></span>
-            <span class="sr-only">Login</span>
-        )
-    }
-    20 = TEXT
-    20.value (
-        <button type="button" class="btn navbar-btn navbar-btn-search" data-toggle="collapse" data-target=".searchbar-background">
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="sr-only">Search</span>
-        </button>
-    )
-}
 
 
 ##############
