@@ -292,52 +292,74 @@ plugin.tx_cssstyledcontent >
 ###########################
 #### TT_CONTENT FRAMES ####
 ###########################
-tt_content.stdWrap.innerWrap.cObject {
-    default.20.10.value >
-    default.30.cObject {
-        default >
-        default = CASE
-        default {
-            key.field = CType
-            default = TEXT
+tt_content.stdWrap {
+    innerWrap.cObject {
+        default.20.10.value >
+        default.30.cObject {
+            default >
+            default = CASE
             default {
-                value = >|</div>
-                override = ><div class="container">|</div></div>
-                override.if {
-                    value = 3
-                    equals.field = colPos
+                key.field = CType
+                default = TEXT
+                default {
+                    value = >|</div>
+                    override = ><div class="container">|</div></div>
+                    override.if {
+                        value = 3
+                        equals.field = colPos
+                    }
+                }
+                bootstrap_package_carousel = TEXT
+                bootstrap_package_carousel {
+                    value = >|</div>
                 }
             }
-            bootstrap_package_carousel = TEXT
-            bootstrap_package_carousel {
-                value = >|</div>
+            menu >
+            menu < .default
+            menu {
+                default {
+                    value = >|</nav>
+                    override = ><div class="container">|</div></nav>
+                }
             }
         }
-        menu >
-        menu < .default
-        menu {
-            default {
-                value = >|</nav>
-                override = ><div class="container">|</div></nav>
+        1.20.10.value = frame invisible
+        5.20.10.value = frame rulerbefore
+        6.20.10.value = frame rulerafter
+        10 {
+            5 = TEXT
+            5.value = <div class="row">
+            20.10.value = frame col-xs-11 col-xs-push-1
+            35 = TEXT
+            35.value = </div>
+        }
+        11 =< tt_content.stdWrap.innerWrap.cObject.10
+        11.20.10.value = frame col-xs-9 col-xs-push-3
+        12 =< tt_content.stdWrap.innerWrap.cObject.10
+        12.20.10.value = frame col-xs-9
+        20.20.10.value = frame well
+        21.20.10.value = frame jumbotron
+    }
+    innerWrap2 >
+    innerWrap2 {
+        cObject = COA
+        cObject {
+            10 = TEXT
+            10 {
+                value = |
+            }
+            20 = TEXT
+            20 {
+                typolink {
+                    parameter.data = TSFE:id
+                    returnLast = url
+                }
+                insertData = 1
+                wrap = <p class="csc-linkToTop"><a href="|#">{LLL:EXT:css_styled_content/pi1/locallang.xml:label.toTop}</a></p>
             }
         }
+        fieldRequired = linkToTop
     }
-    1.20.10.value = frame invisible
-    5.20.10.value = frame rulerbefore
-    6.20.10.value = frame rulerafter
-    10 {
-        5 = TEXT
-        5.value = <div class="row">
-        20.10.value = frame col-xs-11 col-xs-push-1
-        35 = TEXT
-        35.value = </div>
-    }
-    11 =< tt_content.stdWrap.innerWrap.cObject.10
-    11.20.10.value = frame col-xs-9 col-xs-push-3
-    12 =< tt_content.stdWrap.innerWrap.cObject.10
-    12.20.10.value = frame col-xs-9
-    20.20.10.value = frame well
-    21.20.10.value = frame jumbotron
 }
 
 
