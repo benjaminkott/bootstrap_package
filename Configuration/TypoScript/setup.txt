@@ -438,7 +438,7 @@ config {
     inlineStyle2TempFile                = 1
     admPanel                            = 1
     debug                               = 0
-    cache_period                        = 43200
+    cache_period                        = 86400
     sendCacheHeaders                    = 0
     intTarget                           =
     extTarget                           =
