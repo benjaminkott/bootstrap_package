@@ -31,9 +31,7 @@
         "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
     },
     "require": {
-        "composer/installers": "*",
-        "typo3/cms": ">=6.2.4,<7",
-        "typo3-ter/realurl": "*"
+        "composer/installers": "*"
     },
     "version": "6.2.6-dev"
 }
