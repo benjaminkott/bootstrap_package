@@ -13,20 +13,35 @@ RTE {
         showButtons = *
 
         // Toolbar order
-        toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, orderedlist, unorderedlist, bar, left, center, right, copy, cut, paste, bar, undo, redo, removeformat, bar, link, unlink, linkcreator, bar, imageeditor, bar, line, insertparagraphbefore, insertparagraphafter, bar, chMode, linebreak, table, tableproperties, tablerestyle, bar, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar, columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+        toolbarOrder (
+            formatblock, blockstyle, textstyle, linebreak,
+            bold, italic, underline, strikethrough, big, small, subscript, superscript, bar,
+            orderedlist, unorderedlist, bar,
+            left, center, right, copy, cut, paste, bar,
+            undo, redo, removeformat, bar,
+            link, unlink, linkcreator, bar,
+            imageeditor, bar,
+            line, insertparagraphbefore, insertparagraphafter, bar,
+            chMode, linebreak, table, tableproperties, tablerestyle, bar,
+            rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar,
+            columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
+            cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+        )
 
         RTEHeightOverride = 700
         RTEWidthOverride = 700
 
-        //hide / show HTML tag
-        buttons.formatblock.orderItems = h1, h2, h3, h4, h5, h6, p, quotation
-        buttons.textstyle.tags.span.allowedClasses >
-        buttons.textstyle.tags.REInlineTags >
-        buttons.textstyle.REInlineTags >
-        buttons.blockstyle.tags.table.allowedClasses >
-        buttons.left.useClass = text-left
-        buttons.center.useClass = text-center
-        buttons.right.useClass = text-right
+        // Buttons
+        buttons {
+            formatblock.orderItems = h1, h2, h3, h4, h5, h6, p, blockquote
+            textstyle.tags.span.allowedClasses >
+            textstyle.tags.REInlineTags >
+            textstyle.REInlineTags >
+            blockstyle.tags.table.allowedClasses >
+            left.useClass = text-left
+            center.useClass = text-center
+            right.useClass = text-right
+        }
 
         // Disable contextual menu
         contextMenu.disabled = 1
@@ -42,11 +57,21 @@ RTE {
             overruleMode = ts_css
             dontConvBRtoParagraph = 1
             remapParagraphTag = p
-            allowTags = a, abbr, acronym, address, blockquote, b, br, caption, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, u, ul, table,thead,tfoot,tbody,tr,th,td
+            allowTags (
+                a, abbr, acronym, address, blockquote, b, br, caption, cite,
+                code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li,
+                link, ol, p, pre, q, sdfield, span, small, strike, strong, sub,
+                sup, u, ul, table, thead,tfoot,tbody,tr,th,td
+            )
+            allowTagsOutside (
+                img, hr, h1, h2, h3, h4, h5, h6, br, ul, ol, li, pre, address,
+                span, blockquote, table
+            )
+            allowTagsInTypolists (
+                br, font, b, i, u, a, img, span
+            )
             denyTags >
             keepPDIVattribs = xml:lang,class,style,align
-            allowTagsOutside = img,hr,h1,h2,h3,h4,h5,h6,br,ul,ol,li,pre,address,span,blockquote,table
-            allowTagsInTypolists = br,font,b,i,u,a,img,span
             dontRemoveUnknownTags_db = 1
             preserveTables = 0
 
@@ -55,10 +80,12 @@ RTE {
                 allowTags < RTE.default.proc.allowTags
                 denyTags >
                 htmlSpecialChars = 0
-                tags.img >
-                tags.div.allowedAttribs = class,style,align
-                tags.p.allowedAttribs = class,style,align
-                tags.table.allowedAttribs = class,style
+                tags {
+                    img >
+                    div.allowedAttribs = class
+                    p.allowedAttribs = class
+                    table.allowedAttribs = class
+                }
                 removeTags = center, font, o:p, sdfield, strike, u
                 keepNonMatchedTags = protect
             }
