@@ -6,7 +6,7 @@ tt_content.image.20.1 {
     layout {
         bootstrappackage {
             element (
-                <img src="typo3conf/ext/bootstrap_package/Resources/Public/Images/blank.gif" class="lazyload" ###SOURCECOLLECTION######PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###>
+                <img src="typo3conf/ext/bootstrap_package/Resources/Public/Images/blank.gif" ###PARAMS######SOURCECOLLECTION######ALTPARAMS######SELFCLOSINGTAGSLASH###>
                 <noscript>
                     <img src="###SRC###" />
                 </noscript>
@@ -40,6 +40,7 @@ tt_content.image.20.1 {
         }
     }
 
+	params = class="lazyload"
 }
 
 
