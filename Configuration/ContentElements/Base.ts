@@ -328,11 +328,8 @@ tt_content.stdWrap {
         5.20.10.value = frame rulerbefore
         6.20.10.value = frame rulerafter
         10 {
-            5 = TEXT
-            5.value = <div class="row">
             20.10.value = frame col-xs-11 col-xs-push-1
-            35 = TEXT
-            35.value = </div>
+            stdWrap.wrap = <div class="row">|</div>
         }
         11 =< tt_content.stdWrap.innerWrap.cObject.10
         11.20.10.value = frame col-xs-9 col-xs-push-3
