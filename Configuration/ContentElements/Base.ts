@@ -40,7 +40,7 @@ tt_content.image.20.1 {
         }
     }
 
-	params = class="lazyload"
+    params = class="lazyload"
 }
 
 
