@@ -1,7 +1,7 @@
 ############################
 ### CUSTOM SUBCATEGORIES ###
 ###########################
-# customsubcategory=100=Page Tempalte
+# customsubcategory=100=Page Template
 # customsubcategory=110=Logo
 # customsubcategory=120=Meta Settings
 # customsubcategory=130=File Include Path
