@@ -1,6 +1,6 @@
 {namespace bp = BK2K\BootstrapPackage\ViewHelpers}
 <div class="valign">
-    <div class="carousel-text vcontainer" {f:if(condition: item.text_color,then:'style="color: {item.text_color};"')}>
+    <div class="carousel-text vcontainer lead" {f:if(condition: item.text_color,then:'style="color: {item.text_color};"')}>
         <h1>{item.header}</h1>
         <f:format.html>{item.bodytext}</f:format.html>
     </div>
