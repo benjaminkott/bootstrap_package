@@ -270,7 +270,7 @@ lib.newsheader {
                 value = 0
                 equals.field = starttime
             }
-            strftime = %B %d,%Y
+            strftime = %B %d, %Y
             noTrimWrap = | <span class="news-date">|</strong>|
             required = 1
         }
