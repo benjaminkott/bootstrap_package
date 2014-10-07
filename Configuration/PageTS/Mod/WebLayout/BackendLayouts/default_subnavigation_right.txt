@@ -4,8 +4,8 @@
 mod {
     web_layout {
         BackendLayouts {
-            default_subnavigation {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation
+            default_subnavigation_right {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation_right
                 config {
                     backend_layout {
                         colCount = 6
@@ -46,7 +46,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation.gif
+                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation_right.gif
             }
         }
     }

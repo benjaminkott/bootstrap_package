@@ -24,11 +24,17 @@
             <trans-unit id="backend_layout.default_3_columns">
                 <source>Bootstrap Package: Default, 3 Columns</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation">
-                <source>Bootstrap Package: Default, Subnavigation</source>
+            <trans-unit id="backend_layout.default_subnavigation_right">
+                <source>Bootstrap Package: Default, Subnavigation Right</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation_2_columns">
-                <source>Bootstrap Package: Default, Subnavigation and 2 Columns</source>
+            <trans-unit id="backend_layout.default_subnavigation_right_2_columns">
+                <source>Bootstrap Package: Default, Subnavigation Right and 2 Columns</source>
+            </trans-unit>
+            <trans-unit id="backend_layout.default_subnavigation_left">
+                <source>Bootstrap Package: Default, Subnavigation Left</source>
+            </trans-unit>
+            <trans-unit id="backend_layout.default_subnavigation_left_2_columns">
+                <source>Bootstrap Package: Default, Subnavigation Left and 2 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.special_start">
                 <source>Bootstrap Package: Special Startpage</source>

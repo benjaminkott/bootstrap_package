@@ -277,13 +277,21 @@ page {
             bootstrap_package__default_3_columns.value = {$page.fluidtemplate.templateRootPath}Default3Columns.html
             bootstrap_package__default_3_columns.insertData = 1
 
-            bootstrap_package__default_subnavigation = TEXT
-            bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNav.html
-            bootstrap_package__default_subnavigation.insertData = 1
+            bootstrap_package__default_subnavigation_right = TEXT
+            bootstrap_package__default_subnavigation_right.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
+            bootstrap_package__default_subnavigation_right.insertData = 1
 
-            bootstrap_package__default_subnavigation_2_columns = TEXT
-            bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNav2Columns.html
-            bootstrap_package__default_subnavigation_2_columns.insertData = 1
+            bootstrap_package__default_subnavigation_right_2_columns = TEXT
+            bootstrap_package__default_subnavigation_right_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
+            bootstrap_package__default_subnavigation_right_2_columns.insertData = 1
+
+            bootstrap_package__default_subnavigation_left = TEXT
+            bootstrap_package__default_subnavigation_left.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft.html
+            bootstrap_package__default_subnavigation_left.insertData = 1
+
+            bootstrap_package__default_subnavigation_left_2_columns = TEXT
+            bootstrap_package__default_subnavigation_left_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft2Columns.html
+            bootstrap_package__default_subnavigation_left_2_columns.insertData = 1
 
             bootstrap_package__special_start = TEXT
             bootstrap_package__special_start.value = {$page.fluidtemplate.templateRootPath}SpecialStart.html
@@ -296,6 +304,15 @@ page {
             default = TEXT
             default.value = {$page.fluidtemplate.templateRootPath}Default.html
             default.insertData = 1
+
+            ## DEPRECATED - KEEP FOR FALLBACK ##
+            bootstrap_package__default_subnavigation = TEXT
+            bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
+            bootstrap_package__default_subnavigation.insertData = 1
+
+            bootstrap_package__default_subnavigation_2_columns = TEXT
+            bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
+            bootstrap_package__default_subnavigation_2_columns.insertData = 1
 
         }
         partialRootPath     = {$page.fluidtemplate.partialRootPath}
