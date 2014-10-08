@@ -32,9 +32,9 @@ if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
 
 
 /***************
- * Disable the backend skin if ext:themes is loaded and loading of the backend skin is not forced
+ * Disable the backend skin if ext:themes is loaded or it is disabled in the extension configuration
  */
-if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes') || $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['AlwaysEnableBackendSkin']) {
+if(!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes') && !$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disableBackendSkin']) {
 
     /***************
      * Backend Styling
