@@ -39,7 +39,7 @@ class RenderPreProcess {
      * @param \TYPO3\CMS\Backend\Controller\BackendController $backendController
      */
     public function addStyles(&$params, &$backendController){
-        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/backend.css';
+        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend.css';
         $backendController->addCssFile('bootstrap_package',$backendCssFile);
     }
 

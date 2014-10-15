@@ -39,7 +39,7 @@ class PreHeaderRender {
      * @param \TYPO3\CMS\Backend\Template\DocumentTemplate $documentTemplate
      */
     public function addStyles(&$params, &$documentTemplate){
-        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/backend.css';
+        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend.css';
         $params['pageRenderer']->addCssFile($backendCssFile);
     }
 

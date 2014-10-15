@@ -46,7 +46,7 @@ RTE {
         // Disable contextual menu
         contextMenu.disabled = 1
         showStatusBar = 1
-        contentCSS = typo3conf/ext/bootstrap_package/Resources/Public/Css/rte.css
+        contentCSS = typo3conf/ext/bootstrap_package/Resources/Public/Css/RTE/rte.css
         removeTagsAndContents =
         useCSS = 1
 
