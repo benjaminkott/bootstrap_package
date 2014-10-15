@@ -18,3 +18,16 @@ h4,
 h5 {
     font-family: @font-family-base;
 }
+
+
+//
+// Body text
+// --------------------------------------------------
+.lead {
+    @media (min-width: @screen-sm-min) and  (max-width: @screen-sm-max){
+        font-size: (@font-size-base * 1.20);
+    }
+    @media (min-width: @screen-md-min){
+        font-size: (@font-size-base * 1.30);
+    }
+}

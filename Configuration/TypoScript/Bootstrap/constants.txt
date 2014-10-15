@@ -83,7 +83,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/302/font-family-base; type=string; label=@font-family-base:
             font-family-base = @font-family-sans-serif
             # cat=bootstrap package: styling/302/font-size-base; type=string; label=@font-size-base:
-            font-size-base = 14px
+            font-size-base = 16px
             # cat=bootstrap package: styling/302/font-size-large; type=string; label=@font-size-large:
             font-size-large = ceil((@font-size-base * 1.25))
             # cat=bootstrap package: styling/302/font-size-small; type=string; label=@font-size-small:
@@ -101,7 +101,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/302/font-size-h6; type=string; label=@font-size-h6:
             font-size-h6 = ceil((@font-size-base * 0.85))
             # cat=bootstrap package: styling/302/line-height-base; type=string; label=@line-height-base: Unit-less `line-height` for use in components like buttons.
-            line-height-base = 1.428571429
+            line-height-base = 1.55
             # cat=bootstrap package: styling/302/line-height-computed; type=string; label=@line-height-computed: Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
             line-height-computed = floor((@font-size-base * @line-height-base))
             # cat=bootstrap package: styling/302/headings-font-family; type=string; label=@headings-font-family: By default, this inherits from the `<body>`.
