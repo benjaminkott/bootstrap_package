@@ -63,7 +63,7 @@ lib.language {
             }
         }
     }
-    wrap = <ul id="language_menu" class="list-inline">|</ul>
+    wrap = <ul id="language_menu" class="language-menu">|</ul>
 }
 
 

@@ -32,11 +32,16 @@ img.lazyload {
 
 
 //
-// List Inline
+// Language Menu
 // --------------------------------------------------
-.list-inline {
-    > li:first-child {
-        padding-left: 0px;
+.language-menu {
+    list-style: none;
+    padding-left: 0;
+    @media (min-width: @screen-sm-min) {
+        .list-inline();
+        > li:first-child {
+            padding-left: 0px;
+        }
     }
 }
 
