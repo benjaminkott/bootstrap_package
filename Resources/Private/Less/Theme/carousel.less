@@ -70,6 +70,20 @@
         background-size: cover;
         opacity: 0;
         .transition(opacity .6s ease-in-out 0s);
+        @media all and (transform-3d), (-webkit-transform-3d) {
+            transition: opacity .6s ease-in-out 0s;
+            backface-visibility: visible;
+            perspective: none;
+            &.next,
+            &.next.left,
+            &.prev,
+            &.prev.right,
+            &.active.right,
+            &.active.left,
+            &.active {
+                transform: none;
+            }
+        }
         @media (min-width: @screen-md) {
           height: 600px;
         }
