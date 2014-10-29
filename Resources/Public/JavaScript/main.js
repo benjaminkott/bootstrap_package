@@ -1,9 +1,3 @@
-$(document).ready(function() {
-    $('.main-section a.internal-link').append(' <span class="glyphicon glyphicon-link"></span>');
-    $('.main-section a.external-link-new-window').append(' <span class="glyphicon glyphicon-globe"></span>');
-    $('.main-section a.mail').append(' <span class="glyphicon glyphicon-envelope"></span>');
-});
-
 $(function(){
 
     // RESPONSIVE IMAGES
