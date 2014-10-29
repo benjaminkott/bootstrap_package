@@ -1,5 +1,5 @@
 #######################
-### BOOTSTRAP 3.2.0 ###
+### BOOTSTRAP 3.3.0 ###
 #######################
 
 ############################
@@ -46,20 +46,22 @@
 plugin.bootstrap_package {
     settings {
         less {
+            # cat=bootstrap package: styling/300/gray-base; type=string; label=@gray-base:
+            gray-base = #000
             # cat=bootstrap package: styling/300/gray-darker; type=string; label=@gray-darker:
-            gray-darker = lighten(#000, 13.5%)
+            gray-darker = lighten(@gray-base, 13.5%)
             # cat=bootstrap package: styling/300/gray-dark; type=string; label=@gray-dark:
-            gray-dark = lighten(#000, 20%)
+            gray-dark = lighten(@gray-base, 20%)
             # cat=bootstrap package: styling/300/gray; type=string; label=@gray:
-            gray = lighten(#000, 33.5%)
+            gray = lighten(@gray-base, 33.5%)
             # cat=bootstrap package: styling/300/gray-light; type=string; label=@gray-light:
-            gray-light = lighten(#000, 60%)
+            gray-light = lighten(@gray-base, 46.7%)
             # cat=bootstrap package: styling/300/gray-lighter; type=string; label=@gray-lighter:
-            gray-lighter = lighten(#000, 93.5%)
+            gray-lighter = lighten(@gray-base, 93.5%)
             # cat=bootstrap package: styling/300/brand-primary; type=string; label=@brand-primary:
             brand-primary = #ff8700
             # cat=bootstrap package: styling/300/brand-success; type=string; label=@brand-success:
-            brand-success = #69A550
+            brand-success = #5cb85c
             # cat=bootstrap package: styling/300/brand-info; type=string; label=@brand-info:
             brand-info = #5bc0de
             # cat=bootstrap package: styling/300/brand-warning; type=string; label=@brand-warning:
@@ -74,6 +76,8 @@ plugin.bootstrap_package {
             link-color = @brand-primary
             # cat=bootstrap package: styling/301/link-hover-color; type=string; label=@link-hover-color: Link hover color set via `darken()` function.
             link-hover-color = darken(@link-color, 15%)
+            # cat=bootstrap package: styling/301/link-hover-decoration; type=string; label=@link-hover-decoration: Link hover decoration.
+            link-hover-decoration = underline
             # cat=bootstrap package: styling/302/font-family-sans-serif; type=string; label=@font-family-sans-serif:
             font-family-sans-serif = "Helvetica Neue", Helvetica, Arial, sans-serif
             # cat=bootstrap package: styling/302/font-family-serif; type=string; label=@font-family-serif:
@@ -171,7 +175,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/306/btn-default-color; type=string; label=@btn-default-color:
             btn-default-color = #333
             # cat=bootstrap package: styling/306/btn-default-bg; type=string; label=@btn-default-bg:
-            btn-default-bg = #fafafa
+            btn-default-bg = #fff
             # cat=bootstrap package: styling/306/btn-default-border; type=string; label=@btn-default-border:
             btn-default-border = #ccc
             # cat=bootstrap package: styling/306/btn-primary-color; type=string; label=@btn-primary-color:
@@ -214,12 +218,16 @@ plugin.bootstrap_package {
             input-color = @gray
             # cat=bootstrap package: styling/307/input-border; type=string; label=@input-border: `<input>` border color
             input-border = #ccc
-            # cat=bootstrap package: styling/307/input-border-radius; type=string; label=@input-border-radius: `<input>` border radius
+            # cat=bootstrap package: styling/307/input-border-radius; type=string; label=@input-border-radius: Default `.form-control` border radius
             input-border-radius = @border-radius-base
+            # cat=bootstrap package: styling/307/input-border-radius-large; type=string; label=@input-border-radius-large: Large `.form-control` border radius
+            input-border-radius-large = @border-radius-large
+            # cat=bootstrap package: styling/307/input-border-radius-small; type=string; label=@input-border-radius-small: Small `.form-control` border radius
+            input-border-radius-small = @border-radius-small
             # cat=bootstrap package: styling/307/input-border-focus; type=string; label=@input-border-focus: Border color for inputs on focus
-            input-border-focus = @gray-light
+            input-border-focus = #66afe9
             # cat=bootstrap package: styling/307/input-color-placeholder; type=string; label=@input-color-placeholder: Placeholder text color
-            input-color-placeholder = @gray-light
+            input-color-placeholder = #999
             # cat=bootstrap package: styling/307/input-height-base; type=string; label=@input-height-base: Default `.form-control` height
             input-height-base = (@line-height-computed + (@padding-base-vertical * 2) + 2)
             # cat=bootstrap package: styling/307/input-height-large; type=string; label=@input-height-large: Large `.form-control` height
@@ -234,6 +242,8 @@ plugin.bootstrap_package {
             input-group-addon-bg = @gray-lighter
             # cat=bootstrap package: styling/307/input-group-addon-border-color; type=string; label=@input-group-addon-border-color: Border color for textual input addons
             input-group-addon-border-color = @input-border
+            # cat=bootstrap package: styling/307/cursor-disabled; type=string; label=@cursor-disabled: Disabled cursor for form controls and buttons.
+            cursor-disabled = not-allowed
             # cat=bootstrap package: styling/308/dropdown-bg; type=string; label=@dropdown-bg: Background for the dropdown menu.
             dropdown-bg = #fff
             # cat=bootstrap package: styling/308/dropdown-border; type=string; label=@dropdown-border: Dropdown menu `border-color`.
@@ -268,10 +278,8 @@ plugin.bootstrap_package {
             zindex-tooltip = 1070
             # cat=bootstrap package: styling/309/zindex-navbar-fixed; type=string; label=@zindex-navbar-fixed:
             zindex-navbar-fixed = 1030
-            # cat=bootstrap package: styling/309/zindex-modal-background; type=string; label=@zindex-modal-background:
-            zindex-modal-background = 1040
             # cat=bootstrap package: styling/309/zindex-modal; type=string; label=@zindex-modal:
-            zindex-modal = 1050
+            zindex-modal = 1040
             # cat=bootstrap package: styling/310/screen-xs; type=string; label=@screen-xs: Deprecated `@screen-xs` as of v3.0.1
             screen-xs = 480px
             # cat=bootstrap package: styling/310/screen-xs-min; type=string; label=@screen-xs-min: Deprecated `@screen-xs-min` as of v3.2.0
@@ -311,15 +319,15 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/311/grid-float-breakpoint-max; type=string; label=@grid-float-breakpoint-max: Point at which the navbar begins collapsing.
             grid-float-breakpoint-max = (@grid-float-breakpoint - 1)
             # cat=bootstrap package: styling/312/container-tablet; type=string; label=@container-tablet:
-            container-tablet = ((720px + @grid-gutter-width))
+            container-tablet = (720px + @grid-gutter-width)
             # cat=bootstrap package: styling/312/container-sm; type=string; label=@container-sm: For `@screen-sm-min` and up.
             container-sm = @container-tablet
             # cat=bootstrap package: styling/312/container-desktop; type=string; label=@container-desktop:
-            container-desktop = ((940px + @grid-gutter-width))
+            container-desktop = (940px + @grid-gutter-width)
             # cat=bootstrap package: styling/312/container-md; type=string; label=@container-md: For `@screen-md-min` and up.
             container-md = @container-desktop
             # cat=bootstrap package: styling/312/container-large-desktop; type=string; label=@container-large-desktop:
-            container-large-desktop = ((1140px + @grid-gutter-width))
+            container-large-desktop = (1140px + @grid-gutter-width)
             # cat=bootstrap package: styling/312/container-lg; type=string; label=@container-lg: For `@screen-lg-min` and up.
             container-lg = @container-large-desktop
             # cat=bootstrap package: styling/313/navbar-height; type=string; label=@navbar-height:
@@ -406,8 +414,6 @@ plugin.bootstrap_package {
             nav-disabled-link-color = @gray-light
             # cat=bootstrap package: styling/314/nav-disabled-link-hover-color; type=string; label=@nav-disabled-link-hover-color:
             nav-disabled-link-hover-color = @gray-light
-            # cat=bootstrap package: styling/314/nav-open-link-hover-color; type=string; label=@nav-open-link-hover-color:
-            nav-open-link-hover-color = #fff
             # cat=bootstrap package: styling/315/nav-tabs-border-color; type=string; label=@nav-tabs-border-color:
             nav-tabs-border-color = #ddd
             # cat=bootstrap package: styling/315/nav-tabs-link-hover-border-color; type=string; label=@nav-tabs-link-hover-border-color:
@@ -608,6 +614,8 @@ plugin.bootstrap_package {
             progress-bg = #f5f5f5
             # cat=bootstrap package: styling/326/progress-bar-color; type=string; label=@progress-bar-color: Progress bar text color
             progress-bar-color = #fff
+            # cat=bootstrap package: styling/326/progress-border-radius; type=string; label=@progress-border-radius: Variable for setting rounded corners on progress bar.
+            progress-border-radius = @border-radius-base
             # cat=bootstrap package: styling/326/progress-bar-bg; type=string; label=@progress-bar-bg: Default progress bar color
             progress-bar-bg = @brand-primary
             # cat=bootstrap package: styling/326/progress-bar-success-bg; type=string; label=@progress-bar-success-bg: Success progress bar color
