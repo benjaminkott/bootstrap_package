@@ -352,6 +352,8 @@ page {
             themeCopyright.value = {$page.theme.copyright.enable}
             themeCopyrightText = TEXT
             themeCopyrightText.value = {$page.theme.copyright.text}
+            themeSkipToContentText = TEXT
+            themeSkipToContentText.value = {$page.theme.skipToContent.text}
 
         }
     }
