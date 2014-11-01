@@ -423,6 +423,15 @@ page {
 }
 
 
+###################################################
+#### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
+#### IF NO SEARCH IS SET FOR THIS PAGE         ####
+###################################################
+[globalVar = TSFE:page|no_search = 1]
+page.meta.robots = noindex,follow
+[end]
+
+
 #############################################
 #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
 #############################################
