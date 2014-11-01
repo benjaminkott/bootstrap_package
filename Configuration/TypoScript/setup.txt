@@ -354,6 +354,22 @@ page {
             themeCopyrightText.value = {$page.theme.copyright.text}
 
         }
+        stdWrap.replacement {
+            1 {
+                search = http://###BACKEND_URL###/
+                replace.typolink {
+                    parameter = typo3/
+                    returnLast = url
+                }
+            }
+            2 {
+                search = ###CURRENTYEAR###
+                replace {
+                    data = date:U
+                    strftime = %Y
+                }
+            }
+        }
     }
     meta {
         viewport = {$page.meta.viewport}

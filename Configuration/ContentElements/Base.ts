@@ -44,20 +44,6 @@ tt_content.image.20.1 {
 }
 
 
-#####################
-#### BACKEND_URL ####
-#####################
-styles.content.get.stdWrap.replacement {
-    1 {
-        search = http://###BACKEND_URL###/
-        replace.typolink {
-            parameter = typo3/
-            returnLast = url
-        }
-    }
-}
-
-
 #################
 #### CONTENT ####
 #################
