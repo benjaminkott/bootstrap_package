@@ -8,6 +8,14 @@
                 <source>Skip to main content</source>
             </trans-unit>
 
+            <trans-unit id="previous">
+                <source>Previous</source>
+            </trans-unit>
+
+            <trans-unit id="next">
+                <source>Next</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
