@@ -8,7 +8,7 @@ tt_content.image.20.1 {
             element (
                 <img src="typo3conf/ext/bootstrap_package/Resources/Public/Images/blank.gif" ###PARAMS######SOURCECOLLECTION######ALTPARAMS######SELFCLOSINGTAGSLASH###>
                 <noscript>
-                    <img src="###SRC###" />
+                    <img src="###SRC###"###ALTPARAMS###/>
                 </noscript>
             )
             source = data-###DATAKEY###="###SRC###"
@@ -41,20 +41,6 @@ tt_content.image.20.1 {
     }
 
     params = class="lazyload"
-}
-
-
-#####################
-#### BACKEND_URL ####
-#####################
-styles.content.get.stdWrap.replacement {
-    1 {
-        search = http://###BACKEND_URL###/
-        replace.typolink {
-            parameter = typo3/
-            returnLast = url
-        }
-    }
 }
 
 

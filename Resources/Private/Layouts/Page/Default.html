@@ -1,11 +1,11 @@
 <div class="body-bg{f:if(condition:themeNavigationtype, then:' body-bg-{themeNavigationtype}')}">
-    <f:link.page class="sr-only sr-only-focusable" section="main-section">{themeSkipToContentText}</f:link.page>
+    <f:link.page class="sr-only sr-only-focusable" section="content">{f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}</f:link.page>
     <f:if condition="{showHeader}">
         <f:render partial="Navigation/Main" arguments="{_all}" />
         <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb" />
     </f:if>
     <!--TYPO3SEARCH_begin-->
-    <div id="main-section" class="main-section">
+    <div id="content" class="main-section">
         <f:render section="Main" />
         <f:if condition="{onePage}">
             <f:cObject typoscriptObjectPath="lib.content.onepage" />

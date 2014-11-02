@@ -7,7 +7,7 @@
          data-interval="{data.pi_flexform.interval}"
          data-wrap="{data.pi_flexform.wrap}"
          data-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner" role="listbox">
         <f:for each="{items}" as="item" iteration="iteration">
             <f:switch expression="{item.background_style}">
                 <f:case value="0">
@@ -43,14 +43,15 @@
                 <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
             </f:for>
             </ol>
-            <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev'}" section="carousel-{data.uid}">
+            <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev', role: 'button'}" section="carousel-{data.uid}">
                 <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
             </f:link.page>
-            <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next'}" section="carousel-{data.uid}">
+            <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next', role: 'button'}" section="carousel-{data.uid}">
                 <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
             </f:link.page>
         </f:if>
-
     </div>
 </f:if>
 </bp:dataRelation>

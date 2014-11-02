@@ -356,6 +356,22 @@ page {
             themeSkipToContentText.value = {$page.theme.skipToContent.text}
 
         }
+        stdWrap.replacement {
+            1 {
+                search = http://###BACKEND_URL###/
+                replace.typolink {
+                    parameter = typo3/
+                    returnLast = url
+                }
+            }
+            2 {
+                search = ###CURRENTYEAR###
+                replace {
+                    data = date:U
+                    strftime = %Y
+                }
+            }
+        }
     }
     meta {
         viewport = {$page.meta.viewport}
@@ -405,6 +421,15 @@ page {
         }
     }
 }
+
+
+###################################################
+#### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
+#### IF NO SEARCH IS SET FOR THIS PAGE         ####
+###################################################
+[globalVar = TSFE:page|no_search = 1]
+page.meta.robots = noindex,follow
+[end]
 
 
 #############################################
