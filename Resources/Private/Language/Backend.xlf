@@ -9,38 +9,38 @@
             </trans-unit>
 
             <trans-unit id="backend_layout.default">
-                <source>Bootstrap Package: Default</source>
+                <source>Default</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_clean">
-                <source>Bootstrap Package: Default, Clean</source>
+                <source>Default, Clean</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_2_columns">
-                <source>Bootstrap Package: Default, 2 Columns</source>
+                <source>Default, 2 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_2_columns_offset_right">
-                <source>Bootstrap Package: Default, 2 Columns, Offset Right</source>
+                <source>Default, 2 Columns, Offset Right</source>
             </trans-unit>
 
             <trans-unit id="backend_layout.default_3_columns">
-                <source>Bootstrap Package: Default, 3 Columns</source>
+                <source>Default, 3 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_subnavigation_right">
-                <source>Bootstrap Package: Default, Subnavigation Right</source>
+                <source>Default, Subnavigation Right</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_subnavigation_right_2_columns">
-                <source>Bootstrap Package: Default, Subnavigation Right and 2 Columns</source>
+                <source>Default, Subnavigation Right and 2 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_subnavigation_left">
-                <source>Bootstrap Package: Default, Subnavigation Left</source>
+                <source>Default, Subnavigation Left</source>
             </trans-unit>
             <trans-unit id="backend_layout.default_subnavigation_left_2_columns">
-                <source>Bootstrap Package: Default, Subnavigation Left and 2 Columns</source>
+                <source>Default, Subnavigation Left and 2 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.special_start">
-                <source>Bootstrap Package: Special Startpage</source>
+                <source>Special Startpage</source>
             </trans-unit>
             <trans-unit id="backend_layout.special_feature">
-                <source>Bootstrap Package: Special Feature</source>
+                <source>Special Feature</source>
             </trans-unit>
 
             <trans-unit id="backend_layout.column.subnav">
