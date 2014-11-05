@@ -1,109 +1,324 @@
-#############
-#### RTE ####
-#############
-RTE {
+################################################
+#### UNSET DEFAULT RTE CONFIG               ####
+#### Get a clean start without the need of  ####
+#### of overriding everything               ####
+################################################
+RTE >
 
-    // Default RTE configuration (all tables)
-    default {
 
-        // Default target for links
-        defaultLinkTarget = _top
-
-        // Buttons to show
-        showButtons = *
-
-        // Toolbar order
-        toolbarOrder (
-            formatblock, blockstyle, textstyle, linebreak,
-            bold, italic, underline, strikethrough, big, small, subscript, superscript, bar,
-            orderedlist, unorderedlist, bar,
-            left, center, right, copy, cut, paste, bar,
-            undo, redo, removeformat, bar,
-            link, unlink, linkcreator, bar,
-            imageeditor, bar,
-            line, insertparagraphbefore, insertparagraphafter, bar,
-            chMode, linebreak, table, tableproperties, tablerestyle, bar,
-            rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar,
-            columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
-            cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
-        )
-
-        RTEHeightOverride = 700
-        RTEWidthOverride = 700
-
-        // Buttons
-        buttons {
-            formatblock.orderItems = h1, h2, h3, h4, h5, h6, p, blockquote
-            textstyle.tags.span.allowedClasses >
-            textstyle.tags.REInlineTags >
-            textstyle.REInlineTags >
-            blockstyle.tags.table.allowedClasses >
-            left.useClass = text-left
-            center.useClass = text-center
-            right.useClass = text-right
-        }
-
-        // Disable contextual menu
-        contextMenu.disabled = 1
-        showStatusBar = 1
-        contentCSS = typo3conf/ext/bootstrap_package/Resources/Public/Css/RTE/rte.css
-        removeTagsAndContents =
-        useCSS = 1
-
-        // Processing rules
-        proc {
-
-            allowedClasses  < RTE.default.classesCharacter
-            overruleMode = ts_css
-            dontConvBRtoParagraph = 1
-            remapParagraphTag = p
-            allowTags (
-                a, abbr, acronym, address, blockquote, b, br, caption, cite,
-                code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li,
-                link, ol, p, pre, q, sdfield, span, small, strike, strong, sub,
-                sup, u, ul, table, thead,tfoot,tbody,tr,th,td
-            )
-            allowTagsOutside (
-                img, hr, h1, h2, h3, h4, h5, h6, br, ul, ol, li, pre, address,
-                span, blockquote, table
-            )
-            allowTagsInTypolists (
-                br, font, b, i, u, a, img, span
-            )
-            denyTags >
-            keepPDIVattribs = xml:lang,class,style,align
-            dontRemoveUnknownTags_db = 1
-            preserveTables = 0
-
-            entryHTMLparser_db = 1
-            entryHTMLparser_db {
-                allowTags < RTE.default.proc.allowTags
-                denyTags >
-                htmlSpecialChars = 0
-                tags {
-                    img >
-                    div.allowedAttribs = class
-                    p.allowedAttribs = class
-                    table.allowedAttribs = class
-                }
-                removeTags = center, font, o:p, sdfield, strike, u
-                keepNonMatchedTags = protect
-            }
-            HTMLparser_db {
-                noAttrib = br
-                xhtml_cleaning = 1
-            }
-            exitHTMLparser_db = 1
-            exitHTMLparser_db {
-                tags.b.remap = strong
-                tags.i.remap = em
-                keepNonMatchedTags = 1
-                htmlSpecialChars = 0
-            }
-
-        }
+################################################
+#### RTE CLASSES                            ####
+#### Adding translations for the classes to ####
+#### enhance usability for the editor       ####
+################################################
+RTE.classes {
+    text-left {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-left
+    }
+    text-center {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-center
+    }
+    text-right {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-right
+    }
+    text-justify {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-justify
+    }
+    lead {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.lead
+    }
+    active {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.active
+    }
+    danger {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.danger
+    }
+    info {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.info
+    }
+    success {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.success
+    }
+    warning {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.warning
+    }
+    visible-lg {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.visible-lg
+    }
+    visible-md {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.visible-md
+    }
+    visible-print {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.visible-print
+    }
+    visible-sm {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.visible-sm
+    }
+    visible-xs {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.visible-xs
+    }
+    table-striped {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.table-striped
+    }
+    table-bordered {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.table-bordered
+    }
+    table-hover {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.table-hover
+    }
+    table-condensed {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.table-condensed
+    }
+    list-unstyled {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.list-unstyled
+    }
+    list-inline {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.list-inline
+    }
+    btn {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn
+    }
+    btn-default {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-default
+    }
+    btn-primary {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-primary
+    }
+    btn-success {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-success
+    }
+    btn-warning {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-warning
+    }
+    btn-danger {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-danger
+    }
+    btn-link {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-link
+    }
+    btn-block {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.btn-block
     }
 }
 
-// Frontend RTE configuration
+
+################################################
+#### RTE BASICS                             ####
+################################################
+RTE.default {
+
+    // Use delivered rte css file that includes a default bootstrap css file.
+    // This css file is only for backend purposes and not used in frontend anyways!
+    contentCSS = typo3conf/ext/bootstrap_package/Resources/Public/Css/RTE/rte.css
+
+    // Use default schema for microdata
+    schema.sources {
+        schemaOrg = EXT:rtehtmlarea/extensions/MicrodataSchema/res/schemaOrgAll.rdf
+    }
+
+    // Use the default skin for rtehtmlarea
+    skin = EXT:t3skin/rtehtmlarea/htmlarea.css
+
+    // Clean text that is pasted from external sources
+    enableWordClean = 1
+
+    // We really dont want any comments in our frontend output. Remove them.
+    removeComments = 1
+
+    // List of tags that sould be removed automaticly
+    removeTags = center, font, o:p, sdfield
+
+    // These tags should never been in here and also its content
+    removeTagsAndContents = link, meta, script, style, title
+
+}
+
+
+################################################
+#### RTE BUTTON CONFIG                      ####
+################################################
+RTE.default.buttons {
+
+    // Remove html tags that are not suitable for an editor to maintain
+    formatblock {
+        removeItems = address, article, aside, div, header, footer, section, h5, h6, nav
+    }
+
+    // Remove stylings from select options
+    blockstyle.disableStyleOnOptionLabel = 1
+
+    // Restrict allowed classes for links to the bootstrap btn classes
+    textstyle.tags.a {
+        allowedClasses (
+            btn, btn-default, btn-primary, btn-success, btn-warning,
+            btn-danger, btn-link, btn-block
+        )
+    }
+
+    // Key mapping (strg + x)
+    bold.hotKey = b
+    italic.hotKey = i
+    underline.hotKey = u
+
+    // Use bootstrap css classes for text alignment
+    left.useClass = text-left
+    center.useClass = text-center
+    right.useClass = text-right
+    justifyfull.useClass = text-justify
+
+    // Make borders for tables visible default
+    toggleborders {
+        setOnTableCreation = 1
+        setOnRTEOpen = 1
+    }
+
+}
+
+
+################################################
+#### RTE APPEARANCE                         ####
+################################################
+RTE.default {
+
+    // Allow every button to be shown
+    showButtons = *
+
+    // Define buttons and order of button that will be shown
+    toolbarOrder (
+        formatblock, blockstyle, textstyle, linebreak,
+        bold, italic, underline, strikethrough, big, small, subscript, superscript, bar,
+        orderedlist, unorderedlist, bar,
+        left, center, right, justifyfull, copy, cut, paste, bar,
+        undo, redo, removeformat, bar,
+        link, unlink, linkcreator, bar,
+        imageeditor, bar,
+        line, insertparagraphbefore, insertparagraphafter, bar,
+        chMode, linebreak, table, tableproperties, toggleborders, tablerestyle, bar,
+        rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar,
+        columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
+        cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+    )
+
+    // Make the RTE bigger
+    RTEHeightOverride = 700
+
+    // Make the RTE resizeable for more comfort
+    rteResize = 1
+
+    // Disable the context menu
+    contextMenu.disabled = 1
+
+    // Enable status bar at the bottom that includes wordcount and current selected element
+    showStatusBar = 1
+
+    // Disable table wizard fieldsets that are not suitable for the editor
+    disableAlignmentFieldsetInTableOperations = 1
+    disableBordersFieldsetInTableOperations = 1
+    disableColorFieldsetInTableOperations = 1
+    disableLayoutFieldsetInTableOperations = 1
+    disableSpacingFieldsetInTableOperations = 1
+    disableDescriptionFieldsetInTableOperations = 1
+
+}
+
+
+################################################
+#### PROCESSING RULES                       ####
+################################################
+RTE.default.proc {
+
+    // @todo: figure out what that is exactly for
+    overruleMode = ts_css
+
+    // Allow br tags in paragraphs
+    dontConvBRtoParagraph = 1
+
+    // Do not preserve div section and remap them to p
+    preserveDIVSections = 0
+
+    // List of allowed tags
+    allowTags (
+        h1, h2, h3, h4, small, blockquote,
+        hr, img, a, link, p, pre, code,
+        u, b, del, em, i, strike, strong, sub, sup, br,
+        ul, ol, li,
+        table, thead, tbody, tfoot, td, th, tr
+    )
+
+    // List of allowed classes in the RTE
+    allowedClasses (
+        table, table-striped, table-bordered, table-hover, table-condensed,
+        text-left, text-center, text-right, text-justify,
+        active, success, warning, danger, info,
+        list-unstyled, list-inline,
+        btn, btn-default, btn-primary, btn-success, btn-warning, btn-block,
+        visible-lg, visible-md, visible-print, visible-sm, visible-xs
+    )
+
+    // List of tags that dont have to be wrapped in a paragraph
+    allowTagsOutside (
+        blockquote, h1, h2, h3, h4, hr, pre, table, ul, ol, img
+    )
+
+    // We have no option to set special attributes outside html view so remove all
+    keepPDIVattribs =
+
+    // Use allowed tags instead
+    denyTags >
+
+}
+
+
+################################################
+#### PROCESSING entryHTMLparser_db          ####
+################################################
+RTE.default.proc.entryHTMLparser_db = 1
+RTE.default.proc.entryHTMLparser_db {
+    allowTags < RTE.default.proc.allowTags
+    denyTags >
+    htmlSpecialChars = 0
+    tags {
+        img >
+        div.allowedAttribs = class
+        p.allowedAttribs = class
+        table.allowedAttribs = class
+    }
+    removeTags = center, font, o:p, sdfield
+    keepNonMatchedTags = protect
+}
+
+
+################################################
+#### PROCESSING HTMLparser_db               ####
+################################################
+RTE.default.proc.HTMLparser_db = 1
+RTE.default.proc.HTMLparser_db {
+    noAttrib = br
+    xhtml_cleaning = 1
+}
+
+
+################################################
+#### PROCESSING HTMLparser_db               ####
+################################################
+RTE.default.proc.exitHTMLparser_db = 1
+RTE.default.proc.exitHTMLparser_db {
+    tags {
+        b.remap = strong
+        i.remap = em
+        strike.remap = del
+    }
+    keepNonMatchedTags = 1
+    htmlSpecialChars = 0
+}
+
+################################################
+#### USE PROCESSING RULES IN FRONTEND       ####
+################################################
 RTE.default.FE < RTE.default
+
+
+################################################
+#### CLEANUP CONFIG FOR TT_CONTENT          ####
+################################################
+RTE.config.tt_content.bodytext >

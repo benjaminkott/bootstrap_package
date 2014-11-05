@@ -109,7 +109,20 @@ lib.dynamicContentSlide.20.slide = -1
 lib.parseFunc_RTE {
     externalBlocks {
         blockquote.callRecursive.tagStdWrap.HTMLparser.tags.blockquote.overrideAttribs >
-        table.stdWrap.HTMLparser.tags.table.fixAttrib >
+        table {
+            stdWrap {
+                HTMLparser.tags.table {
+                    fixAttrib >
+                    fixAttrib {
+                        class {
+                            always = 1
+                            prefixRelPathWith = table###SPACE###
+                        }
+                    }
+                }
+                wrap = <div class="table-responsive">|</div>
+            }
+        }
     }
     nonTypoTagStdWrap.encapsLines {
         addAttributes.P.class >

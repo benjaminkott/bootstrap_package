@@ -375,6 +375,12 @@ page {
                     strftime = %Y
                 }
             }
+            3 {
+                search = ###SPACE###
+                replace {
+                    char = 32
+                }
+            }
         }
     }
     meta {
