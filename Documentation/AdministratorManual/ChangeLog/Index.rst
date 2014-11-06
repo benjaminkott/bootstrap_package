@@ -16,6 +16,35 @@ ChangeLog
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.6    - Add new RTE config for better editor usability
+         - Add responsive tables in RTE
+         - Add backend layout with 2 columns 50/50%
+         - Exclude page also from search engine index if no_search is set to the page
+         - Enhance accessibility for the carousel
+         - Add Marker ###CURRENTYEAR###
+         - Add skip to content for screen reader
+         - Remove the automatic appending icons for content links
+         - Update Bootstrap to version 3.3.0
+         - Correct image display problems in IE8
+         - Adjust language menu for smaller viewports
+         - Adjust font-size and line-height for better readability
+         - Add backend layouts for left navigation
+         - Add missing space in news date format
+         - Add caption alignment
+         - Set cache period to 24h
+         - Correct linkToTop rendering
+         - Add google analytics
+         - Provide open graph image for social networks
+         - Add basic composer.json
+         - Implement a dynamic rewrite base solution reduce problems with some hosters
+         - Change lib.dynamicContent to be more flexible
+         - Allow link tag usage in html content element
+         - Split theme less file
+         - Add new clean backend layout
+         - Add styling constants for ext:themes
+         - Provide options to disable parts of the auto included PageTs settings
+         - Make Bootstrap Package run as a OnePage Website
+         - Cleanups
 6.2.5    - Update Documentation
          - Add support for link "Edit me on Github"
          - Fix workspace problem for related records
@@ -31,7 +60,7 @@ Version  Changes
          - Images displayed in one column have no restriction to current layout column
          - Update Bootstrap to 3.2.0
          - Removing symlink option due problems on windows apache with symlinks - affects
-         - Remove backend style module - introduce typoscript constants instead to provide a more flexible less configuration 
+         - Remove backend style module - introduce typoscript constants instead to provide a more flexible less configuration
          - Update less.php
          - Move TCA
          - Text and image - center top was not centered
