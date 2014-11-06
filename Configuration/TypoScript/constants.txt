@@ -93,8 +93,10 @@ page {
     }
     tracking {
         google {
-            # cat=bootstrap package: basic/180/100; type=string; label=Google Tracking-ID
+            # cat=bootstrap package: basic/180/100; type=string; label=Google: Tracking-ID
             trackingID                  =
+            # cat=bootstrap package: basic/180/110; type=boolean; label=Google: IP-anonymisation
+            anonymizeIp                 = 0
         }
     }
 }
