@@ -239,7 +239,7 @@ RTE.default.proc {
     // List of allowed tags
     allowTags (
         h1, h2, h3, h4, small, blockquote,
-        hr, img, a, link, p, pre, code,
+        hr, a, link, p, pre, code,
         u, b, del, em, i, strike, strong, sub, sup, br,
         ul, ol, li,
         table, thead, tbody, tfoot, td, th, tr
@@ -257,7 +257,7 @@ RTE.default.proc {
 
     // List of tags that dont have to be wrapped in a paragraph
     allowTagsOutside (
-        blockquote, h1, h2, h3, h4, hr, pre, table, ul, ol, img
+        blockquote, h1, h2, h3, h4, hr, pre, table, ul, ol
     )
 
     // We have no option to set special attributes outside html view so remove all
@@ -265,6 +265,10 @@ RTE.default.proc {
 
     // Use allowed tags instead
     denyTags >
+
+    // Allow to write about html
+    dontUndoHSC_db = 1
+    dontHSC_rte = 1
 
 }
 
@@ -274,17 +278,56 @@ RTE.default.proc {
 ################################################
 RTE.default.proc.entryHTMLparser_db = 1
 RTE.default.proc.entryHTMLparser_db {
+
+    // Use always default proc settings for allowed and denied tags
     allowTags < RTE.default.proc.allowTags
-    denyTags >
+    denyTags < RTE.default.proc.denyTags
+
+    // Avoid content being hsc`ed twice
     htmlSpecialChars = 0
+
     tags {
-        img >
-        div.allowedAttribs = class
-        p.allowedAttribs = class
-        table.allowedAttribs = class
+
+        // Clean Tags
+        span {
+            fixAttrib {
+                style.unset = 1
+                lang.unset = 1
+            }
+            allowedAttribs >
+            rmTagIfNoAttrib = 1
+        }
+
+        // Disallow all attributes
+        hr.allowedAttribs           < .span.allowedAttribs
+        b.allowedAttribs            < .span.allowedAttribs
+        blockquote.allowedAttribs   < .span.allowedAttribs
+        code.allowedAttribs         < .span.allowedAttribs
+        del.allowedAttribs          < .span.allowedAttribs
+        em.allowedAttribs           < .span.allowedAttribs
+        strong.allowedAttribs       < .span.allowedAttribs
+        sub.allowedAttribs          < .span.allowedAttribs
+        sup.allowedAttribs          < .span.allowedAttribs
+
+        // Special for elements that are allowed to have classes
+        p {
+            allowedAttribs = class
+        }
+        table.allowedAttribs        < .p.allowedAttribs
+        thead.allowedAttribs        < .p.allowedAttribs
+        tbody.allowedAttribs        < .p.allowedAttribs
+        tfoot.allowedAttribs        < .p.allowedAttribs
+        tr.allowedAttribs           < .p.allowedAttribs
+        th.allowedAttribs           < .p.allowedAttribs
+        td.allowedAttribs           < .p.allowedAttribs
+
     }
-    removeTags = center, font, o:p, sdfield
-    keepNonMatchedTags = protect
+
+    // Remove tags
+    removeTags = center, font, link, meta, o:p, sdfield, strike, style, title, u, img, div, colgroup, col
+
+    // Do not keep what is not allowed! YOLO!
+    keepNonMatchedTags = 0
 }
 
 
@@ -322,3 +365,9 @@ RTE.default.FE < RTE.default
 #### CLEANUP CONFIG FOR TT_CONTENT          ####
 ################################################
 RTE.config.tt_content.bodytext >
+
+
+################################################
+#### SET WORDCLEAN PARSER                   ####
+################################################
+RTE.default.enableWordClean.HTMLparser < RTE.default.proc.entryHTMLparser_db
