@@ -18,8 +18,8 @@ mod {
                                         colspan = 1
                                     }
                                     2 {
-                                        name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.2
-                                        colPos = 2
+                                        name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.0
+                                        colPos = 1
                                         colspan = 1
                                     }
                                     3 {
