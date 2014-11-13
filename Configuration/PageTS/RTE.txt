@@ -248,7 +248,7 @@ RTE.default.proc {
     // List of allowed classes in the RTE
     allowedClasses (
         table, table-striped, table-bordered, table-hover, table-condensed,
-        text-left, text-center, text-right, text-justify,
+        text-left, text-center, text-right, text-justify, lead,
         active, success, warning, danger, info,
         list-unstyled, list-inline,
         btn, btn-default, btn-primary, btn-success, btn-warning, btn-block,
