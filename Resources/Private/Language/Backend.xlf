@@ -17,6 +17,9 @@
             <trans-unit id="backend_layout.default_2_columns">
                 <source>Default, 2 Columns</source>
             </trans-unit>
+            <trans-unit id="backend_layout.default_2_columns_25_75">
+                <source>Default, 2 Columns 25/75</source>
+            </trans-unit>
             <trans-unit id="backend_layout.default_2_columns_50_50">
                 <source>Default, 2 Columns 50/50</source>
             </trans-unit>

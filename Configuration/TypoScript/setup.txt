@@ -269,6 +269,10 @@ page {
             bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
             bootstrap_package__default_2_columns.insertData = 1
 
+            bootstrap_package__default_2_columns_25_75 = TEXT
+            bootstrap_package__default_2_columns_25_75.value = {$page.fluidtemplate.templateRootPath}Default2Columns2575.html
+            bootstrap_package__default_2_columns_25_75.insertData = 1
+
             bootstrap_package__default_2_columns_50_50 = TEXT
             bootstrap_package__default_2_columns_50_50.value = {$page.fluidtemplate.templateRootPath}Default2Columns5050.html
             bootstrap_package__default_2_columns_50_50.insertData = 1
