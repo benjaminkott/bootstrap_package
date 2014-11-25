@@ -28,6 +28,7 @@ namespace BK2K\BootstrapPackage\Hooks\PageRendererRender;
  ***************************************************************/
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -43,8 +44,12 @@ class PreProcessHook {
             return;
         }
         $files = array();
-        foreach($params['cssFiles'] as $file => $settings) {
-            $compiledFile = CompileService::getCompiledFile($file);
+
+		/** @var CompileService $compileService */
+		$compileService = GeneralUtility::makeInstance('BK2K\BootstrapPackage\Service\CompileService');
+
+		foreach($params['cssFiles'] as $file => $settings) {
+            $compiledFile = $compileService->getCompiledFile($file);
             if($compiledFile) {
                 $settings['file'] = $compiledFile;
                 $files[$compiledFile] = $settings;
