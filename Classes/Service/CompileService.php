@@ -37,7 +37,7 @@ class CompileService {
     /**
      * @param string $file
      */
-    public function getCompiledFile($file) {
+    public static function getCompiledFile($file) {
         $file = GeneralUtility::getFileAbsFileName($file);
         $pathParts = pathinfo($file);
         if($pathParts['extension'] === 'less'){
