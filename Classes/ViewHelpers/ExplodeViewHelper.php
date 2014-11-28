@@ -35,20 +35,21 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class ExplodeViewHelper extends AbstractViewHelper {
 
-    /**
-     * @param string $data
-     * @param string $as
-     * @param string $delimiter
-     * @return string
-     */
-    public function render($data,$as = 'items', $delimiter = LF) {
-        if($data){
-            $items = GeneralUtility::trimExplode($delimiter, $data);
-            $this->templateVariableContainer->add($as, $items);
-            $content = $this->renderChildren();
-            $this->templateVariableContainer->remove($as);
-        }
-        return $content;
-    }
+	/**
+	 * @param string $data
+	 * @param string $as
+	 * @param string $delimiter
+	 * @return string
+	 */
+	public function render($data, $as = 'items', $delimiter = LF) {
+
+		if ($data) {
+			$items = GeneralUtility::trimExplode($delimiter, $data);
+			$this->templateVariableContainer->add($as, $items);
+			$content = $this->renderChildren();
+			$this->templateVariableContainer->remove($as);
+		}
+		return $content;
+	}
 
 }

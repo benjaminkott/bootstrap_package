@@ -17,111 +17,116 @@
 page {
     logo {
         # cat=bootstrap package: basic/110/file; type=string; label=Logo: Leave blank to use website title from template instead
-        file                            = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.png
+        file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.png
         # cat=bootstrap package: basic/110/height; type=int+; label=Height: The image will not be resized!
-        height                          = 60
+        height = 60
         # cat=bootstrap package: basic/110/width; type=int+; label=Width: The image will not be resized!
-        width                           = 210
+        width = 210
     }
+
     theme {
         # cat=bootstrap package: basic/160/100; type=options[Default=default, Inverse=inverse]; label=Navigation Style
-        navigationstyle                 = default
+        navigationstyle = default
         # cat=bootstrap package: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
-        navigationtype                  =
+        navigationtype =
         # cat=bootstrap package: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
-        breadcrumb                      = 1
+        breadcrumb = 1
         copyright {
             # cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
-            enable                      = 1
+            enable = 1
             # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
-            text                        = Built on a Windows 8.1 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            text = Built on a Windows 8.1 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
+
         news {
             list {
                 # cat=bootstrap package: basic/170/100; type=options[Left=left, Center=center, Right=right]; label=Header Position
-                header_position         = left
+                header_position = left
                 # cat=bootstrap package: basic/170/110; type=options[H1=1,H2=2,H3=3,H4=4,H5=5]; label=Header Layout
-                header_layout           = 2
+                header_layout = 2
                 # cat=bootstrap package: basic/170/120; type=options[Above: center=0,Above: right=1,Above: left=2,Below: center=8,Below: right=9,Below: left=10,In text: right=17,In text: left=18,Beside Text: Right=25,Beside Text: Left=26]; label=Image Alignment
-                imageorient             = 25
+                imageorient = 25
                 # cat=bootstrap package: basic/170/130; type=options[1=1,2=2,3=3,4=4,6=6]; label=Image Columns
-                imagecols               = 1
+                imagecols = 1
                 # cat=bootstrap package: basic/170/170; type=int+; label= Max Image Width: This indicates that maximum number of pixels (width) a block of images inserted as content is allowed to consume.
-                maxW                    = 1140
+                maxW = 1140
                 # cat=bootstrap package: basic/170/180; type=int+; label= Max Image Width (Text): Same as above, but this is the maximum width when text is wrapped around an imageblock. Default is 50% of the normal Max Image Width.
                 maxWInText =
             }
+
             pagination {
                 # cat=bootstrap package: basic/170/190; type=string; label=Max items per page
                 itemsperpage = 5
             }
         }
     }
+
     fluidtemplate {
         # cat=bootstrap package: advanced/100/100; type=string; label=Layout Root Path: Path to layouts
-        layoutRootPath                  = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Page/
         # cat=bootstrap package: advanced/100/110; type=string; label=Partial Root Path: Path to partials
-        partialRootPath                 = EXT:bootstrap_package/Resources/Private/Partials/Page/
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Page/
         # cat=bootstrap package: advanced/100/120; type=string; label=Template Root Path: Path to templates
-        templateRootPath                = EXT:bootstrap_package/Resources/Private/Templates/Page/
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Page/
     }
+
     includePath {
         # cat=bootstrap package: advanced/130/100; type=string; label=Css Include Path: Path to css files
-        css                             = EXT:bootstrap_package/Resources/Public/Css/
+        css = EXT:bootstrap_package/Resources/Public/Css/
         # cat=bootstrap package: advanced/130/110; type=string; label=Icon Include Path: Path to css files
-        icons                           = EXT:bootstrap_package/Resources/Public/Icons/
+        icons = EXT:bootstrap_package/Resources/Public/Icons/
         # cat=bootstrap package: advanced/130/120; type=string; label=JavaScript Include Path: Path to css files
-        javascript                      = EXT:bootstrap_package/Resources/Public/JavaScript/
+        javascript = EXT:bootstrap_package/Resources/Public/JavaScript/
     }
+
     meta {
         # cat=bootstrap package: basic/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
-        description                     =
+        description =
         # cat=bootstrap package: basic/120/110; type=string; label=Author: Enter the page author's name.
-        author                          =
+        author =
         # cat=bootstrap package: basic/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
-        keywords                        =
+        keywords =
         # cat=bootstrap package: advanced/120/100; type=string; label=viewport
-        viewport                        = width=device-width, initial-scale=1
+        viewport = width=device-width, initial-scale=1
         # cat=bootstrap package: advanced/120/110; type=string; label=robots
-        robots                          = index,follow
+        robots = index,follow
         # cat=bootstrap package: advanced/120/120; type=string; label=apple-mobile-web-app-capable
-        apple-mobile-web-app-capable    = no
+        apple-mobile-web-app-capable = no
         # cat=bootstrap package: advanced/120/130; type=string; label=compatible
-        compatible                      = IE=edge,chrome=1
+        compatible = IE=edge,chrome=1
         # cat=bootstrap package: advanced/120/140; type=string; label=google
-        google                          = notranslate
+        google = notranslate
     }
+
     tracking {
         google {
             # cat=bootstrap package: basic/180/100; type=string; label=Google: Tracking-ID
-            trackingID                  =
+            trackingID =
             # cat=bootstrap package: basic/180/110; type=boolean; label=Google: IP-anonymisation
-            anonymizeIp                 = 0
+            anonymizeIp = 0
         }
     }
 }
-
 
 ##############
 ### CONFIG ###
 ##############
 config {
     # cat=bootstrap package: advanced/150/100; type=string; label=BaseURL: This will override the default automatic BaseURL determination
-    baseURL                             =
+    baseURL =
     # cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
-    no_cache                            = 0
+    no_cache = 0
     # cat=bootstrap package: advanced/150/120; type=boolean; label=Compress JavaScript
-    compressJs                          = 1
+    compressJs = 1
     # cat=bootstrap package: advanced/150/130; type=boolean; label=Compress Css
-    compressCss                         = 1
+    compressCss = 1
     # cat=bootstrap package: advanced/150/140; type=boolean; label=Concatenate JavaScript
-    concatenateJs                       = 1
+    concatenateJs = 1
     # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate Css
-    concatenateCss                      = 1
+    concatenateCss = 1
     # cat=bootstrap package: advanced/150/160; type=string; label=Header Comment
-    headerComment                       = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
+    headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
 }
-
 
 ##########################
 ### CSS STYLED CONTENT ###
@@ -136,7 +141,6 @@ styles {
     }
 }
 
-
 ##################################
 ### BOOTSTRAP CONTENT ELEMENTS ###
 ##################################
@@ -150,7 +154,6 @@ plugin.bootstrap_package_contentelements {
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
     }
 }
-
 
 ##################################
 #### BOOTSTRAP LESS CONSTANTS ####

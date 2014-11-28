@@ -9,7 +9,6 @@
 #######################
 lib.language = COA
 lib.language {
-
     ###################################################
     #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
     #### its not needed in this example            ####
@@ -48,6 +47,7 @@ lib.language {
                     }
                 }
             }
+
             ACT < .NO
             ACT.linkWrap = <li class="active">|</li>
             #### NO TRANSLATION AVAILABLE STATES ####
@@ -56,6 +56,7 @@ lib.language {
                 linkWrap = <li class="text-muted">|</li>
                 stdWrap.typolink >
             }
+
             USERDEF2 < .ACT
             USERDEF2 {
                 linkWrap = <li class="text-muted">|</li>
@@ -63,9 +64,9 @@ lib.language {
             }
         }
     }
+
     wrap = <ul id="language_menu" class="language-menu">|</ul>
 }
-
 
 ####################
 #### NAVIGATION ####
@@ -96,14 +97,17 @@ lib.navigation.main {
                             equals.field = shortcut
                         }
                     }
+
                     10 = TEXT
                     10.value = <li class="active">|</li>
                 }
             }
+
             ACT < .NO
             ACT {
                 wrapItemAndSub = <li class="active">|</li>
             }
+
             CUR < .ACT
             IFSUB < .NO
             IFSUB {
@@ -111,25 +115,30 @@ lib.navigation.main {
                 allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
                 wrapItemAndSub = <li class="dropdown">|</li>
             }
+
             ACTIFSUB < .IFSUB
             ACTIFSUB {
                 wrapItemAndSub = <li class="active dropdown">|</li>
             }
+
             CURIFSUB < .ACTIFSUB
         }
+
         2 < .1
         2 {
-            wrap =  <ul class="dropdown-menu">|</ul>
+            wrap = <ul class="dropdown-menu">|</ul>
             SPC = 1
             SPC {
                 wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
             }
+
             IFSUB >
             ACTIFSUB >
             CURIFSUB >
         }
     }
 }
+
 lib.navigation.subnavigation = COA
 lib.navigation.subnavigation {
     10 = HMENU
@@ -151,45 +160,48 @@ lib.navigation.subnavigation {
             ACT {
                 ATagParams = class="list-group-item active"
             }
+
             CUR < .ACT
         }
     }
 }
+
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
-lib.navigation.breadcrumb = COA
-lib.navigation.breadcrumb {
-    required = 1
-    wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
-    10 = HMENU
-    10 {
-        special = rootline
-        special.range = 1|-1
-        includeNotInMenu = 1
-        1 = TMENU
-        1 {
-            noBlur = 1
-            target = _self
-            wrap = <ol class="breadcrumb">|</ol>
-            NO = 1
-            NO {
-                stdWrap.field = title
-                ATagTitle.field = nav_title // title
-                wrapItemAndSub = <li>|</li>
-            }
-            CUR = 1
-            CUR {
-                stdWrap.field = title
-                doNotLinkIt = 1
-                wrapItemAndSub = <li class="active">|</li>
+    lib.navigation.breadcrumb = COA
+    lib.navigation.breadcrumb {
+        required = 1
+        wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
+        10 = HMENU
+        10 {
+            special = rootline
+            special.range = 1|-1
+            includeNotInMenu = 1
+            1 = TMENU
+            1 {
+                noBlur = 1
+                target = _self
+                wrap = <ol class="breadcrumb">|</ol>
+                NO = 1
+                NO {
+                    stdWrap.field = title
+                    ATagTitle.field = nav_title // title
+                    wrapItemAndSub = <li>|</li>
+                }
+
+                CUR = 1
+                CUR {
+                    stdWrap.field = title
+                    doNotLinkIt = 1
+                    wrapItemAndSub = <li class="active">|</li>
+                }
             }
         }
     }
-}
-[end]
-[treeLevel = 0] || [treeLevel = 1]
-lib.navigation.breadcrumb >
 [end]
 
+[treeLevel = 0] || [treeLevel = 1]
+    lib.navigation.breadcrumb >
+[end]
 
 ##############
 #### PAGE ####
@@ -204,7 +216,6 @@ page {
     headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
 
     headerData {
-
         // Flip ahead browsing for IE10/11
         // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
         10 = HMENU
@@ -213,6 +224,7 @@ page {
             special {
                 items = prev|next
             }
+
             1 = TMENU
             1.NO {
                 allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
@@ -237,6 +249,7 @@ page {
                 references {
                     data = levelfield:-1, media, slide
                 }
+
                 maxItems = 1
                 renderObj = TEXT
                 renderObj {
@@ -245,19 +258,18 @@ page {
                 }
             }
         }
-
     }
 
-    5 <  styles.content.editPanelPage
+    5 < styles.content.editPanelPage
     5 {
         stdWrap.wrap = <div class="typo3-feedit-page">|</div>
         stdWrap.required = 1
     }
+
     10 = FLUIDTEMPLATE
     10 {
         file.stdWrap.cObject = CASE
         file.stdWrap.cObject {
-
             key.data = levelfield:-1, backend_layout_next_level, slide
             key.override.field = backend_layout
 
@@ -317,12 +329,11 @@ page {
             bootstrap_package__default_subnavigation_2_columns = TEXT
             bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
             bootstrap_package__default_subnavigation_2_columns.insertData = 1
-
         }
-        partialRootPath     = {$page.fluidtemplate.partialRootPath}
-        layoutRootPath      = {$page.fluidtemplate.layoutRootPath}
-        variables {
 
+        partialRootPath = {$page.fluidtemplate.partialRootPath}
+        layoutRootPath = {$page.fluidtemplate.layoutRootPath}
+        variables {
             onePage = TEXT
             onePage.value = 0
 
@@ -356,8 +367,8 @@ page {
             themeCopyright.value = {$page.theme.copyright.enable}
             themeCopyrightText = TEXT
             themeCopyrightText.value = {$page.theme.copyright.text}
-
         }
+
         stdWrap.replacement {
             1 {
                 search = http://###BACKEND_URL###/
@@ -366,6 +377,7 @@ page {
                     returnLast = url
                 }
             }
+
             2 {
                 search = ###CURRENTYEAR###
                 replace {
@@ -373,6 +385,7 @@ page {
                     strftime = %Y
                 }
             }
+
             3 {
                 search = ###SPACE###
                 replace {
@@ -381,6 +394,7 @@ page {
             }
         }
     }
+
     meta {
         viewport = {$page.meta.viewport}
         robots = {$page.meta.robots}
@@ -393,24 +407,28 @@ page {
         keywords = {$page.meta.keywords}
         keywords.override.field = keywords
     }
+
     includeCSS {
         # bootstrap will be included in the themes.less file
         # for standalone usage just uncomment the following line
         # bootstrap = EXT:bootstrap_package/Resources/Private/Less/Bootstrap/bootstrap.less
         theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
     }
+
     includeJSlibs {
         modernizr = {$page.includePath.javascript}Libs/modernizr-2.6.3.min.js
         modernizr.forceOnTop = 1
         wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
     }
-    includeJSFooterlibs  {
+
+    includeJSFooterlibs {
         jquery = {$page.includePath.javascript}Libs/jquery-1.11.1.min.js
         jquery.forceOnTop = 1
         bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
         responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
         main = {$page.includePath.javascript}main.min.js
     }
+
     jsFooterInline {
         # Google Analytics
         10 = COA
@@ -418,6 +436,7 @@ page {
             if {
                 isTrue = {$page.tracking.google.trackingID}
             }
+
             10 = TEXT
             10.value (
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -431,10 +450,12 @@ page {
                 if {
                     isTrue = {$page.tracking.google.anonymizeIp}
                 }
+
                 value (
                     ga('set', 'anonymizeIp', true);
                 )
             }
+
             90 = TEXT
             90.value (
                 ga('send', 'pageview');
@@ -443,48 +464,44 @@ page {
     }
 }
 
-
 ###################################################
 #### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
 #### IF NO SEARCH IS SET FOR THIS PAGE         ####
 ###################################################
 [globalVar = TSFE:page|no_search = 1]
-page.meta.robots = noindex,follow
+    page.meta.robots = noindex,follow
 [end]
-
 
 #############################################
 #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
 #############################################
 [browser = msie] && [version = 8]
-page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
+    page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
 [end]
-
 
 ################
 #### CONFIG ####
 ################
 config {
-    no_cache                            = {$config.no_cache}
-    uniqueLinkVars                      = 1
-    pageTitleFirst                      = 1
-    linkVars                            = L
-    renderCharset                       = utf-8
-    metaCharset                         = utf-8
-    doctype                             = html5
-    removeDefaultJS                     = external
-    inlineStyle2TempFile                = 1
-    admPanel                            = 1
-    debug                               = 0
-    cache_period                        = 86400
-    sendCacheHeaders                    = 0
-    intTarget                           =
-    extTarget                           =
-    disablePrefixComment                = 1
-    index_enable                        = 1
-    index_externals                     = 1
-    headerComment                       = {$config.headerComment}
-
+    no_cache = {$config.no_cache}
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    removeDefaultJS = external
+    inlineStyle2TempFile = 1
+    admPanel = 1
+    debug = 0
+    cache_period = 86400
+    sendCacheHeaders = 0
+    intTarget =
+    extTarget =
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 1
+    headerComment = {$config.headerComment}
 
     // Set the headTag again and get an automatic baseURL if config.baseURL is not set
     htmlTag_stdWrap {
@@ -501,12 +518,14 @@ config {
                     split.returnKey = 1
                 }
             }
+
             20 = TEXT
             20 {
                 value = <html {register:tagEnd}
                 wrap = |{register:newLine}
                 insertData = 1
             }
+
             30 < .20
             30.value = <head>
             40 = TEXT
@@ -520,44 +539,44 @@ config {
     }
 
     // Enable RealUrl
-    tx_realurl_enable                   = 1
-    simulateStaticDocuments             = 0
+    tx_realurl_enable = 1
+    simulateStaticDocuments = 0
 
     // Disable Image Upscaling
-    noScaleUp                           = 1
+    noScaleUp = 1
 
     // Language Settings
-    sys_language_uid                    = 0
-    sys_language_overlay                = 1
-    sys_language_mode                   = content_fallback
-    language                            = en
-    locale_all                          = en_US.UTF-8
-    htmlTag_setParams                   = lang="en" dir="ltr" class="no-js"
+    sys_language_uid = 0
+    sys_language_overlay = 1
+    sys_language_mode = content_fallback
+    language = en
+    locale_all = en_US.UTF-8
+    htmlTag_setParams = lang="en" dir="ltr" class="no-js"
 
     // Compression and Concatenation of CSS and JS Files
-    compressJs                          = {$config.compressJs}
-    compressCss                         = {$config.compressCss}
-    concatenateJs                       = {$config.concatenateJs}
-    concatenateCss                      = {$config.concatenateCss}
+    compressJs = {$config.compressJs}
+    compressCss = {$config.compressCss}
+    concatenateJs = {$config.concatenateJs}
+    concatenateCss = {$config.concatenateCss}
 }
-
 
 #############################
 #### LANGUAGE CONDITIONS ####
 #############################
 [globalVar = GP:L = 1]
-config {
-    sys_language_uid                    = 1
-    language                            = da
-    locale_all                          = da_DK.UTF-8
-    htmlTag_setParams                   = lang="da" dir="ltr" class="no-js"
-}
+    config {
+        sys_language_uid = 1
+        language = da
+        locale_all = da_DK.UTF-8
+        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
+    }
 [global]
+
 [globalVar = GP:L = 2]
-config {
-    sys_language_uid                    = 2
-    language                            = de
-    locale_all                          = de_DE.UTF-8
-    htmlTag_setParams                   = lang="de" dir="ltr" class="no-js"
-}
+    config {
+        sys_language_uid = 2
+        language = de
+        locale_all = de_DE.UTF-8
+        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+    }
 [global]

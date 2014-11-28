@@ -2,7 +2,6 @@
 #### RESPONSIVE IMAGES ####
 ###########################
 tt_content.image.20.1 {
-
     layout {
         bootstrappackage {
             element (
@@ -22,18 +21,22 @@ tt_content.image.20.1 {
         src {
             dataKey = src
         }
+
         bigger {
             width = 1140
             dataKey = bigger
         }
+
         large {
             width = 940
             dataKey = large
         }
+
         medium {
             width = 720
             dataKey = medium
         }
+
         small {
             width = 320
             dataKey = small
@@ -42,7 +45,6 @@ tt_content.image.20.1 {
 
     params = class="lazyload"
 }
-
 
 #################
 #### CONTENT ####
@@ -77,7 +79,7 @@ tt_content.image.20.1 {
 lib.dynamicContent = COA
 lib.dynamicContent {
     5 = LOAD_REGISTER
-    5  {
+    5 {
         colPos.cObject = TEXT
         colPos.cObject {
             field = colPos
@@ -87,21 +89,23 @@ lib.dynamicContent {
                 ifEmpty = 0
             }
         }
+
         pageUid.cObject = TEXT
         pageUid.cObject {
             field = pageUid
             ifEmpty.data = TSFE:id
         }
     }
+
     20 < styles.content.get
     20.select.where = colPos={register:colPos}
     20.select.where.insertData = 1
     20.select.pidInList.data = register:pageUid
     90 = RESTORE_REGISTER
 }
+
 lib.dynamicContentSlide =< lib.dynamicContent
 lib.dynamicContentSlide.20.slide = -1
-
 
 ###########################
 #### LIB PARSEFUNC RTE ####
@@ -120,15 +124,16 @@ lib.parseFunc_RTE {
                         }
                     }
                 }
+
                 wrap = <div class="table-responsive">|</div>
             }
         }
     }
+
     nonTypoTagStdWrap.encapsLines {
         addAttributes.P.class >
     }
 }
-
 
 #######################
 #### LIB STDHEADER ####
@@ -145,6 +150,7 @@ lib.stdheader {
             }
         }
     }
+
     5 >
     10 >
     10 = CASE
@@ -154,11 +160,13 @@ lib.stdheader {
             htmlSpecialChars = 1
             typolink.parameter.field = header_link
         }
+
         key {
             field = header_layout
             ifEmpty = {$content.defaultHeaderType}
             ifEmpty.override.data = register: defaultHeaderType
         }
+
         1 = COA
         1 {
             10 = TEXT
@@ -169,9 +177,11 @@ lib.stdheader {
                 stdWrap.noTrimWrap = | <small>|</small>|
                 stdWrap.required = 1
             }
+
             stdWrap.dataWrap = <h1{register:headerClass}>|</h1>
             stdWrap.required = 1
         }
+
         2 < .1
         2.stdWrap.dataWrap = <h2{register:headerClass}>|</h2>
         3 < .1
@@ -181,6 +191,7 @@ lib.stdheader {
         5 < .1
         5.stdWrap.dataWrap = <h5{register:headerClass}>|</h5>
     }
+
     20 >
     40 >
     40 = COA
@@ -194,39 +205,44 @@ lib.stdheader {
                     10 {
                         value = <time
                     }
+
                     20 = TEXT
                     20 {
                         noTrimWrap = | datetime="|"|
                         field = date
                         strftime = %Y-%m-%d
                     }
+
                     30 = TEXT
                     30 {
                         value = >|</time>
                     }
                 }
             }
+
             required = 1
         }
+
         10 = TEXT
         10 {
             field = date
             strftime = %Y-%m-%d
-
         }
+
         if {
             isTrue {
                 field = date
             }
         }
     }
+
     stdWrap {
         dataWrap >
         dataWrap = |
     }
+
     stdWrap.prefixComment >
 }
-
 
 #######################
 #### LIB NEWSHEADER ####
@@ -240,18 +256,22 @@ lib.newsheader {
                     field >
                     value = {$page.theme.news.list.header_position}
                 }
+
                 20 >
             }
         }
     }
+
     10 {
         setCurrent {
             field = title
             typolink.parameter.field = uid
         }
+
         key >
         key = {$page.theme.news.list.header_layout}
     }
+
     20 = COA
     20 {
         10 = TEXT
@@ -261,6 +281,7 @@ lib.newsheader {
             noTrimWrap = |<span class="news-author"><strong>BY: |</strong></span>|
             required = 1
         }
+
         20 = TEXT
         20 {
             field = starttime
@@ -269,25 +290,26 @@ lib.newsheader {
                 value = 0
                 equals.field = starttime
             }
+
             strftime = %B %d, %Y
             noTrimWrap = | <span class="news-date">|</strong>|
             required = 1
         }
+
         stdWrap.required = 1
         stdWrap.wrap = <div class="news-info">|</div>
     }
+
     40 >
     stdWrap {
         fieldRequired = title
     }
 }
 
-
 ######################################
 #### UNSET CSS STYLED CONTENT CSS ####
 ######################################
 plugin.tx_cssstyledcontent >
-
 
 ###########################
 #### TT_CONTENT FRAMES ####
@@ -309,11 +331,13 @@ tt_content.stdWrap {
                         equals.field = colPos
                     }
                 }
+
                 bootstrap_package_carousel = TEXT
                 bootstrap_package_carousel {
                     value = >|</div>
                 }
             }
+
             menu >
             menu < .default
             menu {
@@ -323,6 +347,7 @@ tt_content.stdWrap {
                 }
             }
         }
+
         1.20.10.value = frame invisible
         5.20.10.value = frame rulerbefore
         6.20.10.value = frame rulerafter
@@ -330,6 +355,7 @@ tt_content.stdWrap {
             20.10.value = frame col-xs-11 col-xs-push-1
             stdWrap.wrap = <div class="row">|</div>
         }
+
         11 =< tt_content.stdWrap.innerWrap.cObject.10
         11.20.10.value = frame col-xs-9 col-xs-push-3
         12 =< tt_content.stdWrap.innerWrap.cObject.10
@@ -337,6 +363,7 @@ tt_content.stdWrap {
         20.20.10.value = frame well
         21.20.10.value = frame jumbotron
     }
+
     innerWrap2 >
     innerWrap2 {
         cObject = COA
@@ -345,26 +372,27 @@ tt_content.stdWrap {
             10 {
                 value = |
             }
+
             20 = TEXT
             20 {
                 typolink {
                     parameter.data = TSFE:id
                     returnLast = url
                 }
+
                 insertData = 1
                 wrap = <p class="csc-linkToTop"><a href="|#">{LLL:EXT:css_styled_content/pi1/locallang.xml:label.toTop}</a></p>
             }
         }
+
         fieldRequired = linkToTop
     }
 }
-
 
 ################################################
 #### CTYPE: HEADER                          ####
 ################################################
 tt_content.header.20 >
-
 
 #######################
 #### CTYPE: BULLET ####
@@ -379,6 +407,7 @@ tt_content.bullets.20.dataWrap.cObject {
         10 {
             value = <ul
         }
+
         20 = COA
         20 {
             10 = TEXT
@@ -387,26 +416,28 @@ tt_content.bullets.20.dataWrap.cObject {
                 required = 1
                 noTrimWrap = || |
             }
+
             stdWrap {
                 trim = 1
                 noTrimWrap = | class="|"|
                 required = 1
             }
         }
+
         30 = TEXT
         30 {
             value = >|</ul>
         }
     }
+
     110 =< tt_content.bullets.20.dataWrap.cObject.default
     110.10.value = <ol
-    110.30.value =  >|</ol>
+    110.30.value = >|</ol>
     120 =< tt_content.bullets.20.dataWrap.cObject.default
     120.20.10.value = list list-unstyled
     130 =< tt_content.bullets.20.dataWrap.cObject.default
     130.20.10.value = list list-inline
 }
-
 
 ########################
 #### CTYPE: UPLOADS ####
@@ -434,6 +465,7 @@ tt_content.uploads.20 {
                 }
             }
         }
+
         20 = COA
         20 {
             10 = COA
@@ -447,27 +479,28 @@ tt_content.uploads.20 {
                         default = TEXT
                         default.value = glyphicon glyphicon-file
                         default.stdWrap.noTrimWrap = |<span class="|"></span> |
-                        avi  =< tt_content.uploads.20.renderObj.20.10.10.10.default
+                        avi =< tt_content.uploads.20.renderObj.20.10.10.10.default
                         avi.value = glyphicon glyphicon-film
-                        mov  =< tt_content.uploads.20.renderObj.20.10.10.10.avi
-                        mpg  =< tt_content.uploads.20.renderObj.20.10.10.10.avi
+                        mov =< tt_content.uploads.20.renderObj.20.10.10.10.avi
+                        mpg =< tt_content.uploads.20.renderObj.20.10.10.10.avi
                         mpeg =< tt_content.uploads.20.renderObj.20.10.10.10.avi
-                        mkv  =< tt_content.uploads.20.renderObj.20.10.10.10.avi
-                        jpg  =< tt_content.uploads.20.renderObj.20.10.10.10.default
+                        mkv =< tt_content.uploads.20.renderObj.20.10.10.10.avi
+                        jpg =< tt_content.uploads.20.renderObj.20.10.10.10.default
                         jpg.value = glyphicon glyphicon-picture
-                        gif  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        png  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        bmp  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        ai   =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        eps  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        ico  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        tga  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
-                        tif  =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        gif =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        png =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        bmp =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        ai =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        eps =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        ico =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        tga =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
+                        tif =< tt_content.uploads.20.renderObj.20.10.10.10.jpg
                         if {
                             value = 0
                             isGreaterThan.field = layout
                         }
                     }
+
                     20 = TEXT
                     20 {
                         data = file:current:name
@@ -481,9 +514,11 @@ tt_content.uploads.20 {
                             }
                         }
                     }
+
                     stdWrap.typolink < tt_content.uploads.20.renderObj.10.stdWrap.typolink
                     stdWrap.typolink.ATagParams >
                 }
+
                 40 = TEXT
                 40 {
                     if.isTrue.field = filelink_size
@@ -492,8 +527,10 @@ tt_content.uploads.20 {
                     bytes = 1
                     bytes.labels = {$styles.content.uploads.filesizeBytesLabels}
                 }
+
                 stdWrap.wrap = <h4 class="media-heading">|</h4>
             }
+
             30 = TEXT
             30 {
                 data = file:current:description
@@ -501,22 +538,23 @@ tt_content.uploads.20 {
                 wrap = |
                 required = 1
             }
+
             wrap = <div class="media-body">|</div>
         }
+
         wrap = <li class="media">|</li>
     }
+
     stdWrap {
         dataWrap = <ul class="media-list">|</ul>
     }
 }
-
 
 ################################################
 #### CTYPE: IMAGE                           ####
 #### also used for rendering 'textpic' type ####
 ################################################
 tt_content.image.20 {
-
     1 {
         imageLinkWrap {
             JSwindow = 0
@@ -547,11 +585,13 @@ tt_content.image.20 {
             6.value = col-md-2 col-sm-2 col-xs-4
         }
     }
+
     addClassesCol.override =
     addClassesCol.override.if {
         isGreaterThan.field = imagecols
         value = 1
     }
+
     addClassesImage >
     layout {
         default.override >
@@ -581,6 +621,7 @@ tt_content.image.20 {
         26.override.if.isTrue.field = header
         26.override.insertData = 1
     }
+
     rendering {
         singleNoCaption {
             allStdWrap {
@@ -588,9 +629,11 @@ tt_content.image.20 {
                 dataWrap {
                     override = <div class="image-wrap"> | </div>
                 }
+
                 innerWrap.cObject.0.value = <div class="image-center-outer"><div class="image-center-inner"> | </div></div>
                 innerWrap.cObject.8.value = <div class="image-center-outer"><div class="image-center-inner"> | </div></div>
             }
+
             singleStdWrap {
                 wrap = <div class="image###CLASSES###"> | </div>
                 wrap {
@@ -611,6 +654,7 @@ tt_content.image.20 {
                 }
             }
         }
+
         noCaption {
             allStdWrap {
                 dataWrap = <div class="image-wrap"> | </div>
@@ -618,6 +662,7 @@ tt_content.image.20 {
                     override = <div class="image-wrap"> | </div>
                 }
             }
+
             singleStdWrap {
                 wrap = <div class="image###CLASSES###"> | </div>
                 wrap {
@@ -637,11 +682,13 @@ tt_content.image.20 {
                     }
                 }
             }
+
             rowStdWrap.wrap = <div class="image-row"> | </div>
             noRowsStdWrap.wrap = <div class="image-row"> | </div>
             lastRowStdWrap.wrap = <div class="image-row"> | </div>
             columnStdWrap.wrap = <div class="image-column###CLASSES###"> | </div>
         }
+
         singleCaption {
             singleStdWrap {
                 wrap {
@@ -661,11 +708,13 @@ tt_content.image.20 {
                     }
                 }
             }
+
             caption {
                 wrap = <caption class="caption###CLASSES###"> | </caption>
                 wrap.override = <figcaption class="caption###CLASSES###"> | </figcaption>
             }
         }
+
         splitCaption {
             singleStdWrap {
                 wrap {
@@ -685,15 +734,18 @@ tt_content.image.20 {
                     }
                 }
             }
+
             caption {
                 wrap = <caption class="caption###CLASSES###"> | </caption>
                 wrap.override = <figcaption class="caption###CLASSES###"> | </figcaption>
             }
+
             rowStdWrap.wrap = <div class="image-row"> | </div>
             noRowsStdWrap.wrap = <div class="image-row"> | </div>
             lastRowStdWrap.wrap = <div class="image-row"> | </div>
             columnStdWrap.wrap = <div class="image-column###CLASSES###"> | </div>
         }
+
         globalCaption {
             allStdWrap {
                 dataWrap = <div class="image-wrap"> | ###CAPTION###</div>
@@ -701,6 +753,7 @@ tt_content.image.20 {
                     override = <figure class="image-wrap"> | ###CAPTION###</figure>
                 }
             }
+
             singleStdWrap {
                 wrap = <div class="image###CLASSES###"> | </div>
                 wrap {
@@ -720,10 +773,12 @@ tt_content.image.20 {
                     }
                 }
             }
+
             caption {
                 wrap = <caption class="caption"> | </caption>
                 wrap.override = <figcaption class="caption###CLASSES###"> | </figcaption>
             }
+
             rowStdWrap.wrap = <div class="image-row"> | </div>
             noRowsStdWrap.wrap = <div class="image-row"> | </div>
             lastRowStdWrap.wrap = <div class="image-row"> | </div>
@@ -732,7 +787,6 @@ tt_content.image.20 {
     }
 }
 
-
 ########################
 #### CTYPE: TEXTPIC ####
 ########################
@@ -740,7 +794,6 @@ tt_content.textpic.20 {
     text.wrap = <div class="text"> | </div>
     text.10.10.stdWrap.dataWrap = |
 }
-
 
 #####################
 #### CTYPE: HTML ####
@@ -757,12 +810,12 @@ tt_content.html {
                     target = _self
                     wrap = |
                 }
+
                 parseFunc.constants = 1
             }
         }
     }
 }
-
 
 #########################
 #### CTYPE: MAILFORM ####
@@ -875,6 +928,7 @@ tt_content.mailform.20 {
             )
         }
     }
+
     confirmation {
         layout {
             confirmation (
@@ -959,9 +1013,9 @@ tt_content.mailform.20 {
             )
         }
     }
+
     stdWrap.wrap = |
 }
-
 
 #####################
 #### CTYPE: MENU ####
@@ -973,21 +1027,23 @@ tt_content.menu.20 {
         begin.stdWrap.cObject = COA
         begin.stdWrap.cObject {
             5 = LOAD_REGISTER
-            5  {
+            5 {
                 paginateCounter.cObject = CONTENT
                 paginateCounter.cObject {
                     table = pages
                     select {
                         pidInList.field = pages
                         where.insertData = 1
-                        selectFields  = COUNT(*) AS counter
+                        selectFields = COUNT(*) AS counter
                     }
+
                     renderObj = TEXT
                     renderObj {
                         field = counter
-                        wrap  = |
+                        wrap = |
                     }
                 }
+
                 paginateMaxPage.cObject = TEXT
                 paginateMaxPage.cObject {
                     data = register:paginateCounter
@@ -997,6 +1053,7 @@ tt_content.menu.20 {
                     round.roundType = ceil
                     round.decimals = 0
                 }
+
                 paginateMaxPageAdd.cObject = TEXT
                 paginateMaxPageAdd.cObject {
                     data = register:paginateMaxPage
@@ -1004,6 +1061,7 @@ tt_content.menu.20 {
                     stdWrap.insertData = 1
                     prioriCalc = 1
                 }
+
                 paginateCurrentPage.cObject = TEXT
                 paginateCurrentPage.cObject {
                     data = GP:page
@@ -1015,6 +1073,7 @@ tt_content.menu.20 {
                         negate = 1
                     }
                 }
+
                 paginateStart.cObject = TEXT
                 paginateStart.cObject {
                     data = register:paginateCurrentPage
@@ -1022,6 +1081,7 @@ tt_content.menu.20 {
                     stdWrap.insertData = 1
                     prioriCalc = 1
                 }
+
                 paginatePreviousPage.cObject = TEXT
                 paginatePreviousPage.cObject {
                     data = register:paginateCurrentPage
@@ -1033,8 +1093,10 @@ tt_content.menu.20 {
                             equals.data = register:paginateCurrentPage
                         }
                     }
+
                     prioriCalc = intval
                 }
+
                 paginateNextPage.cObject = TEXT
                 paginateNextPage.cObject {
                     data = register:paginateCurrentPage
@@ -1046,14 +1108,17 @@ tt_content.menu.20 {
                             equals.data = register:paginateCurrentPage
                         }
                     }
+
                     prioriCalc = intval
                 }
             }
+
             30 = TEXT
             30 {
                 data = register:paginateStart
             }
         }
+
         special = directory
         stdWrap {
             prepend >
@@ -1080,9 +1145,11 @@ tt_content.menu.20 {
                                     equals = 1
                                 }
                             }
+
                             30 = TEXT
                             30.value = >
                         }
+
                         20 = TEXT
                         20 {
                             value = &laquo;
@@ -1093,9 +1160,11 @@ tt_content.menu.20 {
                                 useCacheHash = 1
                             }
                         }
+
                         30 = TEXT
                         30.value = </li>
                     }
+
                     ###########
                     ## PAGES ##
                     ###########
@@ -1112,6 +1181,7 @@ tt_content.menu.20 {
                                     data = register:paginateMaxPage
                                 }
                             }
+
                             1 {
                                 5 = LOAD_REGISTER
                                 5 {
@@ -1122,6 +1192,7 @@ tt_content.menu.20 {
                                         prioriCalc = intval
                                     }
                                 }
+
                                 10 = COA
                                 10 {
                                     10 = TEXT
@@ -1135,9 +1206,11 @@ tt_content.menu.20 {
                                             equals.data = register:paginateCurrentPage
                                         }
                                     }
+
                                     30 = TEXT
                                     30.value = >
                                 }
+
                                 20 = TEXT
                                 20 {
                                     data = register:currPageLink
@@ -1148,11 +1221,13 @@ tt_content.menu.20 {
                                         useCacheHash = 1
                                     }
                                 }
+
                                 30 = TEXT
                                 30.value = </li>
                             }
                         }
                     }
+
                     ##############
                     ## NEXT BTN ##
                     ##############
@@ -1163,6 +1238,7 @@ tt_content.menu.20 {
                         20.value = &raquo;
                         20.typolink.additionalParams = &page={register:paginateNextPage}
                     }
+
                     wrap = <hr><ul class="pagination">|</ul>
                     if {
                         value = {$page.theme.news.pagination.itemsperpage}
@@ -1170,11 +1246,11 @@ tt_content.menu.20 {
                         isGreaterThan.data = register:paginateCounter
                     }
                 }
-
             }
         }
+
         1 {
-            alternativeSortingField=starttime DESC
+            alternativeSortingField = starttime DESC
             NO {
                 wrapItemAndSub = <article class="news-item">|</article><hr> |*| <article class="news-item">|</article><hr>  |*| <article class="news-item">|</article>
                 doNotLinkIt = 1
@@ -1184,7 +1260,7 @@ tt_content.menu.20 {
                     cObject {
                         10.if.isLessThan.field >
                         10.if.isLessThan = {$page.theme.news.list.imageorient}
-                        10.10 = < lib.newsheader
+                        10.10 =< lib.newsheader
                         20 < tt_content.image.20
                         20 {
                             preRenderRegisters {
@@ -1195,6 +1271,7 @@ tt_content.menu.20 {
                                     }
                                 }
                             }
+
                             addClassesCol.override.cObject.10.key.field >
                             addClassesCol.override.cObject.10.key = {$page.theme.news.list.imagecols}
                             addClassesCol.override.if.isGreaterThan.field >
@@ -1207,6 +1284,7 @@ tt_content.menu.20 {
                                 26.override = <div class="image-header-{$page.theme.news.list.header_layout} image-beside-left image-beside###CLASSES###">###IMAGES######TEXT###</div>
                                 26.override.if.isTrue.field = title
                             }
+
                             textPos.field >
                             textPos = {$page.theme.news.list.imageorient}
                             maxW = {$page.theme.news.list.maxW}
@@ -1217,8 +1295,9 @@ tt_content.menu.20 {
                                 10 {
                                     if.isGreaterThan.field >
                                     if.isGreaterThan = {$page.theme.news.list.imageorient}
-                                    10 = < lib.newsheader
+                                    10 =< lib.newsheader
                                 }
+
                                 20.field = abstract
                                 20.editIcons >
                             }
@@ -1229,7 +1308,6 @@ tt_content.menu.20 {
         }
     }
 }
-
 
 ##############################
 #### TT_CONTENT BOOTSTRAP ####

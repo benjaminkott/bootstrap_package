@@ -34,25 +34,26 @@ use BK2K\BootstrapPackage\Service\CompileService;
  */
 class PreProcessHook {
 
-    /**
-     * @param array $params
-     * @param \TYPO3\CMS\Core\Page\PageRenderer $pagerenderer
-     */
-    public function execute(&$params, &$pagerenderer){
-        if(TYPO3_MODE !== 'FE' || !is_array($params['cssFiles'])) {
-            return;
-        }
-        $files = array();
-        foreach($params['cssFiles'] as $file => $settings) {
-            $compiledFile = CompileService::getCompiledFile($file);
-            if($compiledFile) {
-                $settings['file'] = $compiledFile;
-                $files[$compiledFile] = $settings;
-            }else{
-                $files[$file] = $settings;
-            }
-        }
-        $params['cssFiles'] = $files;
-    }
+	/**
+	 * @param array $params
+	 * @param \TYPO3\CMS\Core\Page\PageRenderer $pagerenderer
+	 */
+	public function execute(&$params, &$pagerenderer) {
+
+		if (TYPO3_MODE !== 'FE' || !is_array($params['cssFiles'])) {
+			return;
+		}
+		$files = array();
+		foreach ($params['cssFiles'] as $file => $settings) {
+			$compiledFile = CompileService::getCompiledFile($file);
+			if ($compiledFile) {
+				$settings['file'] = $compiledFile;
+				$files[$compiledFile] = $settings;
+			} else {
+				$files[$file] = $settings;
+			}
+		}
+		$params['cssFiles'] = $files;
+	}
 
 }

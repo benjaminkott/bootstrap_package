@@ -35,32 +35,32 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class FalViewHelper extends AbstractViewHelper {
 
-    /**
-     * @var \TYPO3\CMS\Core\Resource\FileRepository
-     */
-    protected $fileRepository;
+	/**
+	 * @var \TYPO3\CMS\Core\Resource\FileRepository
+	 */
+	protected $fileRepository;
 
-    /**
-     * @param array $data
-     * @param string $as
-     * @param string $table
-     * @param string $field
-     *
-     * @return string
-     */
-    public function render($data,$as = 'items', $table = 'tt_content', $field = 'image') {
-        if(is_array($data) && $data['uid'] && $data[$field]){
-            $this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-            $items = $this->fileRepository->findByRelation($table, $field, $data['uid']);
-        }else{
-            $items = NULL;
-        }
-        $this->templateVariableContainer->add($as, $items);
-        $content = $this->renderChildren();
-        $this->templateVariableContainer->remove($as);
+	/**
+	 * @param array $data
+	 * @param string $as
+	 * @param string $table
+	 * @param string $field
+	 *
+	 * @return string
+	 */
+	public function render($data, $as = 'items', $table = 'tt_content', $field = 'image') {
 
-        return $content;
+		if (is_array($data) && $data['uid'] && $data[$field]) {
+			$this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+			$items = $this->fileRepository->findByRelation($table, $field, $data['uid']);
+		} else {
+			$items = NULL;
+		}
+		$this->templateVariableContainer->add($as, $items);
+		$content = $this->renderChildren();
+		$this->templateVariableContainer->remove($as);
 
-    }
+		return $content;
+	}
 
 }

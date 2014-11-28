@@ -35,39 +35,40 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class DataRelationViewHelper extends AbstractViewHelper {
 
-    /**
-     * @param integer $uid
-     * @param string $table
-     * @param string $foreignField
-     * @param string $selectFields
-     * @param string $as
-     * @param string $sortby
-     * @param string $additionalWhere
-     *
-     * @return string
-     */
-    public function render($uid,$table,$foreignField = 'tt_content',$selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
-        if($uid && $table){
-            $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
-            $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' '.$additionalWhere. $cObj->enableFields($table);
-            $groupBy      = '';
-            $limit        = '';
-            $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
-            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
-            $items = array();
-            foreach ($data as $record) {
-                $GLOBALS['TSFE']->sys_page->versionOL($table,$record);                
-                if(is_array($record)) {
-                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
-                }
-            }
-        }else{
-            $items = NULL;
-        }
-        $this->templateVariableContainer->add($as, $items);
-        $content = $this->renderChildren();
-        $this->templateVariableContainer->remove($as);
-        return $content;
-    }
+	/**
+	 * @param integer $uid
+	 * @param string $table
+	 * @param string $foreignField
+	 * @param string $selectFields
+	 * @param string $as
+	 * @param string $sortby
+	 * @param string $additionalWhere
+	 *
+	 * @return string
+	 */
+	public function render($uid, $table, $foreignField = 'tt_content', $selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
+
+		if ($uid && $table) {
+			$cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
+			$whereClause = '1 AND `' . $foreignField . '` = \'' . $uid . '\' ' . $additionalWhere . $cObj->enableFields($table);
+			$groupBy = '';
+			$limit = '';
+			$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
+			$data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
+			$items = array();
+			foreach ($data as $record) {
+				$GLOBALS['TSFE']->sys_page->versionOL($table, $record);
+				if (is_array($record)) {
+					$items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
+				}
+			}
+		} else {
+			$items = NULL;
+		}
+		$this->templateVariableContainer->add($as, $items);
+		$content = $this->renderChildren();
+		$this->templateVariableContainer->remove($as);
+		return $content;
+	}
 
 }

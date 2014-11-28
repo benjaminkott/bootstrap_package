@@ -34,26 +34,27 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class ContextualClassViewHelper extends AbstractViewHelper {
 
-    /**
-     * contextualAlternatives
-     *
-     * @var array
-     */
-    protected $contextualAlternatives = array(
-        100 => 'default',
-        110 => 'primary',
-        120 => 'success',
-        130 => 'info',
-        140 => 'warning',
-        150 => 'danger'
-    );
+	/**
+	 * contextualAlternatives
+	 *
+	 * @var array
+	 */
+	protected $contextualAlternatives = array(
+		100 => 'default',
+		110 => 'primary',
+		120 => 'success',
+		130 => 'info',
+		140 => 'warning',
+		150 => 'danger'
+	);
 
-    /**
-     * @param int $code
-     * @return string
-     */
-    public function render($code = 100) {
-        return ($this->contextualAlternatives[$code]) ? $this->contextualAlternatives[$code] : NULL;
-    }
+	/**
+	 * @param int $code
+	 * @return string
+	 */
+	public function render($code = 100) {
+
+		return ($this->contextualAlternatives[$code]) ? $this->contextualAlternatives[$code] : NULL;
+	}
 
 }

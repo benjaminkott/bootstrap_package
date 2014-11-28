@@ -29,99 +29,102 @@ namespace BK2K\BootstrapPackage\Utility;
 
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
 class ExtensionManagerConfigurationUtility {
 
-    /**
-     * @var integer
-     */
-    protected $errorType = FlashMessage::OK;
+	/**
+	 * @var integer
+	 */
+	protected $errorType = FlashMessage::OK;
 
-    /**
-     * @var string
-     */
-    protected $header;
+	/**
+	 * @var string
+	 */
+	protected $header;
 
-    /**
-     * @var string
-     */
-    protected $preText;
+	/**
+	 * @var string
+	 */
+	protected $preText;
 
-    /**
-     * @var array
-     */
-    protected $problems = array();
+	/**
+	 * @var array
+	 */
+	protected $problems = array();
 
-    /**
-     * @var array
-     */
-    protected $extConf = array();
+	/**
+	 * @var array
+	 */
+	protected $extConf = array();
 
-    /**
-     * Set the error level if no higher level
-     * is set already
-     *
-     * @param string $level One out of error, ok, warning, info
-     * @return void
-     */
-    private function setErrorLevel($level) {
-        switch ($level){
-            case 'error':
-                $this->errorType = FlashMessage::ERROR;
-                $this->header = 'Errors found in your configuration';
-                $this->preText = 'Bootstrap Package will not work until these problems have been resolved:<br />';
-                break;
-            case 'warning':
-                if ($this->errorType < FlashMessage::ERROR) {
-                    $this->errorType = FlashMessage::WARNING;
-                    $this->header = 'Warnings about your configuration';
-                    $this->preText = 'Bootstrap Package might behave different than expected:<br />';
-                }
-                break;
-            case 'info':
-                if ($this->errorType < FlashMessage::WARNING) {
-                    $this->errorType = FlashMessage::INFO;
-                    $this->header = 'Additional information';
-                    $this->preText = '<br />';
-                }
-                break;
-            case 'ok':
-                if ($this->errorType < FlashMessage::WARNING && $this->errorType != FlashMessage::INFO) {
-                    $this->errorType = FlashMessage::OK;
-                    $this->header = 'No errors were found';
-                    $this->preText = 'Bootstrap Package has been configured correctly and works as expected.<br />';
-                }
-                break;
-        }
-    }
+	/**
+	 * Set the error level if no higher level
+	 * is set already
+	 *
+	 * @param string $level One out of error, ok, warning, info
+	 * @return void
+	 */
+	private function setErrorLevel($level) {
+
+		switch ($level) {
+			case 'error':
+				$this->errorType = FlashMessage::ERROR;
+				$this->header = 'Errors found in your configuration';
+				$this->preText = 'Bootstrap Package will not work until these problems have been resolved:<br />';
+				break;
+			case 'warning':
+				if ($this->errorType < FlashMessage::ERROR) {
+					$this->errorType = FlashMessage::WARNING;
+					$this->header = 'Warnings about your configuration';
+					$this->preText = 'Bootstrap Package might behave different than expected:<br />';
+				}
+				break;
+			case 'info':
+				if ($this->errorType < FlashMessage::WARNING) {
+					$this->errorType = FlashMessage::INFO;
+					$this->header = 'Additional information';
+					$this->preText = '<br />';
+				}
+				break;
+			case 'ok':
+				if ($this->errorType < FlashMessage::WARNING && $this->errorType != FlashMessage::INFO) {
+					$this->errorType = FlashMessage::OK;
+					$this->header = 'No errors were found';
+					$this->preText = 'Bootstrap Package has been configured correctly and works as expected.<br />';
+				}
+				break;
+		}
+	}
 
 
-    /**
-     * Checks if ext:themes is loaded and throws an additional Warning
-     *
-     * @return	string
-     */
-    public function checkIfThemesIsLoaded(&$params, &$tsObj){
-        if(!ExtensionManagementUtility::isLoaded('themes')){
-            $this->setErrorLevel('ok');
-        }else{
-            $this->setErrorLevel('warning');
-            $this->problems[] = "The backend skin functionality from the Bootstrap Package is disabled by default if ext:themes is loaded.";
-        }
-        if (count($this->problems) > 0){
-            $message = '<ul>';
-            foreach($this->problems as $problem){
-                $message.= '<li>' . $problem . '</li>';
-            }
-            $message.= '</ul>';
-        }
-        $message = $this->preText . $message;
-        $flashMessage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage', $message, $this->header, $this->errorType);
-        $out = $flashMessage->render();
-        return $out;
-    }
+	/**
+	 * Checks if ext:themes is loaded and throws an additional Warning
+	 *
+	 * @return    string
+	 */
+	public function checkIfThemesIsLoaded(&$params, &$tsObj) {
+
+		if (!ExtensionManagementUtility::isLoaded('themes')) {
+			$this->setErrorLevel('ok');
+		} else {
+			$this->setErrorLevel('warning');
+			$this->problems[] = "The backend skin functionality from the Bootstrap Package is disabled by default if ext:themes is loaded.";
+		}
+		if (count($this->problems) > 0) {
+			$message = '<ul>';
+			foreach ($this->problems as $problem) {
+				$message .= '<li>' . $problem . '</li>';
+			}
+			$message .= '</ul>';
+		}
+		$message = $this->preText . $message;
+		$flashMessage = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage', $message, $this->header, $this->errorType);
+		$out = $flashMessage->render();
+		return $out;
+	}
 
 }

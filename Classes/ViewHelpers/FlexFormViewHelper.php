@@ -34,35 +34,36 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class FlexFormViewHelper extends AbstractViewHelper {
 
-    /**
-     * @var \TYPO3\CMS\Extbase\Service\FlexFormService
-     * @inject
-     */
-    protected $flexFormService;
+	/**
+	 * @var \TYPO3\CMS\Extbase\Service\FlexFormService
+	 * @inject
+	 */
+	protected $flexFormService;
 
-    /**
-     * @param string $record
-     * @param string $field
-     * @return void
-     */
-    public function render($record = "data",$field = "pi_flexform") {
-        if($this->templateVariableContainer->exists($record) === FALSE){
-            return NULL;
-        }
-        $data = $this->templateVariableContainer->get($record);
-        $flexFormConfiguration = $data[$field];
+	/**
+	 * @param string $record
+	 * @param string $field
+	 * @return void
+	 */
+	public function render($record = "data", $field = "pi_flexform") {
 
-        if(is_string($flexFormConfiguration)){
-            if(strlen($flexFormConfiguration) > 0){
-                $flexFormConfiguration = $this->flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
-            }else{
-                $flexFormConfiguration = array();
-            }
-        }
-        $data[$field] = $flexFormConfiguration;
-        $this->templateVariableContainer->remove($record);
-        $this->templateVariableContainer->add($record, $data);
-        return NULL;
-    }
+		if ($this->templateVariableContainer->exists($record) === FALSE) {
+			return NULL;
+		}
+		$data = $this->templateVariableContainer->get($record);
+		$flexFormConfiguration = $data[$field];
+
+		if (is_string($flexFormConfiguration)) {
+			if (strlen($flexFormConfiguration) > 0) {
+				$flexFormConfiguration = $this->flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
+			} else {
+				$flexFormConfiguration = array();
+			}
+		}
+		$data[$field] = $flexFormConfiguration;
+		$this->templateVariableContainer->remove($record);
+		$this->templateVariableContainer->add($record, $data);
+		return NULL;
+	}
 
 }
