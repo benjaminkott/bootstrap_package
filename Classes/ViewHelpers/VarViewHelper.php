@@ -34,20 +34,21 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class VarViewHelper extends AbstractViewHelper {
 
-    /**
-     * @param string $name
-     * @param mixed $value
-     * @return void
-     */
-    public function render($name, $value = NULL) {
-        if ($value === NULL) {
-            $value = $this->renderChildren();
-        }
-        if ($this->templateVariableContainer->exists($name) === TRUE) {
-            $this->templateVariableContainer->remove($name);
-        }
-        $this->templateVariableContainer->add($name, $value);
-        return NULL;
-    }
+	/**
+	 * @param string $name
+	 * @param mixed $value
+	 * @return void
+	 */
+	public function render($name, $value = NULL) {
+
+		if ($value === NULL) {
+			$value = $this->renderChildren();
+		}
+		if ($this->templateVariableContainer->exists($name) === TRUE) {
+			$this->templateVariableContainer->remove($name);
+		}
+		$this->templateVariableContainer->add($name, $value);
+		return NULL;
+	}
 
 }

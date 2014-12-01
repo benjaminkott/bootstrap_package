@@ -806,7 +806,6 @@ plugin.bootstrap_package {
             dl-horizontal-offset = @component-offset-horizontal
             # cat=bootstrap package: styling/336/hr-border; type=string; label=@hr-border: Horizontal line color.
             hr-border = @gray-lighter
-
         }
     }
 }

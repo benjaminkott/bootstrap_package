@@ -13,7 +13,8 @@
                 <el>
                     <interval>
                         <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval</label>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval
+                            </label>
                             <config>
                                 <type>input</type>
                                 <size>8</size>
@@ -24,13 +25,16 @@
                     </interval>
                     <wrap>
                         <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap
+                            </label>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
                                 <items type="array">
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</numIndex>
+                                        <numIndex index="0">
+                                            LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description
+                                        </numIndex>
                                     </numIndex>
                                 </items>
                             </config>

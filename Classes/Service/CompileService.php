@@ -34,50 +34,53 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class CompileService {
 
-    /**
-     * @param string $file
-     */
-    public static function getCompiledFile($file) {
-        $file = GeneralUtility::getFileAbsFileName($file);
-        $pathParts = pathinfo($file);
-        if($pathParts['extension'] === 'less'){
-            if(!class_exists('Less_Cache')){
-                $autoload = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Less_Autoloader');
-                $autoload::register();
-            }
-            try{
-                $options = array(
-                    'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
-                );
-                $variables = self::getVariablesFromConstants();
-                $files = array();
-                $files[$file] = "";
-                $compiledFile = \Less_Cache::Get($files,$options,$variables);
-                $file = "typo3temp/bootstrappackage/".$compiledFile;
+	/**
+	 * @param string $file
+	 * @return bool|string
+	 */
+	public static function getCompiledFile($file) {
 
-                return $file;
-            }catch(Exception $e){
-                $error_message = $e->getMessage();
-            }
-        }
-        return false;
-    }
+		$file = GeneralUtility::getFileAbsFileName($file);
+		$pathParts = pathinfo($file);
+		if ($pathParts['extension'] === 'less') {
+			if (!class_exists('Less_Cache')) {
+				$autoload = GeneralUtility::makeInstance('Less_Autoloader');
+				$autoload::register();
+			}
+			try {
+				$options = array(
+					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
+				);
+				$variables = self::getVariablesFromConstants();
+				$files = array();
+				$files[$file] = "";
+				$compiledFile = \Less_Cache::Get($files, $options, $variables);
+				$file = "typo3temp/bootstrappackage/" . $compiledFile;
 
-    /**
-     * @return array
-     */
-    public function getVariablesFromConstants(){
-        $variables = array();
-        $prefix = "plugin.bootstrap_package.settings.less.";
-        if(!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0){
-            $GLOBALS['TSFE']->tmpl->generateConfig();
-        }
-        foreach($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value){
-            if(strpos($constant, $prefix) === 0){
-                $variables[substr($constant, strlen($prefix))] = $value;
-            }
-        }
-        return $variables;
-    }
+				return $file;
+			} catch (\Exception $e) {
+				$error_message = $e->getMessage();
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getVariablesFromConstants() {
+
+		$variables = array();
+		$prefix = "plugin.bootstrap_package.settings.less.";
+		if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+			$GLOBALS['TSFE']->tmpl->generateConfig();
+		}
+		foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+			if (strpos($constant, $prefix) === 0) {
+				$variables[substr($constant, strlen($prefix))] = $value;
+			}
+		}
+		return $variables;
+	}
 
 }

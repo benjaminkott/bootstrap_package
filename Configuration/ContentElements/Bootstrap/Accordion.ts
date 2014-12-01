@@ -1,5 +1,5 @@
 tt_content.bootstrap_package_accordion = COA
-tt_content.bootstrap_package_accordion  {
+tt_content.bootstrap_package_accordion {
     10 =< lib.stdheader
     20 = FLUIDTEMPLATE
     20 {

@@ -27,19 +27,20 @@ namespace BK2K\BootstrapPackage\Migration;
  *
  ***************************************************************/
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This class fixes realurl compatibility issues for CMS 7.0
- * 
+ *
  * @author Benjamin Kott <info@bk2k.info>
  */
 class T3libDivMigration extends GeneralUtility {
 
-    static public function array_merge_recursive_overrule(array $arr0, array $arr1, $notAddKeys = FALSE, $includeEmptyValues = TRUE, $enableUnsetFeature = TRUE) {
-        ArrayUtility::mergeRecursiveWithOverrule($arr0, $arr1, !$notAddKeys, $includeEmptyValues, $enableUnsetFeature);
-        return $arr0;
-    }
+	static public function array_merge_recursive_overrule(array $arr0, array $arr1, $notAddKeys = FALSE, $includeEmptyValues = TRUE, $enableUnsetFeature = TRUE) {
+
+		ArrayUtility::mergeRecursiveWithOverrule($arr0, $arr1, !$notAddKeys, $includeEmptyValues, $enableUnsetFeature);
+		return $arr0;
+	}
 
 }

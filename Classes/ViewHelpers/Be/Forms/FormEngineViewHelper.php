@@ -36,86 +36,88 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class FormEngineViewHelper extends AbstractViewHelper {
 
-    /**
-     * @var \TYPO3\CMS\Core\Page\PageRenderer
-     */
-    protected $pageRenderer;
+	/**
+	 * @var \TYPO3\CMS\Core\Page\PageRenderer
+	 */
+	protected $pageRenderer;
 
-    /**
-     * @var \TYPO3\CMS\Backend\Form\FormEngine
-     */
-    protected $tceforms;
+	/**
+	 * @var \TYPO3\CMS\Backend\Form\FormEngine
+	 */
+	protected $tceforms;
 
-    /**
-     * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
-     */
-    public function injectPageRenderer(PageRenderer $pageRenderer) {
-        $this->pageRenderer = $pageRenderer;
-    }
+	/**
+	 * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+	 */
+	public function injectPageRenderer(PageRenderer $pageRenderer) {
 
-    /**
-     * @return string fieldnameprefix for form
-     */
-    protected function getFieldNamePrefix() {
-        $fieldNamePrefix = (string) $this->viewHelperVariableContainer->get('TYPO3\\CMS\\Fluid\\ViewHelpers\\FormViewHelper', 'fieldNamePrefix');
-        return $fieldNamePrefix;
-    }
+		$this->pageRenderer = $pageRenderer;
+	}
 
-    /**
-     * @param string $table
-     * @param array|string $data
-     * @return string
-     */
-    public function render($table = NULL, $data = NULL) {
+	/**
+	 * @return string fieldnameprefix for form
+	 */
+	protected function getFieldNamePrefix() {
 
-        if(!$data){
-            $data = array();
-        }
+		$fieldNamePrefix = (string)$this->viewHelperVariableContainer->get('TYPO3\\CMS\\Fluid\\ViewHelpers\\FormViewHelper', 'fieldNamePrefix');
+		return $fieldNamePrefix;
+	}
 
-        if($table){
-            if(!$data['uid']){
-                $data['uid'] = "none";
-            }
-            if(!$data['pid']){
-                $data['pid'] = "0";
-            }
+	/**
+	 * @param string $table
+	 * @param array|string $data
+	 * @return string
+	 */
+	public function render($table = NULL, $data = NULL) {
 
-            $this->pageRenderer->loadPrototype();
-            $this->pageRenderer->loadExtJS();
+		if (!$data) {
+			$data = array();
+		}
 
-            $this->tceforms = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Form\\FormEngine');
-            $this->tceforms->initDefaultBEMode();
+		if ($table) {
+			if (!$data['uid']) {
+				$data['uid'] = "none";
+			}
+			if (!$data['pid']) {
+				$data['pid'] = "0";
+			}
 
-            // EXTBASE FORMS
-            $this->tceforms->prependFormFieldNames = $this->getFieldNamePrefix();
-            $this->tceforms->formName = $table;
-            $this->tceforms->totalWrap = '<div class="typo3-TCEforms"> |  </div>';
+			$this->pageRenderer->loadPrototype();
+			$this->pageRenderer->loadExtJS();
 
-            $this->tceforms->doSaveFieldName = 'doSave';
-            $this->tceforms->localizationMode = GeneralUtility::inList('text,media',$this->localizationMode) ? $this->localizationMode : '';
-            $this->tceforms->returnUrl = $this->R_URI;
-            $this->tceforms->palettesCollapsed = !$this->MOD_SETTINGS['showPalettes'];
-            $this->tceforms->disableRTE = !$GLOBALS['BE_USER']->isRTE();
-            $this->tceforms->enableClickMenu = TRUE;
-            $this->tceforms->enableTabMenu = TRUE;
+			$this->tceforms = GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Form\\FormEngine');
+			$this->tceforms->initDefaultBEMode();
 
-            $panel = $this->tceforms->getMainFields($table,$data);
-            $body = $this->tceforms->printNeededJSFunctions_top();
-            $body.= $this->tceforms->wrapTotal($panel,$data,$table);
-            $body.= $this->tceforms->printNeededJSFunctions();
-            if (count($this->tceforms->commentMessages))	{
-                $body.= '
+			// EXTBASE FORMS
+			$this->tceforms->prependFormFieldNames = $this->getFieldNamePrefix();
+			$this->tceforms->formName = $table;
+			$this->tceforms->totalWrap = '<div class="typo3-TCEforms"> |  </div>';
+
+			$this->tceforms->doSaveFieldName = 'doSave';
+			$this->tceforms->localizationMode = GeneralUtility::inList('text,media', $this->localizationMode) ? $this->localizationMode : '';
+			$this->tceforms->returnUrl = $this->R_URI;
+			$this->tceforms->palettesCollapsed = !$this->MOD_SETTINGS['showPalettes'];
+			$this->tceforms->disableRTE = !$GLOBALS['BE_USER']->isRTE();
+			$this->tceforms->enableClickMenu = TRUE;
+			$this->tceforms->enableTabMenu = TRUE;
+
+			$panel = $this->tceforms->getMainFields($table, $data);
+			$body = $this->tceforms->printNeededJSFunctions_top();
+			$body .= $this->tceforms->wrapTotal($panel, $data, $table);
+			$body .= $this->tceforms->printNeededJSFunctions();
+			if (count($this->tceforms->commentMessages)) {
+				$body .= '
                     <!-- TCEFORM messages
-                    '.htmlspecialchars(implode(LF,$this->tceforms->commentMessages)).'
+                    ' . htmlspecialchars(implode(LF, $this->tceforms->commentMessages)) . '
                     -->
                 ';
-            }
+			}
 
-        }else{
-            return "Tabelle wurde nicht angegeben.";
-        }
+		} else {
+			return "Tabelle wurde nicht angegeben.";
+		}
 
-        return $body;
-    }
+		return $body;
+	}
 
 }

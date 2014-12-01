@@ -16,6 +16,7 @@ tt_content.bootstrap_package_texticon {
                         value = default
                         noTrimWrap = | texticon-size-||
                     }
+
                     1 < .default
                     1.value = medium
                     2 < .default
@@ -23,6 +24,7 @@ tt_content.bootstrap_package_texticon {
                     3 < .default
                     3.value = awesome
                 }
+
                 20 = CASE
                 20 {
                     key.field = icon_type
@@ -31,6 +33,7 @@ tt_content.bootstrap_package_texticon {
                         value = default
                         noTrimWrap = | texticon-type-||
                     }
+
                     1 < .default
                     1.value = square
                     2 < .default
@@ -38,6 +41,7 @@ tt_content.bootstrap_package_texticon {
                 }
             }
         }
+
         iconStyle {
             cObject = COA
             cObject {
@@ -47,17 +51,20 @@ tt_content.bootstrap_package_texticon {
                     required = 1
                     noTrimWrap = |color: |;|
                 }
+
                 20 = TEXT
                 20 {
                     field = icon_background
                     required = 1
                     noTrimWrap = |background-color: |;|
                 }
+
                 stdWrap {
                     trim = 1
                     noTrimWrap = | style="|"|
                     required = 1
                 }
+
                 if {
                     value = 0
                     equals.field = icon_type
@@ -66,6 +73,7 @@ tt_content.bootstrap_package_texticon {
             }
         }
     }
+
     10 = TEXT
     10 {
         field = icon
@@ -79,21 +87,24 @@ tt_content.bootstrap_package_texticon {
             negate = 1
         }
     }
+
     20 = COA
     20 {
-        10 = < lib.stdheader
+        10 =< lib.stdheader
         20 = TEXT
         20 {
             field = bodytext
             required = 1
-            parseFunc = < lib.parseFunc_RTE
+            parseFunc =< lib.parseFunc_RTE
             editIcons = tt_content:bodytext, rte_enabled
             editIcons.beforeLastTag = 1
             editIcons.iconTitle.data = LLL:EXT:css_styled_content/pi1/locallang.xml:eIcon.bodytext
             prefixComment = 2 | Text Icon:
         }
+
         wrap = <div class="texticon-content">|</div>
     }
+
     wrap = <div class="texticon texticon-{field:icon_position}">|</div>
     wrap.insertData = 1
 }

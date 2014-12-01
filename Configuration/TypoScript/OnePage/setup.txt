@@ -36,13 +36,16 @@ lib.navigation.main {
                                     ifEmpty = p{field:uid}
                                     ifEmpty.insertData = 1
                                 }
+
                                 title.field = abstract // description // title
                                 ATagBeforeWrap = 1
                                 wrap = |<span class="bar"></span>
                             }
-                            field =  nav_title // title
+
+                            field = nav_title // title
                         }
                     }
+
                     3 = TEXT
                     3 {
                         field = nav_title // title
@@ -55,6 +58,7 @@ lib.navigation.main {
                     }
                 }
             }
+
             IFSUB = 1
             IFSUB {
                 wrapItemAndSub = <li>|</li>
@@ -63,19 +67,21 @@ lib.navigation.main {
                 wrapItemAndSub = <li class="dropdown">|</li>
             }
         }
+
         2 < .1
         2 {
-            wrap =  <ul class="dropdown-menu">|</ul>
+            wrap = <ul class="dropdown-menu">|</ul>
             SPC = 1
             SPC {
                 wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
             }
+
             IFSUB >
         }
     }
 }
-lib.navigation.subnavigation >
 
+lib.navigation.subnavigation >
 
 #########################
 #### ONEPAGE CONTENT ####
@@ -102,6 +108,7 @@ lib.content.onepage {
                             curentPageId.cObject {
                                 field = uid
                             }
+
                             sectionID.cObject = TEXT
                             sectionID.cObject {
                                 field = alias
@@ -109,6 +116,7 @@ lib.content.onepage {
                                 ifEmpty.insertData = 1
                             }
                         }
+
                         20 < page.10
                         20 {
                             variables {
@@ -116,18 +124,21 @@ lib.content.onepage {
                                 showFooter.value = 0
                             }
                         }
+
                         wrap = <section id="{register:sectionID}">|</section>
                         wrap.insertData = 1
                     }
                 }
+
                 wrapItemAndSub = |
             }
         }
+
         2 < .1
     }
+
     90 = RESTORE_REGISTER
 }
-
 
 ###############################
 #### ONEPAGE PAGE SETTINGS ####
