@@ -49,7 +49,7 @@ class CompileService {
                 $options = array(
                     'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
                 );
-                $variables = self::getVariablesFromConstants();
+                $variables = $this->getVariablesFromConstants();
                 $files = array();
                 $files[$file] = "";
                 $compiledFile = \Less_Cache::Get($files,$options,$variables);
