@@ -9,26 +9,22 @@
          data-ride="carousel">
         <div class="carousel-inner" role="listbox">
         <f:for each="{items}" as="item" iteration="iteration">
-            <f:switch expression="{item.background_style}">
-                <f:case value="0">
-                    <bp:var name="itemStyle">
-                        <f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
-                    </bp:var>
-                </f:case>
-                <f:case value="1">
-                    <bp:fal data="{item}" as="images" field="background_image" table="tx_bootstrappackage_carousel_item">
-                        <f:if condition="{images}">
-                            <bp:var name="backgroundImagePath" value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1)}" />
-                            <bp:var name="itemStyle">
-                                background-image: url('{backgroundImagePath}');
-                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}', sizingMethod='scale');
-                                -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}', sizingMethod='scale')";
-                            </bp:var>
-                        </f:if>
-                    </bp:fal>
-                </f:case>
-            </f:switch>
-            <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}" data-itemno="{iteration.index}" style="{itemStyle}">
+
+            <bp:var name="itemStyleImage">
+                <bp:fal data="{item}" as="images" field="background_image" table="tx_bootstrappackage_carousel_item">
+                    <f:if condition="{images}">
+                        <bp:var name="backgroundImagePath" value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1)}" />
+                        background-image: url('{backgroundImagePath}');
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}', sizingMethod='scale');
+                        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}', sizingMethod='scale')";
+                    </f:if>
+                </bp:fal>
+            </bp:var>
+            <bp:var name="itemStyleColor">
+                <f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
+            </bp:var>
+
+            <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}" data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
                 <f:switch expression="{item.item_type}">
                     <f:case value="header"><f:link.page pageUid="{item.link}"><f:render partial="Carousel/Item/Header" arguments="{_all}" /></f:link.page></f:case>
                     <f:case value="textandimage"><f:link.page pageUid="{item.link}"><f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" /></f:link.page></f:case>

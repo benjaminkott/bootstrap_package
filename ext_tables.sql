@@ -27,7 +27,6 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     image int(11) unsigned DEFAULT '0',
     link varchar(255) DEFAULT '' NOT NULL,
     text_color varchar(255) DEFAULT '' NOT NULL,
-    background_style int(11) unsigned DEFAULT '0',
     background_color varchar(255) DEFAULT '' NOT NULL,
     background_image int(11) unsigned DEFAULT '0',
 

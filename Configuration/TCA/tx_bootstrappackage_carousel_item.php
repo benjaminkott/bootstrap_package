@@ -18,7 +18,6 @@ return array(
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
         'dividers2tabs' => TRUE,
-        'requestUpdate' => 'background_style',
         'enablecolumns' => array(
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -39,7 +38,6 @@ return array(
             bodytext,
             image,
             text_color,
-            background_style,
             background_color,
             background_image
         ',
@@ -52,7 +50,8 @@ return array(
             image,
             text_color,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-            --palette--;;background,
+			background_color,
+			background_image,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -63,7 +62,8 @@ return array(
             text_color,
             link,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-            --palette--;;background,
+			background_color,
+			background_image,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -76,7 +76,8 @@ return array(
             image,
             link,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-            --palette--;;background,
+			background_color,
+			background_image,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -86,7 +87,8 @@ return array(
             header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
             bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel;;nowrap:wizards[t3editor],
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-            --palette--;;background,
+			background_color,
+			background_image,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -100,15 +102,6 @@ return array(
             'showitem' => '
                 starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
-            ',
-            'canNotCollapse' => 1
-        ),
-        'background' => array(
-            'showitem' => '
-                background_style,
-                --linebreak--,
-                background_color,
-                background_image,
             ',
             'canNotCollapse' => 1
         ),
@@ -374,20 +367,7 @@ return array(
                 ),
             ),
         ),
-        'background_style' => array(
-            'exclude' => 0,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_style',
-            'config' => array(
-                'type' => 'select',
-                'default' => '0',
-                'items' => array(
-                    array('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_style.0', 0),
-                    array('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_style.1', 1),
-                ),
-            ),
-        ),
         'background_color' => array(
-            'displayCond' => 'FIELD:background_style:=:0',
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
             'config' => array(
@@ -409,7 +389,6 @@ return array(
             ),
         ),
         'background_image' => array(
-            'displayCond' => 'FIELD:background_style:=:1',
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
@@ -450,7 +429,7 @@ return array(
                             '
                         ),
                     ),
-                    'minitems' => 1,
+                    'minitems' => 0,
                     'maxitems' => 1
                 ),
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']

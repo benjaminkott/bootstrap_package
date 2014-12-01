@@ -174,15 +174,6 @@
             <trans-unit id="carousel_item.image">
                 <source>Image</source>
             </trans-unit>
-            <trans-unit id="carousel_item.background_style">
-                <source>Background Style</source>
-            </trans-unit>
-            <trans-unit id="carousel_item.background_style.0">
-                <source>Color</source>
-            </trans-unit>
-            <trans-unit id="carousel_item.background_style.1">
-                <source>Image</source>
-            </trans-unit>
             <trans-unit id="carousel_item.background_image">
                 <source>Background Image</source>
             </trans-unit>
