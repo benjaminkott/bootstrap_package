@@ -34,13 +34,13 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  */
 class RenderPreProcess {
 
-    /**
-     * @param array $params
-     * @param \TYPO3\CMS\Backend\Controller\BackendController $backendController
-     */
-    public function addStyles(&$params, &$backendController){
-        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend.css';
-        $backendController->addCssFile('bootstrap_package',$backendCssFile);
-    }
+	/**
+	 * @param array $params
+	 * @param \TYPO3\CMS\Backend\Controller\BackendController $backendController
+	 */
+	public function addStyles(&$params, &$backendController){
+		$backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend-v6.css';
+		$backendController->addCssFile('bootstrap_package',$backendCssFile);
+	}
 
 }

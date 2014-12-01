@@ -34,13 +34,13 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  */
 class PreHeaderRender {
 
-    /**
-     * @param array $params
-     * @param \TYPO3\CMS\Backend\Template\DocumentTemplate $documentTemplate
-     */
-    public function addStyles(&$params, &$documentTemplate){
-        $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend.css';
-        $params['pageRenderer']->addCssFile($backendCssFile);
-    }
+	/**
+	 * @param array $params
+	 * @param \TYPO3\CMS\Backend\Template\DocumentTemplate $documentTemplate
+	 */
+	public function addStyles(&$params, &$documentTemplate){
+		$backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend-v6.css';
+		$params['pageRenderer']->addCssFile($backendCssFile);
+	}
 
 }
