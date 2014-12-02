@@ -428,6 +428,15 @@ page {
 		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 		main = {$page.includePath.javascript}main.min.js
+
+        #############################################
+        #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
+        #############################################
+        #### NOTE : add conditional comment to cope with static cache
+        respond = {$page.includePath.javascript}Libs/respond.min.js
+        respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
+        respond.excludeFromConcatenation = 1
+        respond.disableCompression = 1
 	}
 
 	jsFooterInline {
@@ -472,12 +481,6 @@ page {
 	page.meta.robots = noindex,follow
 [end]
 
-#############################################
-#### INCLUDE RESPOND JS FOR IE DINOSAURS ####
-#############################################
-[browser = msie] && [version = 8]
-	page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
-[end]
 
 ################
 #### CONFIG ####
