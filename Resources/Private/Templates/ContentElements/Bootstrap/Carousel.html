@@ -9,7 +9,6 @@
 			 data-ride="carousel">
 			<div class="carousel-inner" role="listbox">
 				<f:for each="{items}" as="item" iteration="iteration">
-
 					<bp:var name="itemStyleImage">
 						<bp:fal data="{item}" as="images" field="background_image"
 								table="tx_bootstrappackage_carousel_item">
@@ -28,7 +27,6 @@
 					<bp:var name="itemStyleColor">
 						<f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
 					</bp:var>
-
 					<div
 						class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}"
 						data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">

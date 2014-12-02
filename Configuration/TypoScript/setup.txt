@@ -9,63 +9,63 @@
 #######################
 lib.language = COA
 lib.language {
-    ###################################################
-    #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
-    #### its not needed in this example            ####
-    ###################################################
-    #10 = TEXT
-    #10 {
-    #    value = Language
-    #    value.lang.da = Sprog
-    #    value.lang.de = Sprache
-    #    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
-    #}
+	###################################################
+	#### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
+	#### its not needed in this example            ####
+	###################################################
+	#10 = TEXT
+	#10 {
+	#    value = Language
+	#    value.lang.da = Sprog
+	#    value.lang.de = Sprache
+	#    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
+	#}
 
-    20 = HMENU
-    20 {
-        special = language
-        special.value = 0,1,2
-        special.normalWhenNoLanguage = 0
-        wrap =
-        1 = TMENU
-        1 {
-            noBlur = 1
-            NO = 1
-            NO {
-                linkWrap = <li>|</li>
-                stdWrap.override = English || Dansk || Deutsch
-                doNotLinkIt = 1
-                stdWrap {
-                    typolink {
-                        parameter.data = page:uid
-                        additionalParams = &L=0 || &L=1 || &L=2
-                        addQueryString = 1
-                        addQueryString.exclude = L,id,cHash,no_cache
-                        addQueryString.method = GET
-                        useCacheHash = 1
-                        no_cache = 0
-                    }
-                }
-            }
+	20 = HMENU
+	20 {
+		special = language
+		special.value = 0,1,2
+		special.normalWhenNoLanguage = 0
+		wrap =
+		1 = TMENU
+		1 {
+			noBlur = 1
+			NO = 1
+			NO {
+				linkWrap = <li>|</li>
+				stdWrap.override = English || Dansk || Deutsch
+				doNotLinkIt = 1
+				stdWrap {
+					typolink {
+						parameter.data = page:uid
+						additionalParams = &L=0 || &L=1 || &L=2
+						addQueryString = 1
+						addQueryString.exclude = L,id,cHash,no_cache
+						addQueryString.method = GET
+						useCacheHash = 1
+						no_cache = 0
+					}
+				}
+			}
 
-            ACT < .NO
-            ACT.linkWrap = <li class="active">|</li>
-            #### NO TRANSLATION AVAILABLE STATES ####
-            USERDEF1 < .NO
-            USERDEF1 {
-                linkWrap = <li class="text-muted">|</li>
-                stdWrap.typolink >
-            }
+			ACT < .NO
+			ACT.linkWrap = <li class="active">|</li>
+			#### NO TRANSLATION AVAILABLE STATES ####
+			USERDEF1 < .NO
+			USERDEF1 {
+				linkWrap = <li class="text-muted">|</li>
+				stdWrap.typolink >
+			}
 
-            USERDEF2 < .ACT
-            USERDEF2 {
-                linkWrap = <li class="text-muted">|</li>
-                stdWrap.typolink >
-            }
-        }
-    }
+			USERDEF2 < .ACT
+			USERDEF2 {
+				linkWrap = <li class="text-muted">|</li>
+				stdWrap.typolink >
+			}
+		}
+	}
 
-    wrap = <ul id="language_menu" class="language-menu">|</ul>
+	wrap = <ul id="language_menu" class="language-menu">|</ul>
 }
 
 ####################
@@ -73,134 +73,134 @@ lib.language {
 ####################
 lib.navigation.main = COA
 lib.navigation.main {
-    10 = HMENU
-    10 {
-        1 = TMENU
-        1 {
-            wrap = <ul class="nav navbar-nav navbar-main">|</ul>
-            expAll = 1
-            noBlur = 1
-            NO = 1
-            NO {
-                ATagTitle.field = abstract // description // title
-                ATagBeforeWrap = 1
-                linkWrap = |<span class="bar"></span>
-                wrapItemAndSub = <li>|</li>
-                wrapItemAndSub.override.cObject = COA
-                wrapItemAndSub.override.cObject {
-                    if {
-                        value = 4
-                        equals.field = doktype
-                        isTrue = 1
-                        isTrue.if {
-                            value.data = TSFE:page|uid
-                            equals.field = shortcut
-                        }
-                    }
+	10 = HMENU
+	10 {
+		1 = TMENU
+		1 {
+			wrap = <ul class="nav navbar-nav navbar-main">|</ul>
+			expAll = 1
+			noBlur = 1
+			NO = 1
+			NO {
+				ATagTitle.field = abstract // description // title
+				ATagBeforeWrap = 1
+				linkWrap = |<span class="bar"></span>
+				wrapItemAndSub = <li>|</li>
+				wrapItemAndSub.override.cObject = COA
+				wrapItemAndSub.override.cObject {
+					if {
+						value = 4
+						equals.field = doktype
+						isTrue = 1
+						isTrue.if {
+							value.data = TSFE:page|uid
+							equals.field = shortcut
+						}
+					}
 
-                    10 = TEXT
-                    10.value = <li class="active">|</li>
-                }
-            }
+					10 = TEXT
+					10.value = <li class="active">|</li>
+				}
+			}
 
-            ACT < .NO
-            ACT {
-                wrapItemAndSub = <li class="active">|</li>
-            }
+			ACT < .NO
+			ACT {
+				wrapItemAndSub = <li class="active">|</li>
+			}
 
-            CUR < .ACT
-            IFSUB < .NO
-            IFSUB {
-                doNotLinkIt = 1
-                allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
-                wrapItemAndSub = <li class="dropdown">|</li>
-            }
+			CUR < .ACT
+			IFSUB < .NO
+			IFSUB {
+				doNotLinkIt = 1
+				allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
+				wrapItemAndSub = <li class="dropdown">|</li>
+			}
 
-            ACTIFSUB < .IFSUB
-            ACTIFSUB {
-                wrapItemAndSub = <li class="active dropdown">|</li>
-            }
+			ACTIFSUB < .IFSUB
+			ACTIFSUB {
+				wrapItemAndSub = <li class="active dropdown">|</li>
+			}
 
-            CURIFSUB < .ACTIFSUB
-        }
+			CURIFSUB < .ACTIFSUB
+		}
 
-        2 < .1
-        2 {
-            wrap = <ul class="dropdown-menu">|</ul>
-            SPC = 1
-            SPC {
-                wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
-            }
+		2 < .1
+		2 {
+			wrap = <ul class="dropdown-menu">|</ul>
+			SPC = 1
+			SPC {
+				wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
+			}
 
-            IFSUB >
-            ACTIFSUB >
-            CURIFSUB >
-        }
-    }
+			IFSUB >
+			ACTIFSUB >
+			CURIFSUB >
+		}
+	}
 }
 
 lib.navigation.subnavigation = COA
 lib.navigation.subnavigation {
-    10 = HMENU
-    10 {
-        entryLevel = 1
-        1 = TMENU
-        1 {
-            wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><div class="list-group">|</div></div>
-            expAll = 1
-            noBlur = 1
-            NO = 1
-            NO {
-                ATagTitle.field = abstract // description // title
-                ATagParams = class="list-group-item"
-                wrapItemAndSub = |
-            }
+	10 = HMENU
+	10 {
+		entryLevel = 1
+		1 = TMENU
+		1 {
+			wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><div class="list-group">|</div></div>
+			expAll = 1
+			noBlur = 1
+			NO = 1
+			NO {
+				ATagTitle.field = abstract // description // title
+				ATagParams = class="list-group-item"
+				wrapItemAndSub = |
+			}
 
-            ACT < .NO
-            ACT {
-                ATagParams = class="list-group-item active"
-            }
+			ACT < .NO
+			ACT {
+				ATagParams = class="list-group-item active"
+			}
 
-            CUR < .ACT
-        }
-    }
+			CUR < .ACT
+		}
+	}
 }
 
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
-    lib.navigation.breadcrumb = COA
-    lib.navigation.breadcrumb {
-        required = 1
-        wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
-        10 = HMENU
-        10 {
-            special = rootline
-            special.range = 1|-1
-            includeNotInMenu = 1
-            1 = TMENU
-            1 {
-                noBlur = 1
-                target = _self
-                wrap = <ol class="breadcrumb">|</ol>
-                NO = 1
-                NO {
-                    stdWrap.field = title
-                    ATagTitle.field = nav_title // title
-                    wrapItemAndSub = <li>|</li>
-                }
+	lib.navigation.breadcrumb = COA
+	lib.navigation.breadcrumb {
+		required = 1
+		wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
+		10 = HMENU
+		10 {
+			special = rootline
+			special.range = 1|-1
+			includeNotInMenu = 1
+			1 = TMENU
+			1 {
+				noBlur = 1
+				target = _self
+				wrap = <ol class="breadcrumb">|</ol>
+				NO = 1
+				NO {
+					stdWrap.field = title
+					ATagTitle.field = nav_title // title
+					wrapItemAndSub = <li>|</li>
+				}
 
-                CUR = 1
-                CUR {
-                    stdWrap.field = title
-                    doNotLinkIt = 1
-                    wrapItemAndSub = <li class="active">|</li>
-                }
-            }
-        }
-    }
+				CUR = 1
+				CUR {
+					stdWrap.field = title
+					doNotLinkIt = 1
+					wrapItemAndSub = <li class="active">|</li>
+				}
+			}
+		}
+	}
 [end]
 
 [treeLevel = 0] || [treeLevel = 1]
-    lib.navigation.breadcrumb >
+	lib.navigation.breadcrumb >
 [end]
 
 ##############
@@ -208,264 +208,260 @@ lib.navigation.subnavigation {
 ##############
 page = PAGE
 page {
-    typeNum = 0
-    shortcutIcon = {$page.includePath.icons}favicon.ico
+	typeNum = 0
+	shortcutIcon = {$page.includePath.icons}favicon.ico
 
-    // Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
-    // This is sadly needed to get automatic baseurl setting to work
-    headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
+	// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+	// This is sadly needed to get automatic baseurl setting to work
+	headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
 
-    headerData {
-        // Flip ahead browsing for IE10/11
-        // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
-        10 = HMENU
-        10 {
-            special = browse
-            special {
-                items = prev|next
-            }
+	headerData {
+		// Flip ahead browsing for IE10/11
+		// http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
+		10 = HMENU
+		10 {
+			special = browse
+			special {
+				items = prev|next
+			}
+			1 = TMENU
+			1.NO {
+				allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
+				doNotLinkIt = 1
+				stdWrap {
+					typolink {
+						parameter.data = field:uid
+						useCacheHash = 1
+						returnLast = url
+					}
+				}
+			}
+		}
 
-            1 = TMENU
-            1.NO {
-                allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
-                doNotLinkIt = 1
-                stdWrap {
-                    typolink {
-                        parameter.data = field:uid
-                        useCacheHash = 1
-                        returnLast = url
-                    }
-                }
-            }
-        }
+		// Open Graph
+		// http://ogp.me/
+		20 = COA
+		20 {
+			// og:image
+			10 = FILES
+			10 {
+				references {
+					data = levelfield:-1, media, slide
+				}
 
-        // Open Graph
-        // http://ogp.me/
-        20 = COA
-        20 {
-            // og:image
-            10 = FILES
-            10 {
-                references {
-                    data = levelfield:-1, media, slide
-                }
+				maxItems = 1
+				renderObj = TEXT
+				renderObj {
+					data = file:current:publicUrl
+					wrap = <meta property="og:image" content="|" />
+				}
+			}
+		}
+	}
 
-                maxItems = 1
-                renderObj = TEXT
-                renderObj {
-                    data = file:current:publicUrl
-                    wrap = <meta property="og:image" content="|" />
-                }
-            }
-        }
-    }
+	5 < styles.content.editPanelPage
+	5 {
+		stdWrap.wrap = <div class="typo3-feedit-page">|</div>
+		stdWrap.required = 1
+	}
 
-    5 < styles.content.editPanelPage
-    5 {
-        stdWrap.wrap = <div class="typo3-feedit-page">|</div>
-        stdWrap.required = 1
-    }
+	10 = FLUIDTEMPLATE
+	10 {
+		file.stdWrap.cObject = CASE
+		file.stdWrap.cObject {
+			key.data = levelfield:-1, backend_layout_next_level, slide
+			key.override.field = backend_layout
 
-    10 = FLUIDTEMPLATE
-    10 {
-        file.stdWrap.cObject = CASE
-        file.stdWrap.cObject {
-            key.data = levelfield:-1, backend_layout_next_level, slide
-            key.override.field = backend_layout
+			bootstrap_package__default_clean = TEXT
+			bootstrap_package__default_clean.value = {$page.fluidtemplate.templateRootPath}DefaultClean.html
+			bootstrap_package__default_clean.insertData = 1
 
-            bootstrap_package__default_clean = TEXT
-            bootstrap_package__default_clean.value = {$page.fluidtemplate.templateRootPath}DefaultClean.html
-            bootstrap_package__default_clean.insertData = 1
+			bootstrap_package__default_2_columns = TEXT
+			bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
+			bootstrap_package__default_2_columns.insertData = 1
 
-            bootstrap_package__default_2_columns = TEXT
-            bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
-            bootstrap_package__default_2_columns.insertData = 1
+			bootstrap_package__default_2_columns_25_75 = TEXT
+			bootstrap_package__default_2_columns_25_75.value = {$page.fluidtemplate.templateRootPath}Default2Columns2575.html
+			bootstrap_package__default_2_columns_25_75.insertData = 1
 
-            bootstrap_package__default_2_columns_25_75 = TEXT
-            bootstrap_package__default_2_columns_25_75.value = {$page.fluidtemplate.templateRootPath}Default2Columns2575.html
-            bootstrap_package__default_2_columns_25_75.insertData = 1
+			bootstrap_package__default_2_columns_50_50 = TEXT
+			bootstrap_package__default_2_columns_50_50.value = {$page.fluidtemplate.templateRootPath}Default2Columns5050.html
+			bootstrap_package__default_2_columns_50_50.insertData = 1
 
-            bootstrap_package__default_2_columns_50_50 = TEXT
-            bootstrap_package__default_2_columns_50_50.value = {$page.fluidtemplate.templateRootPath}Default2Columns5050.html
-            bootstrap_package__default_2_columns_50_50.insertData = 1
+			bootstrap_package__default_2_columns_offset_right = TEXT
+			bootstrap_package__default_2_columns_offset_right.value = {$page.fluidtemplate.templateRootPath}Default2ColumnsOffsetRight.html
+			bootstrap_package__default_2_columns_offset_right.insertData = 1
 
-            bootstrap_package__default_2_columns_offset_right = TEXT
-            bootstrap_package__default_2_columns_offset_right.value = {$page.fluidtemplate.templateRootPath}Default2ColumnsOffsetRight.html
-            bootstrap_package__default_2_columns_offset_right.insertData = 1
+			bootstrap_package__default_3_columns = TEXT
+			bootstrap_package__default_3_columns.value = {$page.fluidtemplate.templateRootPath}Default3Columns.html
+			bootstrap_package__default_3_columns.insertData = 1
 
-            bootstrap_package__default_3_columns = TEXT
-            bootstrap_package__default_3_columns.value = {$page.fluidtemplate.templateRootPath}Default3Columns.html
-            bootstrap_package__default_3_columns.insertData = 1
+			bootstrap_package__default_subnavigation_right = TEXT
+			bootstrap_package__default_subnavigation_right.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
+			bootstrap_package__default_subnavigation_right.insertData = 1
 
-            bootstrap_package__default_subnavigation_right = TEXT
-            bootstrap_package__default_subnavigation_right.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
-            bootstrap_package__default_subnavigation_right.insertData = 1
+			bootstrap_package__default_subnavigation_right_2_columns = TEXT
+			bootstrap_package__default_subnavigation_right_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
+			bootstrap_package__default_subnavigation_right_2_columns.insertData = 1
 
-            bootstrap_package__default_subnavigation_right_2_columns = TEXT
-            bootstrap_package__default_subnavigation_right_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
-            bootstrap_package__default_subnavigation_right_2_columns.insertData = 1
+			bootstrap_package__default_subnavigation_left = TEXT
+			bootstrap_package__default_subnavigation_left.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft.html
+			bootstrap_package__default_subnavigation_left.insertData = 1
 
-            bootstrap_package__default_subnavigation_left = TEXT
-            bootstrap_package__default_subnavigation_left.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft.html
-            bootstrap_package__default_subnavigation_left.insertData = 1
+			bootstrap_package__default_subnavigation_left_2_columns = TEXT
+			bootstrap_package__default_subnavigation_left_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft2Columns.html
+			bootstrap_package__default_subnavigation_left_2_columns.insertData = 1
 
-            bootstrap_package__default_subnavigation_left_2_columns = TEXT
-            bootstrap_package__default_subnavigation_left_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft2Columns.html
-            bootstrap_package__default_subnavigation_left_2_columns.insertData = 1
+			bootstrap_package__special_start = TEXT
+			bootstrap_package__special_start.value = {$page.fluidtemplate.templateRootPath}SpecialStart.html
+			bootstrap_package__special_start.insertData = 1
 
-            bootstrap_package__special_start = TEXT
-            bootstrap_package__special_start.value = {$page.fluidtemplate.templateRootPath}SpecialStart.html
-            bootstrap_package__special_start.insertData = 1
+			bootstrap_package__special_feature = TEXT
+			bootstrap_package__special_feature.value = {$page.fluidtemplate.templateRootPath}SpecialFeature.html
+			bootstrap_package__special_feature.insertData = 1
 
-            bootstrap_package__special_feature = TEXT
-            bootstrap_package__special_feature.value = {$page.fluidtemplate.templateRootPath}SpecialFeature.html
-            bootstrap_package__special_feature.insertData = 1
+			default = TEXT
+			default.value = {$page.fluidtemplate.templateRootPath}Default.html
+			default.insertData = 1
 
-            default = TEXT
-            default.value = {$page.fluidtemplate.templateRootPath}Default.html
-            default.insertData = 1
+			## DEPRECATED - KEEP FOR FALLBACK ##
+			bootstrap_package__default_subnavigation = TEXT
+			bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
+			bootstrap_package__default_subnavigation.insertData = 1
 
-            ## DEPRECATED - KEEP FOR FALLBACK ##
-            bootstrap_package__default_subnavigation = TEXT
-            bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
-            bootstrap_package__default_subnavigation.insertData = 1
+			bootstrap_package__default_subnavigation_2_columns = TEXT
+			bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
+			bootstrap_package__default_subnavigation_2_columns.insertData = 1
+		}
 
-            bootstrap_package__default_subnavigation_2_columns = TEXT
-            bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
-            bootstrap_package__default_subnavigation_2_columns.insertData = 1
-        }
+		partialRootPath = {$page.fluidtemplate.partialRootPath}
+		layoutRootPath = {$page.fluidtemplate.layoutRootPath}
+		variables {
+			onePage = TEXT
+			onePage.value = 0
 
-        partialRootPath = {$page.fluidtemplate.partialRootPath}
-        layoutRootPath = {$page.fluidtemplate.layoutRootPath}
-        variables {
-            onePage = TEXT
-            onePage.value = 0
+			showHeader = TEXT
+			showHeader.value = 1
 
-            showHeader = TEXT
-            showHeader.value = 1
+			showFooter = TEXT
+			showFooter.value = 1
 
-            showFooter = TEXT
-            showFooter.value = 1
+			pageTitle = TEXT
+			pageTitle.data = page:title
 
-            pageTitle = TEXT
-            pageTitle.data = page:title
+			siteTitle = TEXT
+			siteTitle.data = TSFE:tmpl|setup|sitetitle
 
-            siteTitle = TEXT
-            siteTitle.data = TSFE:tmpl|setup|sitetitle
+			rootPage = TEXT
+			rootPage.data = leveluid:0
 
-            rootPage = TEXT
-            rootPage.data = leveluid:0
+			logoFile = TEXT
+			logoFile.value = {$page.logo.file}
+			logoHeight = TEXT
+			logoHeight.value = {$page.logo.height}
+			logoWidth = TEXT
+			logoWidth.value = {$page.logo.width}
 
-            logoFile = TEXT
-            logoFile.value = {$page.logo.file}
-            logoHeight = TEXT
-            logoHeight.value = {$page.logo.height}
-            logoWidth = TEXT
-            logoWidth.value = {$page.logo.width}
+			themeNavigationstyle = TEXT
+			themeNavigationstyle.value = {$page.theme.navigationstyle}
+			themeNavigationtype = TEXT
+			themeNavigationtype.value = {$page.theme.navigationtype}
+			themeCopyright = TEXT
+			themeCopyright.value = {$page.theme.copyright.enable}
+			themeCopyrightText = TEXT
+			themeCopyrightText.value = {$page.theme.copyright.text}
+		}
 
-            themeNavigationstyle = TEXT
-            themeNavigationstyle.value = {$page.theme.navigationstyle}
-            themeNavigationtype = TEXT
-            themeNavigationtype.value = {$page.theme.navigationtype}
-            themeCopyright = TEXT
-            themeCopyright.value = {$page.theme.copyright.enable}
-            themeCopyrightText = TEXT
-            themeCopyrightText.value = {$page.theme.copyright.text}
-        }
+		stdWrap.replacement {
+			1 {
+				search = http://###BACKEND_URL###/
+				replace.typolink {
+					parameter = typo3/
+					returnLast = url
+				}
+			}
+			2 {
+				search = ###CURRENTYEAR###
+				replace {
+					data = date:U
+					strftime = %Y
+				}
+			}
+			3 {
+				search = ###SPACE###
+				replace {
+					char = 32
+				}
+			}
+		}
+	}
 
-        stdWrap.replacement {
-            1 {
-                search = http://###BACKEND_URL###/
-                replace.typolink {
-                    parameter = typo3/
-                    returnLast = url
-                }
-            }
+	meta {
+		viewport = {$page.meta.viewport}
+		robots = {$page.meta.robots}
+		google = {$page.meta.google}
+		apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+		description = {$page.meta.description}
+		description.override.field = description
+		author = {$page.meta.author}
+		author.override.field = author
+		keywords = {$page.meta.keywords}
+		keywords.override.field = keywords
+	}
 
-            2 {
-                search = ###CURRENTYEAR###
-                replace {
-                    data = date:U
-                    strftime = %Y
-                }
-            }
+	includeCSS {
+		# bootstrap will be included in the themes.less file
+		# for standalone usage just uncomment the following line
+		# bootstrap = EXT:bootstrap_package/Resources/Private/Less/Bootstrap/bootstrap.less
+		theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
+	}
 
-            3 {
-                search = ###SPACE###
-                replace {
-                    char = 32
-                }
-            }
-        }
-    }
+	includeJSlibs {
+		modernizr = {$page.includePath.javascript}Libs/modernizr-2.6.3.min.js
+		modernizr.forceOnTop = 1
+		wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
+	}
 
-    meta {
-        viewport = {$page.meta.viewport}
-        robots = {$page.meta.robots}
-        google = {$page.meta.google}
-        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
-        description = {$page.meta.description}
-        description.override.field = description
-        author = {$page.meta.author}
-        author.override.field = author
-        keywords = {$page.meta.keywords}
-        keywords.override.field = keywords
-    }
+	includeJSFooterlibs {
+		jquery = {$page.includePath.javascript}Libs/jquery-1.11.1.min.js
+		jquery.forceOnTop = 1
+		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
+		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
+		main = {$page.includePath.javascript}main.min.js
+	}
 
-    includeCSS {
-        # bootstrap will be included in the themes.less file
-        # for standalone usage just uncomment the following line
-        # bootstrap = EXT:bootstrap_package/Resources/Private/Less/Bootstrap/bootstrap.less
-        theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
-    }
+	jsFooterInline {
+		# Google Analytics
+		10 = COA
+		10 {
+			if {
+				isTrue = {$page.tracking.google.trackingID}
+			}
+			10 = TEXT
+			10.value (
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+				ga('create', '{$page.tracking.google.trackingID}', 'auto');
+			)
+			20 = TEXT
+			20 {
+				if {
+					isTrue = {$page.tracking.google.anonymizeIp}
+				}
 
-    includeJSlibs {
-        modernizr = {$page.includePath.javascript}Libs/modernizr-2.6.3.min.js
-        modernizr.forceOnTop = 1
-        wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
-    }
+				value (
+					ga('set', 'anonymizeIp', true);
+				)
+			}
 
-    includeJSFooterlibs {
-        jquery = {$page.includePath.javascript}Libs/jquery-1.11.1.min.js
-        jquery.forceOnTop = 1
-        bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
-        responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
-        main = {$page.includePath.javascript}main.min.js
-    }
-
-    jsFooterInline {
-        # Google Analytics
-        10 = COA
-        10 {
-            if {
-                isTrue = {$page.tracking.google.trackingID}
-            }
-
-            10 = TEXT
-            10.value (
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-                ga('create', '{$page.tracking.google.trackingID}', 'auto');
-            )
-            20 = TEXT
-            20 {
-                if {
-                    isTrue = {$page.tracking.google.anonymizeIp}
-                }
-
-                value (
-                    ga('set', 'anonymizeIp', true);
-                )
-            }
-
-            90 = TEXT
-            90.value (
-                ga('send', 'pageview');
-            )
-        }
-    }
+			90 = TEXT
+			90.value (
+				ga('send', 'pageview');
+			)
+		}
+	}
 }
 
 ###################################################
@@ -473,114 +469,114 @@ page {
 #### IF NO SEARCH IS SET FOR THIS PAGE         ####
 ###################################################
 [globalVar = TSFE:page|no_search = 1]
-    page.meta.robots = noindex,follow
+	page.meta.robots = noindex,follow
 [end]
 
 #############################################
 #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
 #############################################
 [browser = msie] && [version = 8]
-    page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
+	page.includeJSFooterlibs.respond = {$page.includePath.javascript}Libs/respond.min.js
 [end]
 
 ################
 #### CONFIG ####
 ################
 config {
-    no_cache = {$config.no_cache}
-    uniqueLinkVars = 1
-    pageTitleFirst = 1
-    linkVars = L
-    renderCharset = utf-8
-    metaCharset = utf-8
-    doctype = html5
-    removeDefaultJS = external
-    inlineStyle2TempFile = 1
-    admPanel = 1
-    debug = 0
-    cache_period = 86400
-    sendCacheHeaders = 0
-    intTarget =
-    extTarget =
-    disablePrefixComment = 1
-    index_enable = 1
-    index_externals = 1
-    headerComment = {$config.headerComment}
+	no_cache = {$config.no_cache}
+	uniqueLinkVars = 1
+	pageTitleFirst = 1
+	linkVars = L
+	renderCharset = utf-8
+	metaCharset = utf-8
+	doctype = html5
+	removeDefaultJS = external
+	inlineStyle2TempFile = 1
+	admPanel = 1
+	debug = 0
+	cache_period = 86400
+	sendCacheHeaders = 0
+	intTarget =
+	extTarget =
+	disablePrefixComment = 1
+	index_enable = 1
+	index_externals = 1
+	headerComment = {$config.headerComment}
 
-    // Set the headTag again and get an automatic baseURL if config.baseURL is not set
-    htmlTag_stdWrap {
-        setContentToCurrent = 1
-        cObject = COA
-        cObject {
-            10 = LOAD_REGISTER
-            10 {
-                newLine.char = 10
-                tagEnd {
-                    current = 1
-                    split.max = 2
-                    split.token = <html
-                    split.returnKey = 1
-                }
-            }
+	// Set the headTag again and get an automatic baseURL if config.baseURL is not set
+	htmlTag_stdWrap {
+		setContentToCurrent = 1
+		cObject = COA
+		cObject {
+			10 = LOAD_REGISTER
+			10 {
+				newLine.char = 10
+				tagEnd {
+					current = 1
+					split.max = 2
+					split.token = <html
+					split.returnKey = 1
+				}
+			}
 
-            20 = TEXT
-            20 {
-                value = <html {register:tagEnd}
-                wrap = |{register:newLine}
-                insertData = 1
-            }
+			20 = TEXT
+			20 {
+				value = <html {register:tagEnd}
+				wrap = |{register:newLine}
+				insertData = 1
+			}
 
-            30 < .20
-            30.value = <head>
-            40 = TEXT
-            40 {
-                data = getIndpEnv:TYPO3_SITE_URL
-                override = {$config.baseURL}
-                wrap = <base href="|">{register:newLine}
-                insertData = 1
-            }
-        }
-    }
+			30 < .20
+			30.value = <head>
+			40 = TEXT
+			40 {
+				data = getIndpEnv:TYPO3_SITE_URL
+				override = {$config.baseURL}
+				wrap = <base href="|">{register:newLine}
+				insertData = 1
+			}
+		}
+	}
 
-    // Enable RealUrl
-    tx_realurl_enable = 1
-    simulateStaticDocuments = 0
+	// Enable RealUrl
+	tx_realurl_enable = 1
+	simulateStaticDocuments = 0
 
-    // Disable Image Upscaling
-    noScaleUp = 1
+	// Disable Image Upscaling
+	noScaleUp = 1
 
-    // Language Settings
-    sys_language_uid = 0
-    sys_language_overlay = 1
-    sys_language_mode = content_fallback
-    language = en
-    locale_all = en_US.UTF-8
-    htmlTag_setParams = lang="en" dir="ltr" class="no-js"
+	// Language Settings
+	sys_language_uid = 0
+	sys_language_overlay = 1
+	sys_language_mode = content_fallback
+	language = en
+	locale_all = en_US.UTF-8
+	htmlTag_setParams = lang="en" dir="ltr" class="no-js"
 
-    // Compression and Concatenation of CSS and JS Files
-    compressJs = {$config.compressJs}
-    compressCss = {$config.compressCss}
-    concatenateJs = {$config.concatenateJs}
-    concatenateCss = {$config.concatenateCss}
+	// Compression and Concatenation of CSS and JS Files
+	compressJs = {$config.compressJs}
+	compressCss = {$config.compressCss}
+	concatenateJs = {$config.concatenateJs}
+	concatenateCss = {$config.concatenateCss}
 }
 
 #############################
 #### LANGUAGE CONDITIONS ####
 #############################
 [globalVar = GP:L = 1]
-    config {
-        sys_language_uid = 1
-        language = da
-        locale_all = da_DK.UTF-8
-        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
-    }
+	config {
+		sys_language_uid = 1
+		language = da
+		locale_all = da_DK.UTF-8
+		htmlTag_setParams = lang="da" dir="ltr" class="no-js"
+	}
 [global]
 
 [globalVar = GP:L = 2]
-    config {
-        sys_language_uid = 2
-        language = de
-        locale_all = de_DE.UTF-8
-        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
-    }
+	config {
+		sys_language_uid = 2
+		language = de
+		locale_all = de_DE.UTF-8
+		htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+	}
 [global]

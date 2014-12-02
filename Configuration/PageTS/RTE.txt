@@ -140,38 +140,38 @@ RTE.default {
 ################################################
 RTE.default.buttons {
 
-    // Remove html tags that are not suitable for an editor to maintain
-    formatblock {
-        removeItems = address, article, aside, div, header, footer, section, h5, h6, nav
-    }
+	// Remove html tags that are not suitable for an editor to maintain
+	formatblock {
+		removeItems = address, article, aside, div, header, footer, section, h5, h6, nav
+	}
 
-    // Remove stylings from select options
-    blockstyle.disableStyleOnOptionLabel = 1
+	// Remove stylings from select options
+	blockstyle.disableStyleOnOptionLabel = 1
 
-    // Restrict allowed classes for links to the bootstrap btn classes
-    textstyle.tags.a {
-        allowedClasses (
-            btn, btn-default, btn-primary, btn-success, btn-warning,
-            btn-danger, btn-link, btn-block
-        )
-    }
+	// Restrict allowed classes for links to the bootstrap btn classes
+	textstyle.tags.a {
+		allowedClasses (
+			btn, btn-default, btn-primary, btn-success, btn-warning,
+			btn-danger, btn-link, btn-block
+		)
+	}
 
-    // Key mapping (strg + x)
-    bold.hotKey = b
-    italic.hotKey = i
-    underline.hotKey = u
+	// Key mapping (strg + x)
+	bold.hotKey = b
+	italic.hotKey = i
+	underline.hotKey = u
 
-    // Use bootstrap css classes for text alignment
-    left.useClass = text-left
-    center.useClass = text-center
-    right.useClass = text-right
-    justifyfull.useClass = text-justify
+	// Use bootstrap css classes for text alignment
+	left.useClass = text-left
+	center.useClass = text-center
+	right.useClass = text-right
+	justifyfull.useClass = text-justify
 
-    // Make borders for tables visible default
-    toggleborders {
-        setOnTableCreation = 1
-        setOnRTEOpen = 1
-    }
+	// Make borders for tables visible default
+	toggleborders {
+		setOnTableCreation = 1
+		setOnRTEOpen = 1
+	}
 }
 
 ################################################
