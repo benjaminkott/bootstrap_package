@@ -103,7 +103,7 @@ page {
 			# cat=bootstrap package: basic/180/100; type=string; label=Google: Tracking-ID
 			trackingID =
 			# cat=bootstrap package: basic/180/110; type=boolean; label=Google: IP-anonymisation
-			anonymizeIp = 0
+			anonymizeIp = 1
 		}
 	}
 }
@@ -116,15 +116,17 @@ config {
 	baseURL =
 	# cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
 	no_cache = 0
-	# cat=bootstrap package: advanced/150/120; type=boolean; label=Compress JavaScript
+	# cat=bootstrap package: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
+	removeDefaultJS = 0
+	# cat=bootstrap package: advanced/150/130; type=boolean; label=Compress JavaScript
 	compressJs = 1
-	# cat=bootstrap package: advanced/150/130; type=boolean; label=Compress Css
+	# cat=bootstrap package: advanced/150/140; type=boolean; label=Compress Css
 	compressCss = 1
-	# cat=bootstrap package: advanced/150/140; type=boolean; label=Concatenate JavaScript
+	# cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate JavaScript
 	concatenateJs = 1
-	# cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate Css
+	# cat=bootstrap package: advanced/150/160; type=boolean; label=Concatenate Css
 	concatenateCss = 1
-	# cat=bootstrap package: advanced/150/160; type=string; label=Header Comment
+	# cat=bootstrap package: advanced/150/180; type=string; label=Header Comment
 	headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
 }
 
