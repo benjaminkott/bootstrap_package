@@ -76,6 +76,4 @@ Contact
 =======
 
 If you have any questions about this project or just want to talk:
-Write me an email `at my Github profile <https://github.com/benjaminkott>`_
-or send a tweet `@benjaminkott <http://twitter.com/benjaminkott>`_.
-
+Send a tweet `@benjaminkott <https://twitter.com/benjaminkott>`_.
