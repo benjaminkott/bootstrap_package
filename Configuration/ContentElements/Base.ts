@@ -1077,7 +1077,7 @@ tt_content.menu.20 {
 				paginateStart.cObject = TEXT
 				paginateStart.cObject {
 					data = register:paginateCurrentPage
-					stdWrap.wrap = (|-1)*{$page.theme.news.pagination.itemsperpage}
+					stdWrap.wrap = ((|-1)*{$page.theme.news.pagination.itemsperpage})+1
 					stdWrap.insertData = 1
 					prioriCalc = 1
 				}
