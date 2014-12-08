@@ -17,7 +17,9 @@
 					720: 'medium',
 					940: 'large',
 					1140: 'bigger'
-				}
+				},
+				container:window,
+                                skip_invisible: true
 			},
 			options = $.extend({}, defaults, options),
 			$window = $(window),
@@ -51,24 +53,40 @@
 			}
 			responsiveimages();
 		}
-
+		function inviewport($el, options){
+        		var $c = $(options.container)    
+        		,   ew = $el.width()
+        		,   eh = $el.height()
+        		,   el = $el.offset().left    
+        		,   et = $el.offset().top    
+        		,   cw = $c.width()   
+        		,   ch    
+        		,   cl  
+        		,   ct;
+          		if (options.container === undefined || options.container === window){
+            			ch = window.innerHeight ? window.innerHeight : $window.height();
+            			cl = $window.scrollLeft();
+            			ct = $window.scrollTop();
+          		} else {
+            			ch = $c.height();
+            			cl = $c.offset().left;
+            			ct = $c.offset().top;
+          		}
+          		return cl + cw > el - options.threshold && cl < el + ew + options.threshold && ct + ch > et - options.threshold && ct < et + eh + options.threshold   
+        	}
 		function responsiveimages() {
 			var inview = images.filter(function () {
 				var $element = $(this);
-				if ($element.is(":hidden")) return;
-				var wt = $(window).scrollTop(),
-					wb = wt + $(window).height(),
-					et = $element.offset().top,
-					eb = et + $element.height();
-				return eb >= wt - threshold && et <= wb + threshold;
+				if (options.skip_invisible && $element.is(":hidden")) return;
+				return inviewport($element, options);  
 			});
 			loaded = inview.trigger("responsiveimages");
 			images = images.not(loaded);
 		}
 
-		$window.scroll(checkviewport);
+		$(options.container).scroll(checkviewport);
 		$window.resize(checkviewport);
-
+ 		$.fn.responsiveimages.update = checkviewport;
 		checkviewport();
 
 		return this;
