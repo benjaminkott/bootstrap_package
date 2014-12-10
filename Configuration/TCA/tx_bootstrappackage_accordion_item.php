@@ -173,7 +173,7 @@ return array(
 				'cols' => 40,
 				'rows' => 3,
 			),
-			'defaultExtras' => 'richtext[]'
+			'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
 		),
 	),
 );
