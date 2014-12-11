@@ -16,13 +16,18 @@ Use the extension manager to adjust the Bootstrap Package to your needs.
 	:width: 500px
 	:alt: Bootstrap Package Extension Configuration
 
-Backend Skin
-============
-The backend skin can be disabled and is also disabled if ext:themes is installed.
+[DEPRECATED] Backend Skin
+=========================
+
+For newer versions of TYPO3 > 6.2.x the backend skin is disabled.
+For TYPO3 versions > 7.0 the backend can be disabled and is also
+disabled if ext:themes is installed. The Skin only does minimal adjustments
+so we will remove it in a future version.
 
 
 Backend Logo & Login Logo
 =========================
+
 You can replace the default TYPO3 logos in the backend with the logo of your company or your customer.
 The path to the logofile has to be relative to the TYPO3 backend.
 
@@ -39,14 +44,6 @@ The path to the logofile has to be relative to the TYPO3 backend.
 
     basic.Logo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png
     basic.LoginLogo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/LoginLogo.png
-
-RealURL Config
-==============
-The Bootstrap Package comes with its own RealURL configuration and will override your Configuration by default.
-If you want to use your own RealURL config you can disable this option.
-
-**Configuration can be found here:**
-typo3conf/ext/bootstrap_package/RealURL/Default.php
 
 PageTsConfig
 ============
