@@ -75,12 +75,10 @@ if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')
 
 
 /***************
- * Use RealUrl Config from Bootstrap Package
+ * Add Bootstrap Package autoconfig to realurl
  */
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')
-	&& $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['UseRealUrlConfig'] == 1
-) {
-	@include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Configuration/RealURL/Default.php'));
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
+	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration'][$_EXTKEY] = 'BK2K\\BootstrapPackage\\Hooks\\RealUrl\\AutoConfig->addConfig';
 }
 
 

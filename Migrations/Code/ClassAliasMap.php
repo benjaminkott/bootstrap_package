@@ -9,4 +9,6 @@ return array(
 	't3lib_extMgm' => 'TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility',
 	't3lib_BEfunc' => 'TYPO3\\CMS\\Backend\\Utility\\BackendUtility',
 	't3lib_pageTree' => 'TYPO3\\CMS\\Backend\\Tree\\View\\PageTreeView',
+	't3lib_lock' => 'TYPO3\\CMS\\Core\Locking\\Locker',
+	't3lib_extobjbase' => 'TYPO3\\CMS\\Backend\\Module\\AbstractFunctionModule',
 );
