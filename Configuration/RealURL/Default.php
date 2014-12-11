@@ -1,7 +1,8 @@
 <?php
 
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
-	'_DEFAULT' => array(
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT'] = array_merge_recursive(
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT'],
+	array(
 		'init' => array(
 			'enableCHashCache' => TRUE,
 			'appendMissingSlash' => 'ifNotFile',
@@ -15,7 +16,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 			'spaceCharacter' => '-',
 			'languageGetVar' => 'L',
 		),
-		'redirects' => array(),
 		'preVars' => array(
 			'0' => array(
 				'GETvar' => 'no_cache',
@@ -31,20 +31,19 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 					'de' => '2',
 				),
 				'noMatch' => 'bypass',
-			),
+			)
 		),
-		'fixedPostVars' => array(),
 		'postVarSets' => array(
 			'_DEFAULT' => array(
 				'page' => array(
 					0 => array(
 						'GETvar' => 'page',
-					),
-				),
-			),
+					)
+				)
+			)
 		),
 		'fileName' => array(
-			'defaultToHTMLsuffixOnPrev' => true,
-		),
+			'defaultToHTMLsuffixOnPrev' => TRUE
+		)
 	)
 );
