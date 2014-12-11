@@ -30,12 +30,13 @@ $EM_CONF[$_EXTKEY] = array(
 		'depends' => array(
 			'typo3' => '6.2.6-7.0.99',
 			'css_styled_content' => '6.2.0-7.0.99',
-			'realurl' => '1.12.8-1.12.99',
 		),
 		'conflicts' => array(
 			'fluidpages' => '*',
 			'dyncss' => '*',
 		),
-		'suggests' => array()
+		'suggests' => array(
+			'realurl' => '1.12.8-1.12.99',
+		)
 	),
 );

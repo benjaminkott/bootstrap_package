@@ -77,7 +77,9 @@ if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')
 /***************
  * Use RealUrl Config from Bootstrap Package
  */
-if ($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['UseRealUrlConfig'] == 1) {
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')
+	&& $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['UseRealUrlConfig'] == 1
+) {
 	@include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Configuration/RealURL/Default.php'));
 }
 
