@@ -423,7 +423,7 @@ page {
 	}
 
 	includeJSFooterlibs {
-		jquery = {$page.includePath.javascript}Libs/jquery-1.11.1.min.js
+		jquery = {$page.includePath.javascript}Libs/jquery-1.11.2.min.js
 		jquery.forceOnTop = 1
 		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
