@@ -59,7 +59,7 @@ class CompileService {
 
 				return $file;
 			} catch (\Exception $e) {
-				$error_message = $e->getMessage();
+				throw new \Exception($e->getMessage());
 			}
 		}
 		return false;
