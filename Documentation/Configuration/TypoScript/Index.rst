@@ -9,7 +9,7 @@
 ==========
 TypoScript
 ==========
-Bootstrap Package was built to be so adjustable as pissible, so nothing is fix and everything can be overritten with TypoScript constants.
+Bootstrap Package was built to be as adjustable as possible, so nothing is fixed and everything can be overritten with TypoScript constants.
 The constants are grouped in basic and advanced settings. Use the **TYPO3 Constant Editor** in the backend to modify the values.
 
 .. figure:: ../../Images/Configuration/TypoScriptConstantEditor.jpg
