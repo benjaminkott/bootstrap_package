@@ -9,7 +9,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Bootstrap Package delivers a full configured frontend for TYPO3 CMS 6.2, based on the Bootstrap CSS Framework.',
 	'category' => 'templates',
 	'shy' => 0,
-	'version' => '6.2.9-dev',
+	'version' => '6.2.9',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => 'top',
@@ -28,7 +28,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => NULL,
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.2.6-7.99.99',
+			'typo3' => '6.2.9-7.99.99',
 			'css_styled_content' => '6.2.0-7.99.99',
 		),
 		'conflicts' => array(
