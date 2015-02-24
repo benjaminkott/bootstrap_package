@@ -24,8 +24,8 @@ lib.language {
 	20 = HMENU
 	20 {
 		special = language
-		special.value = 0,1,2
-		special.normalWhenNoLanguage = 0
+		special.value = en,da,de
+		special.normalWhenNoLanguage = en
 		wrap =
 		1 = TMENU
 		1 {
@@ -38,7 +38,7 @@ lib.language {
 				stdWrap {
 					typolink {
 						parameter.data = page:uid
-						additionalParams = &L=0 || &L=1 || &L=2
+						additionalParams = &L=en || &L=da || &L=de
 						addQueryString = 1
 						addQueryString.exclude = L,id,cHash,no_cache
 						addQueryString.method = GET
@@ -568,7 +568,7 @@ config {
 #############################
 #### LANGUAGE CONDITIONS ####
 #############################
-[globalVar = GP:L = 1]
+[globalVar = GP:L = da]
 	config {
 		sys_language_uid = 1
 		language = da
@@ -577,7 +577,7 @@ config {
 	}
 [global]
 
-[globalVar = GP:L = 2]
+[globalVar = GP:L = de]
 	config {
 		sys_language_uid = 2
 		language = de
