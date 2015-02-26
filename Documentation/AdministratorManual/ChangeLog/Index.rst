@@ -16,6 +16,29 @@ ChangeLog
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.9    - [TASK] Update jquery to 1.11.2
+         - [TASK] Update modernizr to 2.8.3
+         - [BUGFIX] Remove problematic whitespace in carousel flexform
+         - [BUGFIX] Remove superfluous slash in font definition
+         - [TASK] Update less.php to current master
+         - [TASK] Throw exception on less compile error
+         - [TASK] Use realurl autoconfig hook instead of overriding every config
+         - [BUGFIX] Classname must not start with a backslash in ext_conf_template.t
+6.2.8    - [TASK] Make realurl optional
+         - [TASK] Update jquery.responsiveimages.js
+         - [BUGFIX] Flashmessage queue throws error while installing
+         - [BUGFIX] Wrong calculation in news pagination
+         - [BUGFIX] Use correct rte transform in accordion textfield
+6.2.7    - [TASK] Deprecate backend skin for CMS7 and provide new logos
+         - [TASK] Include respond.js with conditional comment to work with static cache
+         - [TASK] Reformat all project-specific content to TYPO3.CMS CGL
+         - [TASK] Carousel needs to have background-image and background-color at the same time available
+         - [TASK] Add .editorconfig to make contributions more easy
+         - [TASK] Add 25/75 backend layout
+         - [TASK] Add migrations for realurl to be compatible with 7.0
+         - [BUGFIX] Wrong colpos was used in layout "Default, Subnavigation Left and 2 Columns
+         - [BUGFIX] Updated RTE configuration to enable wordclean correctly
+         - [BUGFIX] RTE does not save .lead
 6.2.6    - Add new RTE config for better editor usability
          - Add responsive tables in RTE
          - Add backend layout with 2 columns 50/50%
