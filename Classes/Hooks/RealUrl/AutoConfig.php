@@ -52,8 +52,8 @@ class AutoConfig {
 			'1' => array(
 				'GETvar' => 'L',
 				'valueMap' => array(
-					'da' => '1',
-					'de' => '2',
+					'de' => '1',
+					'da' => '2',
 				),
 				'noMatch' => 'bypass',
 			)
