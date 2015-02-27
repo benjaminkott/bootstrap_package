@@ -268,7 +268,7 @@ return array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 50,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
 			),
 		),
 		'bodytext' => array(
