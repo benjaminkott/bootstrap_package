@@ -100,12 +100,14 @@ TCEFORM {
 			types {
 				textpic.disabled = 1
 				image.disabled = 1
+				bootstrap_package_panel.disabled = 1
 			}
 		}
 		imagewidth {
 			types {
 				textpic.disabled = 1
 				image.disabled = 1
+				bootstrap_package_panel.disabled = 1
 			}
 		}
 
