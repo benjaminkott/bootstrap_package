@@ -292,7 +292,7 @@ lib.newsheader {
 			}
 
 			strftime = %B %d, %Y
-			noTrimWrap = | <span class="news-date">|</strong>|
+			noTrimWrap = | <span class="news-date"><strong>|</strong></span>|
 			required = 1
 		}
 
