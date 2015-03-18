@@ -33,7 +33,7 @@ lib.language {
 			NO = 1
 			NO {
 				linkWrap = <li>|</li>
-				stdWrap.override = English || Dansk || Deutsch
+				stdWrap.override = English || Deutsch || Dansk
 				doNotLinkIt = 1
 				stdWrap {
 					typolink {
