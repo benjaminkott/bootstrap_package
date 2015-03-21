@@ -416,7 +416,7 @@ page {
 		theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
 	}
 
-	includeJSlibs {
+	includeJSLibs {
 		modernizr = {$page.includePath.javascript}Libs/modernizr-2.8.3.min.js
 		modernizr.forceOnTop = 1
 		wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
