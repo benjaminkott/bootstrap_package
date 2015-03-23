@@ -56,7 +56,7 @@ class FalViewHelper extends AbstractViewHelper {
 			$localizedId = NULL;
 			if (isset($data['_LOCALIZED_UID'])) {
 				$localizedId = $data['_LOCALIZED_UID'];
-			} elseif (isset($element['_PAGES_OVERLAY_UID'])) {
+			} elseif (isset($data['_PAGES_OVERLAY_UID'])) {
 				$localizedId = $data['_PAGES_OVERLAY_UID'];
 			}
 			$isTableLocalizable = (
