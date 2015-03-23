@@ -1,50 +1,233 @@
 ###########################
 #### RESPONSIVE IMAGES ####
 ###########################
-tt_content.image.20.1 {
-	layout {
-		bootstrappackage {
-			element (
-				<img src="typo3conf/ext/bootstrap_package/Resources/Public/Images/blank.gif" ###PARAMS######SOURCECOLLECTION######ALTPARAMS######SELFCLOSINGTAGSLASH###>
-				<noscript>
-					<img src="###SRC###"###ALTPARAMS###/>
-				</noscript>
-			)
-			source = data-###DATAKEY###="###SRC###"
-			source.noTrimWrap = ; ;;
-			source.noTrimWrap.splitChar = ;
-		}
-	}
 
-	sourceCollection >
-	sourceCollection {
-		src {
-			dataKey = src
-		}
-
-		bigger {
-			width = 1140
-			dataKey = bigger
-		}
-
-		large {
-			width = 940
-			dataKey = large
-		}
-
-		medium {
-			width = 720
-			dataKey = medium
-		}
-
-		small {
-			width = 320
-			dataKey = small
-		}
-	}
-
-	params = class="lazyload"
+## compute image width for each srcset
+lib.responsiveWidth = COA 
+lib.responsiveWidth {
+  5 = TEXT
+  5.value = ((
+  
+  ## avaliable width
+  10 = TEXT
+  10 {
+    value = {register:width_lg}
+    insertData = 1
+    
+    # handle available width for image above text 
+    stdWrap  {
+      
+      wrap {
+        cObject = TEXT
+        cObject {
+          value = (|-{$plugin.lef_bootstrap3_package.gutter})/2
+          stdWrap.if {
+            value = 10 
+            isGreaterThan.field = imageorient 
+          }
+        }
+      }
+      
+      outerWrap = (|)  
+    }
+    
+  }
+  
+  
+  ## handle multi columns layouts
+  20 = COA
+  20 {
+    
+    ## remove gutter width
+    10 = TEXT
+    10.value = {$plugin.lef_bootstrap3_package.gutter}
+    
+    15 = TEXT
+    15.value = +(
+    
+    ## handle gutters between multiple columns 
+    20 = TEXT
+    20.value = {$styles.content.imgtext.colSpace}
+      
+    25 = TEXT
+    25.value =  *
+    
+    30 = TEXT
+    30{
+      value = ({field:imagecols}-1)
+      insertData = 1 
+    }
+    
+    35 = TEXT
+    35.value = )
+    stdWrap.wrap = -(|)  
+  }
+  
+  30 = TEXT
+  30.value = )
+  
+  # handle columns width for multicolumn width  
+  40 = TEXT
+  40 {
+    # divide by the number of columns
+    value = /{field:imagecols}
+    insertData = 1
+    
+  }
+  
+  50 = TEXT 
+  50.value = )
+  
+  # handle border thick and space
+  60 = TEXT
+  60 {
+    value = -(({$styles.content.imgtext.borderThick}+{$styles.content.imgtext.borderSpace})*2)
+    stdWrap.if.isTrue.field = imageborder
+  }
 }
+
+## overrides layout and sourceCollection
+tt_content.image.20.1 {
+  
+  layout {
+    ### remove width and height attrib from image
+    default.element = <img src="###SRC###" ###PARAMS######ALTPARAMS######BORDER######SELFCLOSINGTAGSLASH###>  
+    bootstrappackage{
+      element (
+      <img src="typo3conf/ext/bootstrap_package/Resources/Public/Images/blank.gif" ###SOURCECOLLECTION######PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###>
+      <noscript>
+      <img src="###SRC###" ###ALTPARAMS###/>
+      </noscript>
+      )
+      source = data-###DATAKEY###="###SRC###" 
+      source.noTrimWrap = ; ;;
+      source.noTrimWrap.splitChar = ;
+    }
+  }
+  
+  layoutKey = bootstrappackage
+  
+    sourceCollection >
+    sourceCollection {
+    src{
+      dataKey = src
+    }
+    bigger < .src
+    
+    bigger{ 
+      width.stdWrap{
+        cObject  < lib.responsiveWidth
+        cObject.10.value = {register:width_lg}
+        prioriCalc = intval
+      }
+      
+      maxW = < .width
+      pixelDensity = 1
+      dataKey = bigger
+      
+    }
+    
+    large < .bigger
+    large{  
+      width.stdWrap.cObject.10.value = {register:width_md}
+      maxW = < .width
+      dataKey = large
+    }
+    medium < .bigger
+    medium { 
+      width.stdWrap.cObject{
+        10.value = {register:width_sm}
+        # width of images in columns depends on breakpoints and number of columns
+        20{
+          30 >
+          30 = CASE
+          30{
+            key.field = imagecols
+            
+            default = TEXT
+            default.value = 1
+            2 < .default
+            3 < .default
+            3.value = 3
+            4 < .default
+            4.value = 4
+            6 < .default
+            6.value = 6
+            stdWrap.wrap = (|-1)
+          }
+        } 
+        40 >
+        40 < .20.30
+        40.stdWrap.wrap = /|
+      }
+      
+      maxW = < .width
+      maxWInText = < .width
+      dataKey = medium
+    }
+    small < .medium
+    small {  
+      width.stdWrap.cObject{
+        10{
+          value = {register:width_xs}
+          # clear width override as text beside image dosen t make sense for sutch small device
+          # you have to ensure that css .image-wrap max-width:50% donsen t apply 
+          stdWrap >
+        }
+        # width of images in columns depends on breakpoints and number of columns
+        20{
+          30{
+            4 < .default
+            4.value = 2
+            6 < .default
+            6.value = 3
+          }
+        }
+        40 < .20.30
+        40.stdWrap.wrap = /|
+        
+      }
+      maxW = < .width
+      dataKey = small
+    }
+    ## retina
+    retina-bigger  < .bigger
+    retina-bigger{
+      if.isTrue = {$plugin.lef_bootstrap3_package.retina} 
+      pixelDensity = 2
+      dataKey =  retina-bigger
+    }
+    retina-large < .large
+    retina-large{
+      if.isTrue = {$plugin.lef_bootstrap3_package.retina}
+      pixelDensity = 2
+      dataKey =  retina-large
+    }
+    retina-medium < .medium
+    retina-medium{
+      if.isTrue = {$plugin.lef_bootstrap3_package.retina}
+      pixelDensity = 2
+      dataKey =  retina-medium
+    }
+    retina-small < .small
+    retina-small {
+      if.isTrue = {$plugin.lef_bootstrap3_package.retina}
+      pixelDensity = 2
+      dataKey =  retina-small
+    }
+  }
+  
+  params = class="lazyload"
+  params{
+    # Add a class to preload image on page load for hidden items like in tabs
+    override = class="lazyload preload"
+    override.if {   
+      equals.field = layout
+      value = 2
+    }
+  }
+}
+
 
 #################
 #### CONTENT ####
@@ -102,6 +285,54 @@ lib.dynamicContent {
 	20.select.where.insertData = 1
 	20.select.pidInList.data = register:pageUid
 	90 = RESTORE_REGISTER
+}
+
+### initial values for number of columns and layout width
+### setup column width in fluid templates
+### <f:cObject typoscriptObjectPath="lib.dymanicContent" data="{col_md: '9', col_lg: '9'}" />
+
+lib.dynamicContent.5 {
+  
+    columns_xs {
+    cObject = TEXT
+    cObject.value = {$plugin.lef_bootstrap3_package.columns}
+  }
+    columns_sm < .columns_xs
+    columns_md < .columns_xs
+    columns_lg < .columns_xs
+  
+    width_xs {
+    cObject = COA
+    cObject{
+      5 = TEXT
+      5.value = (
+      10 = TEXT
+      10.value = {$plugin.lef_bootstrap3_package.width_xs}
+      20 = TEXT
+      20.value = +{$plugin.lef_bootstrap3_package.gutter})/{$plugin.lef_bootstrap3_package.columns}* 
+      30 = TEXT
+      30 {
+        field = col_xs
+        ifEmpty =  {$plugin.lef_bootstrap3_package.columns}
+      }
+    }   
+    prioriCalc = 1
+  }
+    width_sm < .width_xs 
+    width_sm.cObject {
+    10.value = {$plugin.lef_bootstrap3_package.width_sm}
+    30.field = col_sm
+  }
+    width_md < .width_xs
+    width_md.cObject {
+    10.value = {$plugin.lef_bootstrap3_package.width_md}
+    30.field = col_md
+  }    
+    width_lg < .width_xs
+    width_lg.cObject {
+    10.value = {$plugin.lef_bootstrap3_package.width_lg}
+    30.field = col_lg
+  }
 }
 
 lib.dynamicContentSlide =< lib.dynamicContent

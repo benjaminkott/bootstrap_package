@@ -19,6 +19,22 @@ TCEFORM {
 			removeItems = 1,2,3
 			disableNoMatchingValueElement = 1
 			types {
+			    image {
+      			removeItems = 3
+      			altLabels {
+        			0 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.default
+			        1 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.lazyload
+			        2 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.normal
+			      }
+			    }
+			    textpic {
+			      removeItems = 3
+			      altLabels {
+			        0 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.default
+			        1 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.lazyload
+			        2 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:imagelayout.normal
+			      }
+			    }
 				bullets {
 					removeItems = 0,1,2,3
 					addItems {

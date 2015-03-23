@@ -10,6 +10,11 @@
 # customsubcategory=160=Theme
 # customsubcategory=170=News
 # customsubcategory=180=Tracking
+# customsubcategory=500=Breakpoints (screen    width)
+# customsubcategory=510=Image width (container width)
+# customsubcategory=520=Columns
+# customsubcategory=530=Sizes
+# customsubcategory=540=Features
 
 ############
 ### PAGE ###
@@ -134,8 +139,11 @@ config {
 styles {
 	content {
 		imgtext {
-			maxW = 1140
-			colSpace = 30
+		  	borderThick = 1
+		  	borderSpace = 4
+		  	colSpace = 30
+		  	maxWInText = 0
+		  	maxW = 0
 			layoutKey = bootstrappackage
 		}
 	}
@@ -154,6 +162,35 @@ plugin.bootstrap_package_contentelements {
 		templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
 	}
 }
+
+##################################
+#### BOOTSTRAP GRID CONSTANTS ####
+##################################
+plugin.lef_bootstrap3_package {
+  # cat=responsive grid and images/500/110; type=int+; label=Breakpoint large:Width of the breakpoint large (according bootstrap)
+  breakpoint_lg = 1200
+  # cat=responsive grid and images/500/111; type=int+; label=Breakpoint medium:Width of the breakpoint medium (according bootstrap)
+  breakpoint_md = 992
+  # cat=responsive grid and images/500/112; type=int+; label=Breakpoint small:Width of the breakpoint small (according bootstrap)
+  breakpoint_sm = 768
+  # cat=responsive grid and images/500/113; type=int+; label=Breakpoint xtra small:Width of the breakpoint xtra small : layout change (according bootstrap)
+  breakpoint_xs = 480
+  # cat=responsive grid and images/510/115; type=int+; label=Container large:Width of the container large : base for images size (according bootstrap)
+  width_lg = 1140
+  # cat=responsive grid and images/510/116; type=int+; label=Container medium:Width of the container medium : base for images size (according bootstrap)
+  width_md = 940
+  # cat=responsive grid and images/510/117; type=int+; label=Container small:Width of the container small : base for images size (according bootstrap)
+  width_sm = 720
+  # cat=responsive grid and images/510/118; type=int+; label=Container xtra small:Width of the container xtra small : base for images size (according bootstrap)
+  width_xs = 420
+  # cat=responsive grid and images/520/130; type=int+; label=Number of columns:Maximum number of columns (according bootstrap)
+  columns = 12
+  # cat=responsive grid and images/530/131; type=int+; label=Gutter width:Width of the gutter (according bootstrap)
+  gutter = 30
+  # cat=responsive grid and images/540/140; type=boolean; label=Enable retina:Enable retina images in source sets
+  retina = 1
+
+  }
 
 ##################################
 #### BOOTSTRAP LESS CONSTANTS ####

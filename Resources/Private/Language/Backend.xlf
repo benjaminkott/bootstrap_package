@@ -4,7 +4,16 @@
 		  product-name="bootstrap_package">
 		<header/>
 		<body>
-
+           <trans-unit id="imagelayout.default"> 
+                <source>Default (lazyload)</source>
+            </trans-unit>
+            <trans-unit id="imagelayout.lazyload">
+                <source>Lazyload</source>
+            </trans-unit>
+            <trans-unit id="imagelayout.normal">
+                <source>Preload</source>
+            </trans-unit>
+            
 			<trans-unit id="theme_name">
 				<source>Bootstrap</source>
 			</trans-unit>
