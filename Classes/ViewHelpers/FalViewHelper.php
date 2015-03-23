@@ -53,6 +53,19 @@ class FalViewHelper extends AbstractViewHelper {
 		if (is_array($data) && $data['uid'] && $data[$field]) {
 			$this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
 			$items = $this->fileRepository->findByRelation($table, $field, $data['uid']);
+			$localizedId = NULL;
+			if (isset($data['_LOCALIZED_UID'])) {
+				$localizedId = $data['_LOCALIZED_UID'];
+			} elseif (isset($element['_PAGES_OVERLAY_UID'])) {
+				$localizedId = $data['_PAGES_OVERLAY_UID'];
+			}
+			$isTableLocalizable = (
+				!empty($GLOBALS['TCA'][$table]['ctrl']['languageField'])
+				&& !empty($GLOBALS['TCA'][$table]['ctrl']['transOrigPointerField'])
+			);
+			if ($isTableLocalizable && $localizedId !== NULL) {
+				$items = $this->fileRepository->findByRelation($table, $field, $localizedId);
+			}
 		} else {
 			$items = NULL;
 		}
