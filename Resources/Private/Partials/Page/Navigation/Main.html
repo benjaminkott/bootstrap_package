@@ -1,6 +1,5 @@
-<div
-	class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}"
-	role="navigation">
+<header
+	class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}">
 	<div class="container">
 		<div class="navbar-header navbar-header-main">
 			<f:if condition="{logoFile}">
@@ -22,8 +21,8 @@
 			</f:if>
 			<span class="navbar-header-border-bottom"></span>
 		</div>
-		<div class="navbar-collapse collapse">
+		<nav class="navbar-collapse collapse" role="navigation">
 			<f:cObject typoscriptObjectPath="lib.navigation.main"/>
-		</div>
+		</nav>
 	</div>
-</div>
+</header>

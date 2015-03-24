@@ -1,4 +1,5 @@
-<div class="footer-section">
+<footer>
+<section class="footer-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
@@ -12,19 +13,20 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
-<div class="meta-section">
+<section class="meta-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 language">
 				<f:cObject typoscriptObjectPath="lib.language"/>
 			</div>
 			<f:if condition="{themeCopyright}">
-				<div class="col-md-8 copyright">
+				<div class="col-md-8 copyright" role="contentinfo">
 					<f:format.html>{themeCopyrightText}</f:format.html>
 				</div>
 			</f:if>
 		</div>
 	</div>
-</div>
+</section>
+</footer>
