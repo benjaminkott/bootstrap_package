@@ -62,6 +62,7 @@ class DataRelationViewHelper extends AbstractViewHelper {
 					$items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
 				}
 			}
+			 usort($items, array($this,"orderBySorting"));
 		} else {
 			$items = NULL;
 		}
@@ -70,5 +71,7 @@ class DataRelationViewHelper extends AbstractViewHelper {
 		$this->templateVariableContainer->remove($as);
 		return $content;
 	}
+	
+	function orderBySorting($a,$b) { return $a['sorting']>$b['sorting']; }
 
 }
