@@ -7,12 +7,12 @@
 		<f:cObject typoscriptObjectPath="lib.navigation.breadcrumb"/>
 	</f:if>
 	<!--TYPO3SEARCH_begin-->
-	<main id="content" class="main-section">
+	<div id="content" class="main-section">
 		<f:render section="Main"/>
 		<f:if condition="{onePage}">
 			<f:cObject typoscriptObjectPath="lib.content.onepage"/>
 		</f:if>
-	</main>
+	</div>
 	<!--TYPO3SEARCH_end-->
 	<f:if condition="{showFooter}">
 		<f:render partial="Structure/Footer" arguments="{_all}"/>
