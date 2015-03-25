@@ -39,7 +39,7 @@ lib.language {
 					typolink {
 						parameter.data = page:uid
 						additionalParams = &L=0 || &L=1 || &L=2
-                        ATagParams = hreflang="en" || hreflang="dk" || hreflang="de"
+						ATagParams = hreflang="en" || hreflang="dk" || hreflang="de"
 						addQueryString = 1
 						addQueryString.exclude = L,id,cHash,no_cache
 						addQueryString.method = GET
@@ -430,14 +430,14 @@ page {
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 		main = {$page.includePath.javascript}main.min.js
 
-        #############################################
-        #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
-        #############################################
-        #### NOTE : add conditional comment to cope with static cache
-        respond = {$page.includePath.javascript}Libs/respond.min.js
-        respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
-        respond.excludeFromConcatenation = 1
-        respond.disableCompression = 1
+		#############################################
+		#### INCLUDE RESPOND JS FOR IE DINOSAURS ####
+		#############################################
+		#### NOTE : add conditional comment to cope with static cache
+		respond = {$page.includePath.javascript}Libs/respond.min.js
+		respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
+		respond.excludeFromConcatenation = 1
+		respond.disableCompression = 1
 	}
 
 	jsFooterInline {
