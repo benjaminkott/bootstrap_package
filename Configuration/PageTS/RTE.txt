@@ -117,7 +117,7 @@ RTE.default {
 	// This option doesn't exist in RTE. We use it to copy the value into the corresponding properties
 	allowedTags (
 		b, strong, i, em, u, strike, del, big, small, sub, sup, ol, ul, li, a, link,
-		p, pre, h1, h2, h3, h4, hr, span,
+		br, p, pre, h1, h2, h3, h4, hr, span,
 		table, tr, th, td, thead, tbody, tfoot
 	)
 
