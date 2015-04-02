@@ -332,7 +332,7 @@ RTE.default.proc.entryHTMLparser_db {
 		p.allowedAttribs            = class
 		ol.allowedAttribs           = class
 		ul.allowedAttribs           = class
-		a.allowedAttribs            = class, href, title
+		a.allowedAttribs            = class, href, title, target
 		tr.allowedAttribs           = class
 		th.allowedAttribs           = class
 		td.allowedAttribs           = class
