@@ -72,8 +72,19 @@ License
 
 This project is released under the terms of the `MIT license <http://en.wikipedia.org/wiki/MIT_License>`_.
 
-Contact
-=======
+Contact & Communication
+=======================
+
+Slack
+-----
+
+You can connect directly with us on `Slack <https://typo3.slack.com/messages/bootstrap-package/>`_, the 
+prefered instant communication platform of TYPO3 CMS developers. If you already have access to the
+TYPO3 Slack platform join the #bootstrap-package channel. If you don´t have access yet, you can 
+register `here <https://forger.typo3.org/slack>`_.
+
+Twitter
+-------
 
 If you have any questions about this project or just want to talk:
 Send a tweet `@benjaminkott <https://twitter.com/benjaminkott>`_.
