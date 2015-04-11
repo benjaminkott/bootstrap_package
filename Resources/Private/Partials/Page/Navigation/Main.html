@@ -5,7 +5,7 @@
 			<f:if condition="{logoFile}">
 				<f:then>
 					<f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image">
-						<img src="{f:uri.image(src: logoFile)}" height="{logoHeight}" width="{logoWidth}"/>
+						<img src="{f:uri.image(src: logoFile)}" alt="{siteTitle} logo" height="{logoHeight}" width="{logoWidth}">
 					</f:link.page>
 				</f:then>
 				<f:else>

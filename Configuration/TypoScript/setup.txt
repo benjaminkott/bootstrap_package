@@ -39,7 +39,7 @@ lib.language {
 					typolink {
 						parameter.data = page:uid
 						additionalParams = &L=0 || &L=1 || &L=2
-						ATagParams = hreflang="en" || hreflang="dk" || hreflang="de"
+						ATagParams = hreflang="en-GB" || hreflang="da-DK" || hreflang="de-DE"
 						addQueryString = 1
 						addQueryString.exclude = L,id,cHash,no_cache
 						addQueryString.method = GET

@@ -93,7 +93,7 @@ page {
 		# cat=bootstrap package: advanced/120/120; type=string; label=apple-mobile-web-app-capable
 		apple-mobile-web-app-capable = no
 		# cat=bootstrap package: advanced/120/130; type=string; label=compatible
-		compatible = IE=edge,chrome=1
+		compatible = IE=edge
 		# cat=bootstrap package: advanced/120/140; type=string; label=google
 		google = notranslate
 	}
