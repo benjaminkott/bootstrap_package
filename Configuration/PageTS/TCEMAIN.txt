@@ -9,5 +9,4 @@ TCEMAIN {
 		everybody =
 	}
 	translateToHidden = 1
-	clearCacheCmd = all
 }
