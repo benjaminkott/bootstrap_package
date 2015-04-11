@@ -354,7 +354,6 @@ RTE.default.proc.HTMLparser_db {
 	denyTags < RTE.default.proc.denyTags
 
 	noAttrib = br
-	xhtml_cleaning = 1
 }
 
 ################################################
