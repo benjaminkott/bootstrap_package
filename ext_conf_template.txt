@@ -4,9 +4,10 @@
 # customsubcategory=100_compat=Compatibility
 # customsubcategory=110_skin=Backend Skin
 # customsubcategory=120_pagets=PageTs
+# customsubcategory=130_features=Features
 
-# cat=General/120_pagets/50; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsRTE
-disablePageTsRTE = 0
+# cat=General/130_features/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableLessProcessing
+disableLessProcessing = 0
 
 # cat=General/120_pagets/40; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEFORM
 disablePageTsTCEFORM = 0

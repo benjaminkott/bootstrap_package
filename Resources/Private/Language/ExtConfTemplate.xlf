@@ -38,6 +38,10 @@
 				<source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/web_layout.txt" in your PageTsConfig to load the config manually.</source>
 			</trans-unit>
 
+			<trans-unit id="feature.disableLessProcessing">
+				<source>Disable Processing of Less files: WARNING: If this option is set there no more automatic processing of LESS files in the frontend. You will need to provide CSS files instead or handle the processing of the LESS files yourself.</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
