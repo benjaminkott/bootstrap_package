@@ -46,7 +46,7 @@ class Less_Tree_Variable extends Less_Tree{
 			}
 		}
 
-		throw new Less_Exception_Compiler("variable " . $name . " is undefined in file ".$this->currentFileInfo["filename"], null, $this->index );
+		throw new Less_Exception_Compiler("variable " . $name . " is undefined in file ".$this->currentFileInfo["filename"], null, $this->index, $this->currentFileInfo);
 	}
 
 }

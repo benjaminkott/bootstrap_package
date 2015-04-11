@@ -71,7 +71,7 @@ class Less_Tree_Color extends Less_Tree{
 		// Values are capped between `0` and `255`, rounded and zero-padded.
 		//
 		if( $alpha < 1 ){
-			if( $alpha === 0 && isset($this->isTransparentKeyword) && $this->isTransparentKeyword ){
+			if( ( $alpha === 0 || $alpha === 0.0 ) && isset($this->isTransparentKeyword) && $this->isTransparentKeyword ){
 				return 'transparent';
 			}
 

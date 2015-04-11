@@ -173,23 +173,23 @@ class Less_Parser{
 		@ini_set('precision',16);
 		$locale = setlocale(LC_NUMERIC, 0);
 		setlocale(LC_NUMERIC, "C");
-		
+
 		try {
 
 	 		$root = new Less_Tree_Ruleset(array(), $this->rules );
 			$root->root = true;
 			$root->firstRoot = true;
-	
-	
+
+
 			$this->PreVisitors($root);
-	
+
 			self::$has_extends = false;
 			$evaldRoot = $root->compile($this->env);
-	
-	
-	
+
+
+
 			$this->PostVisitors($evaldRoot);
-	
+
 			if( Less_Parser::$options['sourceMap'] ){
 				$generator = new Less_SourceMap_Generator($evaldRoot, Less_Parser::$contentsMap, Less_Parser::$options );
 				// will also save file
@@ -198,11 +198,11 @@ class Less_Parser{
 			}else{
 				$css = $evaldRoot->toCSS();
 			}
-	
+
 			if( Less_Parser::$options['compress'] ){
 				$css = preg_replace('/(^(\s)+)|((\s)+$)/', '', $css);
 			}
-		
+
 		} catch (Exception $exc) {
         	   // Intentional fall-through so we can reset environment
         	}
@@ -210,12 +210,12 @@ class Less_Parser{
 		//reset php settings
 		@ini_set('precision',$precision);
 		setlocale(LC_NUMERIC, $locale);
-		
+
 		// Rethrow exception after we handled resetting the environment
 		if (!empty($exc)) {
             		throw $exc;
         	}
-        
+
 		return $css;
 	}
 
@@ -328,8 +328,13 @@ class Less_Parser{
 
 
 		$previousFileInfo = $this->env->currentFileInfo;
-		$filename = self::WinPath($filename);
+
+
+		if( $filename ){
+			$filename = self::WinPath(realpath($filename));
+		}
 		$uri_root = self::WinPath($uri_root);
+
 		$this->SetFileInfo($filename, $uri_root);
 
 		self::AddParsedFile($filename);
