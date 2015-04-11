@@ -448,8 +448,10 @@ tt_content.uploads.20 {
 	renderObj {
 		10 = IMAGE
 		10 {
-			file.import.data = file:current:originalUid // file:current:uid
-			file.width = 100
+			file {
+				import.data = file:current:originalUid // file:current:uid
+				width = 100
+			}
 			stdWrap {
 				if.value = 1
 				if.isGreaterThan.field = layout
@@ -461,8 +463,8 @@ tt_content.uploads.20 {
 					fileTarget.override = {$styles.content.uploads.target}
 					fileTarget.override.override.field = target
 					removePrependedNumbers = 1
-					ATagParams = class="pull-left"
 				}
+				wrap = <div class="media-left">|</div>
 			}
 		}
 
