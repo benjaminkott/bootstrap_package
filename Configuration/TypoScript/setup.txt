@@ -362,6 +362,9 @@ page {
 			logoHeight.value = {$page.logo.height}
 			logoWidth = TEXT
 			logoWidth.value = {$page.logo.width}
+			logoAlt = TEXT
+			logoAlt.data = TSFE:tmpl|setup|sitetitle
+			logoAlt.noTrimWrap = || logo|
 
 			themeNavigationstyle = TEXT
 			themeNavigationstyle.value = {$page.theme.navigationstyle}
