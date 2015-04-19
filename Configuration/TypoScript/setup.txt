@@ -564,6 +564,9 @@ config {
 	compressCss = {$config.compressCss}
 	concatenateJs = {$config.concatenateJs}
 	concatenateCss = {$config.concatenateCss}
+
+	// CSS Source Mapping
+	cssSourceMapping = {$config.cssSourceMapping}
 }
 
 #############################

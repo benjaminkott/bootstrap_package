@@ -51,6 +51,16 @@ class CompileService {
 				$options = array(
 					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
 				);
+				if ($GLOBALS['TSFE']->tmpl->setup['config.']['cssSourceMapping']) {
+					$optionsForSourceMap = array(
+						'sourceMap'         => true,
+						'sourceMapWriteTo'  => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
+						'sourceMapURL'      => '/typo3temp/bootstrappackage/bootstrappackage.map',
+						'sourceMapBasepath' => PATH_site,
+						'sourceMapRootpath' => '/'
+					);
+					$options += $optionsForSourceMap;
+				}
 				$variables = self::getVariablesFromConstants();
 				$files = array();
 				$files[$file] = "";
