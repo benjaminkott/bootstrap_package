@@ -564,6 +564,9 @@ config {
 	compressCss = {$config.compressCss}
 	concatenateJs = {$config.concatenateJs}
 	concatenateCss = {$config.concatenateCss}
+
+	// Enable/disable the use of Typoscript constants as Less variables
+	lessVariablesFromConstants = {$config.lessVariablesFromConstants}
 }
 
 #############################
