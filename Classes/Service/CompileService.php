@@ -51,7 +51,9 @@ class CompileService {
 				$options = array(
 					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
 				);
-				if ($GLOBALS['TSFE']->tmpl->setup['config.']['lessVariablesFromConstants']) {
+
+				$settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
+				if ($settings['overrideLessVariables']) {
 					$variables = self::getVariablesFromConstants();
 				} else {
 					$variables = array();

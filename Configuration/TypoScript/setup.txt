@@ -4,6 +4,16 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Base.ts">
 
 
+###################################
+#### BOOSTRAP PACKAGE SETTINGS ####
+###################################
+plugin.tx_bootstrappackage {
+	settings {
+		overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
+	}
+}
+
+
 #######################
 #### LANGUAGE MENU ####
 #######################
@@ -564,9 +574,6 @@ config {
 	compressCss = {$config.compressCss}
 	concatenateJs = {$config.concatenateJs}
 	concatenateCss = {$config.concatenateCss}
-
-	// Enable/disable the use of Typoscript constants as Less variables
-	lessVariablesFromConstants = {$config.lessVariablesFromConstants}
 }
 
 #############################

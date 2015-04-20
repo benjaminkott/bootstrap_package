@@ -10,6 +10,7 @@
 # customsubcategory=160=Theme
 # customsubcategory=170=News
 # customsubcategory=180=Tracking
+# customsubcategory=190=Boostrap Package Settings
 
 ############
 ### PAGE ###
@@ -130,8 +131,6 @@ config {
 	admPanel = 1
 	# cat=bootstrap package: advanced/150/180; type=string; label=Header Comment
 	headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
-	# cat=bootstrap package: advanced/150/200; type=boolean; label=Less variables from constants: Enable/disable the use of Typoscript constants as Less variables
-	lessVariablesFromConstants = 1
 }
 
 ##########################
@@ -147,9 +146,19 @@ styles {
 	}
 }
 
-##################################
-### BOOTSTRAP CONTENT ELEMENTS ###
-##################################
+#########################
+### BOOTSTRAP PACKAGE ###
+#########################
+plugin.bootstrap_package {
+	settings {
+		# cat=bootstrap package: advanced/190/100; type=boolean; label=Override LESS Variables: If enabled the variables defined in your LESS files will be overritten with the ones defined as TypoScript Constants.
+		overrideLessVariables = 1
+	}
+}
+
+##########################################
+### BOOTSTRAP PACKAGE CONTENT ELEMENTS ###
+##########################################
 plugin.bootstrap_package_contentelements {
 	view {
 		# cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
