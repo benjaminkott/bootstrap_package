@@ -17,12 +17,14 @@
 ############
 page {
 	logo {
-		# cat=bootstrap package: basic/110/file; type=string; label=Logo: Leave blank to use website title from template instead
+		# cat=bootstrap package: basic/110/100; type=string; label=Logo: Leave blank to use website title from template instead
 		file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.png
-		# cat=bootstrap package: basic/110/height; type=int+; label=Height: The image will not be resized!
+		# cat=bootstrap package: basic/110/110; type=int+; label=Height: The image will not be resized!
 		height = 60
-		# cat=bootstrap package: basic/110/width; type=int+; label=Width: The image will not be resized!
+		# cat=bootstrap package: basic/110/120; type=int+; label=Width: The image will not be resized!
 		width = 210
+		# cat=bootstrap package: basic/110/130; type=string; label=Alternative text: Text of the alt attribute of the logo image (default: "<website title> logo")
+		alt =
 	}
 
 	theme {
@@ -94,7 +96,7 @@ page {
 		# cat=bootstrap package: advanced/120/120; type=string; label=apple-mobile-web-app-capable
 		apple-mobile-web-app-capable = no
 		# cat=bootstrap package: advanced/120/130; type=string; label=compatible
-		compatible = IE=edge,chrome=1
+		compatible = IE=edge
 		# cat=bootstrap package: advanced/120/140; type=string; label=google
 		google = notranslate
 	}

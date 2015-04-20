@@ -49,7 +49,7 @@ lib.language {
 					typolink {
 						parameter.data = page:uid
 						additionalParams = &L=0 || &L=1 || &L=2
-						ATagParams = hreflang="en" || hreflang="dk" || hreflang="de"
+						ATagParams = hreflang="en-GB" || hreflang="da-DK" || hreflang="de-DE"
 						addQueryString = 1
 						addQueryString.exclude = L,id,cHash,no_cache
 						addQueryString.method = GET
@@ -372,6 +372,20 @@ page {
 			logoHeight.value = {$page.logo.height}
 			logoWidth = TEXT
 			logoWidth.value = {$page.logo.width}
+			logoAlt = COA
+			logoAlt {
+				10 = TEXT
+				10 {
+					data = TSFE:tmpl|setup|sitetitle
+					noTrimWrap = || logo|
+					if.isFalse = {$page.logo.alt}
+				}
+				20 = TEXT
+				20 {
+					value = {$page.logo.alt}
+					if.isTrue = {$page.logo.alt}
+				}
+			}
 
 			themeNavigationstyle = TEXT
 			themeNavigationstyle.value = {$page.theme.navigationstyle}
