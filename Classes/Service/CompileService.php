@@ -51,7 +51,11 @@ class CompileService {
 				$options = array(
 					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
 				);
-				$variables = self::getVariablesFromConstants();
+				if ($GLOBALS['TSFE']->tmpl->setup['config.']['lessVariablesFromConstants']) {
+					$variables = self::getVariablesFromConstants();
+				} else {
+					$variables = array();
+				}
 				$files = array();
 				$files[$file] = "";
 				$compiledFile = \Less_Cache::Get($files, $options, $variables);
