@@ -35,8 +35,5 @@ $EM_CONF[$_EXTKEY] = array(
 			'fluidpages' => '*',
 			'dyncss' => '*',
 		),
-		'suggests' => array(
-			'realurl' => '1.12.8-1.12.99',
-		)
 	),
 );
