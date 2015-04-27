@@ -1,5 +1,5 @@
 #######################
-### BOOTSTRAP 3.3.0 ###
+### BOOTSTRAP 3.3.4 ###
 #######################
 
 ############################
@@ -139,7 +139,7 @@ plugin.bootstrap_package {
 			# cat=bootstrap package: styling/304/padding-xs-horizontal; type=string; label=@padding-xs-horizontal:
 			padding-xs-horizontal = 5px
 			# cat=bootstrap package: styling/304/line-height-large; type=string; label=@line-height-large:
-			line-height-large = 1.33
+			line-height-large = 1.3333333
 			# cat=bootstrap package: styling/304/line-height-small; type=string; label=@line-height-small:
 			line-height-small = 1.5
 			# cat=bootstrap package: styling/304/border-radius-base; type=string; label=@border-radius-base:
@@ -218,7 +218,7 @@ plugin.bootstrap_package {
 			input-color = @gray
 			# cat=bootstrap package: styling/307/input-border; type=string; label=@input-border: `<input>` border color
 			input-border = #ccc
-			# cat=bootstrap package: styling/307/input-border-radius; type=string; label=@input-border-radius: Default `.form-control` border radius
+			# cat=bootstrap package: styling/307/input-border-radius; type=string; label=@input-border-radius:
 			input-border-radius = @border-radius-base
 			# cat=bootstrap package: styling/307/input-border-radius-large; type=string; label=@input-border-radius-large: Large `.form-control` border radius
 			input-border-radius-large = @border-radius-large
@@ -234,6 +234,8 @@ plugin.bootstrap_package {
 			input-height-large = (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2)
 			# cat=bootstrap package: styling/307/input-height-small; type=string; label=@input-height-small: Small `.form-control` height
 			input-height-small = (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2)
+			# cat=bootstrap package: styling/307/form-group-margin-bottom; type=string; label=@form-group-margin-bottom: `.form-group` margin
+			form-group-margin-bottom = 15px
 			# cat=bootstrap package: styling/307/legend-color; type=string; label=@legend-color:
 			legend-color = @gray-dark
 			# cat=bootstrap package: styling/307/legend-border-color; type=string; label=@legend-border-color:
@@ -278,8 +280,10 @@ plugin.bootstrap_package {
 			zindex-tooltip = 1070
 			# cat=bootstrap package: styling/309/zindex-navbar-fixed; type=string; label=@zindex-navbar-fixed:
 			zindex-navbar-fixed = 1030
+			# cat=bootstrap package: styling/309/zindex-modal-background; type=string; label=@zindex-modal-background:
+			zindex-modal-background = 1040
 			# cat=bootstrap package: styling/309/zindex-modal; type=string; label=@zindex-modal:
-			zindex-modal = 1040
+			zindex-modal = 1050
 			# cat=bootstrap package: styling/310/screen-xs; type=string; label=@screen-xs: Deprecated `@screen-xs` as of v3.0.1
 			screen-xs = 480px
 			# cat=bootstrap package: styling/310/screen-xs-min; type=string; label=@screen-xs-min: Deprecated `@screen-xs-min` as of v3.2.0
@@ -531,13 +535,13 @@ plugin.bootstrap_package {
 			# cat=bootstrap package: styling/322/popover-arrow-width; type=string; label=@popover-arrow-width: Popover arrow width
 			popover-arrow-width = 10px
 			# cat=bootstrap package: styling/322/popover-arrow-color; type=string; label=@popover-arrow-color: Popover arrow color
-			popover-arrow-color = #fff
+			popover-arrow-color = @popover-bg
 			# cat=bootstrap package: styling/322/popover-arrow-outer-width; type=string; label=@popover-arrow-outer-width: Popover outer arrow width
 			popover-arrow-outer-width = (@popover-arrow-width + 1)
 			# cat=bootstrap package: styling/322/popover-arrow-outer-color; type=string; label=@popover-arrow-outer-color: Popover outer arrow color
-			popover-arrow-outer-color = rgba(0,0,0,.25)
+			popover-arrow-outer-color = fadein(@popover-border-color, 5%)
 			# cat=bootstrap package: styling/322/popover-arrow-outer-fallback-color; type=string; label=@popover-arrow-outer-fallback-color: Popover outer arrow fallback color
-			popover-arrow-outer-fallback-color = #999
+			popover-arrow-outer-fallback-color = darken(@popover-fallback-border-color, 20%)
 			# cat=bootstrap package: styling/323/label-default-bg; type=string; label=@label-default-bg: Default label background color
 			label-default-bg = @gray-light
 			# cat=bootstrap package: styling/323/label-primary-bg; type=string; label=@label-primary-bg: Primary label background color
