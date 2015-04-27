@@ -110,6 +110,7 @@ AddDefaultCharset utf-8
 	RewriteRule ^(.+)\.(\d+)\.(php|js|css|png|jpg|gif|gzip)$ $1.$3 [L]
 	RewriteRule ^fileadmin/(.*/)?_recycler_/ - [F]
 	RewriteRule ^fileadmin/templates/.*(\.txt|\.ts)$ - [F]
+	RewriteRule ^typo3conf/ext/[^/]+/Configuration/ - [F]
 	RewriteRule ^typo3conf/ext/[^/]+/Resources/Private/ - [F]
 	RewriteRule ^(typo3/|t3lib/|fileadmin/|typo3conf/|typo3temp/|uploads/|favicon\.ico) - [L]
 
