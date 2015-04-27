@@ -16,6 +16,32 @@ ChangeLog
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.10   - [TASK] Refactor jquery.responsiveimages.js
+         - [TASK] HTML5 markup for sub navigation
+         - [TASK] Make RealUrl autoconfig compatible with the version from Helmut Hummel for 7.x
+         - [TASK] Remove migration of realurl in favor of Helmut Hummels release for TYPO3 CMS 7.2
+         - [FEATURE] New advanced constant to enable/disable the use of TypoScript constants as Less variables
+         - [TASK] Carousel: allow to set the max width of background images
+         - [TASK] Remove deprecated XHTML cleaning
+         - [TASK] Update oyejorge/less.php to 1.7.0.3
+         - [BUGFIX] Correct overlapping elements on centered image
+         - [TASK] Remove automatic cache clearing
+         - [BUGFIX] Correct media display for file links content element
+         - [FEATURE] make site logo alt attribute configurable
+         - [TASK] Add slack to contact and communication
+         - [FEATURE] Disable automatic less compiling
+         - [TASK] Allow "target" attribute inside <a> tags.
+         - [BUGFIX] Missing container in default clean layout
+         - [TASK] Add <br> to allowedTags in RTE config
+         - [TASK] HTML5 improvements on footer
+         - [TASK] HTML5 improvements on navigation
+         - [TASK] HTML5 improvements on language menu
+         - [TASK] HTML5 improvements on main section
+         - [BUGFIX] Sorting on localized relations
+         - [BUGFIX] FalViewHelper missing translations
+         - [BUGFIX] Correct markup for news date
+         - [BUGFIX] Adjust language uids to match introduction database
+         - [TASK] Add admin panel config to typoscript constants
 6.2.9    - [TASK] Update jquery to 1.11.2
          - [TASK] Update modernizr to 2.8.3
          - [BUGFIX] Remove problematic whitespace in carousel flexform
