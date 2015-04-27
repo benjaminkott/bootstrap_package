@@ -1,95 +1,124 @@
-/**
+/* ========================================================================
  * This is a adjusted version of Luís Almeida jQuery Unveil Script
  * http://luis-almeida.github.com/unveil
- */
+ * ======================================================================== */
 
-;
-(function ($) {
++function($) {
 
-	// RESPONSIVEIMAGES PLUGIN DEFINITION
-	// =================================
-	$.fn.responsiveimages = function (options, callback) {
-
-		var defaults = {
-				threshold: 0,
-				breakpoints: {
-					320: 'small',
-					720: 'medium',
-					940: 'large',
-					1140: 'bigger'
-				},
-				container:window,
-				skip_invisible: true
-			},
-			options = $.extend({}, defaults, options),
-			$window = $(window),
-			breakpoints = options.breakpoints,
-			attrib = "data-src",
-			images = this,
-			originimages = this,
-			loaded;
-
-		this.on("responsiveimages", function () {
-			var source = this.getAttribute(attrib);
-			source = source || this.getAttribute("data-src");
-			if (source) {
-				this.setAttribute("src", source);
-				if (typeof callback === "function") callback.call(this);
-			}
-		});
-
-		function checkviewport() {
-			old_attrib = attrib;
-			var ww = $window.width();
-			$.each(breakpoints, function (breakpoint, datakey) {
-				if (ww >= breakpoint) {
-					attrib = "data-" + datakey;
-				}
-			});
-			if (old_attrib !== attrib) {
-				images = originimages;
-			}
-			responsiveimages();
-		}
-		function inviewport($el, options){
-			var $c = $(options.container),
-				ew = $el.width(),
-				eh = $el.height(),
-				el = $el.offset().left,
-				et = $el.offset().top,
-				cw = $c.width(),
-				ch,
-				cl,
-				ct;
-			if (options.container === undefined || options.container === window){
-				ch = window.innerHeight ? window.innerHeight : $window.height();
-				cl = $window.scrollLeft();
-				ct = $window.scrollTop();
-			} else {
-				ch = $c.height();
-				cl = $c.offset().left;
-				ct = $c.offset().top;
-			}
-			return cl + cw > el - options.threshold && cl < el + ew + options.threshold && ct + ch > et - options.threshold && ct < et + eh + options.threshold;
-		}
-
-		function responsiveimages() {
-			var inview = images.filter(function () {
-				var $element = $(this);
-				if (options.skip_invisible && $element.is(":hidden")) return;
-				return inviewport($element, options);
-			});
-			loaded = inview.trigger("responsiveimages");
-			images = images.not(loaded);
-		}
-
-		$(options.container).scroll(checkviewport);
-		$window.resize(checkviewport);
-		$.fn.responsiveimages.update = checkviewport;
-		checkviewport();
-
-		return this;
-
+	// RESPONSIVE IMAGES CLASS DEFINITION
+	// ==================================
+	var ResponsiveImage = function(element, options) {
+		this.$element	= $(element);
+		this.options	= $.extend({}, ResponsiveImage.DEFAULTS, options);
+		this.attrib = "data-src";
+		this.$container = $(this.options.container)
+			.on('scroll.bk2k.responsiveimage', $.proxy(this.checkviewport, this))
+			.on('resize.bk2k.responsiveimage', $.proxy(this.checkviewport, this));
+		this.checkviewport();
 	};
 
-})(window.jQuery);
+	ResponsiveImage.DEFAULTS = {
+		threshold: 0,
+		breakpoints: {
+			0: 'small',
+			768: 'medium',
+			992: 'large',
+			1200: 'bigger'
+		},
+		attrib: "data-src",
+		container: window,
+		skip_invisible: true
+	};
+
+	ResponsiveImage.prototype.checkviewport = function() {
+		var containerWidth = this.$container.width();
+		var attrib = this.attrib;
+		var old_attrib = this.attrib;
+		$.each(this.options.breakpoints, function (breakpoint, datakey) {
+			if (containerWidth >= breakpoint) {
+				attrib = "data-" + datakey;
+			}
+		});
+		if (old_attrib !== attrib) {
+			this.attrib = attrib;
+		}
+		this.unveil();
+	};
+
+	ResponsiveImage.prototype.inviewport = function() {
+		var elementWidth = this.$element.width(),
+			elementHeight = this.$element.height(),
+			elementLeft = this.$element.offset().left,
+			elementTop = this.$element.offset().top,
+			containerWidth = this.$container.width(),
+			containerHeight,
+			containerLeft,
+			containerTop;
+		if (this.options.container === undefined || this.options.container === window){
+			containerHeight = $(window).innerHeight() ? $(window).innerHeight() : $(window).height();
+			containerLeft = $(window).scrollLeft();
+			containerTop = $(window).scrollTop();
+		} else {
+			containerHeight = this.$container.height();
+			containerLeft = this.$container.offset().left;
+			containerTop = this.$container.offset().top;
+		}
+		return containerLeft + containerWidth > elementLeft - this.options.threshold
+			&& containerLeft < elementLeft + elementWidth + this.options.threshold
+			&& containerTop + containerHeight > elementTop - this.options.threshold
+			&& containerTop < elementTop + elementHeight + this.options.threshold;
+	};
+
+	ResponsiveImage.prototype.unveil = function() {
+		if (this.options.skip_invisible && this.$element.is(":hidden")) return;
+		var inview = this.inviewport();
+		if(inview){
+			var source = this.$element.attr(this.attrib);
+			source = source || this.$element.attr("data-src");
+			if (source) {
+				this.$element.attr("src", source);
+				this.$element.css("opacity", 1);
+			}
+		}
+	};
+
+
+	// RESPONSIVE IMAGES PLUGIN DEFINITION
+	// ===================================
+	function Plugin(option) {
+		return this.each(function() {
+			var $this   = $(this);
+			var data    = $this.data('bk2k.responsiveimage');
+			var options = typeof option === 'object' && option;
+
+			if (!data) $this.data('bk2k.responsiveimage', (data = new ResponsiveImage(this, options)));
+			if (typeof option === 'string') data[option]();
+		});
+	};
+
+	var old = $.fn.responsiveimages;
+
+	$.fn.responsiveimage				= Plugin;
+	$.fn.responsiveimage.Constructor	= ResponsiveImage;
+
+
+	// RESPONSIVE IMAGES NO CONFLICT
+	// =============================
+	$.fn.responsiveimage.noConflict = function() {
+		$.fn.responsiveimage = old;
+		return this;
+	};
+
+
+	// RESPONSIVE IMAGES API
+	// =====================
+	$(window).on('load', function() {
+		$('img.lazyload').each(function() {
+			var $image = $(this);
+			var data = $image.data();
+
+			Plugin.call($image, data);
+		});
+	});
+
+}(jQuery);

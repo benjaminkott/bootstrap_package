@@ -1,12 +1,5 @@
 $(function () {
 
-	// RESPONSIVE IMAGES
-	$("img.lazyload").responsiveimages({}, function () {
-		$(this).load(function () {
-			this.style.opacity = 1;
-		});
-	});
-
 	// MENU
 	$('.navbar-collapse').on('show.bs.collapse', function () {
 		toggleIcon = $('.navbar-toggle-menu .glyphicon');
