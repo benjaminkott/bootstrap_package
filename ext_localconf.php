@@ -78,13 +78,13 @@ if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')
  * Add Bootstrap Package autoconfig to realurl
  */
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
-    $realUrlVersion = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('realurl');
-    if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($realUrlVersion) < 2000000) {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration'][$_EXTKEY] = 'BK2K\\BootstrapPackage\\Hooks\\RealUrl\\AutoConfig->addConfigVersion1x';
-    } else {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration'][$_EXTKEY] = 'BK2K\\BootstrapPackage\\Hooks\\RealUrl\\AutoConfig->addConfigVersion2x';
-    }
-    unset($realUrlVersion);
+	$realUrlVersion = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('realurl');
+	if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($realUrlVersion) < 2000000) {
+		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration'][$_EXTKEY] = 'BK2K\\BootstrapPackage\\Hooks\\RealUrl\\AutoConfig->addConfigVersion1x';
+	} else {
+		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration'][$_EXTKEY] = 'BK2K\\BootstrapPackage\\Hooks\\RealUrl\\AutoConfig->addConfigVersion2x';
+	}
+	unset($realUrlVersion);
 }
 
 

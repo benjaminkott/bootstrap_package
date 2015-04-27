@@ -35,9 +35,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class AutoConfig {
 
 	/**
-     * Function for RealUrl version < 2.0.0 from Dmitry Dulepov
-     * http://typo3.org/extensions/repository/view/realurl
-     *
+	 * Function for RealUrl version < 2.0.0 from Dmitry Dulepov
+	 * http://typo3.org/extensions/repository/view/realurl
+	 *
 	 * @param array $params
 	 * @param tx_realurl_autoconfgen $pObj
 	 * @return array
@@ -47,10 +47,10 @@ class AutoConfig {
 		return $params['config'];
 	}
 
-    /**
-     * Function for RealUrl version >= 2.0.0 from Helmut Hummel
-     * https://github.com/helhum/realurl
-     *
+	/**
+	 * Function for RealUrl version >= 2.0.0 from Helmut Hummel
+	 * https://github.com/helhum/realurl
+	 *
 	 * @param array $params
 	 * @param Tx\Realurl\Configuration\ConfigurationGenerator $pObj
 	 * @return array
@@ -60,12 +60,12 @@ class AutoConfig {
 		return $params['config'];
 	}
 
-    /**
+	/**
 	 * @param array $params
 	 * @return array
 	 */
-    protected function addConfigToParams(array $params){
-        $params['config']['init']['emptyUrlReturnValue'] = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
+	protected function addConfigToParams(array $params){
+		$params['config']['init']['emptyUrlReturnValue'] = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
 		$params['config']['preVars'] = array(
 			'0' => array(
 				'GETvar' => 'no_cache',
@@ -88,8 +88,8 @@ class AutoConfig {
 				'GETvar' => 'page',
 			)
 		);
-        return $params;
-    }
+		return $params;
+	}
 
 
 }
