@@ -157,7 +157,7 @@ lib.navigation.subnavigation {
 		entryLevel = 1
 		1 = TMENU
 		1 {
-			wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><div class="list-group">|</div></div>
+			wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><nav class="list-group">|</nav></div>
 			expAll = 1
 			noBlur = 1
 			NO = 1
