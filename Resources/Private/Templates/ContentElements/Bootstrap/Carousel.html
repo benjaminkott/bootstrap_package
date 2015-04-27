@@ -14,7 +14,7 @@
 								table="tx_bootstrappackage_carousel_item">
 							<f:if condition="{images}">
 								<bp:var name="backgroundImagePath"
-										value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1)}"/>
+										value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1,maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
 								background-image: url('{backgroundImagePath}');
 								filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
 								sizingMethod='scale');
