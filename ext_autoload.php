@@ -1,6 +1,6 @@
 <?php
 
-$extensionPath = PATH_site . 'typo3conf/ext/bootstrap_package/';
+$extensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('bootstrap_package');
 return array(
 	'Less_Autoloader' => $extensionPath . 'Contrib/less.php/Autoloader.php',
 );
