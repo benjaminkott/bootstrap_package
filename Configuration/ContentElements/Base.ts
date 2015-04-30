@@ -147,6 +147,7 @@ lib.stdheader {
 					required = 1
 					noTrimWrap = |text-| |
 				}
+				20 >
 			}
 		}
 	}
