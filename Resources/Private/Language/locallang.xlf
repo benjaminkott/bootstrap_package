@@ -18,7 +18,7 @@
 			</trans-unit>
 
 			<trans-unit id="externalmediaunsupported">
-				<source>The given url %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
+				<source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
 			</trans-unit>
 
 		</body>

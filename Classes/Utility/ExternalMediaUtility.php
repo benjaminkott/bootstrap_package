@@ -45,22 +45,13 @@ class ExternalMediaUtility {
 
 	/**
 	 * Get the embed code for the given url if possible
+	 * and add a css class on the iframe
 	 *
 	 * @param string $url
-	 * @param string $ratio
+	 * @param string $class
 	 * @return string
 	 */
-	public function getEmbedCode($url, $ratio) {
-		// Ratios
-		switch($ratio){
-			case '4:3':
-				$ratioClass = 'embed-responsive-4by3';
-				break;
-			case '16:9':
-			default:
-				$ratioClass = 'embed-responsive-16by9';
-				break;
-		}
+	public function getEmbedCode($url, $class) {
 		// Prepare url
 		$url = $this->setProtocolToHttps($url);
 		// Get method
@@ -69,9 +60,7 @@ class ExternalMediaUtility {
 			$embedUrl = $this->{$method}($url);
 			if ($embedUrl) {
 				$content = '
-					<div class="embed-responsive ' . $ratioClass . '">
-						<iframe class="embed-responsive-item" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
-					</div>
+					<iframe class="' . $class . '" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
 				';
 				return $content;
 			}

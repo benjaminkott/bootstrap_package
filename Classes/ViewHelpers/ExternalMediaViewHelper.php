@@ -42,15 +42,15 @@ class ExternalMediaViewHelper extends AbstractViewHelper {
 	 * ViewHelper will be displayed.
 	 *
 	 * @param string $url
-	 * @param string $ratio
+	 * @param string $class
 	 * @return string
 	 */
-	public function render($url, $ratio) {
-		$externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);
-		$content = $externalMediaUtility->getEmbedCode($url, $ratio);
-		if(!$content){
-			$content = $this->renderChildren();
-		}
+	public function render($url, $class) {
+		$externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
+		$externalMedia = $externalMediaUtility->getEmbedCode($url, $class);
+		$this->templateVariableContainer->add('externalMedia', $externalMedia);
+		$content = $this->renderChildren();
+		$this->templateVariableContainer->remove('externalMedia');
 		return $content;
 	}
 

@@ -555,8 +555,8 @@ $tca = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('16:9', '16:9'),
-					array('4:3', '4:3'),
+					array('16:9', '16by9'),
+					array('4:3', '4by3'),
 				),
 			),
 		),
