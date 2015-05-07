@@ -1,0 +1,12 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:layout name="Default"/>
+<f:section name="Header"></f:section>
+<f:section name="Main">
+
+	<bk2k:externalMedia url="{data.external_media_source}" ratio="{data.external_media_ratio}">
+		<div class="alert alert-warning">
+			<f:translate key="externalmediaunsupported" extensionName="bootstrap_package" arguments="{0: '<a href=\"{data.external_media_source}\" target=\"_blank\">{data.external_media_source}</a>'}" />
+		</div>
+	</bk2k:externalMedia>
+
+</f:section>

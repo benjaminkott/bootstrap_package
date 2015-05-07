@@ -47,6 +47,14 @@ mod.wizards {
 							CType = bootstrap_package_listgroup
 						}
 					}
+					bootstrap_package_external_media {
+						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/external_media.jpg
+						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
+						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description
+						tt_content_defValues {
+							CType = bootstrap_package_external_media
+						}
+					}
 				}
 				show = *
 			}

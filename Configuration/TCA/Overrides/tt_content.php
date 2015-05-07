@@ -33,7 +33,12 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
 		'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
 		'bootstrap_package_listgroup',
 		'i/tt_content_header.gif'
-	)
+	),
+	array(
+		'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
+		'bootstrap_package_external_media',
+		'i/tt_content_header.gif'
+	),
 );
 foreach ($backupCTypeItems as $key => $value) {
 	$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = $value;
@@ -88,6 +93,13 @@ $tca = array(
 				icon_position, icon_type, icon_size, --linebreak--,
 				icon_color, icon_background, --linebreak--,
 				icon
+			'
+		),
+		'bootstrap_package_external_media' => array(
+			'canNotCollapse' => 1,
+			'showitem' => '
+				external_media_source, --linebreak--,
+				external_media_ratio
 			'
 		),
 	),
@@ -175,7 +187,21 @@ $tca = array(
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
 				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
 				categories
-
+			'
+		),
+		'bootstrap_package_external_media' => array(
+			'showitem' => '
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+				--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.palette.external_media;bootstrap_package_external_media,
+				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+				categories
 			'
 		),
 	),
@@ -512,6 +538,25 @@ $tca = array(
 						'dim' => '20x20',
 						'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
 					),
+				),
+			),
+		),
+		'external_media_source' => array(
+			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_source',
+			'config' => array(
+				'type' => 'input',
+				'size' => 50,
+				'eval' => 'trim',
+				'max' => 1024,
+			),
+		),
+		'external_media_ratio' => array(
+			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_ratio',
+			'config' => array(
+				'type' => 'select',
+				'items' => array(
+					array('16:9', '16:9'),
+					array('4:3', '4:3'),
 				),
 			),
 		),

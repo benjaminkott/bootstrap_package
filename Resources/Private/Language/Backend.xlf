@@ -144,6 +144,13 @@
 				<source>...</source>
 			</trans-unit>
 
+			<trans-unit id="content_element.external_media">
+				<source>External Media</source>
+			</trans-unit>
+			<trans-unit id="content_element.external_media.description">
+				<source>Insert external media from YouTube or Vimeo</source>
+			</trans-unit>
+
 			<trans-unit id="carousel.options">
 				<source>Carousel Options</source>
 			</trans-unit>
@@ -221,6 +228,16 @@
 			</trans-unit>
 			<trans-unit id="contextualalternatives.danger">
 				<source>Danger</source>
+			</trans-unit>
+
+			<trans-unit id="external_media">
+				<source>External Media</source>
+			</trans-unit>
+			<trans-unit id="field.external_media_source">
+				<source>External Media Source</source>
+			</trans-unit>
+			<trans-unit id="field.external_media_ratio">
+				<source>Ratio</source>
 			</trans-unit>
 
 			<trans-unit id="field.icon">

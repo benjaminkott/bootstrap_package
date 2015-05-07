@@ -8,6 +8,8 @@ CREATE TABLE tt_content (
 	icon_type int(11) unsigned DEFAULT '0',
 	icon_color varchar(255) DEFAULT '' NOT NULL,
 	icon_background varchar(255) DEFAULT '' NOT NULL,
+	external_media_source varchar(1024) DEFAULT '' NOT NULL,
+	external_media_ratio varchar(10) DEFAULT '' NOT NULL,
 	tx_bootstrappackage_carousel_item int(11) unsigned DEFAULT '0',
 	tx_bootstrappackage_accordion_item int(11) unsigned DEFAULT '0'
 );
