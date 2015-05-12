@@ -113,35 +113,35 @@
 				<source>Panel</source>
 			</trans-unit>
 			<trans-unit id="content_element.panel.description">
-				<source>...</source>
+				<source>Insert Panelelement with simple text</source>
 			</trans-unit>
 
 			<trans-unit id="content_element.carousel">
 				<source>Carousel</source>
 			</trans-unit>
 			<trans-unit id="content_element.carousel.description">
-				<source>...</source>
+				<source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
 			</trans-unit>
 
 			<trans-unit id="content_element.texticon">
 				<source>Text and Icon</source>
 			</trans-unit>
 			<trans-unit id="content_element.texticon.description">
-				<source>...</source>
+				<source>Insert Bootstrap Icon with Text</source>
 			</trans-unit>
 
 			<trans-unit id="content_element.accordion">
 				<source>Accordion</source>
 			</trans-unit>
 			<trans-unit id="content_element.accordion.description">
-				<source>...</source>
+				<source>Insert several Accordionelement(s) with headline and text</source>
 			</trans-unit>
 
 			<trans-unit id="content_element.listgroup">
 				<source>List Group</source>
 			</trans-unit>
 			<trans-unit id="content_element.listgroup.description">
-				<source>...</source>
+				<source>Insert simple Listgroupelement</source>
 			</trans-unit>
 
 			<trans-unit id="content_element.external_media">
