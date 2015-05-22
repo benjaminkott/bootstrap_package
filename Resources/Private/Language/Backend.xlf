@@ -137,12 +137,12 @@
 				<source>Insert several Accordionelement(s) with headline and text</source>
 			</trans-unit>
 
-            <trans-unit id="content_element.tab">
-                <source>Tab</source>
-            </trans-unit>
-            <trans-unit id="content_element.tab.description">
-                <source>Insert several Tabelement(s) with headline and text</source>
-            </trans-unit>
+			<trans-unit id="content_element.tab">
+				<source>Tab</source>
+			</trans-unit>
+			<trans-unit id="content_element.tab.description">
+				<source>Insert several Tabelement(s) with headline and text</source>
+			</trans-unit>
 
 			<trans-unit id="content_element.listgroup">
 				<source>List Group</source>
@@ -218,21 +218,21 @@
 				<source>Text</source>
 			</trans-unit>
 
-            <trans-unit id="tab_item">
-                <source>Tab Item</source>
-            </trans-unit>
-            <trans-unit id="tab_item.tt_content">
-                <source>Tab</source>
-            </trans-unit>
-            <trans-unit id="tab_item.active">
-                <source>Set as default</source>
-            </trans-unit>
-            <trans-unit id="tab_item.header">
-                <source>Header</source>
-            </trans-unit>
-            <trans-unit id="tab_item.bodytext">
-                <source>Text</source>
-            </trans-unit>
+			<trans-unit id="tab_item">
+				<source>Tab Item</source>
+			</trans-unit>
+			<trans-unit id="tab_item.tt_content">
+				<source>Tab</source>
+			</trans-unit>
+			<trans-unit id="tab_item.active">
+				<source>Set as default</source>
+			</trans-unit>
+			<trans-unit id="tab_item.header">
+				<source>Header</source>
+			</trans-unit>
+			<trans-unit id="tab_item.bodytext">
+				<source>Text</source>
+			</trans-unit>
 
 			<trans-unit id="contextualalternatives.default">
 				<source>Default</source>

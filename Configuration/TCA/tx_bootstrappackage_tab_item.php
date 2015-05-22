@@ -158,14 +158,14 @@ return array(
 				'type' => 'passthrough'
 			)
 		),
-        'active' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.active',
-            'config' => [
-                'type' => 'check',
-                'default' => 0
-            ],
-        ],
+		'active' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.active',
+			'config' => array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
 		'header' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.header',

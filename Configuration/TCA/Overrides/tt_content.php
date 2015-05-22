@@ -24,11 +24,11 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
 		'bootstrap_package_accordion',
 		'i/tt_content_header.gif'
 	),
-    array(
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab',
-        'bootstrap_package_tab',
-        'i/tt_content_header.gif'
-    ),
+	array(
+		'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab',
+		'bootstrap_package_tab',
+		'i/tt_content_header.gif'
+	),
 	array(
 		'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
 		'bootstrap_package_panel',
@@ -160,8 +160,8 @@ $tca = array(
 				categories
 			'
 		),
-        'bootstrap_package_tab' => array(
-            'showitem' => '
+		'bootstrap_package_tab' => array(
+			'showitem' => '
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
 				tx_bootstrappackage_tab_item,
@@ -174,7 +174,7 @@ $tca = array(
 				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
 				categories
 			'
-        ),
+		),
 		'bootstrap_package_carousel' => array(
 			'showitem' => '
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
@@ -250,30 +250,30 @@ $tca = array(
 				),
 			),
 		),
-        'tx_bootstrappackage_tab_item' => array(
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item',
-            'config' => array(
-                'type' => 'inline',
-                'foreign_table' => 'tx_bootstrappackage_tab_item',
-                'foreign_field' => 'tt_content',
-                'appearance' => array(
-                    'useSortable' => TRUE,
-                    'showSynchronizationLink' => TRUE,
-                    'showAllLocalizationLink' => TRUE,
-                    'showPossibleLocalizationRecords' => TRUE,
-                    'showRemovedLocalizationRecords' => FALSE,
-                    'expandSingle' => TRUE,
-                    'enabledControls' => array(
-                        'localize' => TRUE,
-                    ),
-                ),
-                'behaviour' => array(
-                    'localizationMode' => 'select',
-                    'mode' => 'select',
-                    'localizeChildrenAtParentLocalization' => TRUE,
-                ),
-            ),
-        ),
+		'tx_bootstrappackage_tab_item' => array(
+			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_bootstrappackage_tab_item',
+				'foreign_field' => 'tt_content',
+				'appearance' => array(
+					'useSortable' => TRUE,
+					'showSynchronizationLink' => TRUE,
+					'showAllLocalizationLink' => TRUE,
+					'showPossibleLocalizationRecords' => TRUE,
+					'showRemovedLocalizationRecords' => FALSE,
+					'expandSingle' => TRUE,
+					'enabledControls' => array(
+						'localize' => TRUE,
+					),
+				),
+				'behaviour' => array(
+					'localizationMode' => 'select',
+					'mode' => 'select',
+					'localizeChildrenAtParentLocalization' => TRUE,
+				),
+			),
+		),
 		'tx_bootstrappackage_carousel_item' => array(
 			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
 			'config' => array(
