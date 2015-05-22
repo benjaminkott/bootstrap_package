@@ -29,7 +29,6 @@ return array(
 		'showRecordFieldList' => '
 			hidden,
 			tt_content,
-			active,
 			header,
 			bodytext
 		',
@@ -37,7 +36,6 @@ return array(
 	'types' => array(
 		'1' => array('showitem' => '
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			active,
 			header,
 			bodytext,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
@@ -157,14 +155,6 @@ return array(
 			'config' => array(
 				'type' => 'passthrough'
 			)
-		),
-		'active' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.active',
-			'config' => array(
-				'type' => 'check',
-				'default' => 0
-			),
 		),
 		'header' => array(
 			'exclude' => 0,

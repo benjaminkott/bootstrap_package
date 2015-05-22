@@ -54,9 +54,10 @@ unset($backupCTypeItems);
 
 
 /***************
- * Add FlexForm for the BootstrapPackage Carousel
+ * Add FlexForms for content element configuration
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml', 'bootstrap_package_carousel');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Tab.xml', 'bootstrap_package_tab');
 
 
 /***************
@@ -165,6 +166,8 @@ $tca = array(
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
 				tx_bootstrappackage_tab_item,
+				--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.options,
+				pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,

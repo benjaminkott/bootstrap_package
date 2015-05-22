@@ -218,6 +218,14 @@
 				<source>Text</source>
 			</trans-unit>
 
+			<trans-unit id="tab.options">
+				<source>Tab Options</source>
+			</trans-unit>
+			<trans-unit id="tab.default_tab">
+				<source>Default Tab</source>
+			</trans-unit>
+
+
 			<trans-unit id="tab_item">
 				<source>Tab Item</source>
 			</trans-unit>
