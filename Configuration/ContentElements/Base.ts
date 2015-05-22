@@ -1315,9 +1315,5 @@ tt_content.menu.20 {
 ############################################
 #### BOOTSTRAP PACKAGE CONTENT ELEMENTS ####
 ############################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap/TextIcon.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap/Carousel.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap/Accordion.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap/Panel.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap/ListGroup.ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap" extensions="ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/ExternalMedia.ts">

@@ -423,7 +423,7 @@ plugin.bootstrap_package {
 			# cat=bootstrap package: styling/315/nav-tabs-link-hover-border-color; type=string; label=@nav-tabs-link-hover-border-color:
 			nav-tabs-link-hover-border-color = @gray-lighter
 			# cat=bootstrap package: styling/315/nav-tabs-active-link-hover-bg; type=string; label=@nav-tabs-active-link-hover-bg:
-			nav-tabs-active-link-hover-bg = @body-bg
+			nav-tabs-active-link-hover-bg = #f5f5f5
 			# cat=bootstrap package: styling/315/nav-tabs-active-link-hover-color; type=string; label=@nav-tabs-active-link-hover-color:
 			nav-tabs-active-link-hover-color = @gray
 			# cat=bootstrap package: styling/315/nav-tabs-active-link-hover-border-color; type=string; label=@nav-tabs-active-link-hover-border-color:

@@ -31,6 +31,14 @@ mod.wizards {
 							CType = bootstrap_package_accordion
 						}
 					}
+					bootstrap_package_tab {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/tab.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_tab
+                        }
+                    }
 					bootstrap_package_panel {
 						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/panel.png
 						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
