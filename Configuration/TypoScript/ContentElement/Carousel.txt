@@ -1,3 +1,7 @@
+###########################################
+#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL ####
+###########################################
+
 tt_content.bootstrap_package_carousel = COA
 tt_content.bootstrap_package_carousel {
 	10 =< lib.stdheader

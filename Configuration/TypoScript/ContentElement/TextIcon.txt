@@ -1,6 +1,7 @@
 ###########################################
 #### CTYPE: BOOTSTRAP PACKAGE TEXTICON ####
 ###########################################
+
 tt_content.bootstrap_package_texticon = COA
 tt_content.bootstrap_package_texticon {
 	5 = LOAD_REGISTER
@@ -24,7 +25,6 @@ tt_content.bootstrap_package_texticon {
 					3 < .default
 					3.value = awesome
 				}
-
 				20 = CASE
 				20 {
 					key.field = icon_type
@@ -98,7 +98,6 @@ tt_content.bootstrap_package_texticon {
 		wrap = <div class="texticon-content">|</div>
 	}
 	30 = RESTORE_REGISTER
-
 	wrap = <div class="texticon texticon-{field:icon_position}">|</div>
 	wrap.insertData = 1
 }

@@ -1311,9 +1311,3 @@ tt_content.menu.20 {
 		}
 	}
 }
-
-############################################
-#### BOOTSTRAP PACKAGE CONTENT ELEMENTS ####
-############################################
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/ContentElements/Bootstrap" extensions="ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/ExternalMedia.ts">

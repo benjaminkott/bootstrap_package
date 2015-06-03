@@ -1,3 +1,7 @@
+############################################
+#### CTYPE: BOOTSTRAP PACKAGE LISTGROUP ####
+############################################
+
 tt_content.bootstrap_package_listgroup = COA
 tt_content.bootstrap_package_listgroup {
 	10 =< lib.stdheader
