@@ -25,6 +25,7 @@
 plugin.tx_bootstrappackage {
 	settings {
 		overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
+		cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
 	}
 }
 

@@ -53,6 +53,22 @@ class CompileService {
 				);
 
 				$settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
+				if ($settings['cssSourceMapping']) {
+					// enable source mapping
+					$optionsForSourceMap = array(
+						'sourceMap'         => true,
+						'sourceMapWriteTo'  => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
+						'sourceMapURL'      => '/typo3temp/bootstrappackage/bootstrappackage.map',
+						'sourceMapBasepath' => PATH_site,
+						'sourceMapRootpath' => '/'
+					);
+					$options += $optionsForSourceMap;
+
+					// disable CSS compression
+					/** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
+					$pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+					$pageRenderer->disableCompressCss();
+				}
 				if ($settings['overrideLessVariables']) {
 					$variables = self::getVariablesFromConstants();
 				} else {

@@ -155,6 +155,8 @@ plugin.bootstrap_package {
 	settings {
 		# cat=bootstrap package: advanced/190/100; type=boolean; label=Override LESS Variables: If enabled the variables defined in your LESS files will be overritten with the ones defined as TypoScript Constants.
 		overrideLessVariables = 1
+		# cat=bootstrap package: advanced/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
+		cssSourceMapping = 0
 	}
 }
 
