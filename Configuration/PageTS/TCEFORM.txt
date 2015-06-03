@@ -3,7 +3,9 @@
 #################
 TCEFORM {
 	pages {
-		layout.disabled = 1
+		layout {
+			removeItems = 1,2,3
+		}
 	}
 	tt_content {
 		header_layout {

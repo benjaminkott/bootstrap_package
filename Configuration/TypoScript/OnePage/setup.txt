@@ -115,6 +115,7 @@ lib.content.onepage {
 								ifEmpty = p{field:uid}
 								ifEmpty.insertData = 1
 							}
+							pageClass.cObject < lib.page.class
 						}
 
 						20 < page.10
@@ -125,7 +126,7 @@ lib.content.onepage {
 							}
 						}
 
-						wrap = <section id="{register:sectionID}">|</section>
+						wrap = <section id="{register:sectionID}" class="{register:pageClass}">|</section>
 						wrap.insertData = 1
 					}
 				}
