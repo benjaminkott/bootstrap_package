@@ -204,8 +204,18 @@
 			<trans-unit id="carousel_item.background_color">
 				<source>Background Color</source>
 			</trans-unit>
+
+			<trans-unit id="carousel_item.item_type.header">
+				<source>Header</source>
+			</trans-unit>
 			<trans-unit id="carousel_item.item_type.textandimage">
 				<source>Text and Image</source>
+			</trans-unit>
+			<trans-unit id="carousel_item.item_type.backgroundimage">
+				<source>Background Image</source>
+			</trans-unit>
+			<trans-unit id="carousel_item.item_type.html">
+				<source>HTML</source>
 			</trans-unit>
 
 			<trans-unit id="accordion_item">

@@ -27,6 +27,7 @@ return array(
 			'header' => 'tt_content_header.gif',
 			'html' => 'tt_content_html.gif',
 			'textandimage' => 'tt_content_textpic.gif',
+			'backgroundimage' => 'tt_content_image.gif',
 		),
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Icons/bootstrap_package_item_teaser.gif'
 	),
@@ -79,6 +80,15 @@ return array(
 			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
 			background_color,
 			background_image,
+			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+		'),
+		'backgroundimage' => array('showitem' => '
+			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+			header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+			background_image,
+			background_color,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -144,17 +154,22 @@ return array(
 				'type' => 'select',
 				'items' => array(
 					array(
-						'LLL:EXT:cms/locallang_ttc.xlf:CType.I.0',
+						'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
 						'header',
 						'i/tt_content_header.gif'
 					),
 					array(
 						'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
 						'textandimage',
+						'i/tt_content_textpic.gif'
+					),
+					array(
+						'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
+						'backgroundimage',
 						'i/tt_content_image.gif'
 					),
 					array(
-						'LLL:EXT:cms/locallang_ttc.xlf:CType.I.17',
+						'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
 						'html',
 						'i/tt_content_html.gif'
 					),
