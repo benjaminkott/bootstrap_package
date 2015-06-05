@@ -35,6 +35,7 @@ return array(
 			hidden,
 			tt_content,
 			header,
+			header_layout,
 			bodytext,
 			image,
 			text_color,
@@ -45,7 +46,7 @@ return array(
 	'types' => array(
 		'1' => array('showitem' => '
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header,
+			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
 			bodytext,
 			image,
 			text_color,
@@ -58,7 +59,7 @@ return array(
 		'),
 		'header' => array('showitem' => '
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header,
+			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
 			text_color,
 			link,
 			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
@@ -70,7 +71,7 @@ return array(
 		'),
 		'textandimage' => array('showitem' => '
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header,
+			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
 			bodytext,
 			text_color,
 			image,
@@ -102,6 +103,13 @@ return array(
 			'showitem' => '
 				starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
 				endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
+			',
+			'canNotCollapse' => 1
+		),
+		'header' => array(
+			'showitem' => '
+				header,
+				header_layout,
 			',
 			'canNotCollapse' => 1
 		),
@@ -269,6 +277,32 @@ return array(
 				'type' => 'input',
 				'size' => 50,
 				'eval' => 'trim,required'
+			),
+		),
+		'header_layout' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_layout',
+			'config' => array(
+				'type' => 'select',
+				'items' => array(
+					array(
+						'H1',
+						'1'
+					),
+					array(
+						'H2',
+						'2'
+					),
+					array(
+						'H3',
+						'3'
+					),
+					array(
+						'H4',
+						'4'
+					),
+				),
+				'default' => '1'
 			),
 		),
 		'bodytext' => array(

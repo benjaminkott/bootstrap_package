@@ -26,6 +26,7 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
 	tt_content int(11) unsigned DEFAULT '0',
 	item_type varchar(255) DEFAULT '' NOT NULL,
 	header varchar(255) DEFAULT '' NOT NULL,
+	header_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
 	bodytext text NOT NULL,
 	image int(11) unsigned DEFAULT '0',
 	link varchar(255) DEFAULT '' NOT NULL,
@@ -60,7 +61,6 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
-
 );
 
 
@@ -102,7 +102,6 @@ CREATE TABLE tx_bootstrappackage_accordion_item (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
-
 );
 
 

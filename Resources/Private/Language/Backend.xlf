@@ -186,6 +186,9 @@
 			<trans-unit id="carousel_item.header">
 				<source>Header</source>
 			</trans-unit>
+			<trans-unit id="carousel_item.header_layout">
+				<source>Header Layout</source>
+			</trans-unit>
 			<trans-unit id="carousel_item.bodytext">
 				<source>Text</source>
 			</trans-unit>
