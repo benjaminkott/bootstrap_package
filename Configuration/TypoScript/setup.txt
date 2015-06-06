@@ -168,29 +168,32 @@ lib.navigation.main {
 
 lib.navigation.subnavigation = COA
 lib.navigation.subnavigation {
-	10 = HMENU
-	10 {
-		entryLevel = 1
-		1 = TMENU
-		1 {
-			wrap = <div class="hidden-print hidden-xs hidden-sm" role="complementary"><nav class="list-group">|</nav></div>
-			expAll = 1
-			noBlur = 1
-			NO = 1
-			NO {
-				ATagTitle.field = abstract // description // title
-				ATagParams = class="list-group-item"
-				wrapItemAndSub = |
-			}
-
-			ACT < .NO
-			ACT {
-				ATagParams = class="list-group-item active"
-			}
-
-			CUR < .ACT
+    10 = HMENU
+    10 {
+        entryLevel = 1
+		wrap = <nav class="hidden-print hidden-xs hidden-sm" role="complementary">|</nav>
+        1 = TMENU
+        1 {
+            wrap = <ul class="nav nav-sidebar">|</ul>
+            expAll = 0
+            noBlur = 1
+            NO = 1
+            NO {
+                ATagTitle.field = abstract // description // title
+                wrapItemAndSub = <li>|</li>
+            }
+            ACT < .NO
+            ACT {
+                wrapItemAndSub = <li class="active">|</li>
+            }
+            CUR < .ACT
+        }
+		2 < .1
+		2 {
+			wrap = <ul>|</ul>
 		}
-	}
+		3 < .2
+    }
 }
 
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
