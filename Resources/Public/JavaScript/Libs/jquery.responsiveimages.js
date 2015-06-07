@@ -1,6 +1,9 @@
 /* ========================================================================
- * This is a adjusted version of Luís Almeida jQuery Unveil Script
+ * Responsive Image
+ *
+ * Inspired by:
  * http://luis-almeida.github.com/unveil
+ * http://verge.airve.com/
  * ======================================================================== */
 
 +function($) {
@@ -30,17 +33,17 @@
 		skip_invisible: false,
 		preload: false
 	};
-	
-    ResponsiveImage.prototype.viewportW = function() {
-		var a = document.documentElement['clientWidth'], b = window['innerWidth'];
-        return a < b ? b : a;
-      };
-	  
-    ResponsiveImage.prototype.viewportH = function() {
-        var a = document.documentElement['clientHeight'], b = window['innerHeight'];
-        return a < b ? b : a;
-      };
-      
+
+	ResponsiveImage.prototype.viewportW = function() {
+		var clientWidth = document.documentElement['clientWidth'], innerWidth = window['innerWidth'];
+		return clientWidth < innerWidth ? innerWidth : clientWidth;
+	  };
+
+	ResponsiveImage.prototype.viewportH = function() {
+		var clientHeight = document.documentElement['clientHeight'], innerHeight = window['innerHeight'];
+		return clientHeight < innerHeight ? innerHeight : clientHeight;
+	  };
+
 	ResponsiveImage.prototype.checkviewport = function() {
 		var containerWidth = this.viewportW();
 		var attrib = this.attrib;
@@ -57,17 +60,17 @@
 	};
 
 	ResponsiveImage.prototype.boundingbox = function() {
-		var o = {},
-			coords    = this.$element[0].getBoundingClientRect(), 
+		var options = {},
+			coords    = this.$element[0].getBoundingClientRect(),
 			threshold = +this.options.threshold || 0;
-		o['width']  = (o['right'] = coords['right'] + threshold) - (o['left'] = coords['left'] - threshold);
-		o['height'] = (o['bottom'] = coords['bottom'] + threshold) - (o['top'] = coords['top'] - threshold);
-		return o;
+		options['width']  = (options['right'] = coords['right'] + threshold) - (options['left'] = coords['left'] - threshold);
+		options['height'] = (options['bottom'] = coords['bottom'] + threshold) - (options['top'] = coords['top'] - threshold);
+		return options;
 	};
 
 	ResponsiveImage.prototype.inviewport = function() {
-		var bb = this.boundingbox();
-		return !!bb && bb.bottom >= 0 && bb.right >= 0 && bb.top <= this.viewportH() && bb.left <= this.viewportW();
+		var boundingbox = this.boundingbox();
+		return !!boundingbox && boundingbox.bottom >= 0 && boundingbox.right >= 0 && boundingbox.top <= this.viewportH() && boundingbox.left <= this.viewportW();
 	};
 
 	ResponsiveImage.prototype.unveil = function() {
