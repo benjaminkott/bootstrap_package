@@ -147,7 +147,9 @@ lib.stdheader {
 					required = 1
 					noTrimWrap = |text-| |
 				}
-				20 >
+				20 {
+					value = first-headline
+				}
 			}
 		}
 	}
