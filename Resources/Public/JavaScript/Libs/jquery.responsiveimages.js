@@ -59,7 +59,7 @@
 	ResponsiveImage.prototype.boundingbox = function() {
 		var o = {},
 			coords    = this.$element[0].getBoundingClientRect(), 
-			threshold = +this.threshold || 0;
+			threshold = +this.options.threshold || 0;
 		o['width']  = (o['right'] = coords['right'] + threshold) - (o['left'] = coords['left'] - threshold);
 		o['height'] = (o['bottom'] = coords['bottom'] + threshold) - (o['top'] = coords['top'] - threshold);
 		return o;
