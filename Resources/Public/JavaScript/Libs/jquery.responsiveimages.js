@@ -27,7 +27,8 @@
 		},
 		attrib: "data-src",
 		container: window,
-		skip_invisible: true
+		skip_invisible: false,
+		preload: false
 	};
 	
     ResponsiveImage.prototype.viewportW = function() {
@@ -70,8 +71,8 @@
 	};
 
 	ResponsiveImage.prototype.unveil = function() {
-		if (this.options.skip_invisible && this.$element.is(":hidden")) return;
-		var inview = this.inviewport();
+		if (!this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
+		var inview = this.options.preload || this.inviewport();
 		if(inview){
 			var source = this.$element.attr(this.attrib);
 			source = source || this.$element.attr("data-src");
