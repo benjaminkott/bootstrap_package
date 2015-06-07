@@ -27,11 +27,22 @@
 		},
 		attrib: "data-src",
 		container: window,
-		skip_invisible: true
+		skip_invisible: false,
+		preload: false
 	};
-
+	
+    ResponsiveImage.prototype.viewportW = function() {
+		var a = document.documentElement['clientWidth'], b = window['innerWidth'];
+        return a < b ? b : a;
+      };
+	  
+    ResponsiveImage.prototype.viewportH = function() {
+        var a = document.documentElement['clientHeight'], b = window['innerHeight'];
+        return a < b ? b : a;
+      };
+      
 	ResponsiveImage.prototype.checkviewport = function() {
-		var containerWidth = this.$container.width();
+		var containerWidth = this.viewportW();
 		var attrib = this.attrib;
 		var old_attrib = this.attrib;
 		$.each(this.options.breakpoints, function (breakpoint, datakey) {
@@ -45,33 +56,23 @@
 		this.unveil();
 	};
 
+	ResponsiveImage.prototype.boundingbox = function() {
+		var o = {},
+			coords    = this.$element[0].getBoundingClientRect(), 
+			threshold = +this.options.threshold || 0;
+		o['width']  = (o['right'] = coords['right'] + threshold) - (o['left'] = coords['left'] - threshold);
+		o['height'] = (o['bottom'] = coords['bottom'] + threshold) - (o['top'] = coords['top'] - threshold);
+		return o;
+	};
+
 	ResponsiveImage.prototype.inviewport = function() {
-		var elementWidth = this.$element.width(),
-			elementHeight = this.$element.height(),
-			elementLeft = this.$element.offset().left,
-			elementTop = this.$element.offset().top,
-			containerWidth = this.$container.width(),
-			containerHeight,
-			containerLeft,
-			containerTop;
-		if (this.options.container === undefined || this.options.container === window){
-			containerHeight = $(window).innerHeight() ? $(window).innerHeight() : $(window).height();
-			containerLeft = $(window).scrollLeft();
-			containerTop = $(window).scrollTop();
-		} else {
-			containerHeight = this.$container.height();
-			containerLeft = this.$container.offset().left;
-			containerTop = this.$container.offset().top;
-		}
-		return containerLeft + containerWidth > elementLeft - this.options.threshold
-			&& containerLeft < elementLeft + elementWidth + this.options.threshold
-			&& containerTop + containerHeight > elementTop - this.options.threshold
-			&& containerTop < elementTop + elementHeight + this.options.threshold;
+		var bb = this.boundingbox();
+		return !!bb && bb.bottom >= 0 && bb.right >= 0 && bb.top <= this.viewportH() && bb.left <= this.viewportW();
 	};
 
 	ResponsiveImage.prototype.unveil = function() {
-		if (this.options.skip_invisible && this.$element.is(":hidden")) return;
-		var inview = this.inviewport();
+		if (!this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
+		var inview = this.options.preload || this.inviewport();
 		if(inview){
 			var source = this.$element.attr(this.attrib);
 			source = source || this.$element.attr("data-src");
