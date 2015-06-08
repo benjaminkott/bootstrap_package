@@ -1,11 +1,11 @@
-{namespace bp = BK2K\BootstrapPackage\ViewHelpers}
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <div class="valign">
 	<div class="carousel-text vcontainer lead" {f:if(condition: item.text_color,then: 'style="color: {item.text_color};"')}>
 		<h{item.header_layout}>{item.header}</h{item.header_layout}>
 		<f:format.html>{item.bodytext}</f:format.html>
 	</div>
 	<div class="carousel-image vcontainer">
-		<bp:fal data="{item}" as="images" table="tx_bootstrappackage_carousel_item">
+		<bk2k:fal data="{item}" as="images" table="tx_bootstrappackage_carousel_item">
 			<f:if condition="{images}">
 				<f:if condition="{data.layout} == 110">
 					<f:then>
@@ -28,6 +28,6 @@
 					</f:else>
 				</f:if>
 			</f:if>
-		</bp:fal>
+		</bk2k:fal>
 	</div>
 </div>

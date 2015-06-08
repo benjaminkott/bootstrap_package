@@ -1,12 +1,12 @@
-{namespace bp = BK2K\BootstrapPackage\ViewHelpers}
-<bp:dataRelation uid="{data.uid}" table="tx_bootstrappackage_tab_item">
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_tab_item">
 	<f:if condition="{items}">
-		<bp:flexForm />
-		<bp:var name="activeTab" value="{items.0.uid}" />
+		<bk2k:flexForm />
+		<bk2k:var name="activeTab" value="{items.0.uid}" />
 		<f:if condition="{data.pi_flexform.default_tab}">
 			<f:for each="{items}" as="item" iteration="iteration">
 				<f:if condition="{data.pi_flexform.default_tab} == {item.uid}">
-					<bp:var name="activeTab" value="{item.uid}" />
+					<bk2k:var name="activeTab" value="{item.uid}" />
 				</f:if>
 			</f:for>
 		</f:if>
@@ -31,4 +31,4 @@
 			</div>
 		</div>
 	</f:if>
-</bp:dataRelation>
+</bk2k:dataRelation>

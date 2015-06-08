@@ -1,7 +1,7 @@
-{namespace bp = BK2K\BootstrapPackage\ViewHelpers}
-<bp:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
 	<f:if condition="{items}">
-		<bp:flexForm/>
+		<bk2k:flexForm/>
 		<div id="carousel-{data.uid}"
 			 class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}"
 			 data-interval="{data.pi_flexform.interval}"
@@ -9,11 +9,11 @@
 			 data-ride="carousel">
 			<div class="carousel-inner" role="listbox">
 				<f:for each="{items}" as="item" iteration="iteration">
-					<bp:var name="itemStyleImage">
-						<bp:fal data="{item}" as="images" field="background_image"
+					<bk2k:var name="itemStyleImage">
+						<bk2k:fal data="{item}" as="images" field="background_image"
 								table="tx_bootstrappackage_carousel_item">
 							<f:if condition="{images}">
-								<bp:var name="backgroundImagePath"
+								<bk2k:var name="backgroundImagePath"
 										value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1,maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
 								background-image: url('{backgroundImagePath}');
 								filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
@@ -22,11 +22,11 @@
 								"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
 								sizingMethod='scale')";
 							</f:if>
-						</bp:fal>
-					</bp:var>
-					<bp:var name="itemStyleColor">
+						</bk2k:fal>
+					</bk2k:var>
+					<bk2k:var name="itemStyleColor">
 						<f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
-					</bp:var>
+					</bk2k:var>
 					<div
 						class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}"
 						data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
@@ -66,4 +66,4 @@
 			</f:if>
 		</div>
 	</f:if>
-</bp:dataRelation>
+</bk2k:dataRelation>
