@@ -27,30 +27,52 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *
  ***************************************************************/
 
-use BK2K\BootstrapPackage\Utility\ExternalMediaUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExternalMediaViewHelper extends AbstractViewHelper {
+class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableInterface {
+
+	/**
+	 * Render
+	 *
+	 * @param string $url
+	 * @param mixed $class
+	 * @return string
+	 */
+	public function render($url, $class) {
+		return self::renderStatic(
+			array(
+				'url' => $url,
+				'class' => $class
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
+
 
 	/**
 	 * Checks if the URL is a valid YouTube/Vimeo Link is. If the video id can
 	 * be extracted the embed code will be returned, else the content of the
 	 * ViewHelper will be displayed.
 	 *
-	 * @param string $url
-	 * @param string $class
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
 	 * @return string
 	 */
-	public function render($url, $class) {
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
 		$externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
-		$externalMedia = $externalMediaUtility->getEmbedCode($url, $class);
-		$this->templateVariableContainer->add('externalMedia', $externalMedia);
-		$content = $this->renderChildren();
-		$this->templateVariableContainer->remove('externalMedia');
+		$externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class']);
+		$templateVariableContainer->add('externalMedia', $externalMedia);
+		$content = $renderChildrenClosure();
+		$templateVariableContainer->remove('externalMedia');
 		return $content;
 	}
 
