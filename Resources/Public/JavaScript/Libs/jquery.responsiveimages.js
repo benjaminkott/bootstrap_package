@@ -50,7 +50,7 @@
 		var old_attrib = this.attrib;
 		$.each(this.options.breakpoints, function (breakpoint, datakey) {
 			if (containerWidth >= breakpoint) {
-				attrib = "data-" + datakey;
+				attrib = datakey;
 			}
 		});
 		if (old_attrib !== attrib) {
@@ -77,11 +77,11 @@
 		if (!this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
 		var inview = this.options.preload || this.inviewport();
 		if(inview){
-			var source = this.$element.attr(this.attrib);
-			source = source || this.$element.attr("data-src");
+			var source = this.options[this.attrib] || this.options["src"];
 			if (source) {
 				this.$element.attr("src", source);
 				this.$element.css("opacity", 1);
+				$(window).trigger('loaded.bk2k.responsiveimage');
 			}
 		}
 	};
@@ -116,7 +116,7 @@
 
 	// RESPONSIVE IMAGES API
 	// =====================
-	$(window).on('load', function() {
+	$(window).on('load.bk2k', function() {
 		$('img.lazyload').each(function() {
 			var $image = $(this);
 			var data = $image.data();
