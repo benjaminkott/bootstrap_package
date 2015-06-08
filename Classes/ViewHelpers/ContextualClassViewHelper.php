@@ -28,18 +28,18 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  ***************************************************************/
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ContextualClassViewHelper extends AbstractViewHelper {
+class ContextualClassViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
-	 * contextualAlternatives
-	 *
 	 * @var array
 	 */
-	protected $contextualAlternatives = array(
+	static protected $contextualAlternatives = array(
 		100 => 'default',
 		110 => 'primary',
 		120 => 'success',
@@ -49,12 +49,29 @@ class ContextualClassViewHelper extends AbstractViewHelper {
 	);
 
 	/**
-	 * @param int $code
+	 * Render
+	 *
+	 * @param integer $code
 	 * @return string
 	 */
-	public function render($code = 100) {
+	public function render($code) {
+		return self::renderStatic(
+			array(
+				'code' => $code
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
 
-		return ($this->contextualAlternatives[$code]) ? $this->contextualAlternatives[$code] : NULL;
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
+	 * @return string
+	 */
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : NULL;
 	}
 
 }
