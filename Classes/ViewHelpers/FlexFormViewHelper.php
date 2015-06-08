@@ -27,42 +27,60 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *
  ***************************************************************/
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Service\FlexFormService;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FlexFormViewHelper extends AbstractViewHelper {
+class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Service\FlexFormService
-	 * @inject
-	 */
-	protected $flexFormService;
-
-	/**
+	 * Render
+	 *
 	 * @param string $record
 	 * @param string $field
 	 * @return void
 	 */
 	public function render($record = "data", $field = "pi_flexform") {
+		return self::renderStatic(
+			array(
+				'record' => $record,
+				'field' => $field
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
 
-		if ($this->templateVariableContainer->exists($record) === FALSE) {
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
+	 * @return string
+	 */
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+		if ($templateVariableContainer->exists($arguments['record']) === FALSE) {
 			return NULL;
 		}
-		$data = $this->templateVariableContainer->get($record);
-		$flexFormConfiguration = $data[$field];
+		$data = $templateVariableContainer->get($arguments['record']);
+		$flexFormConfiguration = $data[$arguments['field']];
 
 		if (is_string($flexFormConfiguration)) {
 			if (strlen($flexFormConfiguration) > 0) {
-				$flexFormConfiguration = $this->flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
+				$flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+				$flexFormConfiguration = $flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
 			} else {
 				$flexFormConfiguration = array();
 			}
 		}
-		$data[$field] = $flexFormConfiguration;
-		$this->templateVariableContainer->remove($record);
-		$this->templateVariableContainer->add($record, $data);
+		$data[$arguments['field']] = $flexFormConfiguration;
+		$templateVariableContainer->remove($arguments['record']);
+		$templateVariableContainer->add($arguments['record'], $data);
 		return NULL;
 	}
 
