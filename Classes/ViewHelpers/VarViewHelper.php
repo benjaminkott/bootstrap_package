@@ -28,26 +28,52 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  ***************************************************************/
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class VarViewHelper extends AbstractViewHelper {
+class VarViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
+	 * Render
+	 *
 	 * @param string $name
 	 * @param mixed $value
+	 * @return string
+	 */
+	public function render($name = NULL, $value = NULL) {
+		return self::renderStatic(
+			array(
+				'name' => $name,
+				'value' => $value
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
+
+
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
 	 * @return void
 	 */
-	public function render($name, $value = NULL) {
-
-		if ($value === NULL) {
-			$value = $this->renderChildren();
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		if ($arguments['name'] !== NULL) {
+			$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+			if ($arguments['value'] === NULL) {
+				$value = $renderChildrenClosure();
+			} else {
+				$value = $arguments['value'];
+			}
+			if ($templateVariableContainer->exists($arguments['name']) === TRUE) {
+				$templateVariableContainer->remove($arguments['name']);
+			}
+			$templateVariableContainer->add($arguments['name'], $value);
 		}
-		if ($this->templateVariableContainer->exists($name) === TRUE) {
-			$this->templateVariableContainer->remove($name);
-		}
-		$this->templateVariableContainer->add($name, $value);
 		return NULL;
 	}
 
