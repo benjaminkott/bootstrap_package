@@ -29,25 +29,49 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExplodeViewHelper extends AbstractViewHelper {
+class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
+	 * Render
+	 *
 	 * @param string $data
 	 * @param string $as
 	 * @param string $delimiter
 	 * @return string
 	 */
 	public function render($data, $as = 'items', $delimiter = LF) {
+		return self::renderStatic(
+			array(
+				'data' => $data,
+				'as' => $as,
+				'delimiter' => $delimiter
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
 
-		if ($data) {
-			$items = GeneralUtility::trimExplode($delimiter, $data);
-			$this->templateVariableContainer->add($as, $items);
-			$content = $this->renderChildren();
-			$this->templateVariableContainer->remove($as);
+
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
+	 * @return string
+	 */
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		$content = '';
+		if (isset($arguments['data'])) {
+			$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+			$items = GeneralUtility::trimExplode($arguments['delimiter'], $arguments['data']);
+			$templateVariableContainer->add($arguments['as'], $items);
+			$content = $renderChildrenClosure();
+			$templateVariableContainer->remove($arguments['as']);
 		}
 		return $content;
 	}
