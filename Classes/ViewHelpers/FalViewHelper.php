@@ -29,50 +29,67 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FalViewHelper extends AbstractViewHelper {
+class FalViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
-	 * @var \TYPO3\CMS\Core\Resource\FileRepository
-	 */
-	protected $fileRepository;
-
-	/**
+	 * Render
+	 *
 	 * @param array $data
 	 * @param string $as
 	 * @param string $table
 	 * @param string $field
-	 *
 	 * @return string
 	 */
 	public function render($data, $as = 'items', $table = 'tt_content', $field = 'image') {
+		return self::renderStatic(
+			array(
+				'data' => $data,
+				'as' => $as,
+				'table' => $table,
+				'field' => $field
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
 
-		if (is_array($data) && $data['uid'] && $data[$field]) {
-			$this->fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-			$items = $this->fileRepository->findByRelation($table, $field, $data['uid']);
+
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
+	 * @return string
+	 */
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+		if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
+			$fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+			$items = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $arguments['data']['uid']);
 			$localizedId = NULL;
-			if (isset($data['_LOCALIZED_UID'])) {
-				$localizedId = $data['_LOCALIZED_UID'];
-			} elseif (isset($data['_PAGES_OVERLAY_UID'])) {
-				$localizedId = $data['_PAGES_OVERLAY_UID'];
+			if (isset($arguments['data']['_LOCALIZED_UID'])) {
+				$localizedId = $arguments['data']['_LOCALIZED_UID'];
+			} elseif (isset($arguments['data']['_PAGES_OVERLAY_UID'])) {
+				$localizedId = $arguments['data']['_PAGES_OVERLAY_UID'];
 			}
 			$isTableLocalizable = (
-				!empty($GLOBALS['TCA'][$table]['ctrl']['languageField'])
-				&& !empty($GLOBALS['TCA'][$table]['ctrl']['transOrigPointerField'])
+				!empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['languageField'])
+				&& !empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['transOrigPointerField'])
 			);
 			if ($isTableLocalizable && $localizedId !== NULL) {
-				$items = $this->fileRepository->findByRelation($table, $field, $localizedId);
+				$items = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $localizedId);
 			}
 		} else {
 			$items = NULL;
 		}
-		$this->templateVariableContainer->add($as, $items);
-		$content = $this->renderChildren();
-		$this->templateVariableContainer->remove($as);
-
+		$templateVariableContainer->add($arguments['as'], $items);
+		$content = $renderChildrenClosure();
+		$templateVariableContainer->remove($arguments['as']);
 		return $content;
 	}
 
