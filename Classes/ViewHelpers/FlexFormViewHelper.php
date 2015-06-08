@@ -28,7 +28,6 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  ***************************************************************/
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Service\FlexFormService;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
@@ -72,7 +71,7 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
 
 		if (is_string($flexFormConfiguration)) {
 			if (strlen($flexFormConfiguration) > 0) {
-				$flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+				$flexFormService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\FlexFormService');
 				$flexFormConfiguration = $flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
 			} else {
 				$flexFormConfiguration = array();
