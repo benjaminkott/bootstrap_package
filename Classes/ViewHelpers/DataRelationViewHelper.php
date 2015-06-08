@@ -29,13 +29,17 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataRelationViewHelper extends AbstractViewHelper {
+class DataRelationViewHelper extends AbstractViewHelper implements CompilableInterface {
 
 	/**
+	 * Render
+	 *
 	 * @param integer $uid
 	 * @param string $table
 	 * @param string $foreignField
@@ -43,35 +47,70 @@ class DataRelationViewHelper extends AbstractViewHelper {
 	 * @param string $as
 	 * @param string $sortby
 	 * @param string $additionalWhere
-	 *
 	 * @return string
 	 */
 	public function render($uid, $table, $foreignField = 'tt_content', $selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
+		return self::renderStatic(
+			array(
+				'uid' => $uid,
+				'table' => $table,
+				'foreignField' => $foreignField,
+				'selectFields' => $selectFields,
+				'as' => $as,
+				'sortby' => $sortby,
+				'additionalWhere' => $additionalWhere
+			),
+			$this->buildRenderChildrenClosure(),
+			$this->renderingContext
+		);
+	}
 
-		if ($uid && $table) {
+	/**
+	 * @param array $arguments
+	 * @param \Closure $renderChildrenClosure
+	 * @param RenderingContextInterface $renderingContext
+	 * @return string
+	 */
+	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+		if ($arguments['uid'] !== NULL && $arguments['table'] !== NULL) {
 			$cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
-			$whereClause = '1 AND `' . $foreignField . '` = \'' . $uid . '\' ' . $additionalWhere . $cObj->enableFields($table);
+			$whereClause = '1 AND `' . $arguments['foreignField'] . '` = \'' . $arguments['uid'] . '\' ' . $arguments['additionalWhere'] . $cObj->enableFields($arguments['table']);
 			$groupBy = '';
 			$limit = '';
 			$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
-			$data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $table, $whereClause, $groupBy, $sortby, $limit);
+			$data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+				$arguments['selectFields'],
+				$arguments['table'],
+				$whereClause,
+				$groupBy,
+				$arguments['sortby'],
+				$limit
+			);
 			$items = array();
 			foreach ($data as $record) {
-				$GLOBALS['TSFE']->sys_page->versionOL($table, $record);
+				$GLOBALS['TSFE']->sys_page->versionOL($arguments['table'], $record);
 				if (is_array($record)) {
-					$items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($table, $record, $GLOBALS['TSFE']->sys_language_uid);
+					$items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($arguments['table'], $record, $GLOBALS['TSFE']->sys_language_uid);
 				}
 			}
-			 usort($items, array($this,"orderBySorting"));
+			 usort($items, array(self,"orderBySorting"));
 		} else {
 			$items = NULL;
 		}
-		$this->templateVariableContainer->add($as, $items);
-		$content = $this->renderChildren();
-		$this->templateVariableContainer->remove($as);
+		$templateVariableContainer->add($arguments['as'], $items);
+		$content = $renderChildrenClosure();
+		$templateVariableContainer->remove($arguments['as']);
 		return $content;
 	}
-	
-	function orderBySorting($a,$b) { return $a['sorting']>$b['sorting']; }
+
+	/**
+	 * @param array $a
+	 * @param array $b
+	 * @return string
+	 */
+	static protected function orderBySorting($a, $b) {
+		return $a['sorting'] > $b['sorting'];
+	}
 
 }
