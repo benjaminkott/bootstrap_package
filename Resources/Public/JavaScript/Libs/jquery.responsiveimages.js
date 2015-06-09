@@ -13,10 +13,7 @@
 	var ResponsiveImage = function(element, options) {
 		this.$element	= $(element);
 		this.options	= $.extend({}, ResponsiveImage.DEFAULTS, options);
-		this.attrib = "data-src";
-		this.$container = $(this.options.container)
-			.on('scroll.bk2k.responsiveimage', $.proxy(this.checkviewport, this))
-			.on('resize.bk2k.responsiveimage', $.proxy(this.checkviewport, this));
+		this.attrib 	= "src";
 		this.checkviewport();
 	};
 
@@ -28,7 +25,7 @@
 			992: 'large',
 			1200: 'bigger'
 		},
-		attrib: "data-src",
+		attrib: "src",
 		container: window,
 		skip_invisible: false,
 		preload: false
@@ -116,7 +113,7 @@
 
 	// RESPONSIVE IMAGES API
 	// =====================
-	$(window).on('load.bk2k', function() {
+	$(window).on('load.bk2k.responsiveimage', function() {
 		$('img.lazyload').each(function() {
 			var $image = $(this);
 			var data = $image.data();
@@ -124,5 +121,12 @@
 			Plugin.call($image, data);
 		});
 	});
-
+	
+	// EVENT "DELEGATION"
+	// ==================
+	$(window).on('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage', function(){
+		$('img.lazyload').responsiveimage('checkviewport');
+	});
+		
+		
 }(jQuery);
