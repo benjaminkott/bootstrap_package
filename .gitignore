@@ -1,4 +1,5 @@
-/nbproject/*
+Build/node_modules/*
+nbproject/*
 Thumbs.db
 prepros.cfg
 .idea/

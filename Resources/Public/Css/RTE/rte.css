@@ -1,8 +1,4 @@
-@import "bootstrap.min.css";
-
-.htmlarea-content-body {
-	padding: 20px;
-}
+@import "../theme.min.css";
 
 ul.list-unstyled {
 }

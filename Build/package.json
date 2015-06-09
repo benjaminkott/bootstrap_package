@@ -1,0 +1,17 @@
+{
+	"name": "bk2k-bootstrappackage",
+	"description": "Bootstrap Package delivers a full configured frontend for TYPO3 CMS, based on the Bootstrap CSS Framework.",
+	"repository": "https://github.com/benjaminkott/bootstrap_package.git",
+	"readme": "../README.rst",
+	"homepage": "http://www.bk2k.info",
+	"author": "Benjamin Kott",
+	"version": "6.2.11-dev",
+	"license": "MIT",
+	"devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-cssmin": "~0.12.3",
+		"grunt-contrib-less": "~1.0.0",
+		"grunt-contrib-watch": "~0.6.1",
+		"grunt-npm-install": "^0.2.0"
+	}
+}
