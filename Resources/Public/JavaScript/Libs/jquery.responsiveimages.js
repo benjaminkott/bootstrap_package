@@ -54,9 +54,7 @@
 			this.attrib = attrib;
 			this.loaded	= false;
 		}
-		if (!this.loaded){
-			this.unveil();
-			}
+		this.unveil();
 	};
 
 	ResponsiveImage.prototype.boundingbox = function() {
@@ -74,7 +72,7 @@
 	};
 
 	ResponsiveImage.prototype.unveil = function() {
-		if (!this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
+		if (this.loaded || !this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
 		var inview = this.options.preload || this.inviewport();
 		if(inview){
 			var source = this.options[this.attrib] || this.options["src"];
@@ -129,8 +127,12 @@
 		// EVENT "DELEGATION"
 		// ==================
 		$(window)
-			.off('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage')
-			.on('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage', function(){
+			.off('scroll.bk2k.responsiveimage')
+			.on('scroll.bk2k.responsiveimage', function(){
+				$('img.lazyload').responsiveimage('unveil');
+			})
+			.off('resize.bk2k.responsiveimage')
+			.on('resize.bk2k.responsiveimage', function(){
 				$('img.lazyload').responsiveimage('checkviewport');
 			});
 	});		
