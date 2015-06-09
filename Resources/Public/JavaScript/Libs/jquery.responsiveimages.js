@@ -124,13 +124,15 @@
 
 			Plugin.call($image, data);
 		});
-	});
+
 	
-	// EVENT "DELEGATION"
-	// ==================
-	$(window).on('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage', function(){
-		$('img.lazyload').responsiveimage('checkviewport');
-	});
-		
+		// EVENT "DELEGATION"
+		// ==================
+		$(window)
+			.off('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage')
+			.on('scroll.bk2k.responsiveimage, resize.bk2k.responsiveimage', function(){
+				$('img.lazyload').responsiveimage('checkviewport');
+			});
+	});		
 		
 }(jQuery);
