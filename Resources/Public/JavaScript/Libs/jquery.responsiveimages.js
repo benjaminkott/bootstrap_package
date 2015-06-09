@@ -14,6 +14,7 @@
 		this.$element	= $(element);
 		this.options	= $.extend({}, ResponsiveImage.DEFAULTS, options);
 		this.attrib 	= "src";
+		this.loaded		= false;
 		this.checkviewport();
 	};
 
@@ -26,7 +27,6 @@
 			1200: 'bigger'
 		},
 		attrib: "src",
-		container: window,
 		skip_invisible: false,
 		preload: false
 	};
@@ -52,8 +52,11 @@
 		});
 		if (old_attrib !== attrib) {
 			this.attrib = attrib;
+			this.loaded	= false;
 		}
-		this.unveil();
+		if (!this.loaded){
+			this.unveil();
+			}
 	};
 
 	ResponsiveImage.prototype.boundingbox = function() {
@@ -79,6 +82,7 @@
 				this.$element.attr("src", source);
 				this.$element.css("opacity", 1);
 				$(window).trigger('loaded.bk2k.responsiveimage');
+				this.loaded	= true;
 			}
 		}
 	};
