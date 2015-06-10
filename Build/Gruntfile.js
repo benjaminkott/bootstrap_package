@@ -6,9 +6,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		paths: {
-			root : "../",
-			less : "<%= paths.root %>Resources/Private/Less/",
-			css : "<%= paths.root %>Resources/Public/Css/"
+			root: "../",
+			less: "<%= paths.root %>Resources/Private/Less/",
+			css: "<%= paths.root %>Resources/Public/Css/",
+			js: "<%= paths.root %>Resources/Public/JavaScript/"
 		},
 		cssmin: {
 			options: {
@@ -19,6 +20,27 @@ module.exports = function(grunt) {
 			theme: {
 				src: '<%= paths.css %>theme.css',
 				dest: '<%= paths.css %>theme.min.css'
+			}
+		},
+		uglify: {
+			options: {
+				compress: {
+					warnings: false
+				},
+				mangle: true,
+				preserveComments: 'some'
+			},
+			responsiveimages: {
+				src: '<%= paths.js %>Libs/jquery.responsiveimages.js',
+				dest: '<%= paths.js %>Libs/jquery.responsiveimages.min.js'
+			},
+			viewportfix: {
+				src: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
+				dest: '<%= paths.js %>Libs/windowsphone-viewportfix.min.js'
+			},
+			main: {
+				src: '<%= paths.js %>main.js',
+				dest: '<%= paths.js %>main.min.js'
 			}
 		},
 		less: {
@@ -40,6 +62,7 @@ module.exports = function(grunt) {
 	 */
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-npm-install');
 
@@ -47,6 +70,6 @@ module.exports = function(grunt) {
 	 * Grunt update task
 	 */
 	grunt.registerTask('update', ['npm-install']);
-	grunt.registerTask('build', ['less','cssmin']);
+	grunt.registerTask('build', ['less','cssmin','uglify']);
 
 };
