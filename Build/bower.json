@@ -1,0 +1,22 @@
+{
+	"name": "bootstrap-package",
+	"version": "6.2.11-dev",
+	"authors": [{
+		"name": "Benjamin Kott <benjamin.kott@outlook.com>",
+		"role": "Developer",
+		"homepage": "http://www.bk2k.info"
+	}],
+	"description": "",
+	"keywords": [
+		"typo3",
+		"bootstrap",
+		"theme",
+		"template"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/benjaminkott/bootstrap_package",
+	"private": true,
+	"dependencies": {
+		"bootstrap": "3.3.4"
+	}
+}

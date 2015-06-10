@@ -6,10 +6,11 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		paths: {
-			root: "../",
-			less: "<%= paths.root %>Resources/Private/Less/",
-			css: "<%= paths.root %>Resources/Public/Css/",
-			js: "<%= paths.root %>Resources/Public/JavaScript/"
+			root: '../',
+			resources: '<%= paths.root %>Resources/',
+			less: '<%= paths.resources %>Private/Less/',
+			css: '<%= paths.resources %>Public/Css/',
+			js: '<%= paths.resources %>Public/JavaScript/'
 		},
 		cssmin: {
 			options: {
@@ -51,8 +52,26 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			less: {
-				files: '../Resources/Private/Less/**/*.less',
+				files: '<%= paths.less %>**/*.less',
 				tasks: 'less'
+			}
+		},
+		bowercopy: {
+			options: {
+				clean: false,
+				report: false,
+				runBower: false,
+				srcPrefix: 'bower_components/'
+			},
+			bootstrap: {
+				options: {
+					srcPrefix: 'bower_components/bootstrap/',
+					destPrefix: '<%= paths.resources %>'
+				},
+				files: {
+					'Private/Less/Bootstrap': 'less',
+					'Public/JavaScript/Libs/bootstrap.min.js': 'dist/js/bootstrap.min.js'
+				}
 			}
 		}
 	});
@@ -60,6 +79,8 @@ module.exports = function(grunt) {
 	/**
 	 * Register tasks
 	 */
+	grunt.loadNpmTasks('grunt-bowercopy');
+	grunt.loadNpmTasks('grunt-bower-just-install');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -69,7 +90,7 @@ module.exports = function(grunt) {
 	/**
 	 * Grunt update task
 	 */
-	grunt.registerTask('update', ['npm-install']);
-	grunt.registerTask('build', ['less','cssmin','uglify']);
+	grunt.registerTask('update', ['npm-install', 'bower_install', 'bowercopy']);
+	grunt.registerTask('build', ['update', 'less', 'cssmin', 'uglify']);
 
 };
