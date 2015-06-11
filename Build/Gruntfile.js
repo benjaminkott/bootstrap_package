@@ -51,6 +51,18 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
+			responsiveimages: {
+				files: '<%= paths.js %>Libs/jquery.responsiveimages.js',
+				tasks: 'uglify:responsiveimages'
+			},
+			viewportfix: {
+				files: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
+				tasks: 'uglify:viewportfix'
+			},
+			main: {
+				files: '<%= paths.js %>main.js',
+				tasks: 'uglify:main'
+			},
 			less: {
 				files: '<%= paths.less %>**/*.less',
 				tasks: 'less'
