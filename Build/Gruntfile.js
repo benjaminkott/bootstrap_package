@@ -63,14 +63,16 @@ module.exports = function(grunt) {
 				runBower: false,
 				srcPrefix: 'bower_components/'
 			},
-			bootstrap: {
+			all: {
 				options: {
-					srcPrefix: 'bower_components/bootstrap/',
 					destPrefix: '<%= paths.resources %>'
 				},
 				files: {
-					'Private/Less/Bootstrap': 'less',
-					'Public/JavaScript/Libs/bootstrap.min.js': 'dist/js/bootstrap.min.js'
+					// jQuery
+					'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
+					// Bootstrap
+					'Private/Less/Bootstrap': 'bootstrap/less',
+					'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
 				}
 			}
 		}
