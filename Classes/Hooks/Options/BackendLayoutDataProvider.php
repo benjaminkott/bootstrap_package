@@ -94,13 +94,19 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	protected $pageTsConfig = array();
 
 	/**
+	 * PageId
+	 *
+	 * @var integer
+	 */
+	protected $pageId = NULL;
+
+	/**
 	 * Set PageTsConfig
 	 *
 	 * @param array $pageTsConfig
 	 * @return void
 	 */
 	protected function setPageTsConfig($pageTsConfig) {
-
 		$this->pageTsConfig = $pageTsConfig;
 	}
 
@@ -110,8 +116,26 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return array
 	 */
 	protected function getPageTsConfig() {
-
 		return $this->pageTsConfig;
+	}
+
+	/**
+	 * Set PageId
+	 *
+	 * @param integer $pageId
+	 * @return void
+	 */
+	protected function setPageId($pageId) {
+		$this->pageId = (int)$pageId;
+	}
+
+	/**
+	 * Get PageId
+	 *
+	 * @return integer
+	 */
+	protected function getPageId() {
+		return $this->pageId;
 	}
 
 	/**
@@ -122,9 +146,8 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return void
 	 */
 	protected function generatePageTsConfig($dataProviderContext = NULL) {
-
 		if ($dataProviderContext === NULL) {
-			$pageId = (int)GeneralUtility::_GP('id');
+			$pageId = (int)($this->getPageId() !== NULL ?: GeneralUtility::_GP('id'));
 			$this->setPageTsConfig((array)BackendUtility::getPagesTSconfig($pageId));
 		} else {
 			$this->setPageTsConfig((array)$dataProviderContext->getPageTsConfig());
@@ -138,7 +161,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return void
 	 */
 	protected function generateBackendLayouts($dataProviderContext = NULL) {
-
 		$this->generatePageTsConfig($dataProviderContext);
 		$pageTsConfig = $this->getPageTsConfig();
 		if (!empty($pageTsConfig['mod.']['web_layout.']['BackendLayouts.'])) {
@@ -156,7 +178,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return mixed
 	 */
 	protected function generateBackendLayoutFromTsConfig($identifier, $data) {
-
 		if (!empty($data['config.']['backend_layout.']) && is_array($data['config.']['backend_layout.'])) {
 			$backendLayout['uid'] = substr($identifier, 0, -1);
 			$backendLayout['title'] = ($data['title']) ? $data['title'] : $backendLayout['uid'];
@@ -178,7 +199,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @param mixed $backendLayout
 	 */
 	protected function attachBackendLayout($backendLayout = NULL) {
-
 		if ($backendLayout) {
 			$this->backendLayouts[$backendLayout['uid']] = $backendLayout;
 		}
@@ -190,7 +210,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return void
 	 */
 	public function addBackendLayouts(DataProviderContext $dataProviderContext, BackendLayoutCollection $backendLayoutCollection) {
-
 		$this->generateBackendLayouts($dataProviderContext);
 		foreach ($this->backendLayouts as $backendLayoutConfig) {
 			$backendLayout = $this->createBackendLayout($backendLayoutConfig);
@@ -206,7 +225,7 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return NULL|BackendLayout
 	 */
 	public function getBackendLayout($identifier, $pageId) {
-
+		$this->setPageId($pageId);
 		$this->generateBackendLayouts();
 		$backendLayout = NULL;
 		if (array_key_exists($identifier, $this->backendLayouts)) {
@@ -222,7 +241,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return BackendLayout
 	 */
 	protected function createBackendLayout(array $data) {
-
 		$backendLayout = BackendLayout::create($data['uid'], $data['title'], $data['config']);
 		$backendLayout->setIconPath($this->getIconPath($data['icon']));
 		$backendLayout->setData($data);
@@ -236,7 +254,6 @@ class BackendLayoutDataProvider implements DataProviderInterface {
 	 * @return string
 	 */
 	protected function getIconPath($icon) {
-
 		$iconPath = '';
 		if (!empty($icon)) {
 			$iconPath = $icon;
