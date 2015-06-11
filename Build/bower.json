@@ -18,6 +18,7 @@
 	"private": true,
 	"dependencies": {
 		"jquery": "1.x",
-		"bootstrap": "3.3.4"
+		"bootstrap": "3.3.4",
+		"respond": ">= 1.4.2"
 	}
 }

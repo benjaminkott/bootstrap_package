@@ -68,6 +68,8 @@ module.exports = function(grunt) {
 					destPrefix: '<%= paths.resources %>'
 				},
 				files: {
+					// RespondJs
+					'Public/JavaScript/Libs/respond.min.js': 'respond/dest/respond.min.js',
 					// jQuery
 					'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
 					// Bootstrap
