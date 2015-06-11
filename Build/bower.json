@@ -17,6 +17,7 @@
 	"homepage": "https://github.com/benjaminkott/bootstrap_package",
 	"private": true,
 	"dependencies": {
+		"jquery": "1.x",
 		"bootstrap": "3.3.4"
 	}
 }
