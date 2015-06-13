@@ -515,10 +515,16 @@ page {
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 		main = {$page.includePath.javascript}main.min.js
 
-		#############################################
-		#### INCLUDE RESPOND JS FOR IE DINOSAURS ####
-		#############################################
-		#### NOTE : add conditional comment to cope with static cache
+		##################################################################
+		#### INCLUDE JS FOR IE DINOSAURS                              ####
+		#### NOTE : add conditional comment to cope with static cache ####
+		##################################################################
+		#### selectivizr to add css pseudo class selectors
+		selectivizr = {$page.includePath.javascript}Libs/selectivizr.min.js
+		selectivizr.allWrap = <!--[if IE 8 ]>|<![endif]-->
+		selectivizr.excludeFromConcatenation = 1
+		selectivizr.disableCompression = 1
+		#### respond to add media query support
 		respond = {$page.includePath.javascript}Libs/respond.min.js
 		respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
 		respond.excludeFromConcatenation = 1

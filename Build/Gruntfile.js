@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		paths: {
 			root: '../',
+			bower: 'bower_components/',
 			resources: '<%= paths.root %>Resources/',
 			less: '<%= paths.resources %>Private/Less/',
 			css: '<%= paths.resources %>Public/Css/',
@@ -30,6 +31,10 @@ module.exports = function(grunt) {
 				},
 				mangle: true,
 				preserveComments: 'some'
+			},
+			selectivizr: {
+				src: '<%= paths.bower %>selectivizr/selectivizr.js',
+				dest: '<%= paths.js %>Libs/selectivizr.min.js'
 			},
 			responsiveimages: {
 				src: '<%= paths.js %>Libs/jquery.responsiveimages.js',

@@ -19,6 +19,7 @@
 	"dependencies": {
 		"jquery": "1.x",
 		"bootstrap": "3.3.4",
+		"selectivizr": "master",
 		"respond": ">= 1.4.2"
 	}
 }
