@@ -66,6 +66,10 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
+			bootstrapNavbarToggle: {
+				files: '<%= paths.js %>Libs/bootstrap.navbartoggle.js',
+				tasks: 'uglify:bootstrapNavbarToggle'
+			},
 			bootstrapLightbox: {
 				files: '<%= paths.js %>Libs/bootstrap.lightbox.js',
 				tasks: 'uglify:bootstrapLightbox'
