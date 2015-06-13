@@ -32,6 +32,10 @@ module.exports = function(grunt) {
 				mangle: true,
 				preserveComments: 'some'
 			},
+			bootstrapNavbarToggle: {
+				src: '<%= paths.js %>Libs/bootstrap.navbartoggle.js',
+				dest: '<%= paths.js %>Libs/bootstrap.navbartoggle.min.js'
+			},
 			selectivizr: {
 				src: '<%= paths.bower %>selectivizr/selectivizr.js',
 				dest: '<%= paths.js %>Libs/selectivizr.min.js'

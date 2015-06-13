@@ -1,15 +1,5 @@
 $(function () {
 
-	// MENU
-	$('.navbar-collapse').on('show.bs.collapse', function () {
-		toggleIcon = $('.navbar-toggle-menu .glyphicon');
-		toggleIcon.addClass('glyphicon-remove').removeClass('glyphicon-list');
-	});
-	$('.navbar-collapse').on('hide.bs.collapse', function () {
-		toggleIcon = $('.navbar-toggle-menu .glyphicon');
-		toggleIcon.removeClass('glyphicon-remove').addClass('glyphicon-list');
-	});
-
 	// LIGHTBOX PREPARATION
 	if ($('a.lightbox').length > 0) {
 		var $lightboxModal = "\

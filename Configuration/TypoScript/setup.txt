@@ -515,6 +515,9 @@ page {
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 		main = {$page.includePath.javascript}main.min.js
 
+		#### Toggle collapsed CSS class on the navbar toggle button
+		bootstrap_navbartoggle = {$page.includePath.javascript}Libs/bootstrap.navbartoggle.min.js
+
 		##################################################################
 		#### INCLUDE JS FOR IE DINOSAURS                              ####
 		#### NOTE : add conditional comment to cope with static cache ####

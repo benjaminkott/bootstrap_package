@@ -28,16 +28,6 @@
 			opacity: 0.8;
 		}
 	}
-	.navbar-toggle {
-		color: @navbar-default-toggle-icon-bar-bg;
-		.navbar-vertical-align(42px);
-		font-size: 20px;
-		padding: 6px 10px;
-		margin-right: 5px;
-		&:focus {
-			outline: 0;
-		}
-	}
 	.navbar-header-border-bottom {
 		display: none;
 		left: 50%;
@@ -199,6 +189,60 @@
 				}
 			}
 		}
+	}
+}
+
+
+//
+// Navbar Toggle
+// --------------------------------------------------
+.navbar-toggle {
+	height: 34px;
+	width: 34px;
+	padding: 0;
+	.icon-bar {
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		margin-top: -1px;
+		.transition(all 0.3s ease-in-out);
+		&:nth-child(2) {
+			margin-top: -1px;
+			.rotate(-45deg);
+		}
+		&:nth-child(3) {
+			margin-top: -1px;
+			opacity: 0;
+		}
+		&:nth-child(4) {
+			margin-top: -1px;
+			.rotate(45deg);
+		}
+	}
+	&.collapsed {
+		.icon-bar {
+			&:nth-child(2) {
+				margin-top: -7px;
+				.rotate(0deg);
+			}
+			&:nth-child(3) {
+				opacity: 1;
+			}
+			&:nth-child(4) {
+				margin-top: 5px;
+				.rotate(0deg);
+			}
+		}
+	}
+	&:hover {
+		.icon-bar {
+			&:nth-child(3) {
+				margin-left: 2px;
+			}
+		}
+	}
+	&:focus {
+		outline: 0;
 	}
 }
 
