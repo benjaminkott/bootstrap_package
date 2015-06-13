@@ -513,8 +513,9 @@ page {
 		jquery.forceOnTop = 1
 		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
-		main = {$page.includePath.javascript}main.min.js
 
+		#### Basic lightbox implementation for bootstrap
+		bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
 		#### Toggle collapsed CSS class on the navbar toggle button
 		bootstrap_navbartoggle = {$page.includePath.javascript}Libs/bootstrap.navbartoggle.min.js
 

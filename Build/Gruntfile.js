@@ -36,6 +36,10 @@ module.exports = function(grunt) {
 				src: '<%= paths.js %>Libs/bootstrap.navbartoggle.js',
 				dest: '<%= paths.js %>Libs/bootstrap.navbartoggle.min.js'
 			},
+			bootstrapLightbox: {
+				src: '<%= paths.js %>Libs/bootstrap.lightbox.js',
+				dest: '<%= paths.js %>Libs/bootstrap.lightbox.min.js'
+			},
 			selectivizr: {
 				src: '<%= paths.bower %>selectivizr/selectivizr.js',
 				dest: '<%= paths.js %>Libs/selectivizr.min.js'
@@ -47,19 +51,25 @@ module.exports = function(grunt) {
 			viewportfix: {
 				src: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
 				dest: '<%= paths.js %>Libs/windowsphone-viewportfix.min.js'
-			},
-			main: {
-				src: '<%= paths.js %>main.js',
-				dest: '<%= paths.js %>main.min.js'
 			}
 		},
 		less: {
 			theme: {
+				options: {
+					sourceMap: true,
+					outputSourceFiles: true,
+					sourceMapURL: 'theme.css.map',
+					sourceMapFilename: '<%= paths.css %>theme.css.map'
+				},
 				src: '<%= paths.less %>Theme/theme.less',
 				dest: '<%= paths.css %>theme.css'
 			}
 		},
 		watch: {
+			bootstrapLightbox: {
+				files: '<%= paths.js %>Libs/bootstrap.lightbox.js',
+				tasks: 'uglify:bootstrapLightbox'
+			},
 			responsiveimages: {
 				files: '<%= paths.js %>Libs/jquery.responsiveimages.js',
 				tasks: 'uglify:responsiveimages'
@@ -67,10 +77,6 @@ module.exports = function(grunt) {
 			viewportfix: {
 				files: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
 				tasks: 'uglify:viewportfix'
-			},
-			main: {
-				files: '<%= paths.js %>main.js',
-				tasks: 'uglify:main'
 			},
 			less: {
 				files: '<%= paths.less %>**/*.less',

@@ -1,16 +1,18 @@
 $(function () {
 
-	// LIGHTBOX PREPARATION
+	/**
+	 * Basic lightbox implementation based on Bootstrap modals
+	 */
 	if ($('a.lightbox').length > 0) {
-		var $lightboxModal = "\
-			<div class='modal fade' id='lightbox' tabindex='-1' role='dialog' aria-hidden='true'>\
-				<div class='modal-dialog modal-lightbox'>\
-					<div class='modal-content'>\
-						<div class='modal-body'></div>\
+		var $lightboxModal = '\
+			<div class="modal fade" id="lightbox" tabindex="-1" role="dialog" aria-hidden="true">\
+				<div class="modal-dialog modal-lightbox">\
+					<div class="modal-content">\
+						<div class="modal-body"></div>\
 					</div>\
 				</div>\
 			</div>\
-		";
+		';
 		$('body').append($lightboxModal);
 		$('.lightbox').click(function (event) {
 			event.preventDefault();
