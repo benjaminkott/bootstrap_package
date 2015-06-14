@@ -594,7 +594,7 @@ tt_content.image.20 {
 	addClassesCol.override =
 	addClassesCol.override.if {
 		isGreaterThan.field = imagecols
-		value = 1
+		value = 0
 	}
 
 	addClassesImage >
