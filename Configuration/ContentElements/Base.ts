@@ -89,21 +89,26 @@ lib.dynamicContent {
 				ifEmpty = 0
 			}
 		}
-
 		pageUid.cObject = TEXT
 		pageUid.cObject {
 			field = pageUid
 			ifEmpty.data = TSFE:id
 		}
+		contentFromPid.cObject = TEXT
+		contentFromPid.cObject {
+			data = DB:pages:{register:pageUid}:content_from_pid
+			data.insertData = 1
+		}
 	}
-
 	20 < styles.content.get
-	20.select.where = colPos={register:colPos}
-	20.select.where.insertData = 1
-	20.select.pidInList.data = register:pageUid
+	20.select {
+		where = colPos={register:colPos}
+		where.insertData = 1
+		pidInList.data = register:pageUid
+		pidInList.override.data = register:contentFromPid
+	}
 	90 = RESTORE_REGISTER
 }
-
 lib.dynamicContentSlide =< lib.dynamicContent
 lib.dynamicContentSlide.20.slide = -1
 
