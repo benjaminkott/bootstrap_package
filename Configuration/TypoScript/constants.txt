@@ -34,6 +34,8 @@ page {
 		navigationtype =
 		# cat=bootstrap package: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
 		breadcrumb = 1
+		# cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
+		breadcrumbEnableLevel = 2
 		copyright {
 			# cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
 			enable = 1

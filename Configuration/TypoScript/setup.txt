@@ -196,12 +196,9 @@ lib.navigation.subnavigation {
 		3 < .2
     }
 }
-
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
 	lib.navigation.breadcrumb = COA
 	lib.navigation.breadcrumb {
-		required = 1
-		wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
 		10 = HMENU
 		10 {
 			special = rootline
@@ -227,12 +224,23 @@ lib.navigation.subnavigation {
 				}
 			}
 		}
+		stdWrap {
+			required = 1
+			wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
+		}
+		if {
+			value = {$page.theme.breadcrumbEnableLevel}
+			value {
+				insertData = 1
+				prioriCalc = 1
+				stdWrap.wrap = |-1
+			}
+			isGreaterThan {
+				data = level
+			}
+		}
 	}
-[end]
-
-[treeLevel = 0] || [treeLevel = 1]
-	lib.navigation.breadcrumb >
-[end]
+[global]
 
 
 ####################
