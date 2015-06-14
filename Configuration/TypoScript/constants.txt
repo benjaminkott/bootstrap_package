@@ -115,8 +115,6 @@ page {
 ### CONFIG ###
 ##############
 config {
-	# cat=bootstrap package: advanced/150/100; type=string; label=BaseURL: This will override the default automatic BaseURL determination
-	baseURL =
 	# cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
 	no_cache = 0
 	# cat=bootstrap package: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript

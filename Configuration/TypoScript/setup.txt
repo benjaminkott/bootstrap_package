@@ -282,10 +282,6 @@ page {
 	typeNum = 0
 	shortcutIcon = {$page.includePath.icons}favicon.ico
 
-	// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
-	// This is sadly needed to get automatic baseurl setting to work
-	headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
-
 	headerData {
 		// Flip ahead browsing for IE10/11
 		// http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
@@ -319,7 +315,6 @@ page {
 				references {
 					data = levelfield:-1, media, slide
 				}
-
 				maxItems = 1
 				renderObj = TEXT
 				renderObj {
@@ -494,6 +489,10 @@ page {
 		author.override.field = author
 		keywords = {$page.meta.keywords}
 		keywords.override.field = keywords
+		X-UA-Compatible = {$page.meta.compatible}
+		X-UA-Compatible {
+			httpEquivalent = 1
+		}
 	}
 
 	includeCSS {
@@ -586,6 +585,7 @@ page {
 #### CONFIG ####
 ################
 config {
+	absRefPrefix = auto
 	no_cache = {$config.no_cache}
 	uniqueLinkVars = 1
 	pageTitleFirst = 1
@@ -606,41 +606,6 @@ config {
 	index_enable = 1
 	index_externals = 1
 	headerComment = {$config.headerComment}
-
-	// Set the headTag again and get an automatic baseURL if config.baseURL is not set
-	htmlTag_stdWrap {
-		setContentToCurrent = 1
-		cObject = COA
-		cObject {
-			10 = LOAD_REGISTER
-			10 {
-				newLine.char = 10
-				tagEnd {
-					current = 1
-					split.max = 2
-					split.token = <html
-					split.returnKey = 1
-				}
-			}
-
-			20 = TEXT
-			20 {
-				value = <html {register:tagEnd}
-				wrap = |{register:newLine}
-				insertData = 1
-			}
-
-			30 < .20
-			30.value = <head>
-			40 = TEXT
-			40 {
-				data = getIndpEnv:TYPO3_SITE_URL
-				override = {$config.baseURL}
-				wrap = <base href="|">{register:newLine}
-				insertData = 1
-			}
-		}
-	}
 
 	// Enable RealUrl
 	tx_realurl_enable = 1
@@ -690,7 +655,58 @@ config {
 #### TYPO3 6.2 COMPATIBILITY ####
 #################################
 [userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7000000)]
-page {
-	includeJSlibs < page.includeJSLibs
-}
+
+	#########################################################
+	#### Solve deprecation of page.includeJSlibs in CMS7 ####
+	#########################################################
+	page {
+		includeJSlibs < page.includeJSLibs
+	}
+
+	#########################################################
+	#### Use automatic baseUrl generation since          ####
+	#### absRefPrefix = auto is not available in  6.2    ####
+	#########################################################
+	page {
+		// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+		// This is sadly needed to get automatic baseurl setting to work
+		headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
+		meta.X-UA-Compatible >
+	}
+	config {
+		absRefPrefix >
+		// Set the headTag again and get an automatic baseURL if config.baseURL is not set
+		htmlTag_stdWrap {
+			setContentToCurrent = 1
+			cObject = COA
+			cObject {
+				10 = LOAD_REGISTER
+				10 {
+					newLine.char = 10
+					tagEnd {
+						current = 1
+						split.max = 2
+						split.token = <html
+						split.returnKey = 1
+					}
+				}
+				20 = TEXT
+				20 {
+					value = <html {register:tagEnd}
+					wrap = |{register:newLine}
+					insertData = 1
+				}
+				30 < .20
+				30.value = <head>
+				40 = TEXT
+				40 {
+					data = getIndpEnv:TYPO3_SITE_URL
+					#override = {$config.baseURL}
+					wrap = <base href="|">{register:newLine}
+					insertData = 1
+				}
+			}
+		}
+	}
+
 [global]
