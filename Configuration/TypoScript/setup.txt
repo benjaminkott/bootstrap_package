@@ -709,7 +709,6 @@ config {
 				40 = TEXT
 				40 {
 					data = getIndpEnv:TYPO3_SITE_URL
-					#override = {$config.baseURL}
 					wrap = <base href="|">{register:newLine}
 					insertData = 1
 				}
@@ -718,3 +717,18 @@ config {
 	}
 
 [global]
+
+
+########################
+#### PAGETYPE POPUP ####
+########################
+popup < page
+popup {
+	typeNum = 1000
+	10 {
+		variables {
+			showHeader.value = 0
+			showFooter.value = 0
+		}
+	}
+}
