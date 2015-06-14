@@ -95,6 +95,7 @@ lib.language {
 	wrap = <ul id="language_menu" class="language-menu">|</ul>
 }
 
+
 ####################
 #### NAVIGATION ####
 ####################
@@ -502,7 +503,7 @@ page {
 		theme = EXT:bootstrap_package/Resources/Private/Less/Theme/theme.less
 	}
 
-	includeJSlibs {
+	includeJSLibs {
 		modernizr = {$page.includePath.javascript}Libs/modernizr-2.8.3.min.js
 		modernizr.forceOnTop = 1
 		wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
@@ -570,6 +571,7 @@ page {
 		}
 	}
 }
+
 
 ###################################################
 #### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
@@ -662,6 +664,7 @@ config {
 	concatenateCss = {$config.concatenateCss}
 }
 
+
 #############################
 #### LANGUAGE CONDITIONS ####
 #############################
@@ -680,4 +683,14 @@ config {
 		locale_all = da_DK.UTF-8
 		htmlTag_setParams = lang="da" dir="ltr" class="no-js"
 	}
+[global]
+
+
+#################################
+#### TYPO3 6.2 COMPATIBILITY ####
+#################################
+[userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7000000)]
+page {
+	includeJSlibs < page.includeJSLibs
+}
 [global]
