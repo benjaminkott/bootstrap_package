@@ -522,6 +522,9 @@ page {
 		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
 		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 
+		#### Add swipe support for boostrap components
+		hammerjs = {$page.includePath.javascript}Libs/hammer.min.js
+		bootstrap_swipe = {$page.includePath.javascript}Libs/bootstrap.swipe.min.js
 		#### Basic lightbox implementation for bootstrap
 		bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
 		#### Toggle collapsed CSS class on the navbar toggle button

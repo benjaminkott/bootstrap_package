@@ -40,6 +40,10 @@ module.exports = function(grunt) {
 				src: '<%= paths.js %>Libs/bootstrap.lightbox.js',
 				dest: '<%= paths.js %>Libs/bootstrap.lightbox.min.js'
 			},
+			bootstrapSwipe: {
+				src: '<%= paths.js %>Libs/bootstrap.swipe.js',
+				dest: '<%= paths.js %>Libs/bootstrap.swipe.min.js'
+			},
 			selectivizr: {
 				src: '<%= paths.bower %>selectivizr/selectivizr.js',
 				dest: '<%= paths.js %>Libs/selectivizr.min.js'
@@ -74,6 +78,10 @@ module.exports = function(grunt) {
 				files: '<%= paths.js %>Libs/bootstrap.lightbox.js',
 				tasks: 'uglify:bootstrapLightbox'
 			},
+			bootstrapSwipe: {
+				files: '<%= paths.js %>Libs/bootstrap.swipe.js',
+				tasks: 'uglify:bootstrapSwipe'
+			},
 			responsiveimages: {
 				files: '<%= paths.js %>Libs/jquery.responsiveimages.js',
 				tasks: 'uglify:responsiveimages'
@@ -103,6 +111,8 @@ module.exports = function(grunt) {
 					'Public/JavaScript/Libs/respond.min.js': 'respond/dest/respond.min.js',
 					// jQuery
 					'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
+					// hammer.js
+					'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
 					// Bootstrap
 					'Public/Less/Bootstrap': 'bootstrap/less',
 					'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
