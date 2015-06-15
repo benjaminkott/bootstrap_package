@@ -129,7 +129,7 @@
 
 			if (!data) {
 				if (!viewport) viewport = new ViewPort(options && options.breakpoints ? {breakpoints:options.breakpoints} : {});
-				
+
 				if (options && options.breakpoints) options.breakpoints = null;
 				options = $.extend({}, $this.data(), options);
 
