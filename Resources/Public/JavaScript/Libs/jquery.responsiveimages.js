@@ -38,7 +38,7 @@
 
 	ViewPort.prototype.viewportH = function() {
 		var clientHeight = document.documentElement['clientHeight'], innerHeight = window['innerHeight'];
-		return this.viewporHeight = clientHeight < innerHeight ? innerHeight : clientHeight;
+		return this.viewportHeight = clientHeight < innerHeight ? innerHeight : clientHeight;
 	};
 
 	ViewPort.prototype.inviewport = function(boundingbox) {
