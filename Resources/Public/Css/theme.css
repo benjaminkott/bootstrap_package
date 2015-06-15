@@ -6678,16 +6678,9 @@ a:hover {
 body,
 .htmlarea-content-body {
   position: relative;
-  background-color: #333333;
-}
-.body-bg {
-  background-color: #ffffff;
-  overflow: hidden;
-  zoom: 1;
 }
 .htmlarea-content-body {
   padding: 20px;
-  background-color: #ffffff;
 }
 .body-bg-top {
   padding-top: 70px;

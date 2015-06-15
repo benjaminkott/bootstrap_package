@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 			root: '../',
 			bower: 'bower_components/',
 			resources: '<%= paths.root %>Resources/',
-			less: '<%= paths.resources %>Private/Less/',
+			less: '<%= paths.resources %>Public/Less/',
 			css: '<%= paths.resources %>Public/Css/',
 			js: '<%= paths.resources %>Public/JavaScript/'
 		},
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 					// jQuery
 					'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
 					// Bootstrap
-					'Private/Less/Bootstrap': 'bootstrap/less',
+					'Public/Less/Bootstrap': 'bootstrap/less',
 					'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
 				}
 			}
