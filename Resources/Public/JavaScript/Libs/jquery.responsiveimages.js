@@ -15,8 +15,8 @@
 	// ================================
 	var viewport;
 	var ViewPort = function(options){
-		this.width  = 0;
-		this.height = 0;
+		this.viewportWidth  = 0;
+		this.viewportHeight = 0;
 		this.options  = $.extend({}, ViewPort.DEFAULTS, options);
 		this.attrib = "src";
 		this.update();
@@ -33,23 +33,23 @@
 
 	ViewPort.prototype.viewportW = function() {
 		var clientWidth = document.documentElement['clientWidth'], innerWidth = window['innerWidth'];
-		return this.width = clientWidth < innerWidth ? innerWidth : clientWidth;
+		return this.viewportWidth = clientWidth < innerWidth ? innerWidth : clientWidth;
 	};
 
 	ViewPort.prototype.viewportH = function() {
 		var clientHeight = document.documentElement['clientHeight'], innerHeight = window['innerHeight'];
-		return this.height = clientHeight < innerHeight ? innerHeight : clientHeight;
+		return this.viewporHeight = clientHeight < innerHeight ? innerHeight : clientHeight;
 	};
 
 	ViewPort.prototype.inviewport = function(boundingbox) {
-		return !!boundingbox && boundingbox.bottom >= 0 && boundingbox.right >= 0 && boundingbox.top <= this.height && boundingbox.left <= this.width;
+		return !!boundingbox && boundingbox.bottom >= 0 && boundingbox.right >= 0 && boundingbox.top <= this.viewportHeight && boundingbox.left <= this.viewportWidth;
 	};
 
 	ViewPort.prototype.update = function(){
 		this.viewportH();
 		this.viewportW();
 		var attrib  = this.attrib,
-			width   = this.width;
+			width   = this.viewportWidth;
 
 		$.each(this.options.breakpoints, function (breakpoint, datakey) {
 			if (width >= breakpoint) {
@@ -129,7 +129,7 @@
 
 			if (!data) {
 				if (!viewport) viewport = new ViewPort(options && options.breakpoints ? {breakpoints:options.breakpoints} : {});
-
+				
 				if (options && options.breakpoints) options.breakpoints = null;
 				options = $.extend({}, $this.data(), options);
 
