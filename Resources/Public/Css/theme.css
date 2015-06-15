@@ -6679,6 +6679,10 @@ body,
 .htmlarea-content-body {
   position: relative;
 }
+.body-bg {
+  overflow: hidden;
+  zoom: 1;
+}
 .htmlarea-content-body {
   padding: 20px;
 }
