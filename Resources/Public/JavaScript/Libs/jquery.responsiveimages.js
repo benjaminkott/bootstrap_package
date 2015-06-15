@@ -166,7 +166,7 @@
 				$lazyload.responsiveimage('unveil');
 			})
 			.on('resize.bk2k.responsiveimage', function(){
-				viewport.update();
+				if (viewport) viewport.update();
 				$lazyload.responsiveimage('checkviewport');
 			});
 	});
