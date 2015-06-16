@@ -255,8 +255,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../../Public/Fonts/glyphicons-halflings-regular.eot');
-  src: url('../../Public/Fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../Public/Fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../../Public/Fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../Public/Fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../Public/Fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../Fonts/glyphicons-halflings-regular.eot');
+  src: url('../Fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../Fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../Fonts/glyphicons-halflings-regular.woff') format('woff'), url('../Fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../Fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -6773,29 +6773,29 @@ button.close {
   font-family: 'Share';
   font-style: normal;
   font-weight: 400;
-  src: url('../../Public/Fonts/share-regular-webfont-webfont.eot');
-  src: url('../../Public/Fonts/share-regular-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../../Public/Fonts/share-regular-webfont-webfont.woff') format('woff'), url('../../Public/Fonts/share-regular-webfont-webfont.ttf') format('truetype');
+  src: url('../Fonts/share-regular-webfont-webfont.eot');
+  src: url('../Fonts/share-regular-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-regular-webfont-webfont.woff') format('woff'), url('../Fonts/share-regular-webfont-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Share';
   font-style: italic;
   font-weight: 400;
-  src: url('../../Public/Fonts/share-italic-webfont-webfont.eot');
-  src: url('../../Public/Fonts/share-italic-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../../Public/Fonts/share-italic-webfont-webfont.woff') format('woff'), url('../../Public/Fonts/share-italic-webfont-webfont.ttf') format('truetype');
+  src: url('../Fonts/share-italic-webfont-webfont.eot');
+  src: url('../Fonts/share-italic-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-italic-webfont-webfont.woff') format('woff'), url('../Fonts/share-italic-webfont-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Share';
   font-style: normal;
   font-weight: 500;
-  src: url('../../Public/Fonts/share-bold-webfont-webfont.eot');
-  src: url('../../Public/Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../../Public/Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../../Public/Fonts/share-bold-webfont-webfont.ttf') format('truetype');
+  src: url('../Fonts/share-bold-webfont-webfont.eot');
+  src: url('../Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../Fonts/share-bold-webfont-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Share';
   font-style: normal;
   font-weight: bold;
-  src: url('../../Public/Fonts/share-bold-webfont-webfont.eot');
-  src: url('../../Public/Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../../Public/Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../../Public/Fonts/share-bold-webfont-webfont.ttf') format('truetype');
+  src: url('../Fonts/share-bold-webfont-webfont.eot');
+  src: url('../Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../Fonts/share-bold-webfont-webfont.ttf') format('truetype');
 }
 @media (min-width: 992px) {
   h1.awesome,

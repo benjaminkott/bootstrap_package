@@ -75,7 +75,7 @@ class CompileService {
 					$variables = array();
 				}
 				$files = array();
-				$files[$file] = "";
+				$files[$file] = '../../' . str_replace(PATH_site, '', dirname($file)). '/';
 				$compiledFile = \Less_Cache::Get($files, $options, $variables);
 				$file = "typo3temp/bootstrappackage/" . $compiledFile;
 
