@@ -19,7 +19,7 @@
 	"dependencies": {
 		"jquery": "1.x",
 		"hammerjs": "2.0.4",
-		"bootstrap": "3.3.4",
+		"bootstrap": "3.3.5",
 		"selectivizr": "master",
 		"respond": ">= 1.4.2"
 	}

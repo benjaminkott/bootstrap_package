@@ -1,5 +1,5 @@
 #######################
-### BOOTSTRAP 3.3.4 ###
+### BOOTSTRAP 3.3.5 ###
 #######################
 
 ############################
@@ -210,6 +210,12 @@ plugin.bootstrap_package {
 			btn-danger-border = darken(@btn-danger-bg, 5%)
 			# cat=bootstrap package: styling/306/btn-link-disabled-color; type=string; label=@btn-link-disabled-color:
 			btn-link-disabled-color = @gray-light
+			# cat=bootstrap package: styling/306/btn-border-radius-base; type=string; label=@btn-border-radius-base:
+			btn-border-radius-base = @border-radius-base
+			# cat=bootstrap package: styling/306/btn-border-radius-large; type=string; label=@btn-border-radius-large:
+			btn-border-radius-large = @border-radius-large
+			# cat=bootstrap package: styling/306/btn-border-radius-small; type=string; label=@btn-border-radius-small:
+			btn-border-radius-small = @border-radius-small
 			# cat=bootstrap package: styling/307/input-bg; type=string; label=@input-bg: `<input>` background color
 			input-bg = #fff
 			# cat=bootstrap package: styling/307/input-bg-disabled; type=string; label=@input-bg-disabled: `<input disabled>` background color
@@ -486,6 +492,8 @@ plugin.bootstrap_package {
 			jumbotron-heading-color = inherit
 			# cat=bootstrap package: styling/319/jumbotron-font-size; type=string; label=@jumbotron-font-size:
 			jumbotron-font-size = ceil((@font-size-base * 1.5))
+			# cat=bootstrap package: styling/319/jumbotron-heading-font-size; type=string; label=@jumbotron-heading-font-size:
+			jumbotron-heading-font-size = ceil((@font-size-base * 4.5))
 			# cat=bootstrap package: styling/320/state-success-text; type=string; label=@state-success-text:
 			state-success-text = #3c763d
 			# cat=bootstrap package: styling/320/state-success-bg; type=string; label=@state-success-bg:
