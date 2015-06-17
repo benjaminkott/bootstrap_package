@@ -115,6 +115,7 @@ module.exports = function(grunt) {
 					'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
 					// Bootstrap
 					'Public/Less/Bootstrap': 'bootstrap/less',
+					'Public/Fonts': 'bootstrap/fonts',
 					'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
 				}
 			}
