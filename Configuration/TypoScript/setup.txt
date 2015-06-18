@@ -341,71 +341,61 @@ page {
 
 	10 = FLUIDTEMPLATE
 	10 {
-		file.stdWrap.cObject = CASE
-		file.stdWrap.cObject {
+		templateRootPaths {
+			0 = {$page.fluidtemplate.templateRootPath}
+		}
+
+		templateName = TEXT
+		templateName.stdWrap.cObject = CASE
+		templateName.stdWrap.cObject {
 			key.data = levelfield:-1, backend_layout_next_level, slide
 			key.override.field = backend_layout
 
 			bootstrap_package__default_clean = TEXT
-			bootstrap_package__default_clean.value = {$page.fluidtemplate.templateRootPath}DefaultClean.html
-			bootstrap_package__default_clean.insertData = 1
+			bootstrap_package__default_clean.value = DefaultClean
 
 			bootstrap_package__default_2_columns = TEXT
-			bootstrap_package__default_2_columns.value = {$page.fluidtemplate.templateRootPath}Default2Columns.html
-			bootstrap_package__default_2_columns.insertData = 1
+			bootstrap_package__default_2_columns.value = Default2Columns
 
 			bootstrap_package__default_2_columns_25_75 = TEXT
-			bootstrap_package__default_2_columns_25_75.value = {$page.fluidtemplate.templateRootPath}Default2Columns2575.html
-			bootstrap_package__default_2_columns_25_75.insertData = 1
+			bootstrap_package__default_2_columns_25_75.value = Default2Columns2575
 
 			bootstrap_package__default_2_columns_50_50 = TEXT
-			bootstrap_package__default_2_columns_50_50.value = {$page.fluidtemplate.templateRootPath}Default2Columns5050.html
-			bootstrap_package__default_2_columns_50_50.insertData = 1
+			bootstrap_package__default_2_columns_50_50.value = Default2Columns5050
 
 			bootstrap_package__default_2_columns_offset_right = TEXT
-			bootstrap_package__default_2_columns_offset_right.value = {$page.fluidtemplate.templateRootPath}Default2ColumnsOffsetRight.html
-			bootstrap_package__default_2_columns_offset_right.insertData = 1
+			bootstrap_package__default_2_columns_offset_right.value = Default2ColumnsOffsetRight
 
 			bootstrap_package__default_3_columns = TEXT
-			bootstrap_package__default_3_columns.value = {$page.fluidtemplate.templateRootPath}Default3Columns.html
-			bootstrap_package__default_3_columns.insertData = 1
+			bootstrap_package__default_3_columns.value = Default3Columns
 
 			bootstrap_package__default_subnavigation_right = TEXT
-			bootstrap_package__default_subnavigation_right.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
-			bootstrap_package__default_subnavigation_right.insertData = 1
+			bootstrap_package__default_subnavigation_right.value = DefaultSubNavRight
 
 			bootstrap_package__default_subnavigation_right_2_columns = TEXT
-			bootstrap_package__default_subnavigation_right_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
-			bootstrap_package__default_subnavigation_right_2_columns.insertData = 1
+			bootstrap_package__default_subnavigation_right_2_columns.value = DefaultSubNavRight2Columns
 
 			bootstrap_package__default_subnavigation_left = TEXT
-			bootstrap_package__default_subnavigation_left.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft.html
-			bootstrap_package__default_subnavigation_left.insertData = 1
+			bootstrap_package__default_subnavigation_left.value = DefaultSubNavLeft
 
 			bootstrap_package__default_subnavigation_left_2_columns = TEXT
-			bootstrap_package__default_subnavigation_left_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavLeft2Columns.html
-			bootstrap_package__default_subnavigation_left_2_columns.insertData = 1
+			bootstrap_package__default_subnavigation_left_2_columns.value = DefaultSubNavLeft2Columns
 
 			bootstrap_package__special_start = TEXT
-			bootstrap_package__special_start.value = {$page.fluidtemplate.templateRootPath}SpecialStart.html
-			bootstrap_package__special_start.insertData = 1
+			bootstrap_package__special_start.value = SpecialStart
 
 			bootstrap_package__special_feature = TEXT
-			bootstrap_package__special_feature.value = {$page.fluidtemplate.templateRootPath}SpecialFeature.html
-			bootstrap_package__special_feature.insertData = 1
+			bootstrap_package__special_feature.value = SpecialFeature
 
 			default = TEXT
-			default.value = {$page.fluidtemplate.templateRootPath}Default.html
-			default.insertData = 1
+			default.value = Default
 
 			## DEPRECATED - KEEP FOR FALLBACK ##
 			bootstrap_package__default_subnavigation = TEXT
-			bootstrap_package__default_subnavigation.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight.html
-			bootstrap_package__default_subnavigation.insertData = 1
+			bootstrap_package__default_subnavigation.value = DefaultSubNavRight
 
 			bootstrap_package__default_subnavigation_2_columns = TEXT
-			bootstrap_package__default_subnavigation_2_columns.value = {$page.fluidtemplate.templateRootPath}DefaultSubNavRight2Columns.html
-			bootstrap_package__default_subnavigation_2_columns.insertData = 1
+			bootstrap_package__default_subnavigation_2_columns.value = DefaultSubNavRight2Columns
 		}
 
 		partialRootPath = {$page.fluidtemplate.partialRootPath}
@@ -658,6 +648,23 @@ config {
 		language = da
 		locale_all = da_DK.UTF-8
 		htmlTag_setParams = lang="da" dir="ltr" class="no-js"
+	}
+[global]
+
+
+###################################
+#### TYPO3 < 7.3 COMPATIBILITY ####
+###################################
+[userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7003000)]
+	includeLibs.templateName = EXT:bootstrap_package/Classes/Utility/TemplateFileResolver.php
+
+	page.10 {
+		templateName.stdWrap {
+			postUserFunc = user_getTemplateFromName
+			postUserFunc.paths =< page.10.templateRootPaths
+		}
+		file < page.10.templateName
+		templateName >
 	}
 [global]
 
