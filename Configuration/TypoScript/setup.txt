@@ -341,10 +341,6 @@ page {
 
 	10 = FLUIDTEMPLATE
 	10 {
-		templateRootPaths {
-			0 = {$page.fluidtemplate.templateRootPath}
-		}
-
 		templateName = TEXT
 		templateName.stdWrap.cObject = CASE
 		templateName.stdWrap.cObject {
@@ -398,8 +394,19 @@ page {
 			bootstrap_package__default_subnavigation_2_columns.value = DefaultSubNavRight2Columns
 		}
 
-		partialRootPath = {$page.fluidtemplate.partialRootPath}
-		layoutRootPath = {$page.fluidtemplate.layoutRootPath}
+		templateRootPaths {
+			0 = EXT:bootstrap_package/Resources/Private/Templates/Page/
+			1 = {$page.fluidtemplate.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:bootstrap_package/Resources/Private/Partials/Page/
+			1 = {$page.fluidtemplate.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+			1 = {$page.fluidtemplate.layoutRootPath}
+		}
+
 		variables {
 			onePage = TEXT
 			onePage.value = 0
@@ -656,12 +663,10 @@ config {
 #### TYPO3 < 7.3 COMPATIBILITY ####
 ###################################
 [userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7003000)]
-	includeLibs.templateName = EXT:bootstrap_package/Classes/Utility/TemplateFileResolver.php
-
 	page.10 {
 		file < page.10.templateName
 		file.stdWrap {
-			postUserFunc = user_getTemplateFromName
+			postUserFunc = \BK2K\BootstrapPackage\Utility\TemplateFileResolver->getTemplateFromName
 			postUserFunc.paths =< page.10.templateRootPaths
 		}
 	}
