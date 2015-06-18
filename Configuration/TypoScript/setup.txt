@@ -385,13 +385,6 @@ page {
 
 			default = TEXT
 			default.value = Default
-
-			## DEPRECATED - KEEP FOR FALLBACK ##
-			bootstrap_package__default_subnavigation = TEXT
-			bootstrap_package__default_subnavigation.value = DefaultSubNavRight
-
-			bootstrap_package__default_subnavigation_2_columns = TEXT
-			bootstrap_package__default_subnavigation_2_columns.value = DefaultSubNavRight2Columns
 		}
 
 		templateRootPaths {
