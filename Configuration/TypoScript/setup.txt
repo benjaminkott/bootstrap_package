@@ -659,12 +659,11 @@ config {
 	includeLibs.templateName = EXT:bootstrap_package/Classes/Utility/TemplateFileResolver.php
 
 	page.10 {
-		templateName.stdWrap {
+		file < page.10.templateName
+		file.stdWrap {
 			postUserFunc = user_getTemplateFromName
 			postUserFunc.paths =< page.10.templateRootPaths
 		}
-		file < page.10.templateName
-		templateName >
 	}
 [global]
 
