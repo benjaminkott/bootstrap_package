@@ -46,9 +46,17 @@ tt_content.image.20.1 {
 	params = class="lazyload"
 }
 
-#################
-#### CONTENT ####
-#################
+################################################
+#### DYNAMIC CONTENT LIB FOR USAGE IN FLUID ####
+################################################
+#
+#  EXAMPLE
+#  ---------------
+#  <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0', wrap: '<div>|</div>'}" />
+#
+#
+#  COLUMN NUMBES
+#  ---------------
 #
 #  0  = main
 #  1  = left
@@ -99,13 +107,23 @@ lib.dynamicContent {
 			data = DB:pages:{register:pageUid}:content_from_pid
 			data.insertData = 1
 		}
+		wrap.cObject = TEXT
+		wrap.cObject {
+			field = wrap
+		}
 	}
 	20 < styles.content.get
-	20.select {
-		where = colPos={register:colPos}
-		where.insertData = 1
-		pidInList.data = register:pageUid
-		pidInList.override.data = register:contentFromPid
+	20 {
+		select {
+			where = colPos={register:colPos}
+			where.insertData = 1
+			pidInList.data = register:pageUid
+			pidInList.override.data = register:contentFromPid
+		}
+		stdWrap {
+			dataWrap = {register:wrap}
+			required = 1
+		}
 	}
 	90 = RESTORE_REGISTER
 }
