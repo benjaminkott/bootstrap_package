@@ -50,6 +50,7 @@ class Typo3VersionCondition {
 	 */
 	public function match($operator = NULL, $value = NULL) {
 		$result = FALSE;
+		$value = intval($value);
 		$version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
 		if ($value) {
 			if ($operator === "equals" && $version === $value) {
