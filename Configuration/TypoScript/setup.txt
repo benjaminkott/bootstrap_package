@@ -659,7 +659,7 @@ config {
 	page.10 {
 		file < page.10.templateName
 		file.stdWrap {
-			postUserFunc = \BK2K\BootstrapPackage\Utility\TemplateFileResolver->getTemplateFromName
+			postUserFunc = \BK2K\BootstrapPackage\UserFunc\TemplateFileResolver->getTemplateFromName
 			postUserFunc.paths =< page.10.templateRootPaths
 		}
 	}
