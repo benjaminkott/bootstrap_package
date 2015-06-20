@@ -93,17 +93,28 @@ return array(
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
 			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
 		'),
-		'html' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
-			bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel;;nowrap:wizards[t3editor],
-			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-			background_color,
-			background_image,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+		'html' => array(
+			'columnsOverrides' => array(
+				'bodytext' => array(
+					'config' => array(
+						'format' => 'html',
+						'renderType' => 't3editor'
+					),
+					'defaultExtras' => 'nowrap'
+				),
+			),
+			'showitem' => '
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+				header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
+				--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+				background_color,
+				background_image,
+				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+			'
+		),
 	),
 	'palettes' => array(
 		'1' => array(

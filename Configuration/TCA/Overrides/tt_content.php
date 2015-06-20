@@ -116,10 +116,15 @@ $tca = array(
 			),
 		),
 		'bootstrap_package_panel' => array(
+			'columnsOverrides' => array(
+				'bodytext' => array(
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				),
+			),
 			'showitem' => '
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_headersimple,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css],
+				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
 				rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
@@ -132,10 +137,15 @@ $tca = array(
 			'
 		),
 		'bootstrap_package_listgroup' => array(
+			'columnsOverrides' => array(
+				'bodytext' => array(
+					'defaultExtras' => 'nowrap'
+				),
+			),
 			'showitem' => '
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel;;nowrap,
+				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
@@ -196,11 +206,16 @@ $tca = array(
 			'
 		),
 		'bootstrap_package_texticon' => array(
+			'columnsOverrides' => array(
+				'bodytext' => array(
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				),
+			),
 			'showitem' => '
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
 				--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon;bootstrap_package_icons,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[flag=rte_enabled|mode=ts_css],
+				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
 				rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
 				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
 				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
@@ -616,3 +631,38 @@ $GLOBALS['TCA']['tt_content'] = array_replace_recursive($GLOBALS['TCA']['tt_cont
  * Add subheader to header palette
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header', '--linebreak--, subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel');
+
+
+/***************
+ * Compatability
+ */
+if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7003000) {
+
+	/**
+	 * Append rte to bodytext in type bootstrap_package_panel
+	 */
+	$showitemConfig = $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel']['showitem'];
+	$newFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel';
+	$oldFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[mode=ts_css]';
+	$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel']['showitem'] = str_replace($newFormat, $oldFormat, $showitemConfig);
+	unset($showitemConfig, $newFormat, $oldFormat);
+
+	/**
+	 * Append rte to bodytext in type bootstrap_package_texticon
+	 */
+	$showitemConfig = $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon']['showitem'];
+	$newFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel';
+	$oldFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel;;richtext:rte_transform[mode=ts_css]';
+	$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon']['showitem'] = str_replace($newFormat, $oldFormat, $showitemConfig);
+	unset($showitemConfig, $newFormat, $oldFormat);
+
+	/**
+	 * Append norwap to bodytext in type bootstrap_package_listgroup
+	 */
+	$showitemConfig = $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup']['showitem'];
+	$newFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel';
+	$oldFormat = 'bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel;;nowrap';
+	$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup']['showitem'] = str_replace($newFormat, $oldFormat, $showitemConfig);
+	unset($showitemConfig, $newFormat, $oldFormat);
+
+}
