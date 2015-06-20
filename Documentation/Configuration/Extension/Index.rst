@@ -20,9 +20,8 @@ Use the extension manager to adjust the Bootstrap Package to your needs.
 =========================
 
 For newer versions of TYPO3 > 6.2.x the backend skin is disabled.
-For TYPO3 versions > 7.0 the backend can be disabled and is also
-disabled if ext:themes is installed. The Skin only does minimal adjustments
-so we will remove it in a future version.
+For TYPO3 versions < 7.0 the backend can be disabled.
+The Skin only does minimal adjustments so we will remove it in a future version.
 
 
 Backend Logo & Login Logo

@@ -13,6 +13,7 @@ $EM_CONF[$_EXTKEY] = array(
             'css_styled_content' => '6.2.0-7.99.99',
         ),
         'conflicts' => array(
+			'themes' => '*',
             'fluidpages' => '*',
             'dyncss' => '*',
         ),

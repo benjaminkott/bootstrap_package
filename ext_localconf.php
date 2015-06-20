@@ -49,18 +49,12 @@ if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsRTE']
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/RTE.txt">');
 }
 
-// Configure Themes Constant Editor
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')) {
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/tx_themes.txt">');
-}
-
 
 /***************
- * Disable the backend skin if ext:themes is loaded or it is disabled in the extension configuration
+ * Disable backend skin if disabled or version is 7.x and higher
  * Override is not nessecary anymore.
  */
-if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('themes')
-	&& !$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disableBackendSkin']
+if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disableBackendSkin']
 	&& (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7000000)
 ) {
 
