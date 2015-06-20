@@ -47,5 +47,5 @@ The path to the logofile has to be relative to the TYPO3 backend.
 PageTsConfig
 ============
 
-The Boostrap Package has a lot of PageTsConfig defaults.
+The Bootstrap Package has a lot of PageTsConfig defaults.
 In some cases it can be usefull to deactivate some of them if you do not need them.

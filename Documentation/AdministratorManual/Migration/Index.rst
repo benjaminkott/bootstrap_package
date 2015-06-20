@@ -13,7 +13,7 @@ Upgrade from 6.2.10 to 6.2.11
 =============================
 
 This document will only cover **breaking changes**, that could happen while
-overriding the Boostrap Package.
+overriding the Bootstrap Package.
 
 
 
