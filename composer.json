@@ -7,7 +7,7 @@
   ],
   "name": "typo3-ter/bootstrap_package",
   "type": "typo3-cms-extension",
-  "description": "Bootstrap Package delivers a full configured frontend for TYPO3 CMS 6.2, based on the Bootstrap CSS Framework.",
+  "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
   "homepage": "https://github.com/benjaminkott/bootstrap_package",
   "authors": [
     {

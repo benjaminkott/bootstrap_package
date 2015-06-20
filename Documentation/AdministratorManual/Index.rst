@@ -19,4 +19,5 @@ Administrator manual
 	:maxdepth: 5
 	:titlesonly:
 
+	Migration/Index
 	ChangeLog/Index

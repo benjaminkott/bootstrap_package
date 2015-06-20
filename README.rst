@@ -2,8 +2,8 @@
 Bootstrap Package
 ==================================================
 
-This TYPO3 CMS >= 6.2 extension delivers a fully configured frontend based on the
-Bootstrap CSS Framework and functions basically as a THEME for TYPO3CMS.
+Bootstrap Package delivers a full configured fontend
+theme for TYPO3, based on the Bootstrap CSS Framework.
 
 The goal of this package is to give an advanced example of how modern templating
 in TYPO3 CMS can be handled nicely without depending on third party extensions.
@@ -57,7 +57,7 @@ Usage
 Contributing
 ------------
 
-Feel free to fork this project and create a pull request when you're happy 
+Feel free to fork this project and create a pull request when you're happy
 with your changes.
 
 Bug reporting
@@ -78,9 +78,9 @@ Contact & Communication
 Slack
 -----
 
-You can connect directly with us on `Slack <https://typo3.slack.com/messages/bootstrap-package/>`_, the 
+You can connect directly with us on `Slack <https://typo3.slack.com/messages/bootstrap-package/>`_, the
 prefered instant communication platform of TYPO3 CMS developers. If you already have access to the
-TYPO3 Slack platform join the #bootstrap-package channel. If you don´t have access yet, you can 
+TYPO3 Slack platform join the #bootstrap-package channel. If you don´t have access yet, you can
 register `here <https://forger.typo3.org/slack>`_.
 
 Twitter

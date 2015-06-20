@@ -8,14 +8,80 @@
 
 .. _changelog:
 
-ChangeLog
+Changelog
 ---------
+
+The changelog represents the commits that have been done since the last version
+excluding followups. Please have a look at the release notes to get more detailed
+Information.
 
 .. tabularcolumns:: |r|p{13.7cm}|
 
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.11   - [BUGFIX] Add disablePageTsRTE option to extension configuration again
+         - [!!!][TASK] Remove compatibility to ext:themes through lack of resources
+         - [TASK] Use TCA renderTypes
+         - [!!!][TASK] Cleanup deprecated template fallbacks
+         - [!!!][FEATURE] Add template fallback support
+         - [FEATURE] Make DynamicContent wrappable
+         - [TASK] Copy Bootstrap font files during build process
+         - [!!!][BUGFIX] Wrong path to font files
+         - [TASK] Update Bootstrap to 3.3.5
+         - [FEATURE] Add swipe support for carousels
+         - [BUGFIX] Correct overflow problem
+         - [FEATURE] Add new page type for popup usage without header and footer
+         - [FEATURE] Enable support in lib.dynamicContent to support content from pid
+         - [FEATURE] Make breadcrumb enable treelevel configurable
+         - [TASK] Use absRefPrefix = auto instead of baseURL in TYPO3 CMS 7
+         - [BUGFIX] Deprecation of page.includeJSlibs in TYPO3 CMS 7
+         - [FEATURE] Add TypoScript TYPO3 version condition
+         - [BUGFIX] Ensure column CSS class is also set for imagecols set to 1
+         - [TASK] Add application context examples to .htaccess file
+         - [!!!][TASK] Move lightbox implemantation to a own file and remove main.js
+         - [TASK] Add hires extension icon
+         - [!!!][TASK] Make navbar toggle button compatible with bootstrap default markup
+         - [FEATURE] Add selectivizr to add CSS3 pseudo selector support to IE8
+         - [TASK] Add grunt watcher for JavaScript files
+         - [TASK] Add RespondJs to Bower
+         - [!!!][TASK] Use version number independent filename for jQuery and update to v1.11.3
+         - [BUGFIX] Set BackendLayouts columns correctly if PageTs is set via page record
+         - [TASK] Include bootstrap with Bower and Grunt
+         - [TASK] Add Grunt uglify for JavaScripts
+         - [TASK] Add initial Grunt setup for RTE and precompiled theme
+         - [TASK] Add less variables file to bootstrap theme
+         - [TASK] Unify namespace name in templates
+         - [TASK] Make ContextualClassViewHelper compilable
+         - [TASK] Make FalViewHelper compilable
+         - [TASK] Make ExternalMediaViewHelper compilable
+         - [TASK] Make VarViewHelper compilable
+         - [TASK] Make ExplodeViewHelper compilable
+         - [TASK] Make DataRelationViewHelper compilable
+         - [TASK] Remove leftover FormEngineViewHelper
+         - [TASK] Make FlexFormViewHelper compilable
+         - [TASK] Update jquery.responsiveimages.js
+         - [TASK] Reintroduce css class for first headline in column rendering
+         - [!!!][FEATURE] Support multilevel tree in subnavigation
+         - [FEATURE] Add carousel type backgroundimage
+         - [FEATURE] Make carousel header layout configurable
+         - [BUGFIX] Section Index content item produces incorrect links
+         - [FEATURE] Add CSS status classes to content wrappers
+         - [BUGFIX] Correct OnePage Markup
+         - [FEATURE] New advanced constant to enable/disable CSS source mapping
+         - [BUGFIX] Correct OnePage Markup
+         - [TASK] Move custom content element renderings to typoscript folder
+         - [TASK] Cleanup extension declaration file to match documentation
+         - [FEATURE] Add tab content element
+         - [BUGFIX] Add missing restore register in text with icon
+         - [TASK] Add individual icons for content elements in wizard
+         - [TASK] Added missing description to Bootstrap elements
+         - [FEATURE] Add external media content element for youtube and vimeo videos
+         - [TASK] Add field subheader to header palette of tt_content
+         - [TASK] Remove csc-firstHeader CSS class in lib.stdHeader
+         - [TASK] Use references instead of hard copies in lib.stdheader
+         - [TASK] Use ExtensionManagementUtility in autoload.php
+         - [TASK] Update bootstrap to 3.3.4
 6.2.10   - [TASK] Refactor jquery.responsiveimages.js
          - [TASK] HTML5 markup for sub navigation
          - [TASK] Make RealUrl autoconfig compatible with the version from Helmut Hummel for 7.x

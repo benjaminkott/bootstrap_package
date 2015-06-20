@@ -24,10 +24,10 @@ Bootstrap Package
         en
 
     :Description:
-        Bootstrap Package delivers a full configured frontend for TYPO3 CMS 6.2, based on the Bootstrap CSS Framework.
+        Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.
 
     :Keywords:
-        Theme,Bootstrap
+        Theme, Bootstrap
 
     :Copyright:
         2014
