@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-package",
-	"version": "6.2.12-dev",
+	"version": "6.2.12",
 	"authors": [{
 		"name": "Benjamin Kott <benjamin.kott@outlook.com>",
 		"role": "Developer",

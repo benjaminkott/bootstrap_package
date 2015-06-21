@@ -33,5 +33,5 @@
   "require": {
     "composer/installers": "*"
   },
-  "version": "6.2.12-dev"
+  "version": "6.2.12"
 }
