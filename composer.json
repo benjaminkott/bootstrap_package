@@ -1,13 +1,8 @@
 {
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://composer.typo3.org/"
-    }
-  ],
-  "name": "typo3-ter/bootstrap_package",
+  "name": "bk2k/bootstrap-package",
   "type": "typo3-cms-extension",
   "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
+  "keywords": ["TYPO3 CMS", "introduction", "sitepackage", "bootstrap", "responsive", "front-end", "web"],
   "homepage": "https://github.com/benjaminkott/bootstrap_package",
   "authors": [
     {
@@ -18,20 +13,38 @@
     }
   ],
   "license": "MIT",
-  "keywords": [
-    "TYPO3 CMS",
-    "introduction",
-    "sitepackage",
-    "bootstrap",
-    "responsive",
-    "front-end",
-    "web"
-  ],
   "support": {
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
+
+  "version": "6.2.13-dev",
+
   "require": {
-    "composer/installers": "*"
+    "typo3/cms-core": ">=6.2.13,<8.0",
+    "typo3/cms-css-styled-content": "*"
   },
-  "version": "6.2.13-dev"
+  "conflict": {
+    "themes": "*",
+    "typo3-ter/themes": "*",
+    "fluidpages": "*",
+    "typo3-ter/fluidpages": "*",
+    "dyncss": "*",
+    "typo3-ter/dyncss": "*"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "BK2K\\BootstrapPackage\\": "Classes"
+    }
+  },
+
+  "replace": {
+    "bootstrap_package": "self.version",
+    "typo3-ter/bootstrap-package": "self.version"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "6.2.x-dev"
+    }
+  }
 }
