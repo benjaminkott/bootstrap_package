@@ -1,3 +1,9 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:css_styled_content/static/constants.txt">
+
+
 ############################
 ### CUSTOM SUBCATEGORIES ###
 ###########################

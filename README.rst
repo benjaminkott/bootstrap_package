@@ -46,8 +46,6 @@ Includes
 
 Include static (from extensions)
 
-* CSS Styled Content (required)
-* Default TS form (optional if you want to use it)
 * Bootstrap Package (required)
 
 
