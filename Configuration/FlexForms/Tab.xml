@@ -19,6 +19,7 @@
 								<type>select</type>
 								<foreign_table>tx_bootstrappackage_tab_item</foreign_table>
 								<foreign_field>tt_content</foreign_field>
+								<foreign_table_where>AND tt_content = ###THIS_UID###</foreign_table_where>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0"></numIndex>
