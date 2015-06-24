@@ -17,7 +17,7 @@
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
 
-  "version": "6.2.13-dev",
+  "version": "6.2.13",
 
   "require": {
     "typo3/cms-core": ">=6.2.13,<8.0",
