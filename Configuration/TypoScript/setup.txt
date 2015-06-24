@@ -662,11 +662,11 @@ config {
 ###################################
 #### TYPO3 < 7.3 COMPATIBILITY ####
 ###################################
-[userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7003000)]
+[userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7003000)]
 	page.10 {
 		file < page.10.templateName
 		file.stdWrap {
-			postUserFunc = \BK2K\BootstrapPackage\UserFunc\TemplateFileResolver->getTemplateFromName
+			postUserFunc = BK2K\BootstrapPackage\UserFunc\TemplateFileResolver->getTemplateFromName
 			postUserFunc.paths =< page.10.templateRootPaths
 		}
 	}
@@ -676,7 +676,7 @@ config {
 #################################
 #### TYPO3 6.2 COMPATIBILITY ####
 #################################
-[userFunc = \BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7000000)]
+[userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7000000)]
 
 	#########################################################
 	#### Solve deprecation of page.includeJSlibs in CMS7 ####
