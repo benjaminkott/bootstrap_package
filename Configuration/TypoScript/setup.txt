@@ -189,6 +189,21 @@ lib.navigation.subnavigation {
             NO {
                 ATagTitle.field = abstract // description // title
                 wrapItemAndSub = <li>|</li>
+				wrapItemAndSub.override.cObject = COA
+				wrapItemAndSub.override.cObject {
+					if {
+						value = 4
+						equals.field = doktype
+						isTrue = 1
+						isTrue.if {
+							value.data = TSFE:page|uid
+							equals.field = shortcut
+						}
+					}
+
+					10 = TEXT
+					10.value = <li class="active">|</li>
+				}
             }
             ACT < .NO
             ACT {
