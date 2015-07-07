@@ -319,25 +319,6 @@ page {
 				}
 			}
 		}
-
-		// Open Graph
-		// http://ogp.me/
-		20 = COA
-		20 {
-			// og:image
-			10 = FILES
-			10 {
-				references {
-					data = levelfield:-1, media, slide
-				}
-				maxItems = 1
-				renderObj = TEXT
-				renderObj {
-					data = file:current:publicUrl
-					wrap = <meta property="og:image" content="|" />
-				}
-			}
-		}
 	}
 
 	5 < styles.content.editPanelPage
@@ -484,19 +465,71 @@ page {
 	}
 
 	meta {
+		# New notation available since TYPO3 7.4
+		# see https://forge.typo3.org/issues/67360 for more details
 		viewport = {$page.meta.viewport}
 		robots = {$page.meta.robots}
 		google = {$page.meta.google}
 		apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
 		description = {$page.meta.description}
-		description.override.field = description
+		description {
+			override.field = description
+		}
 		author = {$page.meta.author}
-		author.override.field = author
+		author {
+			override.field = author
+		}
 		keywords = {$page.meta.keywords}
-		keywords.override.field = keywords
+		keywords {
+			override.field = keywords
+		}
 		X-UA-Compatible = {$page.meta.compatible}
 		X-UA-Compatible {
-			httpEquivalent = 1
+			attribute = http-equiv
+		}
+
+		# OpenGraph Tags
+		og:title {
+			attribute = property
+			field = title
+		}
+		og:site_name {
+			attribute = property
+			data = TSFE:tmpl|setup|sitetitle
+		}
+		og:description = {$page.meta.description}
+		og:description {
+			attribute = property
+			field = description
+		}
+		og:image {
+			attribute = property
+			stdWrap.cObject = FILES
+			stdWrap.cObject {
+				references {
+					data = levelfield:-1, media, slide
+				}
+				maxItems = 1
+				renderObj = COA
+				renderObj {
+					10 = IMG_RESOURCE
+					10 {
+						file {
+							import.data = file:current:uid
+							treatIdAsReference = 1
+							width = 1280c
+							height: 720c
+						}
+						stdWrap {
+							typolink {
+								parameter.data = TSFE:lastImgResourceInfo|3
+								returnLast = url
+								forceAbsoluteUrl = 1
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -656,6 +689,83 @@ config {
 		locale_all = da_DK.UTF-8
 		htmlTag_setParams = lang="da" dir="ltr" class="no-js"
 	}
+[global]
+
+
+###################################
+#### TYPO3 < 7.4 COMPATIBILITY ####
+###################################
+[userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7004000)]
+
+	##############################################################################
+	#### Fallback for the new Features in 7.4 for advanced meta data settings ####
+	#### see https://forge.typo3.org/issues/67360 for more details            ####
+	##############################################################################
+	page {
+		headerData {
+			20 = COA
+			20 {
+				// Open Graph Tags
+				10 = FILES
+				10 {
+					references {
+						data = levelfield:-1, media, slide
+					}
+					maxItems = 1
+					renderObj = COA
+					renderObj {
+						10 = IMG_RESOURCE
+						10 {
+							file {
+								import.data = file:current:uid
+								treatIdAsReference = 1
+								width = 1280c
+								height: 720c
+							}
+							stdWrap {
+								typolink {
+									parameter.data = TSFE:lastImgResourceInfo|3
+									returnLast = url
+									forceAbsoluteUrl = 1
+								}
+								wrap = <meta property="og:image" content="|" />
+							}
+						}
+					}
+				}
+				20 = TEXT
+				20 {
+					field = title
+					required = 1
+					wrap = <meta property="og:title" content="|" />
+				}
+				30 = TEXT
+				30 {
+					data = TSFE:tmpl|setup|sitetitle
+					required = 1
+					wrap = <meta property="og:site_name" content="|" />
+				}
+				40 = TEXT
+				40 {
+					field = description
+					required = 1
+					wrap = <meta property="og:description" content="|" />
+				}
+			}
+		}
+		meta {
+			og:title >
+			og:site_name >
+			og:description >
+			og:image >
+			X-UA-Compatible >
+			X-UA-Compatible = {$page.meta.compatible}
+			X-UA-Compatible {
+				httpEquivalent = 1
+			}
+		}
+	}
+
 [global]
 
 
