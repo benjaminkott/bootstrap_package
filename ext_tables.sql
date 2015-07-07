@@ -1,4 +1,13 @@
 #
+# Table structure for table 'pages'
+#
+CREATE TABLE pages (
+	ogtitle varchar(255) DEFAULT '' NOT NULL,
+	ogdescription text NOT NULL
+);
+
+
+#
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (

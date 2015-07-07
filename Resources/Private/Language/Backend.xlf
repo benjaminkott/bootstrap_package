@@ -403,6 +403,15 @@
 				<source>Settings</source>
 			</trans-unit>
 
+
+			<trans-unit id="pages.ogtitle">
+				<source>Title for og-tag</source>
+			</trans-unit>
+
+			<trans-unit id="pages.ogdescription">
+				<source>Description for og-tag</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

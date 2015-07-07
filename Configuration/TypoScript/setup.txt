@@ -337,6 +337,28 @@ page {
 					wrap = <meta property="og:image" content="|" />
 				}
 			}
+                        // og:url
+                        20 = TEXT
+                        20 {
+                            value.data = getIndpEnv:TYPO3_REQUEST_URL
+                            dataWrap = <meta property="og:url" content="|" />
+                        }
+
+                        // og:title
+                        30 = TEXT
+                        30 {
+                            field = ogtitle // title
+                            wrap = <meta property="og:title" content="|" />
+                            required = 1
+                        }
+
+                        // og:description
+                        40 = TEXT
+                        40 {
+                            field = ogdescription // description
+                            wrap = <meta property="og:description" content="|" />
+                            required = 1
+                        }
 		}
 	}
 
