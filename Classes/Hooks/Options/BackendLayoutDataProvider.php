@@ -51,7 +51,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  *               1 {
  *                 columns {
  *                   1 {
- *                     name = LLL:EXT:cms/locallang_ttc.xlf:colPos.I.3
+ *                     name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
  *                     colPos = 3
  *                     colspan = 1
  *                   }

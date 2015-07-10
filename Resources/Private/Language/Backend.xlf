@@ -54,6 +54,19 @@
 				<source>Sub Navigation (NOEDIT)</source>
 			</trans-unit>
 
+			<trans-unit id="backend_layout.column.left">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="backend_layout.column.normal">
+				<source>Normal</source>
+			</trans-unit>
+			<trans-unit id="backend_layout.column.right">
+				<source>Right</source>
+			</trans-unit>
+			<trans-unit id="backend_layout.column.border">
+				<source>Border</source>
+			</trans-unit>
+
 			<trans-unit id="backend_layout.column.middle1">
 				<source>Middle: Left</source>
 			</trans-unit>
