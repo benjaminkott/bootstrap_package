@@ -65,7 +65,7 @@ unset($backupCTypeItems);
  */
 $tca = array(
 	'ctrl' => array(
-		'requestUpdate' => $TCA['tt_content']['ctrl']['requestUpdate'] . ',icon_type',
+		'requestUpdate' => $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] . ',icon_type',
 		'typeicons' => array(
 			'bootstrap_package_panel' => 'tt_content_header.gif',
 			'bootstrap_package_listgroup' => 'tt_content_header.gif',
