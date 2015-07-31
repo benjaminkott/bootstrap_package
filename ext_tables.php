@@ -48,9 +48,11 @@ if (TYPO3_MODE == 'BE') {
 
 
 /***************
- * BackendLayoutDataProvider
+ * BackendLayoutDataProvider for versions below 7.4
  */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider'][$_EXTKEY] = 'BK2K\BootstrapPackage\Hooks\Options\BackendLayoutDataProvider';
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7004000) {
+	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['pagets'] = 'BK2K\BootstrapPackage\Hooks\Options\BackendLayoutDataProvider';
+}
 
 
 /***************
