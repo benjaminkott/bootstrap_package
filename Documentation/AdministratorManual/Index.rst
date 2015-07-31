@@ -21,3 +21,4 @@ Administrator manual
 
 	Migration/Index
 	ChangeLog/Index
+	ResponsiveImages/Index
