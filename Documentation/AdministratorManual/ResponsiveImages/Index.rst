@@ -45,7 +45,7 @@ Changing default Breakpoints
 
 When changing default breakpoints, you have to modify the settings of jquery.responsiveimages.min.js (see jquery.responsiveimages.js line 22-30).
 
-**Markup**
+**Javascript**
 
 .. code-block:: javascript
    :linenos:
@@ -67,7 +67,7 @@ Update images by hand
 Sometimes images are hidden and you may want to call the plugin by hand. 
 eg: when carousel slide and when a tab show.
  
-**Markup**
+**Javascript**
 
 .. code-block:: javascript
    :linenos:
@@ -84,7 +84,7 @@ Perform an action when new images are loaded
 As the layout of your page may change on image load, you may want to call a function when this happen, eg: update a scrollspy.
 The 'loaded.bk2k.responsiveimage' event is meant to be catched with a setTimeout based handler since many calls are possible, this way make a kind of throttle.
 
-**Markup**
+**Javascript**
 
 .. code-block:: javascript
    :linenos:
