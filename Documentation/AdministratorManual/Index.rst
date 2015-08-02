@@ -19,5 +19,6 @@ Administrator manual
 	:maxdepth: 5
 	:titlesonly:
 
-	Migration/Index
+	Migration/6-2-14
+	Migration/6-2-11
 	ChangeLog/Index
