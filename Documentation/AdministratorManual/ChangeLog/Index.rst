@@ -20,6 +20,11 @@ Information.
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.13   - [BUGFIX] Remove leading slash from classnames in typoscript setup
+         - [BUGFIX] Restrict options for default tab to currently assigned items
+         - [BUGFIX] Fix composer.json
+         - [TASK] Include css_styled_content and form in static template
+6.2.12   - [BUGFIX] Add missing static template for bootstrap package
 6.2.11   - [BUGFIX] Add disablePageTsRTE option to extension configuration again
          - [!!!][TASK] Remove compatibility to ext:themes through lack of resources
          - [TASK] Use TCA renderTypes
