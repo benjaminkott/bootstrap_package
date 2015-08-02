@@ -48,34 +48,34 @@ When changing default breakpoints, you have to modify the settings of jquery.res
 **Javascript**
 
 .. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 3-6
+	:linenos:
+	:emphasize-lines: 3-6
 
-   ViewPort.DEFAULTS = {
- 		breakpoints : {
- 			480: 'small',
- 			768: 'medium',
- 			992: 'large',
- 			1200: 'bigger'
- 		}
- 	}
+	ViewPort.DEFAULTS = {
+		breakpoints : {
+			480: 'small',
+			768: 'medium',
+			992: 'large',
+			1200: 'bigger'
+		}
+	}
 
 
 Update images by hand
 ---------------------
 
-Sometimes images are hidden and you may want to call the plugin by hand. 
+Sometimes images are hidden and you may want to call the plugin by hand.
 eg: when carousel slide and when a tab show.
- 
+
 **Javascript**
 
 .. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 2-2
+	:linenos:
+	:emphasize-lines: 2-2
 
-   $(".carousel").on("slid.bs", function(event){
-      $("img.lazyload").responsiveimage('unveil');
-   });
+	$(".carousel").on("slid.bs", function(event){
+		$("img.lazyload").responsiveimage('unveil');
+	});
 
 
 Perform an action when new images are loaded
@@ -87,14 +87,17 @@ The 'loaded.bk2k.responsiveimage' event is meant to be catched with a setTimeout
 **Javascript**
 
 .. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 1-8
+	:linenos:
+	:emphasize-lines: 6-7
 
-   var loadedTimeout;
-   $(window).on('loaded.bk2k.responsiveimage', function(){
-       clearTimeout(loadedTimeout);
-       loadedTimeout = setTimeout(function(){
-           // whatever you want to do
-           refreshScrollSpy();
-           }, 200);
-       });
+	var loadedTimeout;
+	$(window).on('loaded.bk2k.responsiveimage', function(){
+		clearTimeout(loadedTimeout);
+		loadedTimeout = setTimeout(
+			function(){
+				// whatever you want to do
+				refreshScrollSpy();
+			},
+			200
+		);
+	});
