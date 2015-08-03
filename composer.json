@@ -17,10 +17,10 @@
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
 
-  "version": "6.2.14-dev",
+  "version": "6.2.14",
 
   "require": {
-    "typo3/cms-core": ">=6.2.13,<8.0",
+    "typo3/cms-core": ">=6.2.14,<8.0",
     "typo3/cms-css-styled-content": "*"
   },
   "conflict": {
