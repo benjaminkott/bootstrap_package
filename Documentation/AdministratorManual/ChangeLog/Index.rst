@@ -20,6 +20,15 @@ Information.
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.14   - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4
+         - [BUGFIX] Use always $GLOBALS[TCA]
+         - [BUGFIX] fix missing TYPO3SEARCH_end marker
+         - [TASK] Responsive Images plugin documentation
+         - [TASK] Update TypoScript template mapping for backend layouts
+         - [TASK] Add update script to migrate old backend layout prefix to new prefix in table pages
+         - [TASK] Disable BackendLayoutDataProvider for TYPO3 versions above 7.3 and adapt core provider prefix for PageTS
+         - [TASK] Add 'active' class for shortcuts in sub navigation
+         - [TASK] Move column labels for border, normal, left, right to bootstrap_package, files moved in CMS 7
 6.2.13   - [BUGFIX] Remove leading slash from classnames in typoscript setup
          - [BUGFIX] Restrict options for default tab to currently assigned items
          - [BUGFIX] Fix composer.json
