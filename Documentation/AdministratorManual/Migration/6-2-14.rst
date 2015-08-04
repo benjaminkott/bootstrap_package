@@ -26,13 +26,13 @@ Versions >= 7.4. To make it more easy to upgrade new installations the prefix
 has been changed in the Bootstrap Package to match the new default that´s
 available in TYPO3 7.4 and newer versions.
 
-The Prefix for Backend Layouts has been changed from "boostrap_package" to
+The Prefix for Backend Layouts has been changed from "bootstrap_package" to
 "pagets". If you have been referring to these values before you need to adapt
 the new prefix for your own layouts in your TypoScript Configuration.
 
 Please adapt to the new prefix and use the UpdateScript inside the
 Bootstrap Package extension from the extension manager. This will update all
-pages in the database and change the prefix from "boostrap_package" to "pagets".
+pages in the database and change the prefix from "bootstrap_package" to "pagets".
 
 Note:
 The update script checks if an update is needed.
