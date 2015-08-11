@@ -65,7 +65,7 @@ class ext_update {
 		}
 		/* @var $flashMessage FlashMessage */
 		$flashMessage = GeneralUtility::makeInstance(
-			FlashMessage::class,
+			'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
 			'All pages with backend layouts successfully updated',
 			'Migration completed',
 			FlashMessage::OK
