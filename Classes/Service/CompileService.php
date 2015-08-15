@@ -39,19 +39,13 @@ class CompileService {
 	 * @return bool|string
 	 */
 	public static function getCompiledFile($file) {
-
 		$file = GeneralUtility::getFileAbsFileName($file);
 		$pathParts = pathinfo($file);
 		if ($pathParts['extension'] === 'less') {
-			if (!class_exists('Less_Cache')) {
-				$autoload = GeneralUtility::makeInstance('Less_Autoloader');
-				$autoload::register();
-			}
 			try {
 				$options = array(
 					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
 				);
-
 				$settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
 				if ($settings['cssSourceMapping']) {
 					// enable source mapping
@@ -91,7 +85,6 @@ class CompileService {
 	 * @return array
 	 */
 	public function getVariablesFromConstants() {
-
 		$variables = array();
 		$prefix = "plugin.bootstrap_package.settings.less.";
 		if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
