@@ -65,7 +65,7 @@ class AutoConfig {
 	 * @param array $params
 	 * @return array
 	 */
-	protected function addConfigToParams(array $params){
+	protected function addConfigToParams(array $params) {
 		if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7000000) {
 			$params['config']['init']['emptyUrlReturnValue'] = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
 		}
