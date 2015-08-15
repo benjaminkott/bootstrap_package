@@ -20,7 +20,7 @@
   "version": "6.2.15-dev",
 
   "require": {
-    "typo3/cms-core": ">=6.2.14,<8.0",
+    "typo3/cms": ">=6.2.14,<8.0",
     "typo3/cms-css-styled-content": "*"
   },
   "conflict": {
