@@ -43,25 +43,25 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
  */
 class Typo3VersionCondition {
 
-	/**
-	 * @param string $operator
-	 * @param integer $value
-	 * @return bool
-	 */
-	public function match($operator = NULL, $value = NULL) {
-		$result = FALSE;
-		$value = intval($value);
-		$version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
-		if ($value) {
-			if ($operator === "equals" && $version === $value) {
-				$result = TRUE;
-			} else if ($operator === "lessThan" && $version < $value) {
-				$result = TRUE;
-			} else if ($operator === "greaterThan" && $version > $value) {
-				$result = TRUE;
-			}
-		}
-		return $result;
-	}
+    /**
+     * @param string $operator
+     * @param integer $value
+     * @return bool
+     */
+    public function match($operator = NULL, $value = NULL) {
+        $result = FALSE;
+        $value = intval($value);
+        $version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
+        if ($value) {
+            if ($operator === "equals" && $version === $value) {
+                $result = TRUE;
+            } else if ($operator === "lessThan" && $version < $value) {
+                $result = TRUE;
+            } else if ($operator === "greaterThan" && $version > $value) {
+                $result = TRUE;
+            }
+        }
+        return $result;
+    }
 
 }

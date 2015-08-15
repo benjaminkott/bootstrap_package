@@ -36,42 +36,42 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
  */
 class ContextualClassViewHelper extends AbstractViewHelper implements CompilableInterface {
 
-	/**
-	 * @var array
-	 */
-	static protected $contextualAlternatives = array(
-		100 => 'default',
-		110 => 'primary',
-		120 => 'success',
-		130 => 'info',
-		140 => 'warning',
-		150 => 'danger'
-	);
+    /**
+     * @var array
+     */
+    static protected $contextualAlternatives = array(
+        100 => 'default',
+        110 => 'primary',
+        120 => 'success',
+        130 => 'info',
+        140 => 'warning',
+        150 => 'danger'
+    );
 
-	/**
-	 * Render
-	 *
-	 * @param integer $code
-	 * @return string
-	 */
-	public function render($code) {
-		return self::renderStatic(
-			array(
-				'code' => $code
-			),
-			$this->buildRenderChildrenClosure(),
-			$this->renderingContext
-		);
-	}
+    /**
+     * Render
+     *
+     * @param integer $code
+     * @return string
+     */
+    public function render($code) {
+        return self::renderStatic(
+            array(
+                'code' => $code
+            ),
+            $this->buildRenderChildrenClosure(),
+            $this->renderingContext
+        );
+    }
 
-	/**
-	 * @param array $arguments
-	 * @param \Closure $renderChildrenClosure
-	 * @param RenderingContextInterface $renderingContext
-	 * @return string
-	 */
-	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-		return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : NULL;
-	}
+    /**
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return string
+     */
+    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+        return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : NULL;
+    }
 
 }

@@ -34,68 +34,68 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class CompileService {
 
-	/**
-	 * @param string $file
-	 * @return bool|string
-	 */
-	public static function getCompiledFile($file) {
-		$file = GeneralUtility::getFileAbsFileName($file);
-		$pathParts = pathinfo($file);
-		if ($pathParts['extension'] === 'less') {
-			try {
-				$options = array(
-					'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
-				);
-				$settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
-				if ($settings['cssSourceMapping']) {
-					// enable source mapping
-					$optionsForSourceMap = array(
-						'sourceMap'         => true,
-						'sourceMapWriteTo'  => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
-						'sourceMapURL'      => '/typo3temp/bootstrappackage/bootstrappackage.map',
-						'sourceMapBasepath' => PATH_site,
-						'sourceMapRootpath' => '/'
-					);
-					$options += $optionsForSourceMap;
+    /**
+     * @param string $file
+     * @return bool|string
+     */
+    public static function getCompiledFile($file) {
+        $file = GeneralUtility::getFileAbsFileName($file);
+        $pathParts = pathinfo($file);
+        if ($pathParts['extension'] === 'less') {
+            try {
+                $options = array(
+                    'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
+                );
+                $settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
+                if ($settings['cssSourceMapping']) {
+                    // enable source mapping
+                    $optionsForSourceMap = array(
+                        'sourceMap'         => true,
+                        'sourceMapWriteTo'  => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
+                        'sourceMapURL'      => '/typo3temp/bootstrappackage/bootstrappackage.map',
+                        'sourceMapBasepath' => PATH_site,
+                        'sourceMapRootpath' => '/'
+                    );
+                    $options += $optionsForSourceMap;
 
-					// disable CSS compression
-					/** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
-					$pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
-					$pageRenderer->disableCompressCss();
-				}
-				if ($settings['overrideLessVariables']) {
-					$variables = self::getVariablesFromConstants();
-				} else {
-					$variables = array();
-				}
-				$files = array();
-				$files[$file] = '../../' . str_replace(PATH_site, '', dirname($file)) . '/';
-				$compiledFile = \Less_Cache::Get($files, $options, $variables);
-				$file = "typo3temp/bootstrappackage/" . $compiledFile;
+                    // disable CSS compression
+                    /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
+                    $pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+                    $pageRenderer->disableCompressCss();
+                }
+                if ($settings['overrideLessVariables']) {
+                    $variables = self::getVariablesFromConstants();
+                } else {
+                    $variables = array();
+                }
+                $files = array();
+                $files[$file] = '../../' . str_replace(PATH_site, '', dirname($file)) . '/';
+                $compiledFile = \Less_Cache::Get($files, $options, $variables);
+                $file = "typo3temp/bootstrappackage/" . $compiledFile;
 
-				return $file;
-			} catch (\Exception $e) {
-				throw new \Exception($e->getMessage());
-			}
-		}
-		return false;
-	}
+                return $file;
+            } catch (\Exception $e) {
+                throw new \Exception($e->getMessage());
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getVariablesFromConstants() {
-		$variables = array();
-		$prefix = "plugin.bootstrap_package.settings.less.";
-		if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-			$GLOBALS['TSFE']->tmpl->generateConfig();
-		}
-		foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
-			if (strpos($constant, $prefix) === 0) {
-				$variables[substr($constant, strlen($prefix))] = $value;
-			}
-		}
-		return $variables;
-	}
+    /**
+     * @return array
+     */
+    public function getVariablesFromConstants() {
+        $variables = array();
+        $prefix = "plugin.bootstrap_package.settings.less.";
+        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+            $GLOBALS['TSFE']->tmpl->generateConfig();
+        }
+        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+            if (strpos($constant, $prefix) === 0) {
+                $variables[substr($constant, strlen($prefix))] = $value;
+            }
+        }
+        return $variables;
+    }
 
 }
