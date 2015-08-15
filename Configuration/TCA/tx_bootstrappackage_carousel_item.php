@@ -33,66 +33,66 @@ return array(
     ),
     'interface' => array(
         'showRecordFieldList' => '
-			hidden,
-			tt_content,
-			header,
-			header_layout,
-			bodytext,
-			image,
-			text_color,
-			background_color,
-			background_image
-		',
+            hidden,
+            tt_content,
+            header,
+            header_layout,
+            bodytext,
+            image,
+            text_color,
+            background_color,
+            background_image
+        ',
     ),
     'types' => array(
         '1' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
-			bodytext,
-			image,
-			text_color,
-			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-			background_color,
-			background_image,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
+            bodytext,
+            image,
+            text_color,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+            background_color,
+            background_image,
+            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+        '),
         'header' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
-			text_color,
-			link,
-			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-			background_color,
-			background_image,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
+            text_color,
+            link,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+            background_color,
+            background_image,
+            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+        '),
         'textandimage' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
-			bodytext,
-			text_color,
-			image,
-			link,
-			--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-			background_color,
-			background_image,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
+            bodytext,
+            text_color,
+            image,
+            link,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+            background_color,
+            background_image,
+            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+        '),
         'backgroundimage' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
-			background_image,
-			background_color,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+            background_image,
+            background_color,
+            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+        '),
         'html' => array(
             'columnsOverrides' => array(
                 'bodytext' => array(
@@ -104,16 +104,16 @@ return array(
                 ),
             ),
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
-				--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
-				background_color,
-				background_image,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-			'
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
+                --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+                background_color,
+                background_image,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            '
         ),
     ),
     'palettes' => array(
@@ -122,29 +122,29 @@ return array(
         ),
         'access' => array(
             'showitem' => '
-				starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
-				endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
-			',
+                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
+            ',
             'canNotCollapse' => 1
         ),
         'header' => array(
             'showitem' => '
-				header,
-				header_layout,
-			',
+                header,
+                header_layout,
+            ',
             'canNotCollapse' => 1
         ),
         'general' => array(
             'showitem' => '
-				tt_content,
-				item_type;LLL:EXT:cms/locallang_ttc.xlf:CType_formlabel,
-			',
+                tt_content,
+                item_type;LLL:EXT:cms/locallang_ttc.xlf:CType_formlabel,
+            ',
             'canNotCollapse' => 1
         ),
         'visibility' => array(
             'showitem' => '
-				hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item
-			',
+                hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item
+            ',
             'canNotCollapse' => 1
         ),
     ),
@@ -369,35 +369,35 @@ return array(
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
-								title,
-								alternative,
-								 --palette--;;filePalette
-							'
+                                title,
+                                alternative,
+                                 --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                     ),
                     'minitems' => 0,
@@ -460,33 +460,33 @@ return array(
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
                             'showitem' => '
-								--palette--;;filePalette
-							'
+                                --palette--;;filePalette
+                            '
                         ),
                     ),
                     'minitems' => 0,

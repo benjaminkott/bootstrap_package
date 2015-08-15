@@ -1,34 +1,34 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_tab_item">
-	<f:if condition="{items}">
-		<bk2k:flexForm />
-		<bk2k:var name="activeTab" value="{items.0.uid}" />
-		<f:if condition="{data.pi_flexform.default_tab}">
-			<f:for each="{items}" as="item" iteration="iteration">
-				<f:if condition="{data.pi_flexform.default_tab} == {item.uid}">
-					<bk2k:var name="activeTab" value="{item.uid}" />
-				</f:if>
-			</f:for>
-		</f:if>
-		<div role="tabpanel" id="tab-{data.uid}">
-			<ul class="nav nav-tabs" role="tablist">
-				<f:for each="{items}" as="item" iteration="iteration">
-					<li role="presentation" {f:if(condition: '{activeTab} == {item.uid}',then: 'class="active"')}>
-						<f:link.page
-								additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{item.uid}'}"
-								section="tab-{data.uid}-{item.uid}">
-							{item.header}
-						</f:link.page>
-					</li>
-				</f:for>
-			</ul>
-			<div class="tab-content">
-				<f:for each="{items}" as="item" iteration="iteration">
-					<div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {item.uid}',then: 'active')}" id="tab-{data.uid}-{item.uid}">
-						<f:format.html>{item.bodytext}</f:format.html>
-					</div>
-				</f:for>
-			</div>
-		</div>
-	</f:if>
+    <f:if condition="{items}">
+        <bk2k:flexForm />
+        <bk2k:var name="activeTab" value="{items.0.uid}" />
+        <f:if condition="{data.pi_flexform.default_tab}">
+            <f:for each="{items}" as="item" iteration="iteration">
+                <f:if condition="{data.pi_flexform.default_tab} == {item.uid}">
+                    <bk2k:var name="activeTab" value="{item.uid}" />
+                </f:if>
+            </f:for>
+        </f:if>
+        <div role="tabpanel" id="tab-{data.uid}">
+            <ul class="nav nav-tabs" role="tablist">
+                <f:for each="{items}" as="item" iteration="iteration">
+                    <li role="presentation" {f:if(condition: '{activeTab} == {item.uid}',then: 'class="active"')}>
+                        <f:link.page
+                                additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{item.uid}'}"
+                                section="tab-{data.uid}-{item.uid}">
+                            {item.header}
+                        </f:link.page>
+                    </li>
+                </f:for>
+            </ul>
+            <div class="tab-content">
+                <f:for each="{items}" as="item" iteration="iteration">
+                    <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {item.uid}',then: 'active')}" id="tab-{data.uid}-{item.uid}">
+                        <f:format.html>{item.bodytext}</f:format.html>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+    </f:if>
 </bk2k:dataRelation>

@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3DataStructure>
-	<meta>
-		<langDisable>1</langDisable>
-	</meta>
-	<sheets>
-		<sDEF>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<default_tab>
-						<TCEforms>
-							<label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.default_tab
-							</label>
-							<config>
-								<type>select</type>
-								<foreign_table>tx_bootstrappackage_tab_item</foreign_table>
-								<foreign_field>tt_content</foreign_field>
-								<foreign_table_where>AND tt_content = ###THIS_UID###</foreign_table_where>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0"></numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</default_tab>
-				</el>
-			</ROOT>
-		</sDEF>
-	</sheets>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <default_tab>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.default_tab
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_bootstrappackage_tab_item</foreign_table>
+                                <foreign_field>tt_content</foreign_field>
+                                <foreign_table_where>AND tt_content = ###THIS_UID###</foreign_table_where>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0"></numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </default_tab>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
 </T3DataStructure>
