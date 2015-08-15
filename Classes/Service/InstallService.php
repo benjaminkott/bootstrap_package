@@ -50,10 +50,10 @@ class InstallService {
 	/**
 	 * Initializes the install service
 	 */
-	public function __construct(){
-		if(VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000){
+	public function __construct() {
+		if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000) {
 			$this->messageQueueByIdentifier = 'extbase.flashmessages.tx_extensionmanager_tools_extensionmanagerextensionmanager';
-		}else{
+		} else {
 			$this->messageQueueByIdentifier = 'core.template.flashMessages';
 		}
 	}
@@ -126,8 +126,8 @@ class InstallService {
 	 *
 	 * @param FlashMessage $flashMessage
 	 */
-	public function addFlashMessage(FlashMessage $flashMessage){
-		if($flashMessage){
+	public function addFlashMessage(FlashMessage $flashMessage) {
+		if ($flashMessage) {
 			/** @var $flashMessageService \TYPO3\CMS\Core\Messaging\FlashMessageService */
 			$flashMessageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessageService');
 			/** @var $flashMessageQueue \TYPO3\CMS\Core\Messaging\FlashMessageQueue */

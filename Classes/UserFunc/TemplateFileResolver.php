@@ -56,11 +56,11 @@ class TemplateFileResolver {
 
 		foreach ($paths as $path) {
 			// why does it have to be relative?
-			$test_file = PathUtility::getRelativePathTo(GeneralUtility::getFileAbsFileName($path)).$basename;
-			if(is_file($test_file))
+			$test_file = PathUtility::getRelativePathTo(GeneralUtility::getFileAbsFileName($path)) . $basename;
+			if (is_file($test_file))
 				return $test_file;
-			if(is_file($test_file.'.html'))
-				return $test_file.'.html';
+			if (is_file($test_file . '.html'))
+				return $test_file . '.html';
 		}
 		return $content;
 	}

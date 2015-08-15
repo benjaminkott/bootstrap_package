@@ -3,7 +3,7 @@
 /***************
  * Compatability
  */
-if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7003000) {
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7003000) {
 
 	/**
 	 * Append t3editor to bodytext in type HTML
