@@ -37,50 +37,50 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
  */
 class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterface {
 
-	/**
-	 * Render
-	 *
-	 * @param string $record
-	 * @param string $field
-	 * @return void
-	 */
-	public function render($record = "data", $field = "pi_flexform") {
-		return self::renderStatic(
-			array(
-				'record' => $record,
-				'field' => $field
-			),
-			$this->buildRenderChildrenClosure(),
-			$this->renderingContext
-		);
-	}
+    /**
+     * Render
+     *
+     * @param string $record
+     * @param string $field
+     * @return void
+     */
+    public function render($record = "data", $field = "pi_flexform") {
+        return self::renderStatic(
+            array(
+                'record' => $record,
+                'field' => $field
+            ),
+            $this->buildRenderChildrenClosure(),
+            $this->renderingContext
+        );
+    }
 
-	/**
-	 * @param array $arguments
-	 * @param \Closure $renderChildrenClosure
-	 * @param RenderingContextInterface $renderingContext
-	 * @return string
-	 */
-	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-		if ($templateVariableContainer->exists($arguments['record']) === FALSE) {
-			return NULL;
-		}
-		$data = $templateVariableContainer->get($arguments['record']);
-		$flexFormConfiguration = $data[$arguments['field']];
+    /**
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return string
+     */
+    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        if ($templateVariableContainer->exists($arguments['record']) === FALSE) {
+            return NULL;
+        }
+        $data = $templateVariableContainer->get($arguments['record']);
+        $flexFormConfiguration = $data[$arguments['field']];
 
-		if (is_string($flexFormConfiguration)) {
-			if (strlen($flexFormConfiguration) > 0) {
-				$flexFormService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\FlexFormService');
-				$flexFormConfiguration = $flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
-			} else {
-				$flexFormConfiguration = array();
-			}
-		}
-		$data[$arguments['field']] = $flexFormConfiguration;
-		$templateVariableContainer->remove($arguments['record']);
-		$templateVariableContainer->add($arguments['record'], $data);
-		return NULL;
-	}
+        if (is_string($flexFormConfiguration)) {
+            if (strlen($flexFormConfiguration) > 0) {
+                $flexFormService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\FlexFormService');
+                $flexFormConfiguration = $flexFormService->convertFlexFormContentToArray($flexFormConfiguration);
+            } else {
+                $flexFormConfiguration = array();
+            }
+        }
+        $data[$arguments['field']] = $flexFormConfiguration;
+        $templateVariableContainer->remove($arguments['record']);
+        $templateVariableContainer->add($arguments['record'], $data);
+        return NULL;
+    }
 
 }
