@@ -636,7 +636,7 @@ $GLOBALS['TCA']['tt_content'] = array_replace_recursive($GLOBALS['TCA']['tt_cont
 /***************
  * Compatability
  */
-if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7003000) {
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7003000) {
 
 	/**
 	 * Append rte to bodytext in type bootstrap_package_panel
