@@ -1,15 +1,15 @@
 <f:layout name="Default"/>
 <f:section name="Main">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<f:cObject typoscriptObjectPath="lib.navigation.subnavigation"/>
-			</div>
-			<main class="col-md-9" role="main">
-				<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
-			</main>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <f:cObject typoscriptObjectPath="lib.navigation.subnavigation"/>
+            </div>
+            <main class="col-md-9" role="main">
+                <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
+            </main>
+        </div>
+    </div>
 
 </f:section>

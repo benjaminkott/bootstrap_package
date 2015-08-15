@@ -1,26 +1,26 @@
 {
-	"name": "bootstrap-package",
-	"version": "6.2.15-dev",
-	"authors": [{
-		"name": "Benjamin Kott <benjamin.kott@outlook.com>",
-		"role": "Developer",
-		"homepage": "http://www.bk2k.info"
-	}],
-	"description": "",
-	"keywords": [
-		"typo3",
-		"bootstrap",
-		"theme",
-		"template"
-	],
-	"license": "MIT",
-	"homepage": "https://github.com/benjaminkott/bootstrap_package",
-	"private": true,
-	"dependencies": {
-		"jquery": "1.x",
-		"hammerjs": "2.0.4",
-		"bootstrap": "3.3.5",
-		"selectivizr": "master",
-		"respond": ">= 1.4.2"
-	}
+    "name": "bootstrap-package",
+    "version": "6.2.15-dev",
+    "authors": [{
+        "name": "Benjamin Kott <benjamin.kott@outlook.com>",
+        "role": "Developer",
+        "homepage": "http://www.bk2k.info"
+    }],
+    "description": "",
+    "keywords": [
+        "typo3",
+        "bootstrap",
+        "theme",
+        "template"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/benjaminkott/bootstrap_package",
+    "private": true,
+    "dependencies": {
+        "jquery": "1.x",
+        "hammerjs": "2.0.4",
+        "bootstrap": "3.3.5",
+        "selectivizr": "master",
+        "respond": ">= 1.4.2"
+    }
 }

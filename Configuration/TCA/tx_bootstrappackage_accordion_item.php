@@ -27,21 +27,21 @@ return array(
     ),
     'interface' => array(
         'showRecordFieldList' => '
-			hidden,
-			tt_content,
-			header,
-			bodytext
-		',
+            hidden,
+            tt_content,
+            header,
+            bodytext
+        ',
     ),
     'types' => array(
         '1' => array('showitem' => '
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-			header,
-			bodytext,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-			--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-		'),
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            header,
+            bodytext,
+            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+        '),
     ),
     'palettes' => array(
         '1' => array(
@@ -49,21 +49,21 @@ return array(
         ),
         'access' => array(
             'showitem' => '
-				starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
-				endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
-			',
+                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
+            ',
             'canNotCollapse' => 1
         ),
         'general' => array(
             'showitem' => '
-				tt_content
-			',
+                tt_content
+            ',
             'canNotCollapse' => 1
         ),
         'visibility' => array(
             'showitem' => '
-				hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item
-			',
+                hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item
+            ',
             'canNotCollapse' => 1
         ),
     ),
