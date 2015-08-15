@@ -2,70 +2,70 @@
 #### BOOTSTRAP CONTENT ELEMENTS ####
 ####################################
 mod.wizards {
-	newContentElement {
-		wizardItems {
-			bootstrap {
-				header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
-				elements {
-					bootstrap_package_texticon {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/texticon.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
-						tt_content_defValues {
-							CType = bootstrap_package_texticon
-						}
-					}
-					bootstrap_package_carousel {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/carousel.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel.description
-						tt_content_defValues {
-							CType = bootstrap_package_carousel
-						}
-					}
-					bootstrap_package_accordion {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/accordion.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
-						tt_content_defValues {
-							CType = bootstrap_package_accordion
-						}
-					}
-					bootstrap_package_tab {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/tab.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
-						tt_content_defValues {
-							CType = bootstrap_package_tab
-						}
-					}
-					bootstrap_package_panel {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/panel.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
-						tt_content_defValues {
-							CType = bootstrap_package_panel
-						}
-					}
-					bootstrap_package_listgroup {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/listgroup.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup.description
-						tt_content_defValues {
-							CType = bootstrap_package_listgroup
-						}
-					}
-					bootstrap_package_external_media {
-						icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/external_media.png
-						title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
-						description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description
-						tt_content_defValues {
-							CType = bootstrap_package_external_media
-						}
-					}
-				}
-				show = *
-			}
-		}
-	}
+    newContentElement {
+        wizardItems {
+            bootstrap {
+                header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
+                elements {
+                    bootstrap_package_texticon {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/texticon.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_texticon
+                        }
+                    }
+                    bootstrap_package_carousel {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/carousel.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_carousel
+                        }
+                    }
+                    bootstrap_package_accordion {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/accordion.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_accordion
+                        }
+                    }
+                    bootstrap_package_tab {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/tab.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_tab
+                        }
+                    }
+                    bootstrap_package_panel {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/panel.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_panel
+                        }
+                    }
+                    bootstrap_package_listgroup {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/listgroup.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_listgroup
+                        }
+                    }
+                    bootstrap_package_external_media {
+                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/external_media.png
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description
+                        tt_content_defValues {
+                            CType = bootstrap_package_external_media
+                        }
+                    }
+                }
+                show = *
+            }
+        }
+    }
 }
