@@ -1,9 +1,14 @@
 # .scrutinizer.yml
 checks:
-    php: true
+    php:
+        code_rating: true
+        remove_extra_empty_lines: true
+        remove_php_closing_tag: true
+        remove_trailing_whitespace: true
 
 tools:
-    external_code_coverage: false
+    external_code_coverage:
+        enabled: false
 
     php_cpd:
         enabled: true
@@ -28,14 +33,16 @@ tools:
     php_analyzer:
         enabled: true
 
-    sensiolabs_security_checker: true
+    php_code_coverage:
+        enabled: false
+
+    php_code_sniffer:
+        config:
+        standard: PSR2
+
+    sensiolabs_security_checker:
+        enabled: true
 
 filter:
     dependency_paths:
         - Contrib/
-
-coding_style:
-    php:
-        indentation:
-            general:
-                use_tabs: true
