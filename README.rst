@@ -86,3 +86,8 @@ Twitter
 
 If you have any questions about this project or just want to talk:
 Send a tweet `@benjaminkott <https://twitter.com/benjaminkott>`_.
+
+
+Code Quality
+============
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/benjaminkott/bootstrap_package/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/benjaminkott/bootstrap_package/?branch=master)
