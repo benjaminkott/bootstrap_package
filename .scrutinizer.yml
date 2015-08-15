@@ -15,6 +15,8 @@ tools:
 
     php_cs_fixer:
         enabled: true
+        config:
+            level: psr2
 
     php_hhvm:
         enabled: true
