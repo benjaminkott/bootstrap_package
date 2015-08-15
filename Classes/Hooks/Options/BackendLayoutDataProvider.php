@@ -126,7 +126,7 @@ class BackendLayoutDataProvider implements DataProviderInterface {
      * @return void
      */
     protected function setPageId($pageId) {
-        $this->pageId = (int)$pageId;
+        $this->pageId = (int) $pageId;
     }
 
     /**
@@ -147,10 +147,10 @@ class BackendLayoutDataProvider implements DataProviderInterface {
      */
     protected function generatePageTsConfig($dataProviderContext = NULL) {
         if ($dataProviderContext === NULL) {
-            $pageId = (int)($this->getPageId() !== NULL ?: GeneralUtility::_GP('id'));
-            $this->setPageTsConfig((array)BackendUtility::getPagesTSconfig($pageId));
+            $pageId = (int) ($this->getPageId() !== NULL ?: GeneralUtility::_GP('id'));
+            $this->setPageTsConfig((array) BackendUtility::getPagesTSconfig($pageId));
         } else {
-            $this->setPageTsConfig((array)$dataProviderContext->getPageTsConfig());
+            $this->setPageTsConfig((array) $dataProviderContext->getPageTsConfig());
         }
     }
 
@@ -164,7 +164,7 @@ class BackendLayoutDataProvider implements DataProviderInterface {
         $this->generatePageTsConfig($dataProviderContext);
         $pageTsConfig = $this->getPageTsConfig();
         if (!empty($pageTsConfig['mod.']['web_layout.']['BackendLayouts.'])) {
-            $backendLayouts = (array)$pageTsConfig['mod.']['web_layout.']['BackendLayouts.'];
+            $backendLayouts = (array) $pageTsConfig['mod.']['web_layout.']['BackendLayouts.'];
             foreach ($backendLayouts as $identifier => $data) {
                 $backendLayout = $this->generateBackendLayoutFromTsConfig($identifier, $data);
                 $this->attachBackendLayout($backendLayout);
