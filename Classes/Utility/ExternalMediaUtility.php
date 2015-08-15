@@ -60,8 +60,8 @@ class ExternalMediaUtility {
             $embedUrl = $this->{$method}($url);
             if ($embedUrl) {
                 $content = '
-					<iframe class="' . $class . '" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
-				';
+                    <iframe class="' . $class . '" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
+                ';
                 return $content;
             }
         }
