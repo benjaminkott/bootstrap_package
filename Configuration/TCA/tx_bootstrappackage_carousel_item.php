@@ -252,13 +252,13 @@ return array(
 				)
 			)
 		),
-		'l10n_parent' => Array (
+		'l10n_parent' => Array(
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-			'config' => Array (
+			'config' => Array(
 				'type' => 'select',
-				'items' => Array (
+				'items' => Array(
 					Array('', 0),
 				),
 				'foreign_table' => 'tx_bootstrappackage_carousel_item',

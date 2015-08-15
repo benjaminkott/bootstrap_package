@@ -94,7 +94,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
 					$items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($arguments['table'], $record, $GLOBALS['TSFE']->sys_language_uid);
 				}
 			}
-			 usort($items, array(self,"orderBySorting"));
+			 usort($items, array(self, "orderBySorting"));
 		} else {
 			$items = NULL;
 		}
