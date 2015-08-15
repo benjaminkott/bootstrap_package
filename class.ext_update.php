@@ -58,7 +58,7 @@ class ext_update {
             }
             $this->getDatabaseConnection()->exec_UPDATEquery(
                 'pages',
-                'uid = ' . (int)$row['uid'],
+                'uid = ' . (int) $row['uid'],
                 $fieldsToUpdate
             );
             unset($fieldsToUpdate);
