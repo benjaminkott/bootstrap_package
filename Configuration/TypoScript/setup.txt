@@ -30,10 +30,10 @@
 #### BOOSTRAP PACKAGE SETTINGS ####
 ###################################
 plugin.tx_bootstrappackage {
-	settings {
-		overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
-		cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
-	}
+    settings {
+        overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
+        cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
+    }
 }
 
 
@@ -42,64 +42,64 @@ plugin.tx_bootstrappackage {
 #######################
 lib.language = COA
 lib.language {
-	###################################################
-	#### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
-	#### its not needed in this example            ####
-	###################################################
-	#10 = TEXT
-	#10 {
-	#    value = Language
-	#    value.lang.da = Sprog
-	#    value.lang.de = Sprache
-	#    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
-	#}
+    ###################################################
+    #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
+    #### its not needed in this example            ####
+    ###################################################
+    #10 = TEXT
+    #10 {
+    #    value = Language
+    #    value.lang.da = Sprog
+    #    value.lang.de = Sprache
+    #    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
+    #}
 
-	20 = HMENU
-	20 {
-		special = language
-		special.value = 0,1,2
-		special.normalWhenNoLanguage = 0
-		wrap =
-		1 = TMENU
-		1 {
-			noBlur = 1
-			NO = 1
-			NO {
-				linkWrap = <li>|</li>
-				stdWrap.override = English || Dansk || Deutsch
-				doNotLinkIt = 1
-				stdWrap {
-					typolink {
-						parameter.data = page:uid
-						additionalParams = &L=0 || &L=1 || &L=2
-						ATagParams = hreflang="en-GB" || hreflang="da-DK" || hreflang="de-DE"
-						addQueryString = 1
-						addQueryString.exclude = L,id,cHash,no_cache
-						addQueryString.method = GET
-						useCacheHash = 1
-						no_cache = 0
-					}
-				}
-			}
+    20 = HMENU
+    20 {
+        special = language
+        special.value = 0,1,2
+        special.normalWhenNoLanguage = 0
+        wrap =
+        1 = TMENU
+        1 {
+            noBlur = 1
+            NO = 1
+            NO {
+                linkWrap = <li>|</li>
+                stdWrap.override = English || Dansk || Deutsch
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = page:uid
+                        additionalParams = &L=0 || &L=1 || &L=2
+                        ATagParams = hreflang="en-GB" || hreflang="da-DK" || hreflang="de-DE"
+                        addQueryString = 1
+                        addQueryString.exclude = L,id,cHash,no_cache
+                        addQueryString.method = GET
+                        useCacheHash = 1
+                        no_cache = 0
+                    }
+                }
+            }
 
-			ACT < .NO
-			ACT.linkWrap = <li class="active">|</li>
-			#### NO TRANSLATION AVAILABLE STATES ####
-			USERDEF1 < .NO
-			USERDEF1 {
-				linkWrap = <li class="text-muted">|</li>
-				stdWrap.typolink >
-			}
+            ACT < .NO
+            ACT.linkWrap = <li class="active">|</li>
+            #### NO TRANSLATION AVAILABLE STATES ####
+            USERDEF1 < .NO
+            USERDEF1 {
+                linkWrap = <li class="text-muted">|</li>
+                stdWrap.typolink >
+            }
 
-			USERDEF2 < .ACT
-			USERDEF2 {
-				linkWrap = <li class="text-muted">|</li>
-				stdWrap.typolink >
-			}
-		}
-	}
+            USERDEF2 < .ACT
+            USERDEF2 {
+                linkWrap = <li class="text-muted">|</li>
+                stdWrap.typolink >
+            }
+        }
+    }
 
-	wrap = <ul id="language_menu" class="language-menu">|</ul>
+    wrap = <ul id="language_menu" class="language-menu">|</ul>
 }
 
 
@@ -108,160 +108,160 @@ lib.language {
 ####################
 lib.navigation.main = COA
 lib.navigation.main {
-	10 = HMENU
-	10 {
-		1 = TMENU
-		1 {
-			wrap = <ul class="nav navbar-nav navbar-main">|</ul>
-			expAll = 1
-			noBlur = 1
-			NO = 1
-			NO {
-				ATagTitle.field = abstract // description // title
-				ATagBeforeWrap = 1
-				linkWrap = |<span class="bar"></span>
-				wrapItemAndSub = <li>|</li>
-				wrapItemAndSub.override.cObject = COA
-				wrapItemAndSub.override.cObject {
-					if {
-						value = 4
-						equals.field = doktype
-						isTrue = 1
-						isTrue.if {
-							value.data = TSFE:page|uid
-							equals.field = shortcut
-						}
-					}
+    10 = HMENU
+    10 {
+        1 = TMENU
+        1 {
+            wrap = <ul class="nav navbar-nav navbar-main">|</ul>
+            expAll = 1
+            noBlur = 1
+            NO = 1
+            NO {
+                ATagTitle.field = abstract // description // title
+                ATagBeforeWrap = 1
+                linkWrap = |<span class="bar"></span>
+                wrapItemAndSub = <li>|</li>
+                wrapItemAndSub.override.cObject = COA
+                wrapItemAndSub.override.cObject {
+                    if {
+                        value = 4
+                        equals.field = doktype
+                        isTrue = 1
+                        isTrue.if {
+                            value.data = TSFE:page|uid
+                            equals.field = shortcut
+                        }
+                    }
 
-					10 = TEXT
-					10.value = <li class="active">|</li>
-				}
-			}
+                    10 = TEXT
+                    10.value = <li class="active">|</li>
+                }
+            }
 
-			ACT < .NO
-			ACT {
-				wrapItemAndSub = <li class="active">|</li>
-			}
+            ACT < .NO
+            ACT {
+                wrapItemAndSub = <li class="active">|</li>
+            }
 
-			CUR < .ACT
-			IFSUB < .NO
-			IFSUB {
-				doNotLinkIt = 1
-				allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
-				wrapItemAndSub = <li class="dropdown">|</li>
-			}
+            CUR < .ACT
+            IFSUB < .NO
+            IFSUB {
+                doNotLinkIt = 1
+                allWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown">|<b class="caret"></b></a>
+                wrapItemAndSub = <li class="dropdown">|</li>
+            }
 
-			ACTIFSUB < .IFSUB
-			ACTIFSUB {
-				wrapItemAndSub = <li class="active dropdown">|</li>
-			}
+            ACTIFSUB < .IFSUB
+            ACTIFSUB {
+                wrapItemAndSub = <li class="active dropdown">|</li>
+            }
 
-			CURIFSUB < .ACTIFSUB
-		}
+            CURIFSUB < .ACTIFSUB
+        }
 
-		2 < .1
-		2 {
-			wrap = <ul class="dropdown-menu">|</ul>
-			SPC = 1
-			SPC {
-				wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
-			}
+        2 < .1
+        2 {
+            wrap = <ul class="dropdown-menu">|</ul>
+            SPC = 1
+            SPC {
+                wrapItemAndSub = <li class="divider"></li><li class="dropdown-header">|</li>
+            }
 
-			IFSUB >
-			ACTIFSUB >
-			CURIFSUB >
-		}
-	}
+            IFSUB >
+            ACTIFSUB >
+            CURIFSUB >
+        }
+    }
 }
 
 lib.navigation.subnavigation = COA
 lib.navigation.subnavigation {
-	10 = HMENU
-	10 {
-		entryLevel = 1
-		wrap = <nav class="hidden-print hidden-xs hidden-sm" role="complementary">|</nav>
-		1 = TMENU
-		1 {
-			wrap = <ul class="nav nav-sidebar">|</ul>
-			expAll = 0
-			noBlur = 1
-			NO = 1
-			NO {
-				ATagTitle.field = abstract // description // title
-				wrapItemAndSub = <li>|</li>
-				wrapItemAndSub.override.cObject = COA
-				wrapItemAndSub.override.cObject {
-					if {
-						value = 4
-						equals.field = doktype
-						isTrue = 1
-						isTrue.if {
-							value.data = TSFE:page|uid
-							equals.field = shortcut
-						}
-					}
+    10 = HMENU
+    10 {
+        entryLevel = 1
+        wrap = <nav class="hidden-print hidden-xs hidden-sm" role="complementary">|</nav>
+        1 = TMENU
+        1 {
+            wrap = <ul class="nav nav-sidebar">|</ul>
+            expAll = 0
+            noBlur = 1
+            NO = 1
+            NO {
+                ATagTitle.field = abstract // description // title
+                wrapItemAndSub = <li>|</li>
+                wrapItemAndSub.override.cObject = COA
+                wrapItemAndSub.override.cObject {
+                    if {
+                        value = 4
+                        equals.field = doktype
+                        isTrue = 1
+                        isTrue.if {
+                            value.data = TSFE:page|uid
+                            equals.field = shortcut
+                        }
+                    }
 
-					10 = TEXT
-					10.value = <li class="active">|</li>
-				}
-			}
-			ACT < .NO
-			ACT {
-				wrapItemAndSub = <li class="active">|</li>
-			}
-			CUR < .ACT
-		}
-		2 < .1
-		2 {
-			wrap = <ul>|</ul>
-		}
-		3 < .2
-	}
+                    10 = TEXT
+                    10.value = <li class="active">|</li>
+                }
+            }
+            ACT < .NO
+            ACT {
+                wrapItemAndSub = <li class="active">|</li>
+            }
+            CUR < .ACT
+        }
+        2 < .1
+        2 {
+            wrap = <ul>|</ul>
+        }
+        3 < .2
+    }
 }
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
-	lib.navigation.breadcrumb = COA
-	lib.navigation.breadcrumb {
-		10 = HMENU
-		10 {
-			special = rootline
-			special.range = 1|-1
-			includeNotInMenu = 1
-			1 = TMENU
-			1 {
-				noBlur = 1
-				target = _self
-				wrap = <ol class="breadcrumb">|</ol>
-				NO = 1
-				NO {
-					stdWrap.field = title
-					ATagTitle.field = nav_title // title
-					wrapItemAndSub = <li>|</li>
-				}
+    lib.navigation.breadcrumb = COA
+    lib.navigation.breadcrumb {
+        10 = HMENU
+        10 {
+            special = rootline
+            special.range = 1|-1
+            includeNotInMenu = 1
+            1 = TMENU
+            1 {
+                noBlur = 1
+                target = _self
+                wrap = <ol class="breadcrumb">|</ol>
+                NO = 1
+                NO {
+                    stdWrap.field = title
+                    ATagTitle.field = nav_title // title
+                    wrapItemAndSub = <li>|</li>
+                }
 
-				CUR = 1
-				CUR {
-					stdWrap.field = title
-					doNotLinkIt = 1
-					wrapItemAndSub = <li class="active">|</li>
-				}
-			}
-		}
-		stdWrap {
-			required = 1
-			wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
-		}
-		if {
-			value = {$page.theme.breadcrumbEnableLevel}
-			value {
-				insertData = 1
-				prioriCalc = 1
-				stdWrap.wrap = |-1
-			}
-			isGreaterThan {
-				data = level
-			}
-		}
-	}
+                CUR = 1
+                CUR {
+                    stdWrap.field = title
+                    doNotLinkIt = 1
+                    wrapItemAndSub = <li class="active">|</li>
+                }
+            }
+        }
+        stdWrap {
+            required = 1
+            wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
+        }
+        if {
+            value = {$page.theme.breadcrumbEnableLevel}
+            value {
+                insertData = 1
+                prioriCalc = 1
+                stdWrap.wrap = |-1
+            }
+            isGreaterThan {
+                data = level
+            }
+        }
+    }
 [global]
 
 
@@ -270,37 +270,37 @@ lib.navigation.subnavigation {
 ####################
 lib.page.class = COA
 lib.page.class {
-	// Page alias or id as fallback
-	10 = TEXT
-	10 {
-		field = alias // uid
-		noTrimWrap = |page-||
-	}
-	// Current level of the page within the tree structure
-	20 = TEXT
-	20 {
-		data = level:1
-		noTrimWrap = | pagelevel-||
-	}
-	// Language
-	30 = TEXT
-	30 {
-		data = TSFE:sys_language_uid
-		noTrimWrap = | language-||
-	}
-	// Backend layout
-	40 = TEXT
-	40 {
-		data = levelfield:-1, backend_layout_next_level, slide
-		override.field = backend_layout
-		noTrimWrap = | backendlayout-||
-	}
-	// Layout
-	50 = TEXT
-	50 {
-		field = layout
-		noTrimWrap = | layout-||
-	}
+    // Page alias or id as fallback
+    10 = TEXT
+    10 {
+        field = alias // uid
+        noTrimWrap = |page-||
+    }
+    // Current level of the page within the tree structure
+    20 = TEXT
+    20 {
+        data = level:1
+        noTrimWrap = | pagelevel-||
+    }
+    // Language
+    30 = TEXT
+    30 {
+        data = TSFE:sys_language_uid
+        noTrimWrap = | language-||
+    }
+    // Backend layout
+    40 = TEXT
+    40 {
+        data = levelfield:-1, backend_layout_next_level, slide
+        override.field = backend_layout
+        noTrimWrap = | backendlayout-||
+    }
+    // Layout
+    50 = TEXT
+    50 {
+        field = layout
+        noTrimWrap = | layout-||
+    }
 }
 
 
@@ -309,322 +309,322 @@ lib.page.class {
 ##############
 page = PAGE
 page {
-	typeNum = 0
-	shortcutIcon = {$page.includePath.icons}favicon.ico
+    typeNum = 0
+    shortcutIcon = {$page.includePath.icons}favicon.ico
 
-	headerData {
-		// Flip ahead browsing for IE10/11
-		// http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
-		10 = HMENU
-		10 {
-			special = browse
-			special {
-				items = prev|next
-			}
-			1 = TMENU
-			1.NO {
-				allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
-				doNotLinkIt = 1
-				stdWrap {
-					typolink {
-						parameter.data = field:uid
-						useCacheHash = 1
-						returnLast = url
-					}
-				}
-			}
-		}
-	}
+    headerData {
+        // Flip ahead browsing for IE10/11
+        // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
+        10 = HMENU
+        10 {
+            special = browse
+            special {
+                items = prev|next
+            }
+            1 = TMENU
+            1.NO {
+                allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = field:uid
+                        useCacheHash = 1
+                        returnLast = url
+                    }
+                }
+            }
+        }
+    }
 
-	5 < styles.content.editPanelPage
-	5 {
-		stdWrap.wrap = <div class="typo3-feedit-page">|</div>
-		stdWrap.required = 1
-	}
+    5 < styles.content.editPanelPage
+    5 {
+        stdWrap.wrap = <div class="typo3-feedit-page">|</div>
+        stdWrap.required = 1
+    }
 
-	10 = FLUIDTEMPLATE
-	10 {
-		templateName = TEXT
-		templateName.stdWrap.cObject = CASE
-		templateName.stdWrap.cObject {
-			key.data = levelfield:-1, backend_layout_next_level, slide
-			key.override.field = backend_layout
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = TEXT
+        templateName.stdWrap.cObject = CASE
+        templateName.stdWrap.cObject {
+            key.data = levelfield:-1, backend_layout_next_level, slide
+            key.override.field = backend_layout
 
-			pagets__default_clean = TEXT
-			pagets__default_clean.value = DefaultClean
+            pagets__default_clean = TEXT
+            pagets__default_clean.value = DefaultClean
 
-			pagets__default_2_columns = TEXT
-			pagets__default_2_columns.value = Default2Columns
+            pagets__default_2_columns = TEXT
+            pagets__default_2_columns.value = Default2Columns
 
-			pagets__default_2_columns_25_75 = TEXT
-			pagets__default_2_columns_25_75.value = Default2Columns2575
+            pagets__default_2_columns_25_75 = TEXT
+            pagets__default_2_columns_25_75.value = Default2Columns2575
 
-			pagets__default_2_columns_50_50 = TEXT
-			pagets__default_2_columns_50_50.value = Default2Columns5050
+            pagets__default_2_columns_50_50 = TEXT
+            pagets__default_2_columns_50_50.value = Default2Columns5050
 
-			pagets__default_2_columns_offset_right = TEXT
-			pagets__default_2_columns_offset_right.value = Default2ColumnsOffsetRight
+            pagets__default_2_columns_offset_right = TEXT
+            pagets__default_2_columns_offset_right.value = Default2ColumnsOffsetRight
 
-			pagets__default_3_columns = TEXT
-			pagets__default_3_columns.value = Default3Columns
+            pagets__default_3_columns = TEXT
+            pagets__default_3_columns.value = Default3Columns
 
-			pagets__default_subnavigation_right = TEXT
-			pagets__default_subnavigation_right.value = DefaultSubNavRight
+            pagets__default_subnavigation_right = TEXT
+            pagets__default_subnavigation_right.value = DefaultSubNavRight
 
-			pagets__default_subnavigation_right_2_columns = TEXT
-			pagets__default_subnavigation_right_2_columns.value = DefaultSubNavRight2Columns
+            pagets__default_subnavigation_right_2_columns = TEXT
+            pagets__default_subnavigation_right_2_columns.value = DefaultSubNavRight2Columns
 
-			pagets__default_subnavigation_left = TEXT
-			pagets__default_subnavigation_left.value = DefaultSubNavLeft
+            pagets__default_subnavigation_left = TEXT
+            pagets__default_subnavigation_left.value = DefaultSubNavLeft
 
-			pagets__default_subnavigation_left_2_columns = TEXT
-			pagets__default_subnavigation_left_2_columns.value = DefaultSubNavLeft2Columns
+            pagets__default_subnavigation_left_2_columns = TEXT
+            pagets__default_subnavigation_left_2_columns.value = DefaultSubNavLeft2Columns
 
-			pagets__special_start = TEXT
-			pagets__special_start.value = SpecialStart
+            pagets__special_start = TEXT
+            pagets__special_start.value = SpecialStart
 
-			pagets__special_feature = TEXT
-			pagets__special_feature.value = SpecialFeature
+            pagets__special_feature = TEXT
+            pagets__special_feature.value = SpecialFeature
 
-			default = TEXT
-			default.value = Default
-		}
+            default = TEXT
+            default.value = Default
+        }
 
-		templateRootPaths {
-			0 = EXT:bootstrap_package/Resources/Private/Templates/Page/
-			1 = {$page.fluidtemplate.templateRootPath}
-		}
-		partialRootPaths {
-			0 = EXT:bootstrap_package/Resources/Private/Partials/Page/
-			1 = {$page.fluidtemplate.partialRootPath}
-		}
-		layoutRootPaths {
-			0 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-			1 = {$page.fluidtemplate.layoutRootPath}
-		}
+        templateRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Templates/Page/
+            1 = {$page.fluidtemplate.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Partials/Page/
+            1 = {$page.fluidtemplate.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+            1 = {$page.fluidtemplate.layoutRootPath}
+        }
 
-		variables {
-			onePage = TEXT
-			onePage.value = 0
+        variables {
+            onePage = TEXT
+            onePage.value = 0
 
-			showHeader = TEXT
-			showHeader.value = 1
+            showHeader = TEXT
+            showHeader.value = 1
 
-			showFooter = TEXT
-			showFooter.value = 1
+            showFooter = TEXT
+            showFooter.value = 1
 
-			pageTitle = TEXT
-			pageTitle.data = page:title
+            pageTitle = TEXT
+            pageTitle.data = page:title
 
-			siteTitle = TEXT
-			siteTitle.data = TSFE:tmpl|setup|sitetitle
+            siteTitle = TEXT
+            siteTitle.data = TSFE:tmpl|setup|sitetitle
 
-			rootPage = TEXT
-			rootPage.data = leveluid:0
+            rootPage = TEXT
+            rootPage.data = leveluid:0
 
-			logoFile = TEXT
-			logoFile.value = {$page.logo.file}
-			logoHeight = TEXT
-			logoHeight.value = {$page.logo.height}
-			logoWidth = TEXT
-			logoWidth.value = {$page.logo.width}
-			logoAlt = COA
-			logoAlt {
-				10 = TEXT
-				10 {
-					data = TSFE:tmpl|setup|sitetitle
-					noTrimWrap = || logo|
-					if.isFalse = {$page.logo.alt}
-				}
-				20 = TEXT
-				20 {
-					value = {$page.logo.alt}
-					if.isTrue = {$page.logo.alt}
-				}
-			}
+            logoFile = TEXT
+            logoFile.value = {$page.logo.file}
+            logoHeight = TEXT
+            logoHeight.value = {$page.logo.height}
+            logoWidth = TEXT
+            logoWidth.value = {$page.logo.width}
+            logoAlt = COA
+            logoAlt {
+                10 = TEXT
+                10 {
+                    data = TSFE:tmpl|setup|sitetitle
+                    noTrimWrap = || logo|
+                    if.isFalse = {$page.logo.alt}
+                }
+                20 = TEXT
+                20 {
+                    value = {$page.logo.alt}
+                    if.isTrue = {$page.logo.alt}
+                }
+            }
 
-			pageClass < lib.page.class
+            pageClass < lib.page.class
 
-			themeNavigationstyle = TEXT
-			themeNavigationstyle.value = {$page.theme.navigationstyle}
-			themeNavigationtype = TEXT
-			themeNavigationtype.value = {$page.theme.navigationtype}
-			themeCopyright = TEXT
-			themeCopyright.value = {$page.theme.copyright.enable}
-			themeCopyrightText = TEXT
-			themeCopyrightText.value = {$page.theme.copyright.text}
-		}
+            themeNavigationstyle = TEXT
+            themeNavigationstyle.value = {$page.theme.navigationstyle}
+            themeNavigationtype = TEXT
+            themeNavigationtype.value = {$page.theme.navigationtype}
+            themeCopyright = TEXT
+            themeCopyright.value = {$page.theme.copyright.enable}
+            themeCopyrightText = TEXT
+            themeCopyrightText.value = {$page.theme.copyright.text}
+        }
 
-		stdWrap.replacement {
-			1 {
-				search = http://###BACKEND_URL###/
-				replace.typolink {
-					parameter = typo3/
-					returnLast = url
-				}
-			}
-			2 {
-				search = ###CURRENTYEAR###
-				replace {
-					data = date:U
-					strftime = %Y
-				}
-			}
-			3 {
-				search = ###SPACE###
-				replace {
-					char = 32
-				}
-			}
-		}
-	}
+        stdWrap.replacement {
+            1 {
+                search = http://###BACKEND_URL###/
+                replace.typolink {
+                    parameter = typo3/
+                    returnLast = url
+                }
+            }
+            2 {
+                search = ###CURRENTYEAR###
+                replace {
+                    data = date:U
+                    strftime = %Y
+                }
+            }
+            3 {
+                search = ###SPACE###
+                replace {
+                    char = 32
+                }
+            }
+        }
+    }
 
-	meta {
-		# New notation available since TYPO3 7.4
-		# see https://forge.typo3.org/issues/67360 for more details
-		viewport = {$page.meta.viewport}
-		robots = {$page.meta.robots}
-		google = {$page.meta.google}
-		apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
-		description = {$page.meta.description}
-		description {
-			override.field = description
-		}
-		author = {$page.meta.author}
-		author {
-			override.field = author
-		}
-		keywords = {$page.meta.keywords}
-		keywords {
-			override.field = keywords
-		}
-		X-UA-Compatible = {$page.meta.compatible}
-		X-UA-Compatible {
-			attribute = http-equiv
-		}
+    meta {
+        # New notation available since TYPO3 7.4
+        # see https://forge.typo3.org/issues/67360 for more details
+        viewport = {$page.meta.viewport}
+        robots = {$page.meta.robots}
+        google = {$page.meta.google}
+        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+        description = {$page.meta.description}
+        description {
+            override.field = description
+        }
+        author = {$page.meta.author}
+        author {
+            override.field = author
+        }
+        keywords = {$page.meta.keywords}
+        keywords {
+            override.field = keywords
+        }
+        X-UA-Compatible = {$page.meta.compatible}
+        X-UA-Compatible {
+            attribute = http-equiv
+        }
 
-		# OpenGraph Tags
-		og:title {
-			attribute = property
-			field = title
-		}
-		og:site_name {
-			attribute = property
-			data = TSFE:tmpl|setup|sitetitle
-		}
-		og:description = {$page.meta.description}
-		og:description {
-			attribute = property
-			field = description
-		}
-		og:image {
-			attribute = property
-			stdWrap.cObject = FILES
-			stdWrap.cObject {
-				references {
-					data = levelfield:-1, media, slide
-				}
-				maxItems = 1
-				renderObj = COA
-				renderObj {
-					10 = IMG_RESOURCE
-					10 {
-						file {
-							import.data = file:current:uid
-							treatIdAsReference = 1
-							width = 1280c
-							height: 720c
-						}
-						stdWrap {
-							typolink {
-								parameter.data = TSFE:lastImgResourceInfo|3
-								returnLast = url
-								forceAbsoluteUrl = 1
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+        # OpenGraph Tags
+        og:title {
+            attribute = property
+            field = title
+        }
+        og:site_name {
+            attribute = property
+            data = TSFE:tmpl|setup|sitetitle
+        }
+        og:description = {$page.meta.description}
+        og:description {
+            attribute = property
+            field = description
+        }
+        og:image {
+            attribute = property
+            stdWrap.cObject = FILES
+            stdWrap.cObject {
+                references {
+                    data = levelfield:-1, media, slide
+                }
+                maxItems = 1
+                renderObj = COA
+                renderObj {
+                    10 = IMG_RESOURCE
+                    10 {
+                        file {
+                            import.data = file:current:uid
+                            treatIdAsReference = 1
+                            width = 1280c
+                            height: 720c
+                        }
+                        stdWrap {
+                            typolink {
+                                parameter.data = TSFE:lastImgResourceInfo|3
+                                returnLast = url
+                                forceAbsoluteUrl = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-	includeCSS {
-		# bootstrap will be included in the themes.less file
-		# for standalone usage just uncomment the following line
-		# bootstrap = EXT:bootstrap_package/Resources/Public/Less/Bootstrap/bootstrap.less
-		theme = EXT:bootstrap_package/Resources/Public/Less/Theme/theme.less
-	}
+    includeCSS {
+        # bootstrap will be included in the themes.less file
+        # for standalone usage just uncomment the following line
+        # bootstrap = EXT:bootstrap_package/Resources/Public/Less/Bootstrap/bootstrap.less
+        theme = EXT:bootstrap_package/Resources/Public/Less/Theme/theme.less
+    }
 
-	includeJSLibs {
-		modernizr = {$page.includePath.javascript}Libs/modernizr-2.8.3.min.js
-		modernizr.forceOnTop = 1
-		wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
-	}
+    includeJSLibs {
+        modernizr = {$page.includePath.javascript}Libs/modernizr-2.8.3.min.js
+        modernizr.forceOnTop = 1
+        wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
+    }
 
-	includeJSFooterlibs {
-		jquery = {$page.includePath.javascript}Libs/jquery.min.js
-		jquery.forceOnTop = 1
-		bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
-		responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
+    includeJSFooterlibs {
+        jquery = {$page.includePath.javascript}Libs/jquery.min.js
+        jquery.forceOnTop = 1
+        bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
+        responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
 
-		#### Add swipe support for boostrap components
-		hammerjs = {$page.includePath.javascript}Libs/hammer.min.js
-		bootstrap_swipe = {$page.includePath.javascript}Libs/bootstrap.swipe.min.js
-		#### Basic lightbox implementation for bootstrap
-		bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
-		#### Toggle collapsed CSS class on the navbar toggle button
-		bootstrap_navbartoggle = {$page.includePath.javascript}Libs/bootstrap.navbartoggle.min.js
+        #### Add swipe support for boostrap components
+        hammerjs = {$page.includePath.javascript}Libs/hammer.min.js
+        bootstrap_swipe = {$page.includePath.javascript}Libs/bootstrap.swipe.min.js
+        #### Basic lightbox implementation for bootstrap
+        bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
+        #### Toggle collapsed CSS class on the navbar toggle button
+        bootstrap_navbartoggle = {$page.includePath.javascript}Libs/bootstrap.navbartoggle.min.js
 
-		##################################################################
-		#### INCLUDE JS FOR IE DINOSAURS                              ####
-		#### NOTE : add conditional comment to cope with static cache ####
-		##################################################################
-		#### selectivizr to add css pseudo class selectors
-		selectivizr = {$page.includePath.javascript}Libs/selectivizr.min.js
-		selectivizr.allWrap = <!--[if IE 8 ]>|<![endif]-->
-		selectivizr.excludeFromConcatenation = 1
-		selectivizr.disableCompression = 1
-		#### respond to add media query support
-		respond = {$page.includePath.javascript}Libs/respond.min.js
-		respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
-		respond.excludeFromConcatenation = 1
-		respond.disableCompression = 1
-	}
+        ##################################################################
+        #### INCLUDE JS FOR IE DINOSAURS                              ####
+        #### NOTE : add conditional comment to cope with static cache ####
+        ##################################################################
+        #### selectivizr to add css pseudo class selectors
+        selectivizr = {$page.includePath.javascript}Libs/selectivizr.min.js
+        selectivizr.allWrap = <!--[if IE 8 ]>|<![endif]-->
+        selectivizr.excludeFromConcatenation = 1
+        selectivizr.disableCompression = 1
+        #### respond to add media query support
+        respond = {$page.includePath.javascript}Libs/respond.min.js
+        respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
+        respond.excludeFromConcatenation = 1
+        respond.disableCompression = 1
+    }
 
-	jsFooterInline {
-		# Google Analytics
-		10 = COA
-		10 {
-			if {
-				isTrue = {$page.tracking.google.trackingID}
-			}
-			10 = TEXT
-			10.value (
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', '{$page.tracking.google.trackingID}', 'auto');
-			)
-			20 = TEXT
-			20 {
-				if {
-					isTrue = {$page.tracking.google.anonymizeIp}
-				}
+    jsFooterInline {
+        # Google Analytics
+        10 = COA
+        10 {
+            if {
+                isTrue = {$page.tracking.google.trackingID}
+            }
+            10 = TEXT
+            10.value (
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '{$page.tracking.google.trackingID}', 'auto');
+            )
+            20 = TEXT
+            20 {
+                if {
+                    isTrue = {$page.tracking.google.anonymizeIp}
+                }
 
-				value (
+                value (
 
-	ga('set', 'anonymizeIp', true);
-				)
-			}
+    ga('set', 'anonymizeIp', true);
+                )
+            }
 
-			90 = TEXT
-			90.value (
+            90 = TEXT
+            90.value (
 
-	ga('send', 'pageview');
-			)
-		}
-	}
+    ga('send', 'pageview');
+            )
+        }
+    }
 }
 
 
@@ -633,7 +633,7 @@ page {
 #### IF NO SEARCH IS SET FOR THIS PAGE         ####
 ###################################################
 [globalVar = TSFE:page|no_search = 1]
-	page.meta.robots = noindex,follow
+    page.meta.robots = noindex,follow
 [end]
 
 
@@ -641,48 +641,48 @@ page {
 #### CONFIG ####
 ################
 config {
-	absRefPrefix = auto
-	no_cache = {$config.no_cache}
-	uniqueLinkVars = 1
-	pageTitleFirst = 1
-	linkVars = L
-	prefixLocalAnchors = {$config.prefixLocalAnchors}
-	renderCharset = utf-8
-	metaCharset = utf-8
-	doctype = html5
-	removeDefaultJS = {$config.removeDefaultJS}
-	inlineStyle2TempFile = 1
-	admPanel = {$config.admPanel}
-	debug = 0
-	cache_period = 86400
-	sendCacheHeaders = 0
-	intTarget =
-	extTarget =
-	disablePrefixComment = 1
-	index_enable = 1
-	index_externals = 1
-	headerComment = {$config.headerComment}
+    absRefPrefix = auto
+    no_cache = {$config.no_cache}
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+    prefixLocalAnchors = {$config.prefixLocalAnchors}
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    removeDefaultJS = {$config.removeDefaultJS}
+    inlineStyle2TempFile = 1
+    admPanel = {$config.admPanel}
+    debug = 0
+    cache_period = 86400
+    sendCacheHeaders = 0
+    intTarget =
+    extTarget =
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 1
+    headerComment = {$config.headerComment}
 
-	// Enable RealUrl
-	tx_realurl_enable = 1
-	simulateStaticDocuments = 0
+    // Enable RealUrl
+    tx_realurl_enable = 1
+    simulateStaticDocuments = 0
 
-	// Disable Image Upscaling
-	noScaleUp = 1
+    // Disable Image Upscaling
+    noScaleUp = 1
 
-	// Language Settings
-	sys_language_uid = 0
-	sys_language_overlay = 1
-	sys_language_mode = content_fallback
-	language = en
-	locale_all = en_US.UTF-8
-	htmlTag_setParams = lang="en" dir="ltr" class="no-js"
+    // Language Settings
+    sys_language_uid = 0
+    sys_language_overlay = 1
+    sys_language_mode = content_fallback
+    language = en
+    locale_all = en_US.UTF-8
+    htmlTag_setParams = lang="en" dir="ltr" class="no-js"
 
-	// Compression and Concatenation of CSS and JS Files
-	compressJs = {$config.compressJs}
-	compressCss = {$config.compressCss}
-	concatenateJs = {$config.concatenateJs}
-	concatenateCss = {$config.concatenateCss}
+    // Compression and Concatenation of CSS and JS Files
+    compressJs = {$config.compressJs}
+    compressCss = {$config.compressCss}
+    concatenateJs = {$config.concatenateJs}
+    concatenateCss = {$config.concatenateCss}
 }
 
 
@@ -690,20 +690,20 @@ config {
 #### LANGUAGE CONDITIONS ####
 #############################
 [globalVar = GP:L = 1]
-	config {
-		sys_language_uid = 1
-		language = de
-		locale_all = de_DE.UTF-8
-		htmlTag_setParams = lang="de" dir="ltr" class="no-js"
-	}
+    config {
+        sys_language_uid = 1
+        language = de
+        locale_all = de_DE.UTF-8
+        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+    }
 [global]
 [globalVar = GP:L = 2]
-	config {
-		sys_language_uid = 2
-		language = da
-		locale_all = da_DK.UTF-8
-		htmlTag_setParams = lang="da" dir="ltr" class="no-js"
-	}
+    config {
+        sys_language_uid = 2
+        language = da
+        locale_all = da_DK.UTF-8
+        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
+    }
 [global]
 
 
@@ -712,74 +712,74 @@ config {
 ###################################
 [userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7004000)]
 
-	##############################################################################
-	#### Fallback for the new Features in 7.4 for advanced meta data settings ####
-	#### see https://forge.typo3.org/issues/67360 for more details            ####
-	##############################################################################
-	page {
-		headerData {
-			20 = COA
-			20 {
-				// Open Graph Tags
-				10 = FILES
-				10 {
-					references {
-						data = levelfield:-1, media, slide
-					}
-					maxItems = 1
-					renderObj = COA
-					renderObj {
-						10 = IMG_RESOURCE
-						10 {
-							file {
-								import.data = file:current:uid
-								treatIdAsReference = 1
-								width = 1280c
-								height = 720c
-							}
-							stdWrap {
-								typolink {
-									parameter.data = TSFE:lastImgResourceInfo|3
-									returnLast = url
-									forceAbsoluteUrl = 1
-								}
-								wrap = <meta property="og:image" content="|" />
-							}
-						}
-					}
-				}
-				20 = TEXT
-				20 {
-					field = title
-					required = 1
-					wrap = <meta property="og:title" content="|" />
-				}
-				30 = TEXT
-				30 {
-					data = TSFE:tmpl|setup|sitetitle
-					required = 1
-					wrap = <meta property="og:site_name" content="|" />
-				}
-				40 = TEXT
-				40 {
-					field = description
-					required = 1
-					wrap = <meta property="og:description" content="|" />
-				}
-			}
-		}
-		meta {
-			og:title >
-			og:site_name >
-			og:description >
-			og:image >
-			X-UA-Compatible >
-			X-UA-Compatible = {$page.meta.compatible}
-			X-UA-Compatible {
-				httpEquivalent = 1
-			}
-		}
-	}
+    ##############################################################################
+    #### Fallback for the new Features in 7.4 for advanced meta data settings ####
+    #### see https://forge.typo3.org/issues/67360 for more details            ####
+    ##############################################################################
+    page {
+        headerData {
+            20 = COA
+            20 {
+                // Open Graph Tags
+                10 = FILES
+                10 {
+                    references {
+                        data = levelfield:-1, media, slide
+                    }
+                    maxItems = 1
+                    renderObj = COA
+                    renderObj {
+                        10 = IMG_RESOURCE
+                        10 {
+                            file {
+                                import.data = file:current:uid
+                                treatIdAsReference = 1
+                                width = 1280c
+                                height = 720c
+                            }
+                            stdWrap {
+                                typolink {
+                                    parameter.data = TSFE:lastImgResourceInfo|3
+                                    returnLast = url
+                                    forceAbsoluteUrl = 1
+                                }
+                                wrap = <meta property="og:image" content="|" />
+                            }
+                        }
+                    }
+                }
+                20 = TEXT
+                20 {
+                    field = title
+                    required = 1
+                    wrap = <meta property="og:title" content="|" />
+                }
+                30 = TEXT
+                30 {
+                    data = TSFE:tmpl|setup|sitetitle
+                    required = 1
+                    wrap = <meta property="og:site_name" content="|" />
+                }
+                40 = TEXT
+                40 {
+                    field = description
+                    required = 1
+                    wrap = <meta property="og:description" content="|" />
+                }
+            }
+        }
+        meta {
+            og:title >
+            og:site_name >
+            og:description >
+            og:image >
+            X-UA-Compatible >
+            X-UA-Compatible = {$page.meta.compatible}
+            X-UA-Compatible {
+                httpEquivalent = 1
+            }
+        }
+    }
 
 [global]
 
@@ -788,13 +788,13 @@ config {
 #### TYPO3 < 7.3 COMPATIBILITY ####
 ###################################
 [userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7003000)]
-	page.10 {
-		file < page.10.templateName
-		file.stdWrap {
-			postUserFunc = BK2K\BootstrapPackage\UserFunc\TemplateFileResolver->getTemplateFromName
-			postUserFunc.paths =< page.10.templateRootPaths
-		}
-	}
+    page.10 {
+        file < page.10.templateName
+        file.stdWrap {
+            postUserFunc = BK2K\BootstrapPackage\UserFunc\TemplateFileResolver->getTemplateFromName
+            postUserFunc.paths =< page.10.templateRootPaths
+        }
+    }
 [global]
 
 
@@ -803,57 +803,57 @@ config {
 #################################
 [userFunc = BK2K\BootstrapPackage\UserFunc\Typo3VersionCondition::match(lessThan, 7000000)]
 
-	#########################################################
-	#### Solve deprecation of page.includeJSlibs in CMS7 ####
-	#########################################################
-	page {
-		includeJSlibs < page.includeJSLibs
-	}
+    #########################################################
+    #### Solve deprecation of page.includeJSlibs in CMS7 ####
+    #########################################################
+    page {
+        includeJSlibs < page.includeJSLibs
+    }
 
-	#########################################################
-	#### Use automatic baseUrl generation since          ####
-	#### absRefPrefix = auto is not available in  6.2    ####
-	#########################################################
-	page {
-		// Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
-		// This is sadly needed to get automatic baseurl setting to work
-		headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
-		meta.X-UA-Compatible >
-	}
-	config {
-		absRefPrefix >
-		// Set the headTag again and get an automatic baseURL if config.baseURL is not set
-		htmlTag_stdWrap {
-			setContentToCurrent = 1
-			cObject = COA
-			cObject {
-				10 = LOAD_REGISTER
-				10 {
-					newLine.char = 10
-					tagEnd {
-						current = 1
-						split.max = 2
-						split.token = <html
-						split.returnKey = 1
-					}
-				}
-				20 = TEXT
-				20 {
-					value = <html {register:tagEnd}
-					wrap = |{register:newLine}
-					insertData = 1
-				}
-				30 < .20
-				30.value = <head>
-				40 = TEXT
-				40 {
-					data = getIndpEnv:TYPO3_SITE_URL
-					wrap = <base href="|">{register:newLine}
-					insertData = 1
-				}
-			}
-		}
-	}
+    #########################################################
+    #### Use automatic baseUrl generation since          ####
+    #### absRefPrefix = auto is not available in  6.2    ####
+    #########################################################
+    page {
+        // Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+        // This is sadly needed to get automatic baseurl setting to work
+        headTag = <meta http-equiv="X-UA-Compatible" content="{$page.meta.compatible}">
+        meta.X-UA-Compatible >
+    }
+    config {
+        absRefPrefix >
+        // Set the headTag again and get an automatic baseURL if config.baseURL is not set
+        htmlTag_stdWrap {
+            setContentToCurrent = 1
+            cObject = COA
+            cObject {
+                10 = LOAD_REGISTER
+                10 {
+                    newLine.char = 10
+                    tagEnd {
+                        current = 1
+                        split.max = 2
+                        split.token = <html
+                        split.returnKey = 1
+                    }
+                }
+                20 = TEXT
+                20 {
+                    value = <html {register:tagEnd}
+                    wrap = |{register:newLine}
+                    insertData = 1
+                }
+                30 < .20
+                30.value = <head>
+                40 = TEXT
+                40 {
+                    data = getIndpEnv:TYPO3_SITE_URL
+                    wrap = <base href="|">{register:newLine}
+                    insertData = 1
+                }
+            }
+        }
+    }
 
 [global]
 
@@ -863,11 +863,11 @@ config {
 ########################
 popup < page
 popup {
-	typeNum = 1000
-	10 {
-		variables {
-			showHeader.value = 0
-			showFooter.value = 0
-		}
-	}
+    typeNum = 1000
+    10 {
+        variables {
+            showHeader.value = 0
+            showFooter.value = 0
+        }
+    }
 }

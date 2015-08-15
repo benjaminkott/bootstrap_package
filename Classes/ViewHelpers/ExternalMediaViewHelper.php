@@ -37,43 +37,43 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
  */
 class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableInterface {
 
-	/**
-	 * Render
-	 *
-	 * @param string $url
-	 * @param mixed $class
-	 * @return string
-	 */
-	public function render($url, $class) {
-		return self::renderStatic(
-			array(
-				'url' => $url,
-				'class' => $class
-			),
-			$this->buildRenderChildrenClosure(),
-			$this->renderingContext
-		);
-	}
+    /**
+     * Render
+     *
+     * @param string $url
+     * @param mixed $class
+     * @return string
+     */
+    public function render($url, $class) {
+        return self::renderStatic(
+            array(
+                'url' => $url,
+                'class' => $class
+            ),
+            $this->buildRenderChildrenClosure(),
+            $this->renderingContext
+        );
+    }
 
 
-	/**
-	 * Checks if the URL is a valid YouTube/Vimeo Link is. If the video id can
-	 * be extracted the embed code will be returned, else the content of the
-	 * ViewHelper will be displayed.
-	 *
-	 * @param array $arguments
-	 * @param \Closure $renderChildrenClosure
-	 * @param RenderingContextInterface $renderingContext
-	 * @return string
-	 */
-	static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-		$templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-		$externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
-		$externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class']);
-		$templateVariableContainer->add('externalMedia', $externalMedia);
-		$content = $renderChildrenClosure();
-		$templateVariableContainer->remove('externalMedia');
-		return $content;
-	}
+    /**
+     * Checks if the URL is a valid YouTube/Vimeo Link is. If the video id can
+     * be extracted the embed code will be returned, else the content of the
+     * ViewHelper will be displayed.
+     *
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return string
+     */
+    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        $externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
+        $externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class']);
+        $templateVariableContainer->add('externalMedia', $externalMedia);
+        $content = $renderChildrenClosure();
+        $templateVariableContainer->remove('externalMedia');
+        return $content;
+    }
 
 }

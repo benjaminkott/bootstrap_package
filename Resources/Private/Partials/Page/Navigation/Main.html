@@ -1,29 +1,29 @@
 <header
-	class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}">
-	<div class="container">
-		<div class="navbar-header navbar-header-main">
-			<f:if condition="{logoFile}">
-				<f:then>
-					<f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image">
-						<img src="{f:uri.image(src: logoFile)}" alt="{logoAlt}" height="{logoHeight}" width="{logoWidth}">
-					</f:link.page>
-				</f:then>
-				<f:else>
-					<f:link.page pageUid="{rootPage}" class="navbar-brand">{siteTitle}</f:link.page>
-				</f:else>
-			</f:if>
-			<f:if condition="{f:cObject(typoscriptObjectPath:'lib.navigation.main')}">
-				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</f:if>
-			<span class="navbar-header-border-bottom"></span>
-		</div>
-		<nav class="navbar-collapse collapse" role="navigation">
-			<f:cObject typoscriptObjectPath="lib.navigation.main"/>
-		</nav>
-	</div>
+    class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}">
+    <div class="container">
+        <div class="navbar-header navbar-header-main">
+            <f:if condition="{logoFile}">
+                <f:then>
+                    <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image">
+                        <img src="{f:uri.image(src: logoFile)}" alt="{logoAlt}" height="{logoHeight}" width="{logoWidth}">
+                    </f:link.page>
+                </f:then>
+                <f:else>
+                    <f:link.page pageUid="{rootPage}" class="navbar-brand">{siteTitle}</f:link.page>
+                </f:else>
+            </f:if>
+            <f:if condition="{f:cObject(typoscriptObjectPath:'lib.navigation.main')}">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </f:if>
+            <span class="navbar-header-border-bottom"></span>
+        </div>
+        <nav class="navbar-collapse collapse" role="navigation">
+            <f:cObject typoscriptObjectPath="lib.navigation.main"/>
+        </nav>
+    </div>
 </header>

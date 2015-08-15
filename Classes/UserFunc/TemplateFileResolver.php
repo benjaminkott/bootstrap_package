@@ -36,35 +36,35 @@ use TYPO3\CMS\Extbase\Utility\ArrayUtility;
  */
 class TemplateFileResolver {
 
-	/**
-	 * @param string $content
-	 * @param array $conf
-	 * @return string
-	 */
-	public function getTemplateFromName($content, $conf) {
+    /**
+     * @param string $content
+     * @param array $conf
+     * @return string
+     */
+    public function getTemplateFromName($content, $conf) {
 
-		$basename = $content;
+        $basename = $content;
 
-		if ($conf['paths'][0] === '<') {
-			$key = trim(substr($conf['paths'], 1));
-			$typoScriptParser = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\Parser\\TypoScriptParser');
-			list($name, $conf['paths.']) = $typoScriptParser->getVal($key, $GLOBALS['TSFE']->tmpl->setup);
-		}
+        if ($conf['paths'][0] === '<') {
+            $key = trim(substr($conf['paths'], 1));
+            $typoScriptParser = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\Parser\\TypoScriptParser');
+            list($name, $conf['paths.']) = $typoScriptParser->getVal($key, $GLOBALS['TSFE']->tmpl->setup);
+        }
 
-		$paths = ArrayUtility::sortArrayWithIntegerKeys($conf['paths.']);
-		$paths = array_reverse($paths, TRUE);
+        $paths = ArrayUtility::sortArrayWithIntegerKeys($conf['paths.']);
+        $paths = array_reverse($paths, TRUE);
 
-		foreach ($paths as $path) {
-			// why does it have to be relative?
-			$test_file = PathUtility::getRelativePathTo(GeneralUtility::getFileAbsFileName($path)) . $basename;
-			if (is_file($test_file)) {
-				return $test_file;
-			}
-			if (is_file($test_file . '.html')) {
-				return $test_file . '.html';
-			}
-		}
-		return $content;
-	}
+        foreach ($paths as $path) {
+            // why does it have to be relative?
+            $test_file = PathUtility::getRelativePathTo(GeneralUtility::getFileAbsFileName($path)) . $basename;
+            if (is_file($test_file)) {
+                return $test_file;
+            }
+            if (is_file($test_file . '.html')) {
+                return $test_file . '.html';
+            }
+        }
+        return $content;
+    }
 
 }
