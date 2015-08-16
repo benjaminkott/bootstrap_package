@@ -79,7 +79,7 @@ class ExternalMediaUtility
         $urlInformation = @parse_url($url);
         $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
         foreach ($this->mediaProvider as $provider) {
-            $functionName = 'process_' . $provider;
+            $functionName = 'process' . ucfirst($provider);
             if (in_array($provider, $hostName) && is_callable(array($this, $functionName))) {
                 return $functionName;
             }
@@ -93,7 +93,7 @@ class ExternalMediaUtility
      * @param string $url
      * @return string
      */
-    protected function process_youtube($url)
+    protected function processYoutube($url)
     {
         $matches = array();
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
@@ -114,9 +114,9 @@ class ExternalMediaUtility
      * @param string $url
      * @return string
      */
-    protected function process_youtu($url)
+    protected function processYoutu($url)
     {
-        return $this->process_youtube($url);
+        return $this->processYoutube($url);
     }
 
     /**
@@ -125,7 +125,7 @@ class ExternalMediaUtility
      * @param string $url
      * @return string
      */
-    protected function process_vimeo($url)
+    protected function processVimeo($url)
     {
         $matches = array();
         if (preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
