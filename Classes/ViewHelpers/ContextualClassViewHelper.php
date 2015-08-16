@@ -1,8 +1,7 @@
 <?php
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
-/***************************************************************
- *
+/*
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
@@ -24,8 +23,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
- *
- ***************************************************************/
+ */
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
