@@ -1,6 +1,8 @@
+.idea/
 Build/bower_components/*
 Build/node_modules/*
 nbproject/*
+vendor/*
+composer.lock
 Thumbs.db
 prepros.cfg
-.idea/
