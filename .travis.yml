@@ -31,8 +31,10 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+install:
+  - composer install --no-interaction
+
 before_script:
-  - composer self-update
   - cd ..
   - git clone --single-branch --branch $TYPO3_BRANCH --depth 1 https://github.com/TYPO3/TYPO3.CMS.git typo3_core
   - mv typo3_core/* .
@@ -46,4 +48,4 @@ script:
     echo "Running php lint";
     find typo3conf/ext/$EXTENSIONKEY/ -name \*.php | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
-    ./bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
+    typo3conf/ext/$EXTENSIONKEY/vendor/bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
