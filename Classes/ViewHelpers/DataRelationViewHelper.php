@@ -35,7 +35,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataRelationViewHelper extends AbstractViewHelper implements CompilableInterface {
+class DataRelationViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -49,7 +50,15 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
      * @param string $additionalWhere
      * @return string
      */
-    public function render($uid, $table, $foreignField = 'tt_content', $selectFields = '*', $as = 'items', $sortby = 'sorting ASC', $additionalWhere = '') {
+    public function render(
+        $uid,
+        $table,
+        $foreignField = 'tt_content',
+        $selectFields = '*',
+        $as = 'items',
+        $sortby = 'sorting ASC',
+        $additionalWhere = ''
+    ) {
         return self::renderStatic(
             array(
                 'uid' => $uid,
@@ -71,9 +80,13 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-        if ($arguments['uid'] !== NULL && $arguments['table'] !== NULL) {
+        if ($arguments['uid'] !== null && $arguments['table'] !== null) {
             $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
             $whereClause = '1 AND `' . $arguments['foreignField'] . '` = \'' . $arguments['uid'] . '\' ' . $arguments['additionalWhere'] . $cObj->enableFields($arguments['table']);
             $groupBy = '';
@@ -91,12 +104,13 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
             foreach ($data as $record) {
                 $GLOBALS['TSFE']->sys_page->versionOL($arguments['table'], $record);
                 if (is_array($record)) {
-                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($arguments['table'], $record, $GLOBALS['TSFE']->sys_language_uid);
+                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($arguments['table'], $record,
+                        $GLOBALS['TSFE']->sys_language_uid);
                 }
             }
-                usort($items, array(self, "orderBySorting"));
+            usort($items, array(self, "orderBySorting"));
         } else {
-            $items = NULL;
+            $items = null;
         }
         $templateVariableContainer->add($arguments['as'], $items);
         $content = $renderChildrenClosure();
@@ -109,7 +123,8 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
      * @param array $b
      * @return string
      */
-    static protected function orderBySorting($a, $b) {
+    static protected function orderBySorting($a, $b)
+    {
         return $a['sorting'] > $b['sorting'];
     }
 

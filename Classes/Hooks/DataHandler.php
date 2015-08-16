@@ -30,7 +30,8 @@ namespace BK2K\BootstrapPackage\Hooks;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataHandler {
+class DataHandler
+{
 
     /**
      * @param array|mixed $incomingFieldArray
@@ -38,8 +39,8 @@ class DataHandler {
      * @param integer $id
      * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      */
-    public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, $pObj) {
-
+    public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, $pObj)
+    {
         /**
          * Set the correct classes within the flexform according to the layout
          */
@@ -61,7 +62,8 @@ class DataHandler {
                     break;
             }
             $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_nostyles']['vDEF'] = 1;
-            $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_tableclass']['vDEF'] = implode(" ", $acctables_tableclasses);
+            $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_tableclass']['vDEF'] = implode(" ",
+                $acctables_tableclasses);
         }
 
         /**
@@ -71,6 +73,6 @@ class DataHandler {
             $incomingFieldArray['imageheight'] = '';
             $incomingFieldArray['imagewidth'] = '';
         }
-
     }
+
 }

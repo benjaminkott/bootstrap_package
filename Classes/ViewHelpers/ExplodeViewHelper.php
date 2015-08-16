@@ -35,7 +35,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface {
+class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -45,7 +46,8 @@ class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterfac
      * @param string $delimiter
      * @return string
      */
-    public function render($data, $as = 'items', $delimiter = LF) {
+    public function render($data, $as = 'items', $delimiter = LF)
+    {
         return self::renderStatic(
             array(
                 'data' => $data,
@@ -64,7 +66,11 @@ class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterfac
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $content = '';
         if (isset($arguments['data'])) {
             $templateVariableContainer = $renderingContext->getTemplateVariableContainer();

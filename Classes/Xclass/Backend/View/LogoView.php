@@ -32,14 +32,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class LogoView extends \TYPO3\CMS\Backend\View\LogoView {
+class LogoView extends \TYPO3\CMS\Backend\View\LogoView
+{
 
     /**
      * renders the actual logo code
      *
      * @return string Logo html code snippet to use in the backend
      */
-    public function render() {
+    public function render()
+    {
 
         if (!$GLOBALS['TBE_STYLES']['logo']) {
             return parent::render();

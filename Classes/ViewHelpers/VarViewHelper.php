@@ -34,7 +34,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class VarViewHelper extends AbstractViewHelper implements CompilableInterface {
+class VarViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -43,7 +44,8 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface {
      * @param mixed $value
      * @return string
      */
-    public function render($name = NULL, $value = NULL) {
+    public function render($name = null, $value = null)
+    {
         return self::renderStatic(
             array(
                 'name' => $name,
@@ -61,20 +63,24 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface {
      * @param RenderingContextInterface $renderingContext
      * @return void
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        if ($arguments['name'] !== NULL) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
+        if ($arguments['name'] !== null) {
             $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-            if ($arguments['value'] === NULL) {
+            if ($arguments['value'] === null) {
                 $value = $renderChildrenClosure();
             } else {
                 $value = $arguments['value'];
             }
-            if ($templateVariableContainer->exists($arguments['name']) === TRUE) {
+            if ($templateVariableContainer->exists($arguments['name']) === true) {
                 $templateVariableContainer->remove($arguments['name']);
             }
             $templateVariableContainer->add($arguments['name'], $value);
         }
-        return NULL;
+        return null;
     }
 
 }

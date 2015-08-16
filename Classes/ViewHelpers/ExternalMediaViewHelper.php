@@ -35,7 +35,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableInterface {
+class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -44,7 +45,8 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
      * @param mixed $class
      * @return string
      */
-    public function render($url, $class) {
+    public function render($url, $class)
+    {
         return self::renderStatic(
             array(
                 'url' => $url,
@@ -66,7 +68,11 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
         $externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
         $externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class']);
