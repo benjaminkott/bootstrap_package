@@ -20,6 +20,16 @@ Information.
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
+         - [BUGFIX] Use correct assignment for TypoScript value
+         - [BUGFIX] Use camel caps format for functions in external media utility
+         - [TASK] Unify license comment
+         - [TASK] Add phpcs as dev dependency to composer.json
+         - [TASK] Add Scrutinizer
+         - [TASK] Add travis-ci builds for TYPO3 6.2 and master
+         - [TASK] Remove TYPO3 dependencies and conflicts from composer.json
+         - [TASK] Update less.php to 1.7.0.5
+         - [TASK] Introduce PSR-2 Coding Style Guide
 6.2.14   - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4
          - [BUGFIX] Use always $GLOBALS[TCA]
          - [BUGFIX] fix missing TYPO3SEARCH_end marker
