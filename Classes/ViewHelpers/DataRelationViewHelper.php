@@ -80,7 +80,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(
+    public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
@@ -123,7 +123,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
      * @param array $b
      * @return string
      */
-    static protected function orderBySorting($a, $b)
+    public static function orderBySorting($a, $b)
     {
         return $a['sorting'] > $b['sorting'];
     }

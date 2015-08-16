@@ -63,7 +63,7 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(
+    public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
