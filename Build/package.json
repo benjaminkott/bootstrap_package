@@ -5,7 +5,7 @@
     "readme": "../README.rst",
     "homepage": "http://www.bk2k.info",
     "author": "Benjamin Kott",
-    "version": "6.2.15-dev",
+    "version": "6.2.15",
     "license": "MIT",
     "devDependencies": {
         "grunt": "~0.4.5",
