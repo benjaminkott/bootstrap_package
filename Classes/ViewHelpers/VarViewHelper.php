@@ -63,7 +63,7 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
      * @param RenderingContextInterface $renderingContext
      * @return void
      */
-    static public function renderStatic(
+    public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext

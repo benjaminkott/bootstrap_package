@@ -68,7 +68,7 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(
+    public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
