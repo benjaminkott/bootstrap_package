@@ -37,8 +37,11 @@ class DataHandler
      * @param integer $id
      * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      */
+    // @codingStandardsIgnoreStart
     public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, $pObj)
     {
+        // @codingStandardsIgnoreEnd
+
         /**
          * Set the correct classes within the flexform according to the layout
          */
