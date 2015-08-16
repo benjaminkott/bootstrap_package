@@ -35,7 +35,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterface {
+class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -44,7 +45,8 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
      * @param string $field
      * @return void
      */
-    public function render($record = "data", $field = "pi_flexform") {
+    public function render($record = "data", $field = "pi_flexform")
+    {
         return self::renderStatic(
             array(
                 'record' => $record,
@@ -61,10 +63,14 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-        if ($templateVariableContainer->exists($arguments['record']) === FALSE) {
-            return NULL;
+        if ($templateVariableContainer->exists($arguments['record']) === false) {
+            return null;
         }
         $data = $templateVariableContainer->get($arguments['record']);
         $flexFormConfiguration = $data[$arguments['field']];
@@ -80,7 +86,7 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
         $data[$arguments['field']] = $flexFormConfiguration;
         $templateVariableContainer->remove($arguments['record']);
         $templateVariableContainer->add($arguments['record'], $data);
-        return NULL;
+        return null;
     }
 
 }

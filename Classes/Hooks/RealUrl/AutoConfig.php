@@ -33,17 +33,19 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class AutoConfig {
+class AutoConfig
+{
 
     /**
      * Function for RealUrl version < 2.0.0 from Dmitry Dulepov
      * http://typo3.org/extensions/repository/view/realurl
      *
      * @param array $params
-     * @param tx_realurl_autoconfgen $pObj
+     * @param \tx_realurl_autoconfgen $pObj
      * @return array
      */
-    public function addConfigVersion1x(array $params, \tx_realurl_autoconfgen $pObj) {
+    public function addConfigVersion1x(array $params, \tx_realurl_autoconfgen $pObj)
+    {
         $params = $this->addConfigToParams($params);
         return $params['config'];
     }
@@ -53,10 +55,11 @@ class AutoConfig {
      * https://github.com/helhum/realurl
      *
      * @param array $params
-     * @param Tx\Realurl\Configuration\ConfigurationGenerator $pObj
+     * @param \Tx\Realurl\Configuration\ConfigurationGenerator $pObj
      * @return array
      */
-    public function addConfigVersion2x(array $params, \Tx\Realurl\Configuration\ConfigurationGenerator $pObj) {
+    public function addConfigVersion2x(array $params, \Tx\Realurl\Configuration\ConfigurationGenerator $pObj)
+    {
         $params = $this->addConfigToParams($params);
         return $params['config'];
     }
@@ -65,7 +68,8 @@ class AutoConfig {
      * @param array $params
      * @return array
      */
-    protected function addConfigToParams(array $params) {
+    protected function addConfigToParams(array $params)
+    {
         if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7000000) {
             $params['config']['init']['emptyUrlReturnValue'] = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
         }
@@ -93,6 +97,5 @@ class AutoConfig {
         );
         return $params;
     }
-
 
 }

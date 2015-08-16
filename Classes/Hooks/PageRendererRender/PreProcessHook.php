@@ -32,14 +32,15 @@ use BK2K\BootstrapPackage\Service\CompileService;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class PreProcessHook {
+class PreProcessHook
+{
 
     /**
      * @param array $params
      * @param \TYPO3\CMS\Core\Page\PageRenderer $pagerenderer
      */
-    public function execute(&$params, &$pagerenderer) {
-
+    public function execute(&$params, &$pagerenderer)
+    {
         if (TYPO3_MODE !== 'FE' || !is_array($params['cssFiles'])) {
             return;
         }

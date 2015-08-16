@@ -41,15 +41,17 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
  *
  * @author Benjamin Kott <info@bk2k.info>
  */
-class Typo3VersionCondition {
+class Typo3VersionCondition
+{
 
     /**
      * @param string $operator
      * @param integer $value
      * @return bool
      */
-    public function match($operator = NULL, $value = NULL) {
-        $result = FALSE;
+    public function match($operator = null, $value = null)
+    {
+        $result = false;
         $value = intval($value);
         $version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
         if ($value) {

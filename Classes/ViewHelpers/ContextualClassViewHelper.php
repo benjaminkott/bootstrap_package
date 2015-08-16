@@ -34,7 +34,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ContextualClassViewHelper extends AbstractViewHelper implements CompilableInterface {
+class ContextualClassViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * @var array
@@ -54,7 +55,8 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
      * @param integer $code
      * @return string
      */
-    public function render($code) {
+    public function render($code)
+    {
         return self::renderStatic(
             array(
                 'code' => $code
@@ -70,8 +72,12 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : NULL;
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
+        return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : null;
     }
 
 }

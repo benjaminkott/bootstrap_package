@@ -10,14 +10,14 @@ return array(
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item',
         'delete' => 'deleted',
         'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioning_followPages' => true,
         'origUid' => 't3_origuid',
-        'hideAtCopy' => FALSE,
+        'hideAtCopy' => false,
         'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
-        'dividers2tabs' => TRUE,
+        'dividers2tabs' => true,
         'enablecolumns' => array(
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -34,14 +34,16 @@ return array(
         ',
     ),
     'types' => array(
-        '1' => array('showitem' => '
+        '1' => array(
+            'showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
             bodytext,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-        '),
+        '
+        ),
     ),
     'palettes' => array(
         '1' => array(

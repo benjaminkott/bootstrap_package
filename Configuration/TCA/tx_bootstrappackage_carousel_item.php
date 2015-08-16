@@ -6,18 +6,18 @@ return array(
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'title'	=> 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
+        'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
         'type' => 'item_type',
         'delete' => 'deleted',
         'versioningWS' => 2,
-        'versioning_followPages' => TRUE,
+        'versioning_followPages' => true,
         'origUid' => 't3_origuid',
-        'hideAtCopy' => FALSE,
+        'hideAtCopy' => false,
         'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
-        'dividers2tabs' => TRUE,
+        'dividers2tabs' => true,
         'enablecolumns' => array(
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -45,7 +45,8 @@ return array(
         ',
     ),
     'types' => array(
-        '1' => array('showitem' => '
+        '1' => array(
+            'showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             bodytext,
@@ -57,8 +58,10 @@ return array(
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-        '),
-        'header' => array('showitem' => '
+        '
+        ),
+        'header' => array(
+            'showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             text_color,
@@ -69,8 +72,10 @@ return array(
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-        '),
-        'textandimage' => array('showitem' => '
+        '
+        ),
+        'textandimage' => array(
+            'showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             bodytext,
@@ -83,8 +88,10 @@ return array(
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-        '),
-        'backgroundimage' => array('showitem' => '
+        '
+        ),
+        'backgroundimage' => array(
+            'showitem' => '
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
             background_image,
@@ -92,7 +99,8 @@ return array(
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-        '),
+        '
+        ),
         'html' => array(
             'columnsOverrides' => array(
                 'bodytext' => array(
@@ -266,8 +274,8 @@ return array(
             )
         ),
         'l10n_diffsource' => Array(
-            'config'=>array(
-                'type'=>'passthrough'
+            'config' => array(
+                'type' => 'passthrough'
             )
         ),
         'link' => array(

@@ -32,13 +32,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class CompileService {
+class CompileService
+{
 
     /**
      * @param string $file
      * @return bool|string
+     * @throws \Exception
      */
-    public static function getCompiledFile($file) {
+    public static function getCompiledFile($file)
+    {
         $file = GeneralUtility::getFileAbsFileName($file);
         $pathParts = pathinfo($file);
         if ($pathParts['extension'] === 'less') {
@@ -50,9 +53,9 @@ class CompileService {
                 if ($settings['cssSourceMapping']) {
                     // enable source mapping
                     $optionsForSourceMap = array(
-                        'sourceMap'         => true,
-                        'sourceMapWriteTo'  => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
-                        'sourceMapURL'      => '/typo3temp/bootstrappackage/bootstrappackage.map',
+                        'sourceMap' => true,
+                        'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
+                        'sourceMapURL' => '/typo3temp/bootstrappackage/bootstrappackage.map',
                         'sourceMapBasepath' => PATH_site,
                         'sourceMapRootpath' => '/'
                     );
@@ -84,7 +87,8 @@ class CompileService {
     /**
      * @return array
      */
-    public function getVariablesFromConstants() {
+    public function getVariablesFromConstants()
+    {
         $variables = array();
         $prefix = "plugin.bootstrap_package.settings.less.";
         if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {

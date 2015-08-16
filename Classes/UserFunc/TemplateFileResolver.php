@@ -34,15 +34,16 @@ use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 /**
  * @author Till Busch <till@bux.at>
  */
-class TemplateFileResolver {
+class TemplateFileResolver
+{
 
     /**
      * @param string $content
      * @param array $conf
      * @return string
      */
-    public function getTemplateFromName($content, $conf) {
-
+    public function getTemplateFromName($content, $conf)
+    {
         $basename = $content;
 
         if ($conf['paths'][0] === '<') {
@@ -52,7 +53,7 @@ class TemplateFileResolver {
         }
 
         $paths = ArrayUtility::sortArrayWithIntegerKeys($conf['paths.']);
-        $paths = array_reverse($paths, TRUE);
+        $paths = array_reverse($paths, true);
 
         foreach ($paths as $path) {
             // why does it have to be relative?

@@ -35,7 +35,8 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FalViewHelper extends AbstractViewHelper implements CompilableInterface {
+class FalViewHelper extends AbstractViewHelper implements CompilableInterface
+{
 
     /**
      * Render
@@ -46,7 +47,8 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface {
      * @param string $field
      * @return string
      */
-    public function render($data, $as = 'items', $table = 'tt_content', $field = 'image') {
+    public function render($data, $as = 'items', $table = 'tt_content', $field = 'image')
+    {
         return self::renderStatic(
             array(
                 'data' => $data,
@@ -66,12 +68,17 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface {
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    static public function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+    static public function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
         if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
             $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-            $items = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $arguments['data']['uid']);
-            $localizedId = NULL;
+            $items = $fileRepository->findByRelation($arguments['table'], $arguments['field'],
+                $arguments['data']['uid']);
+            $localizedId = null;
             if (isset($arguments['data']['_LOCALIZED_UID'])) {
                 $localizedId = $arguments['data']['_LOCALIZED_UID'];
             } elseif (isset($arguments['data']['_PAGES_OVERLAY_UID'])) {
@@ -81,11 +88,11 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface {
                 !empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['languageField'])
                 && !empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['transOrigPointerField'])
             );
-            if ($isTableLocalizable && $localizedId !== NULL) {
+            if ($isTableLocalizable && $localizedId !== null) {
                 $items = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $localizedId);
             }
         } else {
-            $items = NULL;
+            $items = null;
         }
         $templateVariableContainer->add($arguments['as'], $items);
         $content = $renderChildrenClosure();
