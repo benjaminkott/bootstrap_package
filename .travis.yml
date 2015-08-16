@@ -11,8 +11,8 @@ env:
   global:
     - EXTENSIONKEY=bootstrap_package
   matrix:
-    - TYPO3_BRANCH=master COVERAGE=0
-    - TYPO3_BRANCH=TYPO3_6-2 COVERAGE=0
+    - TYPO3_BRANCH=master
+    - TYPO3_BRANCH=TYPO3_6-2
 matrix:
   exclude:
     - php: 5.3
