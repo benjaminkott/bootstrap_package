@@ -1,0 +1,48 @@
+# .travis.yml
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+
+env:
+  global:
+    - EXTENSIONKEY=bootstrap_package
+  matrix:
+    - TYPO3_BRANCH=master COVERAGE=0
+    - TYPO3_BRANCH=TYPO3_6-2 COVERAGE=0
+matrix:
+  exclude:
+    - php: 5.3
+      env: TYPO3_BRANCH=master
+    - php: 5.4
+      env: TYPO3_BRANCH=master
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - parallel
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - cd ..
+  - git clone --single-branch --branch $TYPO3_BRANCH --depth 1 https://github.com/TYPO3/TYPO3.CMS.git typo3_core
+  - mv typo3_core/* .
+  - composer install
+  - mkdir -p typo3conf/ext
+  - mv $EXTENSIONKEY typo3conf/ext/
+
+script:
+  - >
+    echo;
+    echo "Running php lint";
+    find typo3conf/ext/$EXTENSIONKEY/ -name \*.php | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+  - >
+    ./bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
