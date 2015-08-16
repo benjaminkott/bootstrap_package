@@ -32,6 +32,7 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
+  - composer self-update
   - cd ..
   - git clone --single-branch --branch $TYPO3_BRANCH --depth 1 https://github.com/TYPO3/TYPO3.CMS.git typo3_core
   - mv typo3_core/* .
