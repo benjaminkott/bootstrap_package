@@ -273,5 +273,4 @@ class BackendLayoutDataProvider implements DataProviderInterface
         }
         return $iconPath;
     }
-
 }

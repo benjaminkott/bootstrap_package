@@ -65,5 +65,4 @@ class TemplateFileResolver
         }
         return $content;
     }
-
 }

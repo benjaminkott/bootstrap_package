@@ -74,8 +74,11 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
         if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
             $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-            $items = $fileRepository->findByRelation($arguments['table'], $arguments['field'],
-                $arguments['data']['uid']);
+            $items = $fileRepository->findByRelation(
+                $arguments['table'],
+                $arguments['field'],
+                $arguments['data']['uid']
+            );
             $localizedId = null;
             if (isset($arguments['data']['_LOCALIZED_UID'])) {
                 $localizedId = $arguments['data']['_LOCALIZED_UID'];
@@ -97,5 +100,4 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         $templateVariableContainer->remove($arguments['as']);
         return $content;
     }
-
 }

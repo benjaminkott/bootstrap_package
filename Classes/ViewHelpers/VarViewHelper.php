@@ -80,5 +80,4 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
         }
         return null;
     }
-
 }

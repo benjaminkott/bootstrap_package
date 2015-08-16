@@ -95,5 +95,4 @@ class AutoConfig
         );
         return $params;
     }
-
 }

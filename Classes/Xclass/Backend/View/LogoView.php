@@ -64,5 +64,4 @@ class LogoView extends \TYPO3\CMS\Backend\View\LogoView
             . '<span class="typo3-sitename">' . htmlspecialchars($GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']) . ' [' . TYPO3_version . ']</span>';
         return '<a href="http://' . GeneralUtility::getIndpEnv('HTTP_HOST') . '/" target="_blank">' . $logoTag . '</a>';
     }
-
 }

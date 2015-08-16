@@ -54,5 +54,4 @@ class PreProcessHook
         }
         $params['cssFiles'] = $files;
     }
-
 }

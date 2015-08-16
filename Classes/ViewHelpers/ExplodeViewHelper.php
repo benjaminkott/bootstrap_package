@@ -79,5 +79,4 @@ class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterfac
         }
         return $content;
     }
-
 }

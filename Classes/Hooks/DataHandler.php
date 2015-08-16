@@ -60,8 +60,10 @@ class DataHandler
                     break;
             }
             $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_nostyles']['vDEF'] = 1;
-            $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_tableclass']['vDEF'] = implode(" ",
-                $acctables_tableclasses);
+            $incomingFieldArray['pi_flexform']['data']['sDEF']['lDEF']['acctables_tableclass']['vDEF'] = implode(
+                " ",
+                $acctables_tableclasses
+            );
         }
 
         /**
@@ -72,5 +74,4 @@ class DataHandler
             $incomingFieldArray['imagewidth'] = '';
         }
     }
-
 }

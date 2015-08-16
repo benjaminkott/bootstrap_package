@@ -54,14 +54,13 @@ class Typo3VersionCondition
         $version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
         if ($value) {
             if ($operator === "equals" && $version === $value) {
-                $result = TRUE;
-            } else if ($operator === "lessThan" && $version < $value) {
-                $result = TRUE;
-            } else if ($operator === "greaterThan" && $version > $value) {
-                $result = TRUE;
+                $result = true;
+            } elseif ($operator === "lessThan" && $version < $value) {
+                $result = true;
+            } elseif ($operator === "greaterThan" && $version > $value) {
+                $result = true;
             }
         }
         return $result;
     }
-
 }
