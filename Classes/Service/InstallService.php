@@ -70,7 +70,8 @@ class InstallService
                 /**
                  * Add Flashmessage that the system is not running on an apache webserver and the url rewritings must be handled manually
                  */
-                $flashMessage = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+                $flashMessage = GeneralUtility::makeInstance(
+                    'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
                     'The Bootstrap Package uses RealUrl to generate SEO friendly URLs by default, please take care of the URLs rewriting settings for your environment yourself.'
                     . 'You can also deactivate RealUrl by changing your TypoScript setup to "config.tx_realurl_enable = 0".',
                     'TYPO3 is not running on an Apache-Webserver',
@@ -92,11 +93,11 @@ class InstallService
     {
         $htaccessFile = GeneralUtility::getFileAbsFileName(".htaccess");
         if (file_exists($htaccessFile)) {
-
             /**
              * Add Flashmessage that there is already an .htaccess file and we are not going to override this.
              */
-            $flashMessage = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+            $flashMessage = GeneralUtility::makeInstance(
+                'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
                 'There is already an Apache .htaccess file in the root directory, please make sure that the url rewritings are set properly.'
                 . 'An example configuration is located at: "typo3conf/ext/bootstrap_package/Configuration/Apache/.htaccess"',
                 'Apache .htaccess file already exists',
@@ -112,7 +113,8 @@ class InstallService
         /**
          * Add Flashmessage that the example htaccess file was placed in the root directory
          */
-        $flashMessage = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+        $flashMessage = GeneralUtility::makeInstance(
+            'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
             'For RealURL and optimization purposes an example .htaccess file was placed in your root directory.'
             . ' Please check if the RewriteBase correctly set for your environment. ',
             'Apache example .htaccess was placed in the root directory.',
@@ -137,5 +139,4 @@ class InstallService
             $flashMessageQueue->enqueue($flashMessage);
         }
     }
-
 }

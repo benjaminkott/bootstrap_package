@@ -79,5 +79,4 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
         $templateVariableContainer->remove('externalMedia');
         return $content;
     }
-
 }

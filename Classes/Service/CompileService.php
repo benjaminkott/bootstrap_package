@@ -99,5 +99,4 @@ class CompileService
         }
         return $variables;
     }
-
 }

@@ -77,5 +77,4 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
     ) {
         return (self::$contextualAlternatives[$arguments['code']]) ? self::$contextualAlternatives[$arguments['code']] : null;
     }
-
 }

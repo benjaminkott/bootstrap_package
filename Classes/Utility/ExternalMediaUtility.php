@@ -145,12 +145,11 @@ class ExternalMediaUtility
         $processUrl = trim($url);
         if (substr($url, 0, 7) === "http://") {
             $processUrl = substr($processUrl, 7);
-        } else if (substr($processUrl, 0, 8) === "https://") {
+        } elseif (substr($processUrl, 0, 8) === "https://") {
             $processUrl = substr($processUrl, 8);
-        } else if (substr($processUrl, 0, 2) === "//") {
+        } elseif (substr($processUrl, 0, 2) === "//") {
             $processUrl = substr($processUrl, 2);
         }
         return 'https://' . $processUrl;
     }
-
 }

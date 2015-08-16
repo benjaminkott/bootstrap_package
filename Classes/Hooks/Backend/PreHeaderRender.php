@@ -42,5 +42,4 @@ class PreHeaderRender
         $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend-v6.css';
         $params['pageRenderer']->addCssFile($backendCssFile);
     }
-
 }

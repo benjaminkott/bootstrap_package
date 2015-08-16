@@ -42,5 +42,4 @@ class RenderPreProcess
         $backendCssFile = ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Css/Backend/backend-v6.css';
         $backendController->addCssFile('bootstrap_package', $backendCssFile);
     }
-
 }

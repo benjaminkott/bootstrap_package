@@ -102,8 +102,11 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
             foreach ($data as $record) {
                 $GLOBALS['TSFE']->sys_page->versionOL($arguments['table'], $record);
                 if (is_array($record)) {
-                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay($arguments['table'], $record,
-                        $GLOBALS['TSFE']->sys_language_uid);
+                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay(
+                        $arguments['table'],
+                        $record,
+                        $GLOBALS['TSFE']->sys_language_uid
+                    );
                 }
             }
             usort($items, array(self, "orderBySorting"));
@@ -125,5 +128,4 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
     {
         return $a['sorting'] > $b['sorting'];
     }
-
 }

@@ -86,5 +86,4 @@ class FlexFormViewHelper extends AbstractViewHelper implements CompilableInterfa
         $templateVariableContainer->add($arguments['record'], $data);
         return null;
     }
-
 }
