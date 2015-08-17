@@ -533,7 +533,7 @@ page {
                             import.data = file:current:uid
                             treatIdAsReference = 1
                             width = 1280c
-                            height: 720c
+                            height = 720c
                         }
                         stdWrap {
                             typolink {
