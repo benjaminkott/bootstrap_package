@@ -233,14 +233,14 @@ lib.navigation.subnavigation {
                 wrap = <ol class="breadcrumb">|</ol>
                 NO = 1
                 NO {
-                    stdWrap.field = title
+                    stdWrap.field = nav_title // title
                     ATagTitle.field = nav_title // title
                     wrapItemAndSub = <li>|</li>
                 }
 
                 CUR = 1
                 CUR {
-                    stdWrap.field = title
+                    stdWrap.field = nav_title // title
                     doNotLinkIt = 1
                     wrapItemAndSub = <li class="active">|</li>
                 }
