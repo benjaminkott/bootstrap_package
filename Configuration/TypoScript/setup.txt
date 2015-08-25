@@ -224,7 +224,7 @@ lib.navigation.subnavigation {
         10 = HMENU
         10 {
             special = rootline
-            special.range = 1|-1
+            special.range = 0|-1
             includeNotInMenu = 1
             1 = TMENU
             1 {
@@ -233,14 +233,14 @@ lib.navigation.subnavigation {
                 wrap = <ol class="breadcrumb">|</ol>
                 NO = 1
                 NO {
-                    stdWrap.field = title
+                    stdWrap.field = nav_title // title
                     ATagTitle.field = nav_title // title
                     wrapItemAndSub = <li>|</li>
                 }
 
                 CUR = 1
                 CUR {
-                    stdWrap.field = title
+                    stdWrap.field = nav_title // title
                     doNotLinkIt = 1
                     wrapItemAndSub = <li class="active">|</li>
                 }
