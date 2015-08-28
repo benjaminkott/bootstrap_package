@@ -323,7 +323,7 @@ page {
             }
             1 = TMENU
             1.NO {
-                allWrap = <link rel="prev" href="|" /> |*| <link rel="next" href="|" />
+                allWrap = <link rel="prev" href="|"> |*| <link rel="next" href="|">
                 doNotLinkIt = 1
                 stdWrap {
                     typolink {
@@ -743,7 +743,7 @@ config {
                                     returnLast = url
                                     forceAbsoluteUrl = 1
                                 }
-                                wrap = <meta property="og:image" content="|" />
+                                wrap = <meta property="og:image" content="|">
                             }
                         }
                     }
@@ -752,19 +752,19 @@ config {
                 20 {
                     field = title
                     required = 1
-                    wrap = <meta property="og:title" content="|" />
+                    wrap = <meta property="og:title" content="|">
                 }
                 30 = TEXT
                 30 {
                     data = TSFE:tmpl|setup|sitetitle
                     required = 1
-                    wrap = <meta property="og:site_name" content="|" />
+                    wrap = <meta property="og:site_name" content="|">
                 }
                 40 = TEXT
                 40 {
                     field = description
                     required = 1
-                    wrap = <meta property="og:description" content="|" />
+                    wrap = <meta property="og:description" content="|">
                 }
             }
         }
