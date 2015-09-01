@@ -187,7 +187,8 @@ RTE.default {
         chMode, table, tableproperties, toggleborders, tablerestyle,
         rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit,
         columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit,
-        cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+        cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge,
+		insertcharacter, findreplace
     )
 
     // Define buttons and order of button that will be shown
