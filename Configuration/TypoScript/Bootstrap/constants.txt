@@ -416,7 +416,7 @@ plugin.bootstrap_package {
             navbar-inverse-toggle-icon-bar-bg = @navbar-inverse-link-color
             # cat=bootstrap package: styling/313/navbar-inverse-toggle-border-color; type=string; label=@navbar-inverse-toggle-border-color:
             navbar-inverse-toggle-border-color = transparent
-            # cat=bootstrap package: styling/314/nav-link-padding; type=string; label=@nav-link-active-hover-color:
+            # cat=bootstrap package: styling/314/nav-link-active-hover-color; type=string; label=@nav-link-active-hover-color:
             nav-link-active-hover-color = @link-hover-color
             # cat=bootstrap package: styling/314/nav-link-padding; type=string; label=@nav-link-padding:
             nav-link-padding = 10px 15px
