@@ -335,7 +335,7 @@ RTE.default.proc.entryHTMLparser_db {
         a.allowedAttribs            = class, href, title, target
         tr.allowedAttribs           = class
         th.allowedAttribs           = class
-        td.allowedAttribs           = class
+        td.allowedAttribs           = class, colspan, rowspan
     }
 
     // Do not keep what is not allowed! YOLO!
