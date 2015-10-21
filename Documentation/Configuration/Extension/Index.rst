@@ -48,4 +48,4 @@ PageTsConfig
 ============
 
 The Bootstrap Package has a lot of PageTsConfig defaults.
-In some cases it can be usefull to deactivate some of them if you do not need them.
+In some cases it can be useful to deactivate some of them if you do not need them.
