@@ -96,7 +96,12 @@ class ExternalMediaUtility {
 		$matches = array();
 		$pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
 		if (preg_match($pattern, $url, $matches)) {
-			return 'https://www.youtube.com/embed/' . $matches[1];
+			$parsedUrl = parse_url($url);
+			$toEmbed = $matches[1];
+			if (isset($parsedUrl['query'])) {
+				$toEmbed .= '?' . $parsedUrl['query'];
+			}
+			return 'https://www.youtube.com/embed/' . $toEmbed;
 		}
 		return NULL;
 	}
