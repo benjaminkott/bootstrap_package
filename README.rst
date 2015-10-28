@@ -2,7 +2,7 @@
 Bootstrap Package
 ==================================================
 
-Bootstrap Package delivers a full configured fontend
+Bootstrap Package delivers a full configured frontend
 theme for TYPO3, based on the Bootstrap CSS Framework.
 
 The goal of this package is to give an advanced example of how modern templating
@@ -78,7 +78,7 @@ Slack
 
 You can connect directly with us on `Slack <https://typo3.slack.com/messages/bootstrap-package/>`_, the
 prefered instant communication platform of TYPO3 CMS developers. If you already have access to the
-TYPO3 Slack platform join the #bootstrap-package channel. If you don´t have access yet, you can
+TYPO3 Slack platform join the #bootstrap-package channel. If you don't have access yet, you can
 register `here <https://forger.typo3.org/slack>`_.
 
 Twitter
