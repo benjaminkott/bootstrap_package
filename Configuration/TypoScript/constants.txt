@@ -137,7 +137,7 @@ config {
     concatenateCss = 1
     # cat=bootstrap package: advanced/150/170; type=boolean; label=Admin Panel
     admPanel = 1
-    # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explaination.
+    # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
     prefixLocalAnchors = all
     # cat=bootstrap package: advanced/150/190; type=string; label=Header Comment
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
