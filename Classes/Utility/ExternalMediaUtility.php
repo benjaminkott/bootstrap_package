@@ -92,14 +92,15 @@ class ExternalMediaUtility {
 	 * @param string $url
 	 * @return string
 	 */
-	protected function process_youtube($url) {
+	protected function processYoutube($url)
+	{
 		$matches = array();
 		$pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
 		if (preg_match($pattern, $url, $matches)) {
-			$parsedUrl = parse_url($url);
 			$toEmbed = $matches[1];
-			if (isset($parsedUrl['query'])) {
-				$toEmbed .= '?' . $parsedUrl['query'];
+			$patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
+			if (preg_match($patternForAdditionalParams, $url, $matches)) {
+				$toEmbed .= '?' . substr($matches[1], 1);
 			}
 			return 'https://www.youtube.com/embed/' . $toEmbed;
 			}
