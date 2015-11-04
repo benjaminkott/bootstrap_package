@@ -56,7 +56,7 @@ class ExternalMediaUtility
         $url = $this->setProtocolToHttps($url);
         // Get method
         $method = $this->getMethod($url);
-        if ($method) {
+        if ($method !== null) {
             $embedUrl = $this->{$method}($url);
             if ($embedUrl) {
                 $content = '
@@ -72,7 +72,7 @@ class ExternalMediaUtility
      * Resolves if possible a method name to process the url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
     protected function getMethod($url)
     {
