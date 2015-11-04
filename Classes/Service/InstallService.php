@@ -51,11 +51,7 @@ class InstallService
      */
     public function __construct()
     {
-        if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000) {
-            $this->messageQueueByIdentifier = 'extbase.flashmessages.tx_extensionmanager_tools_extensionmanagerextensionmanager';
-        } else {
-            $this->messageQueueByIdentifier = 'core.template.flashMessages';
-        }
+        $this->messageQueueByIdentifier = 'extbase.flashmessages.tx_extensionmanager_tools_extensionmanagerextensionmanager';
     }
 
     /**

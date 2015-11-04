@@ -4,9 +4,6 @@
         <header/>
         <body>
 
-            <trans-unit id="backendSkin.disableBackendSkin">
-                <source>Disable the backend skin: [DEPRECATED] This option will be removed as soon as 6.2 support ends. Meanwhile the backend skin can be disabled for 6.2.</source>
-            </trans-unit>
             <trans-unit id="backendSkin.logoTop">
                 <source>Logo Top: Default [../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png]</source>
             </trans-unit>
