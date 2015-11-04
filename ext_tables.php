@@ -48,14 +48,6 @@ if (TYPO3_MODE == 'BE') {
 
 
 /***************
- * BackendLayoutDataProvider for versions below 7.4
- */
-if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7004000) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['pagets'] = 'BK2K\BootstrapPackage\Hooks\Options\BackendLayoutDataProvider';
-}
-
-
-/***************
  * DataHandler Hook
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] = 'BK2K\BootstrapPackage\Hooks\DataHandler';
