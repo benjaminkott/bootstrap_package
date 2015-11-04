@@ -414,7 +414,7 @@ page {
             showFooter.value = 1
 
             showMeta = TEXT
-            showMeta.value = 1
+            showMeta.value = {$page.theme.metasection}
 
             pageTitle = TEXT
             pageTitle.data = page:title

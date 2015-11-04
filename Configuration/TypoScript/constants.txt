@@ -49,6 +49,11 @@ page {
             text = Built on a Windows 8.1 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
 
+        metasection {
+            # cat=bootstrap package: basic/160/130; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+            enable = 1
+        }
+
         news {
             list {
                 # cat=bootstrap package: basic/170/100; type=options[Left=left, Center=center, Right=right]; label=Header Position
