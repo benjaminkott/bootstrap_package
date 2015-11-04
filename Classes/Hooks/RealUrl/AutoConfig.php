@@ -25,9 +25,6 @@ namespace BK2K\BootstrapPackage\Hooks\RealUrl;
  *  THE SOFTWARE.
  */
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
