@@ -1,0 +1,12 @@
+################################
+#### PREVIEW FOR TT_CONTENT ####
+################################
+mod {
+    web_layout {
+        tt_content {
+            preview {
+                bootstrap_package_external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/ExternalMedia.html
+            }
+        }
+    }
+}
