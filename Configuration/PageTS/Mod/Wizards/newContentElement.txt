@@ -40,7 +40,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_panel {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/panel.png
+                        iconIdentifier = content-bootstrappackage-panel
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
                         tt_content_defValues {

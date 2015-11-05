@@ -69,13 +69,13 @@ $tca = array(
     'ctrl' => array(
         'requestUpdate' => $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] . ',icon_type',
         'typeicons' => array(
-            'bootstrap_package_panel' => 'tt_content_header.gif',
             'bootstrap_package_listgroup' => 'tt_content_header.gif',
             'bootstrap_package_texticon' => 'tt_content_header.gif',
         ),
         'typeicon_classes' => array(
             'bootstrap_package_tab' => 'content-bootstrappackage-tab',
             'bootstrap_package_texticon' => 'content-bootstrappackage-texticon',
+            'bootstrap_package_panel' => 'content-bootstrappackage-panel',
         ),
     ),
     'palettes' => array(
