@@ -12,7 +12,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon',
         'bootstrap_package_texticon',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-texticon'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
@@ -75,6 +75,7 @@ $tca = array(
         ),
         'typeicon_classes' => array(
             'bootstrap_package_tab' => 'content-bootstrappackage-tab',
+            'bootstrap_package_texticon' => 'content-bootstrappackage-texticon',
         ),
     ),
     'palettes' => array(

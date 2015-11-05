@@ -8,7 +8,7 @@ mod.wizards {
                 header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
                 elements {
                     bootstrap_package_texticon {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/texticon.png
+                        iconIdentifier = content-bootstrappackage-texticon
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
                         tt_content_defValues {
