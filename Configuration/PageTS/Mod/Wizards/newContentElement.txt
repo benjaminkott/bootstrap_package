@@ -32,7 +32,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_tab {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/tab.png
+                        iconIdentifier = content-bootstrappackage-tab
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
                         tt_content_defValues {
