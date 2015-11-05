@@ -56,6 +56,11 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab.svg']
 );
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-tab-item',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab-item.svg']
+);
 
 
 
