@@ -56,7 +56,7 @@ class ExternalMediaUtility
         $url = $this->setProtocolToHttps($url);
         // Get method
         $method = $this->getMethod($url);
-        if ($method) {
+        if ($method !== null) {
             $embedUrl = $this->{$method}($url);
             if ($embedUrl) {
                 $content = '
@@ -72,7 +72,7 @@ class ExternalMediaUtility
      * Resolves if possible a method name to process the url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
     protected function getMethod($url)
     {
@@ -98,7 +98,12 @@ class ExternalMediaUtility
         $matches = array();
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
         if (preg_match($pattern, $url, $matches)) {
-            return 'https://www.youtube.com/embed/' . $matches[1];
+            $toEmbed = $matches[1];
+            $patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
+            if (preg_match($patternForAdditionalParams, $url, $matches)) {
+                $toEmbed .= '?' . substr($matches[1], 1);
+            }
+            return 'https://www.youtube.com/embed/' . $toEmbed;
         }
         return null;
     }

@@ -25,9 +25,6 @@ namespace BK2K\BootstrapPackage\Hooks\RealUrl;
  *  THE SOFTWARE.
  */
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
@@ -68,9 +65,6 @@ class AutoConfig
      */
     protected function addConfigToParams(array $params)
     {
-        if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 7000000) {
-            $params['config']['init']['emptyUrlReturnValue'] = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
-        }
         $params['config']['preVars'] = array(
             '0' => array(
                 'GETvar' => 'no_cache',

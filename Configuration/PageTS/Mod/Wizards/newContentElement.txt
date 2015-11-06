@@ -8,7 +8,7 @@ mod.wizards {
                 header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
                 elements {
                     bootstrap_package_texticon {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/texticon.png
+                        iconIdentifier = content-bootstrappackage-texticon
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
                         tt_content_defValues {
@@ -24,7 +24,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_accordion {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/accordion.png
+                        iconIdentifier = content-bootstrappackage-accordion
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
                         tt_content_defValues {
@@ -32,7 +32,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_tab {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/tab.png
+                        iconIdentifier = content-bootstrappackage-tab
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
                         tt_content_defValues {
@@ -40,7 +40,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_panel {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/panel.png
+                        iconIdentifier = content-bootstrappackage-panel
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
                         tt_content_defValues {
