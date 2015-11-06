@@ -24,7 +24,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_accordion {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/accordion.png
+                        iconIdentifier = content-bootstrappackage-accordion
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
                         tt_content_defValues {

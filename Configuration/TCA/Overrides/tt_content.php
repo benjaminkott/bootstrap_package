@@ -22,7 +22,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
         'bootstrap_package_accordion',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-accordion'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab',
@@ -32,7 +32,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
         'bootstrap_package_panel',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-panel'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
@@ -70,12 +70,12 @@ $tca = array(
         'requestUpdate' => $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] . ',icon_type',
         'typeicons' => array(
             'bootstrap_package_listgroup' => 'tt_content_header.gif',
-            'bootstrap_package_texticon' => 'tt_content_header.gif',
         ),
         'typeicon_classes' => array(
             'bootstrap_package_tab' => 'content-bootstrappackage-tab',
             'bootstrap_package_texticon' => 'content-bootstrappackage-texticon',
             'bootstrap_package_panel' => 'content-bootstrappackage-panel',
+            'bootstrap_package_accordion' => 'content-bootstrappackage-accordion',
         ),
     ),
     'palettes' => array(
