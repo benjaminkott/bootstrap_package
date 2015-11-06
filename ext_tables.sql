@@ -115,6 +115,8 @@ CREATE TABLE tx_bootstrappackage_tab_item (
     tt_content int(11) unsigned DEFAULT '0',
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text NOT NULL,
+    image int(11) unsigned DEFAULT '0',
+    imageorient tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,

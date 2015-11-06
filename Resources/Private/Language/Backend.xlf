@@ -267,6 +267,21 @@
             <trans-unit id="tab_item.bodytext">
                 <source>Text</source>
             </trans-unit>
+            <trans-unit id="tab_item.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="tab_item.imageorient">
+                <source>Image position</source>
+            </trans-unit>
+            <trans-unit id="tab_item.imageorient.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="tab_item.imageorient.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="tab_item.imageorient.right">
+                <source>Right</source>
+            </trans-unit>
 
             <trans-unit id="contextualalternatives.default">
                 <source>Default</source>

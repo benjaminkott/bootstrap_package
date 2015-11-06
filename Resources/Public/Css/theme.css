@@ -7352,12 +7352,24 @@ body,
 .image-beside-left .image-wrap,
 .image-intext-left .image-wrap {
   float: left;
-  margin-left: -15px;
+  margin-right: 15px;
+}
+.image-beside-left .image-wrap > .image,
+.image-intext-left .image-wrap > .image,
+.image-beside-left .image-wrap > .image-row,
+.image-intext-left .image-wrap > .image-row {
+  margin-left: -30px;
 }
 .image-beside-right .image-wrap,
 .image-intext-right .image-wrap {
   float: right;
-  margin-right: -15px;
+  margin-left: 15px;
+}
+.image-beside-right .image-wrap > .image,
+.image-intext-right .image-wrap > .image,
+.image-beside-right .image-wrap > .image-row,
+.image-intext-right .image-wrap > .image-row {
+  margin-right: -30px;
 }
 .image-beside-left .image-wrap,
 .image-beside-right .image-wrap,
@@ -7384,6 +7396,16 @@ body,
     margin-right: -15px;
     max-width: none;
     float: none;
+  }
+  .image-beside-right .image-wrap > .image,
+  .image-beside-left .image-wrap > .image {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .image-beside-right .image-wrap > .image-row,
+  .image-beside-left .image-wrap > .image-row {
+    margin-left: -15px;
+    margin-right: -15px;
   }
 }
 .image-header-1 .image-wrap,

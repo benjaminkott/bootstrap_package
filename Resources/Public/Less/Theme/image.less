@@ -86,12 +86,20 @@
 .image-beside-left .image-wrap,
 .image-intext-left .image-wrap {
     float: left;
-    margin-left: -1 * (@grid-gutter-width / 2);
+	margin-right: @grid-gutter-width / 2;
+	> .image,
+	> .image-row {
+		margin-left: -@grid-gutter-width;
+	}
 }
 .image-beside-right .image-wrap,
 .image-intext-right .image-wrap {
     float: right;
-    margin-right: -1 * (@grid-gutter-width / 2);
+	margin-left: @grid-gutter-width / 2;
+	> .image,
+	> .image-row {
+		margin-right: -@grid-gutter-width;
+	}
 }
 .image-beside-left .image-wrap,
 .image-beside-right .image-wrap,
@@ -115,7 +123,15 @@
             margin-right: -1 * (@grid-gutter-width / 2);
             max-width: none;
             float: none;
-        }
+			> .image {
+				margin-left: 0;
+				margin-right: 0;
+			}
+			> .image-row {
+				margin-left: -1 * (@grid-gutter-width / 2);
+				margin-right: -1 * (@grid-gutter-width / 2);
+			}
+		}
     }
 }
 .image-header-1,

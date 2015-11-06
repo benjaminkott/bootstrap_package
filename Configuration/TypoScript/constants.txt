@@ -12,11 +12,12 @@
 # customsubcategory=120=Meta Settings
 # customsubcategory=130=File Include Path
 # customsubcategory=140=Content Elements Templates
+# customsubcategory=141=Content Element Tabs
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=170=News
 # customsubcategory=180=Tracking
-# customsubcategory=190=Boostrap Package Settings
+# customsubcategory=190=Bootstrap Package Settings
 
 ############
 ### PAGE ###
@@ -179,6 +180,14 @@ plugin.bootstrap_package_contentelements {
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
         # cat=bootstrap package: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+    }
+    tabs {
+        media {
+            # cat=bootstrap package: advanced/141/102; type=string; label=Aside Media Height
+            height = 300
+            # cat=bootstrap package: advanced/141/103; type=string; label=Aside Media Width
+            width = 400
+        }
     }
 }
 
