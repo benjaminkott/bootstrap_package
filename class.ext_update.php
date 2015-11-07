@@ -53,6 +53,7 @@ class ext_update
             'backend_layout LIKE \'' . self::OLD_BACKEND_LAYOUT_PREFIX . '%\' OR backend_layout_next_level LIKE \'' . self::OLD_BACKEND_LAYOUT_PREFIX . '%\''
         );
         foreach ($rows as $row) {
+            $fieldsToUpdate = array();
             if (strpos($row['backend_layout'], self::OLD_BACKEND_LAYOUT_PREFIX) !== false) {
                 $fieldsToUpdate['backend_layout'] = substr_replace(
                     $row['backend_layout'],
