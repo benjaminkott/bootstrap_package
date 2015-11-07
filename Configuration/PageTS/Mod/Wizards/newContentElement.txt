@@ -56,7 +56,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_external_media {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/external_media.png
+                        iconIdentifier = content-bootstrappackage-externalmedia
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description
                         tt_content_defValues {

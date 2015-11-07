@@ -42,7 +42,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
         'bootstrap_package_external_media',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-externalmedia'
     ),
 );
 foreach ($backupCTypeItems as $key => $value) {
@@ -77,6 +77,7 @@ $tca = array(
             'bootstrap_package_panel' => 'content-bootstrappackage-panel',
             'bootstrap_package_accordion' => 'content-bootstrappackage-accordion',
             'bootstrap_package_carousel' => 'content-bootstrappackage-carousel',
+            'bootstrap_package_external_media' => 'content-bootstrappackage-externalmedia',
         ),
     ),
     'palettes' => array(

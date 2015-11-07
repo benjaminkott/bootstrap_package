@@ -111,6 +111,11 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-html.svg']
 );
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-externalmedia',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/externalmedia.svg']
+);
 
 
 
