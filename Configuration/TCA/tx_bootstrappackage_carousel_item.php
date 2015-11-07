@@ -23,13 +23,14 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'typeicons' => array(
-            'header' => 'tt_content_header.gif',
-            'html' => 'tt_content_html.gif',
-            'textandimage' => 'tt_content_textpic.gif',
-            'backgroundimage' => 'tt_content_image.gif',
-        ),
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Icons/bootstrap_package_item_teaser.gif'
+        'typeicon_column' => 'item_type',
+        'typeicon_classes' => array(
+            'default' => 'content-bootstrappackage-carousel-item',
+            'header' => 'content-bootstrappackage-carousel-item-header',
+            'textandimage' => 'content-bootstrappackage-carousel-item-textandimage',
+            'backgroundimage' => 'content-bootstrappackage-carousel-item-backgroundimage',
+            'html' => 'content-bootstrappackage-carousel-item-html'
+        )
     ),
     'interface' => array(
         'showRecordFieldList' => '
@@ -175,22 +176,22 @@ return array(
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
                         'header',
-                        'i/tt_content_header.gif'
+                        'content-bootstrappackage-carousel-item-header'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
                         'textandimage',
-                        'i/tt_content_textpic.gif'
+                        'content-bootstrappackage-carousel-item-textandimage'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
                         'backgroundimage',
-                        'i/tt_content_image.gif'
+                        'content-bootstrappackage-carousel-item-backgroundimage'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
                         'html',
-                        'i/tt_content_html.gif'
+                        'content-bootstrappackage-carousel-item-html'
                     ),
                 ),
                 'default' => 'header',
