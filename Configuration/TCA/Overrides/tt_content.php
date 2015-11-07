@@ -17,7 +17,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
         'bootstrap_package_carousel',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-carousel'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
@@ -76,6 +76,7 @@ $tca = array(
             'bootstrap_package_texticon' => 'content-bootstrappackage-texticon',
             'bootstrap_package_panel' => 'content-bootstrappackage-panel',
             'bootstrap_package_accordion' => 'content-bootstrappackage-accordion',
+            'bootstrap_package_carousel' => 'content-bootstrappackage-carousel',
         ),
     ),
     'palettes' => array(

@@ -76,6 +76,11 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion.svg']
 );
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel.svg']
+);
 
 
 
