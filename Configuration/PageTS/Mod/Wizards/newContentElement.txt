@@ -48,7 +48,7 @@ mod.wizards {
                         }
                     }
                     bootstrap_package_listgroup {
-                        icon = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/ContentWizard/listgroup.png
+                        iconIdentifier = content-bootstrappackage-listgroup
                         title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup
                         description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup.description
                         tt_content_defValues {
