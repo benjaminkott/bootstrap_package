@@ -142,20 +142,20 @@ return array(
                 )
             )
         ),
-        'l10n_parent' => Array(
+        'l10n_parent' => array(
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => Array(
+            'config' => array(
                 'type' => 'select',
-                'items' => Array(
-                    Array('', 0),
+                'items' => array(
+                    array('', 0),
                 ),
                 'foreign_table' => 'tx_bootstrappackage_tab_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_tab_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_tab_item.sys_language_uid IN (-1,0)',
             )
         ),
-        'l10n_diffsource' => Array(
+        'l10n_diffsource' => array(
             'config' => array(
                 'type' => 'passthrough'
             )

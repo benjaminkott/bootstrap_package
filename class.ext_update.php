@@ -112,5 +112,4 @@ class ext_update
     {
         return $GLOBALS['TYPO3_DB'];
     }
-
 }

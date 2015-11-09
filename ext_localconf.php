@@ -68,7 +68,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
 
 
 if (TYPO3_MODE === 'BE') {
-
     /**
      * Provides an example .htaccess file for Apache after extension is installed and shows a warning if TYPO3 is not running on Apache.
      */
