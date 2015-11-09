@@ -49,6 +49,19 @@ Include static (from extensions)
 * Bootstrap Package (required)
 
 
+Recommended Apache Modules
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* mod_autoindex
+* mod_alias
+* mod_deflate
+* mod_expires
+* mod_mime
+* mod_headers
+* mod_setenvif
+* mod_rewrite
+
+
 Usage
 =====
 
