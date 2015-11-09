@@ -6,6 +6,7 @@ mod {
         tt_content {
             preview {
                 bootstrap_package_external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/ExternalMedia.html
+                bootstrap_package_listgroup = EXT:bootstrap_package/Resources/Private/Templates/Preview/ListGroup.html
             }
         }
     }
