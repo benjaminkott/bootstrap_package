@@ -103,9 +103,9 @@
         return viewport.inviewport(boundingbox);
     };
 
-    ResponsiveImage.prototype.unveil = function() {
-        if (this.loaded || !this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
-        var inview = this.options.preload || this.inviewport();
+    ResponsiveImage.prototype.unveil = function(force) {
+        if (this.loaded || !force && !this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
+        var inview = force || this.options.preload || this.inviewport();
         if(inview){
             var source = this.options[this.attrib] || this.options["src"];
             if (source) {
@@ -116,7 +116,10 @@
             }
         }
     };
-
+    
+    ResponsiveImage.prototype.print = function() {
+        this.unveil(true);
+    }
 
     // RESPONSIVE IMAGES PLUGIN DEFINITION
     // ===================================
@@ -168,6 +171,10 @@
             .on('resize.bk2k.responsiveimage', function(){
                 if (viewport) viewport.update();
                 $lazyload.responsiveimage('checkviewport');
+            })
+            .on('beforeprint.bk2k.responsiveimage', function(){
+                $lazyload.responsiveimage('print');
+                $(window).trigger("readytoprint.bk2k.responsiveimage");
             });
     });
 
