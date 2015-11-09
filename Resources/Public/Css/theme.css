@@ -6852,6 +6852,16 @@ h5 {
   display: table-cell;
   vertical-align: middle;
 }
+.embed-responsive {
+  margin-bottom: 24px;
+}
+.jumbotron a,
+.jumbotron a:hover,
+.jumbotron a:active,
+.jumbotron a:focus {
+  color: inherit;
+  text-decoration: underline;
+}
 .panel-body *:last-child {
   margin-bottom: 0;
 }
