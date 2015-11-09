@@ -28,7 +28,6 @@ namespace BK2K\BootstrapPackage\Service;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
