@@ -41,8 +41,8 @@ return array(
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
             bodytext,
-            image,
-            imageorient,
+            media,
+            mediaorient,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -181,11 +181,11 @@ return array(
             ),
             'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
         ),
-        'image' => array(
+        'media' => array(
             'exclude' => 0,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.image',
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image',
+                'media',
                 array(
                     'appearance' => array(
                         'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
@@ -208,19 +208,19 @@ return array(
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
         ),
-        'imageorient' => array(
+        'mediaorient' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imageorient',
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient',
             'config' => array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => array(
                     array(
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imageorient.left',
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
                         0
                     ),
                     array(
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imageorient.right',
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
                         1
                     ),
                 ),

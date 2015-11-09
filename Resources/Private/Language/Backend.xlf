@@ -243,6 +243,21 @@
             <trans-unit id="accordion_item.bodytext">
                 <source>Text</source>
             </trans-unit>
+            <trans-unit id="accordion_item.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient">
+                <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.right">
+                <source>Right</source>
+            </trans-unit>
 
             <trans-unit id="tab.options">
                 <source>Tab Options</source>
@@ -267,19 +282,19 @@
             <trans-unit id="tab_item.bodytext">
                 <source>Text</source>
             </trans-unit>
-            <trans-unit id="tab_item.image">
-                <source>Image</source>
+            <trans-unit id="tab_item.media">
+                <source>Media</source>
             </trans-unit>
-            <trans-unit id="tab_item.imageorient">
-                <source>Image position</source>
+            <trans-unit id="tab_item.mediaorient">
+                <source>Media position</source>
             </trans-unit>
-            <trans-unit id="tab_item.imageorient.left">
+            <trans-unit id="tab_item.mediaorient.left">
                 <source>Left</source>
             </trans-unit>
-            <trans-unit id="tab_item.imageorient.center">
+            <trans-unit id="tab_item.mediaorient.center">
                 <source>Center</source>
             </trans-unit>
-            <trans-unit id="tab_item.imageorient.right">
+            <trans-unit id="tab_item.mediaorient.right">
                 <source>Right</source>
             </trans-unit>
 

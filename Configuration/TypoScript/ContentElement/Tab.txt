@@ -13,8 +13,8 @@ tt_content.bootstrap_package_tab {
 
         settings {
             media {
-                width = {$plugin.bootstrap_package_contentelements.settings.tabs.media.height}
-                height = {$plugin.bootstrap_package_contentelements.settings.tabs.media.width}
+                width = {$plugin.bootstrap_package_contentelements.settings.tab.media.height}
+                height = {$plugin.bootstrap_package_contentelements.settings.tab.media.width}
             }
         }
 
@@ -31,7 +31,7 @@ tt_content.bootstrap_package_tab {
                 dataProcessing {
                     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                     10 {
-                        references.fieldName = image
+                        references.fieldName = media
                     }
                 }
             }
