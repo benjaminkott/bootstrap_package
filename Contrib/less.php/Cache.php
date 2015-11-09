@@ -91,7 +91,7 @@ class Less_Cache{
 				self::ListFiles($list_file, $list, $cached_name);
 				$compiled_name = self::CompiledName($list);
 
-				// if $cached_name != $compiled_name, we know we need to recompile
+				// if $cached_name is the same as the $compiled name, don't regenerate
 				if( !$cached_name || $cached_name === $compiled_name ){
 
 					$output_file = self::OutputFile($compiled_name, $parser_options );
