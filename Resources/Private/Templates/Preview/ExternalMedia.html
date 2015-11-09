@@ -5,8 +5,10 @@
 <bk2k:externalMedia url="{external_media_source}" class="embed-responsive-item">
     <f:if condition="{externalMedia}">
         <f:then>
-            <div class="embed-responsive embed-responsive-{external_media_ratio}">
-                <f:format.raw>{externalMedia}</f:format.raw>
+            <div style="max-width: 400px;">
+                <div class="embed-responsive embed-responsive-{external_media_ratio}">
+                    <f:format.raw>{externalMedia}</f:format.raw>
+                </div>
             </div>
         </f:then>
         <f:else>
