@@ -128,13 +128,13 @@ config {
     # cat=bootstrap package: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
     removeDefaultJS = 0
     # cat=bootstrap package: advanced/150/130; type=boolean; label=Compress JavaScript
-    compressJs = 1
+    compressJs = 0
     # cat=bootstrap package: advanced/150/140; type=boolean; label=Compress Css
-    compressCss = 1
+    compressCss = 0
     # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate JavaScript
-    concatenateJs = 1
+    concatenateJs = 0
     # cat=bootstrap package: advanced/150/160; type=boolean; label=Concatenate Css
-    concatenateCss = 1
+    concatenateCss = 0
     # cat=bootstrap package: advanced/150/170; type=boolean; label=Admin Panel
     admPanel = 1
     # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
