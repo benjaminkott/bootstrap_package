@@ -56,6 +56,7 @@ Recommended Apache Modules
 * mod_alias
 * mod_deflate
 * mod_expires
+* mod_filter
 * mod_mime
 * mod_headers
 * mod_setenvif
