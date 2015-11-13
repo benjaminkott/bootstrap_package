@@ -45,7 +45,7 @@ class PreProcessHook
         $files = array();
         foreach ($params['cssFiles'] as $file => $settings) {
             $compiledFile = CompileService::getCompiledFile($file);
-            if ($compiledFile) {
+            if ($compiledFile !== false) {
                 $settings['file'] = $compiledFile;
                 $files[$compiledFile] = $settings;
             } else {

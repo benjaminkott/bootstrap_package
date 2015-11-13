@@ -12,11 +12,13 @@
 # customsubcategory=120=Meta Settings
 # customsubcategory=130=File Include Path
 # customsubcategory=140=Content Elements Templates
+# customsubcategory=141=Content Element Accordion
+# customsubcategory=142=Content Element Tabs
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=170=News
 # customsubcategory=180=Tracking
-# customsubcategory=190=Boostrap Package Settings
+# customsubcategory=190=Bootstrap Package Settings
 
 ############
 ### PAGE ###
@@ -46,7 +48,7 @@ page {
             # cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
             # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
-            text = Built on a Windows 8.1 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            text = Built on a Windows 10 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
 
         metasection {
@@ -133,13 +135,13 @@ config {
     # cat=bootstrap package: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
     removeDefaultJS = 0
     # cat=bootstrap package: advanced/150/130; type=boolean; label=Compress JavaScript
-    compressJs = 1
+    compressJs = 0
     # cat=bootstrap package: advanced/150/140; type=boolean; label=Compress Css
-    compressCss = 1
+    compressCss = 0
     # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate JavaScript
-    concatenateJs = 1
+    concatenateJs = 0
     # cat=bootstrap package: advanced/150/160; type=boolean; label=Concatenate Css
-    concatenateCss = 1
+    concatenateCss = 0
     # cat=bootstrap package: advanced/150/170; type=boolean; label=Admin Panel
     admPanel = 1
     # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
@@ -184,6 +186,22 @@ plugin.bootstrap_package_contentelements {
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
         # cat=bootstrap package: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+    }
+    accordion {
+        media {
+            # cat=bootstrap package: advanced/141/102; type=string; label=Aside Media Height
+            height = 300
+            # cat=bootstrap package: advanced/141/103; type=string; label=Aside Media Width
+            width = 400
+        }
+    }
+    tab {
+        media {
+            # cat=bootstrap package: advanced/142/102; type=string; label=Aside Media Height
+            height = 300
+            # cat=bootstrap package: advanced/142/103; type=string; label=Aside Media Width
+            width = 400
+        }
     }
 }
 

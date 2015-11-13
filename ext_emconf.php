@@ -18,11 +18,11 @@ $EM_CONF[$_EXTKEY] = array(
             'dyncss' => '*',
         ),
     ),
-	'autoload' => array(
-		'psr-4' => array(
-			'BK2K\\BootstrapPackage\\' => 'Classes'
-		),
-	),
+    'autoload' => array(
+        'psr-4' => array(
+            'BK2K\\BootstrapPackage\\' => 'Classes'
+        ),
+    ),
     'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',

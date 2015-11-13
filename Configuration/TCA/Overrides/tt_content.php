@@ -17,7 +17,7 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
         'bootstrap_package_carousel',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-carousel'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
@@ -37,12 +37,12 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] = array(
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
         'bootstrap_package_listgroup',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-listgroup'
     ),
     array(
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
         'bootstrap_package_external_media',
-        'i/tt_content_header.gif'
+        'content-bootstrappackage-externalmedia'
     ),
 );
 foreach ($backupCTypeItems as $key => $value) {
@@ -56,10 +56,16 @@ unset($backupCTypeItems);
 /***************
  * Add FlexForms for content element configuration
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml', 'bootstrap_package_carousel');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Tab.xml', 'bootstrap_package_tab');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
+    'bootstrap_package_carousel'
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Tab.xml',
+    'bootstrap_package_tab'
+);
 
 
 /***************
@@ -76,42 +82,45 @@ $tca = array(
             'bootstrap_package_texticon' => 'content-bootstrappackage-texticon',
             'bootstrap_package_panel' => 'content-bootstrappackage-panel',
             'bootstrap_package_accordion' => 'content-bootstrappackage-accordion',
+            'bootstrap_package_carousel' => 'content-bootstrappackage-carousel',
+            'bootstrap_package_external_media' => 'content-bootstrappackage-externalmedia',
+            'bootstrap_package_listgroup' => 'content-bootstrappackage-listgroup',
         ),
     ),
     'palettes' => array(
         'bootstrap_package_header' => array(
             'canNotCollapse' => 1,
             'showitem' => '
-				header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
-				--linebreak--,
-				subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel,
-				--linebreak--,
-				header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel,
-				--linebreak--,
-				header_link;LLL:EXT:cms/locallang_ttc.xlf:header_link_formlabel
+                header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
+                --linebreak--,
+                subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel,
+                --linebreak--,
+                header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel,
+                --linebreak--,
+                header_link;LLL:EXT:cms/locallang_ttc.xlf:header_link_formlabel
 			'
         ),
         'bootstrap_package_headersimple' => array(
             'canNotCollapse' => 1,
             'showitem' => '
-				header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
-				--linebreak--,
-				header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel
+                header;LLL:EXT:cms/locallang_ttc.xlf:header_formlabel,
+                --linebreak--,
+                header_layout;LLL:EXT:cms/locallang_ttc.xlf:header_layout_formlabel
 			'
         ),
         'bootstrap_package_icons' => array(
             'canNotCollapse' => 1,
             'showitem' => '
-				icon_position, icon_type, icon_size, --linebreak--,
-				icon_color, icon_background, --linebreak--,
-				icon
+                icon_position, icon_type, icon_size, --linebreak--,
+                icon_color, icon_background, --linebreak--,
+                icon
 			'
         ),
         'bootstrap_package_external_media' => array(
             'canNotCollapse' => 1,
             'showitem' => '
-				external_media_source, --linebreak--,
-				external_media_ratio
+                external_media_source, --linebreak--,
+                external_media_ratio
 			'
         ),
     ),
@@ -128,18 +137,18 @@ $tca = array(
                 ),
             ),
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_headersimple,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
-				rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_headersimple,
+                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
+                rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_listgroup' => array(
@@ -149,66 +158,66 @@ $tca = array(
                 ),
             ),
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
+                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_accordion' => array(
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
-				tx_bootstrappackage_accordion_item,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
+                tx_bootstrappackage_accordion_item,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_tab' => array(
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
-				tx_bootstrappackage_tab_item,
-				--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.options,
-				pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
+                tx_bootstrappackage_tab_item,
+                --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.options,
+                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_carousel' => array(
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
-				tx_bootstrappackage_carousel_item,
-				--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
-				pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
+                tx_bootstrappackage_carousel_item,
+                --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
+                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_texticon' => array(
@@ -218,34 +227,34 @@ $tca = array(
                 ),
             ),
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
-				--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon;bootstrap_package_icons,
-				bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
-				rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon;bootstrap_package_icons,
+                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext_formlabel,
+                rte_enabled;LLL:EXT:cms/locallang_ttc.xlf:rte_enabled_formlabel,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
         'bootstrap_package_external_media' => array(
             'showitem' => '
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
-				--palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.palette.external_media;bootstrap_package_external_media,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-				--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-				--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
-				--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
-				categories
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.palette.external_media;bootstrap_package_external_media,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.appearance,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended,
+                --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
+                categories
 			'
         ),
     ),
@@ -1408,5 +1417,8 @@ $GLOBALS['TCA']['tt_content'] = array_replace_recursive($GLOBALS['TCA']['tt_cont
 /***************
  * Add subheader to header palette
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header',
-    '--linebreak--, subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'header',
+    '--linebreak--, subheader;LLL:EXT:cms/locallang_ttc.xlf:subheader_formlabel'
+);

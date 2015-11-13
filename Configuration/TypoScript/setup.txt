@@ -561,7 +561,9 @@ page {
     includeJSLibs {
         modernizr = {$page.includePath.javascript}Libs/modernizr-2.8.3.min.js
         modernizr.forceOnTop = 1
+        modernizr.async = 1
         wpfix = {$page.includePath.javascript}Libs/windowsphone-viewportfix.min.js
+        wpfix.async = 1
     }
 
     includeJSFooterlibs {
@@ -577,21 +579,6 @@ page {
         bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
         #### Toggle collapsed CSS class on the navbar toggle button
         bootstrap_navbartoggle = {$page.includePath.javascript}Libs/bootstrap.navbartoggle.min.js
-
-        ##################################################################
-        #### INCLUDE JS FOR IE DINOSAURS                              ####
-        #### NOTE : add conditional comment to cope with static cache ####
-        ##################################################################
-        #### selectivizr to add css pseudo class selectors
-        selectivizr = {$page.includePath.javascript}Libs/selectivizr.min.js
-        selectivizr.allWrap = <!--[if IE 8 ]>|<![endif]-->
-        selectivizr.excludeFromConcatenation = 1
-        selectivizr.disableCompression = 1
-        #### respond to add media query support
-        respond = {$page.includePath.javascript}Libs/respond.min.js
-        respond.allWrap = <!--[if IE 8 ]>|<![endif]-->
-        respond.excludeFromConcatenation = 1
-        respond.disableCompression = 1
     }
 
     jsFooterInline {

@@ -243,6 +243,21 @@
             <trans-unit id="accordion_item.bodytext">
                 <source>Text</source>
             </trans-unit>
+            <trans-unit id="accordion_item.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient">
+                <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.right">
+                <source>Right</source>
+            </trans-unit>
 
             <trans-unit id="tab.options">
                 <source>Tab Options</source>
@@ -266,6 +281,21 @@
             </trans-unit>
             <trans-unit id="tab_item.bodytext">
                 <source>Text</source>
+            </trans-unit>
+            <trans-unit id="tab_item.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient">
+                <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient.right">
+                <source>Right</source>
             </trans-unit>
 
             <trans-unit id="contextualalternatives.default">

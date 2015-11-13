@@ -10,5 +10,31 @@ tt_content.bootstrap_package_tab {
         file = {$plugin.bootstrap_package_contentelements.view.templateRootPath}Bootstrap/Tab.html
         partialRootPath = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
         layoutRootPath = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+
+        settings {
+            media {
+                width = {$plugin.bootstrap_package_contentelements.settings.tab.media.height}
+                height = {$plugin.bootstrap_package_contentelements.settings.tab.media.width}
+            }
+        }
+
+        # Get Tab Records
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
+                table = tx_bootstrappackage_tab_item
+                where {
+                    data = field:uid
+                    intval = 1
+                    wrap = tt_content=|
+                }
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+            }
+        }
     }
 }

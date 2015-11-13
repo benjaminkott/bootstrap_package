@@ -23,13 +23,14 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'typeicons' => array(
-            'header' => 'tt_content_header.gif',
-            'html' => 'tt_content_html.gif',
-            'textandimage' => 'tt_content_textpic.gif',
-            'backgroundimage' => 'tt_content_image.gif',
-        ),
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('bootstrap_package') . 'Resources/Public/Icons/bootstrap_package_item_teaser.gif'
+        'typeicon_column' => 'item_type',
+        'typeicon_classes' => array(
+            'default' => 'content-bootstrappackage-carousel-item',
+            'header' => 'content-bootstrappackage-carousel-item-header',
+            'textandimage' => 'content-bootstrappackage-carousel-item-textandimage',
+            'backgroundimage' => 'content-bootstrappackage-carousel-item-backgroundimage',
+            'html' => 'content-bootstrappackage-carousel-item-html'
+        )
     ),
     'interface' => array(
         'showRecordFieldList' => '
@@ -175,29 +176,27 @@ return array(
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
                         'header',
-                        'i/tt_content_header.gif'
+                        'content-bootstrappackage-carousel-item-header'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
                         'textandimage',
-                        'i/tt_content_textpic.gif'
+                        'content-bootstrappackage-carousel-item-textandimage'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
                         'backgroundimage',
-                        'i/tt_content_image.gif'
+                        'content-bootstrappackage-carousel-item-backgroundimage'
                     ),
                     array(
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
                         'html',
-                        'i/tt_content_html.gif'
+                        'content-bootstrappackage-carousel-item-html'
                     ),
                 ),
                 'default' => 'header',
                 'authMode' => $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'],
-                'authMode_enforce' => 'strict',
-                'iconsInOptionTags' => 1,
-                'noIconsBelowSelect' => 1
+                'authMode_enforce' => 'strict'
             )
         ),
         'hidden' => array(
@@ -260,20 +259,20 @@ return array(
                 )
             )
         ),
-        'l10n_parent' => Array(
+        'l10n_parent' => array(
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => Array(
+            'config' => array(
                 'type' => 'select',
-                'items' => Array(
-                    Array('', 0),
+                'items' => array(
+                    array('', 0),
                 ),
                 'foreign_table' => 'tx_bootstrappackage_carousel_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_carousel_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_carousel_item.sys_language_uid IN (-1,0)',
             )
         ),
-        'l10n_diffsource' => Array(
+        'l10n_diffsource' => array(
             'config' => array(
                 'type' => 'passthrough'
             )

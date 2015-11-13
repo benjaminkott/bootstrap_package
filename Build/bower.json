@@ -17,10 +17,8 @@
     "homepage": "https://github.com/benjaminkott/bootstrap_package",
     "private": true,
     "dependencies": {
-        "jquery": "1.x",
+        "jquery": "2.x",
         "hammerjs": "2.0.4",
-        "bootstrap": "3.3.5",
-        "selectivizr": "master",
-        "respond": ">= 1.4.2"
+        "bootstrap": "3.3.5"
     }
 }

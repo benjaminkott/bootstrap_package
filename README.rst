@@ -7,15 +7,15 @@ theme for TYPO3, based on the Bootstrap CSS Framework.
 
 The goal of this package is to give an advanced example of how modern templating
 in TYPO3 CMS can be handled nicely without depending on third party extensions.
-Bootstrap Package is built on top of CSS_STYLED_CONTENT >= 6.2 and comes with a
+Bootstrap Package is built on top of CSS_STYLED_CONTENT >= 7.6 and comes with a
 fully configurable Frontend via TypoScript. This includes the TypoScript Constant
 Editor.
 
 Minimal Dependencies
 ====================
 
-* TYPO3 CMS 6.2 or greater
-* Installed System Extension CSS_STYLED_CONTENT 6.2 or greater
+* TYPO3 CMS 7.6 or greater
+* Installed System Extension CSS_STYLED_CONTENT 7.6 or greater
 
 Quick Install Guide
 ===================
@@ -47,6 +47,20 @@ Includes
 Include static (from extensions)
 
 * Bootstrap Package (required)
+
+
+Recommended Apache Modules
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* mod_autoindex
+* mod_alias
+* mod_deflate
+* mod_expires
+* mod_filter
+* mod_mime
+* mod_headers
+* mod_setenvif
+* mod_rewrite
 
 
 Usage

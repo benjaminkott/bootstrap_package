@@ -15,7 +15,6 @@ module.exports = function(grunt) {
         },
         cssmin: {
             options: {
-                compatibility: 'ie8',
                 keepSpecialComments: '*',
                 advanced: false
             },
@@ -43,10 +42,6 @@ module.exports = function(grunt) {
             bootstrapSwipe: {
                 src: '<%= paths.js %>Libs/bootstrap.swipe.js',
                 dest: '<%= paths.js %>Libs/bootstrap.swipe.min.js'
-            },
-            selectivizr: {
-                src: '<%= paths.bower %>selectivizr/selectivizr.js',
-                dest: '<%= paths.js %>Libs/selectivizr.min.js'
             },
             responsiveimages: {
                 src: '<%= paths.js %>Libs/jquery.responsiveimages.js',
@@ -107,8 +102,6 @@ module.exports = function(grunt) {
                     destPrefix: '<%= paths.resources %>'
                 },
                 files: {
-                    // RespondJs
-                    'Public/JavaScript/Libs/respond.min.js': 'respond/dest/respond.min.js',
                     // jQuery
                     'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
                     // hammer.js

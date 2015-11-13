@@ -41,6 +41,8 @@ return array(
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
             header,
             bodytext,
+            media,
+            mediaorient,
             --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
@@ -142,20 +144,20 @@ return array(
                 )
             )
         ),
-        'l10n_parent' => Array(
+        'l10n_parent' => array(
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => Array(
+            'config' => array(
                 'type' => 'select',
-                'items' => Array(
-                    Array('', 0),
+                'items' => array(
+                    array('', 0),
                 ),
                 'foreign_table' => 'tx_bootstrappackage_tab_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_tab_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_tab_item.sys_language_uid IN (-1,0)',
             )
         ),
-        'l10n_diffsource' => Array(
+        'l10n_diffsource' => array(
             'config' => array(
                 'type' => 'passthrough'
             )
@@ -178,6 +180,52 @@ return array(
                 'rows' => 3,
             ),
             'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
+        ),
+        'media' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.media',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'media',
+                array(
+                    'appearance' => array(
+                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                    ),
+                    'foreign_types' => array(
+                        '0' => array(
+                            'showitem' => '
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;filePalette'
+                        ),
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+                            'showitem' => '
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;filePalette'
+                        ),
+                    ),
+                    'minitems' => 0,
+                    'maxitems' => 1,
+                ),
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+            ),
+        ),
+        'mediaorient' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => array(
+                    array(
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
+                        0
+                    ),
+                    array(
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
+                        1
+                    ),
+                ),
+                'default' => 0,
+            )
         ),
     ),
 );
