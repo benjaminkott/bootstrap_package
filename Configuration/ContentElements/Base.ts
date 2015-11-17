@@ -115,6 +115,7 @@ lib.dynamicContent {
     20 < styles.content.get
     20 {
         select {
+            includeRecordsWithoutDefaultTranslation = 1
             where = colPos={register:colPos}
             where.insertData = 1
             pidInList.data = register:pageUid
