@@ -63,6 +63,15 @@ mod.wizards {
                             CType = bootstrap_package_external_media
                         }
                     }
+                    bootstrap_package_menu_thumbnail {
+                        iconIdentifier = content-bootstrappackage-menu-thumbnail
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail.description
+                        tt_content_defValues {
+                            CType = menu
+                            menu_type = thumbnail_dir
+                        }
+                    }
                 }
                 show = *
             }

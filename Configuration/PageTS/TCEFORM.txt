@@ -78,6 +78,8 @@ TCEFORM {
         menu_type {
             addItems {
                 news = Display Subpages as News Entries
+                thumbnail_dir = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir.description
+                thumbnail_list = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description
             }
         }
         section_frame {

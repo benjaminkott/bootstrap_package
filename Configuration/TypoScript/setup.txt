@@ -25,6 +25,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageCarousel.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageExternalMedia.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageListGroup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageMenuThumbnail.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackagePanel.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageTab.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageTextIcon.txt">
@@ -572,8 +573,9 @@ page {
     includeJSFooterlibs {
         jquery = {$page.includePath.javascript}Libs/jquery.min.js
         jquery.forceOnTop = 1
-        bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
         responsiveimages = {$page.includePath.javascript}Libs/jquery.responsiveimages.min.js
+        equalheight = {$page.includePath.javascript}Dist/jquery.equalheight.min.js
+        bootstrap = {$page.includePath.javascript}Libs/bootstrap.min.js
 
         #### Add swipe support for boostrap components
         hammerjs = {$page.includePath.javascript}Libs/hammer.min.js

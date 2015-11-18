@@ -121,6 +121,11 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']
 );
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-menu-thumbnail',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-thumbnail.svg']
+);
 
 
 

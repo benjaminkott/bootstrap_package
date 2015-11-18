@@ -1,0 +1,48 @@
+//
+// Thumbnail
+// --------------------------------------------------
+.thumbnail-caption {
+    font-size: @font-size-small;
+    word-wrap: break-word;
+    padding: @thumbnail-caption-padding;
+    color: @thumbnail-caption-color;
+    *:first-child {
+        margin-top: 0;
+    }
+    *:last-child {
+        margin-bottom: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: @font-family-base;
+        font-size: @font-size-base;
+        font-weight: normal;
+    }
+}
+.thumbnail-image {
+    img {
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease-in-out;
+    }
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 56.25%;
+}
+.thumbnail:hover,
+.thumbnail:focus {
+    > .thumbnail-image {
+        img {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+    }
+}

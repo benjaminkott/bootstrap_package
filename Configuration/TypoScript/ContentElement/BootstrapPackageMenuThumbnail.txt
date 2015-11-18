@@ -1,0 +1,87 @@
+#################################################
+#### CTYPE: BOOTSTRAP PACKAGE MENU THUMBNAIL ####
+#################################################
+
+tt_content.menu.20 {
+    thumbnail_list = HMENU
+    thumbnail_list {
+        special = list
+        special.value.field = pages
+        1 = TMENU
+        1 {
+            NO {
+                doNotLinkIt = 1
+                stdWrap {
+                    cObject = COA
+                    cObject {
+                        10 = FLUIDTEMPLATE
+                        10 {
+
+                            ################
+                            ### TEMPLATE ###
+                            ################
+                            templateName = BootstrapPackageMenuThumbnailItem
+                            templateRootPaths {
+                                0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+                                10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
+                            }
+                            partialRootPaths {
+                                0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
+                                10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
+                            }
+                            layoutRootPaths {
+                                0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
+                                10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+                            }
+
+                            ################
+                            ### SETTINGS ###
+                            ################
+                            settings {
+                                media {
+                                    width = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.width}
+                                    height = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.height}
+                                }
+                                title {
+                                    crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
+                                }
+                                abstract {
+                                    crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
+                                }
+                            }
+
+                            #################
+                            ### VARIABLES ###
+                            #################
+                            variables {
+                                count_menuObject = TEXT
+                                count_menuObject.data = register:count_MENUOBJ
+                                count_menuItems = TEXT
+                                count_menuItems.data = register:count_menuItems
+                            }
+
+                            ##########################
+                            ### DATA PREPROCESSING ###
+                            ##########################
+                            dataProcessing {
+                                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                                10 {
+                                    references.fieldName = media
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        stdWrap {
+            required = 1
+            wrap = <div class="row" data-equalheight="container">|</div>
+        }
+    }
+    thumbnail_dir < .thumbnail_list
+    thumbnail_dir {
+        special = directory
+    }
+}

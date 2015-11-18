@@ -5,6 +5,11 @@ module.exports = function(grunt) {
      */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        banner: '/*!\n' +
+            ' * Bootstrap Package v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Licensed under the <%= pkg.license %> license\n' +
+            ' */\n',
         paths: {
             root: '../',
             bower: 'bower_components/',
@@ -25,6 +30,7 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
+                banner: '<%= banner %>',
                 compress: {
                     warnings: false
                 },
@@ -46,6 +52,10 @@ module.exports = function(grunt) {
             responsiveimages: {
                 src: '<%= paths.js %>Libs/jquery.responsiveimages.js',
                 dest: '<%= paths.js %>Libs/jquery.responsiveimages.min.js'
+            },
+            equalheight: {
+                src: '<%= paths.js %>Src/jquery.equalheight.js',
+                dest: '<%= paths.js %>Dist/jquery.equalheight.min.js'
             },
             viewportfix: {
                 src: '<%= paths.js %>Libs/windowsphone-viewportfix.js',

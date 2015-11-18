@@ -7787,6 +7787,47 @@ body,
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
+.thumbnail-caption {
+  font-size: 14px;
+  word-wrap: break-word;
+  padding: 9px;
+  color: #333333;
+}
+.thumbnail-caption *:first-child {
+  margin-top: 0;
+}
+.thumbnail-caption *:last-child {
+  margin-bottom: 0;
+}
+.thumbnail-caption h1,
+.thumbnail-caption h2,
+.thumbnail-caption h3,
+.thumbnail-caption h4,
+.thumbnail-caption h5,
+.thumbnail-caption h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+.thumbnail-image {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 56.25%;
+}
+.thumbnail-image img {
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease-in-out;
+}
+.thumbnail:hover > .thumbnail-image img,
+.thumbnail:focus > .thumbnail-image img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
 body .typo3-feedit-element,
 .htmlarea-content-body .typo3-feedit-element {
   outline: 3px solid rgba(255, 135, 0, 0.5) !important;

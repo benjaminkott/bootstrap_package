@@ -122,6 +122,19 @@
                 <source>Footer: Right</source>
             </trans-unit>
 
+            <trans-unit id="menu.thumbnail">
+                <source>Thumbnail Menu</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.description">
+                <source>Insert menu to display pages as thumbnail list</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail_dir.description">
+                <source>Display subpages as thumbnails</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail_list.description">
+                <source>Display selected pages as thumbnail</source>
+            </trans-unit>
+
             <trans-unit id="content_element.panel">
                 <source>Panel</source>
             </trans-unit>
