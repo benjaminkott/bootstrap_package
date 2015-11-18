@@ -8,13 +8,13 @@
 ################
 #### HELPER ####
 ################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/Helper/DynamicContent.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/Helper/DynamicContent.txt">
 
 
-###########################
-#### CONTENT RENDERING ####
-###########################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/Base.ts">
+##############################################
+#### CONTENT RENDERING CSS STYLED CONTENT ####
+##############################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/ContentElements/CssStyledContent.txt">
 
 
 #############################################################
