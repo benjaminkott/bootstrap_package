@@ -25,5 +25,17 @@ tt_content.bootstrap_package_listgroup {
             10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
         }
 
+        ##########################
+        ### DATA PREPROCESSING ###
+        ##########################
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+            10 {
+                fieldName = bodytext
+                removeEmptyEntries = 1
+                as = items
+            }
+        }
+
     }
 }
