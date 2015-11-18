@@ -1,9 +1,9 @@
-############################################
-#### CTYPE: BOOTSTRAP PACKAGE ACCORDION ####
-############################################
+######################################
+#### CTYPE: BOOTSTRAP PACKAGE TAB ####
+######################################
 
-tt_content.bootstrap_package_accordion = COA
-tt_content.bootstrap_package_accordion {
+tt_content.bootstrap_package_tab = COA
+tt_content.bootstrap_package_tab {
     10 =< lib.stdheader
     20 = FLUIDTEMPLATE
     20 {
@@ -11,7 +11,7 @@ tt_content.bootstrap_package_accordion {
         ################
         ### TEMPLATE ###
         ################
-        templateName = Bootstrap/Accordion
+        templateName = BootstrapPackageTab
         templateRootPaths {
             0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
             10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -30,8 +30,8 @@ tt_content.bootstrap_package_accordion {
         ################
         settings {
             media {
-                width = {$plugin.bootstrap_package_contentelements.settings.accordion.media.height}
-                height = {$plugin.bootstrap_package_contentelements.settings.accordion.media.width}
+                width = {$plugin.bootstrap_package_contentelements.settings.tab.media.height}
+                height = {$plugin.bootstrap_package_contentelements.settings.tab.media.width}
             }
         }
 
@@ -41,7 +41,7 @@ tt_content.bootstrap_package_accordion {
         dataProcessing {
             10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             10 {
-                table = tx_bootstrappackage_accordion_item
+                table = tx_bootstrappackage_tab_item
                 where {
                     data = field:uid
                     intval = 1
