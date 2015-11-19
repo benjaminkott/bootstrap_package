@@ -1,18 +1,17 @@
-############################################################
-#### CTYPE: DEFAULT                                     ####
-#### This template is used when TYPO3 is unable to find ####
-#### a rendering definition for the given cType.        ####
-############################################################
+############################################
+#### CTYPE: BOOTSTRAP PACKAGE LISTGROUP ####
+############################################
 
-tt_content.default = COA
-tt_content.default {
-    10 = FLUIDTEMPLATE
-    10 {
+tt_content.bootstrap_package_listgroup = COA
+tt_content.bootstrap_package_listgroup {
+    10 =< lib.stdheader
+    20 = FLUIDTEMPLATE
+    20 {
 
         ################
         ### TEMPLATE ###
         ################
-        templateName = Default
+        templateName = BootstrapPackageListGroup
         templateRootPaths {
             0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
             10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -26,7 +25,17 @@ tt_content.default {
             10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
         }
 
+        ##########################
+        ### DATA PREPROCESSING ###
+        ##########################
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+            10 {
+                fieldName = bodytext
+                removeEmptyEntries = 1
+                as = items
+            }
+        }
+
     }
-    field >
-    wrap >
 }

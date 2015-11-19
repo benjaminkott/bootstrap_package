@@ -1,18 +1,17 @@
-############################################################
-#### CTYPE: DEFAULT                                     ####
-#### This template is used when TYPO3 is unable to find ####
-#### a rendering definition for the given cType.        ####
-############################################################
+###########################################
+#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL ####
+###########################################
 
-tt_content.default = COA
-tt_content.default {
-    10 = FLUIDTEMPLATE
-    10 {
+tt_content.bootstrap_package_carousel = COA
+tt_content.bootstrap_package_carousel {
+    10 =< lib.stdheader
+    20 = FLUIDTEMPLATE
+    20 {
 
         ################
         ### TEMPLATE ###
         ################
-        templateName = Default
+        templateName = BootstrapPackageCarousel
         templateRootPaths {
             0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
             10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -27,6 +26,4 @@ tt_content.default {
         }
 
     }
-    field >
-    wrap >
 }

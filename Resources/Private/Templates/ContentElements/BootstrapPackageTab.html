@@ -68,7 +68,9 @@
 <f:section name="image">
     <div class="image-wrap">
         <figure class="image">
-            <f:media file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
+            <f:link.typolink parameter="{media.link}">
+                <f:media file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
+            </f:link.typolink>
             <f:if condition="{media.description}">
                 <figcaption class="caption">{media.description}</figcaption>
             </f:if>

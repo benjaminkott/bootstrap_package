@@ -1,18 +1,16 @@
-############################################################
-#### CTYPE: DEFAULT                                     ####
-#### This template is used when TYPO3 is unable to find ####
-#### a rendering definition for the given cType.        ####
-############################################################
+########################################
+#### CTYPE: BOOTSTRAP PACKAGE PANEL ####
+########################################
 
-tt_content.default = COA
-tt_content.default {
+tt_content.bootstrap_package_panel = COA
+tt_content.bootstrap_package_panel {
     10 = FLUIDTEMPLATE
     10 {
 
         ################
         ### TEMPLATE ###
         ################
-        templateName = Default
+        templateName = BootstrapPackagePanel
         templateRootPaths {
             0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
             10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -27,6 +25,4 @@ tt_content.default {
         }
 
     }
-    field >
-    wrap >
 }
