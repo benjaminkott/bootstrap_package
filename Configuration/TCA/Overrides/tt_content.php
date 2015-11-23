@@ -336,6 +336,7 @@ $tca = array(
             'config' => array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'showIconTable' => true,
                 'selicon_cols' => 14,
                 'items' => array(
                     array(
