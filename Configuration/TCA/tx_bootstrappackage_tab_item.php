@@ -38,14 +38,14 @@ return array(
     'types' => array(
         '1' => array(
             'showitem' => '
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             header,
             bodytext,
             media,
             mediaorient,
-            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
         ),
     ),
@@ -55,8 +55,8 @@ return array(
         ),
         'access' => array(
             'showitem' => '
-                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
-                endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
+                starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
             ',
             'canNotCollapse' => 1
         ),
@@ -92,7 +92,7 @@ return array(
                 'type' => 'check',
                 'items' => array(
                     '1' => array(
-                        '0' => 'LLL:EXT:cms/locallang_ttc.xlf:hidden.I.0'
+                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
                     )
                 )
             )
@@ -191,7 +191,7 @@ return array(
                 'media',
                 array(
                     'appearance' => array(
-                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ),
                     'foreign_types' => array(
                         '0' => array(

@@ -48,7 +48,7 @@ return array(
     'types' => array(
         '1' => array(
             'showitem' => '
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             bodytext,
             image,
@@ -56,28 +56,28 @@ return array(
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             background_color,
             background_image,
-            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
         ),
         'header' => array(
             'showitem' => '
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             text_color,
             link,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             background_color,
             background_image,
-            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
         ),
         'textandimage' => array(
             'showitem' => '
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
             bodytext,
             text_color,
@@ -86,20 +86,20 @@ return array(
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
             background_color,
             background_image,
-            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
         ),
         'backgroundimage' => array(
             'showitem' => '
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-            header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+            header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
             background_image,
             background_color,
-            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
         ),
         'html' => array(
@@ -113,15 +113,15 @@ return array(
                 ),
             ),
             'showitem' => '
-                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-                header;LLL:EXT:cms/locallang_ttc.xlf:header.ALT.html_formlabel,
-                bodytext;LLL:EXT:cms/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
+                bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
-                --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
             '
         ),
     ),
@@ -131,8 +131,8 @@ return array(
         ),
         'access' => array(
             'showitem' => '
-                starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel,
-                endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel
+                starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
             ',
             'canNotCollapse' => 1
         ),
@@ -146,7 +146,7 @@ return array(
         'general' => array(
             'showitem' => '
                 tt_content,
-                item_type;LLL:EXT:cms/locallang_ttc.xlf:CType_formlabel,
+                item_type;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType_formlabel,
             ',
             'canNotCollapse' => 1
         ),
@@ -208,7 +208,7 @@ return array(
                 'type' => 'check',
                 'items' => array(
                     '1' => array(
-                        '0' => 'LLL:EXT:cms/locallang_ttc.xlf:hidden.I.0'
+                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
                     )
                 )
             )
@@ -376,7 +376,7 @@ return array(
                 'image',
                 array(
                     'appearance' => array(
-                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ),
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
@@ -467,7 +467,7 @@ return array(
                 'background_image',
                 array(
                     'appearance' => array(
-                        'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ),
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
