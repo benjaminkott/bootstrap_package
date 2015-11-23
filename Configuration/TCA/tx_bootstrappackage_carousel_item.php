@@ -292,18 +292,14 @@ return array(
                 'type' => 'input',
                 'wizards' => array(
                     'link' => array(
-                        'icon' => 'link_popup.gif',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel',
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_link.gif',
                         'module' => array(
                             'name' => 'wizard_link',
-                            'urlParameters' => array(
-                                'mode' => 'wizard',
-                            ),
                         ),
-                        'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
-                        'type' => 'popup'
+                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
                     ),
-                    '_PADDING' => 2
                 ),
             ),
         ),
