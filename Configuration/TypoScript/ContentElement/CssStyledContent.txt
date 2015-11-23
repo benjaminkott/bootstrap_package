@@ -43,7 +43,10 @@ tt_content.image.20.1 {
         }
     }
 
-    params = class="lazyload"
+    params.stdWrap.cObject = TEXT
+    params.stdWrap.cObject.value = class="lazyload"
+    params.stdWrap.cObject.override = data-preload="true" class="lazyload"
+    params.stdWrap.cObject.override.if.isTrue = {$config.preloadImages}
 }
 
 ###########################

@@ -143,6 +143,8 @@ config {
     prefixLocalAnchors = all
     # cat=bootstrap package: advanced/150/190; type=string; label=Header Comment
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
+    # cat=bootstrap package: advanced/150/200; type=boolean; label=Force images preload: Preload images even when not visible on page to allow print
+    preloadImages = 0
 }
 
 ##########################
