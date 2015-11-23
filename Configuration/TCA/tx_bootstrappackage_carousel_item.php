@@ -291,7 +291,7 @@ return array(
                         'icon' => 'link_popup.gif',
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
                         'module' => array(
-                            'name' => 'wizard_element_browser',
+                            'name' => 'wizard_link',
                             'urlParameters' => array(
                                 'mode' => 'wizard',
                             ),
