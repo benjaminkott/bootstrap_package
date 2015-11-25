@@ -1,4 +1,5 @@
 <?php
+namespace BK2K\BootstrapPackage;
 
 /*
  *  The MIT License (MIT)
