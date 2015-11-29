@@ -9,6 +9,7 @@ TCEFORM {
     }
     tt_content {
         header_layout {
+            removeItems = 0,
             altLabels {
                 1 = H1
                 2 = H2

@@ -1,0 +1,7 @@
+<f:if condition="{data.date}">
+    <p class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+        <time datetime="{data.date -> f:format.date(format: '%Y-%m-%d')}">
+            {data.date -> f:format.date(format: '%Y-%m-%d')}
+        </time>
+    </p>
+</f:if>

@@ -1,0 +1,44 @@
+<f:layout name="Default"/>
+<f:section name="Header">
+    
+    <f:render partial="Header/Header" arguments="{_all}" />
+    <f:render partial="Header/SubHeader" arguments="{_all}" />
+    <f:render partial="Header/Date" arguments="{_all}" />
+    
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{bullets}">
+        <f:switch expression="{data.layout}">
+            <f:case value="110">
+                <ol class="list">
+                    <f:for each="{bullets}" as="bullet">
+                        <li>{bullet}</li>
+                    </f:for>
+                </ol>
+            </f:case>
+            <f:case value="120">
+                <ul class="list list-unstyled">
+                    <f:for each="{bullets}" as="bullet">
+                        <li>{bullet}</li>
+                    </f:for>
+                </ul>
+            </f:case>
+            <f:case value="130">
+                <ul class="list list-inline">
+                    <f:for each="{bullets}" as="bullet">
+                        <li>{bullet}</li>
+                    </f:for>
+                </ul>
+            </f:case>
+            <f:case default="1">
+                <ul class="list">
+                    <f:for each="{bullets}" as="bullet">
+                        <li>{bullet}</li>
+                    </f:for>
+                </ul>
+            </f:case>
+        </f:switch>
+    </f:if>
+
+</f:section>

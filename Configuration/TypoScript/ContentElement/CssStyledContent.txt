@@ -339,51 +339,6 @@ tt_content.stdWrap {
 ################################################
 tt_content.header.20 >
 
-#######################
-#### CTYPE: BULLET ####
-#######################
-tt_content.bullets.20.dataWrap >
-tt_content.bullets.20.dataWrap.cObject = CASE
-tt_content.bullets.20.dataWrap.cObject {
-    key.field = layout
-    default = COA
-    default {
-        10 = TEXT
-        10 {
-            value = <ul
-        }
-
-        20 = COA
-        20 {
-            10 = TEXT
-            10 {
-                value = list
-                required = 1
-                noTrimWrap = || |
-            }
-
-            stdWrap {
-                trim = 1
-                noTrimWrap = | class="|"|
-                required = 1
-            }
-        }
-
-        30 = TEXT
-        30 {
-            value = >|</ul>
-        }
-    }
-
-    110 =< tt_content.bullets.20.dataWrap.cObject.default
-    110.10.value = <ol
-    110.30.value = >|</ol>
-    120 =< tt_content.bullets.20.dataWrap.cObject.default
-    120.20.10.value = list list-unstyled
-    130 =< tt_content.bullets.20.dataWrap.cObject.default
-    130.20.10.value = list list-inline
-}
-
 ########################
 #### CTYPE: UPLOADS ####
 ########################

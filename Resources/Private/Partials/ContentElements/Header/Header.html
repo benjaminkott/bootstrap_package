@@ -1,0 +1,37 @@
+<f:if condition="{data.header}">
+    <f:switch expression="{data.header_layout}">
+        <f:case value="1">
+            <h1 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h1>
+        </f:case>
+        <f:case value="2">
+            <h2 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h2>
+        </f:case>
+        <f:case value="3">
+            <h3 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h3>
+        </f:case>
+        <f:case value="4">
+            <h4 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h4>
+        </f:case>
+        <f:case value="5">
+            <h5 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h5>
+        </f:case>
+        <f:case value="100">
+            <f:comment> -- do not show header -- </f:comment>
+        </f:case>
+        <f:case default="1">
+            <h1 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+            </h1>
+        </f:case>
+    </f:switch>
+</f:if>
