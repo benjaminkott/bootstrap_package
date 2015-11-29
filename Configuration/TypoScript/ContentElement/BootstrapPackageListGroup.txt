@@ -2,11 +2,11 @@
 #### CTYPE: BOOTSTRAP PACKAGE LISTGROUP ####
 ############################################
 
+tt_content.bootstrap_package_listgroup >
 tt_content.bootstrap_package_listgroup = COA
 tt_content.bootstrap_package_listgroup {
-    10 =< lib.stdheader
-    20 = FLUIDTEMPLATE
-    20 {
+    10 = FLUIDTEMPLATE
+    10 {
 
         ################
         ### TEMPLATE ###
