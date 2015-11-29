@@ -2,11 +2,11 @@
 #### CTYPE: BOOTSTRAP PACKAGE EXTERNAL MEDIA ####
 #################################################
 
+tt_content.bootstrap_package_external_media >
 tt_content.bootstrap_package_external_media = COA
 tt_content.bootstrap_package_external_media {
-    10 =< lib.stdheader
-    20 = FLUIDTEMPLATE
-    20 {
+    10 = FLUIDTEMPLATE
+    10 {
 
         ################
         ### TEMPLATE ###
