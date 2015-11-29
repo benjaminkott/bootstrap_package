@@ -1,0 +1,14 @@
+<img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
+     data-src="{f:uri.image(image: file)}"
+     data-bigger="{f:uri.image(image: file, maxWidth: 1140)}"
+     data-large="{f:uri.image(image: file, maxWidth: 940)}"
+     data-medium="{f:uri.image(image: file, maxWidth: 720)}"
+     data-small="{f:uri.image(image: file, maxWidth: 320)}"
+     title="{file.title}"
+     alt="{file.alternative}"
+     class="lazyload"
+     data-preload="{f:if(condition: settings.media.preload, then: 'true', else: 'false')}"
+     />
+<noscript>
+    <img src="{f:uri.image(image: file)}" title="{file.title}" alt="{file.alternative}" />
+</noscript>

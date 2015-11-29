@@ -69,12 +69,5 @@ class DataHandler
             );
         }
 
-        /**
-         * Unset height and width for textpic and image to avoid wrong image rendering
-         */
-        if ($table == 'tt_content' && ($incomingFieldArray['CType'] == 'textpic' || $incomingFieldArray['CType'] == 'image')) {
-            $incomingFieldArray['imageheight'] = '';
-            $incomingFieldArray['imagewidth'] = '';
-        }
     }
 }

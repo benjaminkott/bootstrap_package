@@ -90,11 +90,17 @@
 
     // EQUALHEIGHT DATA-API
     // ====================
-    $(window).on('load resize', function() {
+    $(window).on('load resize calculate.bk2k.equalheight', function() {
         $('[data-equalheight=container]').each(function() {
             var $equalheight = $(this);
             Plugin.call($equalheight, $equalheight.data());
         });
+    });
+
+    // RESPONSIVE IMAGES
+    // =================
+    $('img').on('load', function() {
+        $(window).trigger('calculate.bk2k.equalheight');
     });
 
 }(jQuery);
