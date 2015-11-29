@@ -4,6 +4,7 @@
 #### a rendering definition for the given cType.        ####
 ############################################################
 
+tt_content.default >
 tt_content.default = COA
 tt_content.default {
     10 = FLUIDTEMPLATE
@@ -27,6 +28,4 @@ tt_content.default {
         }
 
     }
-    field >
-    wrap >
 }
