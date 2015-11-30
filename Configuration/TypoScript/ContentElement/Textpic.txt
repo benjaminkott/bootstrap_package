@@ -18,22 +18,16 @@ tt_content.textpic {
             key.field = imageorient
 
             8 = TEXT
-            8.value = TextpicBelowCenter
-
-            17 = TEXT
-            17.value = TextpicInTextRight
-
-            18 = TEXT
-            18.value = TextpicInTextLeft
+            8.value = TextpicBelow
 
             25 = TEXT
-            25.value = TextpicBesideRight
+            25.value = TextpicRight
 
             26 = TEXT
-            26.value = TextpicBesideLeft
+            26.value = TextpicLeft
 
             default = TEXT
-            default.value = TextpicAboveCenter
+            default.value = TextpicAbove
 
         }
         templateRootPaths {

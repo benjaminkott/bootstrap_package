@@ -43,3 +43,17 @@ h5 + h6 {
         font-size: (@font-size-base * 1.30);
     }
 }
+
+
+//
+// Holder
+// --------------------------------------------------
+.column {
+    *:first-child {
+        margin-top: 0;
+    }
+    *:last-child {
+        margin-bottom: 0;
+    }
+    margin: @line-height-computed 0;
+}
