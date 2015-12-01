@@ -1,85 +1,51 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<f:if condition="{records}">
-    <bk2k:flexForm />
-    <bk2k:var name="activeTab" value="{records.0.data.uid}" />
-    <f:if condition="{data.pi_flexform.default_tab}">
-        <f:for each="{records}" as="record" iteration="iteration">
-            <f:if condition="{data.pi_flexform.default_tab} == {record.data.uid}">
-                <bk2k:var name="activeTab" value="{record.data.uid}" />
-            </f:if>
-        </f:for>
-    </f:if>
-    <div role="tabpanel" id="tab-{data.uid}">
-        <ul class="nav nav-tabs" role="tablist">
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <bk2k:flexForm />
+        <bk2k:var name="activeTab" value="{records.0.data.uid}" />
+        <f:if condition="{data.pi_flexform.default_tab}">
             <f:for each="{records}" as="record" iteration="iteration">
-                <li role="presentation" {f:if(condition: '{activeTab} == {record.data.uid}',then: 'class="active"')}>
-                    <f:link.page
-                            additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{record.data.uid}'}"
-                            section="tab-{data.uid}-{record.data.uid}">
-                        {record.data.header}
-                    </f:link.page>
-                </li>
+                <f:if condition="{data.pi_flexform.default_tab} == {record.data.uid}">
+                    <bk2k:var name="activeTab" value="{record.data.uid}" />
+                </f:if>
             </f:for>
-        </ul>
-        <div class="tab-content">
-            <f:for each="{records}" as="record" iteration="iteration">
-                <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {record.data.uid}',then: 'active')}" id="tab-{data.uid}-{record.data.uid}">
+        </f:if>
+        <div role="tabpanel" id="tab-{data.uid}">
+            <ul class="nav nav-tabs" role="tablist">
+                <f:for each="{records}" as="record" iteration="iteration">
+                    <li role="presentation" {f:if(condition: '{activeTab} == {record.data.uid}',then: 'class="active"')}>
+                        <f:link.page
+                                additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{record.data.uid}'}"
+                                section="tab-{data.uid}-{record.data.uid}">
+                            {record.data.header}
+                        </f:link.page>
+                    </li>
+                </f:for>
+            </ul>
+            <div class="tab-content">
+                <f:for each="{records}" as="record" iteration="iteration">
+                    <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {record.data.uid}',then: 'active')}" id="tab-{data.uid}-{record.data.uid}">
 
-                    <f:if condition="{record.files.0}">
-                        <f:then>
+                        <div class="row">
+                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
+                                <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
+                            </div>
+                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
+                                    <f:format.html>{record.data.bodytext}</f:format.html>
+                            </div>
+                        </div>
 
-                            <f:if condition="{record.files.0.type} == 2">
-                                <div class="image-beside image-beside-{f:if(condition: '{record.data.mediaorient} == 0',then: 'left',else:'right' )}">
-                                    <f:render section="image" arguments="{media: record.files.0, settings: settings}" />
-                                    <f:render section="text" arguments="{text: record.data.bodytext}" />
-                                </div>
-                            </f:if>
-
-                            <f:if condition="{record.files.0.type} == 4">
-                                <div class="row">
-                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else:'col-md-push-6' )} col-md-6 col-sm-push-2 col-sm-8">
-                                        <f:render section="video" arguments="{media: record.files.0, settings: settings}" />
-                                    </div>
-                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else:'col-md-pull-6' )} col-md-6 col-sm-12">
-                                        <f:render section="text" arguments="{text: record.data.bodytext}" />
-                                    </div>
-                                </div>
-                            </f:if>
-
-                        </f:then>
-                        <f:else>
-                            <f:render section="text" arguments="{text: record.data.bodytext}" />
-                        </f:else>
-                    </f:if>
-
-                </div>
-            </f:for>
+                    </div>
+                </f:for>
+            </div>
         </div>
-    </div>
-</f:if>
+    </f:if>
 
-
-<f:section name="video">
-    <div class="embed-responsive embed-responsive-16by9">
-        <f:media class="embed-responsive-item" file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
-    </div>
-</f:section>
-
-<f:section name="image">
-    <div class="image-wrap">
-        <figure class="image">
-            <f:link.typolink parameter="{media.link}">
-                <f:media file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
-            </f:link.typolink>
-            <f:if condition="{media.description}">
-                <figcaption class="caption">{media.description}</figcaption>
-            </f:if>
-        </figure>
-    </div>
-</f:section>
-
-<f:section name="text">
-    <div class="text">
-        <f:format.html>{text}</f:format.html>
-    </div>
 </f:section>

@@ -1,0 +1,7 @@
+<f:if condition="{file.type} == 2">
+    <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings}" />
+</f:if>
+
+<f:if condition="{file.type} == 4">
+    <f:render partial="Media/Video" arguments="{file: file, data: data, settings: settings}" />
+</f:if>

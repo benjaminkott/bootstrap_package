@@ -8,6 +8,7 @@ TCEFORM {
         }
     }
     tt_content {
+        linkToTop.disabled = 1
         header_layout {
             removeItems = 0,
             altLabels {
@@ -93,7 +94,7 @@ TCEFORM {
             }
         }
         section_frame {
-            removeItems = 1
+            removeItems = 1,66
             addItems {
             }
             altLabels {
