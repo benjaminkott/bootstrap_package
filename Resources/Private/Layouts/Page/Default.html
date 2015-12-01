@@ -1,5 +1,5 @@
-<f:if condition="{showHeader}">
 <div class="body-bg{f:if(condition:themeNavigationtype, then:' body-bg-{themeNavigationtype}')}">
+
     <f:link.page class="sr-only sr-only-focusable" section="content">
         {f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}
     </f:link.page>
@@ -7,20 +7,13 @@
     <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb"/>
 
     <div id="content" class="main-section">
-    <!--TYPO3SEARCH_begin-->
-</f:if>
-
-<section id="p{data.uid}" class="{pageClass}">
-    <f:render section="Main"/>
-</section>
-<f:if condition="{onePage}">
-    <f:cObject typoscriptObjectPath="lib.content.onepage"/>
-</f:if>
-
-<f:if condition="{showFooter}">
-    <!--TYPO3SEARCH_end-->
+        <!--TYPO3SEARCH_begin-->
+        <section id="p{data.uid}" class="{pageClass}">
+            <f:render section="Main"/>
+        </section>
+        <!--TYPO3SEARCH_end-->
     </div>
 
     <f:render partial="Structure/Footer" arguments="{_all}"/>
+
 </div>
-</f:if>
