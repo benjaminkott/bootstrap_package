@@ -6,32 +6,32 @@
                     <f:for each="{files}" as="file" iteration="fileIteration">
                         <f:switch expression="{data.imagecols}">
                             <f:case value="1">
-                                <div class="column col-md-12" data-equalheight="item">
+                                <div class="col-md-12" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
                             <f:case value="2">
-                                <div class="column col-md-6" data-equalheight="item">
+                                <div class="col-md-6" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
                             <f:case value="3">
-                                <div class="column col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
+                                <div class="col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
                             <f:case value="4">
-                                <div class="column col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
+                                <div class="col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
                             <f:case value="6">
-                                <div class="column col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
+                                <div class="col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
                             <f:case default="1">
-                                <div class="column col-md-12" data-equalheight="item">
+                                <div class="col-md-12" data-equalheight="item">
                                     <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
                                 </div>
                             </f:case>
@@ -39,7 +39,7 @@
                     </f:for>
                 </f:then>
                 <f:else>
-                    <div class="column col-md-12" data-equalheight="item">
+                    <div class="col-md-12" data-equalheight="item">
                         <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings}" />
                     </div>
                 </f:else>

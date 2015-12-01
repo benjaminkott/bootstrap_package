@@ -34,10 +34,10 @@
                     <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {record.data.uid}',then: 'active')}" id="tab-{data.uid}-{record.data.uid}">
 
                         <div class="row">
-                            <div class="column {f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
+                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
                                 <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
                             </div>
-                            <div class="column {f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
+                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
                                     <f:format.html>{record.data.bodytext}</f:format.html>
                             </div>
                         </div>
