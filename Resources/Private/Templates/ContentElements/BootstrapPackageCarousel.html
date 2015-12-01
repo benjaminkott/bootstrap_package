@@ -1,69 +1,79 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
-    <f:if condition="{items}">
-        <bk2k:flexForm/>
-        <div id="carousel-{data.uid}"
-             class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}"
-             data-interval="{data.pi_flexform.interval}"
-             data-wrap="{data.pi_flexform.wrap}"
-             data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <f:for each="{items}" as="item" iteration="iteration">
-                    <bk2k:var name="itemStyleImage">
-                        <bk2k:fal data="{item}" as="images" field="background_image"
-                                table="tx_bootstrappackage_carousel_item">
-                            <f:if condition="{images}">
-                                <bk2k:var name="backgroundImagePath"
-                                        value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1,maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
-                                background-image: url('{backgroundImagePath}');
-                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
-                                sizingMethod='scale');
-                                -ms-filter:
-                                "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
-                                sizingMethod='scale')";
-                            </f:if>
-                        </bk2k:fal>
-                    </bk2k:var>
-                    <bk2k:var name="itemStyleColor">
-                        <f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
-                    </bk2k:var>
-                    <div
-                        class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}"
-                        data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
-                        <f:switch expression="{item.item_type}">
-                            <f:case value="header">
-                                <f:link.page pageUid="{item.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
-                                </f:link.page>
-                            </f:case>
-                            <f:case value="textandimage">
-                                <f:link.page pageUid="{item.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
-                                </f:link.page>
-                            </f:case>
-                            <f:case value="html">{item.bodytext->f:format.raw()}</f:case>
-                        </f:switch>
-                    </div>
-                </f:for>
-            </div>
-            <f:if condition="{items -> f:count()} > 1">
-                <ol class="carousel-indicators">
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
+        <f:if condition="{items}">
+            <bk2k:flexForm/>
+            <div id="carousel-{data.uid}"
+                 class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}"
+                 data-interval="{data.pi_flexform.interval}"
+                 data-wrap="{data.pi_flexform.wrap}"
+                 data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
                     <f:for each="{items}" as="item" iteration="iteration">
-                        <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}"
-                            class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
+                        <bk2k:var name="itemStyleImage">
+                            <bk2k:fal data="{item}" as="images" field="background_image"
+                                    table="tx_bootstrappackage_carousel_item">
+                                <f:if condition="{images}">
+                                    <bk2k:var name="backgroundImagePath"
+                                            value="{f:uri.image(src:'{images.0.uid}',treatIdAsReference: 1,maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
+                                    background-image: url('{backgroundImagePath}');
+                                    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
+                                    sizingMethod='scale');
+                                    -ms-filter:
+                                    "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
+                                    sizingMethod='scale')";
+                                </f:if>
+                            </bk2k:fal>
+                        </bk2k:var>
+                        <bk2k:var name="itemStyleColor">
+                            <f:if condition="{item.background_color}">background-color: {item.background_color};</f:if>
+                        </bk2k:var>
+                        <div
+                            class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.item_type}"
+                            data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
+                            <f:switch expression="{item.item_type}">
+                                <f:case value="header">
+                                    <f:link.page pageUid="{item.link}" additionalAttributes="{draggable:'false'}">
+                                        <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
+                                    </f:link.page>
+                                </f:case>
+                                <f:case value="textandimage">
+                                    <f:link.page pageUid="{item.link}" additionalAttributes="{draggable:'false'}">
+                                        <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
+                                    </f:link.page>
+                                </f:case>
+                                <f:case value="html">{item.bodytext->f:format.raw()}</f:case>
+                            </f:switch>
+                        </div>
                     </f:for>
-                </ol>
-                <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev', role: 'button'}"
-                             section="carousel-{data.uid}">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
-                </f:link.page>
-                <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next', role: 'button'}"
-                             section="carousel-{data.uid}">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
-                </f:link.page>
-            </f:if>
-        </div>
-    </f:if>
-</bk2k:dataRelation>
+                </div>
+                <f:if condition="{items -> f:count()} > 1">
+                    <ol class="carousel-indicators">
+                        <f:for each="{items}" as="item" iteration="iteration">
+                            <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}"
+                                class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
+                        </f:for>
+                    </ol>
+                    <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev', role: 'button'}"
+                                 section="carousel-{data.uid}">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
+                    </f:link.page>
+                    <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next', role: 'button'}"
+                                 section="carousel-{data.uid}">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
+                    </f:link.page>
+                </f:if>
+            </div>
+        </f:if>
+    </bk2k:dataRelation>
+
+</f:section>

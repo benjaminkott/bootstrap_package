@@ -2,63 +2,61 @@
 #### CTYPE: BOOTSTRAP PACKAGE TAB ####
 ######################################
 
-tt_content.bootstrap_package_tab = COA
+tt_content.bootstrap_package_tab >
+tt_content.bootstrap_package_tab = FLUIDTEMPLATE
 tt_content.bootstrap_package_tab {
-    10 = FLUIDTEMPLATE
-    10 {
 
-        ################
-        ### TEMPLATE ###
-        ################
-        templateName = BootstrapPackageTab
-        templateRootPaths {
-            0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-            10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-        }
-        partialRootPaths {
-            0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-            10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-        }
-        layoutRootPaths {
-            0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-            10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-        }
-
-        ################
-        ### SETTINGS ###
-        ################
-        settings {
-            media {
-                width = {$plugin.bootstrap_package_contentelements.settings.tab.media.height}
-                height = {$plugin.bootstrap_package_contentelements.settings.tab.media.width}
-                preload = {$config.preloadImages}
-            }
-            lightbox {
-                cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
-                prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
-            }
-        }
-
-        ##########################
-        ### DATA PREPROCESSING ###
-        ##########################
-        dataProcessing {
-            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-            10 {
-                table = tx_bootstrappackage_tab_item
-                where {
-                    data = field:uid
-                    intval = 1
-                    wrap = tt_content=|
-                }
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-            }
-        }
-
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = BootstrapPackageTab
+    templateRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
     }
+    partialRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+    }
+
+    ################
+    ### SETTINGS ###
+    ################
+    settings {
+        media {
+            width = {$plugin.bootstrap_package_contentelements.settings.tab.media.height}
+            height = {$plugin.bootstrap_package_contentelements.settings.tab.media.width}
+            preload = {$config.preloadImages}
+        }
+        lightbox {
+            cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
+            prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
+        }
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = tx_bootstrappackage_tab_item
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+
 }
