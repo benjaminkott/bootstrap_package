@@ -2,17 +2,20 @@
     <div class="panel-group" id="accordion-{data.uid}" role="tablist" aria-multiselectable="true">
         <f:for each="{records}" as="record" iteration="iteration">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab">
+                <div class="panel-heading" role="tab" id="accordion-heading-{data.uid}-{record.data.uid}">
                     <h4 class="panel-title">
-                        <f:link.page
-                            additionalAttributes="{data-toggle: 'collapse',data-parent: '#accordion-{data.data.uid}'}"
-                            section="accordion-{data.uid}-{record.data.uid}">
+                        <a class="{f:if(condition: iteration.isFirst, else:'collapsed')}"
+                           role="button"
+                           data-toggle="collapse"
+                           data-parent="#accordion-{data.uid}"
+                           href="#accordion-{data.uid}-{record.data.uid}"
+                           aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}"
+                           aria-controls="accordion-{data.uid}-{record.data.uid}">
                             {record.data.header}
-                        </f:link.page>
+                        </a>
                     </h4>
                 </div>
-                <div id="accordion-{data.uid}-{record.data.uid}"
-                     class="panel-collapse collapse{f:if(condition: iteration.isFirst,then:' in')}" role="tabpanel">
+                <div id="accordion-{data.uid}-{record.data.uid}" class="panel-collapse collapse {f:if(condition: iteration.isFirst, then: 'in')}" role="tabpanel" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}">
                     <div class="panel-body">
                         <f:if condition="{record.files.0}">
                             <f:then>
