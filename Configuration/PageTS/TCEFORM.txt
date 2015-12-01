@@ -94,7 +94,7 @@ TCEFORM {
             }
         }
         section_frame {
-            removeItems = 1
+            removeItems = 1,66
             addItems {
             }
             altLabels {
