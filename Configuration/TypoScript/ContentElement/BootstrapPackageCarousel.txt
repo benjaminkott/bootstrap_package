@@ -27,9 +27,7 @@ tt_content.bootstrap_package_carousel {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
-
     }
 
 }
