@@ -9,7 +9,6 @@
 
     <bk2k:dataRelation uid="{data.uid}" table="tx_bootstrappackage_carousel_item">
         <f:if condition="{items}">
-            <bk2k:flexForm/>
             <div id="carousel-{data.uid}"
                  class="carousel slide{f:if(condition: '{data.layout} == 110',then:' carousel-small')}"
                  data-interval="{data.pi_flexform.interval}"

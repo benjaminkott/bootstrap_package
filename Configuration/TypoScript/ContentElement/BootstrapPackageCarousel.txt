@@ -23,4 +23,13 @@ tt_content.bootstrap_package_carousel {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+
+    }
+
 }

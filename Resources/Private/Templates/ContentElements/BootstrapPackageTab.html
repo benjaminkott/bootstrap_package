@@ -8,7 +8,6 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <bk2k:flexForm />
         <bk2k:var name="activeTab" value="{records.0.data.uid}" />
         <f:if condition="{data.pi_flexform.default_tab}">
             <f:for each="{records}" as="record" iteration="iteration">
