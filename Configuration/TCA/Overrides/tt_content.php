@@ -1,6 +1,16 @@
 <?php
 
 /***************
+ * Add Palettes for Generic usage
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'imageblock',
+    'imageorient, imagecols'
+);
+
+
+/***************
  * Add Content Element: Text
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] += [
@@ -20,7 +30,47 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = [
     'showitem' => '
         --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
         --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
-        bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+        bodytext,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+        rowDescription',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+        ]
+    ]
+];
+
+
+/***************
+ * Add Content Element: Textpic
+ */
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] += [
+    'textpic' => 'mimetypes-x-content-text-picture'
+];
+array_splice(
+    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
+    3,
+    0,
+    [[
+        'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.2',
+        'textpic',
+        'content-textpic'
+    ]]
+);
+$GLOBALS['TCA']['tt_content']['types']['textpic'] = [
+    'showitem' => '
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
+        bodytext,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.images,
+        image,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.imageblock;imageblock,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.imagelinks;imagelinks,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
         --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
