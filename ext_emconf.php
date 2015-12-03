@@ -9,10 +9,11 @@ $EM_CONF[$_EXTKEY] = array(
     'category' => 'templates',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '7.6.0-7.99.99',
-            'css_styled_content' => '7.6.0-7.99.99',
+            'typo3' => '7.6.0-7.99.99'
         ),
         'conflicts' => array(
+            'css_styled_content' => '*',
+            'fluid_styled_content' => '*',
             'themes' => '*',
             'fluidpages' => '*',
             'dyncss' => '*',

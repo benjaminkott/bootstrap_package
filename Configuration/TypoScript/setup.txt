@@ -1,7 +1,6 @@
 ######################
 #### DEPENDENCIES ####
 ######################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:css_styled_content/static/setup.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
 
 
@@ -21,6 +20,7 @@
 #### CONTENT ELEMENT REDNERING                           ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
+tt_content >
 tt_content = CASE
 tt_content {
     key {
