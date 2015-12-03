@@ -195,6 +195,29 @@ $GLOBALS['TCA']['tt_content']['types']['image'] = [
 
 
 /***************
+ * Add Content Element: Bullet List
+ */
+$GLOBALS['TCA']['tt_content']['types']['bullets'] = [
+    'showitem' => '
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
+        bodytext,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+        rowDescription',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'defaultExtras' => 'nowrap'
+        ]
+    ]
+];
+
+
+/***************
  * Add Content Elements to List
  */
 $backupCTypeItems = $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'];
