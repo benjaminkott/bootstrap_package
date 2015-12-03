@@ -21,6 +21,13 @@
 #### CONTENT ELEMENT REDNERING                           ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
+tt_content = CASE
+tt_content {
+    key {
+        field = CType
+    }
+}
+#### BOOTSTRAP PACKAGE CONTENT ELEMENT RENDERING
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageAccordion.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageCarousel.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageExternalMedia.txt">
