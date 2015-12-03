@@ -18,7 +18,38 @@ $GLOBALS['TCA']['tt_content']['palettes']['header'] = [
         header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
         --linebreak--'
 ];
-$GLOBALS['TCA']['tt_content']['palettes']['headers'] = $GLOBALS['TCA']['tt_content']['palettes']['header'];
+$GLOBALS['TCA']['tt_content']['palettes']['frames'] = [
+    'showitem' => 'layout,
+        section_frame',
+];
+
+
+
+/***************
+ * Add Columns for Generic usage
+ */
+$GLOBALS['TCA']['tt_content']['columns'] += [
+    'section_frame' => [
+        'exclude' => true,
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.default','0'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.invisible','1'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.rulerbefore','5'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.rulerafter','6'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentcenter','10'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentleft','11'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentright','12'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.well','20'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.jumbotron','21']
+            ],
+            'default' => '0'
+        ]
+    ]
+];
 
 
 /***************

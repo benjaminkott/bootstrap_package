@@ -93,21 +93,6 @@ TCEFORM {
                 thumbnail_list = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description
             }
         }
-        section_frame {
-            removeItems = 1,66
-            addItems {
-            }
-            altLabels {
-                20 = Well
-                21 = Jumbotron
-            }
-            types {
-                bootstrap_package_carousel {
-                    removeItems = 1,5,6,10,11,12,20,21
-                }
-            }
-            disableNoMatchingValueElement = 1
-        }
 
         // Disable imageheight and imagewidth for textpic and image
         // to avoid incorrect rendering in frontend

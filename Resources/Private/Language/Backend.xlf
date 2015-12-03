@@ -445,6 +445,37 @@
                 <source>Small</source>
             </trans-unit>
 
+            <trans-unit id="sectionframe">
+                <source>Frame</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.invisible">
+                <source>Invisible</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.rulerbefore">
+                <source>Ruler before</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.rulerafter">
+                <source>Ruler after</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.indentcenter">
+                <source>Indent center</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.indentleft">
+                <source>Indent left</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.indentright">
+                <source>Indent right</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.well">
+                <source>Well</source>
+            </trans-unit>
+            <trans-unit id="sectionframe.jumbotron">
+                <source>Jumbotron</source>
+            </trans-unit>
+
             <trans-unit id="tabs.background">
                 <source>Background</source>
             </trans-unit>

@@ -2,6 +2,7 @@
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
+    section_frame int(11) unsigned DEFAULT '0' NOT NULL,
     icon varchar(255) DEFAULT '' NOT NULL,
     icon_position varchar(255) DEFAULT '' NOT NULL,
     icon_size int(11) unsigned DEFAULT '0',
