@@ -67,6 +67,14 @@ mod.wizards {
                             CType = html
                         }
                     }
+                    div {
+                        iconIdentifier = content-special-div
+                        title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_divider_title
+                        description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_divider_description
+                        tt_content_defValues {
+                            CType = div
+                        }
+                    }
                 }
                 show = *
             }
