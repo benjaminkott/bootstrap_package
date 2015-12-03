@@ -39,7 +39,6 @@ tt_content.table {
             fieldEnclosure.char.cObject {
                 field = table_enclosure
             }
-            maximumColumns.field = cols
             as = table
         }
 
