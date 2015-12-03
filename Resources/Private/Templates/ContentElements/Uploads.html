@@ -1,0 +1,64 @@
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{files}">
+        <ul class="media-list">
+            <f:for each="{files}" as="file" iteration="fileIterator">
+                <li class="media">
+                    <f:if condition="{data.layout} == 2">
+                        <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+                            <div class="media-left">
+                                <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
+                                    <f:media file="{file}" width="{settings.preview.width}" height="{settings.preview.height}" alt="{file.alternative}" />
+                                </a>
+                            </div>
+                        </f:if>
+                    </f:if>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
+                                <f:if condition="{data.layout} > 0">
+                                    <f:switch expression="{f:format.case(value: file.extension, mode: 'lower')}">
+                                        <f:case value="avi"><span class="glyphicon glyphicon-film"></span></f:case>
+                                        <f:case value="mov"><span class="glyphicon glyphicon-film"></span></f:case>
+                                        <f:case value="mpg"><span class="glyphicon glyphicon-film"></span></f:case>
+                                        <f:case value="mpeg"><span class="glyphicon glyphicon-film"></span></f:case>
+                                        <f:case value="mkv"><span class="glyphicon glyphicon-film"></span></f:case>
+                                        <f:case value="jpg"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="gif"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="png"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="bmp"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="ai"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="eps"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="ico"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="tga"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case value="tif"><span class="glyphicon glyphicon-picture"></span></f:case>
+                                        <f:case default="TRUE"><span class="glyphicon glyphicon-file"></span></f:case>
+                                    </f:switch>
+                                </f:if>
+                                <f:if condition="{file.title}">
+                                   <f:then>{file.title}</f:then>
+                                   <f:else>{file.name}</f:else>
+                                </f:if>
+                            </a>
+                            <f:if condition="{data.filelink_size}">
+                                <small class="text-muted">
+                                    <f:format.bytes value="{file.size}" />
+                                </small>
+                            </f:if>
+                        </h4>
+                        <f:if condition="{file.description}">
+                            <p>{file.description}</p>
+                        </f:if>
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+
+</f:section>

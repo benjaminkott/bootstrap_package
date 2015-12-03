@@ -14,6 +14,9 @@
 # customsubcategory=140=Content Elements Templates
 # customsubcategory=141=Content Element Accordion
 # customsubcategory=142=Content Element Tabs
+# customsubcategory=143=Content Element Menu
+# customsubcategory=144=Content Element General
+# customsubcategory=145=Content Element Uploads
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=170=News
@@ -212,6 +215,14 @@ plugin.bootstrap_package_contentelements {
         abstract {
             # cat=bootstrap package: advanced/143/105; type=string; label=Thumbnail Menu Crop Abstract
             crop = 250
+        }
+    }
+    uploads {
+        preview {
+            # cat=bootstrap package: advanced/145/100; type=string; label=Uploads Preview Height
+            height = 100c
+            # cat=bootstrap package: advanced/145/101; type=string; label=Uploads Preview Width
+            width = 100c
         }
     }
 }
