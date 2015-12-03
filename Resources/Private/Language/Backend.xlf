@@ -445,35 +445,51 @@
                 <source>Small</source>
             </trans-unit>
 
-            <trans-unit id="sectionframe">
+            <trans-unit id="field.section_frame">
                 <source>Frame</source>
             </trans-unit>
-            <trans-unit id="sectionframe.default">
+            <trans-unit id="field.section_frame.default">
                 <source>Default</source>
             </trans-unit>
-            <trans-unit id="sectionframe.invisible">
+            <trans-unit id="field.section_frame.invisible">
                 <source>Invisible</source>
             </trans-unit>
-            <trans-unit id="sectionframe.rulerbefore">
+            <trans-unit id="field.section_frame.rulerbefore">
                 <source>Ruler before</source>
             </trans-unit>
-            <trans-unit id="sectionframe.rulerafter">
+            <trans-unit id="field.section_frame.rulerafter">
                 <source>Ruler after</source>
             </trans-unit>
-            <trans-unit id="sectionframe.indentcenter">
+            <trans-unit id="field.section_frame.indentcenter">
                 <source>Indent center</source>
             </trans-unit>
-            <trans-unit id="sectionframe.indentleft">
+            <trans-unit id="field.section_frame.indentleft">
                 <source>Indent left</source>
             </trans-unit>
-            <trans-unit id="sectionframe.indentright">
+            <trans-unit id="field.section_frame.indentright">
                 <source>Indent right</source>
             </trans-unit>
-            <trans-unit id="sectionframe.well">
+            <trans-unit id="field.section_frame.well">
                 <source>Well</source>
             </trans-unit>
-            <trans-unit id="sectionframe.jumbotron">
+            <trans-unit id="field.section_frame.jumbotron">
                 <source>Jumbotron</source>
+            </trans-unit>
+
+            <trans-unit id="field.header_position">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.right">
+                <source>Right</source>
             </trans-unit>
 
             <trans-unit id="tabs.background">

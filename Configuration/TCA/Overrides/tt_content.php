@@ -29,22 +29,37 @@ $GLOBALS['TCA']['tt_content']['palettes']['frames'] = [
  * Add Columns for Generic usage
  */
 $GLOBALS['TCA']['tt_content']['columns'] += [
-    'section_frame' => [
+    'header_position' => [
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position',
         'exclude' => true,
-        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.default','0'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.invisible','1'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.rulerbefore','5'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.rulerafter','6'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentcenter','10'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentleft','11'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.indentright','12'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.well','20'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:sectionframe.jumbotron','21']
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default',''],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center','center'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right','right'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left','left']
+            ],
+            'default' => ''
+        ]
+    ],
+    'section_frame' => [
+        'exclude' => true,
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.default','0'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.invisible','1'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerbefore','5'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerafter','6'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentcenter','10'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft','11'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright','12'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well','20'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21']
             ],
             'default' => '0'
         ]
