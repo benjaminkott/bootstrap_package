@@ -22,7 +22,10 @@ $GLOBALS['TCA']['tt_content']['palettes']['frames'] = [
     'showitem' => 'layout,
         section_frame',
 ];
-
+$GLOBALS['TCA']['tt_content']['palettes']['tablelayout'] = [
+    'showitem' => 'table_header_position,
+        table_tfoot',
+];
 
 
 /***************
@@ -212,6 +215,32 @@ $GLOBALS['TCA']['tt_content']['types']['bullets'] = [
     'columnsOverrides' => [
         'bodytext' => [
             'defaultExtras' => 'nowrap'
+        ]
+    ]
+];
+
+
+/***************
+ * Add Content Element: Table
+ */
+$GLOBALS['TCA']['tt_content']['types']['table'] = [
+    'showitem' => '
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
+        table_caption,
+        bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.table.bodytext,
+        --palette--;;tableconfiguration,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.table_layout;tablelayout,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+        rowDescription',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'defaultExtras' => 'nowrap:wizards[table]'
         ]
     ]
 ];
