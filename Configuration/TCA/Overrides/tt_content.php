@@ -3,11 +3,39 @@
 /***************
  * Add Palettes for Generic usage
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tt_content',
-    'imageblock',
-    'imageorient, imagecols'
-);
+$GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
+    'showitem' => 'imageorient,
+        imagecols'
+];
+$GLOBALS['TCA']['tt_content']['palettes']['header'] = [
+    'showitem' => 'header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+        --linebreak--,
+        subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
+        --linebreak--,
+        header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
+        header_position;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_position_formlabel,
+        --linebreak--,
+        header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
+        --linebreak--'
+];
+$GLOBALS['TCA']['tt_content']['palettes']['headers'] = $GLOBALS['TCA']['tt_content']['palettes']['header'];
+
+
+/***************
+ * Add Content Element: Header
+ */
+$GLOBALS['TCA']['tt_content']['types']['header'] = [
+    'showitem' => '
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+        rowDescription',
+];
 
 
 /***************
