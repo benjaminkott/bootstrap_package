@@ -64,8 +64,20 @@ plugin.tx_bootstrappackage {
 #######################
 #### LANGUAGE MENU ####
 #######################
+lib.languageCount = CONTENT
+lib.languageCount {
+	table = sys_language
+	select.selectFields = count(*)
+	select.pidInList = root
+	renderObj = TEXT
+	renderObj.field = count(*)
+}
+
 lib.language = COA
 lib.language {
+	# Render menu only if there are language records.
+	if.isTrue.cObject < lib.languageCount
+
     ###################################################
     #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
     #### its not needed in this example            ####
