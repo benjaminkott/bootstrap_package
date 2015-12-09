@@ -54,11 +54,6 @@ mod.wizards {
                             CType = table
                         }
                     }
-                }
-                show = *
-            }
-            special {
-                elements {
                     uploads {
                         iconIdentifier = content-special-uploads
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_title
@@ -67,6 +62,11 @@ mod.wizards {
                             CType = uploads
                         }
                     }
+                }
+                show = *
+            }
+            special {
+                elements {
                     html {
                         iconIdentifier = content-special-html
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_plainHTML_title
