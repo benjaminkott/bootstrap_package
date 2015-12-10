@@ -1,14 +1,14 @@
-#################################################
-#### CTYPE: BOOTSTRAP PACKAGE MENU THUMBNAIL ####
-#################################################
+#############################
+#### CTYPE: MENU SITEMAP ####
+#############################
 
-tt_content.menu.thumbnail_list = FLUIDTEMPLATE
-tt_content.menu.thumbnail_list {
+tt_content.menu.2 = FLUIDTEMPLATE
+tt_content.menu.2 {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageMenuThumbnail
+    templateName = MenuSitemap
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -22,22 +22,6 @@ tt_content.menu.thumbnail_list {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
-    ################
-    ### SETTINGS ###
-    ################
-    settings {
-        media {
-            width = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.width}
-            height = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.height}
-        }
-        title {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-        abstract {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-    }
-
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
@@ -46,6 +30,7 @@ tt_content.menu.thumbnail_list {
         10 {
             special = list
             special.value.field = pages
+            levels = 7
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
@@ -55,12 +40,4 @@ tt_content.menu.thumbnail_list {
         }
     }
 
-}
-tt_content.menu.thumbnail_dir < tt_content.menu.thumbnail_list
-tt_content.menu.thumbnail_dir {
-    dataProcessing {
-        10 {
-            special = directory
-        }
-    }
 }

@@ -1,14 +1,14 @@
-#################################################
-#### CTYPE: BOOTSTRAP PACKAGE MENU THUMBNAIL ####
-#################################################
+#############################################################
+#### CTYPE: MENU OF SUBPAGES TO THESE PAGES AND SECTIONS ####
+#############################################################
 
-tt_content.menu.thumbnail_list = FLUIDTEMPLATE
-tt_content.menu.thumbnail_list {
+tt_content.menu.7 = FLUIDTEMPLATE
+tt_content.menu.7 {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageMenuThumbnail
+    templateName = MenuOfSubpagesToThesePagesAndSections
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -22,45 +22,33 @@ tt_content.menu.thumbnail_list {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
-    ################
-    ### SETTINGS ###
-    ################
-    settings {
-        media {
-            width = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.width}
-            height = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.height}
-        }
-        title {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-        abstract {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-    }
-
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
         10 {
-            special = list
+            special = directory
             special.value.field = pages
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
                     references.fieldName = media
                 }
+                20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+                20 {
+                    table = tt_content
+                    pidInList.field = uid
+                    as = content
+                    dataProcessing {
+                        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                        10 {
+                            references.fieldName = image
+                        }
+                    }
+                }
             }
         }
     }
 
-}
-tt_content.menu.thumbnail_dir < tt_content.menu.thumbnail_list
-tt_content.menu.thumbnail_dir {
-    dataProcessing {
-        10 {
-            special = directory
-        }
-    }
 }

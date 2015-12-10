@@ -1,0 +1,19 @@
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{menu}">
+        <ul>
+            <f:for each="{menu}" as="page">
+                <li>
+                    <f:link.page pageUid="{page.data.uid}">{page.data.title}</f:link.page>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+
+</f:section>

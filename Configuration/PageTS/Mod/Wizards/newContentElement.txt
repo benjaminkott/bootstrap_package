@@ -67,6 +67,15 @@ mod.wizards {
             }
             special {
                 elements {
+                    menu {
+                        iconIdentifier = content-special-menu
+                        title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_menus_title
+                        description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_menus_description
+                        tt_content_defValues {
+                            CType = menu
+                            menu_type = 0
+                        }
+                    }
                     html {
                         iconIdentifier = content-special-html
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_plainHTML_title

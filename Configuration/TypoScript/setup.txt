@@ -27,6 +27,27 @@ tt_content {
         field = CType
     }
 }
+#### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Bullets.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Div.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Header.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Html.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Image.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Menu.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCategorizedContent.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCategorizedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePagesAbstract.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePagesAndSections.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuRecentlyUpdatedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuRelatedPagesBasedOnKewords.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSectionIndex.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSitemap.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSitemapOfSelectedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Table.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Text.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textpic.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Uploads.txt">
 #### BOOTSTRAP PACKAGE CONTENT ELEMENT RENDERING
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageAccordion.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageCarousel.txt">
@@ -36,16 +57,6 @@ tt_content {
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackagePanel.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageTab.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/BootstrapPackageTextIcon.txt">
-#### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Bullets.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Div.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Header.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Html.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Image.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Table.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Text.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textpic.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Uploads.txt">
 #### NO RENDERING DEFINITION ####
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Default.txt">
 
@@ -427,16 +438,46 @@ page {
             1 = {$page.fluidtemplate.layoutRootPath}
         }
 
+        ##########################
+        ### DATA PREPROCESSING ###
+        ##########################
+        dataProcessing {
+            10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            10 {
+                levels = 2
+                as = mainnavigation
+            }
+            20 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            20 {
+                entryLevel = 1
+                levels = 2
+                as = subnavigation
+            }
+            30 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            30 {
+                special = rootline
+                special.range = 0|-1
+                includeNotInMenu = 1
+                as = breadcrumb
+            }
+            40 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            40 {
+                special = language
+                special.value = 0,1,2
+                as = language
+            }
+        }
+
+        #################
+        ### VARIABLES ###
+        #################
         variables {
             pageTitle = TEXT
             pageTitle.data = page:title
-
             siteTitle = TEXT
             siteTitle.data = TSFE:tmpl|setup|sitetitle
-
             rootPage = TEXT
             rootPage.data = leveluid:0
-
             logoFile = TEXT
             logoFile.value = {$page.logo.file}
             logoHeight = TEXT
@@ -457,9 +498,7 @@ page {
                     if.isTrue = {$page.logo.alt}
                 }
             }
-
             pageClass < lib.page.class
-
             themeNavigationstyle = TEXT
             themeNavigationstyle.value = {$page.theme.navigationstyle}
             themeNavigationtype = TEXT

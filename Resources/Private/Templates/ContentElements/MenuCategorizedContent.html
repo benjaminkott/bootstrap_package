@@ -1,0 +1,19 @@
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{content}">
+        <ul>
+            <f:for each="{content}" as="element">
+                <li>
+                    <f:link.page pageUid="{element.data.pid}" section="{element.data.uid}">{element.data.header}</f:link.page>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+
+</f:section>

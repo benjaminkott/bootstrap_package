@@ -1,14 +1,14 @@
-#################################################
-#### CTYPE: BOOTSTRAP PACKAGE MENU THUMBNAIL ####
-#################################################
+##############################################################
+#### CTYPE: MENU OF SUBPAGES TO THESE PAGES WITH ABSTRACT ####
+##############################################################
 
-tt_content.menu.thumbnail_list = FLUIDTEMPLATE
-tt_content.menu.thumbnail_list {
+tt_content.menu.4 = FLUIDTEMPLATE
+tt_content.menu.4 {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageMenuThumbnail
+    templateName = MenuOfSubpagesToThesePagesAbstract
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
@@ -22,29 +22,13 @@ tt_content.menu.thumbnail_list {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
-    ################
-    ### SETTINGS ###
-    ################
-    settings {
-        media {
-            width = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.width}
-            height = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.height}
-        }
-        title {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-        abstract {
-            crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
-        }
-    }
-
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
         10 {
-            special = list
+            special = directory
             special.value.field = pages
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
@@ -55,12 +39,4 @@ tt_content.menu.thumbnail_list {
         }
     }
 
-}
-tt_content.menu.thumbnail_dir < tt_content.menu.thumbnail_list
-tt_content.menu.thumbnail_dir {
-    dataProcessing {
-        10 {
-            special = directory
-        }
-    }
 }
