@@ -73,6 +73,9 @@ $GLOBALS['TCA']['tt_content']['columns'] += [
 /***************
  * Add Content Element: Header
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['header'])){
+    $GLOBALS['TCA']['tt_content']['types']['header'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['header'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['header'],
     [
@@ -106,6 +109,9 @@ array_splice(
         'content-text'
     ]]
 );
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['text'])){
+    $GLOBALS['TCA']['tt_content']['types']['text'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['text'],
     [
@@ -140,6 +146,9 @@ array_splice(
         'content-textpic'
     ]]
 );
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['textpic'])){
+    $GLOBALS['TCA']['tt_content']['types']['textpic'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['textpic'],
     [
@@ -178,6 +187,9 @@ array_splice(
         'content-image'
     ]]
 );
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['image'])){
+    $GLOBALS['TCA']['tt_content']['types']['image'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['image'],
     [
@@ -202,6 +214,9 @@ $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(
 /***************
  * Add Content Element: Bullet List
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['bullets'])){
+    $GLOBALS['TCA']['tt_content']['types']['bullets'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['bullets'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['bullets'],
     [
@@ -223,6 +238,9 @@ $GLOBALS['TCA']['tt_content']['types']['bullets'] = array_replace_recursive(
 /***************
  * Add Content Element: Table
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['table'])){
+    $GLOBALS['TCA']['tt_content']['types']['table'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['table'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['table'],
     [
@@ -247,6 +265,9 @@ $GLOBALS['TCA']['tt_content']['types']['table'] = array_replace_recursive(
 /***************
  * Add Content Element: HTML
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['html'])){
+    $GLOBALS['TCA']['tt_content']['types']['html'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['html'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['html'],
     [
@@ -268,6 +289,9 @@ $GLOBALS['TCA']['tt_content']['types']['html'] = array_replace_recursive(
 /***************
  * Add Content Element: Uploads
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['uploads'])){
+    $GLOBALS['TCA']['tt_content']['types']['uploads'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['uploads'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['uploads'],
     [
@@ -290,6 +314,9 @@ $GLOBALS['TCA']['tt_content']['types']['uploads'] = array_replace_recursive(
 /***************
  * Add Content Element: Div
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['div'])){
+    $GLOBALS['TCA']['tt_content']['types']['div'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['div'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['div'],
     [
@@ -310,6 +337,9 @@ $GLOBALS['TCA']['tt_content']['types']['div'] = array_replace_recursive(
 /***************
  * Add Content Element: Menu
  */
+if(!is_array($GLOBALS['TCA']['tt_content']['types']['menu'])){
+    $GLOBALS['TCA']['tt_content']['types']['menu'] = [];
+}
 $GLOBALS['TCA']['tt_content']['types']['menu'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['menu'],
     [
