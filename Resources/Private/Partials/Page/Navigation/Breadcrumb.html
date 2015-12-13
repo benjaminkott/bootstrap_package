@@ -1,0 +1,24 @@
+<f:if condition="{themeBreadcumb}">
+    <f:if condition="{breadcrumb}">
+        <div class="breadcrumb-section hidden-xs hidden-sm">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <f:for each="{breadcrumb}" as="item">
+                        <li class="{f:if(condition: item.current, then: 'active')}">
+                            <f:if condition="{item.current}">
+                                <f:then>
+                                    {item.data.title}
+                                </f:then>
+                                <f:else>
+                                    <f:link.page pageUid="{item.data.uid}" title="{item.data.title}">
+                                        {item.data.title}
+                                    </f:link.page>
+                                </f:else>
+                            </f:if>
+                        </li>
+                    </f:for>
+                </ol>
+            </div>
+        </div>
+    </f:if>
+</f:if>

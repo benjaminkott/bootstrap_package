@@ -4,7 +4,7 @@
         {f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}
     </f:link.page>
     <f:render partial="Navigation/Main" arguments="{_all}"/>
-    <f:cObject typoscriptObjectPath="lib.navigation.breadcrumb"/>
+    <f:render partial="Navigation/Breadcrumb" arguments="{_all}"/>
 
     <div id="content" class="main-section">
         <!--TYPO3SEARCH_begin-->

@@ -231,9 +231,12 @@ class MenuProcessor implements DataProcessorInterface
         }
         $menuContentObject = $cObj->getContentObject('HMENU');
         $renderedMenu = $menuContentObject->render($conf);
-        $menu = json_decode($renderedMenu, true);
+        if (!$renderedMenu) {
+            return $processedData;
+        }
 
         // Process menu
+        $menu = json_decode($renderedMenu, true);
         $processedMenu = array();
         foreach ($menu as $key => $page) {
             $processedMenu[$key] = $this->processAdditionalDataProcessors($page, $processorConfiguration);

@@ -141,56 +141,6 @@ lib.language {
 
 
 ####################
-#### NAVIGATION ####
-####################
-[globalVar = LIT:1 = {$page.theme.breadcrumb}]
-    lib.navigation.breadcrumb = COA
-    lib.navigation.breadcrumb {
-        10 = HMENU
-        10 {
-            special = rootline
-            special.range = 0|-1
-            includeNotInMenu = 1
-            1 = TMENU
-            1 {
-                noBlur = 1
-                target = _self
-                wrap = <ol class="breadcrumb">|</ol>
-                NO = 1
-                NO {
-                    stdWrap.field = nav_title // title
-                    ATagTitle.field = nav_title // title
-                    wrapItemAndSub = <li>|</li>
-                }
-
-                CUR = 1
-                CUR {
-                    stdWrap.field = nav_title // title
-                    doNotLinkIt = 1
-                    wrapItemAndSub = <li class="active">|</li>
-                }
-            }
-        }
-        stdWrap {
-            required = 1
-            wrap = <div class="breadcrumb-section hidden-xs hidden-sm"><div class="container">|</div></div>
-        }
-        if {
-            value = {$page.theme.breadcrumbEnableLevel}
-            value {
-                insertData = 1
-                prioriCalc = 1
-                stdWrap.wrap = |-1
-            }
-            isGreaterThan {
-                data = level
-            }
-        }
-    }
-[global]
-
-
-####################
 #### PAGE CLASS ####
 ####################
 lib.page.class = COA
@@ -350,6 +300,17 @@ page {
                 special.range = 0|-1
                 includeNotInMenu = 1
                 as = breadcrumb
+                if {
+                    value = {$page.theme.breadcrumbEnableLevel}
+                    value {
+                        insertData = 1
+                        prioriCalc = 1
+                        stdWrap.wrap = |-1
+                    }
+                    isGreaterThan {
+                        data = level
+                    }
+                }
             }
             40 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             40 {
@@ -394,6 +355,8 @@ page {
             themeNavigationstyle.value = {$page.theme.navigationstyle}
             themeNavigationtype = TEXT
             themeNavigationtype.value = {$page.theme.navigationtype}
+            themeBreadcumb = TEXT
+            themeBreadcumb.value = {$page.theme.breadcrumb}
             themeCopyright = TEXT
             themeCopyright.value = {$page.theme.copyright.enable}
             themeCopyrightText = TEXT
