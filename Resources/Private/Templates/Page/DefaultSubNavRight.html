@@ -7,7 +7,7 @@
                 <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
             </main>
             <div class="col-md-3 subnav-wrap">
-                <f:cObject typoscriptObjectPath="lib.navigation.subnavigation"/>
+                <f:render partial="Navigation/Subnavigation" arguments="{_all}" />
             </div>
         </div>
     </div>

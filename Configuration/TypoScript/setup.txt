@@ -210,51 +210,6 @@ lib.navigation.main {
         }
     }
 }
-
-lib.navigation.subnavigation = COA
-lib.navigation.subnavigation {
-    10 = HMENU
-    10 {
-        entryLevel = 1
-        wrap = <nav class="hidden-print hidden-xs hidden-sm" role="complementary">|</nav>
-        1 = TMENU
-        1 {
-            wrap = <ul class="nav nav-sidebar">|</ul>
-            expAll = 0
-            noBlur = 1
-            NO = 1
-            NO {
-                ATagTitle.field = abstract // description // title
-                wrapItemAndSub = <li>|</li>
-                wrapItemAndSub.override.cObject = COA
-                wrapItemAndSub.override.cObject {
-                    if {
-                        value = 4
-                        equals.field = doktype
-                        isTrue = 1
-                        isTrue.if {
-                            value.data = TSFE:page|uid
-                            equals.field = shortcut
-                        }
-                    }
-
-                    10 = TEXT
-                    10.value = <li class="active">|</li>
-                }
-            }
-            ACT < .NO
-            ACT {
-                wrapItemAndSub = <li class="active">|</li>
-            }
-            CUR < .ACT
-        }
-        2 < .1
-        2 {
-            wrap = <ul>|</ul>
-        }
-        3 < .2
-    }
-}
 [globalVar = LIT:1 = {$page.theme.breadcrumb}]
     lib.navigation.breadcrumb = COA
     lib.navigation.breadcrumb {
@@ -453,6 +408,7 @@ page {
             20 {
                 entryLevel = 1
                 levels = 2
+                expandAll = 0
                 as = subnavigation
             }
             30 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor

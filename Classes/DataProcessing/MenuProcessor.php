@@ -52,6 +52,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *   special.value.field = pages
  *   levels = 7
  *   as = menu
+ *   expandAll = 1
  *   dataProcessing {
  *    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
  *    10 {
@@ -195,13 +196,16 @@ class MenuProcessor implements DataProcessorInterface
             $menuLevels = 1;
         }
 
+        // Expand levels
+        $expandAll = (int)$cObj->stdWrapValue('expandAll', $processorConfiguration, 1);
+
         // Menu configuration
         for ($i = 1; $i <= $menuLevels; $i++) {
             $conf[$i] = 'TMENU';
             if ($i > 1) {
                 $conf[$i . '.']['stdWrap.']['wrap'] = ',"children": [|]';
             }
-            $conf[$i . '.']['expAll'] = '1';
+            $conf[$i . '.']['expAll'] = $expandAll;
             $conf[$i . '.']['NO'] = '1';
             $conf[$i . '.']['NO.'] = $rendering;
             $conf[$i . '.']['IFSUB'] = '1';
