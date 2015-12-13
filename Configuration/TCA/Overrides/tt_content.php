@@ -125,7 +125,13 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
-            rowDescription'
+            rowDescription',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+            ]
+
+        ]
     ]
 );
 
@@ -166,7 +172,13 @@ $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
-            rowDescription'
+            rowDescription',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+            ]
+
+        ]
     ]
 );
 
