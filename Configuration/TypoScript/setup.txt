@@ -1,13 +1,8 @@
 ################
 #### HELPER ####
 ################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/ParseFunc.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/DynamicContent.txt">
-
-
-##############################################
-#### CONTENT RENDERING CSS STYLED CONTENT ####
-##############################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/CssStyledContent.txt">
 
 
 #############################################################
