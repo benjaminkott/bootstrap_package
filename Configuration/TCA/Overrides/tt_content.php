@@ -1,14 +1,23 @@
 <?php
+defined('TYPO3_MODE') or die();
+
 
 /***************
  * Add Palettes for Generic usage
  */
 $GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
-    'showitem' => 'imageorient,
+    'showitem' => '
+        imageorient,
+        imagecols'
+];
+$GLOBALS['TCA']['tt_content']['palettes']['mediablock'] = [
+    'showitem' => '
+        imageorient,
         imagecols'
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['header'] = [
-    'showitem' => 'header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+    'showitem' => '
+        header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
         --linebreak--,
         subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
         --linebreak--,
@@ -19,54 +28,70 @@ $GLOBALS['TCA']['tt_content']['palettes']['header'] = [
         --linebreak--'
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['frames'] = [
-    'showitem' => 'layout,
+    'showitem' => '
+        layout,
         section_frame',
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['tablelayout'] = [
-    'showitem' => 'table_header_position,
+    'showitem' => '
+        table_header_position,
         table_tfoot',
 ];
 
 
 /***************
- * Add Columns for Generic usage
+ * Adjust columns for generic usage
  */
-$GLOBALS['TCA']['tt_content']['columns'] += [
-    'header_position' => [
-        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position',
-        'exclude' => true,
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default',''],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center','center'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right','right'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left','left']
-            ],
-            'default' => ''
-        ]
-    ],
-    'section_frame' => [
-        'exclude' => true,
-        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.default','0'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.invisible','1'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerbefore','5'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerafter','6'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentcenter','10'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft','11'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright','12'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well','20'],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21']
-            ],
-            'default' => '0'
-        ]
+$GLOBALS['TCA']['tt_content']['columns']['header_position'] = [
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position',
+    'exclude' => true,
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default',''],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center','center'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right','right'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left','left']
+        ],
+        'default' => ''
     ]
+];
+$GLOBALS['TCA']['tt_content']['columns']['section_frame'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.default','0'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.invisible','1'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerbefore','5'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerafter','6'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentcenter','10'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft','11'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright','12'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well','20'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21']
+        ],
+        'default' => '0'
+    ]
+];
+$GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
+    ['LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.0', 0, 'content-beside-text-img-above-center'],
+    ['LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.3', 8, 'content-beside-text-img-below-center'],
+    ['LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.9', 25, 'content-beside-text-img-left'],
+    ['LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.10', 26, 'content-beside-text-img-right']
+];
+$GLOBALS['TCA']['tt_content']['columns']['assets'] = [
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.assets',
+    'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+        'assets',
+        [
+            'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
+        ],
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+    )
 ];
 
 
@@ -96,18 +121,17 @@ $GLOBALS['TCA']['tt_content']['types']['header'] = array_replace_recursive(
 /***************
  * Add Content Element: Text
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] += [
-    'text' => 'mimetypes-x-content-text'
-];
-array_splice(
-    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
-    2,
-    0,
-    [[
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['text'] = 'content-text';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
         'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.1',
         'text',
         'content-text'
-    ]]
+    ],
+    'header',
+    'after'
 );
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['text'])) {
     $GLOBALS['TCA']['tt_content']['types']['text'] = [];
@@ -139,18 +163,17 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
 /***************
  * Add Content Element: Textpic
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] += [
-    'textpic' => 'mimetypes-x-content-text-picture'
-];
-array_splice(
-    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
-    3,
-    0,
-    [[
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textpic'] = 'content-textpic';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
         'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.2',
         'textpic',
         'content-textpic'
-    ]]
+    ],
+    'text',
+    'after'
 );
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['textpic'])) {
     $GLOBALS['TCA']['tt_content']['types']['textpic'] = [];
@@ -164,10 +187,56 @@ $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
             bodytext,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.images,
             image,
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:palette.alignment;imageblock,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.imagelinks;imagelinks,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.imageblock;imageblock,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+            rowDescription',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+            ]
+
+        ]
+    ]
+);
+
+
+/***************
+ * Add Content Element: Textmedia
+ */
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textmedia'] = 'content-textpic';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textmedia',
+        'textmedia',
+        'content-textpic'
+    ],
+    'textpic',
+    'after'
+);
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['textmedia'])) {
+    $GLOBALS['TCA']['tt_content']['types']['textmedia'] = [];
+}
+$GLOBALS['TCA']['tt_content']['types']['textmedia'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['textmedia'],
+    [
+        'showitem' => '
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
+            bodytext,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.media,
+            assets,
+            --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:palette.alignment;mediablock,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.imagelinks;imagelinks,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -186,18 +255,17 @@ $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
 /***************
  * Add Content Element: Image
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'] += [
-    'image' => 'mimetypes-x-content-image',
-];
-array_splice(
-    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
-    4,
-    0,
-    [[
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['image'] = 'content-image';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
         'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.I.3',
         'image',
         'content-image'
-    ]]
+    ],
+    'textmedia',
+    'after'
 );
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['image'])) {
     $GLOBALS['TCA']['tt_content']['types']['image'] = [];

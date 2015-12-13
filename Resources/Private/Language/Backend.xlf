@@ -6,7 +6,7 @@
         <body>
 
             <trans-unit id="theme_name">
-                <source>Bootstrap</source>
+                <source>Bootstrap Package</source>
             </trans-unit>
 
             <trans-unit id="backend_layout.default">
@@ -182,6 +182,10 @@
             </trans-unit>
             <trans-unit id="content_element.external_media.description">
                 <source>Insert external media from YouTube or Vimeo</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.textmedia">
+                <source>Text &amp; Media</source>
             </trans-unit>
 
             <trans-unit id="carousel.options">
@@ -492,6 +496,10 @@
                 <source>Right</source>
             </trans-unit>
 
+            <trans-unit id="field.assets">
+                <source>Media elements</source>
+            </trans-unit>
+
             <trans-unit id="tabs.background">
                 <source>Background</source>
             </trans-unit>
@@ -504,6 +512,10 @@
             </trans-unit>
             <trans-unit id="settings">
                 <source>Settings</source>
+            </trans-unit>
+
+            <trans-unit id="palette.alignment">
+                <source>Alignment</source>
             </trans-unit>
 
         </body>
