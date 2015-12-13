@@ -73,7 +73,7 @@ $GLOBALS['TCA']['tt_content']['columns'] += [
 /***************
  * Add Content Element: Header
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['header'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['header'])) {
     $GLOBALS['TCA']['tt_content']['types']['header'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['header'] = array_replace_recursive(
@@ -109,7 +109,7 @@ array_splice(
         'content-text'
     ]]
 );
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['text'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['text'])) {
     $GLOBALS['TCA']['tt_content']['types']['text'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
@@ -146,7 +146,7 @@ array_splice(
         'content-textpic'
     ]]
 );
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['textpic'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['textpic'])) {
     $GLOBALS['TCA']['tt_content']['types']['textpic'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
@@ -187,7 +187,7 @@ array_splice(
         'content-image'
     ]]
 );
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['image'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['image'])) {
     $GLOBALS['TCA']['tt_content']['types']['image'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(
@@ -214,7 +214,7 @@ $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(
 /***************
  * Add Content Element: Bullet List
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['bullets'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['bullets'])) {
     $GLOBALS['TCA']['tt_content']['types']['bullets'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['bullets'] = array_replace_recursive(
@@ -238,7 +238,7 @@ $GLOBALS['TCA']['tt_content']['types']['bullets'] = array_replace_recursive(
 /***************
  * Add Content Element: Table
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['table'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['table'])) {
     $GLOBALS['TCA']['tt_content']['types']['table'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['table'] = array_replace_recursive(
@@ -265,7 +265,7 @@ $GLOBALS['TCA']['tt_content']['types']['table'] = array_replace_recursive(
 /***************
  * Add Content Element: HTML
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['html'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['html'])) {
     $GLOBALS['TCA']['tt_content']['types']['html'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['html'] = array_replace_recursive(
@@ -289,7 +289,7 @@ $GLOBALS['TCA']['tt_content']['types']['html'] = array_replace_recursive(
 /***************
  * Add Content Element: Uploads
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['uploads'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['uploads'])) {
     $GLOBALS['TCA']['tt_content']['types']['uploads'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['uploads'] = array_replace_recursive(
@@ -314,7 +314,7 @@ $GLOBALS['TCA']['tt_content']['types']['uploads'] = array_replace_recursive(
 /***************
  * Add Content Element: Div
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['div'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['div'])) {
     $GLOBALS['TCA']['tt_content']['types']['div'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['div'] = array_replace_recursive(
@@ -337,7 +337,7 @@ $GLOBALS['TCA']['tt_content']['types']['div'] = array_replace_recursive(
 /***************
  * Add Content Element: Menu
  */
-if(!is_array($GLOBALS['TCA']['tt_content']['types']['menu'])){
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu'])) {
     $GLOBALS['TCA']['tt_content']['types']['menu'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['menu'] = array_replace_recursive(
@@ -348,6 +348,30 @@ $GLOBALS['TCA']['tt_content']['types']['menu'] = array_replace_recursive(
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu;menu,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+            hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+            rowDescription'
+    ]
+);
+
+
+/***************
+ * Add Content Element: Shortcut
+ */
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['shortcut'])) {
+    $GLOBALS['TCA']['tt_content']['types']['shortcut'] = [];
+}
+$GLOBALS['TCA']['tt_content']['types']['shortcut'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['shortcut'],
+    [
+        'showitem' => '
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+            header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.shortcut_formlabel,
+            records;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:records_formlabel,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
