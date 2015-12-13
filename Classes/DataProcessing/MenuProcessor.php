@@ -100,6 +100,7 @@ class MenuProcessor implements DataProcessorInterface
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
         $this->cObj = $cObj;
+        $conf = [];
 
         // Filter configuration
         foreach ($processorConfiguration as $key => $value) {
