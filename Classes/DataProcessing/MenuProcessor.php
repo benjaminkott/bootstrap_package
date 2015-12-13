@@ -31,6 +31,19 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
+ * This menu processor utilizes HMENU to generate a json encoded menu
+ * string that will be decoded again and assigned to FLUIDTEMPLATE as
+ * variable. Additional DataProcessing is supported and will be applied
+ * to each record.
+ *
+ * Options:
+ * as - The variable to be used within the result
+ * levels - Number of levels of the menu
+ *
+ * See HMENU docs for more options.
+ * https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Hmenu/Index.html
+ *
+ *
  * Example TypoScript configuration:
  *
  * 10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
@@ -39,7 +52,14 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *   special.value.field = pages
  *   levels = 7
  *   as = menu
- * }
+ *   dataProcessing {
+ *    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+ *    10 {
+ *        references.fieldName = media
+ *      }
+ *    }
+ *  }
+ *
  */
 class MenuProcessor implements DataProcessorInterface
 {
