@@ -1,6 +1,4 @@
 <?php
-defined('TYPO3_MODE') or die();
-
 
 /***************
  * Add Palettes for Generic usage
