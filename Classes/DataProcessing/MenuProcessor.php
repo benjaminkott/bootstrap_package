@@ -244,7 +244,8 @@ class MenuProcessor implements DataProcessorInterface
     /**
      * @return void
      */
-    public function prepareLevelLanguageConfiguration() {
+    public function prepareLevelLanguageConfiguration()
+    {
         if ($this->menuConfig['special'] === 'language') {
             $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
                 $this->menuLevelConfig['stdWrap.']['cObject.'],
