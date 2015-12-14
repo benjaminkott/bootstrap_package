@@ -74,72 +74,6 @@ plugin.tx_bootstrappackage {
 }
 
 
-#######################
-#### LANGUAGE MENU ####
-#######################
-lib.language = COA
-lib.language {
-    ###################################################
-    #### EXAMPLE FOR TYPOSCRIPT LANGUAGE OVERRIDES ####
-    #### its not needed in this example            ####
-    ###################################################
-    #10 = TEXT
-    #10 {
-    #    value = Language
-    #    value.lang.da = Sprog
-    #    value.lang.de = Sprache
-    #    noTrimWrap = |<li><span class="glyphicon glyphicon-globe"></span> |</li>|
-    #}
-
-    20 = HMENU
-    20 {
-        special = language
-        special.value = 0,1,2
-        special.normalWhenNoLanguage = 0
-        wrap =
-        1 = TMENU
-        1 {
-            noBlur = 1
-            NO = 1
-            NO {
-                linkWrap = <li>|</li>
-                stdWrap.override = English || Dansk || Deutsch
-                doNotLinkIt = 1
-                stdWrap {
-                    typolink {
-                        parameter.data = page:uid
-                        additionalParams = &L=0 || &L=1 || &L=2
-                        ATagParams = hreflang="en-GB" || hreflang="da-DK" || hreflang="de-DE"
-                        addQueryString = 1
-                        addQueryString.exclude = L,id,cHash,no_cache
-                        addQueryString.method = GET
-                        useCacheHash = 1
-                        no_cache = 0
-                    }
-                }
-            }
-
-            ACT < .NO
-            ACT.linkWrap = <li class="active">|</li>
-            #### NO TRANSLATION AVAILABLE STATES ####
-            USERDEF1 < .NO
-            USERDEF1 {
-                linkWrap = <li class="text-muted">|</li>
-                stdWrap.typolink >
-            }
-
-            USERDEF2 < .ACT
-            USERDEF2 {
-                linkWrap = <li class="text-muted">|</li>
-                stdWrap.typolink >
-            }
-        }
-    }
-
-    wrap = <ul id="language_menu" class="language-menu">|</ul>
-}
-
-
 ####################
 #### PAGE CLASS ####
 ####################
@@ -316,7 +250,8 @@ page {
             40 {
                 special = language
                 special.value = 0,1,2
-                as = language
+                special.normalWhenNoLanguage = 0
+                as = languagenavigation
             }
         }
 

@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 language">
-                <f:cObject typoscriptObjectPath="lib.language"/>
+                <f:render partial="Navigation/Language" arguments="{_all}"/>
             </div>
             <f:if condition="{themeCopyright}">
                 <div class="col-md-8 copyright" role="contentinfo">

@@ -1,0 +1,33 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:if condition="{languagenavigation}">
+    <ul id="language_menu" class="language-menu">
+        <f:for each="{languagenavigation}" as="item">
+            <li class="{f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'text-muted')}">
+                <f:switch expression="{item.languageUid}">
+                    <f:case value="2">
+                        <bk2k:var name="languageTitle" value="Dansk" />
+                        <bk2k:var name="hreflang" value="da-DK" />
+                    </f:case>
+                    <f:case value="1">
+                        <bk2k:var name="languageTitle" value="Deutsch" />
+                        <bk2k:var name="hreflang" value="de-DE" />
+                    </f:case>
+                    <f:case default="TRUE">
+                        <bk2k:var name="languageTitle" value="English" />
+                        <bk2k:var name="hreflang" value="en-GB" />
+                    </f:case>
+                </f:switch>
+                <f:if condition="{item.available}">
+                    <f:then>
+                        <f:link.page pageUid="{item.data.uid}" additionalAttributes="{hreflang: hreflang}" addQueryString="1" addQueryStringMethod="GET" argumentsToBeExcludedFromQueryString="{0:'L',1:'id',2:'cHash',3:'no_cache'}" additionalParams="{L: item.languageUid}">
+                            {languageTitle}
+                        </f:link.page>
+                    </f:then>
+                    <f:else>
+                        {languageTitle}
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+</f:if>
