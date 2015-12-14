@@ -45,6 +45,7 @@ tt_content.bootstrap_package_accordion {
                 intval = 1
                 wrap = tt_content=|
             }
+            orderBy = sorting
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
