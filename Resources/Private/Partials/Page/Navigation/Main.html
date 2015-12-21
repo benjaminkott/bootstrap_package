@@ -1,11 +1,11 @@
 <header
-    class="navbar navbar-{themeNavigationstyle}{f:if(condition:logoFile,then:' navbar-has-image')}{f:if(condition:themeNavigationtype, else:' navbar-top', then:' navbar-{themeNavigationtype} navbar-fixed-{themeNavigationtype}')}">
+    class="navbar navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
     <div class="container">
         <div class="navbar-header navbar-header-main">
-            <f:if condition="{logoFile}">
+            <f:if condition="{settings.logo.file}">
                 <f:then>
                     <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image">
-                        <img src="{f:uri.image(src: logoFile)}" alt="{logoAlt}" height="{logoHeight}" width="{logoWidth}">
+                        <img src="{f:uri.image(src: settings.logo.file)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
                     </f:link.page>
                 </f:then>
                 <f:else>

@@ -255,6 +255,28 @@ page {
             }
         }
 
+        ################
+        ### SETTINGS ###
+        ################
+        settings {
+            logo {
+                file = {$page.logo.file}
+                height = {$page.logo.height}
+                width = {$page.logo.width}
+            }
+            breadcrumb {
+                enable = {$page.theme.breadcrumb}
+            }
+            navigation {
+                style = {$page.theme.navigationstyle}
+                type = {$page.theme.navigationtype}
+            }
+            copyright {
+                enable = {$page.theme.copyright.enable}
+                text = {$page.theme.copyright.text}
+            }
+        }
+
         #################
         ### VARIABLES ###
         #################
@@ -265,12 +287,6 @@ page {
             siteTitle.data = TSFE:tmpl|setup|sitetitle
             rootPage = TEXT
             rootPage.data = leveluid:0
-            logoFile = TEXT
-            logoFile.value = {$page.logo.file}
-            logoHeight = TEXT
-            logoHeight.value = {$page.logo.height}
-            logoWidth = TEXT
-            logoWidth.value = {$page.logo.width}
             logoAlt = COA
             logoAlt {
                 10 = TEXT
@@ -286,16 +302,6 @@ page {
                 }
             }
             pageClass < lib.page.class
-            themeNavigationstyle = TEXT
-            themeNavigationstyle.value = {$page.theme.navigationstyle}
-            themeNavigationtype = TEXT
-            themeNavigationtype.value = {$page.theme.navigationtype}
-            themeBreadcumb = TEXT
-            themeBreadcumb.value = {$page.theme.breadcrumb}
-            themeCopyright = TEXT
-            themeCopyright.value = {$page.theme.copyright.enable}
-            themeCopyrightText = TEXT
-            themeCopyrightText.value = {$page.theme.copyright.text}
         }
 
         stdWrap.replacement {
