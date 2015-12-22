@@ -7,11 +7,11 @@
                         <li class="{f:if(condition: item.current, then: 'active')}">
                             <f:if condition="{item.current}">
                                 <f:then>
-                                    {item.data.title}
+                                    <f:if condition="{mainnavigationItem.data.nav_title}"><f:then>{item.data.nav_title}</f:then><f:else>{item.data.title}</f:else></f:if>
                                 </f:then>
                                 <f:else>
                                     <f:link.page pageUid="{item.data.uid}" title="{item.data.title}">
-                                        {item.data.title}
+                                        <f:if condition="{mainnavigationItem.data.nav_title}"><f:then>{item.data.nav_title}</f:then><f:else>{item.data.title}</f:else></f:if>
                                     </f:link.page>
                                 </f:else>
                             </f:if>
