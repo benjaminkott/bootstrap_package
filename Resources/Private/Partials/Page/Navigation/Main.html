@@ -37,7 +37,7 @@
                                     <ul class="dropdown-menu">
                                         <f:for each="{mainnavigationItem.children}" as="child">
                                             <li class="{f:if(condition: child.active, then:'active')}">
-                                                <f:link.page pageUid="{child.data.uid}" title="{child.data.title}">
+                                                <f:link.page pageUid="{child.data.uid}" title="{f:if(condition: '{child.data.nav_title}', then: '{child.data.nav_title}', else: '{child.data.title}')}">
                                                     <f:if condition="{mainnavigationItem.data.nav_title}"><f:then>{child.data.nav_title}</f:then><f:else>{child.data.title}</f:else></f:if>
                                                 </f:link.page>
                                             </li>
@@ -45,7 +45,7 @@
                                     </ul>
                                 </f:then>
                                 <f:else>
-                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{mainnavigationItem.data.title}">
+                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{f:if(condition: '{mainnavigationItem.data.nav_title}', then: '{mainnavigationItem.data.nav_title}', else: '{mainnavigationItem.data.title}')}">
                                         <f:if condition="{mainnavigationItem.data.nav_title}"><f:then>{mainnavigationItem.data.nav_title}</f:then><f:else>{mainnavigationItem.data.title}</f:else></f:if>
                                         <span class="bar"></span>
                                     </f:link.page>

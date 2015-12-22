@@ -9,7 +9,7 @@
 <f:section name="SubnavigationItem">
     <f:for each="{menu}" as="item">
         <li class="{f:if(condition: item.active, then:'active')}">
-            <f:link.page pageUid="{item.data.uid}" title="{item.data.title}">
+            <f:link.page pageUid="{item.data.uid}" title="{f:if(condition: '{item.data.nav_title}', then: '{item.data.nav_title}', else: '{item.data.title}')}">
                 <f:if condition="{mainnavigationItem.data.nav_title}"><f:then>{item.data.nav_title}</f:then><f:else>{item.data.title}</f:else></f:if>
             </f:link.page>
             <f:if condition="{item.children}">
