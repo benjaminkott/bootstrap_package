@@ -18,6 +18,17 @@ Minimal Dependencies
 Quick Install Guide
 ===================
 
+Disable default content rendering extensions 
+--------------------------------------------
+
+Both TYPO3 core rendering definitions are confliction each other in minor things,
+to avoid this conflicts the bootstrap_package takes full control of the content
+rendering and supports both cTypes from csc and fsc. To get the best results,
+please disable following extensions.
+
+* css_styled_content
+* fluid_styled_content
+
 Make sure you have a root page
 ------------------------------
 
