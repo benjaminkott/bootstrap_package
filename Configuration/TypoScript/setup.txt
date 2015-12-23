@@ -102,6 +102,7 @@ lib.page.class {
     40 {
         data = levelfield:-1, backend_layout_next_level, slide
         override.field = backend_layout
+        ifEmpty = default
         noTrimWrap = | backendlayout-||
     }
     // Layout
