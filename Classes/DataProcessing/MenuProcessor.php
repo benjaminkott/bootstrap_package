@@ -39,6 +39,8 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  * Options:
  * as - The variable to be used within the result
  * levels - Number of levels of the menu
+ * expandAll = If false, submenus will only render if the parent page is active
+ * titleField = Field that should be used for the title
  *
  * See HMENU docs for more options.
  * https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Hmenu/Index.html
