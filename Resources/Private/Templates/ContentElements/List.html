@@ -1,5 +1,7 @@
 <f:layout name="Default"/>
-<f:section name="Header"></f:section>
+<f:section name="Header">
+    <f:render partial="Header/All" arguments="{_all}" />
+</f:section>
 <f:section name="Main">
 
     <f:cObject typoscriptObjectPath="tt_content.list.20.{data.list_type}" data="{data}" />
