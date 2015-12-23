@@ -9,8 +9,8 @@
 <f:section name="SubnavigationItem">
     <f:for each="{menu}" as="item">
         <li class="{f:if(condition: item.active, then:'active')}">
-            <f:link.page pageUid="{item.data.uid}" title="{item.data.title}">
-                {item.data.title}
+            <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+                {item.title}
             </f:link.page>
             <f:if condition="{item.children}">
                 <ul>

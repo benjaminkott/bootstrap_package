@@ -30,23 +30,23 @@
                             <f:if condition="{mainnavigationItem.children}">
                                 <f:then>
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        {mainnavigationItem.data.title}
+                                        {mainnavigationItem.title}
                                         <b class="caret"></b>
                                         <span class="bar"></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <f:for each="{mainnavigationItem.children}" as="child">
                                             <li class="{f:if(condition: child.active, then:'active')}">
-                                                <f:link.page pageUid="{child.data.uid}" title="{child.data.title}">
-                                                    {child.data.title}
+                                                <f:link.page pageUid="{child.data.uid}" title="{child.title}">
+                                                    {child.title}
                                                 </f:link.page>
                                             </li>
                                         </f:for>
                                     </ul>
                                 </f:then>
                                 <f:else>
-                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{mainnavigationItem.data.title}">
-                                        {mainnavigationItem.data.title}
+                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{mainnavigationItem.title}">
+                                        {mainnavigationItem.title}
                                         <span class="bar"></span>
                                     </f:link.page>
                                 </f:else>
