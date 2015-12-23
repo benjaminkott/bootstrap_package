@@ -478,7 +478,7 @@ return array(
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
