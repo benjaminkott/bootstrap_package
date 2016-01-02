@@ -45,6 +45,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Libs/bootstrap.lightbox.js',
                 dest: '<%= paths.js %>Libs/bootstrap.lightbox.min.js'
             },
+            bootstrapPopover: {
+                src: '<%= paths.js %>Src/bootstrap.popover.js',
+                dest: '<%= paths.js %>Dist/bootstrap.popover.min.js'
+            },
             bootstrapSwipe: {
                 src: '<%= paths.js %>Libs/bootstrap.swipe.js',
                 dest: '<%= paths.js %>Libs/bootstrap.swipe.min.js'

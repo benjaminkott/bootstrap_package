@@ -1,0 +1,25 @@
+<div class="media">
+    <div class="media-body">
+        <h4 class="media-heading">
+            <f:if condition="{settings.displayResultNumber}">
+                <span class="tx-indexedsearch-result-number">{row.result_number}</span>
+            </f:if>
+            <f:format.raw>{row.title}</f:format.raw>
+            <span>{row.rating}</span>
+        </h3>
+        <f:if condition="{row.headerOnly} == 0">
+            <p><f:format.crop maxCharacters="{settings.results.summaryCropAfter}">{row.item_description}</f:format.crop></p>
+            <ul class="list-inline">
+                <li><strong><f:translate key="result.size" /></strong> {row.size}</li>
+                <li><strong><f:translate key="result.created" /></strong> <f:format.date>@{row.created}</f:format.date></li>
+                <li><strong><f:translate key="result.modified" /></strong> <f:format.date>@{row.modified}</f:format.date></li>
+                <li><strong><f:translate key="result.path" /></strong> <f:format.raw>{row.path}</f:format.raw></li>
+            </ul>
+	</f:if>
+        <f:if condition="{row.subresults}">
+            <f:for each="{row.subresults.items}" as="subrow">
+                <f:render partial="Searchresult" arguments="{row: subrow}" />
+            </f:for>
+        </f:if>
+    </div>
+</div>

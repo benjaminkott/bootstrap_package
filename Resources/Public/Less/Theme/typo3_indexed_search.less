@@ -1,0 +1,17 @@
+//
+// Indexed Search
+// --------------------------------------------------
+.tx-indexedsearch-browsebox {
+    &:extend(.pagination);
+    > li {
+        &:extend(.pagination > li);
+        > strong > a,
+        > a {
+            &:extend(.pagination > li > a all);
+        }
+    }
+    > .tx-indexedsearch-browselist-currentPage > strong > a,
+    > .tx-indexedsearch-browselist-currentPage > a {
+        &:extend(.pagination > .active > a all);
+    }
+}

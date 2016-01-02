@@ -18,7 +18,7 @@ Minimal Dependencies
 Quick Install Guide
 ===================
 
-Disable default content rendering extensions 
+Disable default content rendering extensions
 --------------------------------------------
 
 Both TYPO3 core rendering definitions are confliction each other in minor things,
@@ -56,6 +56,10 @@ Includes
 Include static (from extensions)
 
 * Bootstrap Package (required)
+
+Static Template Files from TYPO3 Extensions
+
+* Include before all static templates if root flag is set
 
 
 Recommended Apache Modules

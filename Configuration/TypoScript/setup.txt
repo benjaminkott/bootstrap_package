@@ -46,6 +46,11 @@ tt_content {
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Mailform.txt">
 
+#### INDEXED SEARCH
+[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch.txt">
+[global]
+
 #### TYPO3 LOGIN
 #### Note: ext:felogin override is included in ext_localconf.php
 
@@ -423,6 +428,7 @@ page {
         #### Add swipe support for boostrap components
         hammerjs = {$page.includePath.javascript}Libs/hammer.min.js
         bootstrap_swipe = {$page.includePath.javascript}Libs/bootstrap.swipe.min.js
+        bootstrap_popover = {$page.includePath.javascript}Dist/bootstrap.popover.min.js
         #### Basic lightbox implementation for bootstrap
         bootstrap_lightbox = {$page.includePath.javascript}Libs/bootstrap.lightbox.min.js
         #### Toggle collapsed CSS class on the navbar toggle button
@@ -499,6 +505,7 @@ config {
     disablePrefixComment = 1
     index_enable = 1
     index_externals = 1
+    index_metatags = 1
     headerComment = {$config.headerComment}
 
     // Enable RealUrl

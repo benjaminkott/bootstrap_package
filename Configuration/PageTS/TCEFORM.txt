@@ -19,6 +19,9 @@ TCEFORM {
                 5 = H5
             }
         }
+        list_type {
+            removeItems = indexed_search
+        }
         layout {
             removeItems = 1,2,3
             disableNoMatchingValueElement = 1

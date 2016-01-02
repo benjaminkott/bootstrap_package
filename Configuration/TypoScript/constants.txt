@@ -15,6 +15,7 @@
 # customsubcategory=160=Theme
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
+# customsubcategory=BoostrapPackageExtensions=Extension Overrides
 
 ############
 ### PAGE ###
@@ -142,6 +143,20 @@ plugin.bootstrap_package {
         overrideLessVariables = 1
         # cat=bootstrap package: advanced/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
         cssSourceMapping = 0
+    }
+}
+
+####################################
+### BOOTSTRAP PACKAGE EXTENSIONS ###
+####################################
+plugin.bootstrap_package {
+    view {
+        # cat=bootstrap package: advanced/BoostrapPackageExtensions/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
+        # cat=bootstrap package: advanced/BoostrapPackageExtensions/partialRootPath; type=string; label=Partial Root Path: Path to partials
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
+        # cat=bootstrap package: advanced/BoostrapPackageExtensions/templateRootPath; type=string; label=Template Root Path: Path to templates
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
     }
 }
 

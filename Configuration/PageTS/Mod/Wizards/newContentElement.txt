@@ -188,3 +188,29 @@ mod.wizards {
         }
     }
 }
+
+
+########################
+#### INDEXED SEARCH ####
+########################
+[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
+mod.wizards {
+    newContentElement {
+        wizardItems {
+            plugins {
+                elements {
+                    indexed_search {
+                        iconIdentifier = content-special-indexed_search
+                        title = LLL:EXT:indexed_search/Resources/Private/Language/locallang_pi.xlf:pi_wizard_title
+                        description = LLL:EXT:indexed_search/Resources/Private/Language/locallang_pi.xlf:pi_wizard_description
+                        tt_content_defValues {
+                            CType = list
+                            list_type = indexedsearch_pi2
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+[global]
