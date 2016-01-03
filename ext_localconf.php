@@ -67,19 +67,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
 }
 
 
-/***************
- * Add Bootstrap Package config to felogin
- */
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
-        'BootstrapPackage.Felogin',
-        'setup',
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Login.txt">',
-        'defaultContentRendering'
-    );
-}
-
-
 if (TYPO3_MODE === 'BE') {
     /**
      * Provides an example .htaccess file for Apache after extension is installed and shows a warning if TYPO3 is not running on Apache.
@@ -91,7 +78,6 @@ if (TYPO3_MODE === 'BE') {
         'BK2K\\BootstrapPackage\\Service\\InstallService',
         'generateApacheHtaccess'
     );
-
 }
 
 
