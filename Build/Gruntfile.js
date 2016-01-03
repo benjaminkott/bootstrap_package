@@ -38,32 +38,32 @@ module.exports = function(grunt) {
                 preserveComments: 'some'
             },
             bootstrapNavbarToggle: {
-                src: '<%= paths.js %>Libs/bootstrap.navbartoggle.js',
-                dest: '<%= paths.js %>Libs/bootstrap.navbartoggle.min.js'
+                src: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
+                dest: '<%= paths.js %>Dist/bootstrap.navbartoggle.min.js'
             },
             bootstrapLightbox: {
-                src: '<%= paths.js %>Libs/bootstrap.lightbox.js',
-                dest: '<%= paths.js %>Libs/bootstrap.lightbox.min.js'
+                src: '<%= paths.js %>Src/bootstrap.lightbox.js',
+                dest: '<%= paths.js %>Dist/bootstrap.lightbox.min.js'
             },
             bootstrapPopover: {
                 src: '<%= paths.js %>Src/bootstrap.popover.js',
                 dest: '<%= paths.js %>Dist/bootstrap.popover.min.js'
             },
             bootstrapSwipe: {
-                src: '<%= paths.js %>Libs/bootstrap.swipe.js',
-                dest: '<%= paths.js %>Libs/bootstrap.swipe.min.js'
+                src: '<%= paths.js %>Src/bootstrap.swipe.js',
+                dest: '<%= paths.js %>Dist/bootstrap.swipe.min.js'
             },
             responsiveimages: {
-                src: '<%= paths.js %>Libs/jquery.responsiveimages.js',
-                dest: '<%= paths.js %>Libs/jquery.responsiveimages.min.js'
+                src: '<%= paths.js %>Src/jquery.responsiveimages.js',
+                dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
             },
             equalheight: {
                 src: '<%= paths.js %>Src/jquery.equalheight.js',
                 dest: '<%= paths.js %>Dist/jquery.equalheight.min.js'
             },
             viewportfix: {
-                src: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
-                dest: '<%= paths.js %>Libs/windowsphone-viewportfix.min.js'
+                src: '<%= paths.js %>Src/windowsphone-viewportfix.js',
+                dest: '<%= paths.js %>Dist/windowsphone-viewportfix.min.js'
             }
         },
         less: {
@@ -144,6 +144,9 @@ module.exports = function(grunt) {
      * Grunt update task
      */
     grunt.registerTask('update', ['npm-install', 'bower_install', 'bowercopy']);
-    grunt.registerTask('build', ['update', 'less', 'cssmin', 'uglify']);
+    grunt.registerTask('css', ['less', 'cssmin']);
+    grunt.registerTask('js', ['uglify', 'cssmin']);
+    grunt.registerTask('build', ['update', 'css', 'js']);
+    grunt.registerTask('default', ['build']);
 
 };

@@ -59,12 +59,8 @@ page {
     }
 
     includePath {
-        # cat=bootstrap package: advanced/130/100; type=string; label=Css Include Path: Path to css files
-        css = EXT:bootstrap_package/Resources/Public/Css/
-        # cat=bootstrap package: advanced/130/110; type=string; label=Icon Include Path: Path to css files
+        # cat=bootstrap package: advanced/130/100; type=string; label=Icon Include Path: Path to css files
         icons = EXT:bootstrap_package/Resources/Public/Icons/
-        # cat=bootstrap package: advanced/130/120; type=string; label=JavaScript Include Path: Path to css files
-        javascript = EXT:bootstrap_package/Resources/Public/JavaScript/
     }
 
     meta {
