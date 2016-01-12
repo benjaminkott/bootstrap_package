@@ -30,6 +30,15 @@ namespace BK2K\BootstrapPackage\Hooks\RealUrl;
  */
 class AutoConfig
 {
+	/**
+	 * @var \TYPO3\CMS\Core\Database\DatabaseConnection
+	 */
+	protected $databaseConnection;
+	
+    /**
+	 * @var bool
+	 */
+	protected $hasStaticInfoTables;
 
     /**
      * Function for RealUrl version < 2.0.0 from Dmitry Dulepov
@@ -65,6 +74,10 @@ class AutoConfig
      */
     protected function addConfigToParams(array $params)
     {
+        $this->databaseConnection = $GLOBALS['TYPO3_DB'];
+
+        $this->hasStaticInfoTables = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables');
+
         $params['config']['preVars'] = array(
             '0' => array(
                 'GETvar' => 'no_cache',
@@ -76,8 +89,6 @@ class AutoConfig
             '1' => array(
                 'GETvar' => 'L',
                 'valueMap' => array(
-                    'de' => '1',
-                    'da' => '2',
                 ),
                 'noMatch' => 'bypass',
             )
@@ -87,6 +98,29 @@ class AutoConfig
                 'GETvar' => 'page',
             )
         );
+        
+        $this->addLanguages($params);
+        
         return $params;
     }
+    /**
+	 * Adds languages to configuration
+	 * Function for RealUrl version >= 2.0.0 from Helmut Hummel
+     * https://github.com/helhum/realurl
+	 * @param	array		$params	Configuration (passed as reference)
+	 * @return	void
+	 */
+    protected function addLanguages(&$params) {
+		if ($this->hasStaticInfoTables) {
+			$languages = $this->databaseConnection->exec_SELECTgetRows('t1.uid AS uid,t2.lg_iso_2 AS lg_iso_2', 'sys_language t1, static_languages t2', 't2.uid=t1.static_lang_isocode AND t1.hidden=0');
+		}
+		else {
+			$languages = $this->databaseConnection->exec_SELECTgetRows('t1.uid AS uid,t1.flag AS lg_iso_2', 'sys_language t1', 't1.hidden=0');
+		}
+		if (count($languages) > 0) {
+			foreach ($languages as $lang) {
+				$params['preVars'][1]['valueMap'][strtolower($lang['lg_iso_2'])] = $lang['uid'];
+			}
+		}
+	}
 }
