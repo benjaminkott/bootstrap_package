@@ -85,7 +85,7 @@ class CompileService
     /**
      * @return array
      */
-    public function getVariablesFromConstants()
+    public static function getVariablesFromConstants()
     {
         $variables = array();
         $prefix = "plugin.bootstrap_package.settings.less.";
