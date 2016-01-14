@@ -20,7 +20,7 @@ Apply to Bootstrap Package >= 6.2.13
 Responsive images Plugin
 ========================
 
-This plugin manage lazy loading of images, via data-attributes, using advanced techniques to detect viewport width matching exact media query.
+This plugin manages lazy loading of images, via data-attributes, using advanced techniques to detect viewport width matching exact media query.
 Highly optimized so it only performs things when realy needed.
 Since 6.2.13 the plugin auto-initialize so there is no more need to do it by hand in main.js
 
