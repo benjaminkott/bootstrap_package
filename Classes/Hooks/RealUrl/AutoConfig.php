@@ -50,8 +50,8 @@ class AutoConfig
      */
     public function addConfigVersion1x(array $params, \tx_realurl_autoconfgen $pObj)
     {
-        $params = $this->addConfigToParams($params);
-        return $params['config'];
+        $config = $this->addConfigToParams($params['config']);
+        return $config;
     }
 
     /**
@@ -64,21 +64,21 @@ class AutoConfig
      */
     public function addConfigVersion2x(array $params, \Tx\Realurl\Configuration\ConfigurationGenerator $pObj)
     {
-        $params = $this->addConfigToParams($params);
-        return $params['config'];
+        $config = $this->addConfigToParams($params['config']);
+        return $config;
     }
 
     /**
      * @param array $params
      * @return array
      */
-    protected function addConfigToParams(array $params)
+    protected function addConfigToParams(array $config)
     {
         $this->databaseConnection = $GLOBALS['TYPO3_DB'];
 
         $this->hasStaticInfoTables = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('static_info_tables');
 
-        $params['config']['preVars'] = array(
+        $config['preVars'] = array(
             '0' => array(
                 'GETvar' => 'no_cache',
                 'valueMap' => array(
@@ -93,15 +93,14 @@ class AutoConfig
                 'noMatch' => 'bypass',
             )
         );
-        $params['config']['postVarSets']['_DEFAULT']['page'] = array(
+        $config['postVarSets']['_DEFAULT']['page'] = array(
             0 => array(
                 'GETvar' => 'page',
             )
         );
         
-        $this->addLanguages($params);
+        $this->addLanguages($config);
         
-        return $params;
     }
     /**
 	 * Adds languages to configuration
@@ -110,7 +109,7 @@ class AutoConfig
 	 * @param	array		$params	Configuration (passed as reference)
 	 * @return	void
 	 */
-    protected function addLanguages(&$params) {
+    protected function addLanguages(array &$config) {
 		if ($this->hasStaticInfoTables) {
 			$languages = $this->databaseConnection->exec_SELECTgetRows('t1.uid AS uid,t2.lg_iso_2 AS lg_iso_2', 'sys_language t1, static_languages t2', 't2.uid=t1.static_lang_isocode AND t1.hidden=0');
 		}
@@ -119,7 +118,7 @@ class AutoConfig
 		}
 		if (count($languages) > 0) {
 			foreach ($languages as $lang) {
-				$params['preVars'][1]['valueMap'][strtolower($lang['lg_iso_2'])] = $lang['uid'];
+				$config['preVars'][1]['valueMap'][strtolower($lang['lg_iso_2'])] = $lang['uid'];
 			}
 		}
 	}
