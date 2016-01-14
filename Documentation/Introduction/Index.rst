@@ -32,7 +32,6 @@ Features
   * External Media
   * Carousel
   * List Group
-  * List Group
   * Tab
   * Text and Icon
 
