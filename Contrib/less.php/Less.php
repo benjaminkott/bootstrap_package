@@ -1129,7 +1129,7 @@ class Less_Parser{
 	}
 
 
-	// A variable entity useing the protective {} e.g. @{var}
+	// A variable entity using the protective {} e.g. @{var}
 	private function parseEntitiesVariableCurly() {
 		$index = $this->pos;
 
@@ -1566,7 +1566,7 @@ class Less_Parser{
 	//
 	// A Rule terminator. Note that we use `peek()` to check for '}',
 	// because the `block` rule will be expecting it, but we still need to make sure
-	// it's there, if ';' was ommitted.
+	// it's there, if ';' was omitted.
 	//
 	private function parseEnd(){
 		return $this->MatchChar(';') || $this->PeekChar('}');
@@ -7254,8 +7254,8 @@ class Less_Tree_Ruleset extends Less_Tree{
 
 
 		// The paths are [[Selector]]
-		// The first list is a list of comma seperated selectors
-		// The inner list is a list of inheritance seperated selectors
+		// The first list is a list of comma separated selectors
+		// The inner list is a list of inheritance separated selectors
 		// e.g.
 		// .a, .b {
 		//   .c {
@@ -8784,7 +8784,7 @@ class Less_Visitor_processExtends extends Less_Visitor{
 		// a target extend is the one on the ruleset we are looking at copy/edit/pasting in place
 		// e.g. .a:extend(.b) {} and .b:extend(.c) {} then the first extend extends the second one
 		// and the second is the target.
-		// the seperation into two lists allows us to process a subset of chains with a bigger set, as is the
+		// the separation into two lists allows us to process a subset of chains with a bigger set, as is the
 		// case when processing media queries
 		for( $extendIndex = 0, $extendsList_len = count($extendsList); $extendIndex < $extendsList_len; $extendIndex++ ){
 			for( $targetExtendIndex = 0; $targetExtendIndex < count($extendsListTarget); $targetExtendIndex++ ){
