@@ -40,3 +40,12 @@ script:
     find typo3conf/ext/$EXTENSIONKEY/ -name \*.php | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
     typo3conf/ext/$EXTENSIONKEY/vendor/bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
+  - >
+    echo "Installing npm modules";
+    pushd typo3conf/ext/$EXTENSIONKEY/Build;
+    npm install && npm install bower grunt-cli;
+    echo "Installing bower dependencies";
+    node_modules/.bin/bower install;
+    echo "Executing grunt";
+    node_modules/.bin/grunt;
+    popd
