@@ -47,6 +47,33 @@ page {
             # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
             text = Built on a Windows 10 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
+
+        metasection {
+            # cat=bootstrap package: basic/160/130; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+            enable = 1
+        }
+
+        news {
+            list {
+                # cat=bootstrap package: basic/170/100; type=options[Left=left, Center=center, Right=right]; label=Header Position
+                header_position = left
+                # cat=bootstrap package: basic/170/110; type=options[H1=1,H2=2,H3=3,H4=4,H5=5]; label=Header Layout
+                header_layout = 2
+                # cat=bootstrap package: basic/170/120; type=options[Above: center=0,Above: right=1,Above: left=2,Below: center=8,Below: right=9,Below: left=10,In text: right=17,In text: left=18,Beside Text: Right=25,Beside Text: Left=26]; label=Image Alignment
+                imageorient = 25
+                # cat=bootstrap package: basic/170/130; type=options[1=1,2=2,3=3,4=4,6=6]; label=Image Columns
+                imagecols = 1
+                # cat=bootstrap package: basic/170/170; type=int+; label= Max Image Width: This indicates that maximum number of pixels (width) a block of images inserted as content is allowed to consume.
+                maxW = 1140
+                # cat=bootstrap package: basic/170/180; type=int+; label= Max Image Width (Text): Same as above, but this is the maximum width when text is wrapped around an imageblock. Default is 50% of the normal Max Image Width.
+                maxWInText =
+            }
+
+            pagination {
+                # cat=bootstrap package: basic/170/190; type=string; label=Max items per page
+                itemsperpage = 5
+            }
+        }
     }
 
     fluidtemplate {
