@@ -36,7 +36,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['tablelayout'] = [
         table_tfoot',
 ];
 
-
 /***************
  * Adjust columns for generic usage
  */
@@ -92,7 +91,6 @@ $GLOBALS['TCA']['tt_content']['columns']['assets'] = [
     )
 ];
 
-
 /***************
  * Add Content Element: Header
  */
@@ -114,7 +112,6 @@ $GLOBALS['TCA']['tt_content']['types']['header'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Element: Text
@@ -156,7 +153,6 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
         ]
     ]
 );
-
 
 /***************
  * Add Content Element: Textpic
@@ -203,7 +199,6 @@ $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Textmedia
  */
@@ -249,7 +244,6 @@ $GLOBALS['TCA']['tt_content']['types']['textmedia'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Image
  */
@@ -288,7 +282,6 @@ $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Bullet List
  */
@@ -311,7 +304,6 @@ $GLOBALS['TCA']['tt_content']['types']['bullets'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Element: Table
@@ -339,7 +331,6 @@ $GLOBALS['TCA']['tt_content']['types']['table'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: HTML
  */
@@ -362,7 +353,6 @@ $GLOBALS['TCA']['tt_content']['types']['html'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Element: Uploads
@@ -388,7 +378,6 @@ $GLOBALS['TCA']['tt_content']['types']['uploads'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Div
  */
@@ -410,7 +399,6 @@ $GLOBALS['TCA']['tt_content']['types']['div'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Element: Menu
@@ -436,7 +424,6 @@ $GLOBALS['TCA']['tt_content']['types']['menu'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Shortcut
  */
@@ -459,7 +446,6 @@ $GLOBALS['TCA']['tt_content']['types']['shortcut'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Element: List
@@ -487,7 +473,6 @@ $GLOBALS['TCA']['tt_content']['types']['list'] = array_replace_recursive(
     ]
 );
 
-
 /***************
  * Add Content Element: Mailform
  */
@@ -510,7 +495,6 @@ $GLOBALS['TCA']['tt_content']['types']['mailform'] = array_replace_recursive(
             rowDescription'
     ]
 );
-
 
 /***************
  * Add Content Elements to List
@@ -564,7 +548,6 @@ unset($key);
 unset($value);
 unset($backupCTypeItems);
 
-
 /***************
  * Add FlexForms for content element configuration
  */
@@ -578,7 +561,6 @@ unset($backupCTypeItems);
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/Tab.xml',
     'bootstrap_package_tab'
 );
-
 
 /***************
  * Modify the tt_content TCA
@@ -1930,7 +1912,5 @@ $tca = array(
     ),
 );
 $GLOBALS['TCA']['tt_content'] = array_replace_recursive($GLOBALS['TCA']['tt_content'], $tca);
-
-
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable('bootstrap_package', 'tt_content', 'categories', array(), true);

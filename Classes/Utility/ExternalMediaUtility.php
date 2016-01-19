@@ -143,11 +143,11 @@ class ExternalMediaUtility
     protected function setProtocolToHttps($url)
     {
         $processUrl = trim($url);
-        if (substr($url, 0, 7) === "http://") {
+        if (substr($url, 0, 7) === 'http://') {
             $processUrl = substr($processUrl, 7);
-        } elseif (substr($processUrl, 0, 8) === "https://") {
+        } elseif (substr($processUrl, 0, 8) === 'https://') {
             $processUrl = substr($processUrl, 8);
-        } elseif (substr($processUrl, 0, 2) === "//") {
+        } elseif (substr($processUrl, 0, 2) === '//') {
             $processUrl = substr($processUrl, 2);
         }
         return 'https://' . $processUrl;

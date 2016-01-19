@@ -26,9 +26,9 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -54,7 +54,6 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
             $this->renderingContext
         );
     }
-
 
     /**
      * Checks if the URL is a valid YouTube/Vimeo Link is. If the video id can

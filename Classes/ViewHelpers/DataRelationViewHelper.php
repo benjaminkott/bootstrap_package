@@ -26,9 +26,9 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -39,7 +39,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
     /**
      * Render
      *
-     * @param integer $uid
+     * @param int $uid
      * @param string $table
      * @param string $foreignField
      * @param string $selectFields
@@ -109,7 +109,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
                     );
                 }
             }
-            usort($items, array(self, "orderBySorting"));
+            usort($items, array(self, 'orderBySorting'));
         } else {
             $items = null;
         }

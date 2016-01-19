@@ -81,7 +81,6 @@ class MenuProcessor implements DataProcessorInterface
      */
     protected $processorConfiguration;
 
-
     /**
      * Allowed configuration keys for menu generation, other keys will be
      * ignored to prevent configuration errors.

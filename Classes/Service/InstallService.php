@@ -86,7 +86,7 @@ class InstallService
      */
     public function createDefaultHtaccessFile()
     {
-        $htaccessFile = GeneralUtility::getFileAbsFileName(".htaccess");
+        $htaccessFile = GeneralUtility::getFileAbsFileName('.htaccess');
         if (file_exists($htaccessFile)) {
             /**
              * Add Flashmessage that there is already an .htaccess file and we are not going to override this.

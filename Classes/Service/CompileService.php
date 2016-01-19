@@ -72,7 +72,7 @@ class CompileService
                 $files = array();
                 $files[$file] = '../../' . str_replace(PATH_site, '', dirname($file)) . '/';
                 $compiledFile = \Less_Cache::Get($files, $options, $variables);
-                $file = "typo3temp/bootstrappackage/" . $compiledFile;
+                $file = 'typo3temp/bootstrappackage/' . $compiledFile;
 
                 return $file;
             } catch (\Exception $e) {
@@ -88,7 +88,7 @@ class CompileService
     public static function getVariablesFromConstants()
     {
         $variables = array();
-        $prefix = "plugin.bootstrap_package.settings.less.";
+        $prefix = 'plugin.bootstrap_package.settings.less.';
         if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
             $GLOBALS['TSFE']->tmpl->generateConfig();
         }

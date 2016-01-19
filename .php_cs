@@ -33,10 +33,14 @@
 if (PHP_SAPI !== 'cli') {
     die('This script supports command line usage only. Please check your command.');
 }
+
+if(function_exists('xdebug_disable')) { xdebug_disable(); }
+
 // Define in which folders to search and which folders to exclude
 // Exclude some directories that are excluded by Git anyways to speed up the sniffing
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->exclude('vendor')
+    ->exclude('Contrib')
     ->in(__DIR__);
 
 // Return a Code Sniffing configuration using
@@ -65,4 +69,5 @@ return Symfony\CS\Config\Config::create()
         'phpdoc_scalar',
         'no_empty_lines_after_phpdocs'
     ])
+    ->setUsingCache(true)
     ->finder($finder);
