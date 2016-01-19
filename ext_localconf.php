@@ -8,14 +8,12 @@ if (!defined('TYPO3_MODE')) {
  */
 $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappackage/Configuration/TypoScript/';
 
-
 /***************
  * Make the extension configuration accessible
  */
 if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
 }
-
 
 /***************
  * PageTS
@@ -52,7 +50,6 @@ if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsRTE']
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/RTE.txt">');
 }
 
-
 /***************
  * Add Bootstrap Package autoconfig to realurl
  */
@@ -65,7 +62,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
     }
     unset($realUrlVersion);
 }
-
 
 if (TYPO3_MODE === 'BE') {
     /**
@@ -80,7 +76,6 @@ if (TYPO3_MODE === 'BE') {
     );
 }
 
-
 /***************
  * Register hook for processing less files
  */
@@ -90,7 +85,6 @@ if (TYPO3_MODE === 'FE') {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] = 'BK2K\\BootstrapPackage\\Hooks\\PageRendererRender\\PreProcessHook->execute';
     }
 }
-
 
 /***************
  * Reset extConf array to avoid errors

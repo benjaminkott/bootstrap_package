@@ -25,9 +25,9 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  */
 
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -38,7 +38,7 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
     /**
      * @var array
      */
-    static protected $contextualAlternatives = array(
+    protected static $contextualAlternatives = array(
         100 => 'default',
         110 => 'primary',
         120 => 'success',
@@ -50,7 +50,7 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
     /**
      * Render
      *
-     * @param integer $code
+     * @param int $code
      * @return string
      */
     public function render($code)

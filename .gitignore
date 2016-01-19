@@ -6,3 +6,4 @@ vendor/*
 composer.lock
 Thumbs.db
 prepros.cfg
+.php_cs.cache

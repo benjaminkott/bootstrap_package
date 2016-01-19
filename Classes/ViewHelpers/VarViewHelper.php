@@ -25,9 +25,9 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  */
 
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -53,7 +53,6 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
             $this->renderingContext
         );
     }
-
 
     /**
      * @param array $arguments

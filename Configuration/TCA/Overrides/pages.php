@@ -5,7 +5,6 @@
  */
 $extensionKey = 'bootstrap_package';
 
-
 /***************
  * Register PageTS
  */
