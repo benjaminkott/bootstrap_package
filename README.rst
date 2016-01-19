@@ -85,6 +85,11 @@ Contributing
 Feel free to fork this project and create a pull request when you're happy
 with your changes.
 
+We check the source code according to the TYPO3 Coding Guidelines. To reformat
+the code automatically, you can use `php-cs-fixer` as follows:
+
+`php-cs-fixer fix --config-file .php_cs`
+
 Bug reporting
 -------------
 
