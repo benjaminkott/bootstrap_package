@@ -188,7 +188,7 @@ RTE.default {
         rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit,
         columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit,
         cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge,
-		insertcharacter, findreplace
+        insertcharacter, findreplace
     )
 
     // Define buttons and order of button that will be shown
