@@ -143,6 +143,8 @@ config {
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
     # cat=bootstrap package: advanced/150/200; type=boolean; label=Force images preload: Preload images even when not visible on page to allow print
     preloadImages = 0
+    # cat=bootstrap package: advanced/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
+    sendCacheHeaders = 1
 }
 
 ###############
