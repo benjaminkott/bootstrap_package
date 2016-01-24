@@ -503,7 +503,7 @@ config {
     admPanel = {$config.admPanel}
     debug = 0
     cache_period = 86400
-    sendCacheHeaders = 0
+    sendCacheHeaders = {$config.sendCacheHeaders}
     intTarget =
     extTarget =
     disablePrefixComment = 1
