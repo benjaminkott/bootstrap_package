@@ -37,13 +37,13 @@ module.exports = function(grunt) {
                 mangle: true,
                 preserveComments: 'some'
             },
-            bootstrapNavbarToggle: {
-                src: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
-                dest: '<%= paths.js %>Dist/bootstrap.navbartoggle.min.js'
-            },
             bootstrapLightbox: {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 dest: '<%= paths.js %>Dist/bootstrap.lightbox.min.js'
+            },
+            bootstrapNavbarToggle: {
+                src: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
+                dest: '<%= paths.js %>Dist/bootstrap.navbartoggle.min.js'
             },
             bootstrapPopover: {
                 src: '<%= paths.js %>Src/bootstrap.popover.js',
@@ -53,13 +53,13 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.swipe.js',
                 dest: '<%= paths.js %>Dist/bootstrap.swipe.min.js'
             },
-            responsiveimages: {
-                src: '<%= paths.js %>Src/jquery.responsiveimages.js',
-                dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
-            },
             equalheight: {
                 src: '<%= paths.js %>Src/jquery.equalheight.js',
                 dest: '<%= paths.js %>Dist/jquery.equalheight.min.js'
+            },
+            responsiveimages: {
+                src: '<%= paths.js %>Src/jquery.responsiveimages.js',
+                dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
             },
             viewportfix: {
                 src: '<%= paths.js %>Src/windowsphone-viewportfix.js',
@@ -79,24 +79,32 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            bootstrapNavbarToggle: {
-                files: '<%= paths.js %>Libs/bootstrap.navbartoggle.js',
-                tasks: 'uglify:bootstrapNavbarToggle'
-            },
             bootstrapLightbox: {
-                files: '<%= paths.js %>Libs/bootstrap.lightbox.js',
+                files: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 tasks: 'uglify:bootstrapLightbox'
             },
+            bootstrapNavbarToggle: {
+                files: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
+                tasks: 'uglify:bootstrapNavbarToggle'
+            },
+            bootstrapPopover: {
+                files: '<%= paths.js %>Src/bootstrap.popover.js',
+                tasks: 'uglify:bootstrapPopover'
+            },
             bootstrapSwipe: {
-                files: '<%= paths.js %>Libs/bootstrap.swipe.js',
+                files: '<%= paths.js %>Src/bootstrap.swipe.js',
                 tasks: 'uglify:bootstrapSwipe'
             },
+            equalheight: {
+                files: '<%= paths.js %>Src/jquery.equalheight.js',
+                tasks: 'uglify:equalheight'
+            },
             responsiveimages: {
-                files: '<%= paths.js %>Libs/jquery.responsiveimages.js',
+                files: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 tasks: 'uglify:responsiveimages'
             },
             viewportfix: {
-                files: '<%= paths.js %>Libs/windowsphone-viewportfix.js',
+                files: '<%= paths.js %>Src/windowsphone-viewportfix.js',
                 tasks: 'uglify:viewportfix'
             },
             less: {
