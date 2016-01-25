@@ -131,7 +131,13 @@ module.exports = function(grunt) {
                     // Bootstrap
                     'Public/Less/Bootstrap': 'bootstrap/less',
                     'Public/Fonts': 'bootstrap/fonts',
-                    'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
+                    'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
+                    // PhotoSwipe
+                    'Public/JavaScript/Libs/photoswipe.min.js': 'photoswipe/dist/photoswipe.min.js',
+                    'Public/JavaScript/Libs/photoswipe-ui-default.min.js': 'photoswipe/dist/photoswipe-ui-default.min.js',
+                    'Public/Images/PhotoSwipe/default-skin.png': 'photoswipe/dist/default-skin/default-skin.png',
+                    'Public/Images/PhotoSwipe/default-skin.svg': 'photoswipe/dist/default-skin/default-skin.svg',
+                    'Public/Images/PhotoSwipe/preloader.gif': 'photoswipe/dist/default-skin/preloader.gif'
                 }
             }
         }

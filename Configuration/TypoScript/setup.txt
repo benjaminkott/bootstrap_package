@@ -428,6 +428,8 @@ page {
         responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
         equalheight = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.equalheight.min.js
         bootstrap = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap.min.js
+        photoswipe_core = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe.min.js
+        photoswipe_ui = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe-ui-default.min.js
 
         #### Add swipe support for boostrap components
         hammerjs = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/hammer.min.js
