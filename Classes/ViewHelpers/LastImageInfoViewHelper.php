@@ -77,11 +77,10 @@ class LastImageInfoViewHelper extends AbstractViewHelper implements CompilableIn
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        if($GLOBALS['TSFE']->lastImageInfo) {
+        if ($GLOBALS['TSFE']->lastImageInfo) {
             $property = (array_key_exists($arguments['property'], self::$imageInfoMapping)) ? self::$imageInfoMapping[$arguments['property']] : self::$imageInfoMapping['file'];
             return $GLOBALS['TSFE']->lastImageInfo[$property];
         }
         return null;
     }
-
 }
