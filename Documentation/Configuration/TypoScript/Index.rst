@@ -19,7 +19,7 @@ The constants are grouped in basic and advanced settings. Use the **TYPO3 Consta
 
 Bootstrap Package: Basic Constants
 ==================================
-The basic settings will provide easy to use and understandable options for that are used mainly for styling and appereance.
+The basic settings will provide easy to use and understandable options for that are used mainly for styling and appearance.
 
 
 page.logo
@@ -118,7 +118,7 @@ page.theme.news
 
 Bootstrap Package: Advanced Constants
 =====================================
-The advanced settings sould be used only if you really know what you are doing.
+The advanced settings should be used only if you really know what you are doing.
 
 
 page.fluidtemplate

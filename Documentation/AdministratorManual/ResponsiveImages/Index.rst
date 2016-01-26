@@ -21,8 +21,8 @@ Responsive images Plugin
 ========================
 
 This plugin manages lazy loading of images, via data-attributes, using advanced techniques to detect viewport width matching exact media query.
-Highly optimized so it only performs things when realy needed.
-Since 6.2.13 the plugin auto-initialize so there is no more need to do it by hand in main.js
+Highly optimized so it only performs things when really needed.
+Since 6.2.13 the plugin auto-initializes so there is no more need to do it by hand in main.js.
 
 
 
@@ -37,10 +37,10 @@ Preloading images
 
 You may want to "lazy-preload" off screen images.
 Images preloading is done by adding a data-preload="true" attribute on image.
-This way the plugin dosen't take care of screen position nor image visibility and load the image right after document.ready.
+This way the plugin doesn't take care of screen position nor image visibility and loads the image right after document.ready.
 
 
-Changing default Breakpoints
+Changing default breakpoints
 ----------------------------
 
 When changing default breakpoints, you have to modify the settings of jquery.responsiveimages.min.js (see jquery.responsiveimages.js line 22-30).
@@ -82,7 +82,7 @@ Perform an action when new images are loaded
 --------------------------------------------
 
 As the layout of your page may change on image load, you may want to call a function when this happen, eg: update a scrollspy.
-The 'loaded.bk2k.responsiveimage' event is meant to be catched with a setTimeout based handler since many calls are possible, this way make a kind of throttle.
+The 'loaded.bk2k.responsiveimage' event is meant to be catched with a setTimeout based handler since many calls are possible, this way makes a kind of throttle.
 
 **Javascript**
 

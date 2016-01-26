@@ -124,10 +124,10 @@ RTE.default {
     // Use the default skin for rtehtmlarea
     skin = EXT:t3skin/rtehtmlarea/htmlarea.css
 
-    // We really dont want any comments in our frontend output. Remove them.
+    // We really don't want any comments in our frontend output. Remove them.
     removeComments = 1
 
-    // List of tags that sould be removed automaticly
+    // List of tags that should be removed automatically.
     removeTags = center, font, o:p, sdfield, img
 
     // These tags should never been in here and also its content
@@ -254,7 +254,7 @@ RTE.default.proc {
         visible-lg, visible-md, visible-print, visible-sm, visible-xs
     )
 
-    // List of tags that dont have to be wrapped in a paragraph
+    // List of tags that don't have to be wrapped in a paragraph
     allowTagsOutside (
         blockquote, h1, h2, h3, h4, hr, pre, table, ul, ol
     )

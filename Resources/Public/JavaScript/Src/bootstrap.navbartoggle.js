@@ -2,7 +2,7 @@ $(function() {
 
     /**
      * Toggle collapsed class on navbar toggle button to change
-     * the appereance of the toggle button when navbar is open
+     * the appearance of the toggle button when navbar is open
      */
     $('.navbar-collapse')
         .on('show.bs.collapse', function () {
