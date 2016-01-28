@@ -290,7 +290,7 @@ page {
         #################
         variables {
             showMeta = TEXT
-            showMeta.value = {$page.theme.metasection}
+            showMeta.value = {$page.theme.metasection.enable}
             pageTitle = TEXT
             pageTitle.data = page:title
             siteTitle = TEXT
