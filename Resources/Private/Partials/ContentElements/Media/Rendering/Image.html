@@ -1,9 +1,26 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+
+<bk2k:var name="maxWidthBigger" value="1140" />
+<bk2k:var name="maxWidthLarge" value="940" />
+<bk2k:var name="maxWidthMedium" value="720" />
+<bk2k:var name="maxWidthSmall" value="320" />
+
 <img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
      data-src="{f:uri.image(image: file)}"
-     data-bigger="{f:uri.image(image: file, maxWidth: 1140)}"
-     data-large="{f:uri.image(image: file, maxWidth: 940)}"
-     data-medium="{f:uri.image(image: file, maxWidth: 720)}"
-     data-small="{f:uri.image(image: file, maxWidth: 320)}"
+     <f:switch expression="{data.image_crop_ratio}">
+        <f:case value="1by1">
+            data-bigger="{f:uri.image(image: file, width: '{maxWidthBigger}c', height: '{maxWidthBigger}c', maxWidth: '{maxWidthBigger}', maxHeight: '{maxWidthBigger}', minWidth: '{maxWidthBigger}', minHeight: '{maxWidthBigger}')}"
+            data-large="{f:uri.image(image: file, width: '{maxWidthBigger}c', height: '{maxWidthBigger}c', maxWidth: '{maxWidthBigger}', maxHeight: '{maxWidthBigger}', minWidth: '{maxWidthBigger}', minHeight: '{maxWidthBigger}')}"
+            data-medium="{f:uri.image(image: file, width: '{maxWidthMedium}c', height: '{maxWidthMedium}c', maxWidth: '{maxWidthMedium}', maxHeight: '{maxWidthMedium}', minWidth: '{maxWidthMedium}', minHeight: '{maxWidthMedium}')}"
+            data-small="{f:uri.image(image: file, width: '{maxWidthSmall}c', height: '{maxWidthSmall}c', maxWidth: '{maxWidthSmall}', maxHeight: '{maxWidthSmall}', minWidth: '{maxWidthSmall}', minHeight: '{maxWidthSmall}')}"
+        </f:case>
+        <f:case default="TRUE">
+            data-bigger="{f:uri.image(image: file, maxWidth: '{maxWidthBigger}')}"
+            data-large="{f:uri.image(image: file, maxWidth: '{maxWidthLarge}')}"
+            data-medium="{f:uri.image(image: file, maxWidth: '{maxWidthMedium}')}"
+            data-small="{f:uri.image(image: file, maxWidth: '{maxWidthSmall}')}"
+        </f:case>
+     </f:switch>
      title="{file.title}"
      alt="{file.alternative}"
      class="lazyload"
