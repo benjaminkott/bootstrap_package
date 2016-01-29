@@ -120,6 +120,13 @@ lib.page.class {
     }
 }
 
+###################
+#### COPYRIGHT ####
+###################
+lib.copyrightText = TEXT
+lib.copyrightText {
+    value = {$page.theme.copyright.text}
+}
 
 ##############
 #### PAGE ####
@@ -281,7 +288,6 @@ page {
             }
             copyright {
                 enable = {$page.theme.copyright.enable}
-                text = {$page.theme.copyright.text}
             }
         }
 
@@ -313,6 +319,7 @@ page {
                     if.isTrue = {$page.logo.alt}
                 }
             }
+			copyrightText < lib.copyrightText
             pageClass < lib.page.class
         }
 
