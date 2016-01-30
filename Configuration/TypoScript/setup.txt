@@ -128,6 +128,14 @@ lib.copyrightText {
     value = {$page.theme.copyright.text}
 }
 
+#################
+#### CREDITS ####
+#################
+lib.creditsText = TEXT
+lib.creditsText {
+    value = {$page.theme.credits.text}
+}
+
 ##############
 #### PAGE ####
 ##############
@@ -289,6 +297,9 @@ page {
             copyright {
                 enable = {$page.theme.copyright.enable}
             }
+            credits {
+                enable = {$page.theme.credits.enable}
+            }
         }
 
         #################
@@ -320,6 +331,7 @@ page {
                 }
             }
             copyrightText < lib.copyrightText
+            creditsText < lib.creditsText
             pageClass < lib.page.class
         }
 
