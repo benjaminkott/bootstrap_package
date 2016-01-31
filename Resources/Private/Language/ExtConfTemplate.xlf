@@ -28,7 +28,13 @@
                 <source>Disable admPanel: If this option is set the config for admPanel will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/admPanel.txt" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
             <trans-unit id="pageTs.disablePageTsBackendLayouts">
-                <source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/web_layout.txt" in your PageTsConfig to load the config manually.</source>
+                <source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt" in your PageTsConfig to load the config manually.</source>
+            </trans-unit>
+            <trans-unit id="pageTs.disablePageTsTtContentPreviews">
+                <source>Disable tt_content types preview: If this option is set, the included content previews for the page module will not be used. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt" in your PageTsConfig to load the config manually.</source>
+            </trans-unit>
+            <trans-unit id="pageTs.disablePageTsNewContentElementWizard">
+                <source>Disable New Content Element Wizard items: If this option is set, the included configuration for the new content element wizard will not be loaded automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/Wizards/newContentElement.txt" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
 
             <trans-unit id="feature.disableLessProcessing">

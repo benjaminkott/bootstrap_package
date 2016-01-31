@@ -9,6 +9,12 @@
 # cat=General/130_features/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableLessProcessing
 disableLessProcessing = 0
 
+# cat=General/120_pagets/70; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsNewContentElementWizard
+disablePageTsNewContentElementWizard = 0
+
+# cat=General/120_pagets/60; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTtContentPreviews
+disablePageTsTtContentPreviews = 0
+
 # cat=General/120_pagets/50; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsRTE
 disablePageTsRTE = 0
 
