@@ -23,3 +23,9 @@
     }
 
 }
+
+// Pulls up carousel if is into first frame of main section
+.main-section .frame:nth-of-type(1) .carousel { margin-top: -(@line-height-computed * 2) }
+
+// Zeroes top margin of first .frame if there's a breadcrumb
+.breadcrumb-section + .main-section .frame:nth-of-type(1) { margin-top: 0; }
