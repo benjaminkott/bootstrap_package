@@ -292,17 +292,23 @@ RTE.default.proc.entryHTMLparser_db {
             rmTagIfNoAttrib = 1
         }
 
-        h1.fixAttrib.class.list     = lead, text-left, text-center, text-right, text-justify
-        h2.fixAttrib.class.list     = lead, text-left, text-center, text-right, text-justify
-        h3.fixAttrib.class.list     = lead, text-left, text-center, text-right, text-justify
-        h4.fixAttrib.class.list     = lead, text-left, text-center, text-right, text-justify
+        // Only the classs mentioned in these lists, are allowed on db-entry parsing
+        // Which means if a element enters the db, all classes on the element will
+        // get removed *except* those mentioned here.
+        // It's important to mention the "emtpy" list element here, denoted with
+        // the leading comma, otherwise the first element get's applied *automatically*
+        // Bug or feature!?
+        h1.fixAttrib.class.list     = , lead, text-left, text-center, text-right, text-justify
+        h2.fixAttrib.class.list     = , lead, text-left, text-center, text-right, text-justify
+        h3.fixAttrib.class.list     = , lead, text-left, text-center, text-right, text-justify
+        h4.fixAttrib.class.list     = , lead, text-left, text-center, text-right, text-justify
 
-        p.fixAttrib.class.list      = lead, text-left, text-center, text-right, text-justify
+        p.fixAttrib.class.list      = , lead, text-left, text-center, text-right, text-justify
 
-        ol.fixAttrib.class.list     = list-unstyled, list-inline
-        ul.fixAttrib.class.list     = list-unstyled, list-inline
+        ol.fixAttrib.class.list     = , list-unstyled, list-inline
+        ul.fixAttrib.class.list     = , list-unstyled, list-inline
 
-        a.fixAttrib.class.list      = btn, btn-default, btn-primary, btn-success, btn-warning, btn-danger, btn-link, btn-block
+        a.fixAttrib.class.list      = , btn, btn-default, btn-primary, btn-success, btn-warning, btn-danger, btn-link, btn-block
 
         // Disallow all attributes
         hr.allowedAttribs           = 0
