@@ -26,7 +26,7 @@
             </div>
             <f:if condition="{settings.copyright.enable}">
                 <div class="col-md-8 copyright" role="contentinfo">
-                    <f:format.html>{settings.copyright.text}</f:format.html>
+                    <f:format.html>{copyrightText}<f:if condition="{settings.credits.enable}"> {creditsText}</f:if></f:format.html>
                 </div>
             </f:if>
         </div>

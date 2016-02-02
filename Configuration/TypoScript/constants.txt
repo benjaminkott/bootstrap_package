@@ -45,7 +45,13 @@ page {
             # cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
             # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
-            text = Built on a Windows 10 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            text = Built on a Windows 10 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.
+        }
+        credits {
+            # cat=bootstrap package: basic/160/122; type=boolean; label=Credits: Enable to display the credits
+            enable = 1
+            # cat=bootstrap package: basic/160/123; type=string; label=Credits Text
+            text = Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
 
         footersection {
