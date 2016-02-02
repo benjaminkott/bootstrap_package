@@ -43,3 +43,17 @@ $extensionKey = 'bootstrap_package';
     'Configuration/PageTS/RTE.txt',
     'Bootstrap Package: RTE'
 );
+
+// TtContent Previews
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt',
+    'Bootstrap Package: Content Previews'
+);
+
+// New Content element wizards
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/PageTS/Mod/Wizards/newContentElement.txt',
+    'Bootstrap Package: New Content Element Wizards'
+);
