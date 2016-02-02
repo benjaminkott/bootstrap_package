@@ -344,6 +344,10 @@
                 <source>Ratio</source>
             </trans-unit>
 
+            <trans-unit id="field.image_crop_ratio">
+                <source>Image crop ratio</source>
+            </trans-unit>
+
             <trans-unit id="field.icon">
                 <source>Icon</source>
             </trans-unit>

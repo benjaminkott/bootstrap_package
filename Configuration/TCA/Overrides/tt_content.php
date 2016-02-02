@@ -6,7 +6,8 @@
 $GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
     'showitem' => '
         imageorient,
-        imagecols'
+        imagecols,
+        image_crop_ratio'
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['mediablock'] = [
     'showitem' => '
@@ -592,7 +593,7 @@ $tca = array(
                 header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
                 --linebreak--,
                 header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel
-			'
+            '
         ),
         'bootstrap_package_headersimple' => array(
             'canNotCollapse' => 1,
@@ -600,7 +601,7 @@ $tca = array(
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
                 --linebreak--,
                 header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel
-			'
+            '
         ),
         'bootstrap_package_icons' => array(
             'canNotCollapse' => 1,
@@ -608,14 +609,14 @@ $tca = array(
                 icon_position, icon_type, icon_size, --linebreak--,
                 icon_color, icon_background, --linebreak--,
                 icon
-			'
+            '
         ),
         'bootstrap_package_external_media' => array(
             'canNotCollapse' => 1,
             'showitem' => '
                 external_media_source, --linebreak--,
                 external_media_ratio
-			'
+            '
         ),
     ),
     'types' => array(
@@ -643,7 +644,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_listgroup' => array(
             'columnsOverrides' => array(
@@ -663,7 +664,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_accordion' => array(
             'showitem' => '
@@ -678,7 +679,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_tab' => array(
             'showitem' => '
@@ -695,7 +696,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_carousel' => array(
             'showitem' => '
@@ -712,7 +713,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_texticon' => array(
             'columnsOverrides' => array(
@@ -734,7 +735,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
         'bootstrap_package_external_media' => array(
             'showitem' => '
@@ -749,7 +750,7 @@ $tca = array(
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
                 --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,
                 categories
-			'
+            '
         ),
     ),
     'columns' => array(
@@ -1906,6 +1907,17 @@ $tca = array(
                 'items' => array(
                     array('16:9', '16by9'),
                     array('4:3', '4by3'),
+                ),
+            ),
+        ),
+        'image_crop_ratio' => array(
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_crop_ratio',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => array(
+                    array('', ''),
+                    array('1:1', '1by1'),
                 ),
             ),
         ),
