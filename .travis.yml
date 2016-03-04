@@ -11,6 +11,12 @@ env:
     - EXTENSIONKEY=bootstrap_package
   matrix:
     - TYPO3_BRANCH=master
+    - TYPO3_BRANCH=TYPO3_7-6
+  exclude:
+    - php: 5.5
+      env: TYPO3_BRANCH=master
+    - php: 5.6
+      env: TYPO3_BRANCH=master
 
 sudo: false
 
