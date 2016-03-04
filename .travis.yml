@@ -12,6 +12,7 @@ env:
   matrix:
     - TYPO3_BRANCH=master
     - TYPO3_BRANCH=TYPO3_7-6
+matrix:
   exclude:
     - php: 5.5
       env: TYPO3_BRANCH=master
