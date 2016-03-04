@@ -35,6 +35,10 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
  */
 class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface
 {
+    /**
+     * @var boolean
+     */
+    protected $escapeOutput = false;
 
     /**
      * Render
