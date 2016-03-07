@@ -121,9 +121,6 @@ RTE.default {
         table, tr, th, td, thead, tbody, tfoot
     )
 
-    // Use the default skin for rtehtmlarea
-    skin = EXT:t3skin/rtehtmlarea/htmlarea.css
-
     // We really don't want any comments in our frontend output. Remove them.
     removeComments = 1
 
