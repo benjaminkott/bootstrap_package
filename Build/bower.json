@@ -19,7 +19,7 @@
     "dependencies": {
         "jquery": "2.x",
         "hammerjs": "2.0.4",
-        "bootstrap": "3.3.5",
+        "bootstrap": "3.3.6",
         "photoswipe": "~4.1.1"
     }
 }

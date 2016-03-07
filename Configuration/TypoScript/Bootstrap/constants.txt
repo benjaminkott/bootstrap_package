@@ -816,6 +816,8 @@ plugin.bootstrap_package {
             page-header-border-color = @gray-lighter
             # cat=bootstrap package: styling/336/dl-horizontal-offset; type=string; label=@dl-horizontal-offset: Width of horizontal description list titles
             dl-horizontal-offset = @component-offset-horizontal
+            # cat=bootstrap package: styling/336/dl-horizontal-breakpoint; type=string; label=@dl-horizontal-breakpoint: Point at which .dl-horizontal becomes horizontal
+            dl-horizontal-breakpoint = @grid-float-breakpoint
             # cat=bootstrap package: styling/336/hr-border; type=string; label=@hr-border: Horizontal line color.
             hr-border = @gray-lighter
         }
