@@ -7,7 +7,7 @@ conf.py:
   copyright: 2014
   project: Bootstrap Package
   version: 1.0
-  release: 7.0.0-dev
+  release: 7.0.0
   latex_documents:
   - - Index
     - BootstrapPackage.tex
