@@ -32,14 +32,21 @@
                 <f:for each="{records}" as="record" iteration="iteration">
                     <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {record.data.uid}',then: 'active')}" id="tab-{data.uid}-{record.data.uid}">
 
-                        <div class="row">
-                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
-                                <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
-                            </div>
-                            <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
-                                    <f:format.html>{record.data.bodytext}</f:format.html>
-                            </div>
-                        </div>
+                        <f:if condition="{record.files}">
+                            <f:then>
+                                <div class="row">
+                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
+                                        <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
+                                    </div>
+                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
+                                            <f:format.html>{record.data.bodytext}</f:format.html>
+                                    </div>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <f:format.html>{record.data.bodytext}</f:format.html>
+                            </f:else>
+                        </f:if>
 
                     </div>
                 </f:for>
