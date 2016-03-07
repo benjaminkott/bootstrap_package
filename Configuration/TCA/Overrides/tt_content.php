@@ -147,7 +147,7 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = array_replace_recursive(
             rowDescription',
         'columnsOverrides' => [
             'bodytext' => [
-                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                'defaultExtras' => 'richtext:rte_transform'
             ]
 
         ]
@@ -192,7 +192,7 @@ $GLOBALS['TCA']['tt_content']['types']['textpic'] = array_replace_recursive(
             rowDescription',
         'columnsOverrides' => [
             'bodytext' => [
-                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                'defaultExtras' => 'richtext:rte_transform'
             ]
 
         ]
@@ -237,7 +237,7 @@ $GLOBALS['TCA']['tt_content']['types']['textmedia'] = array_replace_recursive(
             rowDescription',
         'columnsOverrides' => [
             'bodytext' => [
-                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                'defaultExtras' => 'richtext:rte_transform'
             ]
 
         ]
@@ -627,7 +627,7 @@ $tca = array(
         'bootstrap_package_panel' => array(
             'columnsOverrides' => array(
                 'bodytext' => array(
-                    'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                    'defaultExtras' => 'richtext:rte_transform'
                 ),
             ),
             'showitem' => '
@@ -717,7 +717,7 @@ $tca = array(
         'bootstrap_package_texticon' => array(
             'columnsOverrides' => array(
                 'bodytext' => array(
-                    'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                    'defaultExtras' => 'richtext:rte_transform'
                 ),
             ),
             'showitem' => '
