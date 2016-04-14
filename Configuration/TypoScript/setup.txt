@@ -271,6 +271,7 @@ page {
                 file = {$page.logo.file}
                 height = {$page.logo.height}
                 width = {$page.logo.width}
+                linktitle = {$page.logo.linktitle}
             }
             breadcrumb {
                 enable = {$page.theme.breadcrumb}

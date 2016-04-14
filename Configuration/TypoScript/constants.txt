@@ -30,6 +30,8 @@ page {
         width = 210
         # cat=bootstrap package: basic/110/130; type=string; label=Alternative text: Text of the alt attribute of the logo image (default: "<website title> logo")
         alt =
+        # cat=bootstrap package: basic/110/140; type=string; label=Link title: Title of the link attribute of the logo image
+        linktitle =
     }
 
     theme {

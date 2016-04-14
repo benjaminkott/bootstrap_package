@@ -4,12 +4,12 @@
         <div class="navbar-header navbar-header-main">
             <f:if condition="{settings.logo.file}">
                 <f:then>
-                    <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image">
+                    <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image" title="{settings.logo.linktitle}">
                         <img src="{f:uri.image(src: settings.logo.file)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
                     </f:link.page>
                 </f:then>
                 <f:else>
-                    <f:link.page pageUid="{rootPage}" class="navbar-brand">{siteTitle}</f:link.page>
+                    <f:link.page pageUid="{rootPage}" class="navbar-brand" title="{settings.logo.linktitle}">{siteTitle}</f:link.page>
                 </f:else>
             </f:if>
             <f:if condition="{mainnavigation}">
