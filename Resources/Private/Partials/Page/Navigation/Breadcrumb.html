@@ -1,7 +1,8 @@
 <f:if condition="{settings.breadcrumb.enable}">
     <f:if condition="{breadcrumb}">
-        <div role="navigation" class="breadcrumb-section hidden-xs hidden-sm">
+        <div aria-labelledby="breadcrumb" role="navigation" class="breadcrumb-section hidden-xs hidden-sm">
             <div class="container">
+                <p class="sr-only" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
                     <f:for each="{breadcrumb}" as="item">
                         <li class="{f:if(condition: item.current, then: 'active')}">
