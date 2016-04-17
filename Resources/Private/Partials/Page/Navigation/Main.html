@@ -36,11 +36,20 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <f:for each="{mainnavigationItem.children}" as="child">
-                                            <li class="{f:if(condition: child.active, then:'active')}">
-                                                <f:link.page pageUid="{child.data.uid}" title="{child.title}">
-                                                    {child.title}
-                                                </f:link.page>
-                                            </li>
+                                            <f:if condition="{child.data.isSpacer}">
+                                                <f:then>
+                                                    <li class="dropdown-header">
+                                                        {child.title}
+                                                    </li>
+                                                </f:then>
+                                                <f:else>
+                                                    <li class="{f:if(condition: child.active, then:'active')}">
+                                                        <f:link.page pageUid="{child.data.uid}" title="{child.title}">
+                                                            {child.title}
+                                                        </f:link.page>
+                                                    </li>
+                                                </f:else>
+                                            </f:if>
                                         </f:for>
                                     </ul>
                                 </f:then>
