@@ -6832,6 +6832,16 @@ h4 + h5 {
     font-size: 20.8px;
   }
 }
+.indent {
+  margin-left: 11%;
+  margin-right: 11%;
+}
+.indent-left {
+  margin-left: 33%;
+}
+.indent-right {
+  margin-right: 33%;
+}
 .valign {
   display: table;
   table-layout: fixed;
