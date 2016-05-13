@@ -43,19 +43,18 @@
             if (!$element.is(':hidden')) {
                 topPosition = $element.offset().top;
                 if (rowStart !== topPosition) {
-                    $.each(rowElements, function(){
-                        $(this).height(rowTallest);
-                    });
                     rowElements.length = 0;
                     rowStart = topPosition;
-                    rowTallest = $element.height();
+                    rowTallest = $element.outerHeight();
                     rowElements.push($element);
                 } else {
                     rowElements.push($element);
-                    rowTallest = (rowTallest < $element.height()) ? ($element.height()) : (rowTallest);
+                    rowTallest = (rowTallest < $element.outerHeight()) ? ($element.outerHeight()) : (rowTallest);
                 }
+                rowTallest = Math.ceil(rowTallest);
                 $.each(rowElements, function(){
-                    $(this).height(rowTallest);
+                    var difference = $(this).outerHeight() - $(this).height();
+                    $(this).height(rowTallest - difference);
                 });
             }
         });
