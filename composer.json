@@ -24,7 +24,7 @@
   "support": {
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
-  "version": "7.0.2",
+  "version": "7.0.3",
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*"
   },
