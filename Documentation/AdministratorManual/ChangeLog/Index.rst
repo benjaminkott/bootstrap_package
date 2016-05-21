@@ -21,6 +21,18 @@ Information.
 Version  Changes
 =======  =========================================================================================================================
 7.1.0    - [FEATURE] Add content element for vimeo and youtube videos
+         - [FEATURE] Clear less cache when all caches are cleared
+         - [TASK] Enable basic frontend editing
+         - [TASK] Accessibility - fix of landmark error added role and aria- labelledby attribute
+         - [TASK] Accessibility - added role navigation to breadcrumb
+         - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself
+         - [TASK] Accessibility - correction of landmark
+         - [TASK] Accessibility - Add link title attributes to logo constants, setup and html
+         - [BUGFIX] Load form configuration only if ext:form is installed
+         - [BUGFIX] Respect padding in equalheight script
+         - [BUGFIX] Correct overlapping of content elements with indention
+         - [BUGFIX] Corrected label for attribute
+         - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options
 6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
          - [BUGFIX] Use correct assignment for TypoScript value
          - [BUGFIX] Use camel caps format for functions in external media utility
