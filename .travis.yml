@@ -46,6 +46,6 @@ script:
   - >
     echo;
     echo "Running php lint";
-    find typo3conf/ext/$EXTENSIONKEY/ -name \*.php | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    find typo3conf/ext/$EXTENSIONKEY/ -name \*.php ! -path "typo3conf/ext/$EXTENSIONKEY/vendor/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
     typo3conf/ext/$EXTENSIONKEY/vendor/bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
