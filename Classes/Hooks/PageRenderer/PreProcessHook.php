@@ -1,5 +1,5 @@
 <?php
-namespace BK2K\BootstrapPackage\Hooks\PageRendererRender;
+namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
 /*
  *  The MIT License (MIT)
