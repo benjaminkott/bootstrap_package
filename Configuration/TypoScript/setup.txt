@@ -15,6 +15,16 @@ tt_content {
     key {
         field = CType
     }
+    stdWrap {
+		editPanel = 1
+		editPanel {
+			allow = move, new, edit, hide, delete
+			label = %s
+			onlyCurrentPid = 1
+			previewBorder = 1
+			edit.displayRecord = 1
+		}
+	}
 }
 
 #### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
