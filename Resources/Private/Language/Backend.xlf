@@ -135,6 +135,13 @@
                 <source>Display selected pages as thumbnail</source>
             </trans-unit>
 
+            <trans-unit id="content_element.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="content_element.media.description">
+                <source>Any number of youtube and vimeo videos in columns and rows with a caption.</source>
+            </trans-unit>
+
             <trans-unit id="content_element.panel">
                 <source>Panel</source>
             </trans-unit>

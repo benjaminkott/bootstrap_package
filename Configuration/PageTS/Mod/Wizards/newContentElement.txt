@@ -31,7 +31,7 @@ mod.wizards {
                         }
                     }
                     textmedia {
-                        iconIdentifier = content-textpic
+                        iconIdentifier = content-textmedia
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_title
                         description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_description
                         tt_content_defValues {
@@ -44,6 +44,14 @@ mod.wizards {
                         description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_description
                         tt_content_defValues {
                             CType = image
+                        }
+                    }
+                    media {
+                        iconIdentifier = mimetypes-x-content-multimedia
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media.description
+                        tt_content_defValues {
+                            CType = media
                         }
                     }
                     bullets {

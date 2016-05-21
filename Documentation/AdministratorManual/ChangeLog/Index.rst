@@ -20,6 +20,7 @@ Information.
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+7.1.0    - [FEATURE] Add content element for vimeo and youtube videos
 6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
          - [BUGFIX] Use correct assignment for TypoScript value
          - [BUGFIX] Use camel caps format for functions in external media utility
