@@ -28,6 +28,7 @@ Version  Changes
          - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself
          - [TASK] Accessibility - correction of landmark
          - [TASK] Accessibility - Add link title attributes to logo constants, setup and html
+         - [BUGFIX] Remove vendor dir from php lint tests
          - [BUGFIX] Load form configuration only if ext:form is installed
          - [BUGFIX] Respect padding in equalheight script
          - [BUGFIX] Correct overlapping of content elements with indention
