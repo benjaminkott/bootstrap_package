@@ -30,7 +30,7 @@
                             <f:if condition="{mainnavigationItem.children}">
                                 <f:then>
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        {mainnavigationItem.title}
+                                        {mainnavigationItem.title -> f:format.raw()}
                                         <b class="caret"></b>
                                         <span class="bar"></span>
                                     </a>
@@ -45,8 +45,8 @@
                                     </ul>
                                 </f:then>
                                 <f:else>
-                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{mainnavigationItem.title}">
-                                        {mainnavigationItem.title}
+                                    <f:link.page pageUid="{mainnavigationItem.data.uid}" title="{mainnavigationItem.title -> f:format.raw(}">
+                                        {mainnavigationItem.title -> f:format.raw()}
                                         <span class="bar"></span>
                                     </f:link.page>
                                 </f:else>
