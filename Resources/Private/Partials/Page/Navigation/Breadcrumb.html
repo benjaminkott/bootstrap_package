@@ -11,7 +11,7 @@
                                     {item.title -> f:format.raw()}
                                 </f:then>
                                 <f:else>
-                                    <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+                                    <f:link.page pageUid="{item.data.uid}" title="{item.title -> f:format.raw()}">
                                         {item.title -> f:format.raw()}
                                     </f:link.page>
                                 </f:else>
