@@ -21,7 +21,7 @@
  *
  * And then simply run
  *
- *  $ php-cs-fixer fix --config-file Build/.php_cs
+ *  $ php-cs-fixer fix --config-file .php_cs
  *
  * inside the TYPO3 directory. Warning: This may take up to 10 minutes.
  *
