@@ -41,6 +41,13 @@ tt_content.bootstrap_package_texticon {
                 }
             }
         }
+        iconPosition {
+            cObject = TEXT
+            cObject {
+                field = icon_position
+                htmlSpecialChars = 1
+            }
+        }
         iconStyle {
             cObject = COA
             cObject {
@@ -48,12 +55,14 @@ tt_content.bootstrap_package_texticon {
                 10 {
                     field = icon_color
                     required = 1
+                    htmlSpecialChars = 1
                     noTrimWrap = |color: |;|
                 }
                 20 = TEXT
                 20 {
                     field = icon_background
                     required = 1
+                    htmlSpecialChars = 1
                     noTrimWrap = |background-color: |;|
                 }
                 stdWrap {
@@ -73,6 +82,7 @@ tt_content.bootstrap_package_texticon {
     10 {
         field = icon
         required = 1
+        htmlSpecialChars = 1
         innerWrap = <span class="glyphicon glyphicon-|"{register:iconStyle}></span>
         innerWrap.insertData = 1
         dataWrap = <div class="texticon-icon{register:iconClass}">|</div>
@@ -97,7 +107,7 @@ tt_content.bootstrap_package_texticon {
         }
         wrap = <div class="texticon-content">|</div>
     }
-    30 = RESTORE_REGISTER
-    wrap = <div class="texticon texticon-{field:icon_position}">|</div>
+    wrap = <div class="texticon texticon-{register:iconPosition}">|</div>
     wrap.insertData = 1
+    postCObject = RESTORE_REGISTER
 }
