@@ -168,6 +168,7 @@ lib.stdheader {
                 10 {
                     field = header_position
                     required = 1
+                    htmlSpecialChars = 1
                     noTrimWrap = |text-| |
                 }
                 20 {
@@ -200,6 +201,7 @@ lib.stdheader {
             20 = TEXT
             20 {
                 field = subheader
+                htmlSpecialChars = 1
                 stdWrap.noTrimWrap = | <small>|</small>|
                 stdWrap.required = 1
             }
@@ -303,6 +305,7 @@ lib.newsheader {
         10 = TEXT
         10 {
             field = author
+            htmlSpecialChars = 1
             typolink.parameter.field = author_email
             noTrimWrap = |<span class="news-author"><strong>BY: |</strong></span>|
             required = 1

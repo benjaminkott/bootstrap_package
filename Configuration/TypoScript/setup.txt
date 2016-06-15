@@ -136,6 +136,7 @@ lib.navigation.main {
                     10 = TEXT
                     10.value = <li class="active">|</li>
                 }
+                stdWrap.htmlSpecialChars = 1
             }
 
             ACT < .NO
@@ -204,6 +205,7 @@ lib.navigation.subnavigation {
                     10 = TEXT
                     10.value = <li class="active">|</li>
                 }
+                stdWrap.htmlSpecialChars = 1
             }
             ACT < .NO
             ACT {
@@ -236,6 +238,7 @@ lib.navigation.subnavigation {
                     stdWrap.field = title
                     ATagTitle.field = nav_title // title
                     wrapItemAndSub = <li>|</li>
+                    stdWrap.htmlSpecialChars = 1
                 }
 
                 CUR = 1
@@ -243,6 +246,7 @@ lib.navigation.subnavigation {
                     stdWrap.field = title
                     doNotLinkIt = 1
                     wrapItemAndSub = <li class="active">|</li>
+                    stdWrap.htmlSpecialChars = 1
                 }
             }
         }
@@ -752,18 +756,21 @@ config {
                 20 {
                     field = title
                     required = 1
+                    htmlSpecialChars = 1
                     wrap = <meta property="og:title" content="|" />
                 }
                 30 = TEXT
                 30 {
                     data = TSFE:tmpl|setup|sitetitle
                     required = 1
+                    htmlSpecialChars = 1
                     wrap = <meta property="og:site_name" content="|" />
                 }
                 40 = TEXT
                 40 {
                     field = description
                     required = 1
+                    htmlSpecialChars = 1
                     wrap = <meta property="og:description" content="|" />
                 }
             }
