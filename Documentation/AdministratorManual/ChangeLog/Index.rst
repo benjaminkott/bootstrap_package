@@ -34,6 +34,185 @@ Version  Changes
          - [BUGFIX] Correct overlapping of content elements with indention
          - [BUGFIX] Corrected label for attribute
          - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options
+7.0.0    - [!!!][FEATURE] Register optional PageTS config files
+         - [FEATURE] Add PhotoSwipe as lightbox
+         - [FEATURE] Allow media content in accordion
+         - [FEATURE] Allow media content in tabs
+         - [FEATURE] Allow photoswipe to be opened by url params
+         - [FEATURE] Allow to disable footer-section with Typoscript constant.
+         - [FEATURE] Include records without default translation in content select
+         - [FEATURE] Remaining PageTS templates are configurable
+         - [FEATURE] Thumbnail Menu
+         - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other
+         - [!!!][TASK] Disable compressing and concatenation of CSS and JS files by default
+         - [!!!][TASK] Disable link to top
+         - [!!!][TASK] Drop BackendLayoutDataProvider since its part of the core now
+         - [!!!][TASK] Drop IE8 support
+         - [!!!][TASK] Drop TemplateFileResolver fallback for 6.2
+         - [!!!][TASK] Drop TypoScript fallbacks for 6.2, 7.4
+         - [!!!][TASK] Dropping TYPO3 6.2 support and raise version to 7.0.0-dev
+         - [!!!][TASK] Remove some 6.2 specific fallbacks
+         - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor
+         - [!!!][TASK] Send cache headers per default
+         - [!!!][TASK] Use more strict template names and flatten folder structure for templates to avoid conflicts
+         - [TASK] Add FluidTemplate for bullets content element
+         - [TASK] Add FluidTemplate for header content element
+         - [TASK] Add FluidTemplate for image content element
+         - [TASK] Add FluidTemplate for text content element
+         - [TASK] Add FluidTemplate for textpic content element
+         - [TASK] Add basic configuration and template overrides for indexed_search
+         - [TASK] Add basic FluidTemplate for mailform and set paths
+         - [TASK] Add case for tt_content rendering
+         - [TASK] add classes to containers useful to better select them with CSS and Javascript
+         - [TASK] Add configuration for felogin
+         - [TASK] Add content element wizard items for header, text, textpic
+         - [TASK] Add content element wizard items for table
+         - [TASK] Add description to menu processor
+         - [TASK] Add escaped class to example in lib.dynamicContent
+         - [TASK] Add FluidTemplate for divider content element
+         - [TASK] Add FluidTemplate for html content element
+         - [TASK] Add FluidTemplate for image content element
+         - [TASK] Add FluidTemplate for list
+         - [TASK] Add FluidTemplate for menus
+         - [TASK] Add FluidTemplate for shortcut
+         - [TASK] Add FluidTemplate for table content element
+         - [TASK] Add FluidTemplate for uploads content element
+         - [TASK] Add header palette to cType list
+         - [TASK] Add note to vagrant box
+         - [TASK] Add notice about content rendering extensions
+         - [TASK] Add php cs fixer config
+         - [TASK] Add php7 to travis
+         - [TASK] Add preview for content element list-group
+         - [TASK] Add preview for external media content element in page module - CMS7 only
+         - [TASK] Add psr-4 autoload config to ext_emconf
+         - [TASK] Add recommended apache modules
+         - [TASK] Add TCA and wizard for content element div
+         - [TASK] Add TCA and wizard for content element html
+         - [TASK] Add TCA for content element bullet list
+         - [TASK] Add TCA for content element header
+         - [TASK] Add TCA for content element image
+         - [TASK] Add TCA for content element text
+         - [TASK] Add TCA for content element textpic
+         - [TASK] Add textmedia content element
+         - [TASK] Add TYPO3 branch for 7.6 and exclude php versions < 7 on master
+         - [TASK] Add TYPO3 CMS 8 as compatible version
+         - [TASK] Add typoscript parse functions
+         - [TASK] Add typoscript setup as content rendering template
+         - [TASK] Adjust frontend login configuration
+         - [TASK] Adjust icons for element carousel-item types
+         - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title.
+         - [TASK] breadcrumb: include the homepage link at the beginning of the breadcrumb.
+         - [TASK] Correct accordion rendering
+         - [TASK] Correct tab rendering when no media is selected
+         - [TASK] Drop experimental OnePage setup
+         - [TASK] Enable async loading for modernizr and windowsphone-fix
+         - [TASK] Enable header position again
+         - [TASK] Enable section frame again
+         - [TASK] Extract lib.dynamicContent from Base.ts
+         - [TASK] Fix Code according to CGL
+         - [TASK] fix tag closure for HTML5 head meta and link
+         - [TASK] Fix typo
+         - [TASK] Flatten content element rendering
+         - [TASK] Flatten content element setup and add layouts and sections
+         - [TASK] Harden expression in ExternalMediaUtility
+         - [TASK] Harden expression in PreProcessHook
+         - [TASK] Harden template names for page module previews
+         - [TASK] Keep additional params for youtube urls
+         - [TASK] Make css adjustments
+         - [TASK] Migrate reference to "wizard_element_browser" to new "wizard_link" - fixes #258
+         - [TASK] Move css_styled_content typoscript configuration
+         - [TASK] Move section frames to fluid
+         - [TASK] Move uploads to typical page content tab
+         - [TASK] Optimize export
+         - [TASK] Reduce size of external media preview
+         - [TASK] Register content element accordion
+         - [TASK] Register content element carousel icon
+         - [TASK] Register content element external-media icon
+         - [TASK] Register content element listgroup icon
+         - [TASK] Register content element panel
+         - [TASK] Register content element tab icon
+         - [TASK] Register content element tab-item icon
+         - [TASK] Register content element texticon
+         - [TASK] Register icon for element accordion-item
+         - [TASK] Register icons for element carousel-item types
+         - [TASK] Remove backend_layout upgrade wizard
+         - [TASK] Remove dependency to styles.content.get definition
+         - [TASK] Remove iconInOptionTags and noIconsBelowSelect - fixes #243
+         - [TASK] Remove leftover mention of css_styled_content
+         - [TASK] Remove realurl autoconfiguration in preparation for realurl 2
+         - [TASK] Remove unneeded rte_transform options
+         - [TASK] Remove unneeded typo3_mode check
+         - [TASK] Remove unnessesary adjustment of the header palette
+         - [TASK] Remove unnessesary column classes
+         - [TASK] RTE: Classes for links, see benjaminkott#281
+         - [TASK] Set defaults for backend configuration
+         - [TASK] Split source and distribution javascript files and use static paths
+         - [TASK] Steamline header usage templates
+         - [TASK] Test asset pipe on travis
+         - [TASK] Update bootstrap to 3.3.6
+         - [TASK] Update hammerjs to 2.0.6
+         - [TASK] Update jQuery to 2.1.4
+         - [TASK] Update jQuery to 2.2.0
+         - [TASK] Update jQuery to 2.2.1
+         - [TASK] Update less.php to 1.7.0.9
+         - [TASK] Update oyejorge/less.php to 1.7.0.10
+         - [TASK] Use dataprocessing in listgroup content element
+         - [TASK] Use default layout as identifier when not backend_layout is selected
+         - [TASK] Use fluid template name for accordion content element
+         - [TASK] Use fluid template name for carousel content element
+         - [TASK] Use fluid template name for default content element
+         - [TASK] Use fluid template name for external media content element
+         - [TASK] Use fluid template name for list group content element
+         - [TASK] Use fluid template name for panel content element
+         - [TASK] Use fluid template name for tab content element
+         - [TASK] Use fluidtemplate for breadcrumb rendering
+         - [TASK] Use fluidtemplate for languagemenu rendering
+         - [TASK] Use fluidtemplate for mainnavigation rendering
+         - [TASK] Use fluidtemplate for subnavigation rendering
+         - [TASK] Use use titlefield instead of raw data in menus - fixes #273
+         - [BUGFIX] Adapt moved language file
+         - [BUGFIX] Add header to cType List
+         - [BUGFIX] Add missing column overrides for text and textpic content elements
+         - [BUGFIX] Add missing comma in uploads field selection
+         - [BUGFIX] Add missing link for media type image in accordion
+         - [BUGFIX] Add missing link for media type image in tabs
+         - [BUGFIX] Add missing renderTypes to accordion item
+         - [BUGFIX] Add missing renderTypes to carousel item
+         - [BUGFIX] Add missing renderTypes to tab item
+         - [BUGFIX] Add missing renderTypes to tt_content fields
+         - [BUGFIX] Add missing showIconTable setting for field icon
+         - [BUGFIX] Add the table colspan and rowspan attributes to allowed attributes in RTE configuration
+         - [BUGFIX] Adjust imagepath and wizard settings for carousel links
+         - [BUGFIX] Check if content element type exists before merging
+         - [BUGFIX] Correct accordion content element markup
+         - [BUGFIX] Correct composer branch-alias
+         - [BUGFIX] Correct grunt watch tasks
+         - [BUGFIX] Correct height operator for opengraph image - fixes #227
+         - [BUGFIX] Correct PSR2  issue
+         - [BUGFIX] Correct typoscript paths
+         - [BUGFIX] Disable output escaping for viewhelpers
+         - [BUGFIX] Fix behaviour of strictly allowed RTE classes
+         - [BUGFIX] gallery in 2 cols also for devices >= 768px and < 992px
+         - [BUGFIX] Make links visible in jumbotron - fixes #248
+         - [BUGFIX] Merge type configuration in TCA instead of overriding
+         - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8
+         - [BUGFIX] Remove spaceless viewhelper
+         - [BUGFIX] Respect sorting for accordion items
+         - [BUGFIX] Respect sorting for tab items
+         - [BUGFIX] use the correct Typoscript constant in setup
+         - [CLEANUP] Bootstrap Package external media item
+         - [CLEANUP] Bootstrap Package list group item
+         - [CLEANUP] Correct email in bower setup
+         - [CLEANUP] Correct Readme
+         - [CLEANUP] Initialize fieldsToUpdate in ext_update
+         - [CLEANUP] PSR-2 stuff
+         - [CLEANUP] Remove TYPO3 6.2 and PHP5.3 and PHP5.4 from Travis CI
+         - [CLEANUP] Remove unused file
+         - [CLEANUP] Remove unused header partial
+         - [CLEANUP] Remove unused Hooks and Xclass
+         - [CLEANUP] Remove unused use statements in install service
+         - [CLEANUP] Remove unused use statements in realurl autoconfig
+         - [CLEANUP] Rendering definition for default content element
 6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
          - [BUGFIX] Use correct assignment for TypoScript value
          - [BUGFIX] Use camel caps format for functions in external media utility
