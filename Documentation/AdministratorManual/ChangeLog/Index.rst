@@ -20,6 +20,9 @@ Information.
 =======  =========================================================================================================================
 Version  Changes
 =======  =========================================================================================================================
+6.2.16   - [SECURITY] 6.2.16 security changes - TYPO3-EXT-SA-2016-018: Cross-Site Scripting
+         - [BUGFIX] Only check for TYPO3 6.2 and 7.6
+         - [BUGFIX] Remove vendor dir from php lint tests
 6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
          - [BUGFIX] Use correct assignment for TypoScript value
          - [BUGFIX] Use camel caps format for functions in external media utility
