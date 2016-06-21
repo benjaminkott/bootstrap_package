@@ -209,7 +209,7 @@ class MenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * @return void
+     * @return array
      */
     public function prepareConfiguration()
     {
