@@ -389,9 +389,9 @@ class MenuProcessor implements DataProcessorInterface
      * @param array $conf
      * @return  string JSON encoded content
      */
-    public function jsonEncodeUserFunc($content, $conf) {
+    public function jsonEncodeUserFunc($content, $conf)
+    {
         $content = json_encode($content, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
         return $content;
     }
-
 }
