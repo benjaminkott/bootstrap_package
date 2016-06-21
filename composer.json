@@ -24,21 +24,49 @@
   "support": {
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
+  "require": {
+    "typo3/cms-core": "^7.6.0|^8.0",
+    "typo3/cms": "dev-master"
+  },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*"
+    "squizlabs/php_codesniffer": "2.*",
+    "namelesscoder/typo3-repository-client": "1.1.x-dev",
+    "mikey179/vfsStream": "1.4.*@dev",
+    "phpunit/phpunit": "~4.7.0"
   },
   "autoload": {
     "psr-4": {
       "BK2K\\BootstrapPackage\\": "Classes"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "TYPO3\\CMS\\Core\\Tests\\": ".build/vendor/typo3/cms/typo3/sysext/core/Tests/",
+      "TYPO3\\CMS\\Fluid\\Tests\\": ".build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
+    }
+  },
   "replace": {
     "bootstrap_package": "self.version",
     "typo3-ter/bootstrap-package": "self.version"
   },
+  "config": {
+    "process-timeout": 2000,
+    "vendor-dir": ".build/vendor",
+    "bin-dir": ".build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .build/web/typo3conf/ext/",
+      "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+    ]
+  },
   "extra": {
     "branch-alias": {
       "dev-master": "7.1.x-dev"
+    },
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".build/web"
     }
   }
 }
