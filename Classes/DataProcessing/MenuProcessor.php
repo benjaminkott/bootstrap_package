@@ -136,9 +136,9 @@ class MenuProcessor implements DataProcessorInterface
                 '2' => 'TEXT',
                 '2.' => [
                     'field' => 'nav_title // title',
-                    'htmlSpecialChars' => '1',
                     'trim' => '1',
-                    'wrap' => ',"title":"|"'
+                    'wrap' => ',"title":|',
+                    'preUserFunc' => 'BK2K\BootstrapPackage\DataProcessing\MenuProcessor->jsonEncodeUserFunc'
                 ],
                 '3' => 'TEXT',
                 '3.' => [
@@ -379,6 +379,19 @@ class MenuProcessor implements DataProcessorInterface
      */
     public function getDataAsJson()
     {
-        return json_encode($this->cObj->data);
+        return json_encode($this->cObj->data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
     }
+
+    /**
+     * This UserFunc encodes the content as Json
+     *
+     * @param string $content
+     * @param array $conf
+     * @return  string JSON encoded content
+     */
+    public function jsonEncodeUserFunc($content, $conf) {
+        $content = json_encode($content, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+        return $content;
+    }
+
 }
