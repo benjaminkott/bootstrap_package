@@ -50,7 +50,7 @@ script:
   - >
     echo;
     echo "Running unit tests";
-    .build/bin/phpunit -c .build/vendor/typo3/cms/typo3/sysext/core/Build/UnitTests.xml Tests/Unit/
+    .build/bin/phpunit -c .build/vendor/typo3/cms/typo3/sysext/core/Build/UnitTests.xml
   - >
     echo;
     echo "Running php lint";
