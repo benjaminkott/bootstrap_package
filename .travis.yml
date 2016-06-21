@@ -49,10 +49,6 @@ before_script:
 script:
   - >
     echo;
-    echo "Running unit tests";
-    ./.build/bin/phpunit --colors -c .build/vendor/typo3/cms/typo3/sysext/core/Build/UnitTests.xml
-  - >
-    echo;
     echo "Running php lint";
     find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
