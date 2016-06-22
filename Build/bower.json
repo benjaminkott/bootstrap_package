@@ -17,7 +17,6 @@
     "homepage": "https://github.com/benjaminkott/bootstrap_package",
     "private": true,
     "dependencies": {
-        "hammerjs": "2.0.8",
         "photoswipe": "4.1.1"
     }
 }

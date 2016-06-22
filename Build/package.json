@@ -17,6 +17,7 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "jquery": "2.2.4",
-    "bootstrap": "3.3.6"
+    "bootstrap": "3.3.6",
+    "hammerjs": "2.0.8"
   }
 }

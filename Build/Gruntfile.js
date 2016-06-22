@@ -125,8 +125,6 @@ module.exports = function(grunt) {
                     destPrefix: '<%= paths.resources %>'
                 },
                 files: {
-                    // hammer.js
-                    'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
                     // PhotoSwipe
                     'Public/JavaScript/Libs/photoswipe.min.js': 'photoswipe/dist/photoswipe.min.js',
                     'Public/JavaScript/Libs/photoswipe-ui-default.min.js': 'photoswipe/dist/photoswipe-ui-default.min.js',
@@ -142,6 +140,16 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>jquery/dist/',
                         src: 'jquery.min.js',
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
+            },
+            hammerjs: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>hammerjs/',
+                        src: 'hammer.min.js',
                         dest: '<%= paths.js %>Libs/',
                         expand: true
                     }
