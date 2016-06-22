@@ -15,6 +15,7 @@ module.exports = function(grunt) {
             bower: 'bower_components/',
             node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
+            images: '<%= paths.resources %>Public/Images/',
             fonts: '<%= paths.resources %>Public/Fonts/',
             less: '<%= paths.resources %>Public/Less/',
             css: '<%= paths.resources %>Public/Css/',
@@ -113,27 +114,6 @@ module.exports = function(grunt) {
                 tasks: 'less'
             }
         },
-        bowercopy: {
-            options: {
-                clean: false,
-                report: false,
-                runBower: false,
-                srcPrefix: 'bower_components/'
-            },
-            all: {
-                options: {
-                    destPrefix: '<%= paths.resources %>'
-                },
-                files: {
-                    // PhotoSwipe
-                    'Public/JavaScript/Libs/photoswipe.min.js': 'photoswipe/dist/photoswipe.min.js',
-                    'Public/JavaScript/Libs/photoswipe-ui-default.min.js': 'photoswipe/dist/photoswipe-ui-default.min.js',
-                    'Public/Images/PhotoSwipe/default-skin.png': 'photoswipe/dist/default-skin/default-skin.png',
-                    'Public/Images/PhotoSwipe/default-skin.svg': 'photoswipe/dist/default-skin/default-skin.svg',
-                    'Public/Images/PhotoSwipe/preloader.gif': 'photoswipe/dist/default-skin/preloader.gif'
-                }
-            }
-        },
         copy: {
             jquery: {
                 files: [
@@ -151,6 +131,29 @@ module.exports = function(grunt) {
                         cwd: '<%= paths.node %>hammerjs/',
                         src: 'hammer.min.js',
                         dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
+            },
+            photoswipe: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>photoswipe/dist/',
+                        src: [
+                            'photoswipe.min.js',
+                            'photoswipe-ui-default.min.js'
+                        ],
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>photoswipe/dist/default-skin/',
+                        src: [
+                            'default-skin.png',
+                            'default-skin.svg',
+                            'preloader.gif'
+                        ],
+                        dest: '<%= paths.images %>PhotoSwipe/',
                         expand: true
                     }
                 ]
@@ -183,8 +186,6 @@ module.exports = function(grunt) {
     /**
      * Register tasks
      */
-    grunt.loadNpmTasks('grunt-bowercopy');
-    grunt.loadNpmTasks('grunt-bower-just-install');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -194,7 +195,7 @@ module.exports = function(grunt) {
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['bower_install', 'bowercopy', 'copy']);
+    grunt.registerTask('update', ['copy']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('build', ['update', 'css', 'js']);
