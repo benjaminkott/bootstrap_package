@@ -181,6 +181,7 @@ return array(
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 3,
+                'softref' => 'rtehtmlarea_images,typolink_tag,email[subst],url',
             ),
             'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
         ),
