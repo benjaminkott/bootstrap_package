@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         paths: {
             root: '../',
             bower: 'bower_components/',
+            node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
             less: '<%= paths.resources %>Public/Less/',
             css: '<%= paths.resources %>Public/Css/',
@@ -123,8 +124,6 @@ module.exports = function(grunt) {
                     destPrefix: '<%= paths.resources %>'
                 },
                 files: {
-                    // jQuery
-                    'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
                     // hammer.js
                     'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
                     // Bootstrap
@@ -139,6 +138,18 @@ module.exports = function(grunt) {
                     'Public/Images/PhotoSwipe/preloader.gif': 'photoswipe/dist/default-skin/preloader.gif'
                 }
             }
+        },
+        copy: {
+            jquery: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>jquery/dist/',
+                        src: 'jquery.min.js',
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
+            }
         }
     });
 
@@ -148,6 +159,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-bower-just-install');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -155,7 +167,7 @@ module.exports = function(grunt) {
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['bower_install', 'bowercopy']);
+    grunt.registerTask('update', ['bower_install', 'bowercopy', 'copy']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('build', ['update', 'css', 'js']);
