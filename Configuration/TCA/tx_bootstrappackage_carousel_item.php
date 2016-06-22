@@ -346,6 +346,7 @@ return array(
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
+                'softref' => 'rtehtmlarea_images,typolink_tag,email[subst],url',
                 'eval' => 'trim',
                 'wizards' => array(
                     't3editor' => array(
