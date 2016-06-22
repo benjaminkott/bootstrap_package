@@ -34,8 +34,7 @@ module.exports = function(grunt) {
                 compress: {
                     warnings: false
                 },
-                mangle: true,
-                preserveComments: 'some'
+                preserveComments: false
             },
             bootstrapLightbox: {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
@@ -152,12 +151,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-npm-install');
 
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['npm-install', 'bower_install', 'bowercopy']);
+    grunt.registerTask('update', ['bower_install', 'bowercopy']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('build', ['update', 'css', 'js']);
