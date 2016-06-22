@@ -25,8 +25,8 @@
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
   "require": {
-    "typo3/cms-core": "^7.6.0|^8.0",
-    "typo3/cms": "dev-master"
+    "typo3/cms-core": "^7.6.0 || ^8.0",
+    "typo3/cms": "^7.6.0 || ^8.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*",
