@@ -9,9 +9,18 @@ mod {
                 config {
                     backend_layout {
                         colCount = 6
-                        rowCount = 2
+                        rowCount = 3
                         rows {
                             1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
+                                        colPos = 3
+                                        colspan = 6
+                                    }
+                                }
+                            }
+                            2 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.subnav
@@ -24,7 +33,7 @@ mod {
                                     }
                                 }
                             }
-                            2 {
+                            3 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
