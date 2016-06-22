@@ -15,6 +15,7 @@ module.exports = function(grunt) {
             bower: 'bower_components/',
             node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
+            fonts: '<%= paths.resources %>Public/Fonts/',
             less: '<%= paths.resources %>Public/Less/',
             css: '<%= paths.resources %>Public/Css/',
             js: '<%= paths.resources %>Public/JavaScript/'
@@ -126,10 +127,6 @@ module.exports = function(grunt) {
                 files: {
                     // hammer.js
                     'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
-                    // Bootstrap
-                    'Public/Less/Bootstrap': 'bootstrap/less',
-                    'Public/Fonts': 'bootstrap/fonts',
-                    'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
                     // PhotoSwipe
                     'Public/JavaScript/Libs/photoswipe.min.js': 'photoswipe/dist/photoswipe.min.js',
                     'Public/JavaScript/Libs/photoswipe-ui-default.min.js': 'photoswipe/dist/photoswipe-ui-default.min.js',
@@ -146,6 +143,28 @@ module.exports = function(grunt) {
                         cwd: '<%= paths.node %>jquery/dist/',
                         src: 'jquery.min.js',
                         dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
+            },
+            bootstrap: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>bootstrap/dist/js/',
+                        src: 'bootstrap.min.js',
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>bootstrap/dist/fonts/',
+                        src: '*',
+                        dest: '<%= paths.fonts %>',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>bootstrap/less/',
+                        src: '**',
+                        dest: '<%= paths.less %>Bootstrap/',
                         expand: true
                     }
                 ]
