@@ -58,9 +58,7 @@ script:
   - >
     echo "Installing npm modules";
     pushd Build;
-    npm install && npm install bower grunt-cli;
-    echo "Installing bower dependencies";
-    node_modules/.bin/bower install;
+    npm install && npm install grunt-cli;
     echo "Executing grunt";
     node_modules/.bin/grunt;
     popd
