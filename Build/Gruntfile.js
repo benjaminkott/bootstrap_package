@@ -114,6 +114,23 @@ module.exports = function(grunt) {
                 tasks: 'less'
             }
         },
+        imagemin: {
+            images: {
+                files: [
+                    {
+                        cwd: '<%= paths.images %>',
+                        src: ['**/*.{png,jpg,gif}'],
+                        dest: '<%= paths.images %>',
+                        expand: true
+                    }
+                ]
+            },
+            extensionicon: {
+                files: {
+                    '<%= paths.root %>ext_icon.png': '<%= paths.root %>ext_icon.png'
+                }
+            }
+        },
         copy: {
             jquery: {
                 files: [
@@ -191,6 +208,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     /**
      * Grunt update task
@@ -198,7 +216,8 @@ module.exports = function(grunt) {
     grunt.registerTask('update', ['copy']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
-    grunt.registerTask('build', ['update', 'css', 'js']);
+    grunt.registerTask('image', ['imagemin']);
+    grunt.registerTask('build', ['update', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);
 
 };
