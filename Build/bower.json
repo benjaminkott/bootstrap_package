@@ -18,7 +18,7 @@
     "private": true,
     "dependencies": {
         "jquery": "2.2.1",
-        "hammerjs": "2.0.6",
+        "hammerjs": "2.0.8",
         "bootstrap": "3.3.6",
         "photoswipe": "~4.1.1"
     }
