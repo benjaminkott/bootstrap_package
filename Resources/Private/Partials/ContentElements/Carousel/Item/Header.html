@@ -1,7 +1,11 @@
-<div class="valign" {f:if(condition: item.text_color,then:'style="color: {item.text_color};"')}>
-    <div class="vcontainer">
-        <div class="carousel-text-inner">
-            <h{item.header_layout} class="text-center awesome">{item.header}</h{item.header_layout}>
-        </div>
-    </div>
-</div>
+<f:if condition="{item.header}">
+	<f:then>
+		<div class="valign" {f:if(condition: item.text_color,then:'style="color: {item.text_color};"')}>
+			<div class="vcontainer">
+				<div class="carousel-text-inner">
+					<h{item.header_layout} class="text-center awesome">{item.header}</h{item.header_layout}>
+				</div>
+			</div>
+		</div>
+	</f:then>
+</f:if>
