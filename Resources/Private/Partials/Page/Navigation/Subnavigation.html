@@ -8,15 +8,22 @@
 
 <f:section name="SubnavigationItem">
     <f:for each="{menu}" as="item">
-        <li class="{f:if(condition: item.active, then:'active')}">
-            <f:link.page pageUid="{item.data.uid}" title="{item.title}">
-                {item.title}
-            </f:link.page>
-            <f:if condition="{item.children}">
-                <ul>
-                    <f:render section="SubnavigationItem" arguments="{menu: item.children}" />
-                </ul>
-            </f:if>
-        </li>
+        <f:if condition="{item.spacer}">
+            <f:then>
+                <li class="nav-header">{item.title}</li>
+            </f:then>
+            <f:else>
+                <li class="{f:if(condition: item.active, then:'active')}">
+                    <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+                        {item.title}
+                    </f:link.page>
+                    <f:if condition="{item.children}">
+                        <ul>
+                            <f:render section="SubnavigationItem" arguments="{menu: item.children}" />
+                        </ul>
+                    </f:if>
+                </li>
+            </f:else>
+        </f:if>
     </f:for>
 </f:section>

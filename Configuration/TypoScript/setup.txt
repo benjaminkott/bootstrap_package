@@ -240,6 +240,7 @@ page {
             10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             10 {
                 levels = 2
+                includeSpacer = 1
                 as = mainnavigation
             }
             20 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
@@ -247,6 +248,7 @@ page {
                 entryLevel = 1
                 levels = 2
                 expandAll = 0
+                includeSpacer = 1
                 as = subnavigation
             }
             30 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor

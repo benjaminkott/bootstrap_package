@@ -61,6 +61,12 @@
 }
 .navbar-main {
     > li {
+        > .navbar-text {
+            font-family: @headings-font-family;
+            text-transform: uppercase;
+            margin: 0;
+            padding: @nav-link-padding;
+        }
         > a {
             font-family: @headings-font-family;
             font-weight: bold;
@@ -181,6 +187,7 @@
                     margin-right: 0px;
                 }
             }
+            > .navbar-text,
             > a {
                 line-height: round(@navbar-height*2);
                 padding: 0px @navbar-padding-horizontal;

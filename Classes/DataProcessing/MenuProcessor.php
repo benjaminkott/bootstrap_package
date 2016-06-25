@@ -40,6 +40,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  * as - The variable to be used within the result
  * levels - Number of levels of the menu
  * expandAll = If false, submenus will only render if the parent page is active
+ * includeSpacer = If true, pagetype spacer will be included in the menu
  * titleField = Field that should be used for the title
  *
  * See HMENU docs for more options.
@@ -55,6 +56,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *   levels = 7
  *   as = menu
  *   expandAll = 1
+ *   includeSpacer = 1
  *   titleField = nav_title // title
  *   dataProcessing {
  *    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
@@ -149,6 +151,11 @@ class MenuProcessor implements DataProcessorInterface
                 '4.' => [
                     'value' => '0',
                     'wrap' => ',"current":|'
+                ],
+                '5' => 'TEXT',
+                '5.' => [
+                    'value' => '0',
+                    'wrap' => ',"spacer":|'
                 ]
             ]
         ]
@@ -160,6 +167,7 @@ class MenuProcessor implements DataProcessorInterface
     public $menuDefaults = [
         'levels' => 1,
         'expandAll' => 1,
+        'includeSpacer' => 0,
         'as' => 'menu',
         'titleField' => 'nav_title // title'
     ];
@@ -173,6 +181,11 @@ class MenuProcessor implements DataProcessorInterface
      * @var int
      */
     protected $menuExpandAll;
+
+    /**
+     * @var int
+     */
+    protected $menuIncludeSpacer;
 
     /**
      * @var string
@@ -251,13 +264,13 @@ class MenuProcessor implements DataProcessorInterface
             $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
                 $this->menuLevelConfig['stdWrap.']['cObject.'],
                 [
-                    '5' => 'TEXT',
-                    '5.' => [
+                    '6' => 'TEXT',
+                    '6.' => [
                         'value' => '1',
                         'wrap' => ',"available":|'
                     ],
-                    '6' => 'TEXT',
-                    '6.' => [
+                    '7' => 'TEXT',
+                    '7.' => [
                         'value' => $this->menuConfig['special.']['value'],
                         'listNum.' => [
                             'stdWrap.' => [
@@ -286,6 +299,11 @@ class MenuProcessor implements DataProcessorInterface
             $this->menuConfig[$i . '.']['expAll'] = $this->menuExpandAll;
             $this->menuConfig[$i . '.']['NO'] = '1';
             $this->menuConfig[$i . '.']['NO.'] = $this->menuLevelConfig;
+            if ($this->menuIncludeSpacer) {
+                $this->menuConfig[$i . '.']['SPC'] = '1';
+                $this->menuConfig[$i . '.']['SPC.'] = $this->menuConfig[$i . '.']['NO.'];
+                $this->menuConfig[$i . '.']['SPC.']['stdWrap.']['cObject.']['5.']['value'] = '1';
+            }
             $this->menuConfig[$i . '.']['IFSUB'] = '1';
             $this->menuConfig[$i . '.']['IFSUB.'] = $this->menuConfig[$i . '.']['NO.'];
             $this->menuConfig[$i . '.']['ACT'] = '1';
@@ -301,10 +319,10 @@ class MenuProcessor implements DataProcessorInterface
             if ($this->menuConfig['special'] === 'language') {
                 $this->menuConfig[$i . '.']['USERDEF1'] = $this->menuConfig[$i . '.']['NO'];
                 $this->menuConfig[$i . '.']['USERDEF1.'] = $this->menuConfig[$i . '.']['NO.'];
-                $this->menuConfig[$i . '.']['USERDEF1.']['stdWrap.']['cObject.']['5.']['value'] = '0';
+                $this->menuConfig[$i . '.']['USERDEF1.']['stdWrap.']['cObject.']['6.']['value'] = '0';
                 $this->menuConfig[$i . '.']['USERDEF2'] = $this->menuConfig[$i . '.']['ACT'];
                 $this->menuConfig[$i . '.']['USERDEF2.'] = $this->menuConfig[$i . '.']['ACT.'];
-                $this->menuConfig[$i . '.']['USERDEF2.']['stdWrap.']['cObject.']['5.']['value'] = '0';
+                $this->menuConfig[$i . '.']['USERDEF2.']['stdWrap.']['cObject.']['6.']['value'] = '0';
             }
         }
     }
@@ -324,6 +342,7 @@ class MenuProcessor implements DataProcessorInterface
         // Get Configuration
         $this->menuLevels = (int)$this->getConfigurationValue('levels') ?: 1;
         $this->menuExpandAll = (int)$this->getConfigurationValue('expandAll');
+        $this->menuIncludeSpacer = (int)$this->getConfigurationValue('includeSpacer');
         $this->menuTargetVariableName = $this->getConfigurationValue('as');
         $this->menuTitleField = $this->getConfigurationValue('titleField');
 
