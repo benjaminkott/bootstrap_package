@@ -36,7 +36,7 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface
 {
     /**
-     * @var boolean
+     * @var bool
      */
     protected $escapeOutput = false;
 
