@@ -1,5 +1,5 @@
 #######################
-### BOOTSTRAP 3.3.5 ###
+### BOOTSTRAP 3.3.6 ###
 #######################
 
 ############################
@@ -77,7 +77,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/301/link-hover-color; type=string; label=@link-hover-color: Link hover color set via `darken()` function.
             link-hover-color = darken(@link-color, 15%)
             # cat=bootstrap package: styling/301/link-hover-decoration; type=string; label=@link-hover-decoration: Link hover decoration.
-            link-hover-decoration = underline
+            link-hover-decoration = none
             # cat=bootstrap package: styling/302/font-family-sans-serif; type=string; label=@font-family-sans-serif:
             font-family-sans-serif = "Helvetica Neue", Helvetica, Arial, sans-serif
             # cat=bootstrap package: styling/302/font-family-serif; type=string; label=@font-family-serif:

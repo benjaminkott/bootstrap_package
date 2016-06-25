@@ -1094,7 +1094,7 @@ a {
 a:hover,
 a:focus {
   color: #b35f00;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -3412,7 +3412,7 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus {
   color: #b35f00;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -7443,9 +7443,6 @@ fieldset[disabled] .btn-danger.focus {
 }
 .panel-group {
   margin-bottom: 20px;
-}
-a:hover {
-  text-decoration: none;
 }
 .caret {
   margin-left: 5px;
