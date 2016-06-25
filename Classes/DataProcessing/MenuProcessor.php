@@ -286,6 +286,8 @@ class MenuProcessor implements DataProcessorInterface
             $this->menuConfig[$i . '.']['expAll'] = $this->menuExpandAll;
             $this->menuConfig[$i . '.']['NO'] = '1';
             $this->menuConfig[$i . '.']['NO.'] = $this->menuLevelConfig;
+            $this->menuConfig[$i . '.']['SPC'] = '1';
+            $this->menuConfig[$i . '.']['SPC.'] = $this->menuConfig[$i . '.']['NO.'];
             $this->menuConfig[$i . '.']['IFSUB'] = '1';
             $this->menuConfig[$i . '.']['IFSUB.'] = $this->menuConfig[$i . '.']['NO.'];
             $this->menuConfig[$i . '.']['ACT'] = '1';
