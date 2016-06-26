@@ -3,6 +3,7 @@
 ################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/ParseFunc.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/DynamicContent.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.txt">
 
 
 #############################################################
@@ -94,46 +95,6 @@ plugin.tx_bootstrappackage {
 }
 
 
-####################
-#### PAGE CLASS ####
-####################
-lib.page.class = COA
-lib.page.class {
-    // Page alias or id as fallback
-    10 = TEXT
-    10 {
-        field = alias // uid
-        noTrimWrap = |page-||
-    }
-    // Current level of the page within the tree structure
-    20 = TEXT
-    20 {
-        data = level:1
-        noTrimWrap = | pagelevel-||
-    }
-    // Language
-    30 = TEXT
-    30 {
-        data = TSFE:sys_language_uid
-        noTrimWrap = | language-||
-    }
-    // Backend layout
-    40 = TEXT
-    40 {
-        data = levelfield:-1, backend_layout_next_level, slide
-        override.field = backend_layout
-        ifEmpty = default
-        noTrimWrap = | backendlayout-||
-    }
-    // Layout
-    50 = TEXT
-    50 {
-        field = layout
-        noTrimWrap = | layout-||
-    }
-}
-
-
 ##############
 #### PAGE ####
 ##############
@@ -141,6 +102,16 @@ page = PAGE
 page {
     typeNum = 0
     shortcutIcon = {$page.includePath.icons}favicon.ico
+
+    bodyTagCObject = COA
+    bodyTagCObject {
+        10 = TEXT
+        10.data = TSFE:id
+        10.noTrimWrap = | id="p|"|
+        20 =< lib.page.class
+        20.stdWrap.noTrimWrap = | class="|"|
+        wrap = <body|>
+    }
 
     headerData {
         // Flip ahead browsing for IE10/11
@@ -329,7 +300,6 @@ page {
                     if.isTrue = {$page.logo.alt}
                 }
             }
-            pageClass < lib.page.class
         }
 
         stdWrap.replacement {
