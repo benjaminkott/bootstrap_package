@@ -14,14 +14,27 @@
         width: 1em;
     }
 }
-.texticon-size-medium {
+.texticon-size-awesome {
     font-size: 3em;
 }
-.texticon-size-large {
-    font-size: 4em;
+@media (min-width: @screen-sm) {
+    .texticon-size-large {
+        font-size: 3em;
+    }
+    .texticon-size-awesome {
+        font-size: 4em;
+    }
 }
-.texticon-size-awesome {
-    font-size: 5em;
+@media (min-width: @screen-md) {
+    .texticon-size-medium {
+        font-size: 3em;
+    }
+    .texticon-size-large {
+        font-size: 4em;
+    }
+    .texticon-size-awesome {
+        font-size: 5em;
+    }
 }
 .texticon-top .texticon-icon {
     margin-bottom: @line-height-computed;

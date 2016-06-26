@@ -8034,14 +8034,27 @@ body,
   height: 1em;
   width: 1em;
 }
-.texticon-size-medium {
+.texticon-size-awesome {
   font-size: 3em;
 }
-.texticon-size-large {
-  font-size: 4em;
+@media (min-width: 768px) {
+  .texticon-size-large {
+    font-size: 3em;
+  }
+  .texticon-size-awesome {
+    font-size: 4em;
+  }
 }
-.texticon-size-awesome {
-  font-size: 5em;
+@media (min-width: 992px) {
+  .texticon-size-medium {
+    font-size: 3em;
+  }
+  .texticon-size-large {
+    font-size: 4em;
+  }
+  .texticon-size-awesome {
+    font-size: 5em;
+  }
 }
 .texticon-top .texticon-icon {
   margin-bottom: 24px;
