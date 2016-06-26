@@ -2,9 +2,16 @@
 // Frames
 // --------------------------------------------------
 .frame {
-    margin-top: @line-height-computed * 2;
-    margin-bottom: @line-height-computed * 2;
-
+    margin-top: @line-height-computed;
+    margin-bottom: @line-height-computed;
+    @media (min-width: @screen-sm) {
+        margin-top: @line-height-computed * 1.5;
+        margin-bottom: @line-height-computed * 1.5;
+    }
+    @media (min-width: @screen-md) {
+        margin-top: @line-height-computed * 2;
+        margin-bottom: @line-height-computed * 2;
+    }
     &.rulerbefore {
         border-top: 1px solid @page-header-border-color;
         padding-top: @line-height-computed * 2;

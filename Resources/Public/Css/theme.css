@@ -8051,8 +8051,20 @@ body,
   margin-top: 0px;
 }
 .frame {
-  margin-top: 48px;
-  margin-bottom: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .frame {
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+}
+@media (min-width: 992px) {
+  .frame {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
 }
 .frame.rulerbefore {
   border-top: 1px solid #eeeeee;
