@@ -1,33 +1,28 @@
-{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <div class="valign">
-    <div class="carousel-text vcontainer lead" {f:if(condition: item.text_color,then: 'style="color: {item.text_color};"')}>
-        <h{item.header_layout}>{item.header}</h{item.header_layout}>
-        <f:format.html>{item.bodytext}</f:format.html>
+    <div class="carousel-text vcontainer lead" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
+        <h{item.data.header_layout}>{item.data.header}</h{item.data.header_layout}>
+        <f:format.html>{item.data.bodytext}</f:format.html>
     </div>
     <div class="carousel-image vcontainer">
-        <bk2k:fal data="{item}" as="images" table="tx_bootstrappackage_carousel_item">
-            <f:if condition="{images}">
-                <f:if condition="{data.layout} == 110">
-                    <f:then>
-                        <f:image
-                            src="{images.0.uid}"
-                            title="{images.0.title}"
-                            alt="{images.0.alternative}"
-                            width="400"
-                            height="400c"
-                            treatIdAsReference="1" />
-                    </f:then>
-                    <f:else>
-                        <f:image
-                            src="{images.0.uid}"
-                            title="{images.0.title}"
-                            alt="{images.0.alternative}"
-                            width="600"
-                            height="600c"
-                            treatIdAsReference="1" />
-                    </f:else>
-                </f:if>
+        <f:if condition="{item.images.0}">
+            <f:if condition="{data.layout} == 110">
+                <f:then>
+                    <f:image
+                        image="{item.images.0}"
+                        title="{item.images.0.title}"
+                        alt="{item.images.0.alternative}"
+                        width="400"
+                        height="400c" />
+                </f:then>
+                <f:else>
+                    <f:image
+                        image="{item.images.0}"
+                        title="{item.images.0.title}"
+                        alt="{item.images.0.alternative}"
+                        width="600"
+                        height="600c" />
+                </f:else>
             </f:if>
-        </bk2k:fal>
+        </f:if>
     </div>
 </div>
