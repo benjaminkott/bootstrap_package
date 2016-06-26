@@ -42,6 +42,9 @@
 # customsubcategory=334=Close
 # customsubcategory=335=Code
 # customsubcategory=336=Type
+# customsubcategory=390=Section Primary
+# customsubcategory=391=Section Light
+# customsubcategory=392=Section Dark
 # customsubcategory=400=Footer
 
 plugin.bootstrap_package {
@@ -54,6 +57,33 @@ plugin.bootstrap_package {
 
             # cat=bootstrap package: basic/160/100; type=options[Lora=Lora, Merriweather=Merriweather, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Ubuntu=Ubuntu]; label=Google Webfont
             theme-google-webfont = Source Sans Pro
+
+            # cat=bootstrap package: styling/390/section-primary-bg; type=string; label=@section-primary-bg:
+            section-primary-bg = @brand-primary
+            # cat=bootstrap package: styling/390/section-primary-color; type=string; label=@section-primary-color:
+            section-primary-color = #fff
+            # cat=bootstrap package: styling/390/section-primary-link-color; type=string; label=@section-primary-link-color:
+            section-primary-link-color = #fff
+            # cat=bootstrap package: styling/390/section-primary-link-hover-color; type=string; label=@section-primary-link-hover-color:
+            section-primary-link-hover-color = darken(@section-primary-link-color, 15%)
+
+            # cat=bootstrap package: styling/391/section-light-bg; type=string; label=@section-light-bg:
+            section-light-bg = #f2f2f2
+            # cat=bootstrap package: styling/391/section-light-color; type=string; label=@section-light-color:
+            section-light-color = #333
+            # cat=bootstrap package: styling/391/section-light-link-color; type=string; label=@section-light-link-color:
+            section-light-link-color = @link-color
+            # cat=bootstrap package: styling/391/section-light-link-hover-color; type=string; label=@section-light-link-hover-color:
+            section-light-link-hover-color = darken(@section-light-link-color, 15%)
+
+            # cat=bootstrap package: styling/392/section-dark-bg; type=string; label=@section-dark-bg:
+            section-dark-bg = #333
+            # cat=bootstrap package: styling/392/section-dark-color; type=string; label=@section-dark-color:
+            section-dark-color = #fff
+            # cat=bootstrap package: styling/392/section-dark-link-color; type=string; label=@section-dark-link-color:
+            section-dark-link-color = @link-color
+            # cat=bootstrap package: styling/392/section-dark-link-hover-color; type=string; label=@section-dark-link-hover-color:
+            section-dark-link-hover-color = darken(@section-dark-link-color, 15%)
 
             # cat=bootstrap package: styling/400/footer-bg; type=string; label=@footer-bg:
             footer-bg = #333
@@ -361,7 +391,7 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/311/grid-columns; type=string; label=@grid-columns: Number of columns in the grid.
             grid-columns = 12
             # cat=bootstrap package: styling/311/grid-gutter-width; type=string; label=@grid-gutter-width: Padding between columns. Gets divided in half for the left and right.
-            grid-gutter-width = 30px
+            grid-gutter-width = 40px
             # cat=bootstrap package: styling/311/grid-float-breakpoint; type=string; label=@grid-float-breakpoint: Point at which the navbar becomes uncollapsed.
             grid-float-breakpoint = @screen-md-min
             # cat=bootstrap package: styling/311/grid-float-breakpoint-max; type=string; label=@grid-float-breakpoint-max: Point at which the navbar begins collapsing.

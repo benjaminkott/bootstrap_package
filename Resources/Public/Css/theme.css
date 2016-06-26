@@ -1574,39 +1574,39 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 760px;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    width: 980px;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1180px;
   }
 }
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .row {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -2966,8 +2966,8 @@ select[multiple].input-lg {
   min-height: 31px;
 }
 .form-horizontal .form-group {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
@@ -2977,7 +2977,7 @@ select[multiple].input-lg {
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {
-  right: 15px;
+  right: 20px;
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
@@ -4168,8 +4168,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
@@ -4213,8 +4213,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -20px;
+  margin-left: -20px;
 }
 @media (min-width: 992px) {
   .container > .navbar-header,
@@ -4258,7 +4258,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 23px 15px;
+  padding: 23px 20px;
   font-size: 1.25em;
   line-height: 24px;
   height: 70px;
@@ -4273,13 +4273,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 992px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-left: -20px;
   }
 }
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: 15px;
+  margin-right: 20px;
   padding: 9px 10px;
   margin-top: 18px;
   margin-bottom: 18px;
@@ -4306,7 +4306,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav {
-  margin: 11.5px -15px;
+  margin: 11.5px -20px;
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4349,9 +4349,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-form {
-  margin-left: -15px;
-  margin-right: -15px;
-  padding: 10px 15px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 10px 20px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -4460,8 +4460,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 992px) {
   .navbar-text {
     float: left;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 @media (min-width: 992px) {
@@ -4470,7 +4470,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-right {
     float: right !important;
-    margin-right: -15px;
+    margin-right: -20px;
   }
   .navbar-right ~ .navbar-right {
     margin-right: 0;
@@ -4975,8 +4975,8 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 0px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .jumbotron .container {
   max-width: 100%;
@@ -6740,6 +6740,34 @@ button.close {
     display: none !important;
   }
 }
+.section {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+}
+@media (min-width: 992px) {
+  .section {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+.section-primary {
+  color: #fff;
+  background-color: #ff8700;
+}
+.section-light {
+  color: #333;
+  background-color: #f2f2f2;
+}
+.section-dark {
+  color: #fff;
+  background-color: #333;
+}
 @media (min-width: 992px) {
   h1.awesome,
   .h1.awesome {
@@ -7521,7 +7549,7 @@ body,
     position: relative;
   }
   .navbar-header-main .navbar-brand {
-    padding: 23px 15px;
+    padding: 23px 20px;
     font-size: 1.25em;
     line-height: 24px;
     height: auto;
@@ -7646,7 +7674,7 @@ body,
   .navbar-main > li > .navbar-text,
   .navbar-main > li > a {
     line-height: 140px;
-    padding: 0px 15px;
+    padding: 0px 20px;
   }
   .navbar-main > li > .navbar-text .caret,
   .navbar-main > li > a .caret {
@@ -7790,7 +7818,7 @@ body,
   text-transform: uppercase;
   font-size: 0.75em;
   margin-top: 10px;
-  padding: 6px 15px;
+  padding: 6px 20px;
   border-bottom: 1px solid #e5e5e5;
 }
 .dropdown-menu {
@@ -7798,7 +7826,7 @@ body,
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 .dropdown-menu > li > a {
-  padding: 6px 15px;
+  padding: 6px 20px;
 }
 .dropdown-menu > li.dropdown-header:first-child {
   margin-top: 0px;
@@ -7947,8 +7975,8 @@ body,
 }
 @media (max-width: 991px) {
   .carousel-inner > .item {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 .carousel-inner > .active {
@@ -7971,8 +7999,8 @@ body,
   opacity: 0;
 }
 .container .carousel {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 @media (min-width: 768px) {
   .container .carousel {
@@ -7981,8 +8009,8 @@ body,
   }
 }
 .container .carousel-inner > .item {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .container .carousel-inner .valign {
   width: 100%;
@@ -8057,7 +8085,7 @@ body,
   }
 }
 .texticon-top .texticon-icon {
-  margin-bottom: 24px;
+  margin-bottom: 0.5em;
 }
 .texticon-type-square .glyphicon,
 .texticon-type-circle .glyphicon {
@@ -8072,16 +8100,16 @@ body,
 .texticon-right .texticon-icon {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .texticon-left .texticon-icon {
   float: left;
-  margin-left: -15px;
+  margin-left: -20px;
 }
 .texticon-right .texticon-icon {
   float: right;
-  margin-right: -15px;
+  margin-right: -20px;
 }
 .texticon-left .texticon-content,
 .texticon-right .texticon-content {
@@ -8093,43 +8121,46 @@ body,
   margin-top: 0px;
 }
 .frame {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 @media (min-width: 768px) {
   .frame {
-    margin-top: 36px;
-    margin-bottom: 36px;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
   }
 }
 @media (min-width: 992px) {
   .frame {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 }
 .frame.rulerbefore {
   border-top: 1px solid #eeeeee;
-  padding-top: 48px;
+  margin-top: 2em;
 }
 .frame.rulerafter {
   border-bottom: 1px solid #eeeeee;
-  padding-bottom: 48px;
+  margin-bottom: 2em;
 }
 .frame.well *:first-child {
-  margin-top: 0px;
+  padding-top: 0px;
 }
 .frame.well *:last-child {
-  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.frame > *:last-child {
+  margin-bottom: 0;
 }
 .frame-small {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 @media (min-width: 768px) {
   .frame-small {
-    margin-top: 36px;
-    margin-bottom: 36px;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 }
 .footer-section {

@@ -2,8 +2,11 @@
 <f:section name="Main">
 
     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '3'}"/>
-    <div class="container">
-        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
+
+    <div class="section section-default">
+        <div class="container">
+            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}"/>
+        </div>
     </div>
 
 </f:section>

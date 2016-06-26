@@ -1,0 +1,24 @@
+//
+// Section
+// --------------------------------------------------
+.section {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    @media (min-width: @screen-sm) {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+    }
+    @media (min-width: @screen-md) {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+.make-section(@name, @background, @color, @link-color, @link-color-hover) {
+    .@{name} {
+        color: @color;
+        background-color: @background;
+    }
+}
+.make-section(section-primary, @section-primary-bg, @section-primary-color, @section-primary-link-color, @section-primary-link-hover-color);
+.make-section(section-light, @section-light-bg, @section-light-color, @section-light-link-color, @section-light-link-hover-color);
+.make-section(section-dark, @section-dark-bg, @section-dark-color, @section-dark-link-color, @section-dark-link-hover-color);
