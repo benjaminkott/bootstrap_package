@@ -47,11 +47,15 @@ page {
             # cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
             # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
-            text = Built on a Windows 10 Surface Pro. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>. Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            text = Built on a Windows 10 Surface Book. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.<br> Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
 
         footersection {
             # cat=bootstrap package: basic/160/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
+            enable = 1
+        }
+        languagesection {
+            # cat=bootstrap package: basic/160/129; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
             enable = 1
         }
         metasection {

@@ -6839,25 +6839,6 @@ img.lazyload {
   -o-transition: opacity 0.3s ease-in 0s;
   transition: opacity 0.3s ease-in 0s;
 }
-.language-menu {
-  list-style: none;
-  padding-left: 0;
-}
-@media (min-width: 768px) {
-  .language-menu {
-    padding-left: 0;
-    list-style: none;
-    margin-left: -5px;
-  }
-  .language-menu > li {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .language-menu > li:first-child {
-    padding-left: 0px;
-  }
-}
 .btn-default {
   display: inline-block;
   margin-bottom: 0;
@@ -8080,46 +8061,61 @@ body,
 .frame.well *:last-child {
   margin-bottom: 0px;
 }
+.frame-small {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .frame-small {
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+}
 .footer-section {
-  border-top: 1px solid #3c3c3c;
-  color: white;
-  background: #333333;
+  color: #fff;
+  background: #333;
 }
 .footer-section a {
-  color: white;
+  color: #ff8700;
 }
 .footer-section a:hover,
 .footer-section a:focus {
-  color: #ff8700;
+  color: #b35f00;
+  text-decoration: underline;
 }
-.meta-section {
-  color: white;
-  border-top: 1px solid #2b2b2b;
-  background-color: #333333;
-  padding: 12px 0;
+.footer-section-meta {
+  background: #2b2b2b;
 }
-.meta-section a {
+.footer-section-meta a {
+  color: inherit;
+}
+.footer-section-meta a:hover,
+.footer-section-meta a:focus {
+  color: #b35f00;
+}
+.footer-section-meta .language-menu {
+  list-style: none;
+  padding-left: 0;
+}
+@media (min-width: 768px) {
+  .footer-section-meta .language-menu {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+  }
+  .footer-section-meta .language-menu > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+.footer-section-meta .language-menu .active a {
   font-weight: bold;
-  color: white;
-}
-.meta-section a:hover,
-.meta-section a:focus {
   color: #ff8700;
-}
-.meta-section .active a {
-  color: #ff8700;
-}
-.meta-section ul,
-.meta-section p {
-  margin: 10px 0;
 }
 @media (min-width: 992px) {
-  .meta-section ul,
-  .meta-section p {
-    margin: 0;
-  }
-  .meta-section .copyright {
-    text-align: right;
+  .footer-section-meta {
+    text-align: center;
   }
 }
 .modal-lightbox {

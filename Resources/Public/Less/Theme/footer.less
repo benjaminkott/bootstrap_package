@@ -2,15 +2,45 @@
 // Footer Section
 // --------------------------------------------------
 .footer-section {
-    border-top: 1px solid darken(@gray,10%);
-    color: contrast(@gray-dark, black, white, 43%);
-    background: @gray-dark;
-
+    color: @footer-color;
+    background: @footer-bg;
     a {
-        color: contrast(@gray-dark, black, white, 43%);
+        color: @footer-link-color;
         &:hover,
         &:focus {
-          color: @link-color;
+          color: @footer-link-hover-color;
+          text-decoration: @footer-link-hover-decoration;
         }
+    }
+}
+
+
+
+//
+// Language Menu
+// --------------------------------------------------
+
+.footer-section-meta {
+    background: darken(@footer-bg, 3%);
+    a {
+        color: inherit;
+        &:hover,
+        &:focus {
+            color: @footer-link-hover-color;
+        }
+    }
+    .language-menu {
+        list-style: none;
+        padding-left: 0;
+        @media (min-width: @screen-sm-min) {
+            .list-inline();
+        }
+        .active a {
+            font-weight: bold;
+            color: @footer-link-color;
+        }
+    }
+    @media (min-width: @screen-md) {
+        text-align: center;
     }
 }
