@@ -11,7 +11,7 @@
     <f:case default="TRUE"><bk2k:var name="sectionClass" value="default" /></f:case>
 </f:switch>
 
-<div id="c{data.uid}" class="frame {sectionClass}">
+<div id="c{data.uid}" class="frame frame-type-{data.CType} {sectionClass}">
     <f:if condition="{data._LOCALIZED_UID}"><a id="c{data._LOCALIZED_UID}"></a></f:if>
     <f:render section="Header" />
     <f:render section="Main" />
