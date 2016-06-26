@@ -92,6 +92,7 @@ plugin.bootstrap_package {
             brand-warning = #f0ad4e
             # cat=bootstrap package: styling/300/brand-danger; type=string; label=@brand-danger:
             brand-danger = #d9534f
+
             # cat=bootstrap package: styling/301/body-bg; type=string; label=@body-bg: Background color for `<body>`.
             body-bg = #fff
             # cat=bootstrap package: styling/301/text-color; type=string; label=@text-color: Global text color on `<body>`.
@@ -102,6 +103,7 @@ plugin.bootstrap_package {
             link-hover-color = darken(@link-color, 15%)
             # cat=bootstrap package: styling/301/link-hover-decoration; type=string; label=@link-hover-decoration: Link hover decoration.
             link-hover-decoration = none
+
             # cat=bootstrap package: styling/302/font-family-sans-serif; type=string; label=@font-family-sans-serif:
             font-family-sans-serif = "Helvetica Neue", Helvetica, Arial, sans-serif
             # cat=bootstrap package: styling/302/font-family-serif; type=string; label=@font-family-serif:
@@ -110,24 +112,27 @@ plugin.bootstrap_package {
             font-family-monospace = Menlo, Monaco, Consolas, "Courier New", monospace
             # cat=bootstrap package: styling/302/font-family-base; type=string; label=@font-family-base:
             font-family-base = "@{theme-google-webfont}", sans-serif
+
             # cat=bootstrap package: styling/302/font-size-base; type=string; label=@font-size-base:
             font-size-base = 16px
             # cat=bootstrap package: styling/302/font-size-large; type=string; label=@font-size-large:
-            font-size-large = ceil((@font-size-base * 1.25))
+            font-size-large = 1.25em
             # cat=bootstrap package: styling/302/font-size-small; type=string; label=@font-size-small:
-            font-size-small = ceil((@font-size-base * 0.85))
+            font-size-small = 0.85em
+
             # cat=bootstrap package: styling/302/font-size-h1; type=string; label=@font-size-h1:
-            font-size-h1 = floor((@font-size-base * 2.6))
+            font-size-h1 = 2em;
             # cat=bootstrap package: styling/302/font-size-h2; type=string; label=@font-size-h2:
-            font-size-h2 = floor((@font-size-base * 2.15))
+            font-size-h2 = 1.75em;
             # cat=bootstrap package: styling/302/font-size-h3; type=string; label=@font-size-h3:
-            font-size-h3 = ceil((@font-size-base * 1.7))
+            font-size-h3 = 1.5em;
             # cat=bootstrap package: styling/302/font-size-h4; type=string; label=@font-size-h4:
-            font-size-h4 = ceil((@font-size-base * 1.25))
+            font-size-h4 = 1.25em;
             # cat=bootstrap package: styling/302/font-size-h5; type=string; label=@font-size-h5:
-            font-size-h5 = @font-size-base
+            font-size-h5 = 1em
             # cat=bootstrap package: styling/302/font-size-h6; type=string; label=@font-size-h6:
-            font-size-h6 = ceil((@font-size-base * 0.85))
+            font-size-h6 = 0.85em;
+
             # cat=bootstrap package: styling/302/line-height-base; type=string; label=@line-height-base: Unit-less `line-height` for use in components like buttons.
             line-height-base = 1.55
             # cat=bootstrap package: styling/302/line-height-computed; type=string; label=@line-height-computed: Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
@@ -140,12 +145,14 @@ plugin.bootstrap_package {
             headings-line-height = 1.1
             # cat=bootstrap package: styling/302/headings-color; type=string; label=@headings-color:
             headings-color = inherit
+
             # cat=bootstrap package: styling/303/icon-font-path; type=string; label=@icon-font-path: Load fonts from this directory.
             icon-font-path = "../../Fonts/"
             # cat=bootstrap package: styling/303/icon-font-name; type=string; label=@icon-font-name: File name for all font files.
             icon-font-name = "glyphicons-halflings-regular"
             # cat=bootstrap package: styling/303/icon-font-svg-id; type=string; label=@icon-font-svg-id: Element ID within SVG icon file.
             icon-font-svg-id = "glyphicons_halflingsregular"
+
             # cat=bootstrap package: styling/304/padding-base-vertical; type=string; label=@padding-base-vertical:
             padding-base-vertical = 6px
             # cat=bootstrap package: styling/304/padding-base-horizontal; type=string; label=@padding-base-horizontal:
@@ -180,6 +187,7 @@ plugin.bootstrap_package {
             caret-width-base = 4px
             # cat=bootstrap package: styling/304/caret-width-large; type=string; label=@caret-width-large: Carets increase slightly in size for larger components.
             caret-width-large = 5px
+
             # cat=bootstrap package: styling/305/table-cell-padding; type=string; label=@table-cell-padding: Padding for `<th>`s and `<td>`s.
             table-cell-padding = 8px
             # cat=bootstrap package: styling/305/table-condensed-cell-padding; type=string; label=@table-condensed-cell-padding: Padding for cells in `.table-condensed`.
@@ -194,6 +202,7 @@ plugin.bootstrap_package {
             table-bg-active = @table-bg-hover
             # cat=bootstrap package: styling/305/table-border-color; type=string; label=@table-border-color: Border color for table and cell borders.
             table-border-color = #ddd
+
             # cat=bootstrap package: styling/306/btn-font-weight; type=string; label=@btn-font-weight:
             btn-font-weight = normal
             # cat=bootstrap package: styling/306/btn-default-color; type=string; label=@btn-default-color:
@@ -240,6 +249,7 @@ plugin.bootstrap_package {
             btn-border-radius-large = @border-radius-large
             # cat=bootstrap package: styling/306/btn-border-radius-small; type=string; label=@btn-border-radius-small:
             btn-border-radius-small = @border-radius-small
+
             # cat=bootstrap package: styling/307/input-bg; type=string; label=@input-bg: `<input>` background color
             input-bg = #fff
             # cat=bootstrap package: styling/307/input-bg-disabled; type=string; label=@input-bg-disabled: `<input disabled>` background color
@@ -276,6 +286,7 @@ plugin.bootstrap_package {
             input-group-addon-border-color = @input-border
             # cat=bootstrap package: styling/307/cursor-disabled; type=string; label=@cursor-disabled: Disabled cursor for form controls and buttons.
             cursor-disabled = not-allowed
+
             # cat=bootstrap package: styling/308/dropdown-bg; type=string; label=@dropdown-bg: Background for the dropdown menu.
             dropdown-bg = #fff
             # cat=bootstrap package: styling/308/dropdown-border; type=string; label=@dropdown-border: Dropdown menu `border-color`.
@@ -300,6 +311,7 @@ plugin.bootstrap_package {
             dropdown-header-color = @gray-light
             # cat=bootstrap package: styling/308/dropdown-caret-color; type=string; label=@dropdown-caret-color: Deprecated `@dropdown-caret-color` as of v3.1.0
             dropdown-caret-color = #000
+
             # cat=bootstrap package: styling/309/zindex-navbar; type=string; label=@zindex-navbar:
             zindex-navbar = 1000
             # cat=bootstrap package: styling/309/zindex-dropdown; type=string; label=@zindex-dropdown:
@@ -314,6 +326,7 @@ plugin.bootstrap_package {
             zindex-modal-background = 1040
             # cat=bootstrap package: styling/309/zindex-modal; type=string; label=@zindex-modal:
             zindex-modal = 1050
+
             # cat=bootstrap package: styling/310/screen-xs; type=string; label=@screen-xs: Deprecated `@screen-xs` as of v3.0.1
             screen-xs = 480px
             # cat=bootstrap package: styling/310/screen-xs-min; type=string; label=@screen-xs-min: Deprecated `@screen-xs-min` as of v3.2.0
@@ -344,6 +357,7 @@ plugin.bootstrap_package {
             screen-sm-max = (@screen-md-min - 1)
             # cat=bootstrap package: styling/310/screen-md-max; type=string; label=@screen-md-max:
             screen-md-max = (@screen-lg-min - 1)
+
             # cat=bootstrap package: styling/311/grid-columns; type=string; label=@grid-columns: Number of columns in the grid.
             grid-columns = 12
             # cat=bootstrap package: styling/311/grid-gutter-width; type=string; label=@grid-gutter-width: Padding between columns. Gets divided in half for the left and right.
@@ -352,6 +366,7 @@ plugin.bootstrap_package {
             grid-float-breakpoint = @screen-md-min
             # cat=bootstrap package: styling/311/grid-float-breakpoint-max; type=string; label=@grid-float-breakpoint-max: Point at which the navbar begins collapsing.
             grid-float-breakpoint-max = (@grid-float-breakpoint - 1)
+
             # cat=bootstrap package: styling/312/container-tablet; type=string; label=@container-tablet:
             container-tablet = (720px + @grid-gutter-width)
             # cat=bootstrap package: styling/312/container-sm; type=string; label=@container-sm: For `@screen-sm-min` and up.
@@ -364,6 +379,7 @@ plugin.bootstrap_package {
             container-large-desktop = (1140px + @grid-gutter-width)
             # cat=bootstrap package: styling/312/container-lg; type=string; label=@container-lg: For `@screen-lg-min` and up.
             container-lg = @container-large-desktop
+
             # cat=bootstrap package: styling/313/navbar-height; type=string; label=@navbar-height:
             navbar-height = 70px
             # cat=bootstrap package: styling/313/navbar-margin-bottom; type=string; label=@navbar-margin-bottom:
@@ -440,6 +456,7 @@ plugin.bootstrap_package {
             navbar-inverse-toggle-icon-bar-bg = @navbar-inverse-link-color
             # cat=bootstrap package: styling/313/navbar-inverse-toggle-border-color; type=string; label=@navbar-inverse-toggle-border-color:
             navbar-inverse-toggle-border-color = transparent
+
             # cat=bootstrap package: styling/314/nav-link-padding; type=string; label=@nav-link-padding:
             nav-link-padding = 10px 15px
             # cat=bootstrap package: styling/314/nav-link-hover-bg; type=string; label=@nav-link-hover-bg:
@@ -448,6 +465,7 @@ plugin.bootstrap_package {
             nav-disabled-link-color = @gray-light
             # cat=bootstrap package: styling/314/nav-disabled-link-hover-color; type=string; label=@nav-disabled-link-hover-color:
             nav-disabled-link-hover-color = @gray-light
+
             # cat=bootstrap package: styling/315/nav-tabs-border-color; type=string; label=@nav-tabs-border-color:
             nav-tabs-border-color = #ddd
             # cat=bootstrap package: styling/315/nav-tabs-link-hover-border-color; type=string; label=@nav-tabs-link-hover-border-color:
@@ -462,12 +480,14 @@ plugin.bootstrap_package {
             nav-tabs-justified-link-border-color = #ddd
             # cat=bootstrap package: styling/315/nav-tabs-justified-active-link-border-color; type=string; label=@nav-tabs-justified-active-link-border-color:
             nav-tabs-justified-active-link-border-color = @body-bg
+
             # cat=bootstrap package: styling/316/nav-pills-border-radius; type=string; label=@nav-pills-border-radius:
             nav-pills-border-radius = @border-radius-base
             # cat=bootstrap package: styling/316/nav-pills-active-link-hover-bg; type=string; label=@nav-pills-active-link-hover-bg:
             nav-pills-active-link-hover-bg = @component-active-bg
             # cat=bootstrap package: styling/316/nav-pills-active-link-hover-color; type=string; label=@nav-pills-active-link-hover-color:
             nav-pills-active-link-hover-color = @component-active-color
+
             # cat=bootstrap package: styling/317/pagination-color; type=string; label=@pagination-color:
             pagination-color = @link-color
             # cat=bootstrap package: styling/317/pagination-bg; type=string; label=@pagination-bg:
@@ -492,6 +512,7 @@ plugin.bootstrap_package {
             pagination-disabled-bg = #fff
             # cat=bootstrap package: styling/317/pagination-disabled-border; type=string; label=@pagination-disabled-border:
             pagination-disabled-border = #ddd
+
             # cat=bootstrap package: styling/318/pager-bg; type=string; label=@pager-bg:
             pager-bg = @pagination-bg
             # cat=bootstrap package: styling/318/pager-border; type=string; label=@pager-border:
@@ -506,6 +527,7 @@ plugin.bootstrap_package {
             pager-active-color = @pagination-active-color
             # cat=bootstrap package: styling/318/pager-disabled-color; type=string; label=@pager-disabled-color:
             pager-disabled-color = @pagination-disabled-color
+
             # cat=bootstrap package: styling/319/jumbotron-padding; type=string; label=@jumbotron-padding:
             jumbotron-padding = 30px
             # cat=bootstrap package: styling/319/jumbotron-color; type=string; label=@jumbotron-color:
@@ -518,6 +540,7 @@ plugin.bootstrap_package {
             jumbotron-font-size = ceil((@font-size-base * 1.5))
             # cat=bootstrap package: styling/319/jumbotron-heading-font-size; type=string; label=@jumbotron-heading-font-size:
             jumbotron-heading-font-size = ceil((@font-size-base * 4.5))
+
             # cat=bootstrap package: styling/320/state-success-text; type=string; label=@state-success-text:
             state-success-text = #3c763d
             # cat=bootstrap package: styling/320/state-success-bg; type=string; label=@state-success-bg:
@@ -542,6 +565,7 @@ plugin.bootstrap_package {
             state-danger-bg = #f2dede
             # cat=bootstrap package: styling/320/state-danger-border; type=string; label=@state-danger-border:
             state-danger-border = darken(spin(@state-danger-bg, -10), 5%)
+
             # cat=bootstrap package: styling/321/tooltip-max-width; type=string; label=@tooltip-max-width: Tooltip max width
             tooltip-max-width = 200px
             # cat=bootstrap package: styling/321/tooltip-color; type=string; label=@tooltip-color: Tooltip text color
@@ -554,6 +578,7 @@ plugin.bootstrap_package {
             tooltip-arrow-width = 5px
             # cat=bootstrap package: styling/321/tooltip-arrow-color; type=string; label=@tooltip-arrow-color: Tooltip arrow color
             tooltip-arrow-color = @tooltip-bg
+
             # cat=bootstrap package: styling/322/popover-bg; type=string; label=@popover-bg: Popover body background color
             popover-bg = #fff
             # cat=bootstrap package: styling/322/popover-max-width; type=string; label=@popover-max-width: Popover maximum width
@@ -574,6 +599,7 @@ plugin.bootstrap_package {
             popover-arrow-outer-color = fadein(@popover-border-color, 5%)
             # cat=bootstrap package: styling/322/popover-arrow-outer-fallback-color; type=string; label=@popover-arrow-outer-fallback-color: Popover outer arrow fallback color
             popover-arrow-outer-fallback-color = darken(@popover-fallback-border-color, 20%)
+
             # cat=bootstrap package: styling/323/label-default-bg; type=string; label=@label-default-bg: Default label background color
             label-default-bg = @gray-light
             # cat=bootstrap package: styling/323/label-primary-bg; type=string; label=@label-primary-bg: Primary label background color
@@ -590,6 +616,7 @@ plugin.bootstrap_package {
             label-color = #fff
             # cat=bootstrap package: styling/323/label-link-hover-color; type=string; label=@label-link-hover-color: Default text color of a linked label
             label-link-hover-color = #fff
+
             # cat=bootstrap package: styling/324/modal-inner-padding; type=string; label=@modal-inner-padding: Padding applied to the modal body
             modal-inner-padding = 20px
             # cat=bootstrap package: styling/324/modal-title-padding; type=string; label=@modal-title-padding: Padding applied to the modal title
@@ -616,6 +643,7 @@ plugin.bootstrap_package {
             modal-md = 600px
             # cat=bootstrap package: styling/324/modal-sm; type=string; label=@modal-sm:
             modal-sm = 300px
+
             # cat=bootstrap package: styling/325/alert-padding; type=string; label=@alert-padding:
             alert-padding = 15px
             # cat=bootstrap package: styling/325/alert-border-radius; type=string; label=@alert-border-radius:
@@ -646,6 +674,7 @@ plugin.bootstrap_package {
             alert-danger-text = @state-danger-text
             # cat=bootstrap package: styling/325/alert-danger-border; type=string; label=@alert-danger-border:
             alert-danger-border = @state-danger-border
+
             # cat=bootstrap package: styling/326/progress-bg; type=string; label=@progress-bg: Background color of the whole progress component
             progress-bg = #f5f5f5
             # cat=bootstrap package: styling/326/progress-bar-color; type=string; label=@progress-bar-color: Progress bar text color
@@ -662,6 +691,7 @@ plugin.bootstrap_package {
             progress-bar-danger-bg = @brand-danger
             # cat=bootstrap package: styling/326/progress-bar-info-bg; type=string; label=@progress-bar-info-bg: Info progress bar color
             progress-bar-info-bg = @brand-info
+
             # cat=bootstrap package: styling/327/list-group-bg; type=string; label=@list-group-bg: Background color on `.list-group-item`
             list-group-bg = #fff
             # cat=bootstrap package: styling/327/list-group-border; type=string; label=@list-group-border: `.list-group-item` border color
@@ -690,6 +720,7 @@ plugin.bootstrap_package {
             list-group-link-hover-color = @list-group-link-color
             # cat=bootstrap package: styling/327/list-group-link-heading-color; type=string; label=@list-group-link-heading-color:
             list-group-link-heading-color = #333
+
             # cat=bootstrap package: styling/328/panel-bg; type=string; label=@panel-bg:
             panel-bg = #fff
             # cat=bootstrap package: styling/328/panel-body-padding; type=string; label=@panel-body-padding:
@@ -740,6 +771,7 @@ plugin.bootstrap_package {
             panel-danger-border = @state-danger-border
             # cat=bootstrap package: styling/328/panel-danger-heading-bg; type=string; label=@panel-danger-heading-bg:
             panel-danger-heading-bg = @state-danger-bg
+
             # cat=bootstrap package: styling/329/thumbnail-padding; type=string; label=@thumbnail-padding: Padding around the thumbnail image
             thumbnail-padding = 4px
             # cat=bootstrap package: styling/329/thumbnail-bg; type=string; label=@thumbnail-bg: Thumbnail background color
@@ -752,10 +784,12 @@ plugin.bootstrap_package {
             thumbnail-caption-color = @text-color
             # cat=bootstrap package: styling/329/thumbnail-caption-padding; type=string; label=@thumbnail-caption-padding: Padding around the thumbnail caption
             thumbnail-caption-padding = 9px
+
             # cat=bootstrap package: styling/330/well-bg; type=string; label=@well-bg:
             well-bg = #f5f5f5
             # cat=bootstrap package: styling/330/well-border; type=string; label=@well-border:
             well-border = darken(@well-bg, 7%)
+
             # cat=bootstrap package: styling/331/badge-color; type=string; label=@badge-color:
             badge-color = #fff
             # cat=bootstrap package: styling/331/badge-link-hover-color; type=string; label=@badge-link-hover-color: Linked badge text color on hover
@@ -772,6 +806,7 @@ plugin.bootstrap_package {
             badge-line-height = 1
             # cat=bootstrap package: styling/331/badge-border-radius; type=string; label=@badge-border-radius:
             badge-border-radius = 10px
+
             # cat=bootstrap package: styling/332/breadcrumb-padding-vertical; type=string; label=@breadcrumb-padding-vertical:
             breadcrumb-padding-vertical = 8px
             # cat=bootstrap package: styling/332/breadcrumb-padding-horizontal; type=string; label=@breadcrumb-padding-horizontal:
@@ -784,6 +819,7 @@ plugin.bootstrap_package {
             breadcrumb-active-color = @gray-light
             # cat=bootstrap package: styling/332/breadcrumb-separator; type=string; label=@breadcrumb-separator: Textual separator for between breadcrumb elements
             breadcrumb-separator = "/"
+
             # cat=bootstrap package: styling/333/carousel-text-shadow; type=string; label=@carousel-text-shadow:
             carousel-text-shadow = 0 1px 2px rgba(0,0,0,.6)
             # cat=bootstrap package: styling/333/carousel-control-color; type=string; label=@carousel-control-color:
@@ -800,12 +836,14 @@ plugin.bootstrap_package {
             carousel-indicator-border-color = #fff
             # cat=bootstrap package: styling/333/carousel-caption-color; type=string; label=@carousel-caption-color:
             carousel-caption-color = #fff
+
             # cat=bootstrap package: styling/334/close-font-weight; type=string; label=@close-font-weight:
             close-font-weight = bold
             # cat=bootstrap package: styling/334/close-color; type=string; label=@close-color:
             close-color = #000
             # cat=bootstrap package: styling/334/close-text-shadow; type=string; label=@close-text-shadow:
             close-text-shadow = 0 1px 0 #fff
+
             # cat=bootstrap package: styling/335/code-color; type=string; label=@code-color:
             code-color = #c7254e
             # cat=bootstrap package: styling/335/code-bg; type=string; label=@code-bg:
@@ -822,6 +860,7 @@ plugin.bootstrap_package {
             pre-border-color = #ccc
             # cat=bootstrap package: styling/335/pre-scrollable-max-height; type=string; label=@pre-scrollable-max-height:
             pre-scrollable-max-height = 340px
+
             # cat=bootstrap package: styling/336/component-offset-horizontal; type=string; label=@component-offset-horizontal: Horizontal offset for forms and lists.
             component-offset-horizontal = 180px
             # cat=bootstrap package: styling/336/text-muted; type=string; label=@text-muted: Text muted color
@@ -844,6 +883,7 @@ plugin.bootstrap_package {
             dl-horizontal-breakpoint = @grid-float-breakpoint
             # cat=bootstrap package: styling/336/hr-border; type=string; label=@hr-border: Horizontal line color.
             hr-border = @gray-lighter
+
         }
     }
 }
