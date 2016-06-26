@@ -1175,8 +1175,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-family: inherit;
+  font-weight: 300;
   line-height: 1.1;
   color: inherit;
 }
@@ -6740,34 +6740,6 @@ button.close {
     display: none !important;
   }
 }
-@font-face {
-  font-family: 'Share';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../Fonts/share-regular-webfont-webfont.eot');
-  src: url('../Fonts/share-regular-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-regular-webfont-webfont.woff') format('woff'), url('../Fonts/share-regular-webfont-webfont.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Share';
-  font-style: italic;
-  font-weight: 400;
-  src: url('../Fonts/share-italic-webfont-webfont.eot');
-  src: url('../Fonts/share-italic-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-italic-webfont-webfont.woff') format('woff'), url('../Fonts/share-italic-webfont-webfont.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Share';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../Fonts/share-bold-webfont-webfont.eot');
-  src: url('../Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../Fonts/share-bold-webfont-webfont.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Share';
-  font-style: normal;
-  font-weight: bold;
-  src: url('../Fonts/share-bold-webfont-webfont.eot');
-  src: url('../Fonts/share-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/share-bold-webfont-webfont.woff') format('woff'), url('../Fonts/share-bold-webfont-webfont.ttf') format('truetype');
-}
 @media (min-width: 992px) {
   h1.awesome,
   .h1.awesome {
@@ -6822,7 +6794,7 @@ h3 + h4,
 h4 + h5 {
   margin-top: 12px;
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) {
   .lead {
     font-size: 19.2px;
   }
@@ -7490,7 +7462,7 @@ body,
   padding-top: 0;
   padding-bottom: 0;
   font-size: 22px;
-  font-family: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: inherit;
   font-weight: bold;
   text-transform: uppercase;
   line-height: 140px;
@@ -7538,13 +7510,13 @@ body,
   }
 }
 .navbar-main > li > .navbar-text {
-  font-family: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: inherit;
   text-transform: uppercase;
   margin: 0;
   padding: 10px 15px;
 }
 .navbar-main > li > a {
-  font-family: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: inherit;
   font-weight: bold;
   text-transform: uppercase;
 }
