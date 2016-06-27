@@ -31,6 +31,7 @@ tt_content.bootstrap_package_carousel {
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {
             table = tx_bootstrappackage_carousel_item
+            pidInList.field = pid
             where {
                 data = field:uid
                 intval = 1
