@@ -40,6 +40,7 @@ tt_content.bootstrap_package_accordion {
         10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         10 {
             table = tx_bootstrappackage_accordion_item
+            pidInList.field = pid
             where {
                 data = field:uid
                 intval = 1
