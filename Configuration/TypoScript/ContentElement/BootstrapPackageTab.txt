@@ -46,6 +46,7 @@ tt_content.bootstrap_package_tab {
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {
             table = tx_bootstrappackage_tab_item
+            pidInList.field = pid
             where {
                 data = field:uid
                 intval = 1
