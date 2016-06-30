@@ -35,6 +35,27 @@
                             </config>
                         </TCEforms>
                     </background_image_maxwidth>
+                    <transition>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>fade</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</numIndex>
+                                        <numIndex index="1">fade</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</numIndex>
+                                        <numIndex index="1">slide</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </transition>
                     <wrap>
                         <TCEforms>
                             <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>

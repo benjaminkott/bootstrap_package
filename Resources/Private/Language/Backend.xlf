@@ -204,6 +204,15 @@
             <trans-unit id="carousel.background_image_maxwidth">
                 <source>Max width of background images in px</source>
             </trans-unit>
+            <trans-unit id="carousel.transition">
+                <source>Transition</source>
+            </trans-unit>
+            <trans-unit id="carousel.transition.slide">
+                <source>Slide</source>
+            </trans-unit>
+            <trans-unit id="carousel.transition.fade">
+                <source>Fade</source>
+            </trans-unit>
             <trans-unit id="carousel.wrap">
                 <source>Wrap</source>
             </trans-unit>
