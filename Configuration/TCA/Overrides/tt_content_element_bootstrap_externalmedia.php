@@ -52,7 +52,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'] = arr
 /***************
  * Register fields
  */
- $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
         'external_media_source' => [
@@ -76,4 +76,4 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'] = arr
             ]
         ]
     ]
- );
+);

@@ -54,7 +54,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'] = array_replace_
 /***************
  * Register fields
  */
- $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
         'tx_bootstrappackage_tab_item' => [
@@ -82,7 +82,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'] = array_replace_
             ]
         ]
     ]
- );
+);
 
 /***************
  * Add flexForms for content element configuration

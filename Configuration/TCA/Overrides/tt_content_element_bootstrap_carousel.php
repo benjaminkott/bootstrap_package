@@ -54,7 +54,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'] = array_rep
 /***************
  * Register fields
  */
- $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
         'tx_bootstrappackage_carousel_item' => [
@@ -82,7 +82,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'] = array_rep
             ]
         ]
     ]
- );
+);
 
 /***************
  * Add flexForms for content element configuration

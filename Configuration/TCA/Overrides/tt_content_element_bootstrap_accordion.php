@@ -52,7 +52,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'] = array_re
 /***************
  * Register fields
  */
- $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
         'tx_bootstrappackage_accordion_item' => [
@@ -80,4 +80,4 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'] = array_re
             ]
         ]
     ]
- );
+);
