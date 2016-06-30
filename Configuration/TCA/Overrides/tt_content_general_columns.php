@@ -33,7 +33,8 @@ $GLOBALS['TCA']['tt_content']['columns']['section_frame'] = [
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft','11'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright','12'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well','20'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21']
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.none', '66']
         ],
         'default' => '0'
     ]

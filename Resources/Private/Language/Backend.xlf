@@ -486,6 +486,9 @@
             <trans-unit id="field.section_frame.jumbotron">
                 <source>Jumbotron</source>
             </trans-unit>
+            <trans-unit id="field.section_frame.none">
+                <source>None</source>
+            </trans-unit>
 
             <trans-unit id="field.header_position">
                 <source>Alignment</source>
