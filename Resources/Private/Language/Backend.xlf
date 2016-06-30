@@ -458,8 +458,8 @@
                 <source>Display Icons and Preview Images</source>
             </trans-unit>
 
-            <trans-unit id="carousellayout.default">
-                <source>Default</source>
+            <trans-unit id="carousellayout.normal">
+                <source>Normal</source>
             </trans-unit>
             <trans-unit id="carousellayout.small">
                 <source>Small</source>
