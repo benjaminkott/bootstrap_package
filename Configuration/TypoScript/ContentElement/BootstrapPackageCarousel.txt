@@ -9,7 +9,20 @@ tt_content.bootstrap_package_carousel {
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageCarousel
+    templateName = TEXT
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+        key.field = layout
+
+        100 = TEXT
+        100.value = BootstrapPackageCarousel
+
+        110 = TEXT
+        110.value = BootstrapPackageCarouselSmall
+
+        default = TEXT
+        default.value = BootstrapPackageCarousel
+    }
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
