@@ -49,24 +49,8 @@
                     </div>
                 </f:for>
             </div>
-            <f:if condition="{records -> f:count()} > 1">
-                <ol class="carousel-indicators">
-                    <f:for each="{records}" as="item" iteration="iteration">
-                        <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}"
-                            class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
-                    </f:for>
-                </ol>
-                <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev', role: 'button'}"
-                                section="carousel-{data.uid}">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
-                </f:link.page>
-                <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next', role: 'button'}"
-                                section="carousel-{data.uid}">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
-                </f:link.page>
-            </f:if>
+            <f:render partial="Carousel/Control/Indicator" arguments="{_all}"/>
+            <f:render partial="Carousel/Control/Control" arguments="{_all}"/>
         </div>
     </f:if>
 

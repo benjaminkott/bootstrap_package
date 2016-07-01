@@ -1,0 +1,8 @@
+<f:if condition="{records -> f:count()} > 1">
+    <ol class="carousel-indicators">
+        <f:for each="{records}" as="item" iteration="iteration">
+            <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}"
+                class="{f:if(condition: iteration.isFirst,then:'active')}"></li>
+        </f:for>
+    </ol>
+</f:if>
