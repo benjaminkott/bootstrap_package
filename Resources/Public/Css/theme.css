@@ -8274,6 +8274,18 @@ body,
   color: #b35f00;
   text-decoration: underline;
 }
+.footer-section h1,
+.footer-section .h1,
+.footer-section h2,
+.footer-section .h2,
+.footer-section h3,
+.footer-section .h3,
+.footer-section h4,
+.footer-section .h4,
+.footer-section h5,
+.footer-section .h5 {
+  color: inherit;
+}
 .footer-section-meta {
   background: #2b2b2b;
 }
