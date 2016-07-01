@@ -312,13 +312,20 @@ page {
                 }
             }
             2 {
+                search = ###FRONTEND_URL###
+                replace.typolink {
+                    parameter.data = leveluid:0
+                    returnLast = url
+                }
+            }
+            3 {
                 search = ###CURRENTYEAR###
                 replace {
                     data = date:U
                     strftime = %Y
                 }
             }
-            3 {
+            4 {
                 search = ###SPACE###
                 replace {
                     char = 32
