@@ -1,6 +1,6 @@
 <div class="valign">
     <div class="carousel-text vcontainer lead" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
-        <h{item.data.header_layout}>{item.data.header}</h{item.data.header_layout}>
+        <h{item.data.header_layout}><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
         <f:format.html>{item.data.bodytext}</f:format.html>
     </div>
     <div class="carousel-image vcontainer">
