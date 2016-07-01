@@ -56,7 +56,9 @@ plugin.bootstrap_package {
             ###
 
             # cat=bootstrap package: basic/160/100; type=options[Lora=Lora, Merriweather=Merriweather, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Ubuntu=Ubuntu]; label=Google Webfont
-            theme-google-webfont = Source Sans Pro
+            google-webfont = Source Sans Pro
+            # cat=bootstrap package: basic/160/101; type=string; label=Google Webfont Weights: Comma separated list of font weights
+            google-webfont-weight = 300,400,700
 
             # cat=bootstrap package: styling/390/section-primary-bg; type=string; label=@section-primary-bg:
             section-primary-bg = @brand-primary

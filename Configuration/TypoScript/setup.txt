@@ -396,7 +396,7 @@ page {
     }
 
     includeCSSLibs {
-        googlewebfont = https://fonts.googleapis.com/css?family={$plugin.bootstrap_package.settings.less.theme-google-webfont}:300,400,700
+        googlewebfont = https://fonts.googleapis.com/css?family={$plugin.bootstrap_package.settings.less.google-webfont}:{$plugin.bootstrap_package.settings.less.google-webfont-weight}
         googlewebfont {
             external = 1
             disableCompression = 1
