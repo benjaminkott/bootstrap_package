@@ -6896,9 +6896,23 @@ h4 + h5 {
     column-gap: 40px;
   }
 }
-.indent {
-  margin-left: 11%;
-  margin-right: 11%;
+@media (min-width: 768px) {
+  .indent {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (min-width: 992px) {
+  .indent {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .indent {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 }
 .indent-left {
   margin-left: 33%;
