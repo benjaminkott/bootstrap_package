@@ -3,23 +3,25 @@
 <f:section name="Main">
 
     <div class="texticon texticon-{data.icon_position}">
-        <div class="
-             texticon-icon
-             texticon-size-{f:if(condition: '{data.icon_size} == 0', then: 'default')}{f:if(condition: '{data.icon_size} == 1', then: 'medium')}{f:if(condition: '{data.icon_size} == 2', then: 'large')}{f:if(condition: '{data.icon_size} == 3', then: 'awesome')}
-             texticon-type-{f:if(condition: '{data.icon_type} == 0', then: 'default')}{f:if(condition: '{data.icon_type} == 1', then: 'square')}{f:if(condition: '{data.icon_type} == 2', then: 'circle')}
-        ">
-            <f:if condition="{data.icon_type} > 0">
-                <f:then>
-                    <span class="glyphicon glyphicon-{data.icon}" style="
-                        {f:if(condition: data.icon_color, then: 'color: {data.icon_color};')}
-                        {f:if(condition: data.icon_background, then: 'background-color: {data.icon_background};')}
-                    "></span>
-                </f:then>
-                <f:else>
-                    <span class="glyphicon glyphicon-{data.icon}"></span>
-                </f:else>
-            </f:if>
-        </div>
+        <f:if condition="{data.icon}">
+            <div class="
+                texticon-icon
+                texticon-size-{f:if(condition: '{data.icon_size} == 0', then: 'default')}{f:if(condition: '{data.icon_size} == 1', then: 'medium')}{f:if(condition: '{data.icon_size} == 2', then: 'large')}{f:if(condition: '{data.icon_size} == 3', then: 'awesome')}
+                texticon-type-{f:if(condition: '{data.icon_type} == 0', then: 'default')}{f:if(condition: '{data.icon_type} == 1', then: 'square')}{f:if(condition: '{data.icon_type} == 2', then: 'circle')}
+            ">
+                <f:if condition="{data.icon_type} > 0">
+                    <f:then>
+                        <span class="glyphicon glyphicon-{data.icon}" style="
+                            {f:if(condition: data.icon_color, then: 'color: {data.icon_color};')}
+                            {f:if(condition: data.icon_background, then: 'background-color: {data.icon_background};')}
+                        "></span>
+                    </f:then>
+                    <f:else>
+                        <span class="glyphicon glyphicon-{data.icon}"></span>
+                    </f:else>
+                </f:if>
+            </div>
+        </f:if>
         <div class="texticon-content">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.bodytext}</f:format.html>
