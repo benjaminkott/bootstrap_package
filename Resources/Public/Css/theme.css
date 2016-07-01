@@ -8215,6 +8215,10 @@ body,
 .texticon-right .texticon-content *:first-child {
   margin-top: 0px;
 }
+.texticon-left .texticon-content *:last-child,
+.texticon-right .texticon-content *:last-child {
+  margin-bottom: 0px;
+}
 .frame {
   padding-top: 1em;
   padding-bottom: 1em;
