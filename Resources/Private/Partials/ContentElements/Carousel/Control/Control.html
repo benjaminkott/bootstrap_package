@@ -1,12 +1,12 @@
 <f:if condition="{records -> f:count()} > 1">
     <f:link.page class="left carousel-control" additionalAttributes="{data-slide: 'prev', role: 'button'}"
                     section="carousel-{data.uid}">
-        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="carousel-control-icon"></span>
         <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
     </f:link.page>
     <f:link.page class="right carousel-control" additionalAttributes="{data-slide: 'next', role: 'button'}"
                     section="carousel-{data.uid}">
-        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="carousel-control-icon"></span>
         <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
     </f:link.page>
 </f:if>
