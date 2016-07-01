@@ -145,6 +145,13 @@ RTE.default.buttons {
     // Remove stylings from select options
     blockstyle.disableStyleOnOptionLabel = 1
 
+    // Restrict allowed classes for paragraphs to bootstrap classes
+    blockstyle.tags.p {
+        allowedClasses (
+            lead, text-left, text-center, text-right, text-justify
+        )
+    }
+
     // Restrict allowed classes for links to the bootstrap btn classes
     textstyle.tags.a {
         allowedClasses (
