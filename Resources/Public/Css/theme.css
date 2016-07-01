@@ -6880,6 +6880,22 @@ h4 + h5 {
     font-size: 20.8px;
   }
 }
+.text-column > *:first-child {
+  margin-top: 0;
+}
+.text-column > *:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .text-column {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+  }
+}
 .indent {
   margin-left: 11%;
   margin-right: 11%;
@@ -7486,6 +7502,14 @@ body,
 .body-bg {
   overflow: hidden;
   zoom: 1;
+}
+::-moz-selection {
+  background-color: #ff8700;
+  color: white;
+}
+::selection {
+  background-color: #ff8700;
+  color: white;
 }
 .htmlarea-content-body {
   padding: 20px;

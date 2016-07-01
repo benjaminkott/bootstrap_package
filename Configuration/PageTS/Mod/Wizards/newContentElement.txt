@@ -22,6 +22,14 @@ mod.wizards {
                             CType = text
                         }
                     }
+                    textcolumn {
+                        iconIdentifier = content-bootstrappackage-textcolumn
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn.description
+                        tt_content_defValues {
+                            CType = textcolumn
+                        }
+                    }
                     textpic {
                         iconIdentifier = content-textpic
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title

@@ -156,6 +156,13 @@
                 <source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
             </trans-unit>
 
+            <trans-unit id="content_element.textcolumn">
+                <source>Text in Columns</source>
+            </trans-unit>
+            <trans-unit id="content_element.textcolumn.description">
+                <source>Insert Text in Columns</source>
+            </trans-unit>
+
             <trans-unit id="content_element.texticon">
                 <source>Text and Icon</source>
             </trans-unit>
