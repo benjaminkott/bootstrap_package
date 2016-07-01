@@ -7944,6 +7944,7 @@ body,
 .carousel .item h4,
 .carousel .item h5,
 .carousel .item h6 {
+  color: inherit;
   margin-top: 0;
 }
 .carousel .item .valign {
