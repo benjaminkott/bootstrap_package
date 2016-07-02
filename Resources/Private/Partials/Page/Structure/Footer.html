@@ -1,5 +1,5 @@
-<footer>
-    <f:if condition="{showFooter}">
+<f:if condition="{showFooter}">
+    <footer>
         <section class="section footer-section footer-section-content">
             <div class="container">
                 <div class="row">
@@ -15,13 +15,18 @@
                 </div>
             </div>
         </section>
-    </f:if>
-    <f:if condition="{showMeta}">
         <section class="section footer-section footer-section-meta">
             <div class="container">
-                <div class="frame frame-small default language">
-                    <f:render partial="Navigation/Language" arguments="{_all}"/>
-                </div>
+                <f:if condition="{settings.meta.enable}">
+                    <div class="frame frame-small default meta">
+                        <f:render partial="Navigation/Meta" arguments="{_all}"/>
+                    </div>
+                </f:if>
+                <f:if condition="{settings.language.enable}">
+                    <div class="frame frame-small default language">
+                        <f:render partial="Navigation/Language" arguments="{_all}"/>
+                    </div>
+                </f:if>
                 <f:if condition="{settings.copyright.enable}">
                     <div class="frame frame-small default copyright">
                         <f:format.html>{settings.copyright.text}</f:format.html>
@@ -29,5 +34,5 @@
                 </f:if>
             </div>
         </section>
-    </f:if>
-</footer>
+    </footer>
+</f:if>

@@ -248,6 +248,16 @@ page {
                 special.normalWhenNoLanguage = 0
                 as = languagenavigation
             }
+            50 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            50 {
+                special = {$page.theme.meta.navigationType}
+                special.value = {$page.theme.meta.navigationValue}
+                includeNotInMenu = {$page.theme.meta.includeNotInMenu}
+                as = metanavigation
+                if {
+                    isTrue = {$page.theme.meta.navigationValue}
+                }
+            }
         }
 
         ################
@@ -271,6 +281,12 @@ page {
                 enable = {$page.theme.copyright.enable}
                 text = {$page.theme.copyright.text}
             }
+            meta {
+                enable = {$page.theme.meta.enable}
+            }
+            language {
+                enable = {$page.theme.language.enable}
+            }
         }
 
         #################
@@ -279,8 +295,6 @@ page {
         variables {
             showFooter = TEXT
             showFooter.value = {$page.theme.footersection.enable}
-            showMeta = TEXT
-            showMeta.value = {$page.theme.metasection.enable}
             pageTitle = TEXT
             pageTitle.data = page:title
             siteTitle = TEXT

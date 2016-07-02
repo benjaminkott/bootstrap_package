@@ -1,0 +1,12 @@
+<f:if condition="{metanavigation}">
+    <f:for each="{metanavigation}" as="item" iteration="metaiteration">
+        <f:if condition="{metaiteration.isFirst}">
+            <f:else>
+                <span class="text-muted">|</span>
+            </f:else>
+        </f:if>
+        <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+            {item.title}
+        </f:link.page>
+    </f:for>
+</f:if>

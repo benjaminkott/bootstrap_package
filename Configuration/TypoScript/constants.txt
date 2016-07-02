@@ -13,6 +13,10 @@
 # customsubcategory=145=Content Element Uploads
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
+# customsubcategory=166=Section Footer
+# customsubcategory=167=Section Meta
+# customsubcategory=168=Section Language
+# customsubcategory=169=Section Copyright
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=BoostrapPackageExtensions=Extension Overrides
@@ -43,24 +47,34 @@ page {
         breadcrumb = 1
         # cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
         breadcrumbEnableLevel = 2
-        copyright {
-            # cat=bootstrap package: basic/160/120; type=boolean; label=Copyright: Enable to display the copyright
-            enable = 1
-            # cat=bootstrap package: basic/160/121; type=string; label=Copyright Text
-            text = Built on a Windows 10 Surface Book. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.<br> Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
-        }
+
 
         footersection {
-            # cat=bootstrap package: basic/160/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
+            # cat=bootstrap package: basic/166/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
             enable = 1
         }
-        languagesection {
-            # cat=bootstrap package: basic/160/129; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
+
+        meta {
+            # cat=bootstrap package: basic/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+            enable = 1
+            # cat=bootstrap package: basic/167/meta_navigationValue; type=string; label=Meta Navigation Values: Comma separated list of page uids
+            navigationValue =
+            # cat=bootstrap package: basic/167/meta_navigationType; type=options[List=list, Directory=directory]; label=Meta Navigation Type
+            navigationType = list
+            # cat=bootstrap package: basic/167/meta_includeNotInMenu; type=boolean; label=Meta Navigation include items not in menu
+            includeNotInMenu = 1
+        }
+
+        language {
+            # cat=bootstrap package: basic/168/language_enable; type=boolean; label=Language: Enable to display the language menu
             enable = 1
         }
-        metasection {
-            # cat=bootstrap package: basic/160/130; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+
+        copyright {
+            # cat=bootstrap package: basic/169/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
+            # cat=bootstrap package: basic/169/121; type=string; label=Copyright Text
+            text = Built on a Windows 10 Surface Book. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.<br> Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
         }
 
         news {
