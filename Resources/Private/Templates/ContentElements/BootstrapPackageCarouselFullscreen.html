@@ -1,0 +1,57 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <div id="carousel-{data.uid}"
+                class="carousel carousel-fullscreen carousel-transition-{data.pi_flexform.transition} slide"
+                data-interval="{data.pi_flexform.interval}"
+                data-wrap="{data.pi_flexform.wrap}"
+                data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <f:for each="{records}" as="item" iteration="iteration">
+                    <bk2k:var name="itemStyleImage">
+                        <f:if condition="{item.backgroundImage.0}">
+                            <bk2k:var name="backgroundImagePath"
+                                    value="{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
+                            background-image: url('{backgroundImagePath}');
+                            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
+                            sizingMethod='scale');
+                            -ms-filter:
+                            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
+                            sizingMethod='scale')";
+                        </f:if>
+                    </bk2k:var>
+                    <bk2k:var name="itemStyleColor">
+                        <f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if>
+                    </bk2k:var>
+                    <div
+                        class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}"
+                        data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
+                        <f:switch expression="{item.data.item_type}">
+                            <f:case value="header">
+                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                    <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
+                                </f:link.page>
+                            </f:case>
+                            <f:case value="textandimage">
+                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
+                                </f:link.page>
+                            </f:case>
+                            <f:case value="html">{item.data.bodytext->f:format.raw()}</f:case>
+                        </f:switch>
+                    </div>
+                </f:for>
+            </div>
+            <f:render partial="Carousel/Control/Indicator" arguments="{_all}"/>
+            <f:render partial="Carousel/Control/Control" arguments="{_all}"/>
+        </div>
+    </f:if>
+
+</f:section>

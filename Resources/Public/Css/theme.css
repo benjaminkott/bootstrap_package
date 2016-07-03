@@ -6741,19 +6741,35 @@ button.close {
   }
 }
 .section {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 @media (min-width: 768px) {
   .section {
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+    padding-top: 3em;
+    padding-bottom: 3em;
   }
 }
 @media (min-width: 992px) {
   .section {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+}
+@media (min-width: 1200px) {
+  .section {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+}
+.section-small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+@media (min-width: 768px) {
+  .section-small {
+    padding-top: 3em;
+    padding-bottom: 3em;
   }
 }
 .section-primary {
@@ -7924,6 +7940,9 @@ body,
   .carousel-small .item {
     height: 400px;
   }
+}
+.carousel-fullscreen .item {
+  height: 100vh;
 }
 .carousel .item {
   background-repeat: no-repeat;

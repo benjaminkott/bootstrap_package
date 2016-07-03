@@ -471,6 +471,9 @@
             <trans-unit id="carousellayout.small">
                 <source>Small</source>
             </trans-unit>
+            <trans-unit id="carousellayout.fullscreen">
+                <source>Fullscreen</source>
+            </trans-unit>
 
             <trans-unit id="field.section_frame">
                 <source>Frame</source>

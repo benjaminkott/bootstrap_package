@@ -20,6 +20,9 @@ tt_content.bootstrap_package_carousel {
         110 = TEXT
         110.value = BootstrapPackageCarouselSmall
 
+        120 = TEXT
+        120.value = BootstrapPackageCarouselFullscreen
+
         default = TEXT
         default.value = BootstrapPackageCarousel
     }

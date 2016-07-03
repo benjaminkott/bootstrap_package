@@ -59,6 +59,7 @@ TCEFORM {
                     addItems {
                         100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
                         110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
+                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
                     }
                 }
                 bootstrap_package_panel {
