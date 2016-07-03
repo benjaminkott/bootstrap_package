@@ -2,15 +2,27 @@
 // Section
 // --------------------------------------------------
 .section {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
     @media (min-width: @screen-sm) {
-        padding-top: 1.5em;
-        padding-bottom: 1.5em;
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
     @media (min-width: @screen-md) {
-        padding-top: 2em;
-        padding-bottom: 2em;
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+    @media (min-width: @screen-lg) {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+}
+.section-small {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    @media (min-width: @screen-sm) {
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
 }
 .make-section(@name, @background, @color, @link-color, @link-color-hover) {
