@@ -424,6 +424,7 @@ page {
             disableCompression = 1
             excludeFromConcatenation = 1
         }
+        ionicons = EXT:bootstrap_package/Resources/Public/Css/ionicons.min.css
     }
 
     includeCSS {

@@ -23,4 +23,26 @@ tt_content.bootstrap_package_texticon {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
+    #################
+    ### VARIABLES ###
+    #################
+    variables {
+        identifier = TEXT
+        identifier {
+            field = icon
+            split {
+                token = __
+                returnKey = 0
+            }
+        }
+        icon = TEXT
+        icon {
+            field = icon
+            split {
+                token = __
+                returnKey = 1
+            }
+        }
+    }
+
 }

@@ -529,6 +529,10 @@
             <trans-unit id="tabs.background">
                 <source>Background</source>
             </trans-unit>
+            <trans-unit id="tabs.icon">
+                <source>Icon</source>
+            </trans-unit>
+
             <trans-unit id="colorpicker">
                 <source>Colorpicker</source>
             </trans-unit>

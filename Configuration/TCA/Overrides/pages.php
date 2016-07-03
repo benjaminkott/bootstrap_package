@@ -9,6 +9,13 @@ $extensionKey = 'bootstrap_package';
  * Register PageTS
  */
 
+// Ionicons
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/PageTS/Feature/Ionicons.txt',
+    'Bootstrap Package: Use Ionicons as Iconset'
+);
+
 // AdminPanel
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,

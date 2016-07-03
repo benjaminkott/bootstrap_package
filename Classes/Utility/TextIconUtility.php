@@ -38,38 +38,51 @@ class TextIconUtility
      */
     public function addIconItems(array $parameters)
     {
-        $icons = self::getIcons('EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/');
-        $parameters['items'] = array_merge($parameters['items'], $icons);
+        if (is_array($parameters['TSconfig']) && isset($parameters['TSconfig']['directory'])) {
+            $directory = $parameters['TSconfig']['directory'];
+        } else {
+            $directory = 'EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/';
+        }
+        $icons = self::getIcons($directory);
+        if ($icons) {
+            $parameters['items'] = array_merge($parameters['items'], $icons);
+        }
     }
 
     /**
      * @param string $directory
-     * @return array
+     * @return array|bool
      */
     public function getIcons($directory)
     {
         $icons = [];
-        if (strpos($directory, 'EXT:') === 0) {
-            $path = GeneralUtility::getFileAbsFileName($directory);
-            $files = iterator_to_array(
-                new \FilesystemIterator(
-                    $path,
-                    \FilesystemIterator::KEY_AS_PATHNAME
-                )
-            );
-            ksort($files);
-            foreach ($files as $key => $fileinfo) {
-                if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'jpg', 'gif'])) {
-                    $pathinfo = pathinfo($fileinfo->getPathname());
-                    $iconPath = str_replace(PATH_site . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
-                    $icons[] = [
-                        $pathinfo['filename'],
-                        $pathinfo['filename'],
-                        $iconPath
-                    ];
-                }
+        if (strpos($directory, 'EXT:') !== 0 || !strpos($directory, 'Resources/Public')) {
+            return false;
+        }
+        $path = GeneralUtility::getFileAbsFileName($directory);
+        if (!is_dir($path)) {
+            return false;
+        }
+        $identifier = pathinfo($path)['basename'];
+        $files = iterator_to_array(
+            new \FilesystemIterator(
+                $path,
+                \FilesystemIterator::KEY_AS_PATHNAME
+            )
+        );
+        ksort($files);
+        foreach ($files as $key => $fileinfo) {
+            if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'jpg', 'gif'])) {
+                $pathinfo = pathinfo($fileinfo->getPathname());
+                $iconPath = str_replace(PATH_site . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
+                $icons[] = [
+                    $pathinfo['filename'],
+                    $identifier . '__' . $pathinfo['filename'],
+                    $iconPath
+                ];
             }
         }
+
         return $icons;
     }
 }

@@ -8150,7 +8150,7 @@ body,
 .texticon-icon {
   font-size: 2em;
 }
-.texticon-icon .glyphicon {
+.texticon-icon .texticon-inner-icon {
   text-align: center;
   margin: 0 auto;
   display: block;
@@ -8182,13 +8182,13 @@ body,
 .texticon-top .texticon-icon {
   margin-bottom: 0.5em;
 }
-.texticon-type-square .glyphicon,
-.texticon-type-circle .glyphicon {
+.texticon-type-square .texticon-inner-icon,
+.texticon-type-circle .texticon-inner-icon {
   line-height: 2.3em;
   height: 2.3em;
   width: 2.3em;
 }
-.texticon-type-circle .glyphicon {
+.texticon-type-circle .texticon-inner-icon {
   border-radius: 50%;
 }
 .texticon-left .texticon-icon,
