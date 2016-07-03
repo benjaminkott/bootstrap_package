@@ -38,6 +38,8 @@ return array(
             tt_content,
             header,
             header_layout,
+            subheader,
+            subheader_layout,
             bodytext,
             image,
             text_color,
@@ -140,6 +142,9 @@ return array(
             'showitem' => '
                 header,
                 header_layout,
+                --linebreak--,
+                subheader,
+                subheader_layout,
             ',
             'canNotCollapse' => 1
         ),
@@ -337,6 +342,38 @@ return array(
                     ),
                 ),
                 'default' => '1'
+            ),
+        ),
+        'subheader' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader',
+            'config' => array(
+                'type' => 'input',
+                'size' => 50,
+                'eval' => 'trim'
+            ),
+        ),
+        'subheader_layout' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_layout',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => array(
+                    array(
+                        'H2',
+                        '2'
+                    ),
+                    array(
+                        'H3',
+                        '3'
+                    ),
+                    array(
+                        'H4',
+                        '4'
+                    ),
+                ),
+                'default' => '2'
             ),
         ),
         'bodytext' => array(

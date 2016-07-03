@@ -242,6 +242,12 @@
             <trans-unit id="carousel_item.header_layout">
                 <source>Header Layout</source>
             </trans-unit>
+            <trans-unit id="carousel_item.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.subheader_layout">
+                <source>Subheader Layout</source>
+            </trans-unit>
             <trans-unit id="carousel_item.bodytext">
                 <source>Text</source>
             </trans-unit>

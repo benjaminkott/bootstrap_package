@@ -30,6 +30,8 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     item_type varchar(255) DEFAULT '' NOT NULL,
     header varchar(255) DEFAULT '' NOT NULL,
     header_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
+    subheader varchar(255) DEFAULT '' NOT NULL,
+    subheader_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
     bodytext text NOT NULL,
     image int(11) unsigned DEFAULT '0',
     link varchar(255) DEFAULT '' NOT NULL,
