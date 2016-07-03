@@ -31,6 +31,16 @@
         }
     }
 }
+.navbar-fixed-bottom + a,
+.navbar-fixed-bottom + a + a {
+    + .carousel-fullscreen {
+        margin-top: 0;
+        height: calc(~"100vh - @{navbar-height}");
+        @media (min-width: @grid-float-breakpoint) {
+            height: calc(~"100vh - @{navbar-height} - @{navbar-height}");
+        }
+    }
+}
 
 
 //

@@ -55,6 +55,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.swipe.js',
                 dest: '<%= paths.js %>Dist/bootstrap.swipe.min.js'
             },
+            bootstrapStickyheader: {
+                src: '<%= paths.js %>Src/bootstrap.stickyheader.js',
+                dest: '<%= paths.js %>Dist/bootstrap.stickyheader.min.js'
+            },
             equalheight: {
                 src: '<%= paths.js %>Src/jquery.equalheight.js',
                 dest: '<%= paths.js %>Dist/jquery.equalheight.min.js'
@@ -96,6 +100,10 @@ module.exports = function(grunt) {
             bootstrapSwipe: {
                 files: '<%= paths.js %>Src/bootstrap.swipe.js',
                 tasks: 'uglify:bootstrapSwipe'
+            },
+            bootstrapStickyheader: {
+                files: '<%= paths.js %>Src/bootstrap.stickyheader.js',
+                tasks: 'uglify:bootstrapStickyheader'
             },
             equalheight: {
                 files: '<%= paths.js %>Src/jquery.equalheight.js',

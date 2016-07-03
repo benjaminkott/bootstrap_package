@@ -457,13 +457,13 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/313/navbar-default-toggle-border-color; type=string; label=@navbar-default-toggle-border-color:
             navbar-default-toggle-border-color = transparent
             # cat=bootstrap package: styling/313/navbar-inverse-color; type=string; label=@navbar-inverse-color:
-            navbar-inverse-color = @gray-light
+            navbar-inverse-color = #ccc
             # cat=bootstrap package: styling/313/navbar-inverse-bg; type=string; label=@navbar-inverse-bg:
-            navbar-inverse-bg = @gray
+            navbar-inverse-bg = #2b2b2b
             # cat=bootstrap package: styling/313/navbar-inverse-border; type=string; label=@navbar-inverse-border:
-            navbar-inverse-border = darken(@navbar-inverse-bg, 6.5%)
+            navbar-inverse-border = @navbar-inverse-bg
             # cat=bootstrap package: styling/313/navbar-inverse-link-color; type=string; label=@navbar-inverse-link-color:
-            navbar-inverse-link-color = darken(@navbar-inverse-link-active-color,35%)
+            navbar-inverse-link-color = darken(@navbar-inverse-link-active-color,25%)
             # cat=bootstrap package: styling/313/navbar-inverse-link-hover-color; type=string; label=@navbar-inverse-link-hover-color:
             navbar-inverse-link-hover-color = @navbar-inverse-link-active-color
             # cat=bootstrap package: styling/313/navbar-inverse-link-hover-bg; type=string; label=@navbar-inverse-link-hover-bg:

@@ -4,12 +4,81 @@
 .navbar {
     position: relative;
     z-index: @zindex-navbar;
-    &.navbar-fixed-top {
+    &.navbar-fixed-top,
+    &.navbar-fixed-bottom {
         position: fixed;
     }
 }
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse,
 .navbar-collapse {
     max-height: none;
+}
+
+
+//
+// Brand
+//
+.navbar-brand {
+    > .navbar-brand-logo-normal {
+        display: inline-block;
+    }
+    > .navbar-brand-logo-inverted {
+        display: none;
+    }
+}
+
+
+//
+// Transition
+//
+.navbar-default-transition,
+.navbar-default-transition.navbar-transition {
+    &:extend(.navbar-default all);
+}
+.navbar-inverse-transition,
+.navbar-inverse-transition.navbar-transition {
+    &:extend(.navbar-inverse all);
+}
+@media (min-width: @grid-float-breakpoint) {
+    .navbar-default-transition,
+    .navbar-inverse-transition {
+        .transition(all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s);
+        background-color: transparent;
+        border-color: transparent;
+        .navbar-nav > .open,
+        .navbar-nav > li {
+            > a,
+            > a:hover,
+            > a:focus {
+                color: #ffffff;
+            }
+        }
+        .navbar-brand {
+            > .navbar-brand-logo-normal {
+                display: none;
+            }
+            > .navbar-brand-logo-inverted {
+                display: inline-block;
+            }
+        }
+    }
+    .navbar-transition {
+        .navbar-header-main .navbar-brand,
+        .navbar-main > li > .navbar-text,
+        .navbar-main > li > a {
+            line-height: @navbar-height;
+            height: @navbar-height;
+        }
+        .navbar-brand {
+            > .navbar-brand-logo-normal {
+                display: inline-block;
+            }
+            > .navbar-brand-logo-inverted {
+                display: none;
+            }
+        }
+    }
 }
 .navbar.navbar-top {
     border-left: none;
@@ -19,9 +88,6 @@
 }
 .navbar-header-main {
     .navbar-brand {
-        &.navbar-brand-image > img {
-            display: inline;
-        }
         padding-top: 0;
         padding-bottom: 0;
         font-size: round(@font-size-base * 1.4);
