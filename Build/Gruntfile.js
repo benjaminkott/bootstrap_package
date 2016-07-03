@@ -119,7 +119,7 @@ module.exports = function(grunt) {
             },
             less: {
                 files: '<%= paths.less %>**/*.less',
-                tasks: 'less'
+                tasks: 'css'
             }
         },
         imagemin: {

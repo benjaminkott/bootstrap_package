@@ -8189,6 +8189,16 @@ body,
     margin-top: -140px;
   }
 }
+.navbar-fixed-top + a + .carousel,
+.navbar-fixed-top + a + a + .carousel {
+  margin-top: -70px;
+}
+@media (min-width: 992px) {
+  .navbar-fixed-top + a + .carousel,
+  .navbar-fixed-top + a + a + .carousel {
+    margin-top: -140px;
+  }
+}
 .navbar-fixed-bottom + a + .carousel-fullscreen,
 .navbar-fixed-bottom + a + a + .carousel-fullscreen {
   margin-top: 0;
