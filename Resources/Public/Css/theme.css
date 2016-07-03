@@ -7560,6 +7560,13 @@ body,
     padding-bottom: 140px;
   }
 }
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+.navbar.navbar-fixed-top {
+  position: fixed;
+}
 .navbar-collapse {
   max-height: none;
 }
@@ -7943,6 +7950,16 @@ body,
 }
 .carousel-fullscreen .item {
   height: 100vh;
+}
+.navbar + a + .carousel-fullscreen,
+.navbar + a + a + .carousel-fullscreen {
+  margin-top: -70px;
+}
+@media (min-width: 992px) {
+  .navbar + a + .carousel-fullscreen,
+  .navbar + a + a + .carousel-fullscreen {
+    margin-top: -140px;
+  }
 }
 .carousel .item {
   background-repeat: no-repeat;

@@ -1,6 +1,13 @@
 //
 // Navbar
 // --------------------------------------------------
+.navbar {
+    position: relative;
+    z-index: @zindex-navbar;
+    &.navbar-fixed-top {
+        position: fixed;
+    }
+}
 .navbar-collapse {
     max-height: none;
 }

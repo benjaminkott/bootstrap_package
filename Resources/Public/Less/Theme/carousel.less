@@ -22,6 +22,15 @@
         height: 100vh;
     }
 }
+.navbar + a,
+.navbar + a + a {
+    + .carousel-fullscreen {
+        margin-top: -@navbar-height;
+        @media (min-width: @grid-float-breakpoint) {
+            margin-top: -(round(@navbar-height*2));
+        }
+    }
+}
 
 
 //
