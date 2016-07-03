@@ -435,7 +435,7 @@ page {
     }
 
     includeJSLibs {
-        modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/modernizr-2.8.3.min.js
+        modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/modernizr.min.js
         modernizr.forceOnTop = 1
         modernizr.async = 1
         wpfix = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/windowsphone-viewportfix.min.js

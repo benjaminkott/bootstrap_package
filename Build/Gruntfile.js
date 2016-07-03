@@ -197,6 +197,70 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        modernizr: {
+            dist: {
+                'crawl': false,
+                'customTests': [],
+                'dest': '<%= paths.js %>Dist/modernizr.min.js',
+                'tests': [
+                    'applicationcache',
+                    'audio',
+                    'canvas',
+                    'canvastext',
+                    'geolocation',
+                    'hashchange',
+                    'history',
+                    'indexeddb',
+                    'input',
+                    'inputtypes',
+                    'postmessage',
+                    'svg',
+                    'video',
+                    'webgl',
+                    'websockets',
+                    'cssanimations',
+                    'backgroundsize',
+                    'borderimage',
+                    'borderradius',
+                    'boxshadow',
+                    'csscolumns',
+                    'flexbox',
+                    'flexboxlegacy',
+                    'fontface',
+                    'generatedcontent',
+                    'cssgradients',
+                    'hsla',
+                    'multiplebgs',
+                    'opacity',
+                    'cssreflections',
+                    'rgba',
+                    'textshadow',
+                    'csstransforms',
+                    'csstransforms3d',
+                    'csstransitions',
+                    'cssvhunit',
+                    'cssvwunit',
+                    'localstorage',
+                    'sessionstorage',
+                    'websqldatabase',
+                    'svgclippaths',
+                    'inlinesvg',
+                    'smil',
+                    'webworkers'
+                ],
+                'options': [
+                    'domPrefixes',
+                    'prefixes',
+                    'hasEvent',
+                    'testAllProps',
+                    'testProp',
+                    'testStyles',
+                    'html5shiv',
+                    'setClasses'
+                ],
+                'uglify': true
+            }
         }
     });
 
@@ -209,11 +273,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks("grunt-modernizr");
 
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['copy']);
+    grunt.registerTask('update', ['copy', 'modernizr']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('image', ['imagemin']);
