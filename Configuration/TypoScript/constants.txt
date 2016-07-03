@@ -3,8 +3,8 @@
 ###########################
 # customsubcategory=100=Page Template
 # customsubcategory=110=Logo
+# customsubcategory=111=Favicon
 # customsubcategory=120=Meta Settings
-# customsubcategory=130=File Include Path
 # customsubcategory=140=Content Elements Templates
 # customsubcategory=141=Content Element Accordion
 # customsubcategory=142=Content Element Tabs
@@ -40,6 +40,11 @@ page {
         linktitle =
     }
 
+    favicon {
+        # cat=bootstrap package: basic/111/100; type=string; label=Favicon
+        file = EXT:bootstrap_package/Resources/Public/Icons/favicon.ico
+    }
+
     theme {
         # cat=bootstrap package: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
         navigationstyle = default
@@ -49,7 +54,6 @@ page {
         breadcrumb = 1
         # cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
         breadcrumbEnableLevel = 2
-
 
         footersection {
             # cat=bootstrap package: basic/166/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
@@ -109,11 +113,6 @@ page {
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Page/
         # cat=bootstrap package: advanced/100/120; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Page/
-    }
-
-    includePath {
-        # cat=bootstrap package: advanced/130/100; type=string; label=Icon Include Path: Path to css files
-        icons = EXT:bootstrap_package/Resources/Public/Icons/
     }
 
     meta {

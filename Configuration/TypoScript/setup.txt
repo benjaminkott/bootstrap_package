@@ -102,7 +102,7 @@ plugin.tx_bootstrappackage {
 page = PAGE
 page {
     typeNum = 0
-    shortcutIcon = {$page.includePath.icons}favicon.ico
+    shortcutIcon = {$page.favicon.file}
 
     bodyTagCObject = COA
     bodyTagCObject {
