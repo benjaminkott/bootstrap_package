@@ -30,6 +30,9 @@
         color: @color;
         background-color: @background;
     }
+    .@{name} + .@{name} {
+        border-top: 1px solid darken(@background, 5%);
+    }
 }
 .make-section(section-primary, @section-primary-bg, @section-primary-color, @section-primary-link-color, @section-primary-link-hover-color);
 .make-section(section-light, @section-light-bg, @section-light-color, @section-light-link-color, @section-light-link-hover-color);

@@ -6944,13 +6944,22 @@ button.close {
   color: #fff;
   background-color: #ff8700;
 }
+.section-primary + .section-primary {
+  border-top: 1px solid #e67a00;
+}
 .section-light {
   color: #333;
   background-color: #f2f2f2;
 }
+.section-light + .section-light {
+  border-top: 1px solid #e5e5e5;
+}
 .section-dark {
   color: #fff;
   background-color: #333;
+}
+.section-dark + .section-dark {
+  border-top: 1px solid #262626;
 }
 @media (min-width: 992px) {
   h1.awesome,
