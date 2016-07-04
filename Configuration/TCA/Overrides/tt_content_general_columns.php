@@ -18,6 +18,16 @@ $GLOBALS['TCA']['tt_content']['columns']['header_position'] = [
         'default' => ''
     ]
 ];
+$GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.teaser',
+    'exclude' => true,
+    'config' => [
+        'type' => 'text',
+        'softref' => 'rtehtmlarea_images,typolink_tag',
+        'cols' => '40',
+        'rows' => '3'
+    ]
+];
 $GLOBALS['TCA']['tt_content']['columns']['section_frame'] = [
     'exclude' => true,
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame',

@@ -163,6 +163,13 @@
                 <source>Insert Text in Columns</source>
             </trans-unit>
 
+            <trans-unit id="content_element.textteaser">
+                <source>Text with Teaser</source>
+            </trans-unit>
+            <trans-unit id="content_element.textteaser.description">
+                <source>Insert Text with Teaser</source>
+            </trans-unit>
+
             <trans-unit id="content_element.texticon">
                 <source>Text and Icon</source>
             </trans-unit>
@@ -393,6 +400,10 @@
             </trans-unit>
             <trans-unit id="field.icon_background">
                 <source>Background</source>
+            </trans-unit>
+
+            <trans-unit id="field.teaser">
+                <source>Teaser</source>
             </trans-unit>
 
             <trans-unit id="option.none">

@@ -30,6 +30,14 @@ mod.wizards {
                             CType = textcolumn
                         }
                     }
+                    textteaser {
+                        iconIdentifier = content-bootstrappackage-textteaser
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser.description
+                        tt_content_defValues {
+                            CType = textteaser
+                        }
+                    }
                     textpic {
                         iconIdentifier = content-textpic
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
