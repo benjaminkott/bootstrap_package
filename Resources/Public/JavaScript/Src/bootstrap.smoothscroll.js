@@ -12,6 +12,10 @@
             $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
             if ($target.length) {
                 var targetOffset = $target.offset().top;
+                var navbar = $('.navbar-fixed-top');
+                if(navbar.length && targetOffset !== 0){
+                    targetOffset -= navbar.outerHeight();
+                }
                 $('html,body').animate({scrollTop: targetOffset}, 500);
                 return false;
             }
