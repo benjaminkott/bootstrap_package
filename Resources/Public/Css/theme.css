@@ -7113,6 +7113,57 @@ h4 + h5 {
 .indent-right {
   margin-right: 33%;
 }
+.scroll-top {
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  background-color: #555555;
+  color: #fff;
+  bottom: 40px;
+  right: 40px;
+  position: fixed;
+  opacity: 1
+    width: 3em;
+  height: 3em;
+}
+.scroll-top:active,
+.scroll-top:focus,
+.scroll-top:hover {
+  color: #ffffff;
+  background-color: #ff8700;
+}
+.scroll-top.scroll-top-visible {
+  opacity: 1;
+}
+.css-arrow,
+.scroll-top .scroll-top-icon {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.css-arrow:before,
+.scroll-top .scroll-top-icon:before {
+  content: '';
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  top: 55%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 .valign {
   display: table;
   table-layout: fixed;

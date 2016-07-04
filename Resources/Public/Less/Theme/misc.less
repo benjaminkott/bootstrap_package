@@ -24,6 +24,58 @@
 
 
 //
+// Scrolltop
+//
+.scroll-top {
+    overflow: hidden;
+    .transition(all 0.3s ease-in-out);
+    z-index: @zindex-navbar;
+    background-color: @gray;
+    color: #fff;
+    bottom: @grid-gutter-width;
+    right: @grid-gutter-width;
+    position: fixed;
+    opacity: 0;
+    width: 3em;
+    height: 3em;
+    &:active,
+    &:focus,
+    &:hover {
+        color: #ffffff;
+        background-color: @brand-primary;
+    }
+    .scroll-top-icon {
+        &:extend(.css-arrow all);
+    }
+    &.scroll-top-visible {
+        opacity: 1;
+    }
+}
+
+
+.css-arrow {
+    .rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    &:before {
+        content: '';
+        position: absolute;
+        height: 30%;
+        width: 30%;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        top: 55%;
+        left: 55%;
+        .translate(-50%, -50%);
+    }
+}
+
+
+
+//
 // Vertical Alignment
 // --------------------------------------------------
 .valign {
