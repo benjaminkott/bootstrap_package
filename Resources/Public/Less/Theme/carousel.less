@@ -23,7 +23,9 @@
     }
 }
 .navbar + a,
-.navbar + a + a {
+.navbar + a + a,
+.navbar + .main-section > a,
+.navbar + .main-section > a + a {
     + .carousel-fullscreen {
         margin-top: -@navbar-height;
         @media (min-width: @grid-float-breakpoint) {
@@ -32,7 +34,9 @@
     }
 }
 .navbar-fixed-top + a,
-.navbar-fixed-top + a + a {
+.navbar-fixed-top + a + a,
+.navbar-fixed-top + .main-section > a,
+.navbar-fixed-top + .main-section > a + a {
     + .carousel {
         margin-top: -@navbar-height;
         @media (min-width: @grid-float-breakpoint) {
@@ -41,7 +45,9 @@
     }
 }
 .navbar-fixed-bottom + a,
-.navbar-fixed-bottom + a + a {
+.navbar-fixed-bottom + a + a,
+.navbar-fixed-bottom + .main-section > a,
+.navbar-fixed-bottom + .main-section > a + a  {
     + .carousel-fullscreen {
         margin-top: 0;
         height: calc(~"100vh - @{navbar-height}");

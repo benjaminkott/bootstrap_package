@@ -7124,8 +7124,8 @@ h4 + h5 {
   bottom: 40px;
   right: 40px;
   position: fixed;
-  opacity: 1
-    width: 3em;
+  opacity: 0;
+  width: 3em;
   height: 3em;
 }
 .scroll-top:active,
@@ -8240,33 +8240,45 @@ body,
   height: 100vh;
 }
 .navbar + a + .carousel-fullscreen,
-.navbar + a + a + .carousel-fullscreen {
+.navbar + a + a + .carousel-fullscreen,
+.navbar + .main-section > a + .carousel-fullscreen,
+.navbar + .main-section > a + a + .carousel-fullscreen {
   margin-top: -70px;
 }
 @media (min-width: 992px) {
   .navbar + a + .carousel-fullscreen,
-  .navbar + a + a + .carousel-fullscreen {
+  .navbar + a + a + .carousel-fullscreen,
+  .navbar + .main-section > a + .carousel-fullscreen,
+  .navbar + .main-section > a + a + .carousel-fullscreen {
     margin-top: -140px;
   }
 }
 .navbar-fixed-top + a + .carousel,
-.navbar-fixed-top + a + a + .carousel {
+.navbar-fixed-top + a + a + .carousel,
+.navbar-fixed-top + .main-section > a + .carousel,
+.navbar-fixed-top + .main-section > a + a + .carousel {
   margin-top: -70px;
 }
 @media (min-width: 992px) {
   .navbar-fixed-top + a + .carousel,
-  .navbar-fixed-top + a + a + .carousel {
+  .navbar-fixed-top + a + a + .carousel,
+  .navbar-fixed-top + .main-section > a + .carousel,
+  .navbar-fixed-top + .main-section > a + a + .carousel {
     margin-top: -140px;
   }
 }
 .navbar-fixed-bottom + a + .carousel-fullscreen,
-.navbar-fixed-bottom + a + a + .carousel-fullscreen {
+.navbar-fixed-bottom + a + a + .carousel-fullscreen,
+.navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
+.navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
   margin-top: 0;
   height: calc(100vh - 70px);
 }
 @media (min-width: 992px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + a + a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
     height: calc(100vh - 70px - 70px);
   }
 }
