@@ -10,7 +10,7 @@
         <ul class="media-list">
             <f:for each="{files}" as="file" iteration="fileIterator">
                 <li class="media">
-                    <f:if condition="{data.layout} == 2">
+                    <f:if condition="{data.uploads_type} == 2">
                         <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                             <div class="media-left">
                                 <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
@@ -22,7 +22,7 @@
                     <div class="media-body">
                         <h4 class="media-heading">
                             <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
-                                <f:if condition="{data.layout} > 0">
+                                <f:if condition="{data.uploads_type} > 0">
                                     <f:switch expression="{f:format.case(value: file.extension, mode: 'lower')}">
                                         <f:case value="avi"><span class="glyphicon glyphicon-film"></span></f:case>
                                         <f:case value="mov"><span class="glyphicon glyphicon-film"></span></f:case>
