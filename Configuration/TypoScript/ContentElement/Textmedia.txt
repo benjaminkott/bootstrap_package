@@ -18,6 +18,12 @@ tt_content.textmedia {
         8 = TEXT
         8.value = TextmediaBelow
 
+        9 = TEXT
+        9.value = TextmediaBelow
+
+        10 = TEXT
+        10.value = TextmediaBelow
+
         25 = TEXT
         25.value = TextmediaRight
 

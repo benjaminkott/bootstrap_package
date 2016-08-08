@@ -81,7 +81,7 @@ TCEFORM {
             removeItems = 5,7,8
         }
         imageorient {
-            removeItems = 1,2,9,10,17,18
+            removeItems = 17,18
             types {
                 image {
                     disabled = 1

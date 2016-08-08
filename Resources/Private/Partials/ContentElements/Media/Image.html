@@ -1,5 +1,14 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<figure class="image">
+<f:switch expression="{data.imageorient}">
+    <f:case value="1"><bk2k:var name="imgAlignClass" value=" image-align-right" /></f:case>
+    <f:case value="2"><bk2k:var name="imgAlignClass" value=" image-align-left" /></f:case>
+    <f:case value="9"><bk2k:var name="imgAlignClass" value=" image-align-right" /></f:case>
+    <f:case value="10"><bk2k:var name="imgAlignClass" value=" image-align-left" /></f:case>
+    <f:case value="25"><bk2k:var name="imgAlignClass" value=" image-align-right" /></f:case>
+    <f:case value="26"><bk2k:var name="imgAlignClass" value=" image-align-left" /></f:case>
+    <f:case default="TRUE"><bk2k:var name="imgAlignClass" value="" /></f:case>
+</f:switch>
+<figure class="image{imgAlignClass}">
     <f:if condition="{file.link}">
         <f:then>
             <f:link.typolink parameter="{file.link}" title="{file.title}">

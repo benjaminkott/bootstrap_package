@@ -2,21 +2,29 @@
 // Images
 // --------------------------------------------------
 .image {
-    display: block;
-    margin-bottom: @line-height-computed;
-    line-height: @line-height-base;
-    > img,
-    a > img {
+  display: block;
+  margin-bottom: @line-height-computed;
+  line-height: @line-height-base;
+  > img,
+  a > img {
 
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-    }
-    .caption {
-        padding: @thumbnail-caption-padding;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 0;
-    }
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  &.image-align-left > img,
+  &.image-align-left a > img {
+    margin-left: 0;
+  }
+  &.image-align-right > img,
+  &.image-align-right a > img {
+    margin-right: 0;
+  }
+  .caption {
+    padding: @thumbnail-caption-padding;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
 }
