@@ -49,7 +49,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *
  * Example TypoScript configuration:
  *
- * 10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+ * 10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
  * 10 {
  *   special = list
  *   special.value.field = pages
