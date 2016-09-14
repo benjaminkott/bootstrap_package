@@ -1,9 +1,9 @@
 <div id="top"></div>
 <div class="body-bg{f:if(condition:settings.navigation.type, then:' body-bg-{settings.navigation.type}')}">
 
-    <f:link.page class="sr-only sr-only-focusable" section="content">
+    <a class="sr-only sr-only-focusable" href="#content">
         {f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}
-    </f:link.page>
+    </a>
     <f:render partial="Navigation/Main" arguments="{_all}"/>
     <f:render partial="Navigation/Breadcrumb" arguments="{_all}"/>
 
