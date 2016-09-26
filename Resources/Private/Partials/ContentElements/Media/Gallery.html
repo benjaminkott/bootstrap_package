@@ -1,46 +1,68 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:if condition="{files}">
 
         <div class="row" data-equalheight="container">
             <f:if condition="{files -> f:count()} > 1">
                 <f:then>
+                     <f:switch expression="{data.imagecols}">
+                        <f:case value="1">
+                          {bk2k:imageSize()}
+                        </f:case>
+                        <f:case value="2">
+                          {bk2k:imageSize(xs:12, sm:6)}
+                        </f:case>
+                        <f:case value="3">
+                          {bk2k:imageSize(xs:4)}
+                        </f:case>
+                        <f:case value="4">
+                          {bk2k:imageSize(xs:6, sm:3)}
+                        </f:case>
+                        <f:case value="6">
+                          {bk2k:imageSize(xs:4, sm:3, md:2)}
+                        </f:case>
+                        <f:case default="1">
+                          {bk2k:imageSize()}
+                        </f:case>
+                    </f:switch>
                     <f:for each="{files}" as="file" iteration="fileIteration">
                         <f:switch expression="{data.imagecols}">
                             <f:case value="1">
                                 <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                             <f:case value="2">
                                 <div class="col-sm-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                             <f:case value="3">
                                 <div class="col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                             <f:case value="4">
                                 <div class="col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                             <f:case value="6">
                                 <div class="col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                             <f:case default="1">
                                 <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
+                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                                 </div>
                             </f:case>
                         </f:switch>
                     </f:for>
                 </f:then>
                 <f:else>
+                    {bk2k:imageSize()}
                     <div class="col-md-12" data-equalheight="item">
-                        <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings}" />
+                        <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, width: width}" />
                     </div>
                 </f:else>
             </f:if>
