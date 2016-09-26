@@ -24,10 +24,11 @@
 
     ViewPort.DEFAULTS = {
         breakpoints : {
-            0:'small',
-            768: 'medium',
-            992: 'large',
-            1200: 'bigger'
+            0:'xsmall',
+            480:'small',
+            768:'medium',
+            992:'large',
+            1200:'bigger'
         }
     }
 
