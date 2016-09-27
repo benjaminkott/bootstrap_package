@@ -15,22 +15,19 @@
                 data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <f:for each="{records}" as="item" iteration="iteration">
-                    <bk2k:var name="itemStyleImage">
-                        <f:if condition="{item.backgroundImage.0}">
-                            <bk2k:var name="backgroundImagePath"
-                                    value="{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
-                            background-image: url('{backgroundImagePath}');
-                            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
-                            sizingMethod='scale');
-                            -ms-filter:
-                            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
-                            sizingMethod='scale')";
-                        </f:if>
-                    </bk2k:var>
+                    <bk2k:var name="itemId">slide-{data.uid}-{iteration.cycle}</bk2k:var>
+
+                    <f:if condition="{item.backgroundImage.0}">
+                         <bk2k:addProperty object="data" name="imgcolumns" value="1" />
+                         <bk2k:addProperty object="data" name="tx_image_cssselector" value="#{itemId}" />
+                         <bk2k:addProperty object="data" name="tx_image_rendering" value="2" />
+                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: data, settings: settings}"/>
+                    </f:if>
+
                     <bk2k:var name="itemStyleColor">
                         <f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if>
                     </bk2k:var>
-                    <div
+                    <div id="{itemId}"
                         class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}"
                         data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
                         <f:switch expression="{item.data.item_type}">

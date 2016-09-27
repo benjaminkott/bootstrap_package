@@ -1,0 +1,22 @@
+<f:if condition="{file -> f:count()} < 5">
+  <f:then>
+    <div class="danger">Art direction require a multiple of 5 images</div>
+  </f:then>
+  <f:else>
+    <img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
+         data-src="{f:uri.image(image: file.0)}"
+         data-bigger="{f:uri.image(image: file.0, maxWidth: width.lg)}"
+         data-large="{f:uri.image(image: file.1, maxWidth: width.md)}"
+         data-medium="{f:uri.image(image: file.2, maxWidth: width.sm)}"
+         data-small="{f:uri.image(image: file.3, maxWidth: width.xs)}"
+         data-xsmall="{f:uri.image(image: file.4, maxWidth: width.xxs)}"
+         title="{file.0.title}"
+         alt="{file.0.alternative}"
+         class="lazyload"
+         data-preload="{f:if(condition: settings.media.preload, then: 'true', else: 'false')}"
+         />
+    <noscript>
+        <img src="{f:uri.image(image: file.0)}" title="{file.0.title}" alt="{file.0.alternative}" />
+    </noscript>
+  </f:else>
+</f:if>

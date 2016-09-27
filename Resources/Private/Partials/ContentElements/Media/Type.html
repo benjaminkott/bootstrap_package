@@ -1,7 +1,24 @@
+<f:if condition="{file.0.type} == 2">
+  <f:switch expression="{data.tx_image_rendering}">
+    <f:case value="3">
+      <f:render partial="Media/Rendering/CssArtDirection" arguments="{file: file, data:data, settings: settings, width: width}" />
+    </f:case>
+    <f:case default="TRUE">
+      <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, width: width}" />
+    </f:case>
+   </f:switch>
+</f:if>
 <f:if condition="{file.type} == 2">
-    <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, width: width}" />
+  <f:switch expression="{data.tx_image_rendering}">
+    <f:case value="2">
+      <f:render partial="Media/Rendering/Css" arguments="{file: file, data: data, settings: settings, width: width}" />
+    </f:case>
+    <f:case default="TRUE">
+      <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, width: width}" />
+    </f:case>
+  </f:switch>
 </f:if>
 
 <f:if condition="{file.type} == 4">
-    <f:render partial="Media/Video" arguments="{file: file, data: data, settings: settings}" />
+  <f:render partial="Media/Video" arguments="{file: file, data: data, width: width, settings: settings}" />
 </f:if>

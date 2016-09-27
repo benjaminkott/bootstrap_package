@@ -15,12 +15,8 @@
                         height="400c" />
                 </f:then>
                 <f:else>
-                    <f:image
-                        image="{item.images.0}"
-                        title="{item.images.0.title}"
-                        alt="{item.images.0.alternative}"
-                        width="600"
-                        height="600c" />
+                    <bk2k:addProperty object="data" name="imgcolumns" value="{images -> f:count()}"/>
+                    <f:render partial="Media/Gallery" arguments="{files: images, data: data, settings: settings}"/>
                 </f:else>
             </f:if>
         </f:if>

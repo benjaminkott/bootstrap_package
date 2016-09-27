@@ -1,71 +1,109 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:if condition="{files}">
-
-        <div class="row" data-equalheight="container">
-            <f:if condition="{files -> f:count()} > 1">
-                <f:then>
-                     <f:switch expression="{data.imagecols}">
-                        <f:case value="1">
-                          {bk2k:imageSize()}
-                        </f:case>
-                        <f:case value="2">
-                          {bk2k:imageSize(xs:12, sm:6)}
-                        </f:case>
-                        <f:case value="3">
-                          {bk2k:imageSize(xs:4)}
-                        </f:case>
-                        <f:case value="4">
-                          {bk2k:imageSize(xs:6, sm:3)}
-                        </f:case>
-                        <f:case value="6">
-                          {bk2k:imageSize(xs:4, sm:3, md:2)}
-                        </f:case>
-                        <f:case default="1">
-                          {bk2k:imageSize()}
-                        </f:case>
-                    </f:switch>
-                    <f:for each="{files}" as="file" iteration="fileIteration">
-                        <f:switch expression="{data.imagecols}">
-                            <f:case value="1">
-                                <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                            <f:case value="2">
-                                <div class="col-sm-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                            <f:case value="3">
-                                <div class="col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                            <f:case value="4">
-                                <div class="col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                            <f:case value="6">
-                                <div class="col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                            <f:case default="1">
-                                <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
-                                </div>
-                            </f:case>
-                        </f:switch>
-                    </f:for>
-                </f:then>
-                <f:else>
-                    {bk2k:imageSize()}
-                    <div class="col-md-12" data-equalheight="item">
-                        <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, width: width}" />
+  <f:if condition="{files -> f:count()} > 1">
+    <f:then>
+      <f:switch expression="{data.imagecols}">
+       <f:case value="2">
+          <bk2k:imageSize xs="12" sm="6"/>
+        </f:case>
+        <f:case value="3">
+          <bk2k:imageSize xs="4"/>
+        </f:case>
+        <f:case value="4">
+          <bk2k:imageSize xs="6" sm="3"/>
+        </f:case>
+        <f:case value="6">
+          <bk2k:imageSize xs="4" sm="3" md="2"/>
+        </f:case>
+        <f:case default="TRUE">
+          <bk2k:imageSize/>
+        </f:case>
+      </f:switch>
+      <f:switch expression="{data.tx_image_rendering}">
+        <f:case value="1">
+          <bk2k:var name="step" value="5"/>
+          <bk2k:var name="css" value="0"/>
+        </f:case>
+        <f:case value="2">
+          <bk2k:var name="step" value="1"/>
+          <bk2k:var name="css" value="1"/>
+        </f:case>
+        <f:case value="3">
+          <bk2k:var name="step" value="5"/>
+           <bk2k:var name="css" value="1"/>
+        </f:case>
+        <f:case default="TRUE">
+          <bk2k:var name="step" value="1"/>
+          <bk2k:var name="css" value="0"/>
+        </f:case>
+      </f:switch>
+      <f:if condition="{css}">
+        <f:then>
+         <bk2k:css inline="0">
+            <bk2k:forStep each="{files}" as="file" step="{step}" iteration="fileIteration">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
+            </bk2k:forStep>
+          </bk2k:css>
+        </f:then>
+        <f:else>
+          <div class="image-center image-above">
+            <div class="row" data-equalheight="container">
+              <bk2k:forStep each="{files}" as="file" step="{step}" iteration="fileIteration">
+                <f:switch expression="{data.imagecols}">
+                  <f:case value="2">
+                    <div class="col-sm-6" data-equalheight="item">
+                      <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
                     </div>
-                </f:else>
-            </f:if>
-        </div>
-
+                  </f:case>
+                  <f:case value="3">
+                    <div class="col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
+                      <f:render partial="Media/Type" arguments="{file: file, data: data,  settings: settings, width: width}" />
+                    </div>
+                  </f:case>
+                  <f:case value="4">
+                    <div class="col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
+                      <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
+                    </div>
+                  </f:case>
+                  <f:case value="6">
+                    <div class="col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
+                      <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
+                    </div>
+                  </f:case>
+                  <f:case default="TRUE">
+                    <div class="col-md-12" data-equalheight="item">
+                      <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, width: width}" />
+                    </div>
+                  </f:case>
+                </f:switch>
+              </bk2k:forStep>
+            </div>
+          </div>
+        </f:else>
+      </f:if>
+    </f:then>
+    <f:else>
+      <bk2k:imageSize/>
+      <f:switch expression="{data.tx_image_rendering}">
+        <f:case value="1">
+          <div class="danger">Art direction Image require a multiple of 5 images</div>
+        </f:case>
+        <f:case value="2">
+          <bk2k:css inline="0">
+            <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, width: width}" />
+         </bk2k:css>
+        </f:case>
+        <f:case value="3">
+          <div class="danger">Art direction Css background require a multiple of 5 images</div>
+        </f:case>
+        <f:case default="TRUE">
+          <div class="row" data-equalheight="container">
+            <div class="col-md-12" data-equalheight="item">
+              <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, width: width}" />
+            </div>
+          </div>
+        </f:case>
+      </f:switch>
+    </f:else>
+  </f:if>
 </f:if>

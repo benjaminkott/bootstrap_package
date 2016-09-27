@@ -16,6 +16,8 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_carousel_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_accordion_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_tab_item int(11) unsigned DEFAULT '0',
+    tx_image_rendering int(11) unsigned DEFAULT '0' NOT NULL,
+    tx_image_cssselector varchar(255) DEFAULT '' NOT NULL,
     assets int(11) unsigned DEFAULT '0' NOT NULL,
 );
 

@@ -370,6 +370,29 @@
                 <source>Danger</source>
             </trans-unit>
 
+            <trans-unit id="field.image_rendering">
+                <source>Rendering method</source>
+            </trans-unit>
+			      <trans-unit id="field.image_rendering_options.I.0">
+                <source>Standard</source>
+            </trans-unit>
+			      <trans-unit id="field.image_rendering_options.I.1">
+                <source>Art direction</source>
+            </trans-unit>
+			      <trans-unit id="field.image_rendering_options.I.2">
+                <source>Css background</source>
+            </trans-unit>
+			      <trans-unit id="field.image_rendering_options.I.3">
+                <source>Css background Art direction</source>
+            </trans-unit>
+			      <trans-unit id="field.image_rendering_options.I.4">
+                <source>Title as lightbox link</source>
+            </trans-unit>
+
+            <trans-unit id="field.image_cssselector">
+                <source>Css background selector</source>
+            </trans-unit>
+
             <trans-unit id="external_media">
                 <source>External Media</source>
             </trans-unit>

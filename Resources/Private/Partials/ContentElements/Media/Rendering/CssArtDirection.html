@@ -1,0 +1,14 @@
+<f:if condition="{file -> f:count()} > 4">
+<f:format.raw>@media(min-width:1200px){</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.0, maxWidth: width.lg)}<f:format.raw>");}}</f:format.raw>
+<f:format.raw>@media(min-width:992px AND max-width:1199px){</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.1, maxWidth: width.md)}<f:format.raw>");}}</f:format.raw>
+<f:format.raw>@media(min-width:768px AND max-width:991px){</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.2, maxWidth: width.sm)}<f:format.raw>");}}</f:format.raw>
+<f:format.raw>@media(min-width:480px AND max-width:767px){</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.3, maxWidth: width.xs)}<f:format.raw>");}}</f:format.raw>
+<f:format.raw>@media(max-width:479px){</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.4, maxWidth: width.xxs)}<f:format.raw>");}}</f:format.raw>
+{data.tx_image_cssselector}<f:format.raw>{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>.{f:uri.image(image: file.0, maxWidth: width.lg)}<f:format.raw>', sizingMethod='scale');
+-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>{f:uri.image(image: file.0, maxWidth: width.lg)}<f:format.raw>',sizingMethod='scale')";}</f:format.raw>
+</f:if>

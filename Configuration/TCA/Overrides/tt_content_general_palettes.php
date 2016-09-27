@@ -6,7 +6,10 @@
 $GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
     'showitem' => '
         imageorient,
-        imagecols
+        imagecols,
+        --linebreak--,
+        image_rendering;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering,
+        image_cssselector;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_cssselector
     '
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['mediablock'] = [
