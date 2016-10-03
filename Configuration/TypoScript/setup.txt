@@ -436,7 +436,7 @@ page {
         theme = EXT:bootstrap_package/Resources/Public/Less/Theme/theme.less
     }
 
-    includeJSLibs {
+    includeJS {
         modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/modernizr.min.js
         modernizr.forceOnTop = 1
         modernizr.async = 1
