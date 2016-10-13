@@ -11,7 +11,7 @@
         <ul>
             <f:for each="{menu}" as="page">
                 <li>
-                    <f:link.typolink parameter="{bk2k:resolveLink(page:'{page.data}')}">{page.data.title}</f:link.typolink>
+                    <f:link.page parameter="{bk2k:resolveLink(page:'{page.data}')}">{page.data.title}</f:link.page>
                 </li>
             </f:for>
         </ul>
