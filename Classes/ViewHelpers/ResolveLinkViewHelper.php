@@ -38,7 +38,7 @@ class ResolveLinkViewHelper extends AbstractViewHelper implements CompilableInte
     /**
      * Render
      *
-     * @param string $property
+     * @param array $page
      * @return string
      */
     public function render($page = null)
