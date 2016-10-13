@@ -46,39 +46,39 @@ class TemplateWidthUserFunc
 
         if (isset($conf['fluid.'])) {
             $fluid = (bool)$this->cObj->stdWrap($conf['fluid'], $conf['fluid.']);
-          }
+        }
 
         if (isset($conf['xs.'])) {
             $xs = $this->cObj->stdWrap($conf['xs'], $conf['xs.']);
-          }
+        }
 
         if ($xs == 0) {
             $xs = 12;
-          }
+        }
 
         if (isset($conf['sm.'])) {
             $sm = $this->cObj->stdWrap($conf['sm'], $conf['sm.']);
-          }
+        }
 
         if ($sm == 0) {
             $sm = $xs;
-          }
+        }
 
         if (isset($conf['md.'])) {
             $md = $this->cObj->stdWrap($conf['md'], $conf['md.']);
-          }
+        }
 
         if ($md == 0) {
             $md = $sm;
-          }
+        }
 
         if (isset($conf['lg.'])) {
             $lg = $this->cObj->stdWrap($conf['lg'], $conf['lg.']);
-          }
+        }
 
         if ($lg == 0) {
             $lg = $md;
-          }
+        }
 
         // TODO: put this into settings / plugin config as they cant stay hardcoded
 
@@ -94,16 +94,16 @@ class TemplateWidthUserFunc
                 'md' => 1140, // container lg
                 'lg' => 1920  // container xl
                 );
-          } else {
+        } else {
               // fixed (xs always fluid) width => container width
-              $w = array (
-                  'xxs' => 450, // container xs
-                  'xs' => 720,  // container sm
-                  'sm' => 720,  // container sm
-                  'md' => 940,  // container md
-                  'lg' => 1140  // container lg
-                  );
-          }
+            $w = array (
+                'xxs' => 450, // container xs
+                'xs' => 720,  // container sm
+                'sm' => 720,  // container sm
+                'md' => 940,  // container md
+                'lg' => 1140  // container lg
+                );
+        }
         $GLOBALS['TSFE']->register['template_size'] = array(
             'xxs' => ($w['xxs'] + $gutter) / $maxcols * floatval($xs) - $gutter,
             'xs' => ($w['xs'] + $gutter) / $maxcols * floatval($xs) - $gutter,

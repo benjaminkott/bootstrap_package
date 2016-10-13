@@ -48,7 +48,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
             $this->arguments,
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
-            );
+        );
     }
 
     /**
@@ -86,9 +86,9 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         if ($templateVariableContainer->exists('width') === true) {
             $width =  $templateVariableContainer->get('width');
             $templateVariableContainer->remove('width');
-          } elseif (isset($GLOBALS['TSFE']->register['template_size'])) {
+        } elseif (isset($GLOBALS['TSFE']->register['template_size'])) {
             $width = $GLOBALS['TSFE']->register['template_size'];
-          } else {
+        } else {
             // TODO: put defaults in settings
             // assume fixed layout (xs always fluid) width => container width
             $width = array (
@@ -98,7 +98,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 'md' => 940,  // container md
                 'lg' => 1140  // container lg
             );
-          }
+        }
         $newWidth = array (
             'xxs' => ($width['xxs'] + $gutter) / $maxcols * $xs - $gutter,
             'xs' => ($width['xs'] + $gutter) / $maxcols * $xs - $gutter,
