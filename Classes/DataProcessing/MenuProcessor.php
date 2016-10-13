@@ -156,7 +156,20 @@ class MenuProcessor implements DataProcessorInterface
                 '5.' => [
                     'value' => '0',
                     'wrap' => ',"spacer":|'
+                ],
+                '6' => 'TEXT',
+                '6.' => [
+                    'stdWrap.' => [
+                        'typolink.' => [
+                            'parameter.' => [
+                                'field' => 'uid'
+                            ],
+                            'returnLast' => 'url'
+                        ],
+                        'wrap' => ',"url":|'
+                    ],
                 ]
+        
             ]
         ]
     ];
