@@ -167,7 +167,7 @@ class MenuProcessor implements DataProcessorInterface
                             'returnLast' => 'url'
                         ],
                         'wrap' => ',"url":|'
-                    ],
+                    ]
                 ]
         
             ]
