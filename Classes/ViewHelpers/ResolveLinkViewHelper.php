@@ -29,6 +29,7 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 use TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController;
+
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
@@ -38,7 +39,7 @@ class ResolveLinkViewHelper extends AbstractViewHelper implements CompilableInte
     /**
      * Render
      *
-     * @param array $page
+     * @param string $property
      * @return string
      */
     public function render($page = null)
@@ -65,10 +66,10 @@ class ResolveLinkViewHelper extends AbstractViewHelper implements CompilableInte
     ) {
         $page = $arguments['page'];
         if ($page['doktype'] == 4){  // PageRepository::DOKTYPE_SHORTCUT
-          $page = $GLOBALS['TSFE']->getPageShortcut($page['shortcut'], $page['shortcut_mode'], $page['uid']);
-          if ($page['hidden'] || $page['starttime'] > $GLOBALS['SIM_EXEC_TIME'] || $page['endtime'] != 0 && $page['endtime'] <= $GLOBALS['SIM_EXEC_TIME']){
-            return $arguments['page']['uid'];
-          }
+            $page = $GLOBALS['TSFE']->getPageShortcut($page['shortcut'], $page['shortcut_mode'], $page['uid']);
+            if ($page['hidden'] || $page['starttime'] > $GLOBALS['SIM_EXEC_TIME'] || $page['endtime'] != 0 && $page['endtime'] <= $GLOBALS['SIM_EXEC_TIME']){
+                return $arguments['page']['uid'];
+            }
         }
         return $page['uid'];
     }
