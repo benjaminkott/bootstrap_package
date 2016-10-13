@@ -65,9 +65,9 @@ class ResolveLinkViewHelper extends AbstractViewHelper implements CompilableInte
         RenderingContextInterface $renderingContext
     ) {
         $page = $arguments['page'];
-        if ($page['doktype'] == 4){  // PageRepository::DOKTYPE_SHORTCUT
+        if ($page['doktype'] == 4) {  // PageRepository::DOKTYPE_SHORTCUT
             $page = $GLOBALS['TSFE']->getPageShortcut($page['shortcut'], $page['shortcut_mode'], $page['uid']);
-            if ($page['hidden'] || $page['starttime'] > $GLOBALS['SIM_EXEC_TIME'] || $page['endtime'] != 0 && $page['endtime'] <= $GLOBALS['SIM_EXEC_TIME']){
+            if ($page['hidden'] || $page['starttime'] > $GLOBALS['SIM_EXEC_TIME'] || $page['endtime'] != 0 && $page['endtime'] <= $GLOBALS['SIM_EXEC_TIME']) {
                 return $arguments['page']['uid'];
             }
         }
