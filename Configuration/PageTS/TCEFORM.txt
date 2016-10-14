@@ -26,6 +26,13 @@ TCEFORM {
             removeItems = 1,2,3
             disableNoMatchingValueElement = 1
             types {
+                html{
+                    removeItems = 1,2,3,4
+                    addItems {
+                        100 = Css on head
+                        110 = JavaScript in footer
+                    }
+                }
                 bullets {
                     removeItems = 0,1,2,3
                     addItems {
@@ -78,7 +85,10 @@ TCEFORM {
         image_noRows.disabled = 1
         imageborder.disabled = 1
         imagecols {
-            removeItems = 5,7,8
+            addItems {
+                9 = 9
+                10 = 10
+            }
         }
         imageorient {
             removeItems = 1,2,9,10,17,18
@@ -99,7 +109,15 @@ TCEFORM {
                 directory = EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/
             }
         }
-
+        // user defineable rendering methods
+        tx_image_rendering {
+           addItems {
+              100 = user defined (100) see Partials/Media/Type
+              110 = user defined (110) see Partials/Media/Type
+              120 = user defined (120) see Partials/Media/Type
+              130 = user defined (130) see Partials/Media/Type
+           }
+       }
         // Disable imageheight and imagewidth for textpic and image
         // to avoid incorrect rendering in frontend
         imageheight.disabled = 1

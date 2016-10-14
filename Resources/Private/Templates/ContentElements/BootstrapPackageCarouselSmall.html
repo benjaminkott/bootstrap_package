@@ -18,10 +18,7 @@
                     <bk2k:var name="itemId">slide-{data.uid}-{iteration.cycle}</bk2k:var>
 
                     <f:if condition="{item.backgroundImage.0}">
-                         <bk2k:addProperty object="data" name="imgcolumns" value="1" />
-                         <bk2k:addProperty object="data" name="tx_image_cssselector" value="#{itemId}" />
-                         <bk2k:addProperty object="data" name="tx_image_rendering" value="2" />
-                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: data, settings: settings}"/>
+                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, tx_image_cssselector: '{itemId}', tx_image_rendering: '2' }, settings: settings}"/>
                     </f:if>
 
                     <bk2k:var name="itemStyleColor">

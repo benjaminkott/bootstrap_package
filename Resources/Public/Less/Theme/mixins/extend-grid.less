@@ -1,0 +1,110 @@
+// Framework extend-grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `@grid-columns`.
+
+.float-extend-grid-columns(@bases, @len, @class) {
+  .col(@index) { // initial
+    @base: extract(@bases, @index);
+    @item: ~".col-@{class}-1-@{base}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @len) { // general
+    @base: extract(@bases, @index);
+    @item: ~".col-@{class}-1-@{base}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @len) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.make-extend-grid-columns(@bases, @len) {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) { // initial
+    @base: extract(@bases, @index);
+    @item: ~".col-xs-1-@{base}, .col-sm-1-@{base}, .col-md-1-@{base}, .col-lg-1-@{base}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @len) { // general; "=<" isn't a typo
+    @base: extract(@bases, @index);
+    @item: ~".col-xs-1-@{base}, .col-sm-1-@{base}, .col-md-1-@{base}, .col-lg-1-@{base}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @len) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = width) and (@index > 0) {
+  .col-@{class}-1-@{base} {
+    width: percentage((1 / @base));
+  }
+}
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = push) and (@index > 0) {
+  .col-@{class}-push-@{index}-@{base} {
+    left: percentage((@index / @base));
+  }
+}
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = push) and (@index = 0) {
+  .col-@{class}-push-0-@{base} {
+    left: auto;
+  }
+}
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = pull) and (@index > 0) {
+  .col-@{class}-pull-@{index}-@{base} {
+    right: percentage((@index / @base));
+  }
+}
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = pull) and (@index = 0) {
+  .col-@{class}-pull-0-@{base} {
+    right: auto;
+  }
+}
+.calc-extend-grid-column(@base, @index, @class, @type) when (@type = offset) {
+  .col-@{class}-offset-@{index}-@{base} {
+    margin-left: percentage((@index / @base));
+  }
+}
+
+// Loop over bases
+.loop-extend-grid-columns(@bases, @index, @class, @type) when (@index >= 0) {
+  @base: extract(@bases, @index);
+  .calc-extend-grid-column(@base, @index, @class, @type);
+  // next iteration
+  .loop-extend-grid-columns(@bases, (@index - 1), @class, @type);
+}
+
+// Loop over types
+.loop-extend-grid-types(@types, @tindex, @bases, @class) when (@tindex >= 0) {
+  @type: extract(@types, @tindex);
+  @index: length(@bases);
+  .loop-extend-grid-columns(@bases, @index, @class, @type);
+  // next iteration
+  .loop-extend-grid-types(@types, (@tindex - 1), @bases, @class);
+}
+
+// Create extend-grid for specific class
+.extend-grid-columns(@bases){
+   @len: length(@bases);
+   .make-extend-grid-columns(@bases, @len);
+}
+.extend-grid(@class, @bases) {
+   @types: width;
+   // other types dosent make sense in this loop, pull, push, offset;
+   @tindex: length(@types);
+   @len: length(@bases);
+  .float-extend-grid-columns(@bases, @len, @class);
+  .loop-extend-grid-types(@types, @tindex, @bases, @class);
+ }

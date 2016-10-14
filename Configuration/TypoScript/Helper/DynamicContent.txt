@@ -69,7 +69,6 @@ lib.dynamicContent {
        userFunc = BK2K\BootstrapPackage\UserFuncs\TemplateWidthUserFunc->storeToRegister
        xs = TEXT
        xs.field = xs
-       xs.ifEmpty = 0
        sm < .xs
        sm.filed = sm
        md < .xs

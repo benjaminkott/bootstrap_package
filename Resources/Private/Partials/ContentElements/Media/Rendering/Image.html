@@ -1,15 +1,15 @@
 <img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
-     data-src="{f:uri.image(image: file)}"
-     data-bigger="{f:uri.image(image: file, maxWidth: width.lg)}"
-     data-large="{f:uri.image(image: file, maxWidth: width.md)}"
-     data-medium="{f:uri.image(image: file, maxWidth: width.sm)}"
-     data-small="{f:uri.image(image: file, maxWidth: width.xs)}"
-     data-xsmall="{f:uri.image(image: file, maxWidth: width.xxs)}"
+     data-src="{f:uri.image(image: file, absolute: '{settings.absoluteUrl}')}"
+     data-bigger="{f:uri.image(image: file, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}', absolute: '{settings.absoluteUrl}')}"
+     data-large="{f:uri.image(image: file, width: '{imagesize.width.md}', height: '{imagesize.height.md}', absolute: '{settings.absoluteUrl}')}"
+     data-medium="{f:uri.image(image: file, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}', absolute: '{settings.absoluteUrl}')}"
+     data-small="{f:uri.image(image: file, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}', absolute: '{settings.absoluteUrl}')}"
+     data-xsmall="{f:uri.image(image: file, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}', absolute: '{settings.absoluteUrl}')}"
      title="{file.title}"
      alt="{file.alternative}"
      class="lazyload"
      data-preload="{f:if(condition: settings.media.preload, then: 'true', else: 'false')}"
      />
 <noscript>
-    <img src="{f:uri.image(image: file)}" title="{file.title}" alt="{file.alternative}" />
+    <img src="{f:uri.image(image: file, absolute: '{settings.absoluteUrl}')}" title="{file.title}" alt="{file.alternative}" />
 </noscript>

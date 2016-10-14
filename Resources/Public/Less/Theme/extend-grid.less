@@ -1,0 +1,13 @@
+// Generate columns for 5 7 8 9 10 items (only width) class names are xs-1-5 xs-1-7 ...
+@bases: 5, 7, 8, 9, 10;
+.extend-grid-columns(@bases);
+.extend-grid(xs, @bases);
+@media (min-width: 768px) {
+.extend-grid(sm, @bases);
+}
+@media (min-width: 992px) {
+.extend-grid(md, @bases);
+}
+@media (min-width: 1200px) {
+.extend-grid(lg, @bases);
+}

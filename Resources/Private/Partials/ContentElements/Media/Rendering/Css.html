@@ -1,12 +1,10 @@
-<f:format.raw>@media(min-width:1200px){</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, maxWidth: width.lg)}<f:format.raw>");}}</f:format.raw>
-<f:format.raw>@media(min-width:992px) and (max-width:1199px){</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, maxWidth: width.md)}<f:format.raw>");}}</f:format.raw>
-<f:format.raw>@media(min-width:768px) and (max-width:991px){</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, maxWidth: width.sm)}<f:format.raw>");}}</f:format.raw>
-<f:format.raw>@media(min-width:480px) and (max-width:767px){</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, maxWidth: width.xs)}<f:format.raw>");}}</f:format.raw>
-<f:format.raw>@media(max-width:479px){</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, maxWidth: width.xxs)}<f:format.raw>");}}</f:format.raw>
-{data.tx_image_cssselector}<f:format.raw>{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>.{f:uri.image(image: file, maxWidth: width.lg)}<f:format.raw>', sizingMethod='scale');
--ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>{f:uri.image(image: file, maxWidth: width.lg)}<f:format.raw>',sizingMethod='scale')";}</f:format.raw>
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{
+background-repeat:no-repeat;background-position:center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}', absolute: '{settings.absoluteUrl}')}<f:format.raw>',sizingMethod='scale')";
+}</f:format.raw>
+<bk2k:mediaQuery min="lg"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="md" max="lg"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.md}', height: '{imagesize.height.md}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="sm" max="md"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="xs" max="sm"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery max="xs"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>

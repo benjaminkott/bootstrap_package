@@ -34,6 +34,8 @@ tt_content.image {
             cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
             prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
         }
+        absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+        moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
     }
 
     ##########################

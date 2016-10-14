@@ -23,39 +23,85 @@
                             </config>
                         </TCEforms>
                     </interval>
-                    <background_image_maxwidth>
+                    <height_mode>
+                      <TCEforms type="array">
+                        <label>Height mode</label>
+                        <config type="array">
+                          <type>select</type>
+                          <items type="array">
+                            <numIndex index="0" type="array"><numIndex index="0">Fluid</numIndex><numIndex index="1">0</numIndex></numIndex>
+                            <numIndex index="1" type="array"><numIndex index="0">Fixed</numIndex><numIndex index="1">1</numIndex></numIndex>
+                          </items>
+                          <default>0</default>
+                        </config>
+                        <onChange>reload</onChange>
+                      </TCEforms>
+                    </height_mode>
+                    <ratio>
                         <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.background_image_maxwidth
+                           <displayCond>FIELD:height_mode:=:0</displayCond>
+                            <label>ratio height/width %
                             </label>
                             <config>
                                 <type>input</type>
                                 <size>8</size>
-                                <default>1920</default>
+                                <default>56.25</default>
+                                <eval>required,float</eval>
+                            </config>
+                        </TCEforms>
+                    </ratio>
+                    <xs>
+                        <TCEforms>
+                           <displayCond>FIELD:height_mode:=:1</displayCond>
+                            <label>Height in extra small screen (pixel)
+                            </label>
+                            <config>
+                                <type>input</type>
+                                <size>8</size>
+                                <default>400</default>
                                 <eval>required,int</eval>
                             </config>
                         </TCEforms>
-                    </background_image_maxwidth>
-                    <transition>
+                    </xs>
+                    <sm>
                         <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition
+                           <displayCond>FIELD:height_mode:=:1</displayCond>
+                            <label>Height in small screen (pixel)
                             </label>
                             <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <default>fade</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</numIndex>
-                                        <numIndex index="1">fade</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</numIndex>
-                                        <numIndex index="1">slide</numIndex>
-                                    </numIndex>
-                                </items>
+                                <type>input</type>
+                                <size>8</size>
+                                <default>400</default>
+                                <eval>required,int</eval>
                             </config>
                         </TCEforms>
-                    </transition>
+                    </sm>
+                    <md>
+                        <TCEforms>
+                           <displayCond>FIELD:height_mode:=:1</displayCond>
+                            <label>Height in medium screen (pixel)
+                            </label>
+                            <config>
+                                <type>input</type>
+                                <size>8</size>
+                                <default>600</default>
+                                <eval>required,int</eval>
+                            </config>
+                        </TCEforms>
+                    </md>
+                    <lg>
+                        <TCEforms>
+                           <displayCond>FIELD:height_mode:=:1</displayCond>
+                            <label>Height in large screen (pixel)
+                            </label>
+                            <config>
+                                <type>input</type>
+                                <size>8</size>
+                                <default>600</default>
+                                <eval>required,int</eval>
+                            </config>
+                        </TCEforms>
+                    </lg>
                     <wrap>
                         <TCEforms>
                             <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>

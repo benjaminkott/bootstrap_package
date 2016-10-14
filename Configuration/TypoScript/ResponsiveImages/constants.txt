@@ -1,0 +1,75 @@
+############################
+### CUSTOM SUBCATEGORIES ###
+############################
+# #customcategory=responsive images=Responsive Images
+# #customcategory=javascript and css=Javascript and Css
+# #customcategory=grid system=Responsive Grid setup
+# customsubcategory=5600=Breakpoints media query (screen width)
+# customsubcategory=5610=Container
+# customsubcategory=5620=Container behaviour
+# customsubcategory=5630=Advanced
+# customsubcategory=5640=Retina settigs
+# customsubcategory=5650=Images
+# customsubcategory=5660=Frames
+# customsubcategory=5700=Javascript
+# customsubcategory=5710=Css
+
+plugin.bootstrap_package.settings {
+
+    grid {
+
+        screen{
+            # cat=grid system/5600/110; type=int+; label=1 Screen : Minimum width of the screen extra small
+            xs = 480
+            # cat=grid system/5600/120; type=int+; label=2 Screen : Minimum width of the screen small
+            sm = 768
+            # cat=grid system/5600/130; type=int+; label=3 Screen : Minimum width of the screen medium
+            md = 992
+            # cat=grid system/5600/140; type=int+; label=4 Screen : Minimum width of the screen large
+            lg = 1200
+            # cat=grid system/5600/150; type=int+; label=5 Screen max : Width of the container large
+            xl= 1920
+        }
+
+        container{
+            # cat=grid system/5610/110; type=int+; label=1 Container : Width of the container extra small
+            xs = 450
+            # cat=grid system/5610/120; type=int+; label=2 Container : Width of the container small
+            sm = 720
+            # cat=grid system/5610/130; type=int+; label=3 Container : Width of the container medium
+            md = 940
+            # cat=grid system/5610/140; type=int+; label=4 Container : Width of the container large
+            lg = 1140
+            # cat=grid system/5610/150; type=int+; label=5 Container : Width of the container large
+            xl= 1920
+        }
+
+        fluid{
+            # cat=grid system/5620/210; type=boolean; label=1 Fluid : Container behaviour fluid extra small
+            xs = 1
+            # cat=grid system/5620/220; type=boolean; label=2 Fluid : Container behaviour fluid small
+            sm = 0
+            # cat=grid system/5620/230; type=boolean; label=3 Fluid : Container behaviour fluid medium
+            md = 0
+            # cat=grid system/5620/240; type=boolean; label=4 Fluid : Container behaviour fluid large
+            lg = 0
+            # cat=grid system/5620/250; type=boolean; label=4 Fluid : Container behaviour fluid extra large
+            xl = 0
+        }
+
+        # cat=grid system/5610/200; type=int+; label=Number of columns : Maximum number of columns
+        columns = 12
+        # cat=grid system/5610/210; type=int+; label=Gutter width:Width of the gutter
+        gutter = 30
+    }
+
+    images {
+
+        # cat=responsive images/5650/100; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
+        absoluteUrl = 1
+    }
+    css {
+        # cat=javascript and css/5710/100; type=boolean; label=Css in body : Render css in body instead of head (for use with ajax loaded content)
+        moveCssToBody = 0
+    }
+}

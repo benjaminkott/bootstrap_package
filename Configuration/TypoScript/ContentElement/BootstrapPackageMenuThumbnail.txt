@@ -36,6 +36,8 @@ tt_content.menu.thumbnail_list {
         abstract {
             crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
         }
+        absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+        moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
     }
 
     ##########################

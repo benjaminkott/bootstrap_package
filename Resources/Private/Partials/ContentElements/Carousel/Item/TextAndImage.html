@@ -1,24 +1,14 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <div class="valign">
-    <div class="carousel-text vcontainer lead" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
+    <div class="carousel-text vcontainer lead col-xs-4" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
         <h{item.data.header_layout}><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
         <f:format.html>{item.data.bodytext}</f:format.html>
     </div>
-    <div class="carousel-image vcontainer">
+    <div class="carousel-image vcontainer col-xs-8">
         <f:if condition="{item.images.0}">
-            <f:if condition="{data.layout} == 110">
-                <f:then>
-                    <f:image
-                        image="{item.images.0}"
-                        title="{item.images.0.title}"
-                        alt="{item.images.0.alternative}"
-                        width="400"
-                        height="400c" />
-                </f:then>
-                <f:else>
-                    <bk2k:addProperty object="data" name="imgcolumns" value="{images -> f:count()}"/>
-                    <f:render partial="Media/Gallery" arguments="{files: images, data: data, settings: settings}"/>
-                </f:else>
-            </f:if>
+            <bk2k:imageSize xs="8" marginxs="15">
+                <f:render partial="Media/Gallery" arguments="{files: images, data: {imgcolumns: '{images -> f:count()}'}, settings: settings, imageSize:imageSize}"/>
+            </bk2k:imageSize>
         </f:if>
     </div>
 </div>

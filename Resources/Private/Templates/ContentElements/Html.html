@@ -1,7 +1,19 @@
-<f:layout name="Default"/>
-<f:section name="Header"></f:section>
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:layout name="Clean"/>
 <f:section name="Main">
-
-    <f:format.raw>{data.bodytext}</f:format.raw>
-
+  <f:switch expression="{data.layout}">
+    <f:case value="100">
+      <bk2k:css inline="{settings.moveCssToBody}">
+        <f:format.raw>{data.bodytext}</f:format.raw>
+      </bk2k:css>
+    </f:case>
+    <f:case value="110">
+      <bk2k:jsFooterInline>
+        <f:format.raw>{data.bodytext}</f:format.raw>
+      </bk2k:jsFooterInline>
+    </f:case>
+    <f:case default="TRUE">
+      <f:format.raw>{data.bodytext}</f:format.raw>
+    </f:case>
+  </f:switch>
 </f:section>

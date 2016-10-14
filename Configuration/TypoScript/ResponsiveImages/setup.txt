@@ -1,0 +1,36 @@
+plugin.bootstrap_package {
+
+  settings {
+
+    grid {
+
+      # gutter size
+      gutter = {$plugin.bootstrap_package.settings.grid.gutter}
+
+      # max number of columns
+      columns = {$plugin.bootstrap_package.settings.grid.columns}
+
+      container {
+        xs = {$plugin.bootstrap_package.settings.grid.container.xs}
+        sm = {$plugin.bootstrap_package.settings.grid.container.sm}
+        md = {$plugin.bootstrap_package.settings.grid.container.md}
+        lg = {$plugin.bootstrap_package.settings.grid.container.lg}
+        xl = {$plugin.bootstrap_package.settings.grid.container.xl}
+      }
+      screen {
+        xs = {$plugin.bootstrap_package.settings.grid.screen.xs}
+        sm = {$plugin.bootstrap_package.settings.grid.screen.sm}
+        md = {$plugin.bootstrap_package.settings.grid.screen.md}
+        lg = {$plugin.bootstrap_package.settings.grid.screen.lg}
+        xl = {$plugin.bootstrap_package.settings.grid.screen.xl}
+      }
+      fluid {
+        xs = {$plugin.bootstrap_package.settings.grid.fluid.xs}
+        sm = {$plugin.bootstrap_package.settings.grid.fluid.sm}
+        md = {$plugin.bootstrap_package.settings.grid.fluid.md}
+        lg = {$plugin.bootstrap_package.settings.grid.fluid.lg}
+        xl = {$plugin.bootstrap_package.settings.grid.fluid.xl}
+      }
+    }
+  }
+}

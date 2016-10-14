@@ -1,24 +1,108 @@
-<f:if condition="{file.0.type} == 2">
-  <f:switch expression="{data.tx_image_rendering}">
-    <f:case value="3">
-      <f:render partial="Media/Rendering/CssArtDirection" arguments="{file: file, data:data, settings: settings, width: width}" />
-    </f:case>
-    <f:case default="TRUE">
-      <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, width: width}" />
-    </f:case>
-   </f:switch>
-</f:if>
-<f:if condition="{file.type} == 2">
-  <f:switch expression="{data.tx_image_rendering}">
-    <f:case value="2">
-      <f:render partial="Media/Rendering/Css" arguments="{file: file, data: data, settings: settings, width: width}" />
-    </f:case>
-    <f:case default="TRUE">
-      <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, width: width}" />
-    </f:case>
-  </f:switch>
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+
+<f:comment>
+  tx_image_rendering
+  STANDARD = 0;
+  ART_DIRECTION = 1;
+  CSS_BACKGROUND = 2;
+  CSS_BACKGROUND_ART_DIRECTION = 3;
+  LIGHTBOX_LINK = 4;
+  BYPASS_LINK = 50;
+
+  USER_DEFINED_1 = 100;
+  USER_DEFINED_2 = 110;
+  USER_DEFINED_3 = 120;
+  USER_DEFINED_4 = 130;
+
+  when tx_image_rendering is either 1 or 3
+  file is an array of 5 files
+</f:comment>
+
+<f:comment>
+  file.type
+  FILETYPE_UNKNOWN = 0;
+  FILETYPE_TEXT = 1;
+  FILETYPE_IMAGE = 2;
+  FILETYPE_AUDIO = 3;
+  FILETYPE_VIDEO = 4;
+  FILETYPE_APPLICATION = 5;
+</f:comment>
+
+<f:if condition="{file.type}">
+  <f:then>
+    <bk2k:var name="file_0">{file}</bk2k:var>
+  </f:then>
+  <f:else>
+    <f:if condition="{file.0.type}">
+      <bk2k:var name="file_0">{file.0}</bk2k:var>
+    </f:if>
+  </f:else>
 </f:if>
 
-<f:if condition="{file.type} == 4">
-  <f:render partial="Media/Video" arguments="{file: file, data: data, width: width, settings: settings}" />
-</f:if>
+<f:switch expression="{file_0.type}">
+
+  <f:case value="2">
+    <f:switch expression="{data.tx_image_rendering}">
+      <f:case value="1">
+        <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="2">
+        <f:render partial="Media/Rendering/Css" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="3">
+        <f:render partial="Media/Rendering/CssArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="4">
+         <f:render partial="Media/LightboxLink" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+
+      <f:comment>rendering method without any link for thumbs menuItems</f:comment>
+      <f:case value="50">
+         <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+
+      <f:comment>user defined rendering methods</f:comment>
+
+      <f:case value="100">
+         <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="110">
+         <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="120">
+         <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case value="130">
+         <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+       
+      <f:case default="TRUE">
+        <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+    </f:switch>
+  </f:case>
+
+  <f:case value="3">
+    <div class="danger">Audio file rendering is not supported</div>
+  </f:case>
+
+  <f:case value="4">
+    <f:render partial="Media/Video" arguments="{file: file, data: data, imagesize: imagesize, settings: settings}" />
+  </f:case>
+
+  <f:case value="5">
+    <f:switch expression="{file_0.extension}">
+      <f:case value="pdf">
+        <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+      </f:case>
+      <f:case default="TRUE">
+        <div class="danger">File rendering for type:{file_0.type} {file_0.extension} is not supported.</div>
+      </f:case>
+    </f:switch>
+  </f:case>
+
+  <f:case default="TRUE">
+    <div class="danger">File rendering for type:{file_0.type} {file_0.extension} is not supported.</div>
+  </f:case>
+
+</f:switch>
