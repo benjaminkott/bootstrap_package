@@ -15,7 +15,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['image'] = 'content-im
     'header',
     'after'
 );
-if (!is_array[$GLOBALS['TCA']['tt_content']['types']['image'])) {
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['image'])) {
     $GLOBALS['TCA']['tt_content']['types']['image'] = [];
 }
 $GLOBALS['TCA']['tt_content']['types']['image'] = array_replace_recursive(

@@ -60,7 +60,7 @@ plugin.bootstrap_package.settings {
         # cat=grid system/5610/200; type=int+; label=Number of columns : Maximum number of columns
         columns = 12
         # cat=grid system/5610/210; type=int+; label=Gutter width:Width of the gutter
-        gutter = 30
+        gutter = 40
     }
 
     images {

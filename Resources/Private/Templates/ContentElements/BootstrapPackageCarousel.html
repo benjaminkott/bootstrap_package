@@ -11,13 +11,13 @@
         <bk2k:css inline="{settings.moveCssToBody}">
              <f:if condition="{data.pi_flexform.height_mode} == 0">
                  <f:then>
-#carousel-{data.uid} .item<f:format.raw>{padding-bottom:</f:format.raw>{data.pi_flexform.ratio}%<f:format.raw>;}</f:format.raw>
+#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.ratio}%<f:format.raw>;}</f:format.raw>
                  </f:then>
                  <f:else>
-<bk2k:mediaQuery min="lg">#carousel-{data.uid} .item<f:format.raw>{padding-bottom:</f:format.raw>{data.pi_flexform.lg}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery min="md" max="lg">#carousel-{data.uid} .item<f:format.raw>{padding-bottom:</f:format.raw>{data.pi_flexform.md}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery min="sm" max="md">#carousel-{data.uid} .item<f:format.raw>{padding-bottom:</f:format.raw>{data.pi_flexform.sm}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery max="sm">#carousel-{data.uid} .item<f:format.raw>{padding-bottom:</f:format.raw>{data.pi_flexform.xs}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="lg">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.lg}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="md" max="lg">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.md}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="sm" max="md">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.sm}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery max="sm">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.xs}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
                 </f:else>
              </f:if>
         </bk2k:css>
@@ -28,10 +28,10 @@
                 data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <f:for each="{records}" as="item" iteration="iteration">
-                    <bk2k:var name="itemId">#slide-{data.uid}-{iteration.cycle}</bk2k:var>
+                    <bk2k:var name="itemId">slide-{data.uid}-{iteration.cycle}</bk2k:var>
 
                     <f:if condition="{item.backgroundImage.0}">
-                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, tx_image_cssselector: '{itemId}', tx_image_rendering: '2' }, settings: settings}"/>
+                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, tx_image_cssselector: '#{itemId}', tx_image_rendering: '2' }, settings: settings}"/>
                     </f:if>
 
                     <bk2k:var name="itemStyleColor">

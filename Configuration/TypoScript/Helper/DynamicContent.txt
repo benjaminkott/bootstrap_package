@@ -78,6 +78,7 @@ lib.dynamicContent {
        fluid < .xs
        fluid.field = fluid
     }
+
     20 = CONTENT
     20 {
         table = tt_content

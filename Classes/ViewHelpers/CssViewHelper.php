@@ -40,7 +40,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
      {
          parent::initializeArguments();
          $this->registerArgument("inline", "boolean", "When set, add css right to body", false, false);
-         $this->registerArgument("key", "string", "Unique id for css content", false, false);
+         $this->registerArgument("key", "string", "Unique id for css content", false, null);
      }
 
      /*
@@ -75,7 +75,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
          if ($arguments["inline"]){
              $content .= "<style>" . $css . "</style>";
          } else {
-             if (isset($arguments["key"])) {
+             if ($arguments["key"] !== null) {
                  $name = $arguments["key"];
              } else {
                  $name = uniqid("bootstrap_package_");

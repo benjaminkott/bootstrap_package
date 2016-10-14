@@ -74,7 +74,7 @@ class TemplateWidthUserFunc {
     {
         $current = 1;
         foreach ($this->columns as $key => $column) {
-            $current = $this->getConf($conf, $key, $current, 1);
+            $current = $this->getConf($conf, $key, $current, $current);
             $this->columns[$key] = 12 / $current;
         }
     }
