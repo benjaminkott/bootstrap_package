@@ -78,92 +78,96 @@
             <bk2k:var name="css" value="0"/>
           </f:case>
         </f:switch>
-        <f:if condition="{css}">
-          <f:then>
-            <bk2k:css inline="{settings.moveCssToBody}">
-              <bk2k:forStep each="{files}" as="file" step="{step}" iteration="fileIteration">
-                <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-              </bk2k:forStep>
-            </bk2k:css>
-          </f:then>
-          <f:else>
-            <div class="image-center image-above">
-              <div class="row">
-                <bk2k:forStep each="{files}" as="file" step="{step}" iteration="fileIteration">
-                  <f:switch expression="{data.imagecols}">
-                    <f:case value="2">
-                      <div class="col-sm-6">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="3">
-                      <div class="col-md-4 col-sm-4 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data,  settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="4">
-                      <div class="col-md-3 col-sm-3 col-xs-6">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="5">
-                      <div class="col-sm-1-5 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="6">
-                      <div class="col-md-2 col-sm-4 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="7">
-                      <div class="col-md-1-7 col-sm-3 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="8">
-                      <div class="col-md-1-8 col-sm-3 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="9">
-                      <div class="col-md-1-9 col-sm-4 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case value="10">
-                      <div class="col-md-1-10 col-sm-1-5 col-xs-4">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                    <f:case default="TRUE">
-                      <div class="col-md-12">
-                        <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </f:case>
-                  </f:switch>
-                  <f:comment>Reset for columns (replace equalheight.js by markup)</f:comment>
-                  <f:if condition="{fileIteration.index} > 0">
-                    <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
-                      <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.xs}', operator:'%')} < 0.1">
-                        <div class="clearfix visible-xs-block"></div>
-                      </f:if>
-                      <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.sm}', operator:'%')} < 0.1">
-                        <div class="clearfix visible-sm-block"></div>
-                      </f:if>
-                      <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.md}', operator:'%')} < 0.1">
-                        <div class="clearfix visible-md-block"></div>
-                      </f:if>
-                      <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.lg}', operator:'%')} < 0.1">
-                        <div class="clearfix visible-lg-block"></div>
+
+        <bk2k:arrayChunk data="{files}" as="collection" size="{step}">
+          <f:if condition="{css}">
+            <f:then>
+              <bk2k:css inline="{settings.moveCssToBody}">
+                <f:for each="{collection}" as="file" iteration="fileIteration">
+                  <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                </f:for>
+              </bk2k:css>
+            </f:then>
+            <f:else>
+              <div class="image-center image-above">
+                <div class="row">
+                  <f:for each="{collection}" as="file" iteration="fileIteration">
+                    <f:switch expression="{data.imagecols}">
+                      <f:case value="2">
+                        <div class="col-sm-6">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="3">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data,  settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="4">
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="5">
+                        <div class="col-sm-1-5 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="6">
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="7">
+                        <div class="col-md-1-7 col-sm-3 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="8">
+                        <div class="col-md-1-8 col-sm-3 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="9">
+                        <div class="col-md-1-9 col-sm-4 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case value="10">
+                        <div class="col-md-1-10 col-sm-1-5 col-xs-4">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                      <f:case default="TRUE">
+                        <div class="col-md-12">
+                          <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+                        </div>
+                      </f:case>
+                    </f:switch>
+                    <f:comment>Reset for columns (replace equalheight.js by markup)</f:comment>
+                    <f:if condition="{fileIteration.index} > 0">
+                      <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
+                        <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.xs}', operator:'%')} < 0.1">
+                          <div class="clearfix visible-xs-block"></div>
+                        </f:if>
+                        <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.sm}', operator:'%')} < 0.1">
+                          <div class="clearfix visible-sm-block"></div>
+                        </f:if>
+                        <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.md}', operator:'%')} < 0.1">
+                          <div class="clearfix visible-md-block"></div>
+                        </f:if>
+                        <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.lg}', operator:'%')} < 0.1">
+                          <div class="clearfix visible-lg-block"></div>
+                        </f:if>
                       </f:if>
                     </f:if>
-                  </f:if>
-                </bk2k:forStep>
+                  </f:for>
+                </div>
               </div>
-            </div>
-          </f:else>
-        </f:if>
+            </f:else>
+          </f:if>
+        </bk2k:arrayChunk>
+
       </f:then>
       <f:else>
         <bk2k:imageSize />
@@ -173,19 +177,19 @@
           </f:case>
           <f:case value="2">
             <bk2k:css inline="{settings.moveCssToBody}">
-              <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, imagesize: imagesize}" />
+              <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
             </bk2k:css>
           </f:case>
           <f:case value="3">
             <div class="panel panel-danger">Art direction Css background require a multiple of 5 images</div>
           </f:case>
           <f:case value="50">
-             <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, imagesize: imagesize}" />
+            <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
           </f:case>
           <f:case default="TRUE">
             <div class="row">
               <div class="col-md-12">
-                <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, imagesize: imagesize}" />
+                <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
               </div>
             </div>
           </f:case>
