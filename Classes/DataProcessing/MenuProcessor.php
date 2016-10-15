@@ -373,8 +373,6 @@ class MenuProcessor implements DataProcessorInterface
             return $processedData;
         }
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(json_decode($renderedMenu, true));
-
         // Process menu
         $menu = json_decode($renderedMenu, true);
         $processedMenu = array();
@@ -415,7 +413,7 @@ class MenuProcessor implements DataProcessorInterface
      */
     public function getDataAsJson()
     {
-        return $this->jsonEncodeString($this->cObj->data);
+        return $this->jsonEncode($this->cObj->data);
     }
 
     /**
@@ -423,23 +421,23 @@ class MenuProcessor implements DataProcessorInterface
      *
      * @param string $content
      * @param array $conf
-     * @return  string JSON encoded content
+     * @return string JSON encoded content
      */
     public function jsonEncodeUserFunc($content, $conf)
     {
-        $content = $this->jsonEncodeString($content);
+        $content = $this->jsonEncode($content);
         return $content;
     }
 
     /**
-     * JSON Encode string
+     * JSON Encode
      *
-     * @param string $string
+     * @param mixed $value
      * @return string
      */
-    public function jsonEncodeString($string)
+    public function jsonEncode($value)
     {
-        return json_encode($string, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+        return json_encode($value, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -451,8 +449,8 @@ class MenuProcessor implements DataProcessorInterface
      */
     public function replacePlaceholderInRenderedMenuItem($menuItem, $conf)
     {
-        $link = $this->jsonEncodeString($menuItem['linkHREF']['HREF']);
-        $target = $this->jsonEncodeString($menuItem['linkHREF']['TARGET']);
+        $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
+        $target = $this->jsonEncode($menuItem['linkHREF']['TARGET']);
 
         $menuItem['parts']['title'] = str_replace(MenuProcessor::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
         $menuItem['parts']['title'] = str_replace(MenuProcessor::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
