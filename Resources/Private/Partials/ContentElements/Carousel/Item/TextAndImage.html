@@ -6,7 +6,8 @@
     </div>
     <div class="carousel-image vcontainer col-xs-8">
         <f:if condition="{item.images.0}">
-            <bk2k:imageSize xs="8" marginxs="15">
+
+            <bk2k:imageSize xs="8" marginxs="15" ratio="{settings.media.ratio}">
                 <f:render partial="Media/Gallery" arguments="{files: images, data: {imgcolumns: '{images -> f:count()}'}, settings: settings, imageSize:imageSize}"/>
             </bk2k:imageSize>
         </f:if>

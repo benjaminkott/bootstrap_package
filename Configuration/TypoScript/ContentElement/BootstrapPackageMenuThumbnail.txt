@@ -27,6 +27,7 @@ tt_content.menu.thumbnail_list {
     ################
     settings {
         media {
+            ratio = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.ratio} 
             width = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.width}
             height = {$plugin.bootstrap_package_contentelements.menu_thumbnails.media.height}
         }
@@ -53,6 +54,7 @@ tt_content.menu.thumbnail_list {
                 10 {
                     references.fieldName = media
                 }
+                20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
             }
         }
     }

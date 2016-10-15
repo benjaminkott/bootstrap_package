@@ -44,8 +44,10 @@ tt_content.image {
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
-            references.fieldName = image
+            references.fieldName = image 
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
+        
     }
 
 }

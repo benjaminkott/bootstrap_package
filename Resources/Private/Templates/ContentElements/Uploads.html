@@ -1,3 +1,4 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:layout name="Default"/>
 <f:section name="Header">
 
@@ -14,8 +15,10 @@
                         <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                             <div class="media-left">
                                 <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
-                                    <f:media file="{file}" width="{settings.preview.width}" height="{settings.preview.height}" alt="{file.alternative}" />
-                                </a>
+                                  <bk2k:imageSize xs="{settings.preview.columns}" ratio="{settings.preview.ratio}" crop="-100">
+                                      <f:render partial="Media/Gallery" arguments="{files: {0:file}, data: {imagecols: '1', image_rendering: '50'}, settings: settings, imagesize: imagesize}" />
+                                  </bk2k:imageSize>    
+                              </a>
                             </div>
                         </f:if>
                     </f:if>

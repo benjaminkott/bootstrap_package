@@ -39,8 +39,8 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("min", "string", "Breakpoint name min", false, null);
-        $this->registerArgument("max", "string", "Breakpoint name max", false, null);
+        $this->registerArgument("min", "string", "Breakpoint name min", false, '');
+        $this->registerArgument("max", "string", "Breakpoint name max", false, '');
     }
 
     /**
@@ -75,28 +75,28 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
 
         $settings = self::getSettings();
 
-        if ($arguments["min"] !== null or $arguments["max"] !== null) {
+        if ($arguments["min"] !== '' or $arguments["max"] !== '') {
             $content .= "@media ";
         }
 
-        if($arguments["min"] !== null) {
+        if($arguments["min"] !== '') {
             $content .= " (min-width:" . $settings["grid."]["screen."][$arguments["min"]] . "px)";
-            if($arguments["max"] !== null) {
+            if($arguments["max"] !== '') {
                 $content .= " and ";
             }
         }
 
-        if($arguments["max"] !== null) {
+        if($arguments["max"] !== '') {
             $content .= " (max-width:" . (intval($settings["grid."]["screen."][$arguments["max"]]) - 1) . "px)";
         }
 
-        if ($arguments["min"] !== null or $arguments["max"] !== null) {
+        if ($arguments["min"] !== '' or $arguments["max"] !== '') {
             $content .= "{";
         }
 
         $content .= $renderChildrenClosure();
 
-        if ($arguments["min"] !== null or $arguments["max"] !== null) {
+        if ($arguments["min"] !== '' or $arguments["max"] !== '') {
             $content .= "}";
         }
 

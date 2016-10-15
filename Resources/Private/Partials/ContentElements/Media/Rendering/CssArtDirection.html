@@ -1,12 +1,12 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:if condition="{file -> f:count()} > 4">
-<f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{
+<f:format.raw value="{data.image_cssselector}" /><f:format.raw>{
 background-repeat:no-repeat;background-position:center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
 -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='</f:format.raw>{f:uri.image(image: file.0, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}', absolute: settings.absoluteUrl)}<f:format.raw>',sizingMethod='scale')";
 }</f:format.raw>
-<bk2k:mediaQuery min="lg"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.0, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery min="md" max="lg"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.1, width: '{imagesize.width.md}', height: '{imagesize.height.md}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery min="sm" max="md"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.2, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery min="xs" max="sm"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.3, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
-<bk2k:mediaQuery max="xs"><f:format.raw value="{data.tx_image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.4, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
-</f:if> 
+<bk2k:mediaQuery min="lg"><f:format.raw value="{data.image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.0, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="md" max="lg"><f:format.raw value="{data.image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.1, width: '{imagesize.width.md}', height: '{imagesize.height.md}',  absolute: '{settings.absoluteUrl}')}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="sm" max="md"><f:format.raw value="{data.image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.2, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="xs" max="sm"><f:format.raw value="{data.image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.3, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery max="xs"><f:format.raw value="{data.image_cssselector}" /><f:format.raw>{background-image:url("</f:format.raw>{f:uri.image(image: file.4, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}',  absolute: settings.absoluteUrl)}<f:format.raw>");}</f:format.raw></bk2k:mediaQuery>
+</f:if>

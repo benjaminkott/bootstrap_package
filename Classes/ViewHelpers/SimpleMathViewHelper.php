@@ -59,31 +59,31 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
     * @param RenderingContextInterface $renderingContext
-    * @return string
+    * @return float
     */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $content = "";
+        $content = 0;
         $a = floatval($arguments["a"]);
         $b = floatval($arguments["b"]);
         switch ($arguments["operator"]) {
             case "+":
-                $content .= ($a + $b);
-            break;   
+                $content = ($a + $b);
+            break;
             case "-":
-                $content .= ($a - $b);
+                $content = ($a - $b);
             break;
             case "*":
-                $content .= ($a * $b);
+                $content = ($a * $b);
             break;
             case "/":
-                $content .= ($a / $b);
+                $content = ($a / $b);
             break;
             case "%":
-                $content .= ($a % $b);
+                $content = ($a % $b);
             break;
         }
         return $content;

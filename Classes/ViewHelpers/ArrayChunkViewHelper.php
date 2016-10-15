@@ -35,7 +35,7 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
  */
 class ArrayChunkViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
+   
     /**
      * Render
      *

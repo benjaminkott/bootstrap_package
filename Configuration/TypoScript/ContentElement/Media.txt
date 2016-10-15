@@ -31,6 +31,7 @@ tt_content.media {
         10 {
             references.fieldName = assets
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
     }
 
 }

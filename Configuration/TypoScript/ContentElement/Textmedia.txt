@@ -62,6 +62,7 @@ tt_content.textmedia {
         10 {
             references.fieldName = assets
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
     }
 
 }

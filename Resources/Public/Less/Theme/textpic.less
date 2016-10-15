@@ -1,0 +1,37 @@
+//
+// Textpic 
+//
+
+div.textpic {
+  overflow: hidden;
+  &.intext{
+    &-right {
+      > .imagewrap {
+        margin-left: @grid-gutter-width; 
+        float: right; 
+      }
+    } 
+    &-left {
+      > .imagewrap {
+        margin-right: @grid-gutter-width;
+        float: left; 
+      }
+    }
+  }
+  &.beside {
+    &-right {
+      > .textpic-text { clear: right; } 
+      > .imagewrap {
+        margin-left: @grid-gutter-width; 
+        float: right; 
+      }
+    } 
+    &-left {
+      > .textpic-text { clear: left; } 
+      > .imagewrap {
+        margin-right: @grid-gutter-width;
+        float: left; 
+      }
+    }
+  }
+}

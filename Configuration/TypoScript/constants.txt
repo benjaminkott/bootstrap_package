@@ -216,10 +216,8 @@ plugin.bootstrap_package_contentelements {
     }
     menu_thumbnails {
         media {
-            # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media Height
-            height = 250c
-            # cat=bootstrap package: advanced/143/103; type=string; label=Thumbnail Menu Media Width
-            width = 440c
+            # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media ratio height/width in percent
+            ratio = 56.25
         }
         title {
             # cat=bootstrap package: advanced/143/104; type=string; label=Thumbnail Menu Crop Title
@@ -232,10 +230,10 @@ plugin.bootstrap_package_contentelements {
     }
     uploads {
         preview {
-            # cat=bootstrap package: advanced/145/100; type=string; label=Uploads Preview Height
-            height = 100c
-            # cat=bootstrap package: advanced/145/101; type=string; label=Uploads Preview Width
-            width = 100c
+            # cat=bootstrap package: advanced/145/102; type=string; label=Uploads Preview ratio height/width in percent
+            ratio = 100
+            # cat=bootstrap package: advanced/145/101; type=string; label=Uploads Preview Width (number of columns)
+            columns = 2
         }
     }
 }

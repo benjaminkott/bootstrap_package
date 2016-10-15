@@ -369,23 +369,23 @@
             <trans-unit id="contextualalternatives.danger">
                 <source>Danger</source>
             </trans-unit>
-
+ 
             <trans-unit id="field.image_rendering">
                 <source>Rendering method</source>
             </trans-unit>
-			      <trans-unit id="field.image_rendering_options.I.0">
+            <trans-unit id="field.image_rendering_options.I.0">
                 <source>Standard</source>
             </trans-unit>
-			      <trans-unit id="field.image_rendering_options.I.1">
+            <trans-unit id="field.image_rendering_options.I.1">
                 <source>Art direction</source>
             </trans-unit>
-			      <trans-unit id="field.image_rendering_options.I.2">
+            <trans-unit id="field.image_rendering_options.I.2">
                 <source>Css background</source>
             </trans-unit>
-			      <trans-unit id="field.image_rendering_options.I.3">
+            <trans-unit id="field.image_rendering_options.I.3">
                 <source>Css background Art direction</source>
             </trans-unit>
-			      <trans-unit id="field.image_rendering_options.I.4">
+            <trans-unit id="field.image_rendering_options.I.4">
                 <source>Title as lightbox link</source>
             </trans-unit>
 

@@ -64,6 +64,7 @@ tt_content.textpic {
         10 {
             references.fieldName = image
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
     }
 
 }

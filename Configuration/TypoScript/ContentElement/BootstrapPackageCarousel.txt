@@ -39,9 +39,10 @@ tt_content.bootstrap_package_carousel {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
-    settings.absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
-    settings.moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
-
+    settings{
+        absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+        moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
+    }
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
@@ -68,6 +69,10 @@ tt_content.bootstrap_package_carousel {
                     references.fieldName = image
                     as = images
                 }
+                30 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
+                30.as = images
+                40 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
+                40.as = backgroundImage 
             }
         }
     }

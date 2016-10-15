@@ -91,7 +91,7 @@ TCEFORM {
             }
         }
         imageorient {
-            removeItems = 1,2,9,10,17,18
+        //  removeItems = 1,2,9,10,17,18
             types {
                 image {
                     disabled = 1
@@ -110,7 +110,7 @@ TCEFORM {
             }
         }
         // user defineable rendering methods
-        tx_image_rendering {
+        image_rendering {
            addItems {
               100 = user defined (100) see Partials/Media/Type
               110 = user defined (110) see Partials/Media/Type
@@ -120,8 +120,8 @@ TCEFORM {
        }
         // Disable imageheight and imagewidth for textpic and image
         // to avoid incorrect rendering in frontend
-        imageheight.disabled = 1
-        imagewidth.disabled = 1
+     //  imageheight.disabled = 1
+     //  imagewidth.disabled = 1
 
         // NOBODY wants or should edit this - really, let them disappear
         table_bgColor.disabled = 1

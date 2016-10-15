@@ -28,6 +28,7 @@ tt_content.bootstrap_package_accordion {
     ################
     settings {
         media {
+            ratio = {$plugin.bootstrap_package_contentelements.settings.accordion.media.ratio}
             width = {$plugin.bootstrap_package_contentelements.settings.accordion.media.height}
             height = {$plugin.bootstrap_package_contentelements.settings.accordion.media.width}
         }
