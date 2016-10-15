@@ -11,9 +11,9 @@
                                     {item.title}
                                 </f:then>
                                 <f:else>
-                                    <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+                                    <a href="{item.link}" target="{item.target}" title="{item.title}">
                                         {item.title}
-                                    </f:link.page>
+                                    </a>
                                 </f:else>
                             </f:if>
                         </li>

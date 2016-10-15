@@ -26,7 +26,6 @@ namespace BK2K\BootstrapPackage\Utility;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>

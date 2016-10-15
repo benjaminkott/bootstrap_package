@@ -15,7 +15,9 @@
         <ul>
             <f:for each="{menu}" as="page">
                 <li>
-                    <f:link.page pageUid="{page.data.uid}">{page.data.title}</f:link.page>
+                    <a href="{page.link}" target="{page.target}" title="{page.title}">
+                        {page.title}
+                    </a>
                     <f:render section="Menu" arguments="{menu: page.children}" />
                 </li>
             </f:for>

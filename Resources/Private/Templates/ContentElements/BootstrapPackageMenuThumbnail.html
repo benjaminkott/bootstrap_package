@@ -14,7 +14,8 @@
                     <f:if condition="{page.files.0.type} == 2">
 
                         <div class="col-xs-6 col-sm-4">
-                            <f:link.page pageUid="{page.data.uid}" title="{page.data.title}" class="thumbnail" data="{toggle: 'tooltip'}">
+
+                            <a href="{page.link}" target="{page.target}" title="{page.title}" class="thumbnail" data-equalheight="item" data-toggle="tooltip">
                                 <div class="thumbnail-image">
                                     <bk2k:imageSize xs="6" sm="4" border="5" ratio="{settings.media.ratio}">
                                         <f:render partial="Media/Gallery" arguments="{files: {0:page.files.0}, data: {imagecols:1, image_rendering: 50}, settings: settings, imagesize: imagesize}" />
@@ -28,7 +29,7 @@
                                         <p><f:format.crop maxCharacters="{settings.abstract.crop}">{page.data.abstract}</f:format.crop></p>
                                     </f:if>
                                 </div>
-                            </f:link.page>
+                            </a>
                         </div>
                         <f:cycle values="{0: '', 1: 'xs', 2: 'sm'}" as="clearfix">
                           <f:if condition="{clearfix} == 'xs'">
