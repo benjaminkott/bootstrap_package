@@ -14,9 +14,9 @@
             </f:then>
             <f:else>
                 <li class="{f:if(condition: item.active, then:'active')}">
-                    <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+                    <a href="{item.link}" target="{item.target}" title="{item.title}">
                         {item.title}
-                    </f:link.page>
+                    </a>
                     <f:if condition="{item.children}">
                         <ul>
                             <f:render section="SubnavigationItem" arguments="{menu: item.children}" />

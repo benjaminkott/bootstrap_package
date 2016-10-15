@@ -5,8 +5,8 @@
                 <span class="text-muted">|</span>
             </f:else>
         </f:if>
-        <f:link.page pageUid="{item.data.uid}" title="{item.title}">
+        <a href="{item.link}" target="{item.target}" title="{item.title}">
             {item.title}
-        </f:link.page>
+        </a>
     </f:for>
 </f:if>

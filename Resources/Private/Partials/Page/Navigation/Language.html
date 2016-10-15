@@ -19,9 +19,9 @@
                 </f:switch>
                 <f:if condition="{item.available}">
                     <f:then>
-                        <f:link.page pageUid="{item.data.uid}" additionalAttributes="{hreflang: hreflang}" addQueryString="1" addQueryStringMethod="GET" argumentsToBeExcludedFromQueryString="{0:'L',1:'id',2:'cHash',3:'no_cache'}" additionalParams="{L: item.languageUid}">
+                        <a href="{item.link}" hreflang="{hreflang}" title="{languageTitle}">
                             {languageTitle}
-                        </f:link.page>
+                        </a>
                     </f:then>
                     <f:else>
                         {languageTitle}
