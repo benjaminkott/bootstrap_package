@@ -69,6 +69,9 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  */
 class MenuProcessor implements DataProcessorInterface
 {
+    const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
+    const TARGET_PLACEHOLDER = '###TARGETPLACEHOLDER###';
+
     /**
      * The content object renderer
      *
@@ -128,32 +131,42 @@ class MenuProcessor implements DataProcessorInterface
         'stdWrap.' => [
             'cObject' => 'COA',
             'cObject.' => [
-                '1' => 'USER',
-                '1.' => [
+                '10' => 'USER',
+                '10.' => [
                     'userFunc' => 'BK2K\BootstrapPackage\DataProcessing\MenuProcessor->getDataAsJson',
                     'stdWrap.' => [
                         'wrap' => '"data":|'
                     ]
                 ],
-                '2' => 'TEXT',
-                '2.' => [
+                '20' => 'TEXT',
+                '20.' => [
                     'field' => 'nav_title // title',
                     'trim' => '1',
                     'wrap' => ',"title":|',
                     'preUserFunc' => 'BK2K\BootstrapPackage\DataProcessing\MenuProcessor->jsonEncodeUserFunc'
                 ],
-                '3' => 'TEXT',
-                '3.' => [
+                '21' => 'TEXT',
+                '21.' => [
+                    'value' => MenuProcessor::LINK_PLACEHOLDER,
+                    'wrap' => ',"link":|',
+                ],
+                '22' => 'TEXT',
+                '22.' => [
+                    'value' => MenuProcessor::TARGET_PLACEHOLDER,
+                    'wrap' => ',"target":|',
+                ],
+                '30' => 'TEXT',
+                '30.' => [
                     'value' => '0',
                     'wrap' => ',"active":|'
                 ],
-                '4' => 'TEXT',
-                '4.' => [
+                '40' => 'TEXT',
+                '40.' => [
                     'value' => '0',
                     'wrap' => ',"current":|'
                 ],
-                '5' => 'TEXT',
-                '5.' => [
+                '50' => 'TEXT',
+                '50.' => [
                     'value' => '0',
                     'wrap' => ',"spacer":|'
                 ]
@@ -248,7 +261,7 @@ class MenuProcessor implements DataProcessorInterface
         $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
             $this->menuLevelConfig['stdWrap.']['cObject.'],
             [
-                '2.' => [
+                '20.' => [
                     'field' => $this->menuTitleField,
                 ]
             ]
@@ -264,13 +277,13 @@ class MenuProcessor implements DataProcessorInterface
             $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
                 $this->menuLevelConfig['stdWrap.']['cObject.'],
                 [
-                    '6' => 'TEXT',
-                    '6.' => [
+                    '60' => 'TEXT',
+                    '60.' => [
                         'value' => '1',
                         'wrap' => ',"available":|'
                     ],
-                    '7' => 'TEXT',
-                    '7.' => [
+                    '70' => 'TEXT',
+                    '70.' => [
                         'value' => $this->menuConfig['special.']['value'],
                         'listNum.' => [
                             'stdWrap.' => [
@@ -293,6 +306,7 @@ class MenuProcessor implements DataProcessorInterface
     {
         for ($i = 1; $i <= $this->menuLevels; $i++) {
             $this->menuConfig[$i] = 'TMENU';
+            $this->menuConfig[$i . '.']['IProcFunc'] = 'BK2K\BootstrapPackage\DataProcessing\MenuProcessor->replacePlaceholderInRenderedMenuItem';
             if ($i > 1) {
                 $this->menuConfig[$i . '.']['stdWrap.']['wrap'] = ',"children": [|]';
             }
@@ -302,27 +316,27 @@ class MenuProcessor implements DataProcessorInterface
             if ($this->menuIncludeSpacer) {
                 $this->menuConfig[$i . '.']['SPC'] = '1';
                 $this->menuConfig[$i . '.']['SPC.'] = $this->menuConfig[$i . '.']['NO.'];
-                $this->menuConfig[$i . '.']['SPC.']['stdWrap.']['cObject.']['5.']['value'] = '1';
+                $this->menuConfig[$i . '.']['SPC.']['stdWrap.']['cObject.']['50.']['value'] = '1';
             }
             $this->menuConfig[$i . '.']['IFSUB'] = '1';
             $this->menuConfig[$i . '.']['IFSUB.'] = $this->menuConfig[$i . '.']['NO.'];
             $this->menuConfig[$i . '.']['ACT'] = '1';
             $this->menuConfig[$i . '.']['ACT.'] = $this->menuConfig[$i . '.']['NO.'];
-            $this->menuConfig[$i . '.']['ACT.']['stdWrap.']['cObject.']['3.']['value'] = '1';
+            $this->menuConfig[$i . '.']['ACT.']['stdWrap.']['cObject.']['30.']['value'] = '1';
             $this->menuConfig[$i . '.']['ACTIFSUB'] = '1';
             $this->menuConfig[$i . '.']['ACTIFSUB.'] = $this->menuConfig[$i . '.']['ACT.'];
             $this->menuConfig[$i . '.']['CUR'] = '1';
             $this->menuConfig[$i . '.']['CUR.'] = $this->menuConfig[$i . '.']['ACT.'];
-            $this->menuConfig[$i . '.']['CUR.']['stdWrap.']['cObject.']['4.']['value'] = '1';
+            $this->menuConfig[$i . '.']['CUR.']['stdWrap.']['cObject.']['40.']['value'] = '1';
             $this->menuConfig[$i . '.']['CURIFSUB'] = '1';
             $this->menuConfig[$i . '.']['CURIFSUB.'] = $this->menuConfig[$i . '.']['CUR.'];
             if ($this->menuConfig['special'] === 'language') {
                 $this->menuConfig[$i . '.']['USERDEF1'] = $this->menuConfig[$i . '.']['NO'];
                 $this->menuConfig[$i . '.']['USERDEF1.'] = $this->menuConfig[$i . '.']['NO.'];
-                $this->menuConfig[$i . '.']['USERDEF1.']['stdWrap.']['cObject.']['6.']['value'] = '0';
+                $this->menuConfig[$i . '.']['USERDEF1.']['stdWrap.']['cObject.']['60.']['value'] = '0';
                 $this->menuConfig[$i . '.']['USERDEF2'] = $this->menuConfig[$i . '.']['ACT'];
                 $this->menuConfig[$i . '.']['USERDEF2.'] = $this->menuConfig[$i . '.']['ACT.'];
-                $this->menuConfig[$i . '.']['USERDEF2.']['stdWrap.']['cObject.']['6.']['value'] = '0';
+                $this->menuConfig[$i . '.']['USERDEF2.']['stdWrap.']['cObject.']['60.']['value'] = '0';
             }
         }
     }
@@ -359,9 +373,12 @@ class MenuProcessor implements DataProcessorInterface
             return $processedData;
         }
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(json_decode($renderedMenu, true));
+
         // Process menu
         $menu = json_decode($renderedMenu, true);
         $processedMenu = array();
+
         foreach ($menu as $key => $page) {
             $processedMenu[$key] = $this->processAdditionalDataProcessors($page, $processorConfiguration);
         }
@@ -398,7 +415,7 @@ class MenuProcessor implements DataProcessorInterface
      */
     public function getDataAsJson()
     {
-        return json_encode($this->cObj->data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+        return $this->jsonEncodeString($this->cObj->data);
     }
 
     /**
@@ -410,7 +427,36 @@ class MenuProcessor implements DataProcessorInterface
      */
     public function jsonEncodeUserFunc($content, $conf)
     {
-        $content = json_encode($content, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+        $content = $this->jsonEncodeString($content);
         return $content;
+    }
+
+    /**
+     * JSON Encode string
+     *
+     * @param string $string
+     * @return string
+     */
+    public function jsonEncodeString($string)
+    {
+        return json_encode($string, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+    }
+
+    /**
+     * This UserFunc gets the link and the target
+     *
+     * @param array $menuItem
+     * @param array $conf
+     * @return void
+     */
+    public function replacePlaceholderInRenderedMenuItem($menuItem, $conf)
+    {
+        $link = $this->jsonEncodeString($menuItem['linkHREF']['HREF']);
+        $target = $this->jsonEncodeString($menuItem['linkHREF']['TARGET']);
+
+        $menuItem['parts']['title'] = str_replace(MenuProcessor::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(MenuProcessor::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
+
+        return $menuItem;
     }
 }
