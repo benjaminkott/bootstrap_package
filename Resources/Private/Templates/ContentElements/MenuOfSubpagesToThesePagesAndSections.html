@@ -1,3 +1,4 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:layout name="Default"/>
 <f:section name="Header">
 
@@ -10,12 +11,12 @@
         <ul>
             <f:for each="{menu}" as="page">
                 <li>
-                    <f:link.page pageUid="{page.data.uid}">{page.data.title}</f:link.page>
+                    <f:link.page pageUid="{bk2k:resolveLink(page:'{page.data}')}">{page.data.title}</f:link.page>
                     <f:if condition="{page.content}">
                         <ul>
                             <f:for each="{page.content}" as="element">
                                 <li>
-                                    <f:link.page pageUid="{element.data.pid}" section="{element.data.uid}">{element.data.header}</f:link.page>
+                                    <f:link.page pageUid="{bk2k:resolveLink(page:'{page.data}')}" section="{element.data.uid}">{element.data.header}</f:link.page>
                                 </li>
                             </f:for>
                         </ul>
