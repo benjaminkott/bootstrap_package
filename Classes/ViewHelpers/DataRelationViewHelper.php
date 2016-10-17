@@ -26,9 +26,11 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
@@ -79,7 +81,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
+     * @param RenderingContextInterface|RenderingContext $renderingContext
      * @return string
      */
     public static function renderStatic(
@@ -89,12 +91,16 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
     ) {
         $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
         if ($arguments['uid'] !== null && $arguments['table'] !== null) {
-            $cObj = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
-            $whereClause = '1 AND `' . $arguments['foreignField'] . '` = \'' . $arguments['uid'] . '\' ' . $arguments['additionalWhere'] . $cObj->enableFields($arguments['table']);
+            $connection = static::getDatabaseConnection();
+            $frontendController = static::getFrontendController();
+            $contentObjectRenderer = static::createContentObjectRenderer();
+            $whereClause = $arguments['foreignField'] . '=' . (int)$arguments['uid']
+                . ' ' . $arguments['additionalWhere']
+                . $contentObjectRenderer->enableFields($arguments['table']);
             $groupBy = '';
             $limit = '';
-            $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
-            $data = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+            $connection->store_lastBuiltQuery = 1;
+            $data = $connection->exec_SELECTgetRows(
                 $arguments['selectFields'],
                 $arguments['table'],
                 $whereClause,
@@ -104,16 +110,21 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
             );
             $items = array();
             foreach ($data as $record) {
-                $GLOBALS['TSFE']->sys_page->versionOL($arguments['table'], $record);
+                $frontendController->sys_page->versionOL($arguments['table'], $record);
                 if (is_array($record)) {
-                    $items[] = $GLOBALS['TSFE']->sys_page->getRecordOverlay(
+                    $items[] = $frontendController->sys_page->getRecordOverlay(
                         $arguments['table'],
                         $record,
-                        $GLOBALS['TSFE']->sys_language_uid
+                        $frontendController->sys_language_uid
                     );
                 }
             }
-            usort($items, array(self, 'orderBySorting'));
+            usort(
+                $items,
+                function ($a, $b) {
+                    return $a['sorting'] > $b['sorting'];
+                }
+            );
         } else {
             $items = null;
         }
@@ -124,12 +135,28 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
     }
 
     /**
-     * @param array $a
-     * @param array $b
-     * @return string
+     * @return ContentObjectRenderer
      */
-    public static function orderBySorting($a, $b)
+    private static function createContentObjectRenderer()
     {
-        return $a['sorting'] > $b['sorting'];
+        return GeneralUtility::makeInstance(
+            ContentObjectRenderer::class
+        );
+    }
+
+    /**
+     * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+     */
+    private static function getFrontendController()
+    {
+        return $GLOBALS['TSFE'];
+    }
+
+    /**
+     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
+     */
+    private static function getDatabaseConnection()
+    {
+        return $GLOBALS['TYPO3_DB'];
     }
 }
