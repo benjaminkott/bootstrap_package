@@ -1,0 +1,36 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+
+<f:comment>Detect Art direction</f:comment>
+
+<f:if condition="{bk2k:simpleMath(operator: '&', a:'16', b: '{data.image_rendering}')}">
+  <f:then>
+    <bk2k:var name="step" value="5"/>
+  </f:then>
+  <f:else>
+    <bk2k:var name="step" value="1"/>
+  </f:else>
+</f:if>
+
+
+<f:comment>Transpose rows into columns for no-row mode</f:comment>
+
+<bk2k:arrayTranspose data="{files}" as="transposed" rowas="rows" cols="{data.imagecols}" step="{step}">
+  <bk2k:arrayChunk data="{transposed}" as="collection" size="{step}">
+    <div class="row-flex">
+      <div class="col-flex">
+        <f:for each="{collection}" as="file" iteration="fileIteration">
+          <bk2k:imageSize file="{file.0}" imagewidth="{data.imagewidth}" imageheight="{data.imageheight}">
+            <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+          </bk2k:ImageSize>  
+          <f:if condition="{fileIteration.index} > 0">
+            <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
+              <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{rows}', operator:'%')} < 0.1">
+                </div><div class="col-flex">
+              </f:if>  
+            </f:if>
+          </f:if>
+        </f:for>
+      </div>
+    </div> 
+  </bk2k:arrayChunk>
+</bk2k:arrayTranspose>

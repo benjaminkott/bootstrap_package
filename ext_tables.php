@@ -141,7 +141,16 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-thumbnail.svg']
 );
-
+$iconRegistry->registerIcon(
+    'content-beside-text-img-intext-left',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-beside-text-img-intext-left.svg']
+);
+$iconRegistry->registerIcon(
+    'content-beside-text-img-intext-right',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-beside-text-img-intext-right.svg']
+); 
 /***************
  * Allow Carousel Item & Accordion Item on Standart Pages
  */

@@ -11,10 +11,14 @@
 @media (min-width: 1200px) {
 .extend-grid(lg, @bases);
 }
-
+.row-flex {
+    margin-left: ceil((@grid-gutter-width / -2));
+    margin-right: floor((@grid-gutter-width / -2));
+    display: table;
+}
 .col-flex {
-    float: left;
-    position: relative;
+    vertical-align: top;
+    display: table-cell;
     // Prevent columns from collapsing when empty
     min-height: 1px;
     // Inner gutter via padding

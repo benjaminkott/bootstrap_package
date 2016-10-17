@@ -1,0 +1,8 @@
+<picture>
+  <source srcset="{f:uri.image(image: file, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}', absolute: '{settings.absoluteUrl}')}" />
+  <source media="{bk2k:mediaQuery( min:'xs', short:'1')}" srcset="{f:uri.image(image: file, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}', absolute: '{settings.absoluteUrl}')}" />
+  <source media="{bk2k:mediaQuery( min:'sm', short:'1')}" srcset="{f:uri.image(image: file, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}', absolute: '{settings.absoluteUrl}')}" />
+  <source media="{bk2k:mediaQuery( min:'md', short:'1')}" srcset="{f:uri.image(image: file, width: '{imagesize.width.md}', height: '{imagesize.height.md}', absolute: '{settings.absoluteUrl}')}" />
+  <source media="{bk2k:mediaQuery( min:'lg', short:'1')}" srcset="{f:uri.image(image: file, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}', absolute: '{settings.absoluteUrl}')}" />
+  <img src="{f:uri.image(image: file, absolute: '{settings.absoluteUrl}')}" title="{file.title}" alt="{file.alternative}" />  
+</picture>

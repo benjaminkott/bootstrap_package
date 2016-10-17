@@ -25,6 +25,7 @@ plugin.bootstrap_package {
         xl = {$plugin.bootstrap_package.settings.grid.screen.xl}
       }
       fluid {
+        xxs = 1
         xs = {$plugin.bootstrap_package.settings.grid.fluid.xs}
         sm = {$plugin.bootstrap_package.settings.grid.fluid.sm}
         md = {$plugin.bootstrap_package.settings.grid.fluid.md}

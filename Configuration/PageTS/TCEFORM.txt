@@ -82,7 +82,7 @@ TCEFORM {
                 }
             }
         }
-        image_noRows.disabled = 1
+       // image_noRows.disabled = 1
         imageborder.disabled = 1
         imagecols {
             addItems {
@@ -91,7 +91,7 @@ TCEFORM {
             }
         }
         imageorient {
-        //  removeItems = 1,2,9,10,17,18
+        //  removeItems = 1,2,9,10
             types {
                 image {
                     disabled = 1
@@ -111,11 +111,13 @@ TCEFORM {
         }
         // user defineable rendering methods
         image_rendering {
+           // for future use (img/srcset/picture)
+           removeItems = 1,2,3,18,19
            addItems {
               100 = user defined (100) see Partials/Media/Type
-              110 = user defined (110) see Partials/Media/Type
-              120 = user defined (120) see Partials/Media/Type
-              130 = user defined (130) see Partials/Media/Type
+              104 = user defined css (104) see Partials/Media/Type
+              110 = user defined art (110) see Partials/Media/Type
+              114 = user defined css art (114) see Partials/Media/Type
            }
        }
         // Disable imageheight and imagewidth for textpic and image

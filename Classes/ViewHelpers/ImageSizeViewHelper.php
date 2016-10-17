@@ -152,7 +152,6 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
         $as = $arguments["as"];
 
-        
         $xs = $arguments["xs"];
         $sm = $arguments["sm"];
         $md = $arguments["md"];
@@ -187,8 +186,33 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
             $marginlg = $marginmd;
         }
       
-        // user defined image size
+        $border = 2*$arguments["border"];
+
+
+      
         
+      
+        // user defined image ratio, will crop either width or height
+        // require file argument to work correctly
+        if (1*$arguments["ratio"] > 0) {
+            $ratio = 1*$arguments["ratio"] / 100;
+        } elseif (isset($size["ratio"])) {
+            $ratio = $size["ratio"];
+        } else {
+            $ratio = 0;
+        }
+      
+        // specify the crop in percent : -100 = left or top 100 = right or bottom
+        // eg for download files thumbs 
+        if ($arguments["crop"] !== '') {
+            $crop = $arguments["crop"];
+        } elseif (isset($size["crop"])) {
+            $crop = $size["crop"];
+        } else {
+            $crop = '';
+        }
+      
+        // user defined image size, will override all other settings
         if (1*$arguments['imagewidth'] > 0){
            $imagewidth = 1*$arguments['imagewidth'];
         } elseif (isset($size['imagewidth'])) {
@@ -204,25 +228,29 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         } else {
            $imageheight = 0;
         }
-         
-        if ($arguments["crop"] !== '') {
-            $crop = $arguments["crop"];
-        } elseif (isset($size["crop"])) {
-            $crop = $size["crop"];
-        } else {
-            $crop = '';
-        }
-
-        if (1*$arguments["ratio"] > 0) {
-            $ratio = 1*$arguments["ratio"] / 100;
-        } elseif (isset($size["ratio"])) {
-            $ratio = $size["ratio"];
-        } else {
-            $ratio = 0;
+        
+        if ($imageheight > 0 and $imagewidth > 0){
+            $ratio = $imageheight / $imagewidth;
         }
       
-        $border = 2*$arguments["border"];
-
+        // retrieve real file size if any
+        if (isset($size['fileratio'])) {
+            $fileratio = $size['fileratio'];
+        } elseif ($arguments['file'] !== null) {
+            $fheight= $arguments['file']->getProperty('height');
+            $fwidth = $arguments['file']->getProperty('width');
+            $fcrop =  $arguments['file']->getProperty('crop');
+            if ($fcrop) {
+                $fcrop = json_decode($fcrop);
+                $fwidth = $fcrop->width;
+                $fheight= $fcrop->height;
+            }
+            $fileratio = $fheight / $fwidth;
+        } else {
+            $fileratio = 500;
+        }
+        
+      
         $gutter  = $settings["grid."]["gutter"];
         $maxcols = $settings["grid."]["columns"];
 
@@ -253,13 +281,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         
         }
 
-        if ($arguments['file'] !== null) {
-            $fileratio = $arguments['file']->getProperty('height')/$arguments['file']->getProperty('width');
-        } elseif (isset($size['fileratio'])) {
-            $fileratio = $size['fileratio'];
-        } else {
-            $fileratio = 500;
-        }
+        
       
         if ($ratio > 0) {
           

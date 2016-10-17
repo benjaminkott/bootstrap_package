@@ -152,7 +152,7 @@ class ImageMetadataProcessor implements DataProcessorInterface
 
     // art direction
     $breakpoints = 1;
-    if ($this->cObj->data['image_rendering'] == 1 or $this->cObj->data['image_rendering'] == 3) {
+    if (($this->cObj->data['image_rendering'] & 16) == 16) {
       $breakpoints = 5;
     }
 
@@ -166,9 +166,9 @@ class ImageMetadataProcessor implements DataProcessorInterface
     }
 
     // disable variable columns count
-    if ($this->cObj->data['imageheight']) {
+    if ($this->cObj->data['imageheight'] and !$this->cObj->data['imagewidth']) {
 
-      $equalHeight = $this->cObj->data['imageheight'];
+      $equalHeight = intval($this->cObj->data['imageheight']);
       $processedData['data']['imageheight'] = '0';
       $rowCount = ceil($imgCount/$colCount);
       $relations_cols = array();
@@ -183,6 +183,7 @@ class ImageMetadataProcessor implements DataProcessorInterface
           $width = $file->getProperty('width');
           $height= $file->getProperty('height');
           $crop =  $file->getProperty('crop');
+          $crops[$j+$k*$breakpoints] = $crop;
           if ($crop) {
             $crop = json_decode($crop);
             $width = $crop->width;
@@ -194,8 +195,10 @@ class ImageMetadataProcessor implements DataProcessorInterface
           $relations_cols[$j][(int)floor($k / $colCount)] += $imgWidths[$j+$k*$breakpoints];
         }
       }
+      ksort($imgWidths);
+      ksort($crops);
       $processedData['data']['image_equalHeight'] = array(
-        'equalHeight ' => $equalHeight,
+        'equalHeight' => $equalHeight,
         'imgWidths' => $imgWidths,
         'relations_cols' => $relations_cols
       );

@@ -7,13 +7,14 @@ div.textpic {
   &.intext{
     &-right {
       > .imagewrap {
-        margin-left: @grid-gutter-width; 
+      //  margin-left: floor((@grid-gutter-width / 2)); 
         float: right; 
       }
+      
     } 
     &-left {
       > .imagewrap {
-        margin-right: @grid-gutter-width;
+      //  margin-right: floor((@grid-gutter-width / 2));
         float: left; 
       }
     }
@@ -22,14 +23,14 @@ div.textpic {
     &-right {
       > .textpic-text { clear: right; } 
       > .imagewrap {
-        margin-left: @grid-gutter-width; 
+        margin-left: floor((@grid-gutter-width / 2));
         float: right; 
       }
     } 
     &-left {
       > .textpic-text { clear: left; } 
       > .imagewrap {
-        margin-right: @grid-gutter-width;
+        margin-right: floor((@grid-gutter-width / 2));
         float: left; 
       }
     }

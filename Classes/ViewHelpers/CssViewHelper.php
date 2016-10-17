@@ -28,14 +28,15 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
  use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+ use BK2K\BootstrapPackage\Utility\CleanUtility;
 
- /**
+  /**
  * @author Stephen Leger
  */
 
  class CssViewHelper extends AbstractViewHelper implements CompilableInterface
  {
-
+   
      public function initializeArguments()
      {
          parent::initializeArguments();
@@ -67,11 +68,14 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
          \Closure $renderChildrenClosure,
          RenderingContextInterface $renderingContext
      ) {
+       
+       
          $content = "";
 
          $css = $renderChildrenClosure();
          $css = preg_replace("/<(\/)?style([^>]+)?>/", "", $css);
-
+         $css = CleanUtility::optimize($css, $trim = true);
+       
          if ($arguments["inline"]){
              $content .= "<style>" . $css . "</style>";
          } else {

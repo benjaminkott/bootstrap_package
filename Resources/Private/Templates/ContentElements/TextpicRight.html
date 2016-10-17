@@ -1,14 +1,12 @@
-{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:layout name="Default"/>
 <f:section name="Header"></f:section>
 <f:section name="Main">
 
-    <div class="textpic intext-right">
-        <div class="imagewrap">
-            <bk2k:imageSize sm="6" /> 
+    <div class="row">
+        <div class="col-md-push-6 col-md-6">
             <f:render partial="Media/Gallery" arguments="{_all}" />
         </div>
-        <div class="textpic-text">
+        <div class="col-md-pull-6 col-md-6">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.bodytext}</f:format.html>
         </div>

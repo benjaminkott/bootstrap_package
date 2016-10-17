@@ -31,7 +31,7 @@
                     <bk2k:var name="itemId">slide-{data.uid}-{iteration.cycle}</bk2k:var>
 
                     <f:if condition="{item.backgroundImage.0}">
-                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, image_cssselector: '#{itemId}', image_rendering: '2' }, settings: settings}"/>
+                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, image_cssselector: '#{itemId}', image_rendering: '4' }, settings: settings}"/>
                     </f:if>
 
                     <bk2k:var name="itemStyleColor">

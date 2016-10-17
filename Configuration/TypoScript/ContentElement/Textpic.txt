@@ -18,6 +18,12 @@ tt_content.textpic {
         8 = TEXT
         8.value = TextpicBelow
 
+        17 = TEXT
+        17.value = TextpicIntextRight
+
+        18 = TEXT
+        18.value = TextpicIntextLeft
+
         25 = TEXT
         25.value = TextpicRight
 

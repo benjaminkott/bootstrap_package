@@ -1,0 +1,108 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+
+<f:comment>Detect Css and Art direction</f:comment>
+
+<f:if condition="{bk2k:simpleMath(operator: '&', a:'16', b: '{data.image_rendering}')}">
+  <f:then>
+    <bk2k:var name="step" value="5"/>
+  </f:then>
+  <f:else>
+    <bk2k:var name="step" value="1"/>
+  </f:else>
+</f:if>
+
+
+<f:comment>Split files by collection (1 for regular media, 5 for art direction) </f:comment>
+
+<bk2k:arrayChunk data="{files}" as="collection" size="{step}">
+  
+  
+  <div class="row">
+    
+    <f:for each="{collection}" as="file" iteration="fileIteration">
+      
+      <f:comment>Default columns setup</f:comment>
+      <f:comment>Allow user defined width for images</f:comment>
+      
+      <bk2k:imageSize file="{file.0}" imagewidth="{data.imagewidth}" imageheight="{data.imageheight}">
+        
+        
+        <f:switch expression="{data.imagecols}">
+          <f:case value="2">
+            <div class="col-sm-6">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="3">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data,  settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="4">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="5">
+            <div class="col-sm-1-5 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="6">
+            <div class="col-md-2 col-sm-4 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="7">
+            <div class="col-md-1-7 col-sm-3 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="8">
+            <div class="col-md-1-8 col-sm-3 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="9">
+            <div class="col-md-1-9 col-sm-4 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case value="10">
+            <div class="col-md-1-10 col-sm-1-5 col-xs-4">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+          <f:case default="TRUE">
+            <div class="col-md-12">
+              <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+            </div>
+          </f:case>
+        </f:switch>
+      </bk2k:imageSize>  
+      <f:comment>Reset for columns / lines (replace equalheight.js by markup)</f:comment>
+      
+      <f:if condition="{fileIteration.index} > 0">
+        <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
+          
+          <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.xs}', operator:'%')} < 0.1">
+            <div class="clearfix visible-xs-block"></div>
+          </f:if>
+          <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.sm}', operator:'%')} < 0.1">
+            <div class="clearfix visible-sm-block"></div>
+          </f:if>
+          <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.md}', operator:'%')} < 0.1">
+            <div class="clearfix visible-md-block"></div>
+          </f:if>
+          <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{imagesize.cols.lg}', operator:'%')} < 0.1">
+            <div class="clearfix visible-lg-block"></div>
+          </f:if>
+        </f:if>
+      </f:if>
+      
+    </f:for> 
+    
+  </div> 
+  
+</bk2k:arrayChunk>
+

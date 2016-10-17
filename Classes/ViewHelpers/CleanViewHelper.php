@@ -28,6 +28,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use BK2K\BootstrapPackage\Utility\CleanUtility;
 
 /**
 * @author Stephen Leger
@@ -35,20 +36,7 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
 class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-    /**
-    * Tab character
-    *
-    * @var string
-    */
-    protected static $tab = "\t";
-
-    /**
-    * Newline character
-    *
-    * @var string
-    */
-    protected static $newline = "\n";
-
+   
     /*
     * render
     * @return string
@@ -62,26 +50,7 @@ class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
         );
     }
 
-    /**
-    * Clean up multiple white space
-    *
-    * @param string $html
-    *
-    * @return string
-    */
-    protected static function optimize($html)
-    {
-        // newlines
-        $html = preg_replace("(\r\n|\n|\r)", self::$newline, $html);
-        // remove empty lines
-        $html = preg_replace("/(^[" . self::$newline . "]*|[". self::$newline ."]+)[\s\t]*[" . self::$newline . "]+/", self::$newline, $html);
-        // replace tabs by spaces
-        $html = str_replace(self::$tab, " ", $html);
-        // remove double spaces
-        $html = preg_replace("/\s\s+/u", " ", $html);
-        return $html;
-    }
-
+   
     /**
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
@@ -93,15 +62,10 @@ class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        switch (TYPO3_OS) { // set newline
-            case "WIN" :
-                self::$newline = "\r\n";
-            break;
-            default :
-                self::$newline = "\n";
-        }
+
         $content = $renderChildrenClosure();
-        $content = self::optimize($content);
+        $content = CleanUtility::optimize($content, $trim = false);
+
         return $content;
     }
 }

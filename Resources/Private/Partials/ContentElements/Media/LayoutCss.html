@@ -1,0 +1,22 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+
+<f:comment>Detect Art direction</f:comment>
+
+<f:if condition="{bk2k:simpleMath(operator: '&', a:'16', b: '{data.image_rendering}')}">
+  <f:then>
+    <bk2k:var name="step" value="5"/>
+  </f:then>
+  <f:else>
+    <bk2k:var name="step" value="1"/>
+  </f:else>
+</f:if>
+
+<f:comment>Split files by collection (1 for regular media, 5 for art direction) </f:comment>
+
+<bk2k:arrayChunk data="{files}" as="collection" size="{step}">
+  <bk2k:css inline="{settings.moveCssToBody}">
+    <f:for each="{collection}" as="file" iteration="fileIteration">
+      <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+    </f:for>
+  </bk2k:css>
+</bk2k:arrayChunk>

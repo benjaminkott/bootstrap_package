@@ -140,11 +140,11 @@ class EqualHeightViewHelper extends AbstractViewHelper implements CompilableInte
         $size = self::getSizeState($renderingContext, $settings, "imagesize");
         $imgWidths = $data["image_equalHeight"]["imgWidths"];
         $relations_cols = $data["image_equalHeight"]["relations_cols"];
+        $equalHeight = $data["image_equalHeight"]["equalHeight"];
 
         $colCount = intval($data["imagecols"]);
 
-        $equalHeight = $data["image_equalHeight"]["equalHeight"];
-
+       
         $as = $arguments["as"];
 
         $newSize = array();
@@ -153,10 +153,10 @@ class EqualHeightViewHelper extends AbstractViewHelper implements CompilableInte
         $container = $size["width"]["lg"];
 
         $breakpoints = 1;
-        if ($data['image_rendering'] == 1 or $data['image_rendering'] == 3) {
+        if (($data['image_rendering'] & 16) == 16) {
             $breakpoints = 5;
         }
-        $keys = array('xxs', 'xs', 'sm', 'md', 'lg');
+        $keys = array('lg', 'md', 'sm', 'xs', 'xxs');
         $imgCount = floor(count($arguments["files"]) / $breakpoints);
         // compute columns relations with respect to crop settings
         // when we are in art direction mode compare columns between same step
@@ -182,11 +182,10 @@ class EqualHeightViewHelper extends AbstractViewHelper implements CompilableInte
                     $desiredHeight = $equalHeight / $scale;
                     $nbImgs -= $colCount;
                     $rowIdx++;
-                    if(!is_array($newSize[$k])){
+                    if(!is_array($newSize[$k])) {
                         $newSize[$k] = array(
                             'width' => array(),
-                            'height' => array(),
-                            'columnwidthpercent' => array()
+                            'height' => array()
                         );
                     }
                 }
@@ -204,30 +203,29 @@ class EqualHeightViewHelper extends AbstractViewHelper implements CompilableInte
                 $accumWidth += $finalImgWidth;
 
                 $refwidth =  $finalImgWidth / $netW;
-                $refheight = $desiredHeight / $netW;
+                $refheight = $equalHeight / $netW;
 
                 if ($breakpoints == 1) {
                     // breakpoints share the same ratio
                     foreach($keys as $i=>$key){
                         $newSize[$k]['width'][$key]  = $refwidth  * ($size["width"][$key] - $gutters);
-                        $newSize[$k]['height'][$key] = $refheight * ($size["width"][$key] - $gutters);
+                        $newSize[$k]['height'][$key] = round($refheight * ($size["width"][$key] - $gutters)) .'c';
                     }
-                    $newSize[$k]["columnwidthpercent"][0] = 100*($finalImgWidth+$settings["grid."]["gutter"])/($container+$settings["grid."]["gutter"]);
-
+                    
                 } else {
                     $key = $keys[$j];
                     $newSize[$k]['width'][$key]  = $refwidth  * ($size["width"][$key] - $gutters);
-                    $newSize[$k]['height'][$key] = $refheight * ($size["width"][$key] - $gutters);
-                    $newSize[$k]['columnwidthpercent'][$j] = 100*($finalImgWidth+$settings["grid."]["gutter"])/($container+$settings["grid."]["gutter"]);
+                    $newSize[$k]['height'][$key] = round($refheight * ($size["width"][$key] - $gutters)) .'c';
                 }
             }
 
         }
-        if ( $renderingContext->getTemplateVariableContainer()->exists($as) == true){
+        if ($renderingContext->getTemplateVariableContainer()->exists($as) == true){
             $renderingContext->getTemplateVariableContainer()->remove($as);
         }
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
-
+        $content = $renderChildrenClosure();
+        $renderingContext->getTemplateVariableContainer()->remove($as);
         return $content;
     }
 }

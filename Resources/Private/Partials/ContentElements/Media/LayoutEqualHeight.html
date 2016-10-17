@@ -1,0 +1,36 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:comment>Equal height for each row, flexible width</f:comment>
+
+<bk2k:equalHeight data="{data}" files="{files}" as="equalheights">
+ 
+  <f:comment>Detect Art direction</f:comment>
+  <f:if condition="{bk2k:simpleMath(operator: '&', a:'16', b: '{data.image_rendering}')}">
+    <f:then>
+      <bk2k:var name="step" value="5"/>
+    </f:then>
+    <f:else>
+      <bk2k:var name="step" value="1"/>
+    </f:else>
+  </f:if>
+  
+  <f:comment>Split files by collection (1 for regular media, 5 for art direction) </f:comment>
+
+  <bk2k:arrayChunk data="{files}" as="collection" size="{step}">
+    <div class="row-flex">
+      <f:for each="{collection}" as="file" iteration="fileIteration">
+        <f:cycle values="{equalheights}" as="size">
+          <div class="col-flex">
+            <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, imagesize: size}" />
+          </div>
+          <f:if condition="{fileIteration.cycle} > 0">
+            <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
+              <f:if condition="{bk2k:simpleMath(operator: '%', a:'{fileIteration.cycle}', b:'{data.imagecols}')} == 0">
+                </div><div class="row-flex">
+              </f:if>
+            </f:if>
+          </f:if>
+        </f:cycle>
+      </f:for> 
+    </div> 
+  </bk2k:arrayChunk>
+</bk2k:equalHeight>

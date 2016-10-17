@@ -377,18 +377,33 @@
                 <source>Standard</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.1">
-                <source>Art direction</source>
+                <source>Img tag</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.2">
-                <source>Css background</source>
+                <source>Picture tag</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.3">
-                <source>Css background Art direction</source>
+                <source>Img srcset</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.4">
-                <source>Title as lightbox link</source>
+                <source>Css background</source>
             </trans-unit>
-
+            <trans-unit id="field.image_rendering_options.I.5">
+                <source>Art direction</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.6">
+                <source>Picture Art direction</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.7">
+                <source>Img srcset Art direction</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.8">
+                <source>Css background Art direction</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.9">
+                <source>Lightbox link with title as text</source>
+            </trans-unit>
+          
             <trans-unit id="field.image_cssselector">
                 <source>Css background selector</source>
             </trans-unit>

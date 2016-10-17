@@ -70,6 +70,12 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
         $a = floatval($arguments["a"]);
         $b = floatval($arguments["b"]);
         switch ($arguments["operator"]) {
+            case "&": // binary and
+                $content = ($a & $b);
+            break;
+            case "|": // binary or
+                $content = ($a | $b);
+            break;
             case "+":
                 $content = ($a + $b);
             break;

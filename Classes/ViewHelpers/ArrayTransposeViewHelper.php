@@ -23,6 +23,8 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
+ * 
+ *  Transpose rows into columns 
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -33,7 +35,7 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ArrayChunkViewHelper extends AbstractViewHelper implements CompilableInterface
+class ArrayTransposeViewHelper extends AbstractViewHelper implements CompilableInterface
 {
    
     /**
@@ -41,16 +43,20 @@ class ArrayChunkViewHelper extends AbstractViewHelper implements CompilableInter
      *
      * @param string $data
      * @param string $as
-     * @param integer $size
+     * @param string $rowas
+     * @param integer $cols
+     * @param integer $step
      * @return string
      */
-    public function render($data, $as = 'items', $size = 1)
+    public function render($data, $as = 'items', $rowas = 'rows', $cols = 1, $step = 1)
     {
         return self::renderStatic(
             array(
                 'data' => $data,
                 'as' => $as,
-                'size' => $size
+                'rowas' => $rowas,
+                'cols' => $cols,
+                'step' => $step
             ),
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
@@ -71,15 +77,29 @@ class ArrayChunkViewHelper extends AbstractViewHelper implements CompilableInter
         $content = '';
         if (isset($arguments['data'])) {
             $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-            $items = array_chunk($arguments['data'], $arguments['size']);
+            $rows = array_chunk($arguments['data'], $arguments['cols'] * $arguments['step']);
+            $nrows = count($rows);
+            $cols = array();
+            for ($c = 0; $c < $arguments['cols']; $c++) {
+                for ($r = 0; $r < $nrows; $r++) {
+                    for ($s = 0; $s < $arguments['step']; $s++) {
+                         if (isset($rows[$r][$s + $c * $arguments['step']])) {
+                             $cols[] = $rows[$r][$s + $c * $arguments['step']];
+                         }  
+                    }
+                }
+            }
             if ($templateVariableContainer->exists($arguments['as'])  === true) {
                 $templateVariableContainer->remove($arguments['as']);
             }
-            $templateVariableContainer->add($arguments['as'], $items);
-            $content = $renderChildrenClosure();
-            if ($content !== ''){
-                $templateVariableContainer->remove($arguments['as']);
+            if ($templateVariableContainer->exists($arguments['rowas'])  === true) {
+                $templateVariableContainer->remove($arguments['rowas']);
             }
+            $templateVariableContainer->add($arguments['as'], $cols);
+            $templateVariableContainer->add($arguments['rowas'], $nrows);
+            $content = $renderChildrenClosure();
+            $templateVariableContainer->remove($arguments['as']);
+            $templateVariableContainer->remove($arguments['rowas']);         
         }
         return $content;
     }

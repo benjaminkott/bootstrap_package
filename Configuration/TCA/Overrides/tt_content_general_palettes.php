@@ -7,6 +7,7 @@ $GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
     'showitem' => '
         imageorient,
         imagecols,
+        image_noRows,
         --linebreak--,
         imagewidth,
         imageheight,

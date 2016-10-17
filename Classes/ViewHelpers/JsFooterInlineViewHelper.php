@@ -28,7 +28,8 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-
+use BK2K\BootstrapPackage\Utility\CleanUtility;
+  
 /**
 * @author Stephen Leger
 */
@@ -68,7 +69,8 @@ class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableI
         $content = "";
         $js = $renderChildrenClosure();
         $js = preg_replace("/<(\/)?script([^>]+)?>/", "", $js);
-        $js = trim($js);
+        $js = CleanUtility::optimize($js, $trim = false);
+        
         // put css background to header or leave inline
         if ($arguments["inline"]){
             $content = "<script>" . $js. "</script>";
