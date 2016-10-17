@@ -85,6 +85,28 @@ table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid #ddd
 }
+.text-2-columns,
+.text-3-columns,
+.text-4-columns {
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+}
+.text-2-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+.text-3-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+}
+.text-4-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+}
 
 th.danger {
 }

@@ -23,6 +23,15 @@ RTE.classes {
     text-justify {
         name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-justify
     }
+    text-2-columns {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-2-columns
+    }
+    text-3-columns {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-3-columns
+    }
+    text-4-columns {
+        name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-4-columns
+    }
     lead {
         name = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.lead
     }
@@ -118,7 +127,8 @@ RTE.default {
     allowedTags (
         b, strong, i, em, u, strike, del, big, small, sub, sup, ol, ul, li, a, link,
         br, p, pre, h1, h2, h3, h4, hr, span,
-        table, tr, th, td, thead, tbody, tfoot
+        table, tr, th, td, thead, tbody, tfoot,
+        div
     )
 
     // We really don't want any comments in our frontend output. Remove them.
@@ -160,6 +170,13 @@ RTE.default.buttons {
         )
     }
 
+    // Restrict allowed classes for columns to our own classes
+    textstyle.tags.div {
+        allowedClasses (
+            text-2-columns, text-3-columns, text-4-columns
+        )
+    }
+
     // Key mapping (strg + x)
     bold.hotKey = b
     italic.hotKey = i
@@ -187,7 +204,7 @@ RTE.default {
     showButtons (
         formatblock, blockstyle, textstyle, bold, italic, underline, strikethrough, big, small, subscript, superscript,
         orderedlist, unorderedlist, left, center, right, justifyfull, copy, cut, paste,
-        undo, redo, removeformat, link, unlink,	line, insertparagraphbefore, insertparagraphafter,
+        undo, redo, removeformat, link, unlink, line, insertparagraphbefore, insertparagraphafter,
         chMode, table, tableproperties, toggleborders, tablerestyle,
         rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit,
         columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit,
@@ -197,17 +214,17 @@ RTE.default {
 
     // Define buttons and order of button that will be shown
     #toolbarOrder (
-    #	formatblock, blockstyle, textstyle, linebreak,
-    #	bold, italic, underline, strikethrough, big, small, subscript, superscript, bar,
-    #	orderedlist, unorderedlist, bar,
-    #	left, center, right, justifyfull, copy, cut, paste, bar,
-    #	undo, redo, removeformat, bar,
-    #	link, unlink, bar,
-    #	line, insertparagraphbefore, insertparagraphafter, bar,
-    #	chMode, linebreak, table, tableproperties, toggleborders, tablerestyle, bar,
-    #	rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar,
-    #	columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
-    #	cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+    #  formatblock, blockstyle, textstyle, linebreak,
+    #  bold, italic, underline, strikethrough, big, small, subscript, superscript, bar,
+    #  orderedlist, unorderedlist, bar,
+    #  left, center, right, justifyfull, copy, cut, paste, bar,
+    #  undo, redo, removeformat, bar,
+    #  link, unlink, bar,
+    #  line, insertparagraphbefore, insertparagraphafter, bar,
+    #  chMode, linebreak, table, tableproperties, toggleborders, tablerestyle, bar,
+    #  rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar,
+    #  columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
+    #  cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
     #)
 
     // Make the RTE bigger
@@ -243,7 +260,7 @@ RTE.default.proc {
     dontConvBRtoParagraph = 1
 
     // Do not preserve div section and remap them to p
-    preserveDIVSections = 0
+    preserveDIVSections = 1
 
     // List of denied tags
     denyTags = img, center, font, span
@@ -255,7 +272,8 @@ RTE.default.proc {
         active, success, warning, danger, info,
         list-unstyled, list-inline,
         btn, btn-default, btn-primary, btn-success, btn-warning, btn-block,
-        visible-lg, visible-md, visible-print, visible-sm, visible-xs
+        visible-lg, visible-md, visible-print, visible-sm, visible-xs,
+        text-2-columns, text-3-columns, text-4-columns
     )
 
     // List of tags that don't have to be wrapped in a paragraph
@@ -313,6 +331,7 @@ RTE.default.proc.entryHTMLparser_db {
         ul.fixAttrib.class.list     = , list-unstyled, list-inline
 
         a.fixAttrib.class.list      = , btn, btn-default, btn-primary, btn-success, btn-warning, btn-danger, btn-link, btn-block
+        div.fixAttrib.class.list    = , text-2-columns, text-3-columns, text-4-columns
 
         // Disallow all attributes
         hr.allowedAttribs           = 0
@@ -333,7 +352,7 @@ RTE.default.proc.entryHTMLparser_db {
         thead.allowedAttribs        = 0
         tbody.allowedAttribs        = 0
         tfoot.allowedAttribs        = 0
-        div.allowedAttribs = 0
+        div.allowedAttribs          = class
 
         // Special configuration for elements that are allowed to have classes
         h1.allowedAttribs           = class
