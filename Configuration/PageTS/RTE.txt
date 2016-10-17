@@ -149,9 +149,52 @@ RTE.default.buttons {
 
     // Remove html tags that are not suitable for an editor to maintain
     formatblock {
-        removeItems = address, article, aside, div, header, footer, section, h5, h6, nav
-    }
 
+        removeItems = address, article, aside, header, footer, section, h5, h6, nav
+
+        // allow columns for text
+        addItems = text-2-columns, text-3-columns, text-4-columns
+
+        items.text-2-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-2-columns
+            addClass = text-2-columns
+            tagName = div
+        }
+        items.text-3-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-3-columns
+            addClass = text-3-columns
+            tagName = div
+        }
+        items.text-4-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-4-columns
+            addClass = text-4-columns
+            tagName = div
+        }
+    }
+    blockstyle{
+
+        // allow columns for text
+        addItems = text-2-columns, text-3-columns, text-4-columns
+
+        items.text-2-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-2-columns
+            addClass = text-3-columns
+            tagName = div
+        }
+        items.text-3-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-3-columns
+            addClass = text-3-columns
+            tagName = div
+        }
+        items.text-4-columns {
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_rte.xlf:class.text-4-columns
+            addClass = text-4-columns
+            tagName = div
+        }
+
+
+
+    }
     // Remove stylings from select options
     blockstyle.disableStyleOnOptionLabel = 1
 
@@ -159,6 +202,13 @@ RTE.default.buttons {
     blockstyle.tags.p {
         allowedClasses (
             lead, text-left, text-center, text-right, text-justify
+        )
+    }
+
+    // Restrict allowed classes for columns to our own classes
+    blockstyle.tags.div {
+        allowedClasses (
+            text-*-columns
         )
     }
 
@@ -170,12 +220,7 @@ RTE.default.buttons {
         )
     }
 
-    // Restrict allowed classes for columns to our own classes
-    textstyle.tags.div {
-        allowedClasses (
-            text-2-columns, text-3-columns, text-4-columns
-        )
-    }
+
 
     // Key mapping (strg + x)
     bold.hotKey = b
@@ -204,7 +249,7 @@ RTE.default {
     showButtons (
         formatblock, blockstyle, textstyle, bold, italic, underline, strikethrough, big, small, subscript, superscript,
         orderedlist, unorderedlist, left, center, right, justifyfull, copy, cut, paste,
-        undo, redo, removeformat, link, unlink, line, insertparagraphbefore, insertparagraphafter,
+        undo, redo, removeformat, link, unlink,  line, insertparagraphbefore, insertparagraphafter,
         chMode, table, tableproperties, toggleborders, tablerestyle,
         rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit,
         columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit,
@@ -226,6 +271,10 @@ RTE.default {
     #  columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar,
     #  cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
     #)
+
+    // allow text columns classes on blockstyle dropdown for div
+    buttons.blockstyle.tags.div.allowedClasses = text-2-columns, text-3-columns, text-4-columns
+    buttons.formatblock.tags.div.allowedClasses = text-2-columns, text-3-columns, text-4-columns
 
     // Make the RTE bigger
     RTEHeightOverride = 700
@@ -275,6 +324,8 @@ RTE.default.proc {
         visible-lg, visible-md, visible-print, visible-sm, visible-xs,
         text-2-columns, text-3-columns, text-4-columns
     )
+
+
 
     // List of tags that don't have to be wrapped in a paragraph
     allowTagsOutside (
