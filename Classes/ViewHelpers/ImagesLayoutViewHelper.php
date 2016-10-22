@@ -291,10 +291,8 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 }
                 break;
             default:
-                switch ($data["image_rendering"] & 15)
-                {
+                switch ($data["image_rendering"] & 15) {
                     case 4: // css
-                        // dont care about borders here
                         for ($k = 0; $k < $imgCount; $k++) {
                             foreach ($keys as $j => $key) {
                                 $collection["files"][$k]["size"][$key]["height"] = $size[$key]["height"];
