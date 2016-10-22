@@ -25,12 +25,13 @@ namespace BK2K\BootstrapPackage\UserFuncs;
 *  THE SOFTWARE.
 */
 
-use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;  
-  
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
+
 /**
 * @author Stephen Leger
 */
-class TemplateWidthUserFunc {
+class TemplateWidthUserFunc
+{
     /**
     * Reference to the parent (calling) cObject set from TypoScript
     */
@@ -55,11 +56,10 @@ class TemplateWidthUserFunc {
         } else {
             $val = $default;
         }
-        if ($val < $min){
+        if ($val < $min) {
             return $default;
         }
         return $val;
-
     }
 
     private function initializeColumns($conf)
@@ -101,17 +101,17 @@ class TemplateWidthUserFunc {
 
         $maxcols = $this->settings["grid."]["columns"];
         $gutter  = $this->settings["grid."]["gutter"];
-        
+
         if ($this->fluid) {
             $this->imagesize["fluid"] = 1;
         }
-      
+
         $this->imagesize["xxs"]["width"] = ($this->imagesize["xxs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
         $this->imagesize["xs"]["width"] = ($this->imagesize["xs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
         $this->imagesize["sm"]["width"] = ($this->imagesize["sm"]["width"] + $gutter) * ( $this->columns["sm"] / $maxcols ) - $gutter;
         $this->imagesize["md"]["width"] = ($this->imagesize["md"]["width"] + $gutter) * ( $this->columns["md"] / $maxcols ) - $gutter;
         $this->imagesize["lg"]["width"] = ($this->imagesize["lg"]["width"] + $gutter) * ( $this->columns["lg"] / $maxcols ) - $gutter;
-      
+
         ResponsiveImagesUtility::setImageSizeToRegister($this->imagesize);
     }
 
@@ -125,7 +125,7 @@ class TemplateWidthUserFunc {
         $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
-        $this->fluid = $this->getConf($conf,"fluid",0);
+        $this->fluid = $this->getConf($conf, "fluid", 0);
         $this->initializeColumnsDivider($conf);
         $this->getTemplateSize();
         $this->registerTemplateSize();
@@ -141,7 +141,7 @@ class TemplateWidthUserFunc {
         $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
-        $this->fluid = $this->getConf($conf,"fluid",0);
+        $this->fluid = $this->getConf($conf, "fluid", 0);
         $this->initializeColumns($conf);
         $this->getTemplateSize();
         $this->registerTemplateSize();

@@ -75,38 +75,38 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
         switch ($arguments["operator"]) {
             case "&": // binary and
                 $content = ($a & $b);
-            break;
+                break;
             case "|": // binary or
                 $content = ($a | $b);
-            break;
+                break;
             case "+":
                 $content = ($a + $b);
-            break;
+                break;
             case "-":
                 $content = ($a - $b);
-            break;
+                break;
             case "*":
                 $content = ($a * $b);
-            break;
+                break;
             case "/":
-                if ($b > 0){
+                if ($b > 0) {
                     $content = ($a / $b);
-                } 
-            break;
+                }
+                break;
             case "%":
-                if ($b > 0){
+                if ($b > 0) {
                     $content = ($a % $b);
-                }  
-            break;
+                }
+                break;
         }
         if ($arguments["round"]) {
-          $content = round($content);
+            $content = round($content);
         }
         if ($arguments["floor"]) {
-          $content = floor($content);
+            $content = floor($content);
         }
         if ($arguments["ceil"]) {
-          $content = ceil($content);
+            $content = ceil($content);
         }
         return $content;
     }

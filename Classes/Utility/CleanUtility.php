@@ -1,5 +1,5 @@
 <?php
-   
+
 namespace BK2K\BootstrapPackage\Utility;
 
 /*
@@ -31,7 +31,8 @@ namespace BK2K\BootstrapPackage\Utility;
  * @author Benjamin Kott <info@bk2k.info>
  */
 class CleanUtility
-{   /**
+{
+    /**
     * Tab character
     *
     * @var string
@@ -58,13 +59,13 @@ class CleanUtility
     {
 
         switch (TYPO3_OS) { // set newline
-            case "WIN" :
+            case "WIN":
                 self::$newline = "\r\n";
-            break;
-            default :
+                break;
+            default:
                 self::$newline = "\n";
         }
-      
+
         // newlines
         $html = preg_replace("(\r\n|\n|\r)", self::$newline, $html);
         // remove empty lines
@@ -73,7 +74,7 @@ class CleanUtility
         $html = str_replace(self::$tab, " ", $html);
         // remove double spaces
         $html = preg_replace("/\s\s+/u", " ", $html);
-        // trim 
+        // trim
         if ($trim) {
             $html = preg_replace("/^[\s]+/", "", $html);
         }

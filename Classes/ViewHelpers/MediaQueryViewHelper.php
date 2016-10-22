@@ -29,7 +29,7 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
-  
+
 /**
 * @author Stephen Leger
 */
@@ -58,7 +58,7 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         );
     }
 
-   
+
     /**
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
@@ -77,14 +77,14 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
             $content .= "@media ";
         }
 
-        if($arguments["min"] !== '') {
+        if ($arguments["min"] !== '') {
             $content .= " (min-width: " . $settings["grid."]["screen."][$arguments["min"]] . "px)";
-            if($arguments["max"] !== '') {
+            if ($arguments["max"] !== '') {
                 $content .= " and ";
             }
         }
 
-        if($arguments["max"] !== '') {
+        if ($arguments["max"] !== '') {
             $content .= " (max-width: " . (intval($settings["grid."]["screen."][$arguments["max"]]) - 1) . "px)";
         }
 

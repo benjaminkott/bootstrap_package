@@ -96,10 +96,10 @@ class ResponsiveImagesUtility
             "ratio" => 0,
             "crop" => "",
             "border" => 0,
-
         );
-
     }
+
+
    /**
     * Retrieve "imagesize" from register
     * @return array $imagesize
@@ -128,20 +128,13 @@ class ResponsiveImagesUtility
     */
     public static function getImageSize(RenderingContextInterface  $renderingContext, $settings, $as = "imagesize")
     {
-
         if ($renderingContext->getTemplateVariableContainer()->exists($as)) {
-
             $imagesize = $renderingContext->getTemplateVariableContainer()->get($as);
-
         } elseif ( self::getImageSizeFromRegister() ) {
-
             $imagesize = self::getImageSizeFromRegister();
-
         } else {
-
             // If not found return default
             $imagesize = self::getDefault($settings);
-
         }
         return $imagesize;
     }
@@ -187,5 +180,4 @@ class ResponsiveImagesUtility
     {
         return self::getTyposcriptFrontendController()->tmpl->setup["plugin."]["bootstrap_package."]["settings."];
     }
-
 }

@@ -97,7 +97,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         // copy
         $newSize = $size;
 
-        if ($arguments["border"] > 0){
+        if ($arguments["border"] > 0) {
             $newSize["border"] = 2*$arguments["border"];
         }
         // user defined image ratio, will crop either width or height
@@ -113,19 +113,17 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         }
 
         // user defined image size, will override all other settings
-        if ($arguments["imagewidth"] > 0){
+        if ($arguments["imagewidth"] > 0) {
             $newSize["imagewidth"] = $arguments["imagewidth"];
         }
 
-        if ($arguments["imageheight"] > 0){
+        if ($arguments["imageheight"] > 0) {
             $newSize["imageheight"] = $arguments["imageheight"];
         }
 
 
         // user defined size
         if ($arguments["imagewidth"] > 0 or $arguments["imageheight"] > 0) {
-
-
             if ($arguments["imagewidth"] > 0) {
                 // width proportional to container
                 $ref =  $arguments["imagewidth"] / intval($settings["grid."]["container."]["lg"]);
@@ -134,7 +132,6 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $newSize["sm"]["width"] = $ref * intval($settings["grid."]["container."]["sm"]);
                 $newSize["md"]["width"] = $ref * intval($settings["grid."]["container."]["md"]);
                 $newSize["lg"]["width"] = $arguments["imagewidth"];
-
             }
             if ($arguments["imageheight"] > 0) {
                 // height proportional to container
@@ -145,9 +142,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $newSize["md"]["height"] = $ref * intval($settings["grid."]["container."]["md"]);
                 $newSize["lg"]["height"] = $arguments["imageheight"];
             }
-
         } else {
-
             $xs = $arguments["xs"];
             $sm = $arguments["sm"];
             $md = $arguments["md"];
@@ -173,17 +168,13 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
             // images per row
             if ($arguments["store"]) {
-
                 $newSize["xxs"]["cols"] = round($maxcols/$xs);
                 $newSize["xs"]["cols"] = round($maxcols/$xs);
                 $newSize["sm"]["cols"] = round($maxcols/$sm);
                 $newSize["md"]["cols"] = round($maxcols/$md);
                 $newSize["lg"]["cols"] = round($maxcols/$lg);
-
             } else {
-
                 $gutter  = intval($settings["grid."]["gutter"]);
-
                 $newSize["xxs"]["width"] = ($size["xxs"]["width"] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize["xs"]["width"] = ($size["xs"]["width"] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize["sm"]["width"] = ($size["sm"]["width"] + $gutter) / $maxcols * $sm - $gutter;
