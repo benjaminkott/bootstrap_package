@@ -151,6 +151,41 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-beside-text-img-intext-right.svg']
 ); 
+$iconRegistry->registerIcon(
+    'content-images-layout-grid',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-grid.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-row-right',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-row-right.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-row-justify',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-row-justify.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-row-left',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-row-left.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-col-top',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-col-top.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-col-justify',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-col-justify.svg']
+); 
+$iconRegistry->registerIcon(
+    'content-images-layout-col-bottom',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/content-images-layout-col-bottom.svg']
+); 
 /***************
  * Allow Carousel Item & Accordion Item on Standart Pages
  */

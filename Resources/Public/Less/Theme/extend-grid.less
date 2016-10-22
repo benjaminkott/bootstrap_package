@@ -1,27 +1,82 @@
+//
 // Generate columns for 5 7 8 9 10 items (only width) class names are xs-1-5 xs-1-7 ...
+//
+
 @bases: 5, 7, 8, 9, 10;
 .extend-grid-columns(@bases);
+
+// .extend-grid-columns(@bases);
 .extend-grid(xs, @bases);
-@media (min-width: 768px) {
-.extend-grid(sm, @bases);
+@media (min-width: @screen-sm-min) {
+    .extend-grid(sm, @bases);
 }
-@media (min-width: 992px) {
-.extend-grid(md, @bases);
+@media (min-width: @screen-md-min) {
+    .extend-grid(md, @bases);
 }
-@media (min-width: 1200px) {
-.extend-grid(lg, @bases);
+@media (min-width: @screen-lg-min) {
+    .extend-grid(lg, @bases);
 }
+
+
+//
+// Multiple images layout
+//
+
 .row-flex {
-    margin-left: ceil((@grid-gutter-width / -2));
-    margin-right: floor((@grid-gutter-width / -2));
     display: table;
+    table-layout: fixed;
+//    width: 100%;  
+    
+//    display: flex;
+//    flex-direction: row;
+//    flex-wrap: nowrap;
+//    justify-content: space-between;
+
 }
+
 .col-flex {
     vertical-align: top;
     display: table-cell;
-    // Prevent columns from collapsing when empty
-    min-height: 1px;
-    // Inner gutter via padding
-    padding-left:  ceil((@grid-gutter-width / 2));
-    padding-right: floor((@grid-gutter-width / 2));
+
+//    display: flex;
+//    flex-direction: column;
+//    flex-wrap: nowrap;
+//    justify-content: space-between;
+}
+
+.grid-flex(@borderspace-xs);
+@media (min-width: @screen-sm-min) and (max-width: @screen-md) {
+    .grid-flex(@borderspace-sm);
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-lg) {
+    .grid-flex(@borderspace-md);
+}
+@media (min-width: @screen-lg-min) {
+    .grid-flex(@borderspace-lg);
+}
+
+.col-flex-top{
+    vertical-align: top;
+}
+.col-flex-bottom{
+    vertical-align: bottom;
+}
+.row-flex-left{
+    margin-right: auto;
+}
+.row-flex-right{
+    margin-left:auto;
+}
+
+// no-rows
+.no-rows > .col-flex {
+   > figure:last-child {
+        margin-bottom: 0;
+    }
+}
+// no-cols
+.no-cols > .row-flex:last-child > .col-flex {
+    > figure {
+        margin-bottom: 0;
+    }
 }

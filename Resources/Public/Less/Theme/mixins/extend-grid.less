@@ -52,31 +52,6 @@
     width: percentage((1 / @base));
   }
 }
-.calc-extend-grid-column(@base, @index, @class, @type) when (@type = push) and (@index > 0) {
-  .col-@{class}-push-@{index}-@{base} {
-    left: percentage((@index / @base));
-  }
-}
-.calc-extend-grid-column(@base, @index, @class, @type) when (@type = push) and (@index = 0) {
-  .col-@{class}-push-0-@{base} {
-    left: auto;
-  }
-}
-.calc-extend-grid-column(@base, @index, @class, @type) when (@type = pull) and (@index > 0) {
-  .col-@{class}-pull-@{index}-@{base} {
-    right: percentage((@index / @base));
-  }
-}
-.calc-extend-grid-column(@base, @index, @class, @type) when (@type = pull) and (@index = 0) {
-  .col-@{class}-pull-0-@{base} {
-    right: auto;
-  }
-}
-.calc-extend-grid-column(@base, @index, @class, @type) when (@type = offset) {
-  .col-@{class}-offset-@{index}-@{base} {
-    margin-left: percentage((@index / @base));
-  }
-}
 
 // Loop over bases
 .loop-extend-grid-columns(@bases, @index, @class, @type) when (@index >= 0) {
@@ -108,3 +83,32 @@
   .float-extend-grid-columns(@bases, @len, @class);
   .loop-extend-grid-types(@types, @tindex, @bases, @class);
  }
+
+
+.grid-flex(@margin) {
+
+     // override bootstrap's gutter with responsive ones
+    .row.gutter-flex{
+       margin-left: ceil((@margin / -2));
+       margin-right: floor((@margin / -2)); 
+    }
+    .gutter-flex > div {
+        padding-left:  ceil((@margin / 2));
+        padding-right: floor((@margin / 2));
+    }
+
+    // create "flex" columns and rows
+    .row-flex{
+        border-spacing: @margin 0;
+    }
+    .table-flex{
+        margin-left: (@margin * -1);
+        margin-right: (@margin * -1);
+    }
+    .col-flex {
+        > figure {
+            margin-bottom: @margin;
+        } 
+     
+    }
+}

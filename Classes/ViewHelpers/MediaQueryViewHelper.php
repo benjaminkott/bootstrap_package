@@ -28,7 +28,8 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
+  
 /**
 * @author Stephen Leger
 */
@@ -57,11 +58,7 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         );
     }
 
-    private static function getSettings()
-    {
-        return $GLOBALS["TSFE"]->tmpl->setup["plugin."]["bootstrap_package."]["settings."];
-    }
-
+   
     /**
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
@@ -74,7 +71,7 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         RenderingContextInterface $renderingContext
     ) {
 
-        $settings = self::getSettings();
+        $settings = ResponsiveImagesUtility::getSettings();
 
         if (!$arguments["short"] and $arguments["min"] !== '' or $arguments["max"] !== '') {
             $content .= "@media ";

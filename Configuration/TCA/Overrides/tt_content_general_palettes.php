@@ -7,7 +7,7 @@ $GLOBALS['TCA']['tt_content']['palettes']['imageblock'] = [
     'showitem' => '
         imageorient,
         imagecols,
-        image_noRows,
+        images_layout;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout,
         --linebreak--,
         imagewidth,
         imageheight,

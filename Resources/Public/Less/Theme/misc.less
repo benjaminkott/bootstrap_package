@@ -81,21 +81,37 @@
 .valign {
     display: table;
     table-layout: fixed;
-    // fix for safari
+// fix for safari
     display: -webkit-inline-box;
     -webkit-box-align: center;
+    -webkit-box-pack: center;
     // size vertically to container height
     position: absolute;
     top: 0;
     bottom:0;
-    // fix for ie
+    border:0;
+// fix for ie
     height:100%;
-    // get the rid of margins / padding on parent
+// get the rid of margins / padding on parent
     left:0;
     width: 100%;
     > .vcontainer {
         display: table-cell;
         vertical-align: middle;
+        padding: 60px;
+        width: 100%;
+    }
+    &-bottom {
+       -webkit-box-align: end;
+       > .vcontainer {
+           vertical-align: bottom;
+       }
+    }
+    &-top {
+       -webkit-box-align: start;
+       > .vcontainer {
+           vertical-align: top;
+       }
     }
 }
 

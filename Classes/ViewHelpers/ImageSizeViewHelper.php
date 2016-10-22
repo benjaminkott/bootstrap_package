@@ -28,9 +28,11 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
+use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 
 /**
-* @author Stephen Leger
+    * @author Stephen Leger
 */
 
 class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterface
@@ -40,9 +42,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
     {
         parent::initializeArguments();
         $this->registerArgument("as", "string", "Variable name used to store image sizes", false, "imagesize");
-        $this->registerArgument("ratio", "float", "Ratio height/width in %, will crop height when > 0", false, 0);
-        $this->registerArgument("crop", "string", "vertical crop position in % 0 = center -100 = top 100 = bottom", false, "");
-        $this->registerArgument("xs", "float", "Number of columns for extra small", false, 12);
+        $this->registerArgument("xs", "float", "Number of columns for extra small", false, 0);
         $this->registerArgument("sm", "float", "Number of columns for small", false, 0);
         $this->registerArgument("md", "float", "Number of columns for medium", false, 0);
         $this->registerArgument("lg", "float", "Number of columns for large", false, 0);
@@ -51,9 +51,14 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         $this->registerArgument("marginsm", "integer", "Margin for small", false, 0);
         $this->registerArgument("marginmd", "integer", "Margin for medium", false, 0);
         $this->registerArgument("marginlg", "integer", "Margin for large", false, 0);
+        // user defined fixed width, auto crop according
         $this->registerArgument("imagewidth", "float", "User defined width", false, 0);
         $this->registerArgument("imageheight", "float", "User defined height", false, 0);
+        // user defined crop and image ratio
+        $this->registerArgument("ratio", "float", "Ratio height/width in %, will crop height when > 0", false, 0);
+        $this->registerArgument("crop", "string", "vertical crop position in % 0 = center -100 = top 100 = bottom", false, "");
         $this->registerArgument("file", "object", "file properties", false, null);
+        $this->registerArgument("store", "boolean", "Compute and store number of images per row using number of columns", false, false);
     }
 
     /**
@@ -69,72 +74,6 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         );
     }
 
-    /**
-    * Backups "width" state of a possible parent imageWidth ViewHelper to support nesting
-    *
-    * @return array $width
-    */
-    protected static function backupSizeState(RenderingContextInterface $renderingContext, $settings, $as)
-    {
-
-        if ($renderingContext->getTemplateVariableContainer()->exists($as)) {
-          
-            $size = $renderingContext->getTemplateVariableContainer()->get($as);
-            $renderingContext->getTemplateVariableContainer()->remove($as);
-          
-        } elseif (isset($GLOBALS["TSFE"]->register["template_size"])) {
-          
-            $size = $GLOBALS["TSFE"]->register["template_size"];
-          
-        } else {
-
-            // assume fixed layout (xs always fluid) width => container width
-            $container = $settings["grid."]["container."];
-            $fluid = $settings["grid."]["fluid."];
-
-            // fluid width => next container width
-            $size = array (
-                "width"  => array(
-                    "xxs" => $container["xs"], // container xs
-                    "xs" => (($fluid["xs"]) ? $container["sm"] : $container["xs"]),  // container sm
-                    "sm" => (($fluid["sm"]) ? $container["md"] : $container["sm"]),  // container md
-                    "md" => (($fluid["md"]) ? $container["lg"] : $container["md"]),  // container lg
-                    "lg" => (($fluid["lg"]) ? $container["xl"] : $container["lg"])  // container xl
-                ),
-                "ratio" => 0,
-                "height"  => array(
-                    "xxs" => "",
-                    "xs" => "",
-                    "sm" => "",
-                    "md" => "",
-                    "lg" => ""
-                ),
-                "cols" => array(
-                    "xs" => 1,
-                    "sm" => 1,
-                    "md" => 1,
-                    "lg" => 1
-                )
-            );
-        }
-        return $size;
-    }
-
-    /**
-    * Restore "width" state  that might have been backed up in backupWidthState() before
-    *
-    * @return void
-    */
-    protected static function restoreSizeState(array $size, RenderingContextInterface $renderingContext, $as)
-    {
-        $renderingContext->getTemplateVariableContainer()->remove($as);
-        $renderingContext->getTemplateVariableContainer()->add($as, $size);
-    }
-
-    private static function getSettings()
-    {
-        return $GLOBALS["TSFE"]->tmpl->setup["plugin."]["bootstrap_package."]["settings."];
-    }
 
     /**
     * @param array $arguments
@@ -148,32 +87,116 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         RenderingContextInterface $renderingContext
     ) {
 
-        $settings = self::getSettings();
+        $settings = ResponsiveImagesUtility::getSettings();
 
         $as = $arguments["as"];
 
-        $xs = $arguments["xs"];
-        $sm = $arguments["sm"];
-        $md = $arguments["md"];
-        $lg = $arguments["lg"];
+        // automatic size (containers)
+        $size = ResponsiveImagesUtility::backupImageSize($renderingContext, $settings, $as);
 
-        if ($sm == 0) {
-            $sm = $xs;
+        // copy
+        $newSize = $size;
+
+        if ($arguments["border"] > 0){
+            $newSize["border"] = 2*$arguments["border"];
         }
-       
-        if ($md == 0) {
-            $md = $sm;
+        // user defined image ratio, will crop either width or height
+        // require file argument to work correctly
+        if ($arguments["ratio"] > 0) {
+            $newSize["ratio"] = $arguments["ratio"] / 100;
         }
-        
-        if ($lg == 0) {
-            $lg = $md;
+
+        // specify the crop in percent : -100 = left or top 100 = right or bottom
+        // eg for download files thumbs
+        if ($arguments["crop"] !== "") {
+            $newSize["crop"] = $arguments["crop"];
+        }
+
+        // user defined image size, will override all other settings
+        if ($arguments["imagewidth"] > 0){
+            $newSize["imagewidth"] = $arguments["imagewidth"];
+        }
+
+        if ($arguments["imageheight"] > 0){
+            $newSize["imageheight"] = $arguments["imageheight"];
+        }
+
+
+        // user defined size
+        if ($arguments["imagewidth"] > 0 or $arguments["imageheight"] > 0) {
+
+
+            if ($arguments["imagewidth"] > 0) {
+                // width proportional to container
+                $ref =  $arguments["imagewidth"] / intval($settings["grid."]["container."]["lg"]);
+                $newSize["xxs"]["width"] = $ref * intval($settings["grid."]["container."]["xs"]);
+                $newSize["xs"]["width"] = $ref * intval($settings["grid."]["container."]["xs"]);
+                $newSize["sm"]["width"] = $ref * intval($settings["grid."]["container."]["sm"]);
+                $newSize["md"]["width"] = $ref * intval($settings["grid."]["container."]["md"]);
+                $newSize["lg"]["width"] = $arguments["imagewidth"];
+
+            }
+            if ($arguments["imageheight"] > 0) {
+                // height proportional to container
+                $ref =  $arguments["imageheight"] / intval($settings["grid."]["container."]["lg"]);
+                $newSize["xxs"]["height"] = $ref * intval($settings["grid."]["container."]["xs"]);
+                $newSize["xs"]["height"] = $ref * intval($settings["grid."]["container."]["xs"]);
+                $newSize["sm"]["height"] = $ref * intval($settings["grid."]["container."]["sm"]);
+                $newSize["md"]["height"] = $ref * intval($settings["grid."]["container."]["md"]);
+                $newSize["lg"]["height"] = $arguments["imageheight"];
+            }
+
+        } else {
+
+            $xs = $arguments["xs"];
+            $sm = $arguments["sm"];
+            $md = $arguments["md"];
+            $lg = $arguments["lg"];
+
+            $maxcols = intval($settings["grid."]["columns"]);
+
+            if ($xs == 0) {
+                $xs = 12;
+            }
+            // propage le nombre de colonnes
+            if ($sm == 0) {
+                $sm = $xs;
+            }
+
+            if ($md == 0) {
+                $md = $sm;
+            }
+
+            if ($lg == 0) {
+                $lg = $md;
+            }
+
+            // images per row
+            if ($arguments["store"]) {
+
+                $newSize["xxs"]["cols"] = round($maxcols/$xs);
+                $newSize["xs"]["cols"] = round($maxcols/$xs);
+                $newSize["sm"]["cols"] = round($maxcols/$sm);
+                $newSize["md"]["cols"] = round($maxcols/$md);
+                $newSize["lg"]["cols"] = round($maxcols/$lg);
+
+            } else {
+
+                $gutter  = intval($settings["grid."]["gutter"]);
+
+                $newSize["xxs"]["width"] = ($size["xxs"]["width"] + $gutter) / $maxcols * $xs - $gutter;
+                $newSize["xs"]["width"] = ($size["xs"]["width"] + $gutter) / $maxcols * $xs - $gutter;
+                $newSize["sm"]["width"] = ($size["sm"]["width"] + $gutter) / $maxcols * $sm - $gutter;
+                $newSize["md"]["width"] = ($size["md"]["width"] + $gutter) / $maxcols * $md - $gutter;
+                $newSize["lg"]["width"] = ($size["lg"]["width"] + $gutter) / $maxcols * $lg - $gutter;
+            }
         }
 
         $marginxs = 2*$arguments["marginxs"];
         $marginsm = 2*$arguments["marginsm"];
         $marginmd = 2*$arguments["marginmd"];
         $marginlg = 2*$arguments["marginlg"];
-        
+
         if ($marginsm == 0) {
             $marginsm = $marginxs;
         }
@@ -185,168 +208,20 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         if ($marginlg == 0) {
             $marginlg = $marginmd;
         }
-      
-        $border = 2*$arguments["border"];
 
-
-      
-        
-      
-        // user defined image ratio, will crop either width or height
-        // require file argument to work correctly
-        if (1*$arguments["ratio"] > 0) {
-            $ratio = 1*$arguments["ratio"] / 100;
-        } elseif (isset($size["ratio"])) {
-            $ratio = $size["ratio"];
-        } else {
-            $ratio = 0;
-        }
-      
-        // specify the crop in percent : -100 = left or top 100 = right or bottom
-        // eg for download files thumbs 
-        if ($arguments["crop"] !== '') {
-            $crop = $arguments["crop"];
-        } elseif (isset($size["crop"])) {
-            $crop = $size["crop"];
-        } else {
-            $crop = '';
-        }
-      
-        // user defined image size, will override all other settings
-        if (1*$arguments['imagewidth'] > 0){
-           $imagewidth = 1*$arguments['imagewidth'];
-        } elseif (isset($size['imagewidth'])) {
-           $imagewidth = $size['imagewidth'];   
-        } else {
-           $imagewidth = 0;
-        }
-      
-        if (1*$arguments['imageheight'] > 0){
-           $imageheight = 1*$arguments['imageheight'];
-        } elseif (isset($size['imageheight'])) {
-           $imageheight = $size['imageheight'];   
-        } else {
-           $imageheight = 0;
-        }
-        
-        if ($imageheight > 0 and $imagewidth > 0){
-            $ratio = $imageheight / $imagewidth;
-        }
-      
-        // retrieve real file size if any
-        if (isset($size['fileratio'])) {
-            $fileratio = $size['fileratio'];
-        } elseif ($arguments['file'] !== null) {
-            $fheight= $arguments['file']->getProperty('height');
-            $fwidth = $arguments['file']->getProperty('width');
-            $fcrop =  $arguments['file']->getProperty('crop');
-            if ($fcrop) {
-                $fcrop = json_decode($fcrop);
-                $fwidth = $fcrop->width;
-                $fheight= $fcrop->height;
-            }
-            $fileratio = $fheight / $fwidth;
-        } else {
-            $fileratio = 500;
-        }
-        
-      
-        $gutter  = $settings["grid."]["gutter"];
-        $maxcols = $settings["grid."]["columns"];
-
-        // automatic size (containers)
-        $size = self::backupSizeState($renderingContext, $config, $as);
-        
-        // user defined size
-        if ($imagewidth > 0 or $imageheight > 0) {
-            // width proportional to container
-            $refwidth =  $imagewidth / $settings['grid.']['container.']['lg'];
-            $width = array(
-                'xxs' => $refwidth * $settings['grid.']['container.']['xs'],
-                'xs' => $refwidth * $settings['grid.']['container.']['xs'],
-                'sm' => $refwidth * $settings['grid.']['container.']['sm'],
-                'md' => $refwidth * $settings['grid.']['container.']['md'],
-                'lg' => $imagewidth
-            );
-           
-        } else {
-          
-            $width = array(
-                "xxs" => ($size["width"]["xxs"] + $gutter - $marginxs) / $maxcols * $xs - $gutter - $border,
-                "xs" => ($size["width"]["xs"] + $gutter - $marginxs) / $maxcols * $xs - $gutter - $border,
-                "sm" => ($size["width"]["sm"] + $gutter - $marginsm) / $maxcols * $sm - $gutter - $border,
-                "md" => ($size["width"]["md"] + $gutter - $marginmd) / $maxcols * $md - $gutter - $border,
-                "lg" => ($size["width"]["lg"] + $gutter - $marginlg) / $maxcols * $lg - $gutter - $border
-            );
-        
-        }
-
-        
-      
-        if ($ratio > 0) {
-          
-          $height = array(
-                "xxs" => ($width["xxs"] * $ratio),
-                "xs" =>  ($width["xs"] * $ratio),
-                "sm" => ($width["sm"] * $ratio),
-                "md" => ($width["md"] * $ratio),
-                "lg" => ($width["lg"] * $ratio)
-          );
-          
-          // crop width if ratio > image ratio
-          if ($fileratio > $ratio) {
-            
-            $height["xxs"] .= "c" . $crop;
-            $height["xs"] .= "c" . $crop; 
-            $height["sm"] .= "c" . $crop;
-            $height["md"] .= "c" . $crop; 
-            $height["lg"] .= "c" . $crop;
-            
-          } else {
-            
-            $width["xxs"] .= "c" . $crop;
-            $width["xs"] .= "c" . $crop; 
-            $width["sm"] .= "c" . $crop;
-            $width["md"] .= "c" . $crop; 
-            $width["lg"] .= "c" . $crop;
-           
-          }
-          
-        } else {
-          
-            $height = array(
-                "xxs" => "",
-                "xs" => "",
-                "sm" => "",
-                "md" => "",
-                "lg" => ""
-            );
-          
-        }
-
-        $newSize = array (
-            "imageheight" => $imageheight,
-            "imagewidth" => $imagewidth,
-            "width" => $width,
-            "height" => $height,
-            "ratio" => $ratio,
-            "fileratio" => $fileratio,
-            "crop" => $crop,
-            "cols" => array(
-                "xs" => $maxcols/$xs,
-                "sm" => $maxcols/$sm,
-                "md" => $maxcols/$md,
-                "lg" => $maxcols/$lg
-            )
-        );
+        $newSize["xxs"]["margin"] += $marginxs;
+        $newSize["xs"]["margin"] += $marginxs;
+        $newSize["sm"]["margin"] += $marginsm;
+        $newSize["md"]["margin"] += $marginmd;
+        $newSize["lg"]["margin"] += $marginlg;
 
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
 
         $content = $renderChildrenClosure();
-        // restore only if the tag is closed and has childrens
 
+        // restore only if the tag is closed and has childrens
         if ($content != "") {
-            self::restoreSizeState($size, $renderingContext, $as);
+            ResponsiveImagesUtility::restoreImageSize($renderingContext, $size, $as);
         }
 
         return $content;

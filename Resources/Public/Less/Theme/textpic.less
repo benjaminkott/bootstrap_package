@@ -7,14 +7,18 @@ div.textpic {
   &.intext{
     &-right {
       > .imagewrap {
-      //  margin-left: floor((@grid-gutter-width / 2)); 
+        @media (min-width: @screen-sm-min){
+            margin-left: @grid-gutter-width; 
+        }
         float: right; 
       }
       
     } 
     &-left {
       > .imagewrap {
-      //  margin-right: floor((@grid-gutter-width / 2));
+        @media (min-width: @screen-sm-min){
+           margin-right: @grid-gutter-width;
+        }
         float: left; 
       }
     }

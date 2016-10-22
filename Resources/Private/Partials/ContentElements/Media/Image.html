@@ -1,5 +1,10 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <figure class="image">
+  
+  <f:if condition="{imagesize.selector}">
+    <div class="embed-responsive" id="{imagesize.selector}">
+  </f:if>
+  
     <f:if condition="{file.link}">
         <f:then>
             <f:link.typolink parameter="{file.link}" title="{file.title}">
@@ -19,7 +24,12 @@
             </f:if>
         </f:else>
     </f:if>
+  <f:if condition="{imagesize.selector}">
+    </div>  
+  </f:if>
+  <f:if condition="{file.description}">
     <figcaption class="caption">
         {file.description}
     </figcaption>
+  </f:if>
 </figure>

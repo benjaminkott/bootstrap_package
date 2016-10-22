@@ -1,129 +1,107 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<bk2k:clean>
+<f:spaceless>
   <f:if condition="{files}">
     
-    <f:if condition="{bk2k:simpleMath(operator: '&', a:'64', b: '{data.image_rendering}')} == 64">
+    <f:if condition="{bk2k:simpleMath(operator: '&', a:'4', b: '{data.image_rendering}')} == 4">
       
       <f:then>
-        <f:for each="{collection}" as="file" iteration="fileIteration">
-          <f:comment>render without any link</f:comment>
-          <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
-        </f:for>
+        
+        <bk2k:imageSize>
+          <f:render partial="Media/LayoutCss" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+        </bk2k:imageSize> 
+      
       </f:then>
+      
       <f:else>
-        <f:if condition="{bk2k:simpleMath(operator: '&', a:'4', b: '{data.image_rendering}')} == 4">
+        
+        <f:comment>Resize images according frames</f:comment>
+        <f:switch expression="{data.section_frame}">
+          
+          <f:case value="10">
+            <f:comment>indent 1 width 10</f:comment>
+            <bk2k:imageSize xs="10"/>
+          </f:case>
+          
+          <f:case value="11">
+            <f:comment>indent 3 right</f:comment>
+            <bk2k:imageSize xs="9"/>
+          </f:case>
+          
+          <f:case value="12">
+            <f:comment>indent 3 left</f:comment>
+            <bk2k:imageSize xs="9"/>
+          </f:case>
+          
+          <f:case value="20">
+            <f:comment>well</f:comment>
+            <bk2k:imageSize marginxs="20"/>
+          </f:case>
+          
+          <f:case value="21">
+            <f:comment>jumbotron</f:comment>
+            <bk2k:imageSize marginxs="20" marginsm="60"/>
+          </f:case>
+          
+        </f:switch>
+        
+        <f:if condition="{bk2k:simpleMath(operator: '&', a:'64', b: '{data.image_rendering}')} == 64">
+          
           <f:then>
-            <bk2k:imageSize />
-            <f:render partial="Media/LayoutCss" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
-            
+            <f:comment>Bypass layout and link wrapper arround images</f:comment>
+            <bk2k:imageSize>
+              <f:for each="{files}" as="file" iteration="fileIteration">
+                <f:render partial="Media/LayoutNoLink" arguments="{files: {0:file}, data: data, settings: settings, imagesize: imagesize}" />
+                <!-- f : render partial="Media/Type" arguments="{file: {0:file}, data: data, settings: settings, imagesize: imagesize}" /  -->
+              </f:for>
+            </bk2k:imageSize>
           </f:then>
+          
           <f:else>
-            <f:comment>Resize images according frames</f:comment>
-            
-            <f:switch expression="{data.section_frame}">
-              <f:case value="10">
-                <f:comment>indent 1 width 10</f:comment>
-                <bk2k:imageSize xs="10"/>
-              </f:case>
-              <f:case value="11">
-                <f:comment>indent 3 right</f:comment>
-                <bk2k:imageSize xs="9"/>
-              </f:case>
-              <f:case value="12">
-                <f:comment>indent 3 left</f:comment>
-                <bk2k:imageSize xs="9"/>
-              </f:case>
-              <f:case value="20">
-                <f:comment>well</f:comment>
-                <bk2k:imageSize marginxs="20"/>
-              </f:case>
-              <f:case value="21">
-                <f:comment>jumbotron</f:comment>
-                <bk2k:imageSize marginxs="30" marginsm="60"/>
-              </f:case>
-            </f:switch>
-            
             <f:if condition="{files -> f:count()} > 1">
               <f:then>
-                
-                <f:if condition="{data.image_equalHeight}">
-                  <f:then>
-                    <bk2k:imageSize />
-                    <f:render partial="Media/LayoutEqualHeight" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+                <bk2k:imageSize>
+                  <f:switch expression="{bk2k:simpleMath(operator: '&', a:'3', b: '{data.images_layout}')}">
+                   
+                    <f:case value="1"> 
+                      <f:render partial="Media/LayoutNoRows" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+                    </f:case> 
                     
-                  </f:then>
-                  <f:else>
+                    <f:case value="2">
+                      <f:render partial="Media/LayoutNoCols" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+                    </f:case>    
                     
-                    <f:comment>Resize images according columns</f:comment>
+                    <f:case default="TRUE"> 
+                      <f:render partial="Media/LayoutFixed" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+                    </f:case>
                     
-                    <f:switch expression="{data.imagecols}">
-                      <f:case value="2">
-                        <bk2k:imageSize xs="12" sm="6"/>
-                      </f:case>
-                      <f:case value="3">
-                        <bk2k:imageSize xs="4"/>
-                      </f:case>
-                      <f:case value="4">
-                        <bk2k:imageSize xs="6" sm="3"/>
-                      </f:case>
-                      <f:case value="5">
-                        <bk2k:imageSize xs="4" sm="2.4" />
-                      </f:case>
-                      <f:case value="6">
-                        <bk2k:imageSize xs="4" sm="4" md="2"/>
-                      </f:case>
-                      <f:case value="7">
-                        <bk2k:imageSize xs="4" sm="3" md="1.7142857142857142857142857142857" />
-                      </f:case>
-                      <f:case value="8">
-                        <bk2k:imageSize xs="4" sm="3" md="1.5" />
-                      </f:case>
-                      <f:case value="9">
-                        <bk2k:imageSize xs="4" sm="4" md="1.333333333333333333333333333333" />
-                      </f:case>
-                      <f:case value="10">
-                        <bk2k:imageSize xs="4" sm="2.4" md="1.2" />
-                      </f:case>
-                      <f:case default="TRUE">
-                        <bk2k:imageSize />
-                      </f:case>
-                    </f:switch>
-                    
-                    
-                    <f:if condition="{data.image_noRows}">
-                      <f:then>
-                        
-                        <f:render partial="Media/LayoutNoRows" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
-                        
-                      </f:then>
-                      <f:else>
-                        
-                        <f:render partial="Media/LayoutFixed" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
-                        
-                      </f:else>
-                    </f:if> 
-                      
-                  </f:else>
-                </f:if> 
+                  </f:switch>
+                </bk2k:imageSize>
               </f:then>
+              
               <f:else>
-                <bk2k:imageSize />
+                <bk2k:imageSize imagewidth="{data.imagewidth}" imageheight="{data.imageheight}" />
                 <f:switch expression="{bk2k:simpleMath(operator:'&', a:'31', b:'{data.image_rendering}')}">
+                  
                   <f:case value="15">
                     <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
                   </f:case>
+                  
                   <f:case value="16">
                     <div class="panel panel-danger">Art direction Image require a multiple of 5 images</div>
                   </f:case>
+                  
                   <f:case value="18">
                     <div class="panel panel-danger">Art direction Picture require a multiple of 5 images</div>
                   </f:case>
+                  
                   <f:case value="19">
                     <div class="panel panel-danger">Art direction Srcset require a multiple of 5 images</div>
                   </f:case>
+                  
                   <f:case value="20">
                     <div class="panel panel-danger">Art direction Css background require a multiple of 5 images</div>
                   </f:case>
+                  
                   <f:case default="TRUE">
                     <div class="row">
                       <div class="col-md-12">
@@ -131,12 +109,16 @@
                       </div>
                     </div>
                   </f:case>
+                  
                 </f:switch>
               </f:else>
-            </f:if>  
+            </f:if>
+            
           </f:else>
         </f:if>
+        
       </f:else>
     </f:if>
+    
   </f:if>
-</bk2k:clean>
+</f:spaceless>

@@ -39,9 +39,12 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("operator", "string", "Operator + - / * %", true);
+        $this->registerArgument("operator", "string", "Operator + - / * % & | ", true);
         $this->registerArgument("a", "float", "Value a", true);
         $this->registerArgument("b", "float", "Value b", true);
+        $this->registerArgument("round", "boolean", "round result", false, false);
+        $this->registerArgument("ceil", "boolean", "ceil result", false, false);
+        $this->registerArgument("floor", "boolean", "floor result", false, false);
     }
     /*
     * render
@@ -86,11 +89,24 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
                 $content = ($a * $b);
             break;
             case "/":
-                $content = ($a / $b);
+                if ($b > 0){
+                    $content = ($a / $b);
+                } 
             break;
             case "%":
-                $content = ($a % $b);
+                if ($b > 0){
+                    $content = ($a % $b);
+                }  
             break;
+        }
+        if ($arguments["round"]) {
+          $content = round($content);
+        }
+        if ($arguments["floor"]) {
+          $content = floor($content);
+        }
+        if ($arguments["ceil"]) {
+          $content = ceil($content);
         }
         return $content;
     }

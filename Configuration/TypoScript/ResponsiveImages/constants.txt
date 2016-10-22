@@ -55,8 +55,10 @@ plugin.bootstrap_package.settings {
             lg = 0
             # cat=grid system/5620/250; type=boolean; label=4 Fluid : Container behaviour fluid extra large
             xl = 0
+            # cat=grid system/5610/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout 
+            breakpoint = 3        
         }
-
+        
         # cat=grid system/5610/200; type=int+; label=Number of columns : Maximum number of columns
         columns = 12
         # cat=grid system/5610/210; type=int+; label=Gutter width:Width of the gutter
@@ -64,6 +66,22 @@ plugin.bootstrap_package.settings {
     }
 
     images {
+        # cat=responsive images/5650/110; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
+        layout.columnsheightratio = 56.25
+        
+       
+        borderspace {
+
+            # cat=grid system/5620/210; type=int+; label=1 Border space : Space between images extra small (css must be adjusted according) 
+            xs = 20
+            # cat=grid system/5620/220; type=int+; label=2 Border space : Space between images small (css must be adjusted according) 
+            sm = 30
+            # cat=grid system/5620/230; type=int+; label=3 Border space : Space between images medium (css must be adjusted according) 
+            md = 40
+            # cat=grid system/5620/240; type=int+; label=4 Border space : Space between images large (css must be adjusted according)
+            lg = 40
+
+        }
 
         # cat=responsive images/5650/100; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
         absoluteUrl = 1

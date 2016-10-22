@@ -59,12 +59,12 @@
         
         <f:case value="2">
           <div class="danger">Picture tag currently not supported</div>
-          <f:render partial="Media/Image" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/Image" arguments="{file: file.0, data:data, settings: settings, imagesize: imagesize}" />
         </f:case>
         
         <f:case value="3">
           <div class="danger">Img srcset tag currently not supported</div>
-          <f:render partial="Media/Image" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/Image" arguments="{file: file.0, data:data, settings: settings, imagesize: imagesize}" />
         </f:case>
         
         <f:case value="4">
@@ -133,9 +133,9 @@
 
     <f:case value="5">
       <f:switch expression="{data.image_rendering}">
-        <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
-
+        
         <f:case value="64">
+          <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
           <f:render partial="Media/Rendering/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
@@ -147,6 +147,9 @@
     </f:case>
 
     <f:case default="TRUE">
+      <f:debug>{file}</f:debug>
+      <f:debug>{data}</f:debug>
+      
       <f:comment>Unknown file type</f:comment>
       <f:render partial="Media/Fallback" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
     </f:case>

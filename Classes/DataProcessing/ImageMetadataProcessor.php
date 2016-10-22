@@ -29,6 +29,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+use BK2K\BootstrapPackage\Utility\FileMetadataUtility;  
 
 /**
   * This menu processor utilizes HMENU to generate a json encoded menu
@@ -50,8 +51,24 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
   * 10 {
   *   as = files
   *  }
+  * images_layout
+  * 
+  * default: automatic row/col  0x00 dec 0
+  * no_rows   =                 0x01 dec 1
+  * no_cols   =                 0x02 dec 2
+  * equalsize =                 0x08 dec 8
+  * start     =                 0x10 dec 16
+  * end       =                 0x20 dec 32
+  * no_rows equalwidth          0x09 dec 9
+  * no_rows start               0x11 dec 17
+  * no_rows end                 0x21 dec 33 
+  * no_cols equalheight         0x0A dec 10
+  * no_cols start               0x11 dec 18
+  * no_cols end                 0x21 dec 34
   *
 */
+  
+  
 class ImageMetadataProcessor implements DataProcessorInterface
 {
   /**
@@ -141,69 +158,11 @@ class ImageMetadataProcessor implements DataProcessorInterface
 
     // load / Generate metadata
     foreach ($processedData[$as] as $k=>$file){
-      $width  = $file->getProperty('width');
-      $height = $file->getProperty('height');
-      if (!$height or !$width) {
+      if (!FileMetadataUtility::hasDimension($file)) {
         $this->updateMetadata($file);
       }
     }
 
-    $imgCount = count($processedData[$as]);
-
-    // art direction
-    $breakpoints = 1;
-    if (($this->cObj->data['image_rendering'] & 16) == 16) {
-      $breakpoints = 5;
-    }
-
-    $imgCount = floor($imgCount/$breakpoints);
-    // limit number of cols
-    $cols = intval($this->cObj->data['imagecols']);
-    $colCount = $cols > 1 ? $cols : 1;
-    if ($colCount > $imgCount) {
-      $colCount = $imgCount;
-      $processedData['data']['imagecols'] = $colCount;
-    }
-
-    // disable variable columns count
-    if ($this->cObj->data['imageheight'] and !$this->cObj->data['imagewidth']) {
-
-      $equalHeight = intval($this->cObj->data['imageheight']);
-      $processedData['data']['imageheight'] = '0';
-      $rowCount = ceil($imgCount/$colCount);
-      $relations_cols = array();
-      $imgWidths = array();
-
-      // compute columns relations with respect to crop settings
-      // when we are in art direction mode compare columns between same breakpoint
-      for ($j = 0; $j < $breakpoints; $j++){
-        for ($k = 0; $k < $imgCount; $k++) {
-
-          $file = $processedData[$as][$j+$k*$breakpoints];
-          $width = $file->getProperty('width');
-          $height= $file->getProperty('height');
-          $crop =  $file->getProperty('crop');
-          $crops[$j+$k*$breakpoints] = $crop;
-          if ($crop) {
-            $crop = json_decode($crop);
-            $width = $crop->width;
-            $height= $crop->height;
-          }
-          $rel = $height / $equalHeight;
-          $imgWidths[$j+$k*$breakpoints] = $width / $rel;
-
-          $relations_cols[$j][(int)floor($k / $colCount)] += $imgWidths[$j+$k*$breakpoints];
-        }
-      }
-      ksort($imgWidths);
-      ksort($crops);
-      $processedData['data']['image_equalHeight'] = array(
-        'equalHeight' => $equalHeight,
-        'imgWidths' => $imgWidths,
-        'relations_cols' => $relations_cols
-      );
-
-    }
 
     return $processedData;
   }

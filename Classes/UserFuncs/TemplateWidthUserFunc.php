@@ -25,6 +25,8 @@ namespace BK2K\BootstrapPackage\UserFuncs;
 *  THE SOFTWARE.
 */
 
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;  
+  
 /**
 * @author Stephen Leger
 */
@@ -36,7 +38,7 @@ class TemplateWidthUserFunc {
 
     protected $settings;
     protected $fluid = 0;
-    protected $width = array();
+    protected $imagesize = array();
     protected $columns = array(
         "xs" => 0,
         "sm" => 0,
@@ -60,7 +62,6 @@ class TemplateWidthUserFunc {
 
     }
 
-
     private function initializeColumns($conf)
     {
         $current = 12;
@@ -79,36 +80,18 @@ class TemplateWidthUserFunc {
         }
     }
 
-    private function getSettings()
-    {
-        return $GLOBALS["TSFE"]->tmpl->setup["plugin."]["bootstrap_package."]["settings."];
-    }
-
-    private function setDefault()
-    {
-        $container = $this->settings["grid."]["container."];
-        $fluid = $this->settings["grid."]["fluid."];
-        // fluid width => next container width
-        $this->width = array (
-            "xxs" => $container["xs"], // container xs
-            "xs" => (($fluid["xs"] or $this->fluid) ? $container["sm"] : $container["xs"]),  // container sm
-            "sm" => (($fluid["sm"] or $this->fluid) ? $container["md"] : $container["sm"]),  // container md
-            "md" => (($fluid["md"] or $this->fluid) ? $container["lg"] : $container["md"]),  // container lg
-            "lg" => (($fluid["lg"] or $this->fluid) ? $container["xl"] : $container["lg"])   // container xl
-        );
-
-    }
 
     private function getTemplateSize()
     {
+        $register = ResponsiveImagesUtility::getImageSizeFromRegister();
         // handle nested templates or content elements changing layout like gridelements
-        if (isset($GLOBALS["TSFE"]->register["template_size"]) and is_array($GLOBALS["TSFE"]->register["template_size"])) {
-            $this->width = $GLOBALS["TSFE"]->register["template_size"]["width"];
-            if ($this->width["fluid"] == 0) {
+        if ($register) {
+            $this->imagesize = $register;
+            if ($register["fluid"] == 0) {
                 $this->fluid = 0;
             }
         } else {
-            $this->setDefault();
+            $this->imagesize = ResponsiveImagesUtility::getDefault($this->settings, $this->fluid);
         }
     }
 
@@ -116,23 +99,20 @@ class TemplateWidthUserFunc {
     private function registerTemplateSize()
     {
 
-        $gutter  = $this->settings["grid."]["gutter"];
         $maxcols = $this->settings["grid."]["columns"];
-
-        $fluid = 0;
+        $gutter  = $this->settings["grid."]["gutter"];
+        
         if ($this->fluid) {
-            $fluid = 1;
+            $this->imagesize["fluid"] = 1;
         }
-        $GLOBALS["TSFE"]->register["template_size"] = array(
-            "fluid" => $fluid,
-            "width" => array(
-                "xxs" => ($this->width["xxs"] + $gutter) / $maxcols * $this->columns["xs"] - $gutter,
-                "xs" => ($this->width["xs"] + $gutter) / $maxcols * $this->columns["xs"] - $gutter,
-                "sm" => ($this->width["sm"] + $gutter) / $maxcols * $this->columns["sm"] - $gutter,
-                "md" => ($this->width["md"] + $gutter) / $maxcols * $this->columns["md"] - $gutter,
-                "lg" => ($this->width["lg"] + $gutter) / $maxcols * $this->columns["lg"] - $gutter
-            )
-        );
+      
+        $this->imagesize["xxs"]["width"] = ($this->imagesize["xxs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
+        $this->imagesize["xs"]["width"] = ($this->imagesize["xs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
+        $this->imagesize["sm"]["width"] = ($this->imagesize["sm"]["width"] + $gutter) * ( $this->columns["sm"] / $maxcols ) - $gutter;
+        $this->imagesize["md"]["width"] = ($this->imagesize["md"]["width"] + $gutter) * ( $this->columns["md"] / $maxcols ) - $gutter;
+        $this->imagesize["lg"]["width"] = ($this->imagesize["lg"]["width"] + $gutter) * ( $this->columns["lg"] / $maxcols ) - $gutter;
+      
+        ResponsiveImagesUtility::setImageSizeToRegister($this->imagesize);
     }
 
     /**
@@ -142,7 +122,7 @@ class TemplateWidthUserFunc {
     public function divide($content = "", $conf = array())
     {
 
-        $this->settings = $this->getSettings();
+        $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
         $this->fluid = $this->getConf($conf,"fluid",0);
@@ -158,7 +138,7 @@ class TemplateWidthUserFunc {
     public function storeToRegister($content = "", $conf = array())
     {
 
-        $this->settings = $this->getSettings();
+        $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
         $this->fluid = $this->getConf($conf,"fluid",0);

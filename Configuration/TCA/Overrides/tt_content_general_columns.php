@@ -67,16 +67,24 @@ $GLOBALS['TCA']['tt_content']['columns']['assets'] = [
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
     )
 ];
-$GLOBALS['TCA']['tt_content']['columns']['image_noRows'] = [
+$GLOBALS['TCA']['tt_content']['columns']['images_layout'] = [
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout',
     'exclude' => true,
-    'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:image_noRows',
     'config' => [
-        'type' => 'check',
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+    'showIconTable' => 1,
+    'selicon_cols' => 7,
         'items' => [
-            '1' => [
-                '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:image_noRows.I.0'
-            ]
-        ]
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.0', 0, 'content-images-layout-grid'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.1', 18, 'content-images-layout-row-left'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.2', 10, 'content-images-layout-row-justify'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.3', 34, 'content-images-layout-row-right'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.4', 17, 'content-images-layout-col-top'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.5', 9, 'content-images-layout-col-justify'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.images_layout_options.I.6', 33, 'content-images-layout-col-bottom']
+        ],
+        'default' => 0
     ]
 ];
 $GLOBALS['TCA']['tt_content']['columns']['image_rendering'] = [
@@ -86,13 +94,13 @@ $GLOBALS['TCA']['tt_content']['columns']['image_rendering'] = [
         'type' => 'select',
         'items' => [
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.0', '0'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.5', '16'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.1', '1'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.2', '2'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.3', '3'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.4', '4'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.5', '16'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.6', '18'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.3', '3'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.7', '19'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.4', '4'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.8', '20'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_rendering_options.I.9', '47'],
         ],
@@ -100,13 +108,21 @@ $GLOBALS['TCA']['tt_content']['columns']['image_rendering'] = [
         'maxitems' => 1,
     ]
 ];
+$GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] .= ',image_rendering';
+
 
 $GLOBALS['TCA']['tt_content']['columns']['image_cssselector'] = [
-    'exclude' => 0,
+    'exclude' => true,
     'config' => [
         'type' => 'input',
         'max' => 256,
         'size' => 10,
         ],
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.image_cssselector',
-];  
+    'displayCond' => [
+        'OR' => [
+                'FIELD:image_rendering:=:4',
+                'FIELD:image_rendering:=:20'
+        ]
+    ]
+]; 

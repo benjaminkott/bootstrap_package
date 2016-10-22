@@ -11,6 +11,7 @@ plugin.bootstrap_package {
       columns = {$plugin.bootstrap_package.settings.grid.columns}
 
       container {
+        xxs = {$plugin.bootstrap_package.settings.grid.container.xs}
         xs = {$plugin.bootstrap_package.settings.grid.container.xs}
         sm = {$plugin.bootstrap_package.settings.grid.container.sm}
         md = {$plugin.bootstrap_package.settings.grid.container.md}
@@ -25,6 +26,7 @@ plugin.bootstrap_package {
         xl = {$plugin.bootstrap_package.settings.grid.screen.xl}
       }
       fluid {
+        breakpoint = {$plugin.bootstrap_package.settings.grid.fluid.breakpoint} 
         xxs = 1
         xs = {$plugin.bootstrap_package.settings.grid.fluid.xs}
         sm = {$plugin.bootstrap_package.settings.grid.fluid.sm}
@@ -32,6 +34,19 @@ plugin.bootstrap_package {
         lg = {$plugin.bootstrap_package.settings.grid.fluid.lg}
         xl = {$plugin.bootstrap_package.settings.grid.fluid.xl}
       }
+       
+    }
+    images {
+      layout.columnsheightratio = {$plugin.bootstrap_package.settings.images.layout.columnsheightratio}
+      
+      borderspace {
+        xxs = {$plugin.bootstrap_package.settings.images.borderspace.xs}
+        xs = {$plugin.bootstrap_package.settings.images.borderspace.xs}
+        sm = {$plugin.bootstrap_package.settings.images.borderspace.sm}
+        md = {$plugin.bootstrap_package.settings.images.borderspace.md}
+        lg = {$plugin.bootstrap_package.settings.images.borderspace.lg}
+      }
+      
     }
   }
 }

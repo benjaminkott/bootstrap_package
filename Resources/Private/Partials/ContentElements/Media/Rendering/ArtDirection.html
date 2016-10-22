@@ -1,22 +1,15 @@
-<f:if condition="{file->f:count()} < 5">
-  <f:then>
-    <div class="danger">Art direction require a multiple of 5 images</div>
-  </f:then>
-  <f:else>
-    <img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
-         data-src="{f:uri.image(image: file.0, absolute: '{settings.absoluteUrl}')}"
-         data-bigger="{f:uri.image(image: file.0, width: '{imagesize.width.lg}', height: '{imagesize.height.lg}', absolute: '{settings.absoluteUrl}')}"
-         data-large="{f:uri.image(image: file.1, width: '{imagesize.width.md}', height: '{imagesize.height.md}', absolute: '{settings.absoluteUrl}')}"
-         data-medium="{f:uri.image(image: file.2, width: '{imagesize.width.sm}', height: '{imagesize.height.sm}', absolute: '{settings.absoluteUrl}')}"
-         data-small="{f:uri.image(image: file.3, width: '{imagesize.width.xs}', height: '{imagesize.height.xs}', absolute: '{settings.absoluteUrl}')}"
-         data-xsmall="{f:uri.image(image: file.4, width: '{imagesize.width.xxs}', height: '{imagesize.height.xxs}', absolute: '{settings.absoluteUrl}')}"
-         title="{file.0.title}"
-         alt="{file.0.alternative}"
-         class="lazyload"
-         data-preload="{f:if(condition: settings.media.preload, then: 'true', else: 'false')}"
-         />
-    <noscript>
-        <img src="{f:uri.image(image: file.0, absolute: '{settings.absoluteUrl}')}" title="{file.0.title}" alt="{file.0.alternative}" />
-    </noscript>
-  </f:else>
-</f:if>
+<img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
+data-src="{f:uri.image(image: file.0, absolute: '{settings.absoluteUrl}')}"
+data-bigger="{f:uri.image(image: file.0, width: '{imagesize.lg.width}{imagesize.lg.cropwidth}', height: '{imagesize.lg.height}{imagesize.lg.cropheight}', absolute: '{settings.absoluteUrl}')}"
+data-large="{f:uri.image(image: file.1, width: '{imagesize.md.width}{imagesize.md.cropwidth}', height: '{imagesize.md.height}{imagesize.md.cropheight}', absolute: '{settings.absoluteUrl}')}"
+data-medium="{f:uri.image(image: file.2, width: '{imagesize.sm.width}{imagesize.sm.cropwidth}', height: '{imagesize.sm.height}{imagesize.sm.cropheight}', absolute: '{settings.absoluteUrl}')}"
+data-small="{f:uri.image(image: file.3, width: '{imagesize.xs.width}{imagesize.xs.cropwidth}', height: '{imagesize.xs.height}{imagesize.xs.cropheight}', absolute: '{settings.absoluteUrl}')}"
+data-xsmall="{f:uri.image(image: file.4, width: '{imagesize.xxs.width}{imagesize.xxs.cropwidth}', height: '{imagesize.xxs.height}{imagesize.xxs.cropheight}', absolute: '{settings.absoluteUrl}')}"
+title="{file.0.title}"
+alt="{file.0.alternative}"
+class="lazyload{f:if( condition:'{imagesize.selector}', then: ' disabled-embed-responsive-item')}"
+data-preload="{f:if(condition: settings.media.preload, then: 'true', else: 'false')}"
+/>
+<noscript>
+  <img src="{f:uri.image(image: file.0, absolute: '{settings.absoluteUrl}')}" title="{file.0.title}" alt="{file.0.alternative}" />
+</noscript>

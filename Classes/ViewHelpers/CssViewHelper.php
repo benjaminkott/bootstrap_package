@@ -84,7 +84,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
              } else {
                  $name = uniqid("bootstrap_package_");
              }
-             $GLOBALS["TSFE"]->getPageRenderer()->addCssInlineBlock($name, $css, true);
+             $GLOBALS["TSFE"]->getPageRenderer()->addCssInlineBlock($name, $css, $compress = false);
          }
          return $content;
      }

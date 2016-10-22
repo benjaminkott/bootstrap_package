@@ -18,7 +18,7 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_tab_item int(11) unsigned DEFAULT '0',
     image_rendering int(11) unsigned DEFAULT '0' NOT NULL,
     image_cssselector varchar(255) DEFAULT '' NOT NULL,
-    image_noRows tinyint(3) unsigned DEFAULT '0' NOT NULL,
+    images_layout tinyint(3) unsigned DEFAULT '0' NOT NULL,
     assets int(11) unsigned DEFAULT '0' NOT NULL,
 );
 

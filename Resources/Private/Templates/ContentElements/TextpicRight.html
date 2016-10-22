@@ -1,9 +1,11 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:layout name="Default"/>
 <f:section name="Header"></f:section>
 <f:section name="Main">
 
     <div class="row">
         <div class="col-md-push-6 col-md-6">
+          <bk2k:imageSize sm="6" /> 
             <f:render partial="Media/Gallery" arguments="{_all}" />
         </div>
         <div class="col-md-pull-6 col-md-6">

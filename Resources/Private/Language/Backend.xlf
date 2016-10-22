@@ -369,7 +369,32 @@
             <trans-unit id="contextualalternatives.danger">
                 <source>Danger</source>
             </trans-unit>
- 
+            
+            <trans-unit id="field.images_layout">
+                <source>Layout multi-images</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.0">
+                <source>Standard</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.1">
+                <source>Rows left</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.2">
+                <source>Rows justify (disable width)</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.3">
+                <source>Rows right</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.4">
+                <source>Columns top</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.5">
+                <source>Columns justify (disable height)</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.6">
+                <source>Columns bottom</source>
+            </trans-unit>
+          
             <trans-unit id="field.image_rendering">
                 <source>Rendering method</source>
             </trans-unit>

@@ -18,6 +18,16 @@
                 <source>Text: Justify</source>
             </trans-unit>
 
+            <trans-unit id="class.text-2-columns">
+                <source>Text: 2 columns</source>
+            </trans-unit>
+            <trans-unit id="class.text-3-columns">
+                <source>Text: 3 columns</source>
+            </trans-unit>
+            <trans-unit id="class.text-4-columns">
+                <source>Text: 4 columns</source>
+            </trans-unit>
+
             <trans-unit id="class.lead">
                 <source>Text: Lead</source>
             </trans-unit>
