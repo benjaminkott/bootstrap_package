@@ -29,7 +29,7 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-  
+
 /**
 * @author Stephen Leger
 */
@@ -70,9 +70,9 @@ class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableI
         $js = $renderChildrenClosure();
         $js = preg_replace("/<(\/)?script([^>]+)?>/", "", $js);
         $js = GeneralUtility::minifyJavaScript($js);
-      
+
         // put css background to header or leave inline
-        if ($arguments["inline"]){
+        if ($arguments["inline"]) {
             $content = "<script>" . $js. "</script>";
         } else {
             if (isset($arguments["key"])) {

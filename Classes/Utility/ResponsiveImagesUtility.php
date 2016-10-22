@@ -130,7 +130,7 @@ class ResponsiveImagesUtility
     {
         if ($renderingContext->getTemplateVariableContainer()->exists($as)) {
             $imagesize = $renderingContext->getTemplateVariableContainer()->get($as);
-        } elseif ( self::getImageSizeFromRegister() ) {
+        } elseif (self::getImageSizeFromRegister()) {
             $imagesize = self::getImageSizeFromRegister();
         } else {
             // If not found return default

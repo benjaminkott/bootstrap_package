@@ -215,7 +215,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                     }
 
                     foreach ($keys as $j => $key) {
-                        if ($nbImgs < $colCount ) {
+                        if ($nbImgs < $colCount) {
                             $gutters = ($nbImgs - 1);
                         } else {
                             $gutters = ($colCount - 1);
@@ -241,10 +241,10 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                         $suggestedSize = round($accumDesiredSize[$key] - $accumSize[$key]);
 
                         // finalImgSize may not exceed $availableSpace
-                        $finalImgSize = (int)min($availableSpace , $suggestedSize);
+                        $finalImgSize = (int)min($availableSpace, $suggestedSize);
                         $accumSize[$key] += $finalImgSize;
                         $borderspace = intval($settings["images."]["borderspace."][$key]);
-                        if ($equalSize > 5 and ($data['images_layout'] == 10 or $j < intval($settings['grid.']['fluid.']['breakpoint'])) ){
+                        if ($equalSize > 5 and ($data['images_layout'] == 10 or $j < intval($settings['grid.']['fluid.']['breakpoint']))) {
                             $refsec = $equalSize * $size[$key]["width"] / $size["lg"]["width"];
                         } else {
                             // No row at some point need to remove any user defined width
@@ -291,87 +291,87 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 }
                 break;
             default:
-            switch ($data["image_rendering"] & 15)
-            {
-                case 4: // css
-                    // dont care about borders here
-                    for ($k = 0; $k < $imgCount; $k++) {
+                switch ($data["image_rendering"] & 15)
+                {
+                    case 4: // css
+                        // dont care about borders here
+                        for ($k = 0; $k < $imgCount; $k++) {
+                            foreach ($keys as $j => $key) {
+                                $collection["files"][$k]["size"][$key]["height"] = $size[$key]["height"];
+                                $collection["files"][$k]["size"][$key]["width"]  = $size[$key]["width"];
+                            }
+                        }
+                        // add css selector if missing for eg textpic with background
+                        if ($data['image_cssselector'] == "") {
+                            $data['image_cssselector'] = "#c" . $data['uid'];
+                            if ($renderingContext->getTemplateVariableContainer()->exists('data') == true) {
+                                $renderingContext->getTemplateVariableContainer()->remove('data');
+                            }
+                            $renderingContext->getTemplateVariableContainer()->add('data', $data);
+                        }
+                        break;
+                    default:
+                        // number of items by row
                         foreach ($keys as $j => $key) {
-                            $collection["files"][$k]["size"][$key]["height"] = $size[$key]["height"];
-                            $collection["files"][$k]["size"][$key]["width"]  = $size[$key]["width"];
+                            $collection["cols"][$key] = $size[$key]["cols"];
                         }
-                    }
-                    // add css selector if missing for eg textpic with background
-                    if ($data['image_cssselector'] == "") {
-                        $data['image_cssselector'] = "#c" . $data['uid'];
-                        if ($renderingContext->getTemplateVariableContainer()->exists('data') == true){
-                            $renderingContext->getTemplateVariableContainer()->remove('data');
+                        for ($k = 0; $k < $imgCount; $k++) {
+                            foreach ($keys as $j => $key) {
+                                $borderspace =  intval($settings["images."]["borderspace."][$key]);
+                                $width = 0;
+                                $height = 0;
+
+                                if ($data['imageheight'] > 0) {
+                                    $height = $data['imageheight'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
+                                }
+
+                                if ($data['imagewidth'] > 0 and $j < intval($settings['grid.']['fluid.']['breakpoint'])) {
+                                    $width = $data['imagewidth'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
+                                } else {
+                                    $width = ($size[$key]["width"] + $borderspace - $size[$key]["margin"]) / $size[$key]["cols"] - $borderspace - $size["border"];
+                                }
+
+                                if ($size['ratio']) {
+                                    $height = $width * $size['ratio'];
+                                }
+
+                                $collection["files"][$k]["size"][$key]["height"] = round($height);
+                                $collection["files"][$k]["size"][$key]["width"]  = round($width);
+                            }
                         }
-                        $renderingContext->getTemplateVariableContainer()->add('data', $data);
-                    }
-                    break;
-                default:
-                    // number of items by row
-                    foreach ($keys as $j => $key) {
-                        $collection["cols"][$key] = $size[$key]["cols"];
-                    }
-                    for ($k = 0; $k < $imgCount; $k++) {
-                        foreach ($keys as $j => $key) {
-                            $borderspace =  intval($settings["images."]["borderspace."][$key]);
-                            $width = 0;
-                            $height = 0;
-
-                            if ($data['imageheight'] > 0) {
-                                $height = $data['imageheight'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
-                            }
-
-                            if ($data['imagewidth'] > 0 and $j < intval($settings['grid.']['fluid.']['breakpoint'])) {
-                                $width = $data['imagewidth'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
-                            } else {
-                                $width = ($size[$key]["width"] + $borderspace - $size[$key]["margin"]) / $size[$key]["cols"] - $borderspace - $size["border"];
-                            }
-
-                            if ($size['ratio']) {
-                                $height = $width * $size['ratio'];
-                            }
-
-                            $collection["files"][$k]["size"][$key]["height"] = round($height);
-                            $collection["files"][$k]["size"][$key]["width"]  = round($width);
-                        }
-                    }
-                    break;
-            }
-        }
-    }
-
-    // compute width and height and adjust cropping when needed
-    for ($k = 0; $k < $imgCount; $k++) {
-        foreach ($keys as $j => $key) {
-            $fileratio = FileMetadataUtility::getRatio($files[$k][$j*$artDirection]);
-            if ( $collection["files"][$k]["size"][$key]["width"] and $collection["files"][$k]["size"][$key]["height"]) {
-                if ($fileratio > $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"]) {
-                    $collection["files"][$k]["size"][$key]['cropheight'] = "c";
-                } else {
-                    $collection["files"][$k]["size"][$key]['cropwidth'] = "c";
+                        break;
                 }
-            } elseif ($collection["files"][$k]["size"][$key]["width"]) {
-                $collection["files"][$k]["size"][$key]["height"] = $collection["files"][$k]["size"][$key]["width"] * $fileratio;
-            } else {
-                $collection["files"][$k]["size"][$key]["width"] = $collection["files"][$k]["size"][$key]["height"] / $fileratio;
-            }
-            $collection["files"][$k]["size"][$key]["padding"] = 100* $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"];
         }
-        // allow css styling for image
-        // $collection["files"][$k]["size"]["selector"] = "image-" . $data['uid'] ."-" . $k;
-    }
 
-    if ($renderingContext->getTemplateVariableContainer()->exists($as) == true){
+
+        // compute width and height and adjust cropping when needed
+        for ($k = 0; $k < $imgCount; $k++) {
+            foreach ($keys as $j => $key) {
+                $fileratio = FileMetadataUtility::getRatio($files[$k][$j*$artDirection]);
+                if ($collection["files"][$k]["size"][$key]["width"] and $collection["files"][$k]["size"][$key]["height"]) {
+                    if ($fileratio > $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"]) {
+                        $collection["files"][$k]["size"][$key]['cropheight'] = "c";
+                    } else {
+                        $collection["files"][$k]["size"][$key]['cropwidth'] = "c";
+                    }
+                } elseif ($collection["files"][$k]["size"][$key]["width"]) {
+                    $collection["files"][$k]["size"][$key]["height"] = $collection["files"][$k]["size"][$key]["width"] * $fileratio;
+                } else {
+                    $collection["files"][$k]["size"][$key]["width"] = $collection["files"][$k]["size"][$key]["height"] / $fileratio;
+                }
+                $collection["files"][$k]["size"][$key]["padding"] = 100* $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"];
+            }
+            // allow css styling for image
+            // $collection["files"][$k]["size"]["selector"] = "image-" . $data['uid'] ."-" . $k;
+        }
+
+        if ($renderingContext->getTemplateVariableContainer()->exists($as) == true) {
+            $renderingContext->getTemplateVariableContainer()->remove($as);
+        }
+
+        $renderingContext->getTemplateVariableContainer()->add($as, $collection);
+        $content = $renderChildrenClosure();
         $renderingContext->getTemplateVariableContainer()->remove($as);
-    }
-
-    $renderingContext->getTemplateVariableContainer()->add($as, $collection);
-    $content = $renderChildrenClosure();
-    $renderingContext->getTemplateVariableContainer()->remove($as);
-    return $content;
+        return $content;
     }
 }
