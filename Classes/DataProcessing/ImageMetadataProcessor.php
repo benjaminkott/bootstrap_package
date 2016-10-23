@@ -68,7 +68,6 @@ use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 *
 */
 use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
-  
 
 class ImageMetadataProcessor implements DataProcessorInterface
 {
