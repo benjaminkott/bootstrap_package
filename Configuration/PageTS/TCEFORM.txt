@@ -64,9 +64,9 @@ TCEFORM {
                 bootstrap_package_carousel {
                     removeItems = 1,2,3
                     addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
+                    #   100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
+                    #   110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
+                    #   120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
                     }
                 }
                 bootstrap_package_panel {
@@ -95,6 +95,9 @@ TCEFORM {
             types {
                 image {
                     disabled = 1
+                }
+                textmedia{
+                    removeItems = 17,18
                 }
             }
         }

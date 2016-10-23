@@ -1,8 +1,8 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 
 <f:comment>Split files by collection (1 for regular media, 5 for art direction) </f:comment>
-
-<f:switch expression="{data.imagecols}">
+<bk2k:var name="columns" value="{bk2k:simpleMath( operator:'min', a:'{data.imagecols}', b:'{files->f:count()}')}" />
+<f:switch expression="{columns}">
   <f:case value="2">
     <bk2k:imageSize store="1" xs="12" sm="6"/>
   </f:case>
@@ -31,7 +31,7 @@
     <bk2k:imageSize store="1" xs="4" sm="2.4" md="1.2" />
   </f:case>
   <f:case default="TRUE">
-    <bk2k:imageSize />
+    <bk2k:imageSize store="1" xs="12" />
   </f:case>
 </f:switch>
 
@@ -45,7 +45,7 @@
     
     <f:for each="{collection.files}" as="file" iteration="fileIteration">
       
-      <f:switch expression="{data.imagecols}">
+      <f:switch expression="{columns}">
         <f:case value="2">
           <div class="col-sm-6">
             <f:render partial="Media/Type" arguments="{file: file.srcset, data: data, settings: settings, imagesize: file.size}" />

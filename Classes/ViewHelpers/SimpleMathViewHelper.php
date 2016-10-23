@@ -98,6 +98,12 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
                     $content = ($a % $b);
                 }
                 break;
+            case "min":
+                $content = min($a, $b);
+                break;
+            case "max":
+                $content = max($a, $b);
+                break;
         }
         if ($arguments["round"]) {
             $content = round($content);

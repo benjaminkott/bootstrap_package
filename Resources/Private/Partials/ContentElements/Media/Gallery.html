@@ -103,11 +103,10 @@
                   </f:case>
                   
                   <f:case default="TRUE">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
-                      </div>
-                    </div>
+                    <bk2k:imageSize xs="12" store="1">
+                        <f:render partial="Media/LayoutFixed" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
+                    </bk2k:imageSize>
+                   
                   </f:case>
                   
                 </f:switch>

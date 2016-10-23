@@ -215,6 +215,54 @@
             <trans-unit id="carousel.interval">
                 <source>Interval in ms</source>
             </trans-unit>
+            <trans-unit id="carousel.top">
+                <source>Top</source>
+            </trans-unit>
+            <trans-unit id="carousel.middle">
+                <source>Middle</source>
+            </trans-unit>
+            <trans-unit id="carousel.bottom">
+                <source>Bottom</source>
+            </trans-unit>
+            <trans-unit id="carousel.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="carousel.right">
+                <source>Right</source>
+            </trans-unit>
+            <trans-unit id="carousel.valign">
+                <source>Vertical centering</source>
+            </trans-unit>
+            <trans-unit id="carousel.align">
+                <source>Horizontal centering</source>
+            </trans-unit>
+            <trans-unit id="carousel.ratio">
+                <source>Ratio height/width %</source>
+            </trans-unit>
+            <trans-unit id="carousel.heightmode">
+                <source>Height mode</source>
+            </trans-unit>
+            <trans-unit id="carousel.fluid">
+                <source>Fluid</source>
+            </trans-unit>
+            <trans-unit id="carousel.fixed">
+                <source>Fixed</source>
+            </trans-unit>
+            <trans-unit id="carousel.fullheight">
+                <source>Full screen</source>
+            </trans-unit>
+            <trans-unit id="carousel.xs">
+                <source>Height in extra small screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.sm">
+                <source>Height in small screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.md">
+                <source>Height in medium screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.lg">
+                <source>Height in large screen (pixel)</source>
+            </trans-unit>
             <trans-unit id="carousel.background_image_maxwidth">
                 <source>Max width of background images in px</source>
             </trans-unit>
