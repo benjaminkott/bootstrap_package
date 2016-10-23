@@ -25,24 +25,22 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 *  THE SOFTWARE.
 */
 
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
 
 /**
 * @author Stephen Leger
 */
-
 class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("min", "string", "Breakpoint name min", false, '');
-        $this->registerArgument("max", "string", "Breakpoint name max", false, '');
-        $this->registerArgument("short", "int", "short tag without @media", false, 0);
+        $this->registerArgument('min', 'string', 'Breakpoint name min', false, '');
+        $this->registerArgument('max', 'string', 'Breakpoint name max', false, '');
+        $this->registerArgument('short', 'int', 'short tag without @media', false, 0);
     }
 
     /**
@@ -58,7 +56,6 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         );
     }
 
-
     /**
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
@@ -70,32 +67,31 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-
         $settings = ResponsiveImagesUtility::getSettings();
 
-        if (!$arguments["short"] and $arguments["min"] !== '' or $arguments["max"] !== '') {
-            $content .= "@media ";
+        if (!$arguments['short'] and $arguments['min'] !== '' or $arguments['max'] !== '') {
+            $content .= '@media ';
         }
 
-        if ($arguments["min"] !== '') {
-            $content .= " (min-width: " . $settings["grid."]["screen."][$arguments["min"]] . "px)";
-            if ($arguments["max"] !== '') {
-                $content .= " and ";
+        if ($arguments['min'] !== '') {
+            $content .= ' (min-width: ' . $settings['grid.']['screen.'][$arguments['min']] . 'px)';
+            if ($arguments['max'] !== '') {
+                $content .= ' and ';
             }
         }
 
-        if ($arguments["max"] !== '') {
-            $content .= " (max-width: " . (intval($settings["grid."]["screen."][$arguments["max"]]) - 1) . "px)";
+        if ($arguments['max'] !== '') {
+            $content .= ' (max-width: ' . (intval($settings['grid.']['screen.'][$arguments['max']]) - 1) . 'px)';
         }
 
-        if (!$arguments["short"] and $arguments["min"] !== '' or $arguments["max"] !== '') {
-            $content .= "{";
+        if (!$arguments['short'] and $arguments['min'] !== '' or $arguments['max'] !== '') {
+            $content .= '{';
         }
 
         $content .= $renderChildrenClosure();
 
-        if (!$arguments["short"] and $arguments["min"] !== '' or $arguments["max"] !== '') {
-            $content .= "}";
+        if (!$arguments['short'] and $arguments['min'] !== '' or $arguments['max'] !== '') {
+            $content .= '}';
         }
 
         return $content;

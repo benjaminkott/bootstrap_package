@@ -110,7 +110,6 @@ $GLOBALS['TCA']['tt_content']['columns']['image_rendering'] = [
 ];
 $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] .= ',image_rendering';
 
-
 $GLOBALS['TCA']['tt_content']['columns']['image_cssselector'] = [
     'exclude' => true,
     'config' => [
@@ -125,4 +124,4 @@ $GLOBALS['TCA']['tt_content']['columns']['image_cssselector'] = [
                 'FIELD:image_rendering:=:20'
         ]
     ]
-]; 
+];

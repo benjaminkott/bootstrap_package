@@ -25,18 +25,17 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 *  THE SOFTWARE.
 */
 
+use BK2K\BootstrapPackage\Utility\CleanUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use BK2K\BootstrapPackage\Utility\CleanUtility;
 
 /**
 * @author Stephen Leger
 */
-
 class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-   
+
     /*
     * render
     * @return string
@@ -50,7 +49,6 @@ class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
         );
     }
 
-   
     /**
     * @param array $arguments
     * @param \Closure $renderChildrenClosure
@@ -62,7 +60,6 @@ class CleanViewHelper extends AbstractViewHelper implements CompilableInterface
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-
         $content = $renderChildrenClosure();
         $content = CleanUtility::optimize($content, $trim = false);
 

@@ -26,7 +26,6 @@ namespace BK2K\BootstrapPackage\Utility;
  *  THE SOFTWARE.
  */
 
-
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
@@ -46,20 +45,18 @@ class CleanUtility
     */
     protected static $newline = "\n";
 
-
     /**
     * Clean up white space and empty lines
     *
     * @param string $html
-    * @param boolean $trim start of lines
+    * @param bool $trim start of lines
     *
     * @return string
     */
     public static function optimize($html, $trim = false)
     {
-
         switch (TYPO3_OS) { // set newline
-            case "WIN":
+            case 'WIN':
                 self::$newline = "\r\n";
                 break;
             default:
@@ -69,14 +66,14 @@ class CleanUtility
         // newlines
         $html = preg_replace("(\r\n|\n|\r)", self::$newline, $html);
         // remove empty lines
-        $html = preg_replace("/(^[" . self::$newline . "]*|[". self::$newline ."]+)[\s\t]*[" . self::$newline . "]+/", self::$newline, $html);
+        $html = preg_replace('/(^[' . self::$newline . ']*|[' . self::$newline . "]+)[\s\t]*[" . self::$newline . ']+/', self::$newline, $html);
         // replace tabs by spaces
-        $html = str_replace(self::$tab, " ", $html);
+        $html = str_replace(self::$tab, ' ', $html);
         // remove double spaces
-        $html = preg_replace("/\s\s+/u", " ", $html);
+        $html = preg_replace("/\s\s+/u", ' ', $html);
         // trim
         if ($trim) {
-            $html = preg_replace("/^[\s]+/", "", $html);
+            $html = preg_replace("/^[\s]+/", '', $html);
         }
         return $html;
     }

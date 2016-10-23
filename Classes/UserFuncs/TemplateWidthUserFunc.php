@@ -41,18 +41,16 @@ class TemplateWidthUserFunc
     protected $fluid = 0;
     protected $imagesize = array();
     protected $columns = array(
-        "xs" => 0,
-        "sm" => 0,
-        "md" => 0,
-        "lg" => 0
+        'xs' => 0,
+        'sm' => 0,
+        'md' => 0,
+        'lg' => 0
     );
-
 
     private function getConf($conf, $key, $default, $min = 0)
     {
-
-        if (isset($conf[$key]) || is_array($conf[$key . "."])) {
-            $val = floatval($this->cObj->stdWrap($conf[$key], $conf[$key . "."]));
+        if (isset($conf[$key]) || is_array($conf[$key . '.'])) {
+            $val = floatval($this->cObj->stdWrap($conf[$key], $conf[$key . '.']));
         } else {
             $val = $default;
         }
@@ -80,14 +78,13 @@ class TemplateWidthUserFunc
         }
     }
 
-
     private function getTemplateSize()
     {
         $register = ResponsiveImagesUtility::getImageSizeFromRegister();
         // handle nested templates or content elements changing layout like gridelements
         if ($register) {
             $this->imagesize = $register;
-            if ($register["fluid"] == 0) {
+            if ($register['fluid'] == 0) {
                 $this->fluid = 0;
             }
         } else {
@@ -95,22 +92,20 @@ class TemplateWidthUserFunc
         }
     }
 
-
     private function registerTemplateSize()
     {
-
-        $maxcols = $this->settings["grid."]["columns"];
-        $gutter  = $this->settings["grid."]["gutter"];
+        $maxcols = $this->settings['grid.']['columns'];
+        $gutter  = $this->settings['grid.']['gutter'];
 
         if ($this->fluid) {
-            $this->imagesize["fluid"] = 1;
+            $this->imagesize['fluid'] = 1;
         }
 
-        $this->imagesize["xxs"]["width"] = ($this->imagesize["xxs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
-        $this->imagesize["xs"]["width"] = ($this->imagesize["xs"]["width"] + $gutter) * ( $this->columns["xs"] / $maxcols ) - $gutter;
-        $this->imagesize["sm"]["width"] = ($this->imagesize["sm"]["width"] + $gutter) * ( $this->columns["sm"] / $maxcols ) - $gutter;
-        $this->imagesize["md"]["width"] = ($this->imagesize["md"]["width"] + $gutter) * ( $this->columns["md"] / $maxcols ) - $gutter;
-        $this->imagesize["lg"]["width"] = ($this->imagesize["lg"]["width"] + $gutter) * ( $this->columns["lg"] / $maxcols ) - $gutter;
+        $this->imagesize['xxs']['width'] = ($this->imagesize['xxs']['width'] + $gutter) * ($this->columns['xs'] / $maxcols) - $gutter;
+        $this->imagesize['xs']['width'] = ($this->imagesize['xs']['width'] + $gutter) * ($this->columns['xs'] / $maxcols) - $gutter;
+        $this->imagesize['sm']['width'] = ($this->imagesize['sm']['width'] + $gutter) * ($this->columns['sm'] / $maxcols) - $gutter;
+        $this->imagesize['md']['width'] = ($this->imagesize['md']['width'] + $gutter) * ($this->columns['md'] / $maxcols) - $gutter;
+        $this->imagesize['lg']['width'] = ($this->imagesize['lg']['width'] + $gutter) * ($this->columns['lg'] / $maxcols) - $gutter;
 
         ResponsiveImagesUtility::setImageSizeToRegister($this->imagesize);
     }
@@ -119,13 +114,12 @@ class TemplateWidthUserFunc
     * Set number of items in row instead of columns
     * Allow different sizes than regular ones (like 5 items)
     */
-    public function divide($content = "", $conf = array())
+    public function divide($content = '', $conf = array())
     {
-
         $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
-        $this->fluid = $this->getConf($conf, "fluid", 0);
+        $this->fluid = $this->getConf($conf, 'fluid', 0);
         $this->initializeColumnsDivider($conf);
         $this->getTemplateSize();
         $this->registerTemplateSize();
@@ -135,13 +129,12 @@ class TemplateWidthUserFunc
     /**
     * Set a number of columns (12)
     */
-    public function storeToRegister($content = "", $conf = array())
+    public function storeToRegister($content = '', $conf = array())
     {
-
         $this->settings = ResponsiveImagesUtility::getSettings();
 
         // fluid set in template config
-        $this->fluid = $this->getConf($conf, "fluid", 0);
+        $this->fluid = $this->getConf($conf, 'fluid', 0);
         $this->initializeColumns($conf);
         $this->getTemplateSize();
         $this->registerTemplateSize();

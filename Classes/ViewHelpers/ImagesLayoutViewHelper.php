@@ -28,26 +28,24 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 * include support for art direction.
 */
 
+use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
+use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
-use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 
 /**
 * @author Stephen Leger
 */
-
 class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("as", "string", "Variable name used to store image sizes", false, "equalsize");
-        $this->registerArgument("imagesize", "string", "Variable name used to store image sizes", false, "imagesize");
-        $this->registerArgument("data", "array", "Ratio height/width in %, will crop height when > 0", true);
-        $this->registerArgument("files", "array", "file properties", true);
+        $this->registerArgument('as', 'string', 'Variable name used to store image sizes', false, 'equalsize');
+        $this->registerArgument('imagesize', 'string', 'Variable name used to store image sizes', false, 'imagesize');
+        $this->registerArgument('data', 'array', 'Ratio height/width in %, will crop height when > 0', true);
+        $this->registerArgument('files', 'array', 'file properties', true);
     }
 
     /**
@@ -74,34 +72,31 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-
-
-        $data = $arguments["data"];
-        $as = $arguments["as"];
+        $data = $arguments['data'];
+        $as = $arguments['as'];
 
         $settings = ResponsiveImagesUtility::getSettings();
-        $size = ResponsiveImagesUtility::getImageSize($renderingContext, $settings, $arguments["imagesize"]);
+        $size = ResponsiveImagesUtility::getImageSize($renderingContext, $settings, $arguments['imagesize']);
 
-        $keys = array("lg", "md", "sm", "xs", "xxs");
-
+        $keys = array('lg', 'md', 'sm', 'xs', 'xxs');
 
         $breakpoints = 1;
         $artDirection = 0;
         $files = $arguments['files'];
         $collection = array(
-            "debug" => array(),
-            "imagecols" => 0,
-            "cols" => array(),
-            "files" => array()
+            'debug' => array(),
+            'imagecols' => 0,
+            'cols' => array(),
+            'files' => array()
         );
 
-        if (($data["image_rendering"] & 16) == 16) {
+        if (($data['image_rendering'] & 16) == 16) {
             $artDirection = 1;
             $breakpoints = 5;
             $imgCount = count($arguments['files']);
 
             if (($imgCount %  $breakpoints) > 0) {
-                $collection['error'] = "Art direction require a multiple of " . $breakpoints . " images, found :" . $imgCount;
+                $collection['error'] = 'Art direction require a multiple of ' . $breakpoints . ' images, found :' . $imgCount;
             }
 
             $imgCount -= ($imgCount %  $breakpoints);
@@ -126,15 +121,15 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 if ($data['imagewidth']) {
                     $equalSize = intval($data['imagewidth']);
                 }
-                $heightratio = floatval($settings["images."]["layout."]["columnsheightratio"]) / 100;
+                $heightratio = floatval($settings['images.']['layout.']['columnsheightratio']) / 100;
                 $widthratio = 1;
                 // swwap cols/row count
-                $w = "height";
-                $h = "width";
+                $w = 'height';
+                $h = 'width';
                 $rowCount = $colCount;
                 $colCount = ceil($imgCount/$colCount);
                 // percent of total width for columns style
-                $collection["colpercent"] = 100 / $rowCount;
+                $collection['colpercent'] = 100 / $rowCount;
                 break;
 
             case 10:  // no cols equalsize
@@ -151,25 +146,24 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 $widthratio  = 0;
                 // fixed height so total stay in ratio
                 //$widthratio  = floatval($settings["images."]["layout."]["columnsheightratio"]) / 100;
-                $w = "width";
-                $h = "height";
+                $w = 'width';
+                $h = 'height';
         }
 
-        $collection["imagecols"] = $colCount;
-
+        $collection['imagecols'] = $colCount;
 
         // $collection["debug"] = array();
         for ($k = 0; $k < $imgCount; $k++) {
             $sizes = array();
             foreach ($keys as $j => $key) {
                 $sizes[$key] = array(
-                    "width" => 0,
-                    "height" => 0
+                    'width' => 0,
+                    'height' => 0
                 );
             }
-            $collection["files"][$k] = array(
-                "srcset" => $files[$k],
-                "size" => $sizes
+            $collection['files'][$k] = array(
+                'srcset' => $files[$k],
+                'size' => $sizes
             );
         }
         switch ($data['images_layout']) {
@@ -221,7 +215,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                             $gutters = ($colCount - 1);
                         }
 
-                        $net = $size[$key]["width"] * $heightratio - $gutters * intval($settings["images."]["borderspace."][$key]);
+                        $net = $size[$key]['width'] * $heightratio - $gutters * intval($settings['images.']['borderspace.'][$key]);
 
                         $filesTotalMax = $relations[$j*$artDirection][$rowIdx];
 
@@ -243,25 +237,24 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                         // finalImgSize may not exceed $availableSpace
                         $finalImgSize = (int)min($availableSpace, $suggestedSize);
                         $accumSize[$key] += $finalImgSize;
-                        $borderspace = intval($settings["images."]["borderspace."][$key]);
+                        $borderspace = intval($settings['images.']['borderspace.'][$key]);
                         if ($equalSize > 5 and ($data['images_layout'] == 10 or $j < intval($settings['grid.']['fluid.']['breakpoint']))) {
-                            $refsec = $equalSize * $size[$key]["width"] / $size["lg"]["width"];
+                            $refsec = $equalSize * $size[$key]['width'] / $size['lg']['width'];
                         } else {
                             // No row at some point need to remove any user defined width
                             // in order to prevent layout breaking
-                            $refsec = ($size[$key]["width"] - $size[$key]["margin"] + $borderspace) / $rowCount - $borderspace;
+                            $refsec = ($size[$key]['width'] - $size[$key]['margin'] + $borderspace) / $rowCount - $borderspace;
                         }
 
-
                         $final = array();
-                        $final['width'] =   $finalImgSize - $size["border"];
-                        $final['height'] =  round($refsec * $widthratio) - $size["border"];
+                        $final['width'] =   $finalImgSize - $size['border'];
+                        $final['height'] =  round($refsec * $widthratio) - $size['border'];
 
                         // percent of width for each images, to enforce correct layout of tables in IE for fluid layouts
-                        $collection["files"][$k]["size"][$key]["percent"] = 100 * $final[$w] / $size[$key]["width"];
+                        $collection['files'][$k]['size'][$key]['percent'] = 100 * $final[$w] / $size[$key]['width'];
 
-                        $collection["files"][$k]["size"][$key][$w] = $final['width'];
-                        $collection["files"][$k]["size"][$key][$h] = $final['height'];
+                        $collection['files'][$k]['size'][$key][$w] = $final['width'];
+                        $collection['files'][$k]['size'][$key][$h] = $final['height'];
                         // width in percent so we are able to force the width on ie by css
                     }
                 }
@@ -273,35 +266,35 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 for ($k = 0; $k < $imgCount; $k++) {
                     foreach ($keys as $j => $key) {
                         // scale main size to available space, may be disabled to allow more freedom
-                        $borderspace =  intval($settings["images."]["borderspace."][$key]);
+                        $borderspace =  intval($settings['images.']['borderspace.'][$key]);
                         $colMax = max($relations[$j * $artDirection]);
-                        $scale  = $colMax / ($size[$key]["width"] * $heightratio);
+                        $scale  = $colMax / ($size[$key]['width'] * $heightratio);
                         $height = $imgSizes[$k][$j * $artDirection] / $scale;
-                        $collection["files"][$k]["size"][$key][$w] = round($height) - $size["border"];
+                        $collection['files'][$k]['size'][$key][$w] = round($height) - $size['border'];
 
                         // note : setting imageheight here is a non-sense, simply ignore it
 
                         if ($equalSize > 1 and $j < intval($settings['grid.']['fluid.']['breakpoint'])) {
-                            $width  = $equalSize * $size[$key]["width"] / $size["lg"]["width"];
+                            $width  = $equalSize * $size[$key]['width'] / $size['lg']['width'];
                         } else {
-                            $width = ($size[$key]["width"] + $borderspace - $size[$key]["margin"]) / $rowCount - $borderspace;
+                            $width = ($size[$key]['width'] + $borderspace - $size[$key]['margin']) / $rowCount - $borderspace;
                         }
-                        $collection["files"][$k]["size"][$key][$h] = round($width) - $size["border"];
+                        $collection['files'][$k]['size'][$key][$h] = round($width) - $size['border'];
                     }
                 }
                 break;
             default:
-                switch ($data["image_rendering"] & 15) {
+                switch ($data['image_rendering'] & 15) {
                     case 4: // css
                         for ($k = 0; $k < $imgCount; $k++) {
                             foreach ($keys as $j => $key) {
-                                $collection["files"][$k]["size"][$key]["height"] = $size[$key]["height"];
-                                $collection["files"][$k]["size"][$key]["width"]  = $size[$key]["width"];
+                                $collection['files'][$k]['size'][$key]['height'] = $size[$key]['height'];
+                                $collection['files'][$k]['size'][$key]['width']  = $size[$key]['width'];
                             }
                         }
                         // add css selector if missing for eg textpic with background
-                        if ($data['image_cssselector'] == "") {
-                            $data['image_cssselector'] = "#c" . $data['uid'];
+                        if ($data['image_cssselector'] == '') {
+                            $data['image_cssselector'] = '#c' . $data['uid'];
                             if ($renderingContext->getTemplateVariableContainer()->exists('data') == true) {
                                 $renderingContext->getTemplateVariableContainer()->remove('data');
                             }
@@ -311,53 +304,52 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                     default:
                         // number of items by row
                         foreach ($keys as $j => $key) {
-                            $collection["cols"][$key] = $size[$key]["cols"];
+                            $collection['cols'][$key] = $size[$key]['cols'];
                         }
                         for ($k = 0; $k < $imgCount; $k++) {
                             foreach ($keys as $j => $key) {
-                                $borderspace =  intval($settings["images."]["borderspace."][$key]);
+                                $borderspace =  intval($settings['images.']['borderspace.'][$key]);
                                 $width = 0;
                                 $height = 0;
 
                                 if ($data['imageheight'] > 0) {
-                                    $height = $data['imageheight'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
+                                    $height = $data['imageheight'] * $size[$key]['width'] / $size['lg']['width'] - $size['border'];
                                 }
 
                                 if ($data['imagewidth'] > 0 and $j < intval($settings['grid.']['fluid.']['breakpoint'])) {
-                                    $width = $data['imagewidth'] * $size[$key]["width"] / $size["lg"]["width"] - $size["border"];
+                                    $width = $data['imagewidth'] * $size[$key]['width'] / $size['lg']['width'] - $size['border'];
                                 } else {
-                                    $width = ($size[$key]["width"] + $borderspace - $size[$key]["margin"]) / $size[$key]["cols"] - $borderspace - $size["border"];
+                                    $width = ($size[$key]['width'] + $borderspace - $size[$key]['margin']) / $size[$key]['cols'] - $borderspace - $size['border'];
                                 }
 
                                 if ($size['ratio']) {
                                     $height = $width * $size['ratio'];
                                 }
 
-                                $collection["files"][$k]["size"][$key]["height"] = round($height);
-                                $collection["files"][$k]["size"][$key]["width"]  = round($width);
+                                $collection['files'][$k]['size'][$key]['height'] = round($height);
+                                $collection['files'][$k]['size'][$key]['width']  = round($width);
                             }
                         }
                         break;
                 }
         }
 
-
         // compute width and height and adjust cropping when needed
         for ($k = 0; $k < $imgCount; $k++) {
             foreach ($keys as $j => $key) {
                 $fileratio = FileMetadataUtility::getRatio($files[$k][$j*$artDirection]);
-                if (($collection["files"][$k]["size"][$key]["width"] and $collection["files"][$k]["size"][$key]["height"]) or $size["ratio"]) {
-                    if ($fileratio > $collection["files"][$k]["size"][$key]["height"] / $collection["files"][$k]["size"][$key]["width"]) {
-                        $collection["files"][$k]["size"][$key]['cropheight'] = "c" . $size["crop"];
+                if (($collection['files'][$k]['size'][$key]['width'] and $collection['files'][$k]['size'][$key]['height']) or $size['ratio']) {
+                    if ($fileratio > $collection['files'][$k]['size'][$key]['height'] / $collection['files'][$k]['size'][$key]['width']) {
+                        $collection['files'][$k]['size'][$key]['cropheight'] = 'c' . $size['crop'];
                     } else {
-                        $collection["files"][$k]["size"][$key]['cropwidth'] = "c" . $size["crop"];
+                        $collection['files'][$k]['size'][$key]['cropwidth'] = 'c' . $size['crop'];
                     }
-                } elseif ($collection["files"][$k]["size"][$key]["width"]) {
-                    $collection["files"][$k]["size"][$key]["height"] = $collection["files"][$k]["size"][$key]["width"] * $fileratio;
+                } elseif ($collection['files'][$k]['size'][$key]['width']) {
+                    $collection['files'][$k]['size'][$key]['height'] = $collection['files'][$k]['size'][$key]['width'] * $fileratio;
                 } else {
-                    $collection["files"][$k]["size"][$key]["width"] = $collection["files"][$k]["size"][$key]["height"] / $fileratio;
+                    $collection['files'][$k]['size'][$key]['width'] = $collection['files'][$k]['size'][$key]['height'] / $fileratio;
                 }
-                $collection["files"][$k]["size"][$key]["padding"] = 100* $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"];
+                $collection['files'][$k]['size'][$key]['padding'] = 100* $collection['files'][$k]['size'][$key]['height']/ $collection['files'][$k]['size'][$key]['width'];
             }
             // allow css styling for image
             // $collection["files"][$k]["size"]["selector"] = "image-" . $data['uid'] ."-" . $k;

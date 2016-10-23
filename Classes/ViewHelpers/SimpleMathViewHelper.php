@@ -32,19 +32,17 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 /**
 * @author Stephen Leger
 */
-
 class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("operator", "string", "Operator + - / * % & | ", true);
-        $this->registerArgument("a", "float", "Value a", true);
-        $this->registerArgument("b", "float", "Value b", true);
-        $this->registerArgument("round", "boolean", "round result", false, false);
-        $this->registerArgument("ceil", "boolean", "ceil result", false, false);
-        $this->registerArgument("floor", "boolean", "floor result", false, false);
+        $this->registerArgument('operator', 'string', 'Operator + - / * % & | ', true);
+        $this->registerArgument('a', 'float', 'Value a', true);
+        $this->registerArgument('b', 'float', 'Value b', true);
+        $this->registerArgument('round', 'boolean', 'round result', false, false);
+        $this->registerArgument('ceil', 'boolean', 'ceil result', false, false);
+        $this->registerArgument('floor', 'boolean', 'floor result', false, false);
     }
     /*
     * render
@@ -70,48 +68,48 @@ class SimpleMathViewHelper extends AbstractViewHelper implements CompilableInter
         RenderingContextInterface $renderingContext
     ) {
         $content = 0;
-        $a = floatval($arguments["a"]);
-        $b = floatval($arguments["b"]);
-        switch ($arguments["operator"]) {
-            case "&": // binary and
+        $a = floatval($arguments['a']);
+        $b = floatval($arguments['b']);
+        switch ($arguments['operator']) {
+            case '&': // binary and
                 $content = ($a & $b);
                 break;
-            case "|": // binary or
+            case '|': // binary or
                 $content = ($a | $b);
                 break;
-            case "+":
+            case '+':
                 $content = ($a + $b);
                 break;
-            case "-":
+            case '-':
                 $content = ($a - $b);
                 break;
-            case "*":
+            case '*':
                 $content = ($a * $b);
                 break;
-            case "/":
+            case '/':
                 if ($b > 0) {
                     $content = ($a / $b);
                 }
                 break;
-            case "%":
+            case '%':
                 if ($b > 0) {
                     $content = ($a % $b);
                 }
                 break;
-            case "min":
+            case 'min':
                 $content = min($a, $b);
                 break;
-            case "max":
+            case 'max':
                 $content = max($a, $b);
                 break;
         }
-        if ($arguments["round"]) {
+        if ($arguments['round']) {
             $content = round($content);
         }
-        if ($arguments["floor"]) {
+        if ($arguments['floor']) {
             $content = floor($content);
         }
-        if ($arguments["ceil"]) {
+        if ($arguments['ceil']) {
             $content = ceil($content);
         }
         return $content;

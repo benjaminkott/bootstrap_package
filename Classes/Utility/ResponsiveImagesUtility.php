@@ -34,71 +34,69 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 class ResponsiveImagesUtility
 {
 
-
    /**
     * getTyposcriptFrontendController
     * @return \TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController $tsfe
     */
     protected static function getTyposcriptFrontendController()
     {
-        return $GLOBALS["TSFE"];
+        return $GLOBALS['TSFE'];
     }
 
    /**
     * Retrieve "defaults"
     * @param array $settings
-    * @param boolean $overridefluid
+    * @param bool $overridefluid
     * @return array $imagesize
     */
     public static function getDefault($settings, $overridefluid = false)
     {
         // assume fixed layout (xs always fluid) width => container width
-        $screen    = $settings["grid."]["screen."];
-        $container = $settings["grid."]["container."];
-        $fluid     = $settings["grid."]["fluid."];
-        $gutter    = $settings["grid."]["gutter"];
+        $screen    = $settings['grid.']['screen.'];
+        $container = $settings['grid.']['container.'];
+        $fluid     = $settings['grid.']['fluid.'];
+        $gutter    = $settings['grid.']['gutter'];
 
         // fluid width => next container width
-        return array (
-            "fluid" => 0,
-            "xxs" => array (
-                "width" => $screen["xs"] - $gutter, // container xs
-                "height" => 0,
-                "cols" => 1,
-                "margin" => 0
+        return array(
+            'fluid' => 0,
+            'xxs' => array(
+                'width' => $screen['xs'] - $gutter, // container xs
+                'height' => 0,
+                'cols' => 1,
+                'margin' => 0
             ),
-            "xs" => array (
-                "width" =>  (($fluid["xs"] or $overridefluid ) ? $screen["sm"] - $gutter : $container["xs"]),  // container sm
-                "height" => 0,
-                "cols" => 1,
-                "margin" => 0
+            'xs' => array(
+                'width' =>  (($fluid['xs'] or $overridefluid) ? $screen['sm'] - $gutter : $container['xs']),  // container sm
+                'height' => 0,
+                'cols' => 1,
+                'margin' => 0
             ),
-            "sm" =>  array (
-                "width" => (($fluid["sm"] or $overridefluid ) ? $screen["md"] - $gutter : $container["sm"]),  // container md
-                "height" => 0,
-                "cols" => 1,
-                "margin" => 0
+            'sm' =>  array(
+                'width' => (($fluid['sm'] or $overridefluid) ? $screen['md'] - $gutter : $container['sm']),  // container md
+                'height' => 0,
+                'cols' => 1,
+                'margin' => 0
             ),
-            "md" => array (
-                "width" =>  (($fluid["md"] or $overridefluid ) ? $screen["lg"] - $gutter : $container["md"]),  // container lg
-                "height" => 0,
-                "cols" => 1,
-                "margin" => 0
+            'md' => array(
+                'width' =>  (($fluid['md'] or $overridefluid) ? $screen['lg'] - $gutter : $container['md']),  // container lg
+                'height' => 0,
+                'cols' => 1,
+                'margin' => 0
             ),
-            "lg" => array (
-                "width" =>  (($fluid["lg"] or $overridefluid ) ? $screen["xl"] - $gutter : $container["lg"]),  // container xl
-                "height" => 0,
-                "cols" => 1,
-                "margin" => 0
+            'lg' => array(
+                'width' =>  (($fluid['lg'] or $overridefluid) ? $screen['xl'] - $gutter : $container['lg']),  // container xl
+                'height' => 0,
+                'cols' => 1,
+                'margin' => 0
             ),
-            "imagewidth" => 0,
-            "imageheight" => 0,
-            "ratio" => 0,
-            "crop" => "",
-            "border" => 0,
+            'imagewidth' => 0,
+            'imageheight' => 0,
+            'ratio' => 0,
+            'crop' => '',
+            'border' => 0,
         );
     }
-
 
    /**
     * Retrieve "imagesize" from register
@@ -107,17 +105,17 @@ class ResponsiveImagesUtility
     public static function getImageSizeFromRegister()
     {
         $register = self::getTyposcriptFrontendController()->register;
-        return isset($register["template_size"]) ? $register["template_size"] : false;
+        return isset($register['template_size']) ? $register['template_size'] : false;
     }
 
    /**
     * Set "imagesize" to register
-    * @param boolean $fluid
+    * @param bool $fluid
     * @param array $imagesize
     */
     public static function setImageSizeToRegister($imagesize)
     {
-        self::getTyposcriptFrontendController()->register["template_size"] = $imagesize;
+        self::getTyposcriptFrontendController()->register['template_size'] = $imagesize;
     }
    /**
     * Retrieve "imagesize"
@@ -126,7 +124,7 @@ class ResponsiveImagesUtility
     * @param string $as
     * @return array $imagesize
     */
-    public static function getImageSize(RenderingContextInterface  $renderingContext, $settings, $as = "imagesize")
+    public static function getImageSize(RenderingContextInterface  $renderingContext, $settings, $as = 'imagesize')
     {
         if ($renderingContext->getTemplateVariableContainer()->exists($as)) {
             $imagesize = $renderingContext->getTemplateVariableContainer()->get($as);
@@ -146,7 +144,7 @@ class ResponsiveImagesUtility
     * @param string $as
     * @return array $imagesize
     */
-    public static function backupImageSize(RenderingContextInterface  $renderingContext, $settings, $as = "imagesize")
+    public static function backupImageSize(RenderingContextInterface  $renderingContext, $settings, $as = 'imagesize')
     {
         $imagesize = self::getImageSize($renderingContext, $settings, $as);
 
@@ -156,7 +154,6 @@ class ResponsiveImagesUtility
         return $imagesize;
     }
 
-
     /**
     * Restore "imagesize" state  that might have been backed up in backupImageSizeState() before
     * @param RenderingContextInterface  $renderingContext
@@ -164,7 +161,7 @@ class ResponsiveImagesUtility
     * @param string $as
     * @return void
     */
-    public static function restoreImageSize(RenderingContextInterface $renderingContext, array $imagesize, $as = "imagesize")
+    public static function restoreImageSize(RenderingContextInterface $renderingContext, array $imagesize, $as = 'imagesize')
     {
         if ($renderingContext->getTemplateVariableContainer()->exists($as)) {
             $renderingContext->getTemplateVariableContainer()->remove($as);
@@ -178,6 +175,6 @@ class ResponsiveImagesUtility
     */
     public static function getSettings()
     {
-        return self::getTyposcriptFrontendController()->tmpl->setup["plugin."]["bootstrap_package."]["settings."];
+        return self::getTyposcriptFrontendController()->tmpl->setup['plugin.']['bootstrap_package.']['settings.'];
     }
 }

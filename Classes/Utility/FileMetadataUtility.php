@@ -26,7 +26,6 @@ namespace BK2K\BootstrapPackage\Utility;
 *  THE SOFTWARE.
 */
 
-
 /**
 * @author Benjamin Kott <info@bk2k.info>
 */
@@ -34,7 +33,7 @@ class FileMetadataUtility
 {
     /**
     * @param \TYPO3\CMS\Core\Resource\FileReference $file
-    * @return boolean
+    * @return bool
     */
     public static function hasDimension(\TYPO3\CMS\Core\Resource\FileReference $file)
     {
@@ -50,7 +49,7 @@ class FileMetadataUtility
         $crop = $file->getProperty('crop');
         if ($crop != '') {
             $crop = json_decode($crop);
-            return array (
+            return array(
                 'width' => $crop->width,
                 'height' => $crop->height
             );
@@ -58,7 +57,7 @@ class FileMetadataUtility
         $width = $file->getProperty('width');
         $height = $file->getProperty('height');
         if ($width and $height) {
-            return array (
+            return array(
                 'width' => $width,
                 'height' => $height
             );

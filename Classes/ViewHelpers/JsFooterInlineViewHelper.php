@@ -25,23 +25,21 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 *  THE SOFTWARE.
 */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
 * @author Stephen Leger
 */
-
 class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
     public function initializeArguments()
     {
         parent::registerArgument();
-        $this->registerArgument("inline", "boolean", "When set, add js to body", false, false);
-        $this->registerArgument("key", "string", "Unique id for js content", false, false);
+        $this->registerArgument('inline', 'boolean', 'When set, add js to body', false, false);
+        $this->registerArgument('key', 'string', 'Unique id for js content', false, false);
     }
     /*
     * render
@@ -66,21 +64,21 @@ class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableI
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $content = "";
+        $content = '';
         $js = $renderChildrenClosure();
-        $js = preg_replace("/<(\/)?script([^>]+)?>/", "", $js);
+        $js = preg_replace("/<(\/)?script([^>]+)?>/", '', $js);
         $js = GeneralUtility::minifyJavaScript($js);
 
         // put css background to header or leave inline
-        if ($arguments["inline"]) {
-            $content = "<script>" . $js. "</script>";
+        if ($arguments['inline']) {
+            $content = '<script>' . $js . '</script>';
         } else {
-            if (isset($arguments["key"])) {
-                $name = $arguments["key"];
+            if (isset($arguments['key'])) {
+                $name = $arguments['key'];
             } else {
-                $name = uniqid("bootstrap_package_");
+                $name = uniqid('bootstrap_package_');
             }
-            $GLOBALS["TSFE"]->getPageRenderer()->addJsFooterInlineCode($name, $js, $compress = false, $forceOnTop = false);
+            $GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($name, $js, $compress = false, $forceOnTop = false);
         }
         return $content;
     }

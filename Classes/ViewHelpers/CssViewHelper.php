@@ -25,23 +25,21 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 *  THE SOFTWARE.
 */
 
+use BK2K\BootstrapPackage\Utility\CleanUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
-use BK2K\BootstrapPackage\Utility\CleanUtility;
 
 /**
 * @author Stephen Leger
 */
-
 class CssViewHelper extends AbstractViewHelper implements CompilableInterface
 {
-
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument("inline", "boolean", "When set, add css right to body", false, false);
-        $this->registerArgument("key", "string", "Unique id for css content", false, null);
+        $this->registerArgument('inline', 'boolean', 'When set, add css right to body', false, false);
+        $this->registerArgument('key', 'string', 'Unique id for css content', false, null);
     }
 
     /*
@@ -68,21 +66,21 @@ class CssViewHelper extends AbstractViewHelper implements CompilableInterface
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $content = "";
+        $content = '';
 
         $css = $renderChildrenClosure();
-        $css = preg_replace("/<(\/)?style([^>]+)?>/", "", $css);
+        $css = preg_replace("/<(\/)?style([^>]+)?>/", '', $css);
         $css = CleanUtility::optimize($css, $trim = true);
 
-        if ($arguments["inline"]) {
-            $content .= "<style>" . $css . "</style>";
+        if ($arguments['inline']) {
+            $content .= '<style>' . $css . '</style>';
         } else {
-            if ($arguments["key"] !== null) {
-                $name = $arguments["key"];
+            if ($arguments['key'] !== null) {
+                $name = $arguments['key'];
             } else {
-                $name = uniqid("bootstrap_package_");
+                $name = uniqid('bootstrap_package_');
             }
-            $GLOBALS["TSFE"]->getPageRenderer()->addCssInlineBlock($name, $css, $compress = false);
+            $GLOBALS['TSFE']->getPageRenderer()->addCssInlineBlock($name, $css, $compress = false);
         }
         return $content;
     }

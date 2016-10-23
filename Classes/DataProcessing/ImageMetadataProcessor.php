@@ -25,11 +25,11 @@ namespace BK2K\BootstrapPackage\DataProcessing;
 *  THE SOFTWARE.
 */
 
+use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
+use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 
 /**
 * This menu processor utilizes HMENU to generate a json encoded menu
@@ -67,7 +67,7 @@ use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 * no_cols end                 0x21 dec 34
 *
 */
-use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
+use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 class ImageMetadataProcessor implements DataProcessorInterface
 {
@@ -139,7 +139,6 @@ class ImageMetadataProcessor implements DataProcessorInterface
         );
         $this->MetaDataRepository->update($file->getUid(), $additionalMetaInformation);
     }
-
 
     /**
     * @param ContentObjectRenderer $cObj The data of the content element or page
