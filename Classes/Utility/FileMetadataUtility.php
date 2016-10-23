@@ -63,7 +63,7 @@ class FileMetadataUtility
                 'height' => $height
             );
         }
-        return null;
+        return array(800, 450);
     }
     /**
     * @param \TYPO3\CMS\Core\Resource\FileReference $file
@@ -72,7 +72,7 @@ class FileMetadataUtility
     public static function getRatio(\TYPO3\CMS\Core\Resource\FileReference $file)
     {
         $size = self::getDimension($file);
-        if ($size !== null) {
+        if ($size['height'] != 0 and $size['width'] != 0) {
             return $size['height'] / $size['width'];
         }
         return 1000;

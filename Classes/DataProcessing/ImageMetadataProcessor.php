@@ -67,7 +67,8 @@ use BK2K\BootstrapPackage\Utility\FileMetadataUtility;
 * no_cols end                 0x21 dec 34
 *
 */
-
+use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
+  
 
 class ImageMetadataProcessor implements DataProcessorInterface
 {
@@ -89,7 +90,6 @@ class ImageMetadataProcessor implements DataProcessorInterface
     * MetaData Repository
     *
     * @var TYPO3\CMS\Core\Resource\Index\MetaDataRepository $MetaDataRepository
-    * @inject
     */
     protected $MetaDataRepository;
 
@@ -111,6 +111,7 @@ class ImageMetadataProcessor implements DataProcessorInterface
     public function __construct()
     {
         $this->contentDataProcessor = GeneralUtility::makeInstance(ContentDataProcessor::class);
+        $this->MetaDataRepository = GeneralUtility::makeInstance(MetaDataRepository::class);
     }
 
     /**

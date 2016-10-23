@@ -346,11 +346,11 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         for ($k = 0; $k < $imgCount; $k++) {
             foreach ($keys as $j => $key) {
                 $fileratio = FileMetadataUtility::getRatio($files[$k][$j*$artDirection]);
-                if ($collection["files"][$k]["size"][$key]["width"] and $collection["files"][$k]["size"][$key]["height"]) {
-                    if ($fileratio > $collection["files"][$k]["size"][$key]["height"]/ $collection["files"][$k]["size"][$key]["width"]) {
-                        $collection["files"][$k]["size"][$key]['cropheight'] = "c";
+                if (($collection["files"][$k]["size"][$key]["width"] and $collection["files"][$k]["size"][$key]["height"]) or $size["ratio"]) {
+                    if ($fileratio > $collection["files"][$k]["size"][$key]["height"] / $collection["files"][$k]["size"][$key]["width"]) {
+                        $collection["files"][$k]["size"][$key]['cropheight'] = "c" . $size["crop"];
                     } else {
-                        $collection["files"][$k]["size"][$key]['cropwidth'] = "c";
+                        $collection["files"][$k]["size"][$key]['cropwidth'] = "c" . $size["crop"];
                     }
                 } elseif ($collection["files"][$k]["size"][$key]["width"]) {
                     $collection["files"][$k]["size"][$key]["height"] = $collection["files"][$k]["size"][$key]["width"] * $fileratio;
