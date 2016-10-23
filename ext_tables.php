@@ -11,11 +11,6 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
 }
 
 /***************
- * Default TypoScript
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Bootstrap Package');
-
-/***************
  * Backend Styling
  */
 if (TYPO3_MODE == 'BE') {
