@@ -338,17 +338,27 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         for ($k = 0; $k < $imgCount; $k++) {
             foreach ($keys as $j => $key) {
                 $fileratio = FileMetadataUtility::getRatio($files[$k][$j*$artDirection]);
-                if (($collection['files'][$k]['size'][$key]['width'] and $collection['files'][$k]['size'][$key]['height']) or $size['ratio']) {
-                    if ($fileratio > $collection['files'][$k]['size'][$key]['height'] / $collection['files'][$k]['size'][$key]['width']) {
-                        $collection['files'][$k]['size'][$key]['cropheight'] = 'c' . $size['crop'];
-                    } else {
-                        $collection['files'][$k]['size'][$key]['cropwidth'] = 'c' . $size['crop'];
-                    }
-                } elseif ($collection['files'][$k]['size'][$key]['width']) {
-                    $collection['files'][$k]['size'][$key]['height'] = $collection['files'][$k]['size'][$key]['width'] * $fileratio;
-                } else {
-                    $collection['files'][$k]['size'][$key]['width'] = $collection['files'][$k]['size'][$key]['height'] / $fileratio;
+
+                // here we always have width, but only sometimes the height
+                // on some layouts the width may be <= 0 so make it positive > 10
+                if ($collection['files'][$k]['size'][$key]['width'] < 10) {
+                    $collection['files'][$k]['size'][$key]['width'] = 10;
                 }
+
+                if ($size['ratio']) {
+                    $collection['files'][$k]['size'][$key]['height'] = $size['ratio'] * $collection['files'][$k]['size'][$key]['width'];
+                } elseif (!$collection['files'][$k]['size'][$key]['height']) {
+                    $collection['files'][$k]['size'][$key]['height'] = $collection['files'][$k]['size'][$key]['width'] * $fileratio;
+                }
+
+                // no we have both height and width
+                // check if we need to crop and on witch side
+                if ($fileratio > $collection['files'][$k]['size'][$key]['height'] / $collection['files'][$k]['size'][$key]['width']) {
+                    $collection['files'][$k]['size'][$key]['cropheight'] = 'c' . $size['crop'];
+                } else {
+                    $collection['files'][$k]['size'][$key]['cropwidth']  = 'c' . $size['crop'];
+                }
+                // set a height as percent of width for a css padding-bottom if needed
                 $collection['files'][$k]['size'][$key]['padding'] = 100* $collection['files'][$k]['size'][$key]['height']/ $collection['files'][$k]['size'][$key]['width'];
             }
             // allow css styling for image
