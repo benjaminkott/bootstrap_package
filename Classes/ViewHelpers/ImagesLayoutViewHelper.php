@@ -48,7 +48,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         $this->registerArgument('data', 'array', 'cObject data', true);
         $this->registerArgument('files', 'array', 'file properties', true);
         $this->registerArgument('settings', 'array', 'fluidtemplate settings', true);
-   }
+    }
 
     /**
     * @return string the rendered string
@@ -62,7 +62,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
             $this->renderingContext
         );
     }
-    
+
    /**
     * compute rows / columns relations with respect to crop conf
     * @param int $colCount
@@ -73,7 +73,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
     * @param array $relations
     * @return void
     */
-    protected static function columnRelations($colCount, $w, $h, array &$files, array &$imgSizes, array &$relations) 
+    protected static function columnRelations($colCount, $w, $h, array &$files, array &$imgSizes, array &$relations)
     {
         foreach ($files as $k => $srcset) {
             foreach ($srcset as $j => $file) {
@@ -82,8 +82,8 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 $relations[$j][(int)floor($k / $colCount)] += $imgSizes[$k][$j];
             }
         }
-    }   
-    
+    }
+
     /**
     * Layout in rows or columns justify lengths
     * @param int $colCount
@@ -96,11 +96,11 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
     * @param array $collection
     * @return void
     */
-    protected static function layoutJustify($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection) 
+    protected static function layoutJustify($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection)
     {
         $imgCount = count($files);
-        $equalSize = 1;  
-        
+        $equalSize = 1;
+
         switch ($data['images_layout']) {
             case 9:   // no rows equalwidth
                 if ($data['imagewidth']) {
@@ -123,8 +123,8 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 if ($data['imageheight']) {
                     $equalSize = intval($data['imageheight']);
                 }
-                $widthratio  = 0;     
-                $heightratio = 1; 
+                $widthratio  = 0;
+                $heightratio = 1;
                 // fixed height so total stay in ratio
                 //$widthratio  = floatval($conf["images."]["layout."]["columnsheightratio"]) / 100;
                 $w = 'width';
@@ -161,7 +161,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                     $gutters = ($colCount - 1);
                 }
                 $borderspace =  intval($conf['images.']['borderspace.'][$key]);
-              
+
                 $net = $size[$key]['width'] * $heightratio - $gutters * $borderspace;
 
                 $filesTotalMax = $relations[$j][$rowIdx];
@@ -196,11 +196,11 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 $collection['files'][$k]['size'][$key][$w] =   $finalImgSize - $size['border'];
                 $collection['files'][$k]['size'][$key][$h] =  round($refsec * $widthratio) - $size['border'];
 
-                // when fluid, image sizes depends on layout  
+                // when fluid, image sizes depends on layout
                 // percent of width for each images
                 $collection['files'][$k]['size'][$key]['percent'] = 100 * ($collection['files'][$k]['size'][$key]['width'] + $borderspace) / ($size[$key]['width'] + $borderspace);
             }
-        }   
+        }
     }
    /**
     * Layout "no rows and no cols"
@@ -214,11 +214,11 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
     * @param array $collection
     * @return void
     */
-    protected static function layoutRowCol($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection) 
+    protected static function layoutRowCol($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection)
     {
         $imgCount = count($files);
         $equalSize = 1;
-                
+
         switch ($data['images_layout']) {
             case 17:  // no rows top
             case 33:  // no rows bottom
@@ -236,7 +236,8 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 $collection['colpercent'] = 100 / $rowCount;
                 break;
 
-            case 34:  // no cols right
+            case 34:
+                // no cols right
                 // reverse array to reorder images while floating right
                 $files = array_reverse($files);
             case 18:  // no cols left
@@ -259,7 +260,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         $relations = array();
         $imgSizes  = array();
         self::columnRelations($colCount, $w, $h, $files, $imgSizes, $relations);
-      
+
         foreach ($files as $k => $srcset) {
             foreach ($keys as $j => $key) {
                 // scale main size to available space, may be disabled to allow more freedom
@@ -277,15 +278,14 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                     $sec = ($size[$key]['width'] + $borderspace - $size[$key]['margin']) / $rowCount - $borderspace;
                 }
                 $collection['files'][$k]['size'][$key][$h] = floor($sec) - $size['border'];
-                
-                // when fluid, image sizes depends on layout  
+
+                // when fluid, image sizes depends on layout
                 // percent of width for each images
                 $collection['files'][$k]['size'][$key]['percent'] = 100 * ($collection['files'][$k]['size'][$key]['width'] + $borderspace) / ($size[$key]['width'] + $borderspace);
-                 
             }
         }
     }
-    
+
    /**
     * Layout for css and items without layout
     * @param int $colCount
@@ -297,8 +297,8 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
     * @param array $size
     * @param array $collection
     * @return void
-    */  
-    protected static function layoutNoLayout($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection) 
+    */
+    protected static function layoutNoLayout($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection)
     {
         foreach ($files as $k => $srcset) {
             foreach ($keys as $j => $key) {
@@ -308,7 +308,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
             }
         }
     }
-    
+
    /**
     * Default layout in grid
     * @param int $colCount
@@ -321,13 +321,13 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
     * @param array $collection
     * @return void
     */
-    protected static function layoutGrid($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection) 
+    protected static function layoutGrid($colCount, &$keys, &$data, &$conf, &$settings, &$files, &$size, &$collection)
     {
         // number of items by row
         foreach ($keys as $j => $key) {
             $collection['cols'][$key] = $size[$key]['cols'];
         }
-        
+
         foreach ($files as $k => $srcset) {
             foreach ($keys as $j => $key) {
                 $borderspace =  intval($conf['images.']['borderspace.'][$key]);
@@ -340,7 +340,6 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
 
                 if (intval($data['imagewidth']) > 0 and $j < intval($settings['images']['breakpoint'])) {
                     $width = $data['imagewidth'] * $size[$key]['width'] / $size['lg']['width'] - $size['border'];
-                   
                 } else {
                     $width = ($size[$key]['width'] + $borderspace - $size[$key]['margin']) / $size[$key]['cols'] - $borderspace - $size['border'];
                 }
@@ -348,7 +347,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 $collection['files'][$k]['size'][$key]['height'] = floor($height);
                 $collection['files'][$k]['size'][$key]['width']  = floor($width);
             }
-        }   
+        }
     }
     /**
     * @param array $arguments
@@ -365,10 +364,10 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         $as = $arguments['as'];
         $files = $arguments['files'];
         $settings = $arguments['settings'];
-      
+
         $conf = ResponsiveImagesUtility::getSettings();
         $size = ResponsiveImagesUtility::getImageSize($renderingContext, $conf, $arguments['imagesize']);
-      
+
         // @TODO: move this into plugin.settings ts
         $keys = array('lg', 'md', 'sm', 'xs', 'xxs');
 
@@ -378,10 +377,10 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
             'files' => array()
         );
 
-        // art direction magic 
+        // art direction magic
         if (($data['image_rendering'] & 0x10) == 0x10) {
             $breakpoints  = count($keys);
-            
+
             $imgCount = count($arguments['files']);
 
             if (($imgCount % $breakpoints) > 0) {
@@ -390,20 +389,20 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
 
             $imgCount -= ($imgCount %  $breakpoints);
             $files = array_splice($arguments['files'], 0, $imgCount);
-            
+
             // split files into srcset array
             $files = array_chunk($files, $breakpoints);
         } else {
             // use duplicates of files when not in art direction mode
             // so we only have one single way to handle both on templates
-            $files = array_chunk($files, 1); 
+            $files = array_chunk($files, 1);
             foreach ($files as $k => $srcset) {
                 for ($j = 1; $j < 5; $j++) {
                      $files[$k][$j] = $srcset[0];
                 }
             }
         }
-      
+
         $imgCount = count($files);
 
         // limit number of cols
@@ -412,7 +411,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         if ($colCount > $imgCount) {
             $colCount = $imgCount;
         }
-        
+
         // build collection array
         foreach ($files as $k => $srcset) {
             $sizes = array();
@@ -427,7 +426,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 'size' => $sizes
             );
         }
- 
+
         switch ($data['images_layout']) {
             case 9:     // no rows equalwidth
             case 10:    // no cols equalheight
@@ -459,21 +458,21 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         foreach ($files as $k => $srcset) {
             foreach ($keys as $j => $key) {
                 $fileratio = FileMetadataUtility::getRatio($srcset[$j]);
-                
+
                 // here we always have width, but only sometimes the height
                 // on some layouts the width may be <= 0 so make it positive > 10
                 if ($collection['files'][$k]['size'][$key]['width'] < 10) {
                     $collection['files'][$k]['size'][$key]['width'] = 10;
                 }
-              
+
                 // user defined ratio h/w
                 if ($size['ratio']) {
                     $collection['files'][$k]['size'][$key]['height'] = floor($size['ratio'] * $collection['files'][$k]['size'][$key]['width']);
                 } elseif (!$collection['files'][$k]['size'][$key]['height']) {
-                    // if there is no height specified use the one 
+                    // if there is no height specified use the one
                     $collection['files'][$k]['size'][$key]['height'] = floor($collection['files'][$k]['size'][$key]['width'] * $fileratio);
                 }
-                 
+
                 // now we have both height and width
                 // check if we need to crop and on witch side
                 $ratio = $collection['files'][$k]['size'][$key]['height'] / $collection['files'][$k]['size'][$key]['width'];
@@ -482,16 +481,15 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 } else {
                     $collection['files'][$k]['size'][$key]['cropwidth']  = 'c' . $size['crop'];
                 }
-              
-                // note : art direction may have as many source / ratio as breakpoints  
+
+                // note : art direction may have as many source / ratio as breakpoints
                 // so placeholder may be a wrong image with wrong ratio
                 $collection['files'][$k]['size']['placeholder']['width']  = 50;
                 $collection['files'][$k]['size']['placeholder']['height'] = floor(50 * $ratio);
-              
+
                 // set a height as percent of width for a css padding-bottom if needed
                 // for eg: prevent relayout of pages while loading images
                 $collection['files'][$k]['size'][$key]['padding'] = 100 * $collection['files'][$k]['size'][$key]['height']/ $collection['files'][$k]['size'][$key]['width'];
-            
             }
             // allow css styling for image - eg: set absolute size in order to prevent relayout
             if (!$collection['files'][$k]['size']['selector']) {
@@ -500,13 +498,13 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
             // disable individual caption as they may break some layouts
             $collection['files'][$k]['size']['globalcaption'] = $globalcaption;
         }
-            
+
         if ($renderingContext->getTemplateVariableContainer()->exists($as) == true) {
             $renderingContext->getTemplateVariableContainer()->remove($as);
         }
-        // usefull to print debug right before content. 
+        // usefull to print debug right before content.
         // $collection['error'] .= '<pre>' .print_r($settings, true) .intval($settings['images']['breakpoint']) . '</pre>';
-        
+
         $renderingContext->getTemplateVariableContainer()->add($as, $collection);
         $content = $renderChildrenClosure();
         $renderingContext->getTemplateVariableContainer()->remove($as);

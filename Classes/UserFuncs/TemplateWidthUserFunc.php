@@ -1,5 +1,6 @@
 <?php
   namespace BK2K\BootstrapPackage\UserFuncs;
+  
   /*
   *  The MIT License (MIT)
   *
@@ -23,7 +24,7 @@
   *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   *  THE SOFTWARE.
   */
-  
+
   /**
   * @author Stephen Leger
   */

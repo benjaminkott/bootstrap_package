@@ -166,21 +166,18 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
             // images per row
             if ($arguments['store']) {
-
                 $newSize['xxs']['cols'] = round($maxcols/$xs);
                 $newSize['xs']['cols'] = round($maxcols/$xs);
                 $newSize['sm']['cols'] = round($maxcols/$sm);
                 $newSize['md']['cols'] = round($maxcols/$md);
                 $newSize['lg']['cols'] = round($maxcols/$lg);
             } else {
-
                 $gutter  = intval($settings['grid.']['gutter']);
                 $newSize['xxs']['width'] = ($size['xxs']['width'] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize['xs']['width'] = ($size['xs']['width'] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize['sm']['width'] = ($size['sm']['width'] + $gutter) / $maxcols * $sm - $gutter;
                 $newSize['md']['width'] = ($size['md']['width'] + $gutter) / $maxcols * $md - $gutter;
                 $newSize['lg']['width'] = ($size['lg']['width'] + $gutter) / $maxcols * $lg - $gutter;
-
             }
         }
 
@@ -209,12 +206,11 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
 
-       
+
         $content = $renderChildrenClosure();
 
         // restore only if the tag is closed and has childrens
         if ($content != '') {
-
             ResponsiveImagesUtility::restoreImageSize($renderingContext, $size, $as);
         }
 

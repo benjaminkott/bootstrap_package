@@ -39,12 +39,12 @@ class ResponsiveImagesUtility
     const TAG_PICTURE   = 0x03;  // <picture> tag
     const TAG_CSS       = 0x04;  // css background
     const TAG_NOTAG     = 0x0E;  // only generate image, for eg: lightbox link without image
-    const TAG_TYPE_MASQ = 0x0F;  
+    const TAG_TYPE_MASQ = 0x0F;
     // features
     const FEATURE_ART_DIRECTION = 0x010;  // use different images for every breakpoint + 1
     const FEATURE_BYPASS_LINK   = 0x020;  // prevent link of image (use media/rendering/tag instead of media/tag)
     const FEATURE_MASQ          = 0x0F0;
-  
+
    /**
     * getTyposcriptFrontendController
     * @return \TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController $tsfe
