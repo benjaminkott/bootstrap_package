@@ -23,26 +23,12 @@
 //
 
 .row-flex {
-    display: table;
-    table-layout: fixed;
-//    width: 100%;  
-    
-//    display: flex;
-//    flex-direction: row;
-//    flex-wrap: nowrap;
-//    justify-content: space-between;
-
+    overflow: hidden;
 }
-
 .col-flex {
-    vertical-align: top;
-    display: table-cell;
-
-//    display: flex;
-//    flex-direction: column;
-//    flex-wrap: nowrap;
-//    justify-content: space-between;
+      float: left;
 }
+
 
 .grid-flex(@borderspace-xs);
 @media (min-width: @screen-sm-min) and (max-width: @screen-md) {
@@ -62,10 +48,13 @@
     vertical-align: bottom;
 }
 .row-flex-left{
-    margin-right: auto;
+//    margin-right: auto;
 }
 .row-flex-right{
-    margin-left:auto;
+    > .col-flex{
+       float: right;
+    }
+//    margin-left:auto;
 }
 
 // no-rows

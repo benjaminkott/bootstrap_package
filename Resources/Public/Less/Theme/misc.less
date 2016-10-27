@@ -140,12 +140,16 @@
 //
 // Lazyload Images
 // --------------------------------------------------
-img.lazyload {
-    opacity: 0.3;
-    .transition(opacity .3s ease-in 0s);
+.lazyload {
+    opacity:0.3;
+//    transform: scale(3);
+    transition: all 500ms;
 }
-
-
+.loaded {
+     opacity:1;
+//     transform: scale(1);
+}
+   
 //
 // Buttons from RTE
 // --------------------------------------------------

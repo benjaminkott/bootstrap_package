@@ -5,7 +5,7 @@ namespace BK2K\BootstrapPackage\Utility;
 /*
  *  The MIT License (MIT)
  *
- *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
+ *  Copyright (c) 2016 Stephen Leger, http://www.3dservices.ch
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ namespace BK2K\BootstrapPackage\Utility;
  */
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * @author Stephen Leger <stephen@3dservices.ch>
  */
 class CleanUtility
 {

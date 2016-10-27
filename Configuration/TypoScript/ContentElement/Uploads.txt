@@ -31,6 +31,14 @@ tt_content.uploads {
             ratio = {$plugin.bootstrap_package_contentelements.uploads.preview.ratio}
             columns = {$plugin.bootstrap_package_contentelements.uploads.preview.columns}
         }
+        images {
+            tag = {$plugin.bootstrap_package.settings.images.tag}
+            lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
+            preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder}
+            absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+            breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
+        }
     }
 
     ##########################

@@ -37,7 +37,14 @@ tt_content.menu.thumbnail_list {
         abstract {
             crop = {$plugin.bootstrap_package_contentelements.menu_thumbnails.title.crop}
         }
-        absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+        images {
+            tag = {$plugin.bootstrap_package.settings.images.tag}
+            lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
+            preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder}
+            absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+            breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
+        }        
         moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
     }
 

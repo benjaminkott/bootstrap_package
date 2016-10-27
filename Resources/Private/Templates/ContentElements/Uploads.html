@@ -16,7 +16,7 @@
                             <div class="media-left col-xs-{settings.preview.columns}">
                                 <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
                                   <bk2k:imageSize xs="{settings.preview.columns}" ratio="{settings.preview.ratio}" crop="-100">
-                                      <f:render partial="Media/Gallery" arguments="{files: {0:file}, data: {imagecols: '1', image_rendering: '64'}, settings: settings, imagesize: imagesize}" />
+                                      <f:render partial="Media/Gallery" arguments="{files: {0:file}, data: {uid:'{data.uid}-{fileIterator.cycle}' ,imagecols: '1', image_rendering: '64'}, settings: settings, imagesize: imagesize}" />
                                   </bk2k:imageSize>    
                               </a>
                             </div>

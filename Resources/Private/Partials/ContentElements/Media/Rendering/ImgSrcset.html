@@ -1,0 +1,30 @@
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<div id="{imagesize.selector}" {f:if(condition: '{settings.images.preventrelayout}', then: 'class="embed-responsive"')}>
+<img {f:if(condition: '{settings.images.lazyload}', then: 'class="lazyload" ')}
+        sizes="{bk2k:mediaQuery(short: '1', min: 'lg')} {imagesize.lg.width}px,
+               {bk2k:mediaQuery(short: '1', min: 'md', max: 'lg')} {imagesize.md.width}px,
+               {bk2k:mediaQuery(short: '1', min: 'sm', max: 'md')} {imagesize.sm.width}px,
+               {bk2k:mediaQuery(short: '1', min: 'xs', max: 'sm')} {imagesize.xs.width}px,
+               {imagesize.xxs.width}px"
+     {f:if(condition: '{settings.images.lazyload}', then: 'data-')}srcset="{f:uri.image(image: file.0, width: '{imagesize.lg.width}{imagesize.lg.cropwidth}', height: '{imagesize.lg.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')} {imagesize.lg.width}w, 
+{f:uri.image(image: file.1, width: '{imagesize.md.width}{imagesize.md.cropwidth}', height: '{imagesize.md.height}{imagesize.md.cropheight}', absolute: '{settings.images.absoluteUrl}')} {imagesize.md.width}w, 
+{f:uri.image(image: file.2, width: '{imagesize.sm.width}{imagesize.sm.cropwidth}', height: '{imagesize.sm.height}{imagesize.sm.cropheight}', absolute: '{settings.images.absoluteUrl}')} {imagesize.sm.width}w, 
+{f:uri.image(image: file.3, width: '{imagesize.xs.width}{imagesize.xs.cropwidth}', height: '{imagesize.xs.height}{imagesize.xs.cropheight}', absolute: '{settings.images.absoluteUrl}')} {imagesize.xs.width}w,
+{f:uri.image(image: file.4, width: '{imagesize.xxs.width}{imagesize.xxs.cropwidth}', height: '{imagesize.xxs.height}{imagesize.xxs.cropheight}', absolute: '{settings.images.absoluteUrl}')} {imagesize.xxs.width}w"
+        
+     <f:if condition="{settings.images.lazyload}">
+      <f:then>
+        data-src="{f:uri.image(image: file.0, absolute: '{settings.images.absoluteUrl}')}" 
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+      </f:then>
+      <f:else>
+       src="{f:uri.image(image: file.0, absolute: '{settings.images.absoluteUrl}')}"
+       </f:else>
+     </f:if>
+     title="{file.0.title}"
+        alt="{file.0.alternative}"
+        />
+<noscript>
+    <img src="{f:uri.image(image: file.0, absolute: '{settings.images.absoluteUrl}')}" title="{file.0.title}" alt="{file.0.alternative}" />
+</noscript>
+</div>

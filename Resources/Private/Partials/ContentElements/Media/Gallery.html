@@ -5,7 +5,7 @@
     <f:if condition="{bk2k:simpleMath(operator: '&', a:'4', b: '{data.image_rendering}')} == 4">
       
       <f:then>
-        
+       
         <bk2k:imageSize>
           <f:render partial="Media/LayoutCss" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
         </bk2k:imageSize> 
@@ -47,11 +47,10 @@
         <f:if condition="{bk2k:simpleMath(operator: '&', a:'64', b: '{data.image_rendering}')} == 64">
           
           <f:then>
-            <f:comment>Bypass layout and link wrapper arround images</f:comment>
+            <f:comment>Bypass link wrapper arround images</f:comment>
             <bk2k:imageSize>
               <f:for each="{files}" as="file" iteration="fileIteration">
                 <f:render partial="Media/LayoutNoLink" arguments="{files: {0:file}, data: data, settings: settings, imagesize: imagesize}" />
-                <!-- f : render partial="Media/Type" arguments="{file: {0:file}, data: data, settings: settings, imagesize: imagesize}" /  -->
               </f:for>
             </bk2k:imageSize>
           </f:then>
@@ -79,27 +78,11 @@
               </f:then>
               
               <f:else>
-                <bk2k:imageSize imagewidth="{data.imagewidth}" imageheight="{data.imageheight}" />
-                <f:switch expression="{bk2k:simpleMath(operator:'&', a:'31', b:'{data.image_rendering}')}">
+                
+                <f:switch expression="{bk2k:simpleMath(operator:'&', a:'111', b:'{data.image_rendering}')}">
                   
-                  <f:case value="15">
+                  <f:case value="78">
                     <f:render partial="Media/Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
-                  </f:case>
-                  
-                  <f:case value="16">
-                    <div class="panel panel-danger">Art direction Image require a multiple of 5 images</div>
-                  </f:case>
-                  
-                  <f:case value="18">
-                    <div class="panel panel-danger">Art direction Picture require a multiple of 5 images</div>
-                  </f:case>
-                  
-                  <f:case value="19">
-                    <div class="panel panel-danger">Art direction Srcset require a multiple of 5 images</div>
-                  </f:case>
-                  
-                  <f:case value="20">
-                    <div class="panel panel-danger">Art direction Css background require a multiple of 5 images</div>
                   </f:case>
                   
                    <f:case default="TRUE">

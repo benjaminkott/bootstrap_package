@@ -18,7 +18,7 @@
                             <a href="{page.link}" target="{page.target}" title="{page.title}" class="thumbnail" data-equalheight="item" data-toggle="tooltip">
                                 <div class="thumbnail-image">
                                     <bk2k:imageSize xs="6" sm="4" border="5" store="1" ratio="{settings.media.ratio}">
-                                        <f:render partial="Media/Gallery" arguments="{files: {0:page.files.0}, data: {imagecols:1, image_rendering: 64}, settings: settings, imagesize: imagesize}" />
+                                        <f:render partial="Media/Gallery" arguments="{files: {0:page.files.0}, data: {uid: '{data.uid}-{page.data.uid}', imagecols:1, image_rendering: 64}, settings: settings, imagesize: imagesize}" />
                                     </bk2k:imageSize>
                                 </div>
                                 <div class="thumbnail-caption">

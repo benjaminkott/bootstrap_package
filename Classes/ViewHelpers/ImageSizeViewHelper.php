@@ -2,28 +2,32 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 /*
-*  The MIT License (MIT)
-*
-*  Copyright (c) 2016 Stephen Leger
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  The above copyright notice and this permission notice shall be included in
-*  all copies or substantial portions of the Software.
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-*/
+ *  The MIT License (MIT)
+ *
+ *  Copyright (c) 2016 Stephen Leger, http://www.3dservices.ch
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ */
+
+/**
+ * @author Stephen Leger <stephen@3dservices.ch>
+ */
 
 use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
@@ -137,7 +141,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $newSize['lg']['height'] = $arguments['imageheight'];
             }
         } else {
-            $xs = $arguments['xs'];
+            $xs = floatval($arguments['xs']);
             $sm = $arguments['sm'];
             $md = $arguments['md'];
             $lg = $arguments['lg'];
@@ -162,18 +166,21 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
             // images per row
             if ($arguments['store']) {
+
                 $newSize['xxs']['cols'] = round($maxcols/$xs);
                 $newSize['xs']['cols'] = round($maxcols/$xs);
                 $newSize['sm']['cols'] = round($maxcols/$sm);
                 $newSize['md']['cols'] = round($maxcols/$md);
                 $newSize['lg']['cols'] = round($maxcols/$lg);
             } else {
+
                 $gutter  = intval($settings['grid.']['gutter']);
                 $newSize['xxs']['width'] = ($size['xxs']['width'] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize['xs']['width'] = ($size['xs']['width'] + $gutter) / $maxcols * $xs - $gutter;
                 $newSize['sm']['width'] = ($size['sm']['width'] + $gutter) / $maxcols * $sm - $gutter;
                 $newSize['md']['width'] = ($size['md']['width'] + $gutter) / $maxcols * $md - $gutter;
                 $newSize['lg']['width'] = ($size['lg']['width'] + $gutter) / $maxcols * $lg - $gutter;
+
             }
         }
 
@@ -202,10 +209,12 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
 
+       
         $content = $renderChildrenClosure();
 
         // restore only if the tag is closed and has childrens
         if ($content != '') {
+
             ResponsiveImagesUtility::restoreImageSize($renderingContext, $size, $as);
         }
 

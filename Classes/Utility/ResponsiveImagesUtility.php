@@ -5,7 +5,7 @@ namespace BK2K\BootstrapPackage\Utility;
 /*
  *  The MIT License (MIT)
  *
- *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
+ *  Copyright (c) 2016 Stephen Leger, http://www.3dservices.ch
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,11 +29,22 @@ namespace BK2K\BootstrapPackage\Utility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * @author Stephen Leger <stephen@3dservices.ch>
  */
 class ResponsiveImagesUtility
 {
-
+    const TAG_DEFAULT   = 0x00;  // use default tag type from plugin.settings
+    const TAG_IMG       = 0x01;  // <img> with data attributes
+    const TAG_SRCSET    = 0x02;  // <img> with <srcset>
+    const TAG_PICTURE   = 0x03;  // <picture> tag
+    const TAG_CSS       = 0x04;  // css background
+    const TAG_NOTAG     = 0x0E;  // only generate image, for eg: lightbox link without image
+    const TAG_TYPE_MASQ = 0x0F;  
+    // features
+    const FEATURE_ART_DIRECTION = 0x010;  // use different images for every breakpoint + 1
+    const FEATURE_BYPASS_LINK   = 0x020;  // prevent link of image (use media/rendering/tag instead of media/tag)
+    const FEATURE_MASQ          = 0x0F0;
+  
    /**
     * getTyposcriptFrontendController
     * @return \TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController $tsfe
@@ -94,7 +105,7 @@ class ResponsiveImagesUtility
             'imageheight' => 0,
             'ratio' => 0,
             'crop' => '',
-            'border' => 0,
+            'border' => 0
         );
     }
 
@@ -110,7 +121,6 @@ class ResponsiveImagesUtility
 
    /**
     * Set "imagesize" to register
-    * @param bool $fluid
     * @param array $imagesize
     */
     public static function setImageSizeToRegister($imagesize)

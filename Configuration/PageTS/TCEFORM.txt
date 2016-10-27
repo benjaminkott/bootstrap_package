@@ -90,6 +90,10 @@ TCEFORM {
                 10 = 10
             }
         }
+        images_layout {
+           // disable columns bottom not working 
+           removeItems = 33
+        }
         imageorient {
         //  removeItems = 1,2,9,10
             types {
@@ -115,16 +119,13 @@ TCEFORM {
         // user defineable rendering methods
         image_rendering {
            // for future use (img/srcset/picture)
-           removeItems = 1,2,3,18,19
+           removeItems = 18,19
            addItems {
-              256 = user defined (100) see Partials/Media/Type
-              260 = user defined css (104) see Partials/Media/Type
-              272 = user defined art (110) see Partials/Media/Type
-              276 = user defined css art (114) see Partials/Media/Type
+           
            }
            types {
                textpic {
-                   removeItems =  1,2,3,18,19,47
+                   removeItems =  18,19,47
                }
            }
        }

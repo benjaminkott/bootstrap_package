@@ -1,5 +1,5 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<bk2k:imagesLayout files="{files}" data="{data}" imagesize="imagesize" as="collection"> 
+<bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection"> 
   <f:if condition="{collection.error}">
     <f:render partial="Media/LayoutError" arguments="{error: collection.error}" />
   </f:if>  

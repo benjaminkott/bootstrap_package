@@ -1,16 +1,15 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-
 <f:comment>
   image_rendering decimal
   
   tag type  max  = hex 0x0F  dec 15
   
-  DATA_ATTRIBUTE = hex 0x00  dec 0
   IMG            = hex 0x01  dec 1
   PICTURE        = hex 0x02  dec 2
   IMG_SRCSET     = hex 0x03  dec 3
   CSS            = hex 0x04  dec 4
-  NO_TAG         = hex 0x0F  dec 15
+  DATA_ATTRIBUTE = hex 0x05  dec 5
+  NO_TAG         = hex 0x0E  dec 15
   
   art direction  = hex 0x1F  dec 31
   
@@ -50,73 +49,33 @@
   FILETYPE_APPLICATION = 5;
 </f:comment>
 
-
-
 <f:switch expression="{file.0.type}">
 
     <f:case value="2">
-      <f:switch expression="{data.image_rendering}">
-        
-        <f:case value="2">
-          <div class="danger">Picture tag currently not supported</div>
-          <f:render partial="Media/Image" arguments="{file: file.0, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
-        <f:case value="3">
-          <div class="danger">Img srcset tag currently not supported</div>
-          <f:render partial="Media/Image" arguments="{file: file.0, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
+      
+        <f:switch expression="{data.image_rendering}">
+          
         <f:case value="4">
-          <f:render partial="Media/Rendering/Css" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
-        <f:case value="16">
-          <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
-        <f:case value="18">
-          <div class="danger">Picture tag currently not supported</div>
-          <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
-        <f:case value="19">
-          <div class="danger">Img srcset tag currently not supported</div>
-          <f:render partial="Media/ArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-        
-        <f:case value="20">
-          <f:render partial="Media/Rendering/CssArtDirection" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-
+          <f:comment>rendering css</f:comment>
+          <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+        </f:case>         
+          
+         <f:case value="20">
+          <f:comment>rendering css art</f:comment>
+          <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
+        </f:case>    
+          
         <f:case value="47">
-          <f:render partial="Media/LightboxLink" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/LightboxLink" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
         <f:case value="64">
           <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
-          <f:render partial="Media/Rendering/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-
-        <f:case value="256">
-          <f:comment>user defined rendering methods</f:comment>
-          <f:render partial="Media/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-
-        <f:case value="260">
-          <f:render partial="Media/Rendering/Css" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-
-        <f:case value="272">
-          <f:render partial="Media/ArtDirection" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>
-
-        <f:case value="276">
-          <f:render partial="Media/Rendering/CssArtDirection" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
         <f:case default="TRUE">
-          <f:render partial="Media/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
       </f:switch>
@@ -136,19 +95,17 @@
         
         <f:case value="64">
           <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
-          <f:render partial="Media/Rendering/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
         <f:case default="TRUE">
-          <f:render partial="Media/Image" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
+          <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
 
       </f:switch>
     </f:case>
 
     <f:case default="TRUE">
-      <f:debug>{file}</f:debug>
-      <f:debug>{data}</f:debug>
       
       <f:comment>Unknown file type</f:comment>
       <f:render partial="Media/Fallback" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />

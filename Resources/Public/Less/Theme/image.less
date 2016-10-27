@@ -5,9 +5,12 @@
     display: block;
     margin-bottom: @line-height-computed;
     line-height: @line-height-base;
-    > img,
-    a > img {
-
+    .embed-responsive {
+         width: 100%;
+    }
+    picture,
+    img {
+        image-rendering: pixelated;
         display: block;
         max-width: 100%;
      // fix for ie
@@ -16,6 +19,9 @@
         margin: 0 auto;
     }
     .caption {
+    //  .clearfix();
+    //  display: table-caption;
+    //  caption-side: bottom;
         padding: @thumbnail-caption-padding;
         padding-left: 0;
         padding-right: 0;

@@ -99,13 +99,13 @@
 
     // create "flex" columns and rows
     .row-flex{
-        border-spacing: @margin 0;
+      margin-left: ceil((@margin / -2));
+      margin-right: floor((@margin / -2)); 
     }
-    .table-flex{
-        margin-left: (@margin * -1);
-        margin-right: (@margin * -1);
-    }
+
     .col-flex {
+        padding-left:  ceil((@margin / 2));
+        padding-right: floor((@margin / 2));
         > figure {
             margin-bottom: @margin;
         } 

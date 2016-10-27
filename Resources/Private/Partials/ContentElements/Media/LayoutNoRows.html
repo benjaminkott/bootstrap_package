@@ -1,12 +1,12 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<bk2k:imagesLayout files="{files}" data="{data}" imagesize="imagesize" as="collection"> 
+<bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection"> 
    
   
    <f:if condition="{collection.error}">
     <f:render partial="Media/LayoutError" arguments="{error: collection.error}" />
   </f:if> 
   
-  
+    <f:render partial="Media/PreventRelayoutByCss" arguments="{collection: collection, settings: settings, onlypadding: 1}" />
   
   <f:switch expression="{data.images_layout}">
     <f:case value="17">
@@ -24,7 +24,6 @@
     #row-{data.uid} > .col-flex<f:format.raw>{</f:format.raw>width:{collection.colpercent}%;<f:format.raw>}</f:format.raw>
   </bk2k:css> 
   
-   <div class="table-flex">
   <div class="row-flex" id="row-{data.uid}">
     <div class="col-flex {align}">
       <f:for each="{collection.files}" as="file" iteration="fileIteration">
@@ -41,5 +40,5 @@
       </f:for>
     </div>
     </div>
-  </div> 
+
 </bk2k:imagesLayout>

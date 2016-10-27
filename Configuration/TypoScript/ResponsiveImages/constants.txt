@@ -14,6 +14,7 @@
 # customsubcategory=5700=Javascript
 # customsubcategory=5710=Css
 
+
 plugin.bootstrap_package.settings {
 
     grid {
@@ -55,9 +56,7 @@ plugin.bootstrap_package.settings {
             lg = 0
             # cat=grid system/5620/250; type=boolean; label=4 Fluid : Container behaviour fluid extra large
             xl = 0
-            # cat=grid system/5610/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout 
-            breakpoint = 3        
-        }
+       }
         
         # cat=grid system/5610/200; type=int+; label=Number of columns : Maximum number of columns
         columns = 12
@@ -66,10 +65,21 @@ plugin.bootstrap_package.settings {
     }
 
     images {
-        # cat=responsive images/5650/110; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
-        layout.columnsheightratio = 56.25
-        
+        # cat=grid system/5650/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout 
+        breakpoint = 3        
        
+        # cat=responsive images/5650/100; type=options[Img with srcset=3, Picture=2, Img with data attributes=1]; label=Default tag type : Tag type used to render images
+        tag = 2
+
+        # cat=responsive images/5650/120; type=options[Enable lazyload (b-lazy)=2, Enable lazyload (compat mode)=1, Disable lazyload=0]; label=Loading method : Loading method for images.
+        lazyload = 2
+
+        # cat=responsive images/5650/130; type=boolean; label=Relayout : Prevent relayout by providing image sizes via css
+        preventrelayout = 1
+
+        # cat=responsive images/5650/140; type=boolean; label=Placeholder : Generate placeholder for images (may be wrong ratio / source with art direction)
+        placeholder = 1
+
         borderspace {
 
             # cat=grid system/5620/210; type=int+; label=1 Border space : Space between images extra small (css must be adjusted according) 
@@ -83,8 +93,12 @@ plugin.bootstrap_package.settings {
 
         }
 
-        # cat=responsive images/5650/100; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
+        # cat=responsive images/5650/150; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
         absoluteUrl = 1
+
+        # cat=responsive images/5650/160; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
+        layout.columnsheightratio = 56.25
+
     }
     css {
         # cat=javascript and css/5710/100; type=boolean; label=Css in body : Render css in body instead of head (for use with ajax loaded content)
