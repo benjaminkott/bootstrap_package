@@ -235,11 +235,10 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 // percent of total width for columns style
                 $collection['colpercent'] = 100 / $rowCount;
                 break;
-
-            case 34:
-                // no cols right
+            case 34:  // no cols right
                 // reverse array to reorder images while floating right
                 $files = array_reverse($files);
+                // no break
             case 18:  // no cols left
                 // no cols with equalheight
                 $rowCount = ceil($imgCount/$colCount);
