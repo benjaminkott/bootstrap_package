@@ -51,7 +51,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
         $this->registerArgument('data', 'array', 'cObject data', true);
         $this->registerArgument('files', 'array', 'file properties', true);
         $this->registerArgument('settings', 'array', 'fluidtemplate settings', true);
-   }
+    }
 
     /**
     * @return string the rendered string
@@ -239,7 +239,7 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
             case 34:  // no cols right
                 // reverse array to reorder images while floating right
                 $collection['files'] = array_reverse($collection['files']);
-				// no break
+                // no break
             case 18:  // no cols left
                 // no cols with equalheight
                 $rowCount = ceil($imgCount/$colCount);
@@ -338,7 +338,6 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
 
                 if (intval($data['imagewidth']) > 0 and $j < intval($settings['images']['breakpoint'])) {
                     $width = $data['imagewidth'] * $size[$key]['width'] / $size['lg']['width'] - $size['border'];
-
                 } else {
                     $width = ($size[$key]['width'] + $borderspace - $size[$key]['margin']) / $size[$key]['cols'] - $borderspace - $size['border'];
                 }
