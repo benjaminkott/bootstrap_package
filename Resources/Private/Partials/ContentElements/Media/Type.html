@@ -1,42 +1,12 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <f:comment>
   image_rendering decimal
-  
-  tag type  max  = hex 0x0F  dec 15
-  
-  IMG            = hex 0x01  dec 1
-  PICTURE        = hex 0x02  dec 2
-  IMG_SRCSET     = hex 0x03  dec 3
+
   CSS            = hex 0x04  dec 4
-  DATA_ATTRIBUTE = hex 0x05  dec 5
   NO_TAG         = hex 0x0E  dec 15
-  
-  art direction  = hex 0x1F  dec 31
-  
-  ART_DIRECTION  = hex 0x10  dec 16
-  IMG unavailable
-  PICTURE_ART    = hex 0x12  dec 18
-  SRCSET_ART     = hex 0x13  dec 19
-  CSS_ART        = hex 0x14  dec 20
-  
-  
   LIGHTBOX_LINK  = hex 0x2F  dec 47
   BYPASS_LINK    = hex 0x40  dec 64
-  BYPASS_LINK_ART= hex 0x50  dec 80
-  
-  
-  USER_DEFINED   = hex 0x100 dec 256
-  
-  decimal :
-  STANDARD_ART      = 16
-  PICTURE_ART       = 18
-  SRCSET_ART        = 19 
-  CSS_ART           = 20
-  
-  USER_DEFINED        = bit 13  hex 0x100 dec 256;
-  USER_DEFINED_CSS    =         hex 0x104 dec 260;
-  USER_DEFINED_ART    =         hex 0x110 dec 272;
-  USER_DEFINED_CSS_ART=         hex 0x114 dec 276;  
+
 </f:comment>
 
 <f:comment>
@@ -52,19 +22,14 @@
 <f:switch expression="{file.0.type}">
 
     <f:case value="2">
-      
+
         <f:switch expression="{data.image_rendering}">
-          
+
         <f:case value="4">
           <f:comment>rendering css</f:comment>
           <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>         
-          
-         <f:case value="20">
-          <f:comment>rendering css art</f:comment>
-          <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
-        </f:case>    
-          
+        </f:case>
+
         <f:case value="47">
           <f:render partial="Media/LightboxLink" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
@@ -92,7 +57,7 @@
 
     <f:case value="5">
       <f:switch expression="{data.image_rendering}">
-        
+
         <f:case value="64">
           <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
           <f:render partial="Media/ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
@@ -106,7 +71,7 @@
     </f:case>
 
     <f:case default="TRUE">
-      
+
       <f:comment>Unknown file type</f:comment>
       <f:render partial="Media/Fallback" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
     </f:case>

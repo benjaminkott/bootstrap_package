@@ -6,7 +6,7 @@
 
 </f:section>
 <f:section name="Main">
-
+<bk2k:imageSize>
     <f:if condition="{records}">
         <bk2k:css inline="{settings.moveCssToBody}">
              <f:switch expression="{data.pi_flexform.height_mode}">
@@ -43,19 +43,22 @@
                     <div id="{itemId}"
                         class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}"
                         data-itemno="{iteration.index}" style="{itemStyleColor}">
-                        <f:switch expression="{item.data.item_type}">
+
+
+                          <f:switch expression="{item.data.item_type}">
                             <f:case value="header">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
-                                </f:link.page>
+                              <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
+                              </f:link.page>
                             </f:case>
                             <f:case value="textandimage">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
-                                </f:link.page>
+                              <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
+                              </f:link.page>
                             </f:case>
                             <f:case value="html">{item.data.bodytext->f:format.raw()}</f:case>
-                        </f:switch>
+                          </f:switch>
+
                     </div>
                 </f:for>
             </div>
@@ -63,5 +66,5 @@
             <f:render partial="Carousel/Control/Control" arguments="{_all}"/>
         </div>
     </f:if>
-
+</bk2k:imageSize>
 </f:section>

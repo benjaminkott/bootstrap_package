@@ -157,3 +157,11 @@ CREATE TABLE tx_bootstrappackage_tab_item (
     KEY t3ver_oid (t3ver_oid,t3ver_wsid),
     KEY language (l10n_parent,sys_language_uid)
 );
+
+#
+# Table structure for table 'sys_file_reference'
+#
+CREATE TABLE sys_file_reference (
+  alternativefile int(11),
+  alternativetag varchar(40) DEFAULT ''
+);

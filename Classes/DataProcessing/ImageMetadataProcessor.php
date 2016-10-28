@@ -34,36 +34,17 @@ use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
-* Load file metadata to be able to get image sizes
-* and crop settings.
-* Precompute equal Height (inspired from CssStyledContentController)
-* include support for art direction.
-*
+* Load file metadata
 * Example TypoScript configuration:
 *
 * 10 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
 * 10 {
 *   as = files
 *  }
-* images_layout
-*
-* default: automatic row/col  0x00 dec 0
-* no_rows   =                 0x01 dec 1
-* no_cols   =                 0x02 dec 2
-* equalsize =                 0x08 dec 8
-* start     =                 0x10 dec 16
-* end       =                 0x20 dec 32
-* no_rows equalwidth          0x09 dec 9
-* no_rows start               0x11 dec 17
-* no_rows end                 0x21 dec 33
-* no_cols equalheight         0x0A dec 10
-* no_cols start               0x11 dec 18
-* no_cols end                 0x21 dec 34
-*
 */
-use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 class ImageMetadataProcessor implements DataProcessorInterface
 {

@@ -47,6 +47,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         $this->registerArgument('sm', 'float', 'Number of columns for small', false, 0);
         $this->registerArgument('md', 'float', 'Number of columns for medium', false, 0);
         $this->registerArgument('lg', 'float', 'Number of columns for large', false, 0);
+        $this->registerArgument('fluid', 'float', 'Container fluid', false, -1);
         $this->registerArgument('border', 'integer', 'Border size of each image', false, 0);
         $this->registerArgument('marginxs', 'integer', 'Margin for extra small', false, 0);
         $this->registerArgument('marginsm', 'integer', 'Margin for small', false, 0);
@@ -93,7 +94,11 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         // automatic size (containers)
         $size = ResponsiveImagesUtility::backupImageSize($renderingContext, $settings, $as);
 
-        // copy
+        // layout change, we are now in a container
+        if ($arguments['fluid'] == 0 and $size['fluid'] == 1) {
+            $size = ResponsiveImagesUtility::getDefault($settings, false);
+        }
+
         $newSize = $size;
 
         if ($arguments['border'] > 0) {
@@ -205,7 +210,6 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
         $newSize['lg']['margin'] += $marginlg;
 
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
-
 
         $content = $renderChildrenClosure();
 

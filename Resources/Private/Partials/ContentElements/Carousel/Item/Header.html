@@ -1,5 +1,9 @@
 <div class="valign{f:if(condition: data.pi_flexform.valign,then:' valign-{data.pi_flexform.valign}')}{f:if(condition: data.pi_flexform.align, then:' valign-{data.pi_flexform.align}')}" {f:if(condition: item.data.text_color,then:'style="color: {item.data.text_color};"')}>
-    <div class="vcontainer col-xs-12">
+   <f:if condition="{imagesize.fluid}">
+     <div class="container">
+       <div class="row">
+   </f:if>
+   <div class="vcontainer col-xs-12">
         <div class="carousel-text-inner">
             <h{item.data.header_layout} class="text-{f:if(condition: data.pi_flexform.align,then:'{data.pi_flexform.align}', else:'center')} awesome"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
             <f:if condition="{item.data.subheader}">
@@ -7,4 +11,8 @@
             </f:if>
         </div>
     </div>
+   <f:if condition="{imagesize.fluid}">
+       </div>
+     </div>
+  </f:if>
 </div>

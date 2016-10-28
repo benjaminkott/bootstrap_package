@@ -1,15 +1,28 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
 <div class="valign{f:if(condition: data.pi_flexform.valign, then:' valign-{data.pi_flexform.valign}')}{f:if(condition: data.pi_flexform.align,then:' valign-{data.pi_flexform.align}')}">
+
+  <f:if condition="{imagesize.fluid}">
+     <div class="container">
+       <div class="row">
+         <div class="col-xs-12">
+  </f:if>
+  <bk2k:imageSize fluid="0">
   <div class="carousel-text lead col-xs-4 vcontainer" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
     <h{item.data.header_layout} class="text-{f:if(condition: data.pi_flexform.align,then:'{data.pi_flexform.align}', else:'center')}"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
-    <f:format.html>{item.data.bodytext}</f:format.html>  
+    <f:format.html>{item.data.bodytext}</f:format.html>
   </div>
   <div class="carousel-image col-xs-8 vcontainer">
     <f:if condition="{item.images.0}">
       <bk2k:imageSize xs="8" marginxs="40">
-        <f:render partial="Media/Gallery" arguments="{files: item.images, data: {imagecols: '{item.images -> f:count()}'}, settings: settings, imagesize:imagesize}"/>
-      </bk2k:imageSize>    
+        <f:render partial="Media/Gallery" arguments="{files: item.images, data: {uid: '{data.uid}',imagecols: '{item.images -> f:count()}'}, settings: settings, imagesize:imagesize}"/>
+      </bk2k:imageSize>
     </f:if>
   </div>
+   </bk2k:imageSize>
+  <f:if condition="{imagesize.fluid}">
+         </div>
+       </div>
+     </div>
+  </f:if>
+
 </div>
- 

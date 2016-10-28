@@ -1,24 +1,22 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-{namespace lef = LEF\LefResponsiveImages\ViewHelpers}
-
 <bk2k:var name="tag" value="{bk2k:simpleMath(operator:'&', a:'{data.image_rendering}', b: '15')}" />
 
 <f:switch expression="{f:if(condition: '{tag}', then:'{tag}', else:'{settings.images.tag}')}">
-  
+
   <f:case value="2">
     <f:render partial="Media/Rendering/Picture" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
   </f:case>
-  
+
   <f:case value="3">
     <f:render partial="Media/Rendering/ImgSrcset" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
   </f:case>
-  
+
   <f:case value="4">
     <f:render partial="Media/Rendering/Css" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
   </f:case>
-  
+
   <f:case default="TRUE">
     <f:render partial="Media/Rendering/Img" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
   </f:case>
-  
+
 </f:switch>

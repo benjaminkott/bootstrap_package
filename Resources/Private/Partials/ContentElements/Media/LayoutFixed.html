@@ -1,5 +1,4 @@
 {namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<f:comment>Split files by collection (1 for regular media, 5 for art direction) </f:comment>
 <bk2k:var name="columns" value="{bk2k:simpleMath( operator:'min', a:'{data.imagecols}', b:'{files->f:count()}')}" />
 <f:switch expression="{columns}">
   <f:case value="2">
@@ -38,13 +37,13 @@
 
   <f:if condition="{collection.error}">
     <f:render partial="Media/LayoutError" arguments="{error: collection.error}" />
-  </f:if>  
-  <f:render partial="Media/PreventRelayoutByCss" arguments="{collection: collection, settings: settings, onlypadding: '1'}" />
-  
+  </f:if>
+  <f:render partial="Media/PreventRelayoutByCss" arguments="{collection: collection, settings: settings}" />
+
   <div class="row gutter-flex">
-    
+
     <f:for each="{collection.files}" as="file" iteration="fileIteration">
-      
+
       <f:switch expression="{columns}">
         <f:case value="2">
           <div class="col-sm-6">
@@ -97,9 +96,9 @@
           </div>
         </f:case>
       </f:switch>
-      
+
       <f:comment>Reset for columns / lines (replace equalheight.js by markup)</f:comment>
-      
+
       <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
         <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{collection.cols.xs}', operator:'%')} < 0.1">
           <div class="clearfix visible-xs-block"></div>
@@ -114,10 +113,9 @@
           <div class="clearfix visible-lg-block"></div>
         </f:if>
       </f:if>
-      
-    </f:for> 
-    
-  </div> 
-  
-</bk2k:imagesLayout>
 
+    </f:for>
+
+  </div>
+
+</bk2k:imagesLayout>

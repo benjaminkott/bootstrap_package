@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
     <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
-          product-name="bootstrap_package">
+        product-name="bootstrap_package">
         <header/>
         <body>
 
@@ -417,7 +417,32 @@
             <trans-unit id="contextualalternatives.danger">
                 <source>Danger</source>
             </trans-unit>
-            
+
+            <trans-unit id="field.alternativefile">
+                <source>Art direction</source>
+            </trans-unit>
+            <trans-unit id="button.addartdirection">
+                <source>Add art direction alternative</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints">
+                <source>Breakpoint</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.lg">
+                <source>Extra Large</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.md">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.sm">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.xs">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.xxs">
+                <source>Extra Small</source>
+            </trans-unit>
+
             <trans-unit id="field.images_layout">
                 <source>Layout multi-images</source>
             </trans-unit>
@@ -442,41 +467,20 @@
             <trans-unit id="field.images_layout_options.I.6">
                 <source>Columns bottom</source>
             </trans-unit>
-          
+
             <trans-unit id="field.image_rendering">
                 <source>Rendering method</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.0">
-                <source>Standard</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.1">
-                <source>Img tag</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.2">
-                <source>Picture tag</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.3">
-                <source>Img srcset</source>
+                <source>Default</source>
             </trans-unit>
             <trans-unit id="field.image_rendering_options.I.4">
                 <source>Css background</source>
             </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.5">
-                <source>Art direction</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.6">
-                <source>Picture Art direction</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.7">
-                <source>Img srcset Art direction</source>
-            </trans-unit>
-            <trans-unit id="field.image_rendering_options.I.8">
-                <source>Css background Art direction</source>
-            </trans-unit>
             <trans-unit id="field.image_rendering_options.I.9">
                 <source>Lightbox link with title as text</source>
             </trans-unit>
-          
+
             <trans-unit id="field.image_cssselector">
                 <source>Css background selector</source>
             </trans-unit>
