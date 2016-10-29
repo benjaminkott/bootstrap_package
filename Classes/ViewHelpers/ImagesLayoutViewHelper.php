@@ -281,7 +281,6 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
                 // when fluid, image sizes depends on layout
                 // percent of width for each images
                 $collection['files'][$k]['size'][$key]['percent'] = 100 * ($collection['files'][$k]['size'][$key]['width'] + $borderspace) / ($size[$key]['width'] + $borderspace);
-
             }
         }
     }
@@ -338,7 +337,6 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
 
                 if (intval($data['imagewidth']) > 0 and $j < intval($settings['images']['breakpoint'])) {
                     $width = $data['imagewidth'] * $size[$key]['width'] / $size['lg']['width'] - $size['border'];
-
                 } else {
                     $width = ($size[$key]['width'] + $borderspace) / $size[$key]['cols'] - $borderspace - $size['border'];
                 }
@@ -488,14 +486,13 @@ class ImagesLayoutViewHelper extends AbstractViewHelper implements CompilableInt
 
                 // note : art direction may have as many source / ratio as breakpoints
                 // so placeholder may be a wrong image with wrong ratio
-                if ($conf['images.']['placeholder.']['mode'] == 1){
+                if ($conf['images.']['placeholder.']['mode'] == 1) {
                     $collection['files'][$k]['size']['placeholder']['width']  = $conf['images.']['placeholder.']['size'];
                     $collection['files'][$k]['size']['placeholder']['height'] = floor($conf['images.']['placeholder.']['size'] * $ratio);
                 }
                 // set a height as percent of width for a css padding-bottom if needed
                 // for eg: prevent relayout of pages while loading images
                 $collection['files'][$k]['size'][$key]['padding'] = 100 * $collection['files'][$k]['size'][$key]['height']/ $collection['files'][$k]['size'][$key]['width'];
-
             }
             // allow css styling for image - eg: set absolute size in order to prevent relayout
             if (!$collection['files'][$k]['size']['selector']) {
