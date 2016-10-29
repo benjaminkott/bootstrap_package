@@ -33,18 +33,6 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
  */
 class ResponsiveImagesUtility
 {
-    const TAG_DEFAULT   = 0x00;  // use default tag type from plugin.settings
-    const TAG_IMG       = 0x01;  // <img> with data attributes
-    const TAG_SRCSET    = 0x02;  // <img> with <srcset>
-    const TAG_PICTURE   = 0x03;  // <picture> tag
-    const TAG_CSS       = 0x04;  // css background
-    const TAG_NOTAG     = 0x0E;  // only generate image, for eg: lightbox link without image
-    const TAG_TYPE_MASQ = 0x0F;
-    // features
-    const FEATURE_ART_DIRECTION = 0x010;  // use different images for every breakpoint + 1
-    const FEATURE_BYPASS_LINK   = 0x020;  // prevent link of image (use media/rendering/tag instead of media/tag)
-    const FEATURE_MASQ          = 0x0F0;
-
    /**
     * getTyposcriptFrontendController
     * @return \TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController $tsfe
@@ -74,32 +62,27 @@ class ResponsiveImagesUtility
             'xxs' => array(
                 'width' => $screen['xs'] - $gutter, // container xs
                 'height' => 0,
-                'cols' => 1,
-                'margin' => 0
+                'cols' => 1
             ),
             'xs' => array(
                 'width' =>  (($fluid['xs'] or $overridefluid) ? $screen['sm'] - $gutter : $container['xs']),  // container sm
                 'height' => 0,
-                'cols' => 1,
-                'margin' => 0
+                'cols' => 1
             ),
             'sm' =>  array(
                 'width' => (($fluid['sm'] or $overridefluid) ? $screen['md'] - $gutter : $container['sm']),  // container md
                 'height' => 0,
-                'cols' => 1,
-                'margin' => 0
+                'cols' => 1
             ),
             'md' => array(
                 'width' =>  (($fluid['md'] or $overridefluid) ? $screen['lg'] - $gutter : $container['md']),  // container lg
                 'height' => 0,
-                'cols' => 1,
-                'margin' => 0
+                'cols' => 1
             ),
             'lg' => array(
                 'width' =>  (($fluid['lg'] or $overridefluid) ? $screen['xl'] - $gutter : $container['lg']),  // container xl
                 'height' => 0,
-                'cols' => 1,
-                'margin' => 0
+                'cols' => 1
             ),
             'imagewidth' => 0,
             'imageheight' => 0,

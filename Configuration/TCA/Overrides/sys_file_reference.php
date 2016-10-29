@@ -1,5 +1,5 @@
 <?php
-
+  
 $GLOBALS['TCA']['sys_file_reference']['columns']['alternativefile'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.alternativefile',
     // hide when referenced from another sys_file_reference
@@ -9,7 +9,9 @@ $GLOBALS['TCA']['sys_file_reference']['columns']['alternativefile'] = [
         'alternativefile',
         [
             'appearance' => array(
-                'createNewRelationLinkTitle' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:button.addartdirection'
+                'createNewRelationLinkTitle' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:button.addartdirection',
+                'collapseAll' => 1,
+                'expandSingle' => 1,
             ),
             'foreign_record_defaults' => array(
                 'tablenames' => 'sys_file_reference'
@@ -45,6 +47,7 @@ $GLOBALS['TCA']['sys_file_reference']['columns']['alternativefile'] = [
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
     )
 ];
+  
 
 $GLOBALS['TCA']['sys_file_reference']['columns']['alternativetag'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints',
@@ -53,7 +56,7 @@ $GLOBALS['TCA']['sys_file_reference']['columns']['alternativetag'] = [
     'config' => [
         'type' => 'select',
         'items' => [
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints.lg', 'lg'],
+        //  ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints.lg', 'lg'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints.md', 'md'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints.sm', 'sm'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.breakpoints.xs', 'xs'],
@@ -62,7 +65,8 @@ $GLOBALS['TCA']['sys_file_reference']['columns']['alternativetag'] = [
         'size' => 5
     ]
 ];
-
+  
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_reference', 'basicoverlayPalette', '--linebreak--,alternativetag');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_reference', 'imageoverlayPalette', '--linebreak--,alternativefile');
 // change label in the IRRE title bar
 $GLOBALS['TCA']['sys_file_reference']['ctrl']['formattedLabel_userFunc'] = BK2K\BootstrapPackage\Service\UserFileInlineLabelService::class . '->getInlineLabel';

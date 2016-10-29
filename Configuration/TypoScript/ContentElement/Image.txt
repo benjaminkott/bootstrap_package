@@ -38,7 +38,7 @@ tt_content.image {
             tag = {$plugin.bootstrap_package.settings.images.tag}
             lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
             preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
-            placeholder = {$plugin.bootstrap_package.settings.images.placeholder}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder.mode}
             absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
             breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
         }

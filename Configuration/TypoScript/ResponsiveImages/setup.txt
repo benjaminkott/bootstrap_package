@@ -38,7 +38,8 @@ plugin.bootstrap_package {
     }
     images {
       layout.columnsheightratio = {$plugin.bootstrap_package.settings.images.layout.columnsheightratio}
-      
+      placeholder.size = {$plugin.bootstrap_package.settings.images.placeholder.size}
+      placeholder.mode = {$plugin.bootstrap_package.settings.images.placeholder.mode}
       borderspace {
         xxs = {$plugin.bootstrap_package.settings.images.borderspace.xs}
         xs = {$plugin.bootstrap_package.settings.images.borderspace.xs}

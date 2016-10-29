@@ -23,6 +23,18 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
+ *
+ *  Compute real image size according your layout
+ *  Use this on content elements changing layout via bootstrap col-xx-yy classes
+ *  or with user defined margins .. see arguments below.
+ *
+ *  NB: standard frames (well, jumbotron, indent) are allready taken into account
+ *      in /Partials/Media/Gallery.html
+ *
+ *  eg:
+ *  <div class="carousel-image col-xs-8" style="margin:40px;">
+ *     <bk2k:imageSize xs="8" marginxs="40">
+ *
  */
 
 /**
@@ -34,21 +46,18 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
-/**
-    * @author Stephen Leger
-*/
 class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterface
 {
     public function initializeArguments()
     {
         parent::initializeArguments();
         $this->registerArgument('as', 'string', 'Variable name used to store image sizes', false, 'imagesize');
-        $this->registerArgument('xs', 'float', 'Number of columns for extra small', false, 0);
-        $this->registerArgument('sm', 'float', 'Number of columns for small', false, 0);
-        $this->registerArgument('md', 'float', 'Number of columns for medium', false, 0);
-        $this->registerArgument('lg', 'float', 'Number of columns for large', false, 0);
+        $this->registerArgument('xs', 'float', 'Number of columns for extra small (may be a float for non standard columns number)', false, 0);
+        $this->registerArgument('sm', 'float', 'Number of columns for small (may be a float for non standard columns number)', false, 0);
+        $this->registerArgument('md', 'float', 'Number of columns for medium (may be a float for non standard columns number)', false, 0);
+        $this->registerArgument('lg', 'float', 'Number of columns for large (may be a float for non standard columns number)', false, 0);
         $this->registerArgument('fluid', 'float', 'Container fluid', false, -1);
-        $this->registerArgument('border', 'integer', 'Border size of each image', false, 0);
+        $this->registerArgument('border', 'integer', 'Border size arround each image', false, 0);
         $this->registerArgument('marginxs', 'integer', 'Margin for extra small', false, 0);
         $this->registerArgument('marginsm', 'integer', 'Margin for small', false, 0);
         $this->registerArgument('marginmd', 'integer', 'Margin for medium', false, 0);
@@ -91,21 +100,22 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
 
         $as = $arguments['as'];
 
-        // automatic size (containers)
+        // retrieve and store current size
         $size = ResponsiveImagesUtility::backupImageSize($renderingContext, $settings, $as);
 
         // layout change, we are now in a container
         if ($arguments['fluid'] == 0 and $size['fluid'] == 1) {
-            $size = ResponsiveImagesUtility::getDefault($settings, false);
+            $newSize = ResponsiveImagesUtility::getDefault($settings, false);
+        } else {
+            $newSize = $size;
         }
 
-        $newSize = $size;
-
+        // border width wrapping all images
         if ($arguments['border'] > 0) {
             $newSize['border'] = 2*$arguments['border'];
         }
+
         // user defined image ratio, will crop either width or height
-        // require file argument to work correctly
         if ($arguments['ratio'] > 0) {
             $newSize['ratio'] = $arguments['ratio'] / 100;
         }
@@ -146,6 +156,7 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $newSize['lg']['height'] = $arguments['imageheight'];
             }
         } else {
+            // number of columns (may be a float for non standard columns number)
             $xs = floatval($arguments['xs']);
             $sm = $arguments['sm'];
             $md = $arguments['md'];
@@ -154,9 +165,9 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
             $maxcols = intval($settings['grid.']['columns']);
 
             if ($xs == 0) {
-                $xs = 12;
+                $xs = $maxcols;
             }
-            // propage le nombre de colonnes
+            // inherits from smaller
             if ($sm == 0) {
                 $sm = $xs;
             }
@@ -169,7 +180,32 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $lg = $md;
             }
 
-            // images per row
+            $marginxs = 2*$arguments['marginxs'];
+            $marginsm = 2*$arguments['marginsm'];
+            $marginmd = 2*$arguments['marginmd'];
+            $marginlg = 2*$arguments['marginlg'];
+
+            if ($marginsm == 0) {
+                $marginsm = $marginxs;
+            }
+
+            if ($marginmd == 0) {
+                $marginmd = $marginsm;
+            }
+
+            if ($marginlg == 0) {
+                $marginlg = $marginmd;
+            }
+
+            // margins
+            $newSize['xxs']['width'] -= $marginxs;
+            $newSize['xs']['width'] -= $marginxs;
+            $newSize['sm']['width'] -= $marginsm;
+            $newSize['md']['width'] -= $marginmd;
+            $newSize['lg']['width'] -= $marginlg;
+
+            // store images per row, allow to dynamically divide available space
+            // taking variable borderspace in account
             if ($arguments['store']) {
                 $newSize['xxs']['cols'] = round($maxcols/$xs);
                 $newSize['xs']['cols'] = round($maxcols/$xs);
@@ -178,36 +214,13 @@ class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterf
                 $newSize['lg']['cols'] = round($maxcols/$lg);
             } else {
                 $gutter  = intval($settings['grid.']['gutter']);
-                $newSize['xxs']['width'] = ($size['xxs']['width'] + $gutter) / $maxcols * $xs - $gutter;
-                $newSize['xs']['width'] = ($size['xs']['width'] + $gutter) / $maxcols * $xs - $gutter;
-                $newSize['sm']['width'] = ($size['sm']['width'] + $gutter) / $maxcols * $sm - $gutter;
-                $newSize['md']['width'] = ($size['md']['width'] + $gutter) / $maxcols * $md - $gutter;
-                $newSize['lg']['width'] = ($size['lg']['width'] + $gutter) / $maxcols * $lg - $gutter;
+                $newSize['xxs']['width'] = ($newSize['xxs']['width'] + $gutter) / $maxcols * $xs - $gutter;
+                $newSize['xs']['width'] = ($newSize['xs']['width'] + $gutter) / $maxcols * $xs - $gutter;
+                $newSize['sm']['width'] = ($newSize['sm']['width'] + $gutter) / $maxcols * $sm - $gutter;
+                $newSize['md']['width'] = ($newSize['md']['width'] + $gutter) / $maxcols * $md - $gutter;
+                $newSize['lg']['width'] = ($newSize['lg']['width'] + $gutter) / $maxcols * $lg - $gutter;
             }
         }
-
-        $marginxs = 2*$arguments['marginxs'];
-        $marginsm = 2*$arguments['marginsm'];
-        $marginmd = 2*$arguments['marginmd'];
-        $marginlg = 2*$arguments['marginlg'];
-
-        if ($marginsm == 0) {
-            $marginsm = $marginxs;
-        }
-
-        if ($marginmd == 0) {
-            $marginmd = $marginsm;
-        }
-
-        if ($marginlg == 0) {
-            $marginlg = $marginmd;
-        }
-
-        $newSize['xxs']['margin'] += $marginxs;
-        $newSize['xs']['margin'] += $marginxs;
-        $newSize['sm']['margin'] += $marginsm;
-        $newSize['md']['margin'] += $marginmd;
-        $newSize['lg']['margin'] += $marginlg;
 
         $renderingContext->getTemplateVariableContainer()->add($as, $newSize);
 

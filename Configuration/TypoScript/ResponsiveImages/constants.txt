@@ -77,8 +77,11 @@ plugin.bootstrap_package.settings {
         # cat=responsive images/5650/130; type=boolean; label=Relayout : Prevent relayout by providing image sizes via css
         preventrelayout = 1
 
-        # cat=responsive images/5650/140; type=boolean; label=Placeholder : Generate placeholder for images (may be wrong ratio / source with art direction)
-        placeholder = 1
+        # cat=responsive images/5650/140; type=options[Small thumb=2, Inline=1, loader.gif=0]; label=Placeholder : Placeholder for images
+        placeholder.mode = 1
+
+        # cat=responsive images/5650/150; type=int+; label=Placeholder Size : Size of images placeholder
+        placeholder.size = 50
 
         borderspace {
 
