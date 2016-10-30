@@ -105,8 +105,10 @@ class TemplateWidthUserFunc
     {
         $current = 0;
         foreach ($this->imagesize as $key => $size) {
-            $current = $this->getConf($conf, "margin" . $key, $current, 0);
-            $this->imagesize[$key]['width'] -= $current;
+            if (is_array($size) and isset($size['width'])) {
+                $current = $this->getConf($conf, "margin" . $key, $current, 0);
+                $this->imagesize[$key]['width'] -= $current;
+            }
         }
     }
 
@@ -119,8 +121,10 @@ class TemplateWidthUserFunc
     {
         $current = $this->settings['grid.']['columns'];
         foreach ($this->imagesize as $key => $size) {
-            $current = $this->getConf($conf, $key, $current, 1);
-            $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) * ($current / $this->settings['grid.']['columns']) - $this->settings['grid.']['gutter'];
+            if (is_array($size) and isset($size['width'])) {
+                $current = $this->getConf($conf, $key, $current, 1);
+                $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) * ($current / $this->settings['grid.']['columns']) - $this->settings['grid.']['gutter'];
+            }
         }
     }
 
@@ -133,8 +137,10 @@ class TemplateWidthUserFunc
     {
         $current = 1;
         foreach ($this->imagesize as $key => $size) {
-            $current = $this->getConf($conf, $key, $current, $current);
-            $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) / $current  - $this->settings['grid.']['gutter'];
+            if (is_array($size) and isset($size['width'])) {
+                $current = $this->getConf($conf, $key, $current, $current);
+                $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) / $current  - $this->settings['grid.']['gutter'];
+            }
         }
     }
 
