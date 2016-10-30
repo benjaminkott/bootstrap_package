@@ -103,7 +103,7 @@ class ImageMetadataProcessor implements DataProcessorInterface
     /**
     * Update image metadata
     *
-    * @param TYPO3\CMS\Core\Resource\File $originalFile
+    * @param TYPO3\CMS\Core\Resource\File $file
     * @return void
     */
     protected function updateMetadata(&$file)

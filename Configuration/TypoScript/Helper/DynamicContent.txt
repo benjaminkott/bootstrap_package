@@ -74,7 +74,7 @@ lib.dynamicContent {
        xs < .xxs
        xs.field = xs
        sm < .xxs
-       sm.filed = sm
+       sm.field = sm
        md < .xxs
        md.field = md
        lg < .xxs
@@ -85,7 +85,7 @@ lib.dynamicContent {
        marginxs < .xxs
        marginxs.field = marginxs
        marginsm < .xxs
-       marginsm.filed = marginsm
+       marginsm.field = marginsm
        marginmd < .xxs
        marginmd.field = marginmd
        marginlg < .xxs

@@ -35,6 +35,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
 class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInterface
 {
+    protected $escapeOutput = false;
+    
     public function initializeArguments()
     {
         parent::initializeArguments();
@@ -68,7 +70,8 @@ class MediaQueryViewHelper extends AbstractViewHelper implements CompilableInter
         RenderingContextInterface $renderingContext
     ) {
         $settings = ResponsiveImagesUtility::getSettings();
-
+        $content = '';
+      
         if (!$arguments['short'] and ($arguments['min'] !== '' or $arguments['max'] !== '')) {
             $content .= '@media ';
         }

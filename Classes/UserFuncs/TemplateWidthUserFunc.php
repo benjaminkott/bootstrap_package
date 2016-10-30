@@ -23,6 +23,28 @@
   *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   *  THE SOFTWARE.
+  *  Gridelements integration sample :
+*
+* columns.0 {
+*     renderObj = COA
+*     renderObj {
+*         10 = LOAD_REGISTER
+*         20 = USER
+*         20 {
+*             userFunc = BK2K\BootstrapPackage\UserFuncs\TemplateWidthUserFunc->storeToRegister
+*             xs = TEXT
+*             xs.field = parentgrid_flexform_width_column_xs_1
+*             sm < .xs
+*             sm.field = parentgrid_flexform_width_column_sm_1
+*             md < .xs
+*             md.field = parentgrid_flexform_width_column_md_1
+*             lg < .xs
+*             lg.field = parentgrid_flexform_width_column_lg_1
+*         }
+*         30 =< tt_content
+*         40 = RESTORE_REGISTER
+*     }
+* }
   */
 
   /**
@@ -31,27 +53,37 @@
 
 use BK2K\BootstrapPackage\Utility\ResponsiveImagesUtility;
 
-/**
-* @author Stephen Leger
-*/
 class TemplateWidthUserFunc
 {
     /**
     * Reference to the parent (calling) cObject set from TypoScript
     */
     public $cObj;
-
+    
+    /**
+     * @var array $settings
+     */
     protected $settings;
-    protected $fluid = 0;
-    protected $imagesize = array();
-    protected $columns = array(
-        'xs' => 0,
-        'sm' => 0,
-        'md' => 0,
-        'lg' => 0
-    );
+    
+    /**
+     * @var bool $fluid
+     */
 
-    private function getConf($conf, $key, $default, $min = 0)
+    protected $fluid = 0;
+    /**
+     * @var array $imagesize
+     */
+    protected $imagesize = array();
+
+    /**
+     *
+     * @param array $conf
+     * @param string $key
+     * @param float $default
+     * @param float $min
+     * @return float $val
+     */
+    private function getConf(&$conf, $key, $default, $min = 0)
     {
         if (isset($conf[$key]) || is_array($conf[$key . '.'])) {
             $val = floatval($this->cObj->stdWrap($conf[$key], $conf[$key . '.']));
@@ -64,24 +96,52 @@ class TemplateWidthUserFunc
         return $val;
     }
 
-    private function initializeColumns($conf)
+    /**
+     * Compute margins
+     * @param array $conf
+     * @return void
+     */
+    private function initializeMargins(&$conf)
+    { 
+        $current = 0;
+        foreach ($this->imagesize as $key => $size) {
+            $current = $this->getConf($conf, "margin" . $key, $current, 0);
+            $this->imagesize[$key]['width'] -= $current;
+        }
+    }
+    
+    /**
+     * Compute columns width
+     * @param array $conf
+     * @return void
+     */
+    private function initializeColumns(&$conf)
     {
-        $current = 12;
-        foreach ($this->columns as $key => $column) {
+        $current = $this->settings['grid.']['columns'];
+        foreach ($this->imagesize as $key => $size) {
             $current = $this->getConf($conf, $key, $current, 1);
-            $this->columns[$key] = $current;
+            $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) * ($current / $this->settings['grid.']['columns']) - $this->settings['grid.']['gutter'];
         }
     }
-
-    private function initializeColumnsDivider($conf)
-    {
+    
+    /**
+     * Compute columns width
+     * @param array $conf
+     * @return void
+     */
+    private function initializeColumnsDivider(&$conf)
+    { 
         $current = 1;
-        foreach ($this->columns as $key => $column) {
+        foreach ($this->imagesize as $key => $size) {
             $current = $this->getConf($conf, $key, $current, $current);
-            $this->columns[$key] = 12 / $current;
+            $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) / $current  - $this->settings['grid.']['gutter'];
         }
     }
 
+    /**
+     * Retrieve sizes from register
+     * @return void
+     */
     private function getTemplateSize()
     {
         $register = ResponsiveImagesUtility::getImageSizeFromRegister();
@@ -95,28 +155,25 @@ class TemplateWidthUserFunc
             $this->imagesize = ResponsiveImagesUtility::getDefault($this->settings, $this->fluid);
         }
     }
-
+    
+    /**
+     * Store sizes to register
+     * @return void
+     */
     private function registerTemplateSize()
     {
-        $maxcols = $this->settings['grid.']['columns'];
-        $gutter  = $this->settings['grid.']['gutter'];
-
         if ($this->fluid) {
             $this->imagesize['fluid'] = 1;
         }
-
-        $this->imagesize['xxs']['width'] = ($this->imagesize['xxs']['width'] + $gutter) * ($this->columns['xs'] / $maxcols) - $gutter;
-        $this->imagesize['xs']['width'] = ($this->imagesize['xs']['width'] + $gutter) * ($this->columns['xs'] / $maxcols) - $gutter;
-        $this->imagesize['sm']['width'] = ($this->imagesize['sm']['width'] + $gutter) * ($this->columns['sm'] / $maxcols) - $gutter;
-        $this->imagesize['md']['width'] = ($this->imagesize['md']['width'] + $gutter) * ($this->columns['md'] / $maxcols) - $gutter;
-        $this->imagesize['lg']['width'] = ($this->imagesize['lg']['width'] + $gutter) * ($this->columns['lg'] / $maxcols) - $gutter;
-
         ResponsiveImagesUtility::setImageSizeToRegister($this->imagesize);
     }
 
     /**
     * Set number of items in row instead of columns
     * Allow different sizes than regular ones (like 5 items)
+    * @param string $content
+    * @param array $conf
+    * @return string $content
     */
     public function divide($content = '', $conf = array())
     {
@@ -124,14 +181,18 @@ class TemplateWidthUserFunc
 
         // fluid set in template config
         $this->fluid = $this->getConf($conf, 'fluid', 0);
-        $this->initializeColumnsDivider($conf);
         $this->getTemplateSize();
+        $this->initializeMargins($conf);
+        $this->initializeColumnsDivider($conf);
         $this->registerTemplateSize();
         return $content;
     }
 
     /**
     * Set a number of columns (12)
+    * @param string $content
+    * @param array $conf
+    * @return string $content
     */
     public function storeToRegister($content = '', $conf = array())
     {
@@ -139,8 +200,9 @@ class TemplateWidthUserFunc
 
         // fluid set in template config
         $this->fluid = $this->getConf($conf, 'fluid', 0);
-        $this->initializeColumns($conf);
         $this->getTemplateSize();
+        $this->initializeMargins($conf);
+        $this->initializeColumns($conf);
         $this->registerTemplateSize();
         return $content;
     }

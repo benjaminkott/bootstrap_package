@@ -39,6 +39,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 */
 class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableInterface
 {
+    protected $escapeOutput = false;
+    
     public function initializeArguments()
     {
         parent::registerArgument();
@@ -82,7 +84,7 @@ class JsFooterInlineViewHelper extends AbstractViewHelper implements CompilableI
             } else {
                 $name = uniqid('bootstrap_package_');
             }
-            $GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($name, $js, $compress = false, $forceOnTop = false);
+            $GLOBALS['TSFE']->setJs($name, $js);
         }
         return $content;
     }

@@ -4,11 +4,12 @@
 <f:section name="Main">
 
     <div class="row">
-        <div class="col-md-6">
-          <bk2k:imageSize sm="6" /> 
+        <div class="col-sm-6">
+          <bk2k:imageSize sm="6"> 
             <f:render partial="Media/Gallery" arguments="{_all}" />
+          </bk2k:imageSize>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.bodytext}</f:format.html>
         </div>

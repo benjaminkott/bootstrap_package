@@ -48,6 +48,9 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
 class ImageSizeViewHelper extends AbstractViewHelper implements CompilableInterface
 {
+  
+    protected $escapeOutput = false;
+  
     public function initializeArguments()
     {
         parent::initializeArguments();
