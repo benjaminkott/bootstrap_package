@@ -36,6 +36,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 
 class CssViewHelper extends AbstractViewHelper implements CompilableInterface
 {
+    protected $escapeOutput = false;
+
     public function initializeArguments()
     {
         parent::initializeArguments();
@@ -81,7 +83,7 @@ class CssViewHelper extends AbstractViewHelper implements CompilableInterface
             } else {
                 $name = uniqid('bootstrap_package_');
             }
-            $GLOBALS['TSFE']->getPageRenderer()->addCssInlineBlock($name, $css, $compress = false);
+            $GLOBALS['TSFE']->setCss($name, $css);
         }
         return $content;
     }
