@@ -1,6 +1,6 @@
 <?php
   namespace BK2K\BootstrapPackage\UserFuncs;
-  
+
   /*
   *  The MIT License (MIT)
   *
@@ -59,12 +59,12 @@ class TemplateWidthUserFunc
     * Reference to the parent (calling) cObject set from TypoScript
     */
     public $cObj;
-    
+
     /**
      * @var array $settings
      */
     protected $settings;
-    
+
     /**
      * @var bool $fluid
      */
@@ -102,14 +102,14 @@ class TemplateWidthUserFunc
      * @return void
      */
     private function initializeMargins(&$conf)
-    { 
+    {
         $current = 0;
         foreach ($this->imagesize as $key => $size) {
             $current = $this->getConf($conf, "margin" . $key, $current, 0);
             $this->imagesize[$key]['width'] -= $current;
         }
     }
-    
+
     /**
      * Compute columns width
      * @param array $conf
@@ -123,14 +123,14 @@ class TemplateWidthUserFunc
             $this->imagesize[$key]['width'] = ($size['width'] + $this->settings['grid.']['gutter']) * ($current / $this->settings['grid.']['columns']) - $this->settings['grid.']['gutter'];
         }
     }
-    
+
     /**
      * Compute columns width
      * @param array $conf
      * @return void
      */
     private function initializeColumnsDivider(&$conf)
-    { 
+    {
         $current = 1;
         foreach ($this->imagesize as $key => $size) {
             $current = $this->getConf($conf, $key, $current, $current);
@@ -155,7 +155,7 @@ class TemplateWidthUserFunc
             $this->imagesize = ResponsiveImagesUtility::getDefault($this->settings, $this->fluid);
         }
     }
-    
+
     /**
      * Store sizes to register
      * @return void
