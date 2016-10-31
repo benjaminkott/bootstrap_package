@@ -4,7 +4,7 @@
 CREATE TABLE tt_content (
     header_position varchar(6) DEFAULT '' NOT NULL,
     teaser text,
-	quote_source varchar(255) DEFAULT '' NOT NULL,
+    quote_source varchar(255) DEFAULT '' NOT NULL,
     quote_link varchar(1024) DEFAULT '' NOT NULL,
     section_frame int(11) unsigned DEFAULT '0' NOT NULL,
     icon varchar(255) DEFAULT '' NOT NULL,
