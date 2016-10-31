@@ -19,7 +19,7 @@ plugin.bootstrap_package {
         xl = {$plugin.bootstrap_package.settings.grid.container.xl}
       }
       screen {
-        xxs = {$plugin.bootstrap_package.settings.grid.screen.xs} 
+        xxs = {$plugin.bootstrap_package.settings.grid.screen.xs}
         xs = {$plugin.bootstrap_package.settings.grid.screen.xs}
         sm = {$plugin.bootstrap_package.settings.grid.screen.sm}
         md = {$plugin.bootstrap_package.settings.grid.screen.md}
@@ -34,7 +34,7 @@ plugin.bootstrap_package {
         lg = {$plugin.bootstrap_package.settings.grid.fluid.lg}
         xl = {$plugin.bootstrap_package.settings.grid.fluid.xl}
       }
-       
+
     }
     images {
       layout.columnsheightratio = {$plugin.bootstrap_package.settings.images.layout.columnsheightratio}
@@ -47,7 +47,7 @@ plugin.bootstrap_package {
         md = {$plugin.bootstrap_package.settings.images.borderspace.md}
         lg = {$plugin.bootstrap_package.settings.images.borderspace.lg}
       }
-      
+
     }
   }
 }
@@ -56,37 +56,39 @@ page {
     includeJSFooterlibs {
         responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
         responsiveimages.if {
-           value = 1
-           equals = {$plugin.bootstrap_package.settings.images.lazyload}
-        } 
+            value = 1
+            equals = {$plugin.bootstrap_package.settings.images.tag}
+        }
         blazy = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/blazy.min.js
         blazy.if {
-           value = 2
-           equals = {$plugin.bootstrap_package.settings.images.lazyload}
-        } 
+            value = 1
+            equals = {$plugin.bootstrap_package.settings.images.tag}
+            negate = 1
+        }
     }
 
     jsFooterInline {
         # b-lazy
         50 = COA
         50 {
-           if {
-               value = 2
-               equals = {$plugin.bootstrap_package.settings.images.lazyload}
-            } 
+            if {
+                value = 1
+                equals = {$plugin.bootstrap_package.settings.images.tag}
+                negate = 1
+            }
             10 = TEXT
             10.value (
                 ;(function() {
                     var bLazy = new Blazy({
                      selector:'.lazyload',
-                     successClass:'loaded', 
+                     successClass:'loaded',
                      success:function(){
                         $(window).trigger('loaded.bk2k.responsiveimage');
                      },
                      error:function(){
                      },
-                     loadInvisible: true, 
-                     container:'body'
+                     loadInvisible: true
+                    // container:'body'
                     });
                     $(window).on('beforeprint.bk2k.responsiveimage', function(){
                         bLazy.load('.lazyload', true);

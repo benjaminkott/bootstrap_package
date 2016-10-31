@@ -4,13 +4,14 @@
 # #customcategory=responsive images=Responsive Images
 # #customcategory=javascript and css=Javascript and Css
 # #customcategory=grid system=Responsive Grid setup
+# customsubcategory=5500=Grid
 # customsubcategory=5600=Breakpoints media query (screen width)
 # customsubcategory=5610=Container
 # customsubcategory=5620=Container behaviour
-# customsubcategory=5630=Advanced
 # customsubcategory=5640=Retina settigs
 # customsubcategory=5650=Images
-# customsubcategory=5660=Frames
+# customsubcategory=5660=Layout
+# customsubcategory=5670=Placeholder
 # customsubcategory=5700=Javascript
 # customsubcategory=5710=Css
 
@@ -57,54 +58,54 @@ plugin.bootstrap_package.settings {
             # cat=grid system/5620/250; type=boolean; label=4 Fluid : Container behaviour fluid extra large
             xl = 0
        }
-        
-        # cat=grid system/5610/200; type=int+; label=Number of columns : Maximum number of columns
+
+        # cat=grid system/5500/200; type=int+; label=Number of columns : Maximum number of columns
         columns = 12
-        # cat=grid system/5610/210; type=int+; label=Gutter width:Width of the gutter
+        # cat=grid system/5500/210; type=int+; label=Gutter width:Width of the gutter
         gutter = 40
     }
 
     images {
-        # cat=grid system/5650/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout 
-        breakpoint = 3        
-       
-        # cat=responsive images/5650/100; type=options[Img with srcset=3, Picture=2, Img with data attributes=1]; label=Default tag type : Tag type used to render images
+        # cat=responsive images/5660/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout
+        breakpoint = 3
+
+        # cat=responsive images/5650/100; type=options[Img with srcset=3, Picture=2, Img with data attributes (compatible mode)=1]; label=Default tag type : Tag type used to render images
         tag = 2
 
-        # cat=responsive images/5650/120; type=options[Enable lazyload (b-lazy)=2, Enable lazyload (compat mode)=1, Disable lazyload=0]; label=Loading method : Loading method for images.
-        lazyload = 2
+        # cat=responsive images/5650/110; type=options[Enable lazyload=1, Disable lazyload=0]; label=Loading method : Loading method for images.
+        lazyload = 1
 
-        # cat=responsive images/5650/130; type=boolean; label=Relayout : Prevent relayout by providing image sizes via css
+        # cat=responsive images/5650/120; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
+        absoluteUrl = 1
+
+        # cat=responsive images/5660/130; type=boolean; label=Relayout : Prevent relayout by providing image sizes via css
         preventrelayout = 1
 
-        # cat=responsive images/5650/140; type=options[Small thumb=2, Inline=1, loader.gif=0]; label=Placeholder : Placeholder for images
+        # cat=responsive images/5670/140; type=options[Small thumb=2, Inline transparent image=1, loader.gif=0]; label=Placeholder : Placeholder for images
         placeholder.mode = 1
 
-        # cat=responsive images/5650/150; type=int+; label=Placeholder Size : Size of images placeholder
+        # cat=responsive images/5670/150; type=int+; label=Placeholder Size : Size of images placeholder
         placeholder.size = 50
 
         borderspace {
 
-            # cat=grid system/5620/210; type=int+; label=1 Border space : Space between images extra small (css must be adjusted according) 
+            # cat=responsive images/5660/210; type=int+; label=1 Border space xs: Space between images extra small (css must be adjusted according)
             xs = 20
-            # cat=grid system/5620/220; type=int+; label=2 Border space : Space between images small (css must be adjusted according) 
+            # cat=responsive images/5660/220; type=int+; label=2 Border space sm: Space between images small (css must be adjusted according)
             sm = 30
-            # cat=grid system/5620/230; type=int+; label=3 Border space : Space between images medium (css must be adjusted according) 
+            # cat=responsive images/5660/230; type=int+; label=3 Border space md: Space between images medium (css must be adjusted according)
             md = 40
-            # cat=grid system/5620/240; type=int+; label=4 Border space : Space between images large (css must be adjusted according)
+            # cat=responsive images/5660/240; type=int+; label=4 Border space lg: Space between images large (css must be adjusted according)
             lg = 40
 
         }
 
-        # cat=responsive images/5650/150; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
-        absoluteUrl = 1
-
-        # cat=responsive images/5650/160; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
+        # cat=responsive images/5660/260; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
         layout.columnsheightratio = 56.25
 
     }
     css {
-        # cat=javascript and css/5710/100; type=boolean; label=Css in body : Render css in body instead of head (for use with ajax loaded content)
+        # cat=responsive images/5710/100; type=boolean; label=Css in body : Render css in body instead of head (for use with ajax loaded content)
         moveCssToBody = 0
     }
 }

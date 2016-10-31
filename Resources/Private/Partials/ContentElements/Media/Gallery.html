@@ -2,105 +2,105 @@
 <f:if condition="{files}">
     <bk2k:imageSize>
         <f:switch expression="{data.image_rendering}">
-            
+
             <f:case value="4">
                 <f:render section="LayoutCss" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
             </f:case>
-            
-            
+
+
             <f:case value="64">
                 <f:comment>Bypass link wrapper arround images</f:comment>
-                
+
                 <f:comment>Resize images according frames</f:comment>
                 <f:switch expression="{data.section_frame}">
-                    
+
                     <f:case value="10">
                         <f:comment>indent 1 width 10</f:comment>
                         <bk2k:imageSize xs="10"/>
                     </f:case>
-                    
+
                     <f:case value="11">
                         <f:comment>indent 3 right</f:comment>
                         <bk2k:imageSize xs="9"/>
                     </f:case>
-                    
+
                     <f:case value="12">
                         <f:comment>indent 3 left</f:comment>
                         <bk2k:imageSize xs="9"/>
                     </f:case>
-                    
+
                     <f:case value="20">
                         <f:comment>well</f:comment>
                         <bk2k:imageSize marginxs="20"/>
                     </f:case>
-                    
+
                     <f:case value="21">
                         <f:comment>jumbotron</f:comment>
                         <bk2k:imageSize marginxs="20" marginsm="60"/>
                     </f:case>
-                    
+
                 </f:switch>
-                
+
                 <f:render section="LayoutNoLink" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
-                
+
             </f:case>
-            
-            
+
+
             <f:case value="78">
                 <f:comment>Lightbox link only</f:comment>
                 <f:render section="Type" arguments="{file: files, data: data, settings: settings, imagesize: imagesize}" />
             </f:case>
-            
-            
+
+
             <f:case default="TRUE">
-                
+
                 <f:comment>Resize images according frames</f:comment>
                 <f:switch expression="{data.section_frame}">
-                    
+
                     <f:case value="10">
                         <f:comment>indent 1 width 10</f:comment>
                         <bk2k:imageSize xs="10"/>
                     </f:case>
-                    
+
                     <f:case value="11">
                         <f:comment>indent 3 right</f:comment>
                         <bk2k:imageSize xs="9"/>
                     </f:case>
-                    
+
                     <f:case value="12">
                         <f:comment>indent 3 left</f:comment>
                         <bk2k:imageSize xs="9"/>
                     </f:case>
-                    
+
                     <f:case value="20">
                         <f:comment>well</f:comment>
                         <bk2k:imageSize marginxs="20"/>
                     </f:case>
-                    
+
                     <f:case value="21">
                         <f:comment>jumbotron</f:comment>
                         <bk2k:imageSize marginxs="20" marginsm="60"/>
                     </f:case>
-                    
+
                 </f:switch>
-                
+
                 <f:switch expression="{bk2k:simpleMath(operator: '&', a:'3', b: '{data.images_layout}')}">
-                    
+
                     <f:case value="1">
                         <f:render section="LayoutNoRows" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
                     </f:case>
-                    
+
                     <f:case value="2">
                         <f:render section="LayoutNoCols" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
                     </f:case>
-                    
+
                     <f:case default="TRUE">
                         <f:render section="LayoutFixed" arguments="{files: files, data: data, settings: settings, imagesize: imagesize}" />
                     </f:case>
-                    
+
                 </f:switch>
             </f:case>
-            
+
         </f:switch>
     </bk2k:imageSize>
 </f:if>
@@ -123,15 +123,14 @@
 <f:comment>Bypass link</f:comment>
 <f:section name="LayoutNoLink">
     <bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection">
-        
+
         <f:if condition="{settings.images.preventrelayout}">
             <f:render section="PreventRelayoutByCss" arguments="{collection: collection, settings: settings}" />
         </f:if>
-        
         <f:for each="{collection.files}" as="file" iteration="fileIteration">
             <f:render section="Type" arguments="{file: file.srcset, data: data, settings: settings, imagesize: file.size}" />
         </f:for>
-        
+
     </bk2k:imagesLayout>
 </f:section>
 
@@ -148,7 +147,7 @@
 <f:comment>Use css to prevent relayout</f:comment>
 <f:section name="PreventRelayoutByCss">
     <bk2k:css inline="{settings.moveCssToBody}">
-        
+
         <bk2k:mediaQuery min="lg">
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
                 #{file.size.selector}<f:format.raw>{</f:format.raw>padding-bottom:{file.size.lg.padding}%;
@@ -158,7 +157,7 @@
                 <f:format.raw>}</f:format.raw>
             </f:for>
         </bk2k:mediaQuery>
-        
+
         <bk2k:mediaQuery min="md" max="lg">
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
                 #{file.size.selector}<f:format.raw>{</f:format.raw>padding-bottom:{file.size.md.padding}%;
@@ -168,7 +167,7 @@
                 <f:format.raw>}</f:format.raw>
             </f:for>
         </bk2k:mediaQuery>
-        
+
         <bk2k:mediaQuery min="sm" max="md">
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
                 #{file.size.selector}<f:format.raw>{</f:format.raw>padding-bottom:{file.size.sm.padding}%;
@@ -178,7 +177,7 @@
                 <f:format.raw>}</f:format.raw>
             </f:for>
         </bk2k:mediaQuery>
-        
+
         <bk2k:mediaQuery min="xs" max="sm">
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
                 #{file.size.selector}<f:format.raw>{</f:format.raw>padding-bottom:{file.size.xs.padding}%;
@@ -204,13 +203,13 @@
 
 <f:comment>Equal height for each row, flexible width</f:comment>
 <f:section name="LayoutNoRows">
-    
+
     <bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection">
-        
+
         <f:if condition="{settings.images.preventrelayout}">
             <f:render section="PreventRelayoutByCss" arguments="{collection: collection, settings: settings}" />
         </f:if>
-        
+
         <f:switch expression="{data.images_layout}">
             <f:case value="17">
                 <bk2k:var name="class" value="col-flex col-flex-top"/>
@@ -222,17 +221,17 @@
                 <bk2k:var name="class" value="col-flex"/>
             </f:case>
         </f:switch>
-        
+
         <bk2k:css inline="{settings.moveCssToBody}" key="bootstrap_package_colums-{data.uid}">
             #row-{data.uid} > .col-flex<f:format.raw>{</f:format.raw>width:{collection.colpercent}%;<f:format.raw>}</f:format.raw>
         </bk2k:css>
-        
+
         <div class="row-flex" id="row-{data.uid}">
             <div class="{class}">
                 <f:for each="{collection.files}" as="file" iteration="fileIteration">
-                    
+
                     <f:render section="Type" arguments="{file: file.srcset, data: data, settings: settings, imagesize: file.size}" />
-                    
+
                     <f:if condition="{fileIteration.index} > 0">
                         <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
                             <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{collection.imagecols}', operator:'%')} < 0.1">
@@ -243,22 +242,22 @@
                 </f:for>
             </div>
         </div>
-        
+
     </bk2k:imagesLayout>
-    
+
 </f:section>
 
 
 
 <f:comment>Equal width for each columns, flexible height</f:comment>
 <f:section name="LayoutNoCols">
-    
+
     <bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection">
-        
+
         <f:if condition="{settings.images.preventrelayout}">
             <f:render section="PreventRelayoutByCss" arguments="{collection: collection, settings: settings}" />
         </f:if>
-        
+
         <f:switch expression="{data.images_layout}">
             <f:case value="34">
                 <bk2k:var name="class" value="row-flex row-flex-right"/>
@@ -270,9 +269,9 @@
                 <bk2k:var name="class" value="row-flex"/>
             </f:case>
         </f:switch>
-        
+
         <bk2k:css inline="{settings.moveCssToBody}" key="bootstrap_package_row-justify-{data.uid}">
-            
+
             <f:comment>
                 when fluid, the layout should be set so images resize according.
                 when fixed, the width of columns depends on images.
@@ -282,7 +281,7 @@
                 xs = 3
                 xxs = 4
             </f:comment>
-            
+
             <f:if condition="{settings.images.breakpoint} < 5">
                 <bk2k:mediaQuery max="xs">
                     <f:for each="{collection.files}" as="file" iteration="fileIteration">
@@ -319,14 +318,14 @@
                 </bk2k:mediaQuery>
             </f:if>
         </bk2k:css>
-        
+
         <div class="{class}">
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
-                
+
                 <div id="col-{data.uid}-{fileIteration.cycle}" class="col-flex">
                     <f:render section="Type" arguments="{file: file.srcset, data: data, settings: settings, imagesize: file.size}" />
                 </div>
-                
+
                 <f:if condition="{fileIteration.cycle} > 0">
                     <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
                         <f:if condition="{bk2k:simpleMath(operator: '%', a:'{fileIteration.cycle}', b:'{collection.imagecols}')} == 0">
@@ -344,77 +343,77 @@
 <f:comment>Regular grid layout with variable columns count</f:comment>
 <f:section name="LayoutFixed">
     <bk2k:var name="columns" value="{bk2k:simpleMath( operator:'min', a:'{data.imagecols}', b:'{files->f:count()}')}" />
-    
+
     <f:switch expression="{columns}">
-        
+
         <f:case value="2">
             <bk2k:imageSize store="1" xs="12" sm="6"/>
             <bk2k:var name="class" value="col-sm-6" />
         </f:case>
-        
+
         <f:case value="3">
             <bk2k:imageSize store="1" xs="4"/>
             <bk2k:var name="class" value="col-xs-4" />
         </f:case>
-        
+
         <f:case value="4">
             <bk2k:imageSize store="1" xs="6" sm="3"/>
             <bk2k:var name="class" value="col-xs-6 col-sm-3" />
         </f:case>
-        
+
         <f:case value="5">
             <bk2k:imageSize store="1" xs="4" sm="2.4" />
             <bk2k:var name="class" value="col-xs-4 col-sm-1-5" />
         </f:case>
-        
+
         <f:case value="6">
             <bk2k:imageSize store="1" xs="4" md="2"/>
             <bk2k:var name="class" value="col-xs-4 col-md-2" />
         </f:case>
-        
+
         <f:case value="7">
             <bk2k:imageSize store="1" xs="4" sm="3" md="1.7142857142857142857142857142857" />
             <bk2k:var name="class" value="col-xs-4 col-sm-3 col-md-1-7" />
         </f:case>
-        
+
         <f:case value="8">
             <bk2k:imageSize store="1" xs="4" sm="3" md="1.5" />
             <bk2k:var name="class" value="col-xs-4 col-sm-3 col-md-1-8" />
         </f:case>
-        
+
         <f:case value="9">
             <bk2k:imageSize store="1" xs="4" sm="4" md="1.333333333333333333333333333333" />
             <bk2k:var name="class" value="col-xs-4 col-sm-4 col-md-1-9" />
         </f:case>
-        
+
         <f:case value="10">
             <bk2k:imageSize store="1" xs="4" sm="2.4" md="1.2" />
             <bk2k:var name="class" value="col-xs-4 col-sm-1-5 col-md-1-10" />
         </f:case>
-        
+
         <f:case default="TRUE">
             <bk2k:imageSize store="1" xs="12" />
             <bk2k:var name="class" value="col-xs-12" />
         </f:case>
-        
+
     </f:switch>
-    
+
     <bk2k:imagesLayout files="{files}" data="{data}" settings="{settings}" imagesize="imagesize" as="collection">
-        
+
         <f:if condition="{settings.images.preventrelayout}">
             <f:render section="PreventRelayoutByCss" arguments="{collection: collection, settings: settings}" />
         </f:if>
-        
+
         <div class="row gutter-flex">
-            
+
             <f:for each="{collection.files}" as="file" iteration="fileIteration">
-                
+
                 <div class="{class}">
                     <f:render section="Type" arguments="{file: file.srcset, data: data, settings: settings, imagesize: file.size}" />
                 </div>
-                
+
                 <f:comment>Reset for columns / lines (replace equalheight.js by markup)</f:comment>
-                
+
                 <f:if condition="{fileIteration.cycle} < {fileIteration.total}">
                     <f:if condition="{bk2k:simpleMath(a:'{fileIteration.cycle}', b:'{collection.cols.xs}', operator:'%')} < 0.1">
                         <div class="clearfix visible-xs-block"></div>
@@ -429,13 +428,13 @@
                         <div class="clearfix visible-lg-block"></div>
                     </f:if>
                 </f:if>
-                
+
             </f:for>
-            
+
         </div>
-        
+
     </bk2k:imagesLayout>
-    
+
 </f:section>
 
 
@@ -451,59 +450,59 @@
 <f:comment>Media type</f:comment>
 <f:section name="Type">
     <f:switch expression="{file.0.type}">
-        
+
         <f:case value="2">
-            
+
             <f:switch expression="{data.image_rendering}">
-                
+
                 <f:case value="4">
                     <f:comment>rendering css</f:comment>
                     <f:render section="ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
                 <f:case value="47">
                     <f:render section="LightboxLink" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
                 <f:case value="64">
                     <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
                     <f:render section="ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
                 <f:case default="TRUE">
                     <f:render section="Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
             </f:switch>
-            
+
         </f:case>
-        
+
         <f:case value="3">
             <f:comment>Audio files</f:comment>
             <f:render section="Fallback" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
-        
+
         <f:case value="4">
             <f:render section="Video" arguments="{file: file.0, data: data, imagesize: imagesize, settings: settings}" />
         </f:case>
-        
+
         <f:case value="5">
             <f:switch expression="{data.image_rendering}">
-                
+
                 <f:case value="64">
                     <f:comment>rendering method without any link for thumbs menuItems / media list</f:comment>
                     <f:render section="ImageTagType" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
                 <f:case default="TRUE">
                     <f:render section="Image" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
                 </f:case>
-                
+
             </f:switch>
         </f:case>
-        
+
         <f:case default="TRUE">
-            
+
             <f:comment>Unknown file type</f:comment>
             <f:render section="Fallback" arguments="{file: file.0, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
@@ -587,24 +586,25 @@
 
 <f:comment>Img tag type</f:comment>
 <f:section name="ImageTagType">
-    <f:switch expression="{f:if(condition: '{data.image_rendering}', then:'{data.image_rendering}', else:'{settings.images.tag}')}">
-        
+    <bk2k:var name="tag" value="{bk2k:simpleMath( operator: '&', a:'{data.image_rendering}', b:'15')}" />
+    <f:switch expression="{f:if(condition: '{tag}', then:'{tag}', else:'{settings.images.tag}')}">
+
         <f:case value="2">
             <f:render section="RenderingPicture" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
         </f:case>
-        
+
         <f:case value="3">
             <f:render section="RenderingImgSrcset" arguments="{file: file, data:data, settings: settings, imagesize: imagesize}" />
         </f:case>
-        
+
         <f:case value="4">
             <f:render section="RenderingCss" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
-        
+
         <f:case default="TRUE">
             <f:render section="RenderingImg" arguments="{file: file, data: data, settings: settings, imagesize: imagesize}" />
         </f:case>
-        
+
     </f:switch>
 </f:section>
 
@@ -614,12 +614,15 @@
 <f:section name="RenderingPicture">
     <div id="{imagesize.selector}" {f:if(condition: '{settings.images.preventrelayout}', then: 'class="embed-responsive"')}>
         <picture>
-            <source media="{bk2k:mediaQuery( min:'lg', short:'1')}" {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.0, width: '{imagesize.lg.width}{imagesize.lg.cropwidth}', height: '{imagesize.lg.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
-            <source media="{bk2k:mediaQuery( min:'md', short:'1')}" {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.1, width: '{imagesize.md.width}{imagesize.md.cropwidth}', height: '{imagesize.md.height}{imagesize.md.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
-            <source media="{bk2k:mediaQuery( min:'sm', short:'1')}" {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.2, width: '{imagesize.sm.width}{imagesize.sm.cropwidth}', height: '{imagesize.sm.height}{imagesize.sm.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
-            <source media="{bk2k:mediaQuery( min:'xs', short:'1')}" {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.3, width: '{imagesize.xs.width}{imagesize.xs.cropwidth}', height: '{imagesize.xs.height}{imagesize.xs.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
-            <source srcset="{f:uri.image(image: file.4, width: '{imagesize.xxs.width}{imagesize.xxs.cropwidth}', height: '{imagesize.xxs.height}{imagesize.xxs.cropheight}', absolute: '{settings.absoluteUrl}')}" />
-            <img {f:if(condition:'{settings.images.lazyload}', then:'class="lazyload" data-')}src="{f:uri.image(image: file.0, absolute: '{settings.images.absoluteUrl}')}" title="{file.0.title}" alt="{file.0.alternative}" />
+            <source media="{bk2k:mediaQuery( min:'lg', short:'1')}" {f:if(condition:'{imagesize.lg.type}', then:'type="{imagesize.lg.type}"')} {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.0, width: '{imagesize.lg.width}{imagesize.lg.cropwidth}', height: '{imagesize.lg.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
+            <source media="{bk2k:mediaQuery( min:'md', short:'1')}" {f:if(condition:'{imagesize.md.type}', then:'type="{imagesize.md.type}"')} {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.1, width: '{imagesize.md.width}{imagesize.md.cropwidth}', height: '{imagesize.md.height}{imagesize.md.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
+            <source media="{bk2k:mediaQuery( min:'sm', short:'1')}" {f:if(condition:'{imagesize.sm.type}', then:'type="{imagesize.sm.type}"')} {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.2, width: '{imagesize.sm.width}{imagesize.sm.cropwidth}', height: '{imagesize.sm.height}{imagesize.sm.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
+            <source media="{bk2k:mediaQuery( min:'xs', short:'1')}" {f:if(condition:'{imagesize.xs.type}', then:'type="{imagesize.xs.type}"')} {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.3, width: '{imagesize.xs.width}{imagesize.xs.cropwidth}', height: '{imagesize.xs.height}{imagesize.xs.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
+            <source {f:if(condition:'{imagesize.xxs.type}', then:'type="{imagesize.xxs.type}"')} {f:if(condition:'{settings.images.lazyload}', then:'data-')}srcset="{f:uri.image(image: file.4, width: '{imagesize.xxs.width}{imagesize.xxs.cropwidth}', height: '{imagesize.xxs.height}{imagesize.xxs.cropheight}', absolute: '{settings.images.absoluteUrl}')}" />
+            <img {f:if(condition:'{settings.images.lazyload}', then:'class="lazyload" data-')}src="{f:uri.image(image: file.0, width: '{imagesize.lg.width}{imagesize.lg.cropwidth}', height: '{imagesize.lg.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')}"
+             title="{file.0.title}"
+             alt="{file.0.alternative}"
+            />
         </picture>
     </div>
 </f:section>
@@ -648,7 +651,7 @@
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                     </f:case>
                     <f:case value="2">
-                        src="{f:uri.image(image: file.0, width: '{imagesize.placeholder.width}{imagesize.placeholder.cropwidth}', height: '{imagesize.placeholder.height}{imagesize.placeholder.cropheight}', absolute: '{settings.images.absoluteUrl}')}"
+                        src="{f:uri.image(image: file.0, width: '{imagesize.placeholder.width}{imagesize.lg.cropwidth}', height: '{imagesize.placeholder.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')}"
                     </f:case>
                     <f:case default="TRUE">
                         src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
@@ -686,7 +689,7 @@
 
 
 
-<f:comment>Image tag Img with data attributes</f:comment>
+<f:comment>Image tag Img with data attributes, this is the compatible old mode working nearly everywhere</f:comment>
 <f:section name="RenderingImg">
     <div id="{imagesize.selector}" {f:if(condition: '{settings.images.preventrelayout}', then: 'class="embed-responsive"')}>
         <img
@@ -695,7 +698,7 @@
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
             </f:case>
             <f:case value="2">
-                src="{f:uri.image(image: file.0, width: '{imagesize.placeholder.width}{imagesize.placeholder.cropwidth}', height: '{imagesize.placeholder.height}{imagesize.placeholder.cropheight}', absolute: '{settings.images.absoluteUrl}')}"
+                src="{f:uri.image(image: file.0, width: '{imagesize.placeholder.width}{imagesize.lg.cropwidth}', height: '{imagesize.placeholder.height}{imagesize.lg.cropheight}', absolute: '{settings.images.absoluteUrl}')}"
             </f:case>
             <f:case default="TRUE">
                 src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}"
