@@ -1,0 +1,26 @@
+<f:if condition="{model.showElement}">
+  <f:if condition="{model.additionalArguments.checked} == 'checked'">
+    <div class="form-group">  
+      <label class="control-label col-sm-5">{model.additionalArguments.label}</label>
+      <f:if condition="{model.additionalArguments.value}">{model.additionalArguments.value}</f:if>
+    </div>
+  </f:if>
+</f:if>
+<f:if condition="{model.additionalArguments.checked} == 'checked'">
+  <f:form.hidden
+  class="{model.additionalArguments.class}"
+  dir="{model.additionalArguments.dir}"
+  id="{model.additionalArguments.id}"
+  lang="{model.additionalArguments.lang}"
+  style="{model.additionalArguments.style}"
+  title="{model.additionalArguments.title}"
+  accesskey="{model.additionalArguments.accesskey}"
+  tabindex="{model.additionalArguments.tabindex}"
+  onclick="{model.additionalArguments.onclick}"
+  
+  name="{model.additionalArguments.prefix}[{model.additionalArguments.name}]"
+  value="<f:if condition='{model.additionalArguments.value}'><f:then>{model.additionalArguments.value}</f:then><f:else>{model.additionalArguments.name}-{model.elementCounter}</f:else></f:if>"
+  
+  additionalAttributes="{model.htmlAttributes}"
+  />
+</f:if>

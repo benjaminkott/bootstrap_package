@@ -22,10 +22,12 @@ tt_content.mailform {
         0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
-
+    
     20 = FORM
     20 {
-
+        classField = {$plugin.tx_form.classField}
+        classLabel = {$plugin.tx_form.classLabel}
+        themeName = {$plugin.tx_form.themeName}
     }
 
 }
@@ -34,7 +36,6 @@ tt_content.mailform {
 ######################
 #### PLUGIN: FORM ####
 ######################
-
 plugin.tx_form {
     features {
         skipDefaultArguments = 1
@@ -42,18 +43,19 @@ plugin.tx_form {
     view {
         templateRootPaths {
             0 = EXT:form/Resources/Private/Templates/
-            5 = EXT:bootstrap_package/Resources/Private/Templates/Form/
-            10 = {$plugin.tx_form.view.templateRootPath}
+            10 = {$plugin.tx_form.templateRootPath}
         }
         partialRootPaths {
             0 = EXT:form/Resources/Private/Partials/
-            5 = EXT:bootstrap_package/Resources/Private/Partials/Form/
-            10 = {$plugin.tx_form.view.partialRootPath}
+            10 = {$plugin.tx_form.partialRootPath}
         }
         layoutRootPaths {
             0 = EXT:form/Resources/Private/Layouts/
-            5 = EXT:bootstrap_package/Resources/Private/Layouts/Form/
-            10 = {$plugin.tx_form.view.layoutRootPath}
+            10 = {$plugin.tx_form.layoutRootPath}
         }
     }
+    # use bootstrap styling
+    _CSS_DEFAULT_STYLE >
 }
+
+

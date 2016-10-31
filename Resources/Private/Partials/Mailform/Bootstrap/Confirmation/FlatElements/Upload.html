@@ -1,0 +1,10 @@
+<f:if condition="{model.showElement}">
+  <div class="form-group row">  
+   <label class="control-label col-sm-5">{model.additionalArguments.label}</label>
+    <div class="col-sm-7">  
+     <f:for each="{model.additionalArguments.uploadedFiles}" as="uploadedFile">
+      {uploadedFile.name}<br />
+    </f:for>
+    </div>
+  </div>
+</f:if>

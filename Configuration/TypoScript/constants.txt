@@ -1,6 +1,6 @@
 ############################
 ### CUSTOM SUBCATEGORIES ###
-###########################
+############################
 # customsubcategory=100=Page Template
 # customsubcategory=110=Logo
 # customsubcategory=111=Favicon
@@ -11,6 +11,7 @@
 # customsubcategory=143=Content Element Menu
 # customsubcategory=144=Content Element General
 # customsubcategory=145=Content Element Uploads
+# customsubcategory=146=Content Element Mailform
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=166=Section Footer
@@ -20,7 +21,7 @@
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=BoostrapPackageExtensions=Extension Overrides
-
+# customsubcategory=cLogin=Login form
 ############
 ### PAGE ###
 ############
@@ -161,6 +162,28 @@ plugin.tx_felogin_pi1 {
     # cat=bootstrap package: advanced/cLogin; type=boolean; label=Show permanent login option
     showPermaLogin = 1
 }
+
+
+
+################
+### MAILFORM ###
+################
+plugin.tx_form {
+    # cat=bootstrap package: basic/146/100; type=options[Bootstrap vertical=Bootstrap, Bootstrap horizontal=Horizontal, default=Default]; label=From theme: Markup and styling of mailform element
+    themeName = Bootstrap
+    # cat=bootstrap package: basic/146/200; type=string; label=Form Css class for label: class for label for horizontal forms
+    classLabel = col-sm-4
+    # cat=bootstrap package: basic/146/210; type=string; label=Form Css class for inputs: class for inputs for horizontal forms
+    classField = col-sm-8
+    # cat=bootstrap package: advanced/146/300; type=string; label=From Template Root Path: Path to templates
+    templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Mailform/
+    # cat=bootstrap package: advanced/146/310; type=string; label=From Partial Root Path: Path to partials
+    partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Mailform/
+    # cat=bootstrap package: advanced/146/320; type=string; label=From Layout Root Path: Path to layouts
+    layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Mailform/
+}
+
+
 
 #########################
 ### BOOTSTRAP PACKAGE ###
