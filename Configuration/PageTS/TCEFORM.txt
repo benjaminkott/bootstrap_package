@@ -26,6 +26,13 @@ TCEFORM {
             removeItems = 1,2,3
             disableNoMatchingValueElement = 1
             types {
+                html{
+                    removeItems = 1,2,3,4
+                    addItems {
+                        100 = Css on head
+                        110 = JavaScript in footer
+                    }
+                }
                 bullets {
                     removeItems = 0,1,2,3
                     addItems {
@@ -57,9 +64,9 @@ TCEFORM {
                 bootstrap_package_carousel {
                     removeItems = 1,2,3
                     addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
+                    #   100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
+                    #   110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
+                    #   120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
                     }
                 }
                 bootstrap_package_panel {
@@ -75,16 +82,26 @@ TCEFORM {
                 }
             }
         }
-        image_noRows.disabled = 1
+       // image_noRows.disabled = 1
         imageborder.disabled = 1
         imagecols {
-            removeItems = 5,7,8
+            addItems {
+                9 = 9
+                10 = 10
+            }
+        }
+        images_layout {
+           // disable columns bottom not working 
+           removeItems = 33
         }
         imageorient {
-            removeItems = 1,2,9,10,17,18
+        //  removeItems = 1,2,9,10
             types {
                 image {
                     disabled = 1
+                }
+                textmedia{
+                    removeItems = 17,18
                 }
             }
         }
@@ -99,11 +116,23 @@ TCEFORM {
                 directory = EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/
             }
         }
-
+        // user defineable rendering methods
+        image_rendering {
+           // for future use (img/srcset/picture)
+           removeItems = 18,19
+           addItems {
+           
+           }
+           types {
+               textpic {
+                   removeItems =  18,19,47
+               }
+           }
+       }
         // Disable imageheight and imagewidth for textpic and image
         // to avoid incorrect rendering in frontend
-        imageheight.disabled = 1
-        imagewidth.disabled = 1
+     //  imageheight.disabled = 1
+     //  imagewidth.disabled = 1
 
         // NOBODY wants or should edit this - really, let them disappear
         table_bgColor.disabled = 1

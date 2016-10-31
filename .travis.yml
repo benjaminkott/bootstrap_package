@@ -6,6 +6,7 @@ branches:
     - master
     - BP_7-0
     - BP_6-2
+    - Art-direction
 
 php:
   - 5.5

@@ -18,6 +18,12 @@ tt_content.textpic {
         8 = TEXT
         8.value = TextpicBelow
 
+        17 = TEXT
+        17.value = TextpicIntextRight
+
+        18 = TEXT
+        18.value = TextpicIntextLeft
+
         25 = TEXT
         25.value = TextpicRight
 
@@ -52,6 +58,15 @@ tt_content.textpic {
             cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
             prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
         }
+        images {
+            tag = {$plugin.bootstrap_package.settings.images.tag}
+            lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
+            preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder.mode}
+            absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+            breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
+        }
+        moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
     }
 
     ##########################
@@ -62,6 +77,7 @@ tt_content.textpic {
         10 {
             references.fieldName = image
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
     }
 
 }

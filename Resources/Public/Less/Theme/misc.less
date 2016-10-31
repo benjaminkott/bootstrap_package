@@ -22,6 +22,17 @@
     margin-right: 33%;
 }
 
+//
+// Media thumbs
+//
+.media-left{
+    padding-left:0;
+    > img,
+    > a > img {
+        background-color: white;
+    }
+}
+
 
 //
 // Scrolltop
@@ -81,11 +92,24 @@
 .valign {
     display: table;
     table-layout: fixed;
+// fix for safari
+    display: -webkit-inline-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+// size vertically to container height
+    position: absolute;
+    top: 0;
+    bottom:0;
+    border:0;
+// fix for ie
+    height:100%;
+// get the rid of margins / padding on parent
+    left:0;
     width: 100%;
     > .vcontainer {
         display: table-cell;
-        vertical-align: middle;
     }
+
 }
 
 
@@ -116,12 +140,16 @@
 //
 // Lazyload Images
 // --------------------------------------------------
-img.lazyload {
-    opacity: 0.3;
-    .transition(opacity .3s ease-in 0s);
+.lazyload {
+    opacity:0.3;
+//    transform: scale(3);
+    transition: all 500ms;
 }
-
-
+.loaded {
+     opacity:1;
+//     transform: scale(1);
+}
+   
 //
 // Buttons from RTE
 // --------------------------------------------------

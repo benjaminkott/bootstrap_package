@@ -22,5 +22,5 @@ tt_content.html {
         0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
-
+    settings.moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
 }

@@ -413,41 +413,39 @@ return array(
                         'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ),
                     'foreign_types' => array(
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
+                       \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                               --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,  --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
                             'showitem' => '
-                                title,
-                                alternative,
-                                 --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                     ),
                     'minitems' => 0,
-                    'maxitems' => 1,
+                    'maxitems' => 10,
                 ),
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
@@ -506,12 +504,12 @@ return array(
                     'foreign_types' => array(
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                               --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,  --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
@@ -521,17 +519,17 @@ return array(
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette, --palette--;;filePalette
                             '
                         ),
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
                             'showitem' => '
-                                --palette--;;filePalette
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette, --palette--;;filePalette
                             '
                         ),
                     ),

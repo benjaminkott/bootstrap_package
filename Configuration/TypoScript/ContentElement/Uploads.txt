@@ -28,8 +28,16 @@ tt_content.uploads {
     ################
     settings {
         preview {
-            height = {$plugin.bootstrap_package_contentelements.uploads.preview.height}
-            width = {$plugin.bootstrap_package_contentelements.uploads.preview.width}
+            ratio = {$plugin.bootstrap_package_contentelements.uploads.preview.ratio}
+            columns = {$plugin.bootstrap_package_contentelements.uploads.preview.columns}
+        }
+        images {
+            tag = {$plugin.bootstrap_package.settings.images.tag}
+            lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
+            preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder.mode}
+            absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+            breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
         }
     }
 
@@ -43,6 +51,7 @@ tt_content.uploads {
             collections.field = file_collections
             sorting.field = filelink_sorting
         }
+        20 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
     }
 
 }

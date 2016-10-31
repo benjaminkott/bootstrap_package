@@ -1,19 +1,60 @@
 //
 // Carousel
 // --------------------------------------------------
+
+
 .carousel {
     .item {
-        height: 400px;
-        @media (min-width: @screen-md) {
-            height: 600px;
+        figcaption {
+            text-align: center;
         }
-    }
-}
-.carousel-small {
-    .item {
-        height: 300px;
-        @media (min-width: @screen-md) {
-            height: 400px;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        > .valign {
+            text-align: center;
+            > .vcontainer {
+                vertical-align: middle;
+                float: none;
+                .image{
+                    margin:0;
+                }  
+            }
+            &-left {
+                -webkit-box-pack: start;
+                > .vcontainer {
+                    text-align: left;
+                }
+            }
+            &-right {
+                -webkit-box-pack: end;
+                > .vcontainer {
+                    text-align: right;
+                }
+            }
+            &-bottom {
+                -webkit-box-align: end;
+                > .vcontainer {
+                    vertical-align: bottom;
+                }
+            }
+            &-top {
+                -webkit-box-align: start;
+                > .vcontainer {
+                    vertical-align: top;
+                }
+            }
+            padding: (1.5 * @grid-gutter-width) (1.5 * @grid-gutter-width - @borderspace-xs);
+            @media (min-width: @screen-sm-min) and (max-width: @screen-sm){
+                padding: (1.5 * @grid-gutter-width) (1.5 * @grid-gutter-width - @borderspace-sm);
+            }
+            @media (min-width: @screen-md-min) and (max-width: @screen-md){
+                padding: (1.5 * @grid-gutter-width) (1.5 * @grid-gutter-width - @borderspace-md);
+            }
+            @media (min-width: @screen-lg-min) and (max-width: @screen-lg){
+                padding: (1.5 * @grid-gutter-width) (1.5 * @grid-gutter-width - @borderspace-lg);
+            }
+
         }
     }
 }
@@ -69,30 +110,21 @@
         padding-left: @grid-gutter-width;
         padding-right: @grid-gutter-width;
         @media (min-width: @screen-sm) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: inherit;
-            margin-top: 0;
-        }
-        .valign {
-            margin: 0 auto;
-            height: 100%;
-            @media (min-width: @screen-sm) {
-                width: @container-sm - @grid-gutter-width;
-            }
-            @media (min-width: @screen-md) {
-                width: @container-md - @grid-gutter-width;
-            }
-            @media (min-width: @screen-lg-min) {
-                width: @container-lg - @grid-gutter-width;
-            }
+        padding-left: 0;
+        padding-right: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: inherit;
+        margin-top: 0;
+    }
+    .valign {
+        margin: 0 auto;
+        height: 100%;
         }
     }
 }
@@ -106,11 +138,11 @@
     .carousel-control {
         text-shadow: none;
         @media (min-width: @screen-md) {
-            width: 100px;
-            &.left,
-            &.right {
-                filter: none;
-                background-image: none;
+        width: 100px;
+        &.left,
+        &.right {
+            filter: none;
+            background-image: none;
             }
         }
     }
@@ -153,9 +185,8 @@
     }
     .right .carousel-control-icon {
         right: -100%;
-        &:before {
+            &:before {
             .rotate(45deg);
-
         }
     }
     &:hover {
@@ -220,12 +251,7 @@
 .carousel-item-type-header {
     .carousel-text-inner {
         margin: 0 auto;
-        @media (min-width: @screen-md) {
-            width: 80%;
-        }
-        @media (min-width: @screen-lg-min) {
-            width: 65%;
-        }
+        width: 100%; 
     }
 }
 
@@ -254,12 +280,12 @@
 //
 .container {
     .carousel {
-    margin-left: -(@grid-gutter-width / 2);
-    margin-right: -(@grid-gutter-width / 2);
-    @media (min-width: @screen-sm) {
-        margin-left: 0;
-        margin-right: 0;
-    }
+        margin-left: -(@grid-gutter-width / 2);
+        margin-right: -(@grid-gutter-width / 2);
+        @media (min-width: @screen-sm) {
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
     .carousel-inner {
         .item {

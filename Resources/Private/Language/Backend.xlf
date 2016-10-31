@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
     <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
-          product-name="bootstrap_package">
+        product-name="bootstrap_package">
         <header/>
         <body>
 
@@ -215,6 +215,54 @@
             <trans-unit id="carousel.interval">
                 <source>Interval in ms</source>
             </trans-unit>
+            <trans-unit id="carousel.top">
+                <source>Top</source>
+            </trans-unit>
+            <trans-unit id="carousel.middle">
+                <source>Middle</source>
+            </trans-unit>
+            <trans-unit id="carousel.bottom">
+                <source>Bottom</source>
+            </trans-unit>
+            <trans-unit id="carousel.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="carousel.right">
+                <source>Right</source>
+            </trans-unit>
+            <trans-unit id="carousel.valign">
+                <source>Vertical centering</source>
+            </trans-unit>
+            <trans-unit id="carousel.align">
+                <source>Horizontal centering</source>
+            </trans-unit>
+            <trans-unit id="carousel.ratio">
+                <source>Ratio height/width %</source>
+            </trans-unit>
+            <trans-unit id="carousel.heightmode">
+                <source>Height mode</source>
+            </trans-unit>
+            <trans-unit id="carousel.fluid">
+                <source>Fluid</source>
+            </trans-unit>
+            <trans-unit id="carousel.fixed">
+                <source>Fixed</source>
+            </trans-unit>
+            <trans-unit id="carousel.fullheight">
+                <source>Full screen</source>
+            </trans-unit>
+            <trans-unit id="carousel.xs">
+                <source>Height in extra small screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.sm">
+                <source>Height in small screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.md">
+                <source>Height in medium screen (pixel)</source>
+            </trans-unit>
+            <trans-unit id="carousel.lg">
+                <source>Height in large screen (pixel)</source>
+            </trans-unit>
             <trans-unit id="carousel.background_image_maxwidth">
                 <source>Max width of background images in px</source>
             </trans-unit>
@@ -368,6 +416,73 @@
             </trans-unit>
             <trans-unit id="contextualalternatives.danger">
                 <source>Danger</source>
+            </trans-unit>
+
+            <trans-unit id="field.alternativefile">
+                <source>Art direction</source>
+            </trans-unit>
+            <trans-unit id="button.addartdirection">
+                <source>Add art direction alternative</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints">
+                <source>Breakpoint</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.lg">
+                <source>Extra Large</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.md">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.sm">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.xs">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="field.breakpoints.xxs">
+                <source>Extra Small</source>
+            </trans-unit>
+
+            <trans-unit id="field.images_layout">
+                <source>Layout multi-images</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.0">
+                <source>Standard</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.1">
+                <source>Rows left</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.2">
+                <source>Rows justify (disable width)</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.3">
+                <source>Rows right</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.4">
+                <source>Columns top</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.5">
+                <source>Columns justify (disable height)</source>
+            </trans-unit>
+            <trans-unit id="field.images_layout_options.I.6">
+                <source>Columns bottom</source>
+            </trans-unit>
+
+            <trans-unit id="field.image_rendering">
+                <source>Rendering method</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.0">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.4">
+                <source>Css background</source>
+            </trans-unit>
+            <trans-unit id="field.image_rendering_options.I.9">
+                <source>Lightbox link with title as text</source>
+            </trans-unit>
+
+            <trans-unit id="field.image_cssselector">
+                <source>Css background selector</source>
             </trans-unit>
 
             <trans-unit id="external_media">

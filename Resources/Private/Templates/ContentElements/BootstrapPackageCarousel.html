@@ -6,8 +6,24 @@
 
 </f:section>
 <f:section name="Main">
-
+<bk2k:imageSize>
     <f:if condition="{records}">
+        <bk2k:css inline="{settings.moveCssToBody}">
+             <f:switch expression="{data.pi_flexform.height_mode}">
+                 <f:case value="2">
+#carousel-{data.uid} .item<f:format.raw>{height:100vh;padding-bottom:0;}</f:format.raw>
+                 </f:case>
+                  <f:case value="1">
+<bk2k:mediaQuery min="lg">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.lg}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="md" max="lg">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.md}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery min="sm" max="md">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.sm}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+<bk2k:mediaQuery max="sm">#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.xs}px<f:format.raw>;}</f:format.raw></bk2k:mediaQuery>
+                </f:case>
+                <f:case default="TRUE">
+#carousel-{data.uid} .item<f:format.raw>{height:0;padding-bottom:</f:format.raw>{data.pi_flexform.ratio}%<f:format.raw>;}</f:format.raw>
+                 </f:case>
+             </f:switch>
+        </bk2k:css>
         <div id="carousel-{data.uid}"
                 class="carousel carousel-transition-{data.pi_flexform.transition} slide"
                 data-interval="{data.pi_flexform.interval}"
@@ -15,37 +31,34 @@
                 data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <f:for each="{records}" as="item" iteration="iteration">
-                    <bk2k:var name="itemStyleImage">
-                        <f:if condition="{item.backgroundImage.0}">
-                            <bk2k:var name="backgroundImagePath"
-                                    value="{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}"/>
-                            background-image: url('{backgroundImagePath}');
-                            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.{backgroundImagePath}',
-                            sizingMethod='scale');
-                            -ms-filter:
-                            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{backgroundImagePath}',
-                            sizingMethod='scale')";
-                        </f:if>
-                    </bk2k:var>
+                    <bk2k:var name="itemId">slide-{data.uid}-{iteration.cycle}</bk2k:var>
+
+                    <f:if condition="{item.backgroundImage.0}">
+                         <f:render partial="Media/Gallery" arguments="{files: item.backgroundImage, data: {imagecols: 1, section_frame: data.section_frame, image_cssselector: '#{itemId}', image_rendering: '4' }, settings: settings}"/>
+                    </f:if>
+
                     <bk2k:var name="itemStyleColor">
                         <f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if>
                     </bk2k:var>
-                    <div
+                    <div id="{itemId}"
                         class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}"
-                        data-itemno="{iteration.index}" style="{itemStyleImage}{itemStyleColor}">
-                        <f:switch expression="{item.data.item_type}">
+                        data-itemno="{iteration.index}" style="{itemStyleColor}">
+
+
+                          <f:switch expression="{item.data.item_type}">
                             <f:case value="header">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
-                                </f:link.page>
+                              <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
+                              </f:link.page>
                             </f:case>
                             <f:case value="textandimage">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
-                                </f:link.page>
+                              <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+                                <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
+                              </f:link.page>
                             </f:case>
                             <f:case value="html">{item.data.bodytext->f:format.raw()}</f:case>
-                        </f:switch>
+                          </f:switch>
+
                     </div>
                 </f:for>
             </div>
@@ -53,5 +66,5 @@
             <f:render partial="Carousel/Control/Control" arguments="{_all}"/>
         </div>
     </f:if>
-
+</bk2k:imageSize>
 </f:section>

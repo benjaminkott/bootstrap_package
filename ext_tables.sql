@@ -16,6 +16,9 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_carousel_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_accordion_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_tab_item int(11) unsigned DEFAULT '0',
+    image_rendering int(11) unsigned DEFAULT '0' NOT NULL,
+    image_cssselector varchar(255) DEFAULT '' NOT NULL,
+    images_layout tinyint(3) unsigned DEFAULT '0' NOT NULL,
     assets int(11) unsigned DEFAULT '0' NOT NULL,
 );
 
@@ -153,4 +156,12 @@ CREATE TABLE tx_bootstrappackage_tab_item (
     KEY parent (pid),
     KEY t3ver_oid (t3ver_oid,t3ver_wsid),
     KEY language (l10n_parent,sys_language_uid)
+);
+
+#
+# Table structure for table 'sys_file_reference'
+#
+CREATE TABLE sys_file_reference (
+  alternativefile int(11),
+  alternativetag varchar(40) DEFAULT ''
 );

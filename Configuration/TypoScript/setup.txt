@@ -85,6 +85,11 @@ tt_content {
 #### NO RENDERING DEFINITION
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Default.txt">
 
+##################################
+### RESPONSIVEIMAGES SETUP     ###
+##################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ResponsiveImages/setup.txt">
+
 
 ###################################
 #### BOOSTRAP PACKAGE SETTINGS ####

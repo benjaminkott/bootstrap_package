@@ -1,0 +1,111 @@
+############################
+### CUSTOM SUBCATEGORIES ###
+############################
+# #customcategory=responsive images=Responsive Images
+# #customcategory=javascript and css=Javascript and Css
+# #customcategory=grid system=Responsive Grid setup
+# customsubcategory=5500=Grid
+# customsubcategory=5600=Breakpoints media query (screen width)
+# customsubcategory=5610=Container
+# customsubcategory=5620=Container behaviour
+# customsubcategory=5640=Retina settigs
+# customsubcategory=5650=Images
+# customsubcategory=5660=Layout
+# customsubcategory=5670=Placeholder
+# customsubcategory=5700=Javascript
+# customsubcategory=5710=Css
+
+
+plugin.bootstrap_package.settings {
+
+    grid {
+
+        screen{
+            # cat=grid system/5600/110; type=int+; label=1 Screen : Minimum width of the screen extra small
+            xs = 480
+            # cat=grid system/5600/120; type=int+; label=2 Screen : Minimum width of the screen small
+            sm = 768
+            # cat=grid system/5600/130; type=int+; label=3 Screen : Minimum width of the screen medium
+            md = 992
+            # cat=grid system/5600/140; type=int+; label=4 Screen : Minimum width of the screen large
+            lg = 1200
+            # cat=grid system/5600/150; type=int+; label=5 Screen max : Width of the container large
+            xl= 1920
+        }
+
+        container{
+            # cat=grid system/5610/110; type=int+; label=1 Container : Width of the container extra small
+            xs = 450
+            # cat=grid system/5610/120; type=int+; label=2 Container : Width of the container small
+            sm = 720
+            # cat=grid system/5610/130; type=int+; label=3 Container : Width of the container medium
+            md = 940
+            # cat=grid system/5610/140; type=int+; label=4 Container : Width of the container large
+            lg = 1140
+            # cat=grid system/5610/150; type=int+; label=5 Container : Width of the container large
+            xl= 1920
+        }
+
+        fluid{
+            # cat=grid system/5620/210; type=boolean; label=1 Fluid : Container behaviour fluid extra small
+            xs = 1
+            # cat=grid system/5620/220; type=boolean; label=2 Fluid : Container behaviour fluid small
+            sm = 0
+            # cat=grid system/5620/230; type=boolean; label=3 Fluid : Container behaviour fluid medium
+            md = 0
+            # cat=grid system/5620/240; type=boolean; label=4 Fluid : Container behaviour fluid large
+            lg = 0
+            # cat=grid system/5620/250; type=boolean; label=4 Fluid : Container behaviour fluid extra large
+            xl = 0
+       }
+
+        # cat=grid system/5500/200; type=int+; label=Number of columns : Maximum number of columns
+        columns = 12
+        # cat=grid system/5500/210; type=int+; label=Gutter width:Width of the gutter
+        gutter = 40
+    }
+
+    images {
+        # cat=responsive images/5660/100; type=options[Extra small=4, Small=3, Medium=2, Large=1]; label=Fluid breakpoint : Breakpoint transition between fixed and fluid layout
+        breakpoint = 3
+
+        # cat=responsive images/5650/100; type=options[Img with srcset=3, Picture=2, Img with data attributes (compatible mode)=1]; label=Default tag type : Tag type used to render images
+        tag = 2
+
+        # cat=responsive images/5650/110; type=options[Enable lazyload=1, Disable lazyload=0]; label=Loading method : Loading method for images.
+        lazyload = 1
+
+        # cat=responsive images/5650/120; type=boolean; label=Absolute url : Force absolute url for images (for use with ajax loaded content)
+        absoluteUrl = 1
+
+        # cat=responsive images/5660/130; type=boolean; label=Relayout : Prevent relayout by providing image sizes via css
+        preventrelayout = 1
+
+        # cat=responsive images/5670/140; type=options[Small thumb=2, Inline transparent image=1, loader.gif=0]; label=Placeholder : Placeholder for images
+        placeholder.mode = 1
+
+        # cat=responsive images/5670/150; type=int+; label=Placeholder Size : Size of images placeholder
+        placeholder.size = 50
+
+        borderspace {
+
+            # cat=responsive images/5660/210; type=int+; label=1 Border space xs: Space between images extra small (css must be adjusted according)
+            xs = 20
+            # cat=responsive images/5660/220; type=int+; label=2 Border space sm: Space between images small (css must be adjusted according)
+            sm = 30
+            # cat=responsive images/5660/230; type=int+; label=3 Border space md: Space between images medium (css must be adjusted according)
+            md = 40
+            # cat=responsive images/5660/240; type=int+; label=4 Border space lg: Space between images large (css must be adjusted according)
+            lg = 40
+
+        }
+
+        # cat=responsive images/5660/260; type=float; label=Layout columns height ratio : Use container width * this ratio as vertical size for multiple images in columns layout
+        layout.columnsheightratio = 56.25
+
+    }
+    css {
+        # cat=responsive images/5710/100; type=boolean; label=Css in body : Render css in body instead of head (for use with ajax loaded content)
+        moveCssToBody = 0
+    }
+}

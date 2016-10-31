@@ -64,6 +64,37 @@ lib.dynamicContent {
             field = wrap
         }
     }
+
+    15 = USER
+    15 {
+       userFunc = BK2K\BootstrapPackage\UserFuncs\TemplateWidthUserFunc->storeToRegister
+       # number of columns
+       xxs = TEXT
+       xxs.field = xxs
+       xs < .xxs
+       xs.field = xs
+       sm < .xxs
+       sm.field = sm
+       md < .xxs
+       md.field = md
+       lg < .xxs
+       lg.field = lg
+       # margins
+       marginxxs < .xxs
+       marginxxs.field = marginxxs
+       marginxs < .xxs
+       marginxs.field = marginxs
+       marginsm < .xxs
+       marginsm.field = marginsm
+       marginmd < .xxs
+       marginmd.field = marginmd
+       marginlg < .xxs
+       marginlg.field = marginlg
+       # fluid when not wrapped into container
+       fluid < .xxs
+       fluid.field = fluid
+    }
+
     20 = CONTENT
     20 {
         table = tt_content

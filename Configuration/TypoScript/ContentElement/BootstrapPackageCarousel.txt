@@ -39,6 +39,17 @@ tt_content.bootstrap_package_carousel {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
+    settings{
+        images {
+            tag = {$plugin.bootstrap_package.settings.images.tag}
+            lazyload = {$plugin.bootstrap_package.settings.images.lazyload}
+            preventrelayout = {$plugin.bootstrap_package.settings.images.preventrelayout}
+            placeholder = {$plugin.bootstrap_package.settings.images.placeholder.mode}
+            absoluteUrl = {$plugin.bootstrap_package.settings.images.absoluteUrl}
+            breakpoint = {$plugin.bootstrap_package.settings.images.breakpoint} 
+        }
+        moveCssToBody = {$plugin.bootstrap_package.settings.css.moveCssToBody}
+    }
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
@@ -65,6 +76,10 @@ tt_content.bootstrap_package_carousel {
                     references.fieldName = image
                     as = images
                 }
+                30 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
+                30.as = images
+                40 = BK2K\BootstrapPackage\DataProcessing\ImageMetadataProcessor
+                40.as = backgroundImage 
             }
         }
     }

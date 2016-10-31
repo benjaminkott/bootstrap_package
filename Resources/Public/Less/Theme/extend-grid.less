@@ -1,0 +1,71 @@
+//
+// Generate columns for 5 7 8 9 10 items (only width) class names are xs-1-5 xs-1-7 ...
+//
+
+@bases: 5, 7, 8, 9, 10;
+.extend-grid-columns(@bases);
+
+// .extend-grid-columns(@bases);
+.extend-grid(xs, @bases);
+@media (min-width: @screen-sm-min) {
+    .extend-grid(sm, @bases);
+}
+@media (min-width: @screen-md-min) {
+    .extend-grid(md, @bases);
+}
+@media (min-width: @screen-lg-min) {
+    .extend-grid(lg, @bases);
+}
+
+
+//
+// Multiple images layout
+//
+
+.row-flex {
+    overflow: hidden;
+}
+.col-flex {
+      float: left;
+}
+
+
+.grid-flex(@borderspace-xs);
+@media (min-width: @screen-sm-min) and (max-width: @screen-md) {
+    .grid-flex(@borderspace-sm);
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-lg) {
+    .grid-flex(@borderspace-md);
+}
+@media (min-width: @screen-lg-min) {
+    .grid-flex(@borderspace-lg);
+}
+
+.col-flex-top{
+    vertical-align: top;
+}
+.col-flex-bottom{
+    vertical-align: bottom;
+}
+.row-flex-left{
+//    margin-right: auto;
+}
+.row-flex-right{
+    > .col-flex{
+       float: right;
+    }
+//    margin-left:auto;
+}
+
+// no-rows
+.no-rows > .col-flex {
+   > figure:last-child {
+        margin-bottom: 0;
+    }
+}
+// no-cols
+.no-cols > .row-flex:last-child > .col-flex {
+    > figure {
+        margin-bottom: 0;
+    }
+}
