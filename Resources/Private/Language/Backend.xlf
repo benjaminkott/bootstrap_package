@@ -209,6 +209,23 @@
                 <source>Text &amp; Media</source>
             </trans-unit>
 
+            <trans-unit id="content_element.quote">
+                <source>Quote</source>
+            </trans-unit>
+            <trans-unit id="content_element.quote.description">
+                <source>Insert Quotation</source>
+            </trans-unit>
+
+            <trans-unit id="quote.text">
+                <source>Quote Text</source>
+            </trans-unit>
+            <trans-unit id="quote.link">
+                <source>Quote Link</source>
+            </trans-unit>
+            <trans-unit id="quote.source">
+                <source>Quote Source</source>
+            </trans-unit>
+
             <trans-unit id="carousel.options">
                 <source>Carousel Options</source>
             </trans-unit>

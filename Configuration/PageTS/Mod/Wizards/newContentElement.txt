@@ -70,6 +70,14 @@ mod.wizards {
                             CType = media
                         }
                     }
+                    quote {
+                        iconIdentifier = content-bootstrappackage-quote
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote.description
+                        tt_content_defValues {
+                            CType = quote
+                        }
+                    }
                     bullets {
                         iconIdentifier = content-bullets
                         title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_bulletList_title

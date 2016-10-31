@@ -136,6 +136,11 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-thumbnail.svg']
 );
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-quote',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/quote.svg']
+);
 
 /***************
  * Allow Carousel Item & Accordion Item on Standart Pages
