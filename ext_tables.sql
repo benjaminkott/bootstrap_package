@@ -35,7 +35,7 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     header_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
     subheader varchar(255) DEFAULT '' NOT NULL,
     subheader_layout tinyint(3) unsigned DEFAULT '2' NOT NULL,
-    bodytext text NOT NULL,
+    bodytext text,
     image int(11) unsigned DEFAULT '0',
     link varchar(255) DEFAULT '' NOT NULL,
     text_color varchar(255) DEFAULT '' NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE tx_bootstrappackage_accordion_item (
 
     tt_content int(11) unsigned DEFAULT '0',
     header varchar(255) DEFAULT '' NOT NULL,
-    bodytext text NOT NULL,
+    bodytext text,
     media int(11) unsigned DEFAULT '0',
     mediaorient tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
@@ -124,7 +124,7 @@ CREATE TABLE tx_bootstrappackage_tab_item (
 
     tt_content int(11) unsigned DEFAULT '0',
     header varchar(255) DEFAULT '' NOT NULL,
-    bodytext text NOT NULL,
+    bodytext text,
     media int(11) unsigned DEFAULT '0',
     mediaorient tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
