@@ -40,7 +40,7 @@
                 </f:then>
                 <f:else>
                     <div class="col-md-12" data-equalheight="item">
-                        <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings}" />
+                        <f:render partial="Media/Type" arguments="{file: '{files.0}', data: data, settings: settings}" />
                     </div>
                 </f:else>
             </f:if>
