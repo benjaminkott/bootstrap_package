@@ -26,12 +26,17 @@ namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
  */
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
 class PreProcessHook
 {
+    /**
+     * @var \BK2K\BootstrapPackage\Service\CompileService
+     */
+    protected $compileService;
 
     /**
      * @param array $params
@@ -44,7 +49,7 @@ class PreProcessHook
         }
         $files = array();
         foreach ($params['cssFiles'] as $file => $settings) {
-            $compiledFile = CompileService::getCompiledFile($file);
+            $compiledFile = $this->getCompileService()->getCompiledFile($file);
             if ($compiledFile !== false) {
                 $settings['file'] = $compiledFile;
                 $files[$compiledFile] = $settings;
@@ -53,5 +58,18 @@ class PreProcessHook
             }
         }
         $params['cssFiles'] = $files;
+    }
+
+    /**
+     * Get the compile service
+     *
+     * @return Dispatcher
+     */
+    protected function getCompileService()
+    {
+        if (!isset($this->compileService)) {
+            $this->compileService = GeneralUtility::makeInstance(CompileService::class);
+        }
+        return $this->compileService;
     }
 }

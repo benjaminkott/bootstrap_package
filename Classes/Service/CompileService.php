@@ -25,54 +25,106 @@ namespace BK2K\BootstrapPackage\Service;
  *  THE SOFTWARE.
  */
 
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\SignalSlot\Dispatcher;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * This service handles the parsing of less files for the frontend. You can extend
+ * the compile service with a signal, that is triggered just before rendering.
+ *
+ * To fulfill that signal, you can create a slot in your custom extension.
+ * All what it needs is an entry in your ext_localconf.php file:
+ *
+ * $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
+ * $signalSlotDispatcher->connect(
+ *   'BK2K\\BootstrapPackage\\Service\\CompileService',
+ *   'beforeLessCompiling',
+ *   'YourVendor\\YourExtension\\Slots\\CompileServiceSlot',
+ *   'beforeLessCompiling'
+ * );
+ *
+ * Example call:
+ *
+ * $file -> array
+ * $options -> array
+ * $variables -> array
+ *
+ * public function beforeLessCompiling($file, $options, $variables)
+ * {
+ *   return [
+ *     'file' => $file,
+ *     'options' => $options,
+ *     'variables' => $variables,
+ *   ];
+ * }
  */
 class CompileService
 {
+    /**
+     * @var string
+     */
+    protected $tempDirectory = 'typo3temp/assets/boostrappackage/';
+
+    /**
+     * @var string
+     */
+    protected $tempDirectoryRelativeToRoot = '../../../';
+
+    /**
+     * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
+     */
+    protected $signalSlotDispatcher;
 
     /**
      * @param string $file
      * @return bool|string
      * @throws \Exception
      */
-    public static function getCompiledFile($file)
+    public function getCompiledFile($file)
     {
         $file = GeneralUtility::getFileAbsFileName($file);
         $pathParts = pathinfo($file);
         if ($pathParts['extension'] === 'less') {
             try {
-                $options = array(
-                    'cache_dir' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage')
-                );
-                $settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: array());
+                // Initialize Arguments
+                $arguments = [
+                    'file' => [
+                        'absolute' => $file,
+                    ],
+                    'options' => [
+                        'cache_dir' => GeneralUtility::getFileAbsFileName($this->tempDirectory)
+                    ],
+                    'variables' => [],
+                ];
+                $settings = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: []);
                 if ($settings['cssSourceMapping']) {
-                    // enable source mapping
-                    $optionsForSourceMap = array(
+                    // Enable source mapping
+                    $optionsForSourceMap = [
                         'sourceMap' => true,
-                        'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName('typo3temp/bootstrappackage') . '/bootstrappackage.map',
-                        'sourceMapURL' => '/typo3temp/bootstrappackage/bootstrappackage.map',
+                        'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($this->tempDirectory) . 'bootstrappackage.map',
+                        'sourceMapURL' => $this->tempDirectory . 'bootstrappackage.map',
                         'sourceMapBasepath' => PATH_site,
                         'sourceMapRootpath' => '/'
-                    );
-                    $options += $optionsForSourceMap;
-
-                    // disable CSS compression
+                    ];
+                    $arguments['options'] += $optionsForSourceMap;
+                    // Disable CSS compression
                     /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
-                    $pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+                    $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
                     $pageRenderer->disableCompressCss();
                 }
+                // Get variables from constants to override less variables
                 if ($settings['overrideLessVariables']) {
-                    $variables = self::getVariablesFromConstants();
-                } else {
-                    $variables = array();
+                    $arguments['variables'] = $this->getVariablesFromConstants();
                 }
-                $files = array();
-                $files[$file] = '../../' . str_replace(PATH_site, '', dirname($file)) . '/';
-                $compiledFile = \Less_Cache::Get($files, $options, $variables);
-                $file = 'typo3temp/bootstrappackage/' . $compiledFile;
+                // Emit signal before less compiling to allow overriding of arguments
+                $arguments = $this->emitBeforeLessCompilingSignal($arguments);
+                // Process file
+                $files = [];
+                $files[$arguments['file']['absolute']] = $this->tempDirectoryRelativeToRoot . str_replace(PATH_site, '', dirname($arguments['file']['absolute'])) . '/';
+                $compiledFile = \Less_Cache::Get($files, $arguments['options'], $arguments['variables']);
+                $file = $this->tempDirectory . $compiledFile;
 
                 return $file;
             } catch (\Exception $e) {
@@ -85,11 +137,13 @@ class CompileService
     /**
      * @return array
      */
-    public static function getVariablesFromConstants()
+    public function getVariablesFromConstants()
     {
-        $variables = array();
+        $variables = [];
         $prefix = 'plugin.bootstrap_package.settings.less.';
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup) || !is_array($GLOBALS['TSFE']->tmpl->flatSetup) || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
+            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
             $GLOBALS['TSFE']->tmpl->generateConfig();
         }
         foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
@@ -98,5 +152,31 @@ class CompileService
             }
         }
         return $variables;
+    }
+
+    /**
+     * @param array $arguments
+     */
+    protected function emitBeforeLessCompilingSignal($arguments)
+    {
+        return $this->getSignalSlotDispatcher()->dispatch(
+            __CLASS__,
+            'beforeLessCompiling',
+            $arguments
+        );
+    }
+
+    /**
+     * Get the SignalSlot dispatcher
+     *
+     * @return Dispatcher
+     */
+    protected function getSignalSlotDispatcher()
+    {
+        if (!isset($this->signalSlotDispatcher)) {
+            $this->signalSlotDispatcher = GeneralUtility::makeInstance(ObjectManager::class)
+                ->get(Dispatcher::class);
+        }
+        return $this->signalSlotDispatcher;
     }
 }
