@@ -75,7 +75,7 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
             if ($templateVariableContainer->exists($arguments['name']) === true) {
                 $templateVariableContainer->remove($arguments['name']);
             }
-            $templateVariableContainer->add($arguments['name'], $value);
+            $templateVariableContainer->add($arguments['name'], trim($value));
         }
         return null;
     }
