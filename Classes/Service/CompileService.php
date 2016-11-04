@@ -65,12 +65,12 @@ class CompileService
     /**
      * @var string
      */
-    protected $tempDirectory = 'typo3temp/assets/boostrappackage/';
+    protected $tempDirectory = 'typo3temp/boostrappackage/';
 
     /**
      * @var string
      */
-    protected $tempDirectoryRelativeToRoot = '../../../';
+    protected $tempDirectoryRelativeToRoot = '../../';
 
     /**
      * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
