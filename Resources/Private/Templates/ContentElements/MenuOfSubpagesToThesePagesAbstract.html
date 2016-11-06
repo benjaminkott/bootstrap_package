@@ -10,7 +10,7 @@
         <ul>
             <f:for each="{menu}" as="page">
                 <li>
-                    <f:link.page pageUid="{page.data.uid}">{page.data.title}</f:link.page>
+                    <f:link.page pageUid="{page.data.uid}">{page.title}</f:link.page>
                     <f:if condition="{page.data.abstract}">
                         <f:format.html>{page.data.abstract}</f:format.html>
                     </f:if>
