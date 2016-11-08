@@ -7,6 +7,7 @@ mod {
             preview {
                 bootstrap_package_external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/BootstrapPackageExternalMedia.html
                 bootstrap_package_listgroup = EXT:bootstrap_package/Resources/Private/Templates/Preview/BootstrapPackageListGroup.html
+                quote = EXT:bootstrap_package/Resources/Private/Templates/Preview/Quote.html
             }
         }
     }

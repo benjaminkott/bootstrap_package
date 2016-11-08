@@ -1,0 +1,12 @@
+<br>
+
+<blockquote cite="{f:uri.typolink(parameter: quote_link)}">
+    <p>{bodytext}</p>
+    <f:if condition="{quote_source}">
+        <footer>
+            <f:link.typolink parameter="{quote_link}" target="_blank">
+                {quote_source}
+            </f:link.typolink>
+        </footer>
+    </f:if>
+</blockquote>
