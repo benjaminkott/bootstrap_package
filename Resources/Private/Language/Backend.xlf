@@ -142,6 +142,13 @@
                 <source>Any number of youtube and vimeo videos in columns and rows with a caption.</source>
             </trans-unit>
 
+            <trans-unit id="content_element.audio">
+                <source>Audio</source>
+            </trans-unit>
+            <trans-unit id="content_element.audio.description">
+                <source>Insert Audio files</source>
+            </trans-unit>
+
             <trans-unit id="content_element.panel">
                 <source>Panel</source>
             </trans-unit>

@@ -29,6 +29,7 @@ tt_content {
 }
 
 #### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Audio.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Bullets.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Div.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Header.txt">

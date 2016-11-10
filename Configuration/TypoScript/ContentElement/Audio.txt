@@ -1,0 +1,36 @@
+######################
+#### CTYPE: AUDIO ####
+######################
+
+tt_content.audio >
+tt_content.audio = FLUIDTEMPLATE
+tt_content.audio {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Audio
+    templateRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+        }
+    }
+
+}

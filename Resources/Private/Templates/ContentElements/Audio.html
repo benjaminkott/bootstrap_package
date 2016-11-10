@@ -1,0 +1,32 @@
+<f:layout name="Default"/>
+<f:section name="Header">
+
+    <f:render partial="Header/All" arguments="{_all}" />
+
+</f:section>
+<f:section name="Main">
+
+    <f:if condition="{files}">
+        <ul class="media-list">
+            <f:for each="{files}" as="file">
+                <f:if condition="{file.type} == 3">
+                    <li class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <f:if condition="{file.title}">
+                                    <f:then>{file.title}</f:then>
+                                    <f:else>{file.name}</f:else>
+                                </f:if>
+                            </h4>
+                            <f:if condition="{file.description}">
+                                <p>{file.description}</p>
+                            </f:if>
+                            <f:media file="{file}" />
+                        </div>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:if>
+
+</f:section>
