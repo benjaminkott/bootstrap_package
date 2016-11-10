@@ -87,8 +87,8 @@ class MenuProcessor implements DataProcessorInterface
     protected $processorConfiguration;
 
     /**
-     * Allowed configuration keys for menu generation, other keys will be
-     * ignored to prevent configuration errors.
+     * Allowed configuration keys for menu generation, other keys
+     * will throw an exception to prevent configuration errors.
      *
      * @var array
      */
@@ -111,8 +111,32 @@ class MenuProcessor implements DataProcessorInterface
         'alwaysActivePIDlist',
         'alwaysActivePIDlist.',
         'protectLvar',
+        'addQueryString',
         'if',
         'if.',
+        'levels',
+        'expandAll',
+        'includeSpacer',
+        'as',
+        'titleField',
+        'dataProcessing',
+        'dataProcessing.'
+    ];
+
+    /**
+     * Remove keys from configuration that should not be passed
+     * to HMENU to prevent configuration errors
+     *
+     * @var array
+     */
+    public $removeConfigurationKeysForHmenu = [
+        'levels',
+        'expandAll',
+        'includeSpacer',
+        'as',
+        'titleField',
+        'dataProcessing',
+        'dataProcessing.'
     ];
 
     /**
@@ -235,14 +259,33 @@ class MenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * @return array
+     * Validate configuration
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function validateConfiguration()
+    {
+        $invalidArguments = [];
+        foreach ($this->processorConfiguration as $key => $value) {
+            if (!in_array($key, $this->allowedConfigurationKeys)) {
+                $invalidArguments[str_replace('.', '', $key)] = $key;
+            }
+        }
+        if (!empty($invalidArguments)) {
+            throw new \InvalidArgumentException('MenuProcessor Configuration contains invalid Arguments: ' . implode(', ', $invalidArguments), 1478806566);
+        }
+    }
+
+    /**
+     * Prepare Configuration
      */
     public function prepareConfiguration()
     {
+        $this->menuConfig += $this->processorConfiguration;
         // Filter configuration
-        foreach ($this->processorConfiguration as $key => $value) {
-            if (in_array($key, $this->allowedConfigurationKeys)) {
-                $this->menuConfig[$key] = $value;
+        foreach ($this->menuConfig as $key => $value) {
+            if (in_array($key, $this->removeConfigurationKeysForHmenu)) {
+                unset($this->menuConfig[$key]);
             }
         }
         // Process special value
@@ -250,7 +293,6 @@ class MenuProcessor implements DataProcessorInterface
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['special.']['value'], $this->menuConfig['special.']['value.']);
             unset($this->menuConfig['special.']['value.']);
         }
-        return $this->menuConfig;
     }
 
     /**
@@ -359,6 +401,9 @@ class MenuProcessor implements DataProcessorInterface
         $this->menuIncludeSpacer = (int)$this->getConfigurationValue('includeSpacer');
         $this->menuTargetVariableName = $this->getConfigurationValue('as');
         $this->menuTitleField = $this->getConfigurationValue('titleField');
+
+        // Validate Configuration
+        $this->validateConfiguration();
 
         // Build Configuration
         $this->prepareConfiguration();
