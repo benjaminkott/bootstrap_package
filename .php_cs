@@ -26,15 +26,17 @@
  * inside the TYPO3 directory. Warning: This may take up to 10 minutes.
  *
  * For more information read:
- * 	 http://www.php-fig.org/psr/psr-2/
- * 	 http://cs.sensiolabs.org
+ * http://www.php-fig.org/psr/psr-2/
+ * http://cs.sensiolabs.org
  */
 
 if (PHP_SAPI !== 'cli') {
     die('This script supports command line usage only. Please check your command.');
 }
 
-if(function_exists('xdebug_disable')) { xdebug_disable(); }
+if (function_exists('xdebug_disable')) {
+    xdebug_disable();
+}
 
 // Define in which folders to search and which folders to exclude
 // Exclude some directories that are excluded by Git anyways to speed up the sniffing
@@ -44,14 +46,8 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__);
 
 // Return a Code Sniffing configuration using
-// all sniffers needed for PSR-2
-// and additionally:
-//  - Remove leading slashes in use clauses.
-//  - PHP single-line arrays should not have trailing comma.
-//  - Single-line whitespace before closing semicolon are prohibited.
-//  - Remove unused use statements in the PHP source code
-//  - Ensure Concatenation to have at least one whitespace around
-//  - Remove trailing whitespace at the end of blank lines.
+// all sniffers needed for PSR-2 and additional
+// fixers to match TYPO3 coding guidelines
 return Symfony\CS\Config\Config::create()
     ->level(Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers([
@@ -67,7 +63,19 @@ return Symfony\CS\Config\Config::create()
         'extra_empty_lines',
         'phpdoc_no_package',
         'phpdoc_scalar',
-        'no_empty_lines_after_phpdocs'
+        'no_empty_lines_after_phpdocs',
+        'short_array_syntax',
+        'array_element_white_space_after_comma',
+        'function_typehint_space',
+        'hash_to_slash_comment',
+        'join_function',
+        'lowercase_cast',
+        'namespace_no_leading_whitespace',
+        'native_function_casing',
+        'no_empty_statement',
+        'self_accessor',
+        'short_bool_cast',
+        'unneeded_control_parentheses',
     ])
     ->setUsingCache(true)
     ->finder($finder);

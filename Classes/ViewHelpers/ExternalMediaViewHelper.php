@@ -50,10 +50,10 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
     public function render($url, $class)
     {
         return self::renderStatic(
-            array(
+            [
                 'url' => $url,
                 'class' => $class
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );

@@ -45,10 +45,10 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
     public function render($name = null, $value = null)
     {
         return self::renderStatic(
-            array(
+            [
                 'name' => $name,
                 'value' => $value
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );

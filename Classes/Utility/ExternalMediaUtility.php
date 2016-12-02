@@ -36,11 +36,11 @@ class ExternalMediaUtility
     /**
      * @var array Provider that can be handled, the provider is equal the hostname and needs a process function
      */
-    protected $mediaProvider = array(
+    protected $mediaProvider = [
         'youtube',
         'youtu',
         'vimeo'
-    );
+    ];
 
     /**
      * Get the embed code for the given url if possible
@@ -80,7 +80,7 @@ class ExternalMediaUtility
         $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
         foreach ($this->mediaProvider as $provider) {
             $functionName = 'process' . ucfirst($provider);
-            if (in_array($provider, $hostName) && is_callable(array($this, $functionName))) {
+            if (in_array($provider, $hostName) && is_callable([$this, $functionName])) {
                 return $functionName;
             }
         }
@@ -95,7 +95,7 @@ class ExternalMediaUtility
      */
     protected function processYoutube($url)
     {
-        $matches = array();
+        $matches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
         if (preg_match($pattern, $url, $matches)) {
             $toEmbed = $matches[1];
@@ -127,7 +127,7 @@ class ExternalMediaUtility
      */
     protected function processVimeo($url)
     {
-        $matches = array();
+        $matches = [];
         if (preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
             return 'https://player.vimeo.com/video/' . $matches[1];
         }

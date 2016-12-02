@@ -3,27 +3,27 @@
 /************************************************************************
  * Extension Manager/Repository config file for ext "bootstrap_package".
  ************************************************************************/
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'Bootstrap Package',
     'description' => 'Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.',
     'category' => 'templates',
-    'constraints' => array(
-        'depends' => array(
+    'constraints' => [
+        'depends' => [
             'typo3' => '7.6.2-8.99.99'
-        ),
-        'conflicts' => array(
+        ],
+        'conflicts' => [
             'css_styled_content' => '*',
             'fluid_styled_content' => '*',
             'themes' => '*',
             'fluidpages' => '*',
             'dyncss' => '*',
-        ),
-    ),
-    'autoload' => array(
-        'psr-4' => array(
+        ],
+    ],
+    'autoload' => [
+        'psr-4' => [
             'BK2K\\BootstrapPackage\\' => 'Classes'
-        ),
-    ),
+        ],
+    ],
     'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
@@ -32,4 +32,4 @@ $EM_CONF[$_EXTKEY] = array(
     'author_email' => 'info@bk2k.info',
     'author_company' => 'private',
     'version' => '7.1.0-dev',
-);
+];

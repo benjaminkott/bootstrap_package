@@ -37,7 +37,7 @@ class LastImageInfoViewHelper extends AbstractViewHelper implements CompilableIn
     /**
      * @var array
      */
-    protected static $imageInfoMapping = array(
+    protected static $imageInfoMapping = [
         'width' => 0,
         'height' => 1,
         'type' => 2,
@@ -47,7 +47,7 @@ class LastImageInfoViewHelper extends AbstractViewHelper implements CompilableIn
         'originalFile' => 'originalFile',
         'processedFile' => 'processedFile',
         'fileCacheHash' => 'fileCacheHash'
-    );
+    ];
 
     /**
      * Render

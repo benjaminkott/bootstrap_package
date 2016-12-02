@@ -171,12 +171,12 @@ class MenuProcessor implements DataProcessorInterface
                 ],
                 '21' => 'TEXT',
                 '21.' => [
-                    'value' => MenuProcessor::LINK_PLACEHOLDER,
+                    'value' => self::LINK_PLACEHOLDER,
                     'wrap' => ',"link":|',
                 ],
                 '22' => 'TEXT',
                 '22.' => [
-                    'value' => MenuProcessor::TARGET_PLACEHOLDER,
+                    'value' => self::TARGET_PLACEHOLDER,
                     'wrap' => ',"target":|',
                 ],
                 '30' => 'TEXT',
@@ -420,7 +420,7 @@ class MenuProcessor implements DataProcessorInterface
 
         // Process menu
         $menu = json_decode($renderedMenu, true);
-        $processedMenu = array();
+        $processedMenu = [];
 
         foreach ($menu as $key => $page) {
             $processedMenu[$key] = $this->processAdditionalDataProcessors($page, $processorConfiguration);
@@ -497,8 +497,8 @@ class MenuProcessor implements DataProcessorInterface
         $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
         $target = $this->jsonEncode($menuItem['linkHREF']['TARGET']);
 
-        $menuItem['parts']['title'] = str_replace(MenuProcessor::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
-        $menuItem['parts']['title'] = str_replace(MenuProcessor::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(self::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
 
         return $menuItem;
     }

@@ -51,11 +51,11 @@ class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterfac
     public function render($data, $as = 'items', $delimiter = LF)
     {
         return self::renderStatic(
-            array(
+            [
                 'data' => $data,
                 'as' => $as,
                 'delimiter' => $delimiter
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );

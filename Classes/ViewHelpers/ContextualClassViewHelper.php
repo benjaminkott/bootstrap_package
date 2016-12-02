@@ -38,14 +38,14 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
     /**
      * @var array
      */
-    protected static $contextualAlternatives = array(
+    protected static $contextualAlternatives = [
         100 => 'default',
         110 => 'primary',
         120 => 'success',
         130 => 'info',
         140 => 'warning',
         150 => 'danger'
-    );
+    ];
 
     /**
      * Render
@@ -56,9 +56,9 @@ class ContextualClassViewHelper extends AbstractViewHelper implements Compilable
     public function render($code)
     {
         return self::renderStatic(
-            array(
+            [
                 'code' => $code
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );

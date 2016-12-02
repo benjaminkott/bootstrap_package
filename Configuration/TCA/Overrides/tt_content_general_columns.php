@@ -11,10 +11,10 @@ $GLOBALS['TCA']['tt_content']['columns']['header_position'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default',''],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center','center'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right','right'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left','left']
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default', ''],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center', 'center'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right', 'right'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left', 'left']
         ],
         'default' => ''
     ]
@@ -36,15 +36,15 @@ $GLOBALS['TCA']['tt_content']['columns']['section_frame'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.default','0'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.invisible','1'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerbefore','5'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerafter','6'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentcenter','10'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft','11'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright','12'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well','20'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron','21'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.default', '0'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.invisible', '1'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerbefore', '5'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.rulerafter', '6'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentcenter', '10'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentleft', '11'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.indentright', '12'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.well', '20'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.jumbotron', '21'],
             ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.section_frame.none', '66']
         ],
         'default' => '0'

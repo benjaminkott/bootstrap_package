@@ -64,7 +64,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
         $additionalWhere = ''
     ) {
         return self::renderStatic(
-            array(
+            [
                 'uid' => $uid,
                 'table' => $table,
                 'foreignField' => $foreignField,
@@ -72,7 +72,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
                 'as' => $as,
                 'sortby' => $sortby,
                 'additionalWhere' => $additionalWhere
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );
@@ -108,7 +108,7 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
                 $arguments['sortby'],
                 $limit
             );
-            $items = array();
+            $items = [];
             foreach ($data as $record) {
                 $frontendController->sys_page->versionOL($arguments['table'], $record);
                 if (is_array($record)) {

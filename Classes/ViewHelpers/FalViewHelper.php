@@ -52,12 +52,12 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
     public function render($data, $as = 'items', $table = 'tt_content', $field = 'image')
     {
         return self::renderStatic(
-            array(
+            [
                 'data' => $data,
                 'as' => $as,
                 'table' => $table,
                 'field' => $field
-            ),
+            ],
             $this->buildRenderChildrenClosure(),
             $this->renderingContext
         );
