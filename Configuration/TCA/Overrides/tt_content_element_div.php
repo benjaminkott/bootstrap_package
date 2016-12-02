@@ -1,4 +1,5 @@
 <?php
+defined('TYPO3_MODE') || die();
 
 /***************
  * Add Content Element: Div
