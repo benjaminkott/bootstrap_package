@@ -1,7 +1,7 @@
 <f:if condition="{files}">
 
         <div class="row" data-equalheight="container">
-            <f:if condition="{files -> f:count()} > 1">
+            <f:if condition="{files -> f:count()} > 0">
                 <f:then>
                     <f:for each="{files}" as="file" iteration="fileIteration">
                         <f:switch expression="{data.imagecols}">
