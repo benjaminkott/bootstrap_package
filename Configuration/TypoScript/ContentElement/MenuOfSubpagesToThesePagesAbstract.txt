@@ -26,7 +26,7 @@ tt_content.menu.4 {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
         10 {
             special = directory
             special.value.field = pages
