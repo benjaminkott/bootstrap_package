@@ -211,13 +211,13 @@ page {
         ### DATA PREPROCESSING ###
         ##########################
         dataProcessing {
-            10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             10 {
                 levels = 2
                 includeSpacer = 1
                 as = mainnavigation
             }
-            20 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             20 {
                 entryLevel = 1
                 levels = 2
@@ -225,7 +225,7 @@ page {
                 includeSpacer = 1
                 as = subnavigation
             }
-            30 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             30 {
                 special = rootline
                 special.range = 0|-1
@@ -243,7 +243,7 @@ page {
                     }
                 }
             }
-            40 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            40 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             40 {
                 special = language
                 special.value = {$page.theme.language.languageValue}
@@ -252,7 +252,7 @@ page {
                     isTrue = {$page.theme.language.languageValue}
                 }
             }
-            50 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
+            50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             50 {
                 special = {$page.theme.meta.navigationType}
                 special.value = {$page.theme.meta.navigationValue}
