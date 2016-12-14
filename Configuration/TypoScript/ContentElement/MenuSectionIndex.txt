@@ -50,6 +50,7 @@ tt_content.menu.3 {
                     table = tt_content
                     pidInList.field = uid
                     as = content
+                    where = sectionIndex = 1
                     dataProcessing {
                         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                         10 {
