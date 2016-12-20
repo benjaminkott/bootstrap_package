@@ -152,8 +152,7 @@ page {
         templateName = TEXT
         templateName.stdWrap.cObject = CASE
         templateName.stdWrap.cObject {
-            key.data = levelfield:-1, backend_layout_next_level, slide
-            key.override.field = backend_layout
+            key.data = pagelayout
 
             pagets__default_clean = TEXT
             pagets__default_clean.value = DefaultClean
