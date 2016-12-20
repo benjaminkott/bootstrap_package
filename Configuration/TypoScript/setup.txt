@@ -519,7 +519,6 @@ page {
 config {
     absRefPrefix = auto
     no_cache = {$config.no_cache}
-    uniqueLinkVars = 1
     pageTitleFirst = 1
     linkVars = L
     prefixLocalAnchors = {$config.prefixLocalAnchors}
