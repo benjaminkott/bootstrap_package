@@ -70,7 +70,7 @@ class VarViewHelper extends AbstractViewHelper implements CompilableInterface
             if ($arguments['value'] === null) {
                 $value = $renderChildrenClosure();
             } else {
-                $value = $arguments['value'];
+                $value = (is_string($arguments['value']) ? trim($arguments['value']) : $arguments['value']);
             }
             if ($templateVariableContainer->exists($arguments['name']) === true) {
                 $templateVariableContainer->remove($arguments['name']);
