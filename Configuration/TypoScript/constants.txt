@@ -72,8 +72,10 @@ page {
         }
 
         language {
-            # cat=bootstrap package: basic/168/language_enable; type=boolean; label=Language: Enable to display the language menu
+            # cat=bootstrap package: basic/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
             enable = 1
+            # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids
+            languageValue = 0,1,2
         }
 
         copyright {

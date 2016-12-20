@@ -246,9 +246,11 @@ page {
             40 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             40 {
                 special = language
-                special.value = 0,1,2
-                special.normalWhenNoLanguage = 0
+                special.value = {$page.theme.language.languageValue}
                 as = languagenavigation
+                if {
+                    isTrue = {$page.theme.language.languageValue}
+                }
             }
             50 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             50 {
