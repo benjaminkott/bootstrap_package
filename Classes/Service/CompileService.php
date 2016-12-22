@@ -25,6 +25,7 @@ namespace BK2K\BootstrapPackage\Service;
  *  THE SOFTWARE.
  */
 
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -59,9 +60,9 @@ class CompileService
                     );
                     $options += $optionsForSourceMap;
 
-                    // disable CSS compression
+                    // Disable CSS compression
                     /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
-                    $pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+                    $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
                     $pageRenderer->disableCompressCss();
                 }
                 if ($settings['overrideLessVariables']) {
