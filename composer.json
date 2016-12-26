@@ -25,24 +25,16 @@
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
   "require": {
-    "typo3/cms-core": "^7.6.0 || ^8.0",
-    "typo3/cms": "^7.6.0 || ^8.0"
+    "php": ">=5.5.0",
+    "typo3/cms-core": "^7.6 || ^8.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*",
-    "namelesscoder/typo3-repository-client": "^1.2",
-    "mikey179/vfsStream": "1.4.*@dev",
-    "phpunit/phpunit": "~4.7.0"
+    "namelesscoder/typo3-repository-client": "^1.2"
   },
   "autoload": {
     "psr-4": {
       "BK2K\\BootstrapPackage\\": "Classes"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "TYPO3\\CMS\\Core\\Tests\\": ".build/vendor/typo3/cms/typo3/sysext/core/Tests/",
-      "TYPO3\\CMS\\Fluid\\Tests\\": ".build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
     }
   },
   "replace": {
@@ -50,9 +42,12 @@
     "typo3-ter/bootstrap-package": "self.version"
   },
   "config": {
-    "process-timeout": 2000,
+    "optimize-autoloader": true,
     "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin"
+    "bin-dir": ".build/bin",
+    "preferred-install": {
+      "typo3/cms": "source"
+    }
   },
   "scripts": {
     "post-autoload-dump": [
@@ -61,9 +56,6 @@
     ]
   },
   "extra": {
-    "branch-alias": {
-      "dev-master": "7.1.x-dev"
-    },
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": ".build/web"
