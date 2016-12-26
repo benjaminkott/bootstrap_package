@@ -24,9 +24,13 @@
   "support": {
     "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
   },
-  "version": "7.0.3",
+  "require": {
+    "php": ">=5.5.0",
+    "typo3/cms-core": "^7.6 || ^8.0"
+  },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*"
+    "squizlabs/php_codesniffer": "2.*",
+    "namelesscoder/typo3-repository-client": "^1.2"
   },
   "autoload": {
     "psr-4": {
@@ -37,9 +41,24 @@
     "bootstrap_package": "self.version",
     "typo3-ter/bootstrap-package": "self.version"
   },
+  "config": {
+    "optimize-autoloader": true,
+    "vendor-dir": ".build/vendor",
+    "bin-dir": ".build/bin",
+    "preferred-install": {
+      "typo3/cms": "source"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .build/web/typo3conf/ext/",
+      "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+    ]
+  },
   "extra": {
-    "branch-alias": {
-      "dev-master": "7.0.x-dev"
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".build/web"
     }
   }
 }
