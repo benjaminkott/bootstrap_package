@@ -1,9 +1,7 @@
-# HEAD
-
-# v7.0.4
+# 7.0.4
 
 ## RELEASE
-- [RELEASE] Release of 7.0.4 a05c5a9
+- [RELEASE] Release of 7.0.4 a93679d
 
 ## TASK
 - [TASK] Optimize travis and composer configuration for automatic ter uploading f61e3f8
@@ -30,7 +28,7 @@
 - [BUGFIX] Remove vendor dir from php lint tests 5c16289
 - [BUGFIX] Load form configuration only if ext:form is installed f1debae
 
-# v7.0.3
+# 7.0.3
 
 ## RELEASE
 - [RELEASE] Release of 7.0.3 09e8cf4
@@ -42,7 +40,7 @@
 - [BUGFIX] Respect padding in equalheight script e8b6e56
 - [BUGFIX] Correct overlapping of content elements with indention - fixes #325 dfc538b
 
-# v7.0.2
+# 7.0.2
 
 ## RELEASE
 - [RELEASE] Release of 7.0.2 2117998
@@ -50,15 +48,14 @@
 ## BUGFIX
 - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options ae39032
 
-# v7.0.1
+# 7.0.1
 
 ## RELEASE
 - [RELEASE] Release of 7.0.1 for TER release with TYPO3 8.0 c278f60
 
-# v7.0.0
+# 7.0.0
 
 ## RELEASE
-- [RELEASE] Release of 6.2.16 bcf274c
 - [RELEASE] Release of 7.0.0 2bc505c
 
 ## BREAKING
@@ -218,8 +215,6 @@
 - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title. 4e01a9e
 
 ## BUGFIX
-- [BUGFIX] Only check for TYPO3 6.2 and 7.6 f6bd601
-- [BUGFIX] Remove vendor dir from php lint tests 59c0ac5
 - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8 3a6d10a
 - [BUGFIX] Disable output escaping for viewhelpers c8b881a
 - [BUGFIX] Remove spaceless viewhelper cd18e0e
@@ -252,7 +247,6 @@
 - [BUGFIX] Correct height operator for opengraph image - fixes #227 0da305f
 
 ## MISC
-- [SECURITY] 6.2.16 security changes e0cbfad
 - Fix more typos / grammar issues ce3f8df
 - Fix typos found by codespell 3b25d80
 - Followup: Use spaces instead of tabs a50ed6e
@@ -294,19 +288,7 @@
 - Force preload images to allow print 1b5581d
 - Add useful RTE buttons fbb6fa1
 
-# v6.2.16
-
-## RELEASE
-- [RELEASE] Release of 6.2.16 bcf274c
-
-## BUGFIX
-- [BUGFIX] Only check for TYPO3 6.2 and 7.6 f6bd601
-- [BUGFIX] Remove vendor dir from php lint tests 59c0ac5
-
-## MISC
-- [SECURITY] 6.2.16 security changes e0cbfad
-
-# v6.2.15
+# 6.2.15
 
 ## RELEASE
 - [RELEASE] Release of 6.2.15 9b9fdf1
@@ -346,7 +328,7 @@
 - Scrutinizer Auto-Fixes 3d6b342
 - Scrutinizer Auto-Fixes 6bd65dd
 
-# v6.2.14
+# 6.2.14
 
 ## RELEASE
 - [RELEASE] Release of 6.2.14 4ffb96a
@@ -374,7 +356,7 @@
 - Update Index.rst 9826f5a
 - Create index.rst bf873ff
 
-# v6.2.13
+# 6.2.13
 
 ## RELEASE
 - [RELEASE] Release of 6.2.13 639545e
@@ -391,7 +373,7 @@
 - Multiple fixes to composer.json e27b03e
 - Fix whitespace in ext_emconf.php e141e23
 
-# v6.2.12
+# 6.2.12
 
 ## RELEASE
 - [RELEASE] Release of 6.2.12 8b57118
@@ -399,7 +381,7 @@
 ## BUGFIX
 - [BUGFIX] Add missing static template for bootstrap package 9347264
 
-# v6.2.11
+# 6.2.11
 
 ## RELEASE
 - [RELEASE] Release of 6.2.11 51972e5
@@ -501,7 +483,7 @@
 - Update jquery.responsiveimages.js 3ab416b
 - Fix indents in tab feature fcef312
 
-# v6.2.10
+# 6.2.10
 
 ## RELEASE
 - [RELEASE] Release of 6.2.10 75fe900
@@ -545,7 +527,7 @@
 - [Bugfix] FalViewHelper.php 7769afe
 - Update Base.ts 697bedc
 
-# v6.2.9
+# 6.2.9
 
 ## RELEASE
 - [RELEASE] Release of 6.2.9 4e3aede
@@ -569,7 +551,7 @@
 - Use array_merge_recursive() instead ca4d032
 - Don't overwrite existing configuration completely 18f1ca8
 
-# v6.2.8
+# 6.2.8
 
 ## RELEASE
 - [RELEASE] Release 6.2.8 1f41eb1
@@ -591,7 +573,7 @@
 - Update newContentElement.txt c7e27ab
 - Update jquery.responsiveimages.js e40750d
 
-# v6.2.7
+# 6.2.7
 
 ## RELEASE
 - [RELEASE] Release 6.2.7 a11d1db
@@ -619,7 +601,7 @@
 - Finish Hotfix-lead-text 7aebd4e
 - Fixes Lead text in RTE that is not saved cause not in allowedClasses c0f69b3
 
-# v6.2.6
+# 6.2.6
 
 ## FEATURE
 - [FEATURE] add composer.json 2c66881
@@ -688,7 +670,7 @@
 - Make Bootstrap Package run as a OnePage Website 676034f
 - fix 'Boostrap' typos c17e975
 
-# v6.2.5
+# 6.2.5
 
 ## FEATURE
 - [FEATURE] use SymLinksIfOwnerMatch in .htaccess 187c858
@@ -745,7 +727,7 @@
 - cleanup wrong committed stuff before 331e51f
 - - cleanup wrong formatting in base.ts - add chash for pagination to prevent cashing issues described in #9 fc3b6b8
 
-# v6.2.4
+# 6.2.4
 
 ## MISC
 - ter does not allow long version numbers ... 5237090

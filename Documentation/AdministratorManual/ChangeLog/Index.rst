@@ -20,8 +20,7 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v7.0.4     | - [RELEASE] Release of 7.0.4                                                                                                                                               |
+| 7.0.4      | - [RELEASE] Release of 7.0.4                                                                                                                                               |
 |            | - [TASK] Optimize travis and composer configuration for automatic ter uploading                                                                                            |
 |            | - [TASK] remove uniqueLinkVars (#407)                                                                                                                                      |
 |            | - [TASK] Use correct icons for tt_content imageorient palette - fixes #352                                                                                                 |
@@ -44,18 +43,17 @@ Information.
 |            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
 |            | - [BUGFIX] Load form configuration only if ext:form is installed                                                                                                           |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v7.0.3     | - [RELEASE] Release of 7.0.3                                                                                                                                               |
+| 7.0.3      | - [RELEASE] Release of 7.0.3                                                                                                                                               |
 |            | - [TASK] Add missing css fixes for #325                                                                                                                                    |
 |            | - [BUGFIX] Respect padding in equalheight script                                                                                                                           |
 |            | - [BUGFIX] Correct overlapping of content elements with indention - fixes #325                                                                                             |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v7.0.2     | - [RELEASE] Release of 7.0.2                                                                                                                                               |
+| 7.0.2      | - [RELEASE] Release of 7.0.2                                                                                                                                               |
 |            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v7.0.1     | - [RELEASE] Release of 7.0.1 for TER release with TYPO3 8.0                                                                                                                |
+| 7.0.1      | - [RELEASE] Release of 7.0.1 for TER release with TYPO3 8.0                                                                                                                |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v7.0.0     | - [RELEASE] Release of 6.2.16                                                                                                                                              |
-|            | - [RELEASE] Release of 7.0.0                                                                                                                                               |
+| 7.0.0      | - [RELEASE] Release of 7.0.0                                                                                                                                               |
 |            | - [!!!][TASK] Send cache headers per default                                                                                                                               |
 |            | - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other                                                   |
 |            | - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor                                                                                                            |
@@ -206,8 +204,6 @@ Information.
 |            | - [TASK] fix tag closure for HTML5 head meta and link                                                                                                                      |
 |            | - [TASK] breadcrumb: include the homepage link at the beginning of the breadcrumb.                                                                                         |
 |            | - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title.                                                      |
-|            | - [BUGFIX] Only check for TYPO3 6.2 and 7.6                                                                                                                                |
-|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
 |            | - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8                                                                            |
 |            | - [BUGFIX] Disable output escaping for viewhelpers                                                                                                                         |
 |            | - [BUGFIX] Remove spaceless viewhelper                                                                                                                                     |
@@ -238,7 +234,6 @@ Information.
 |            | - [BUGFIX] Fix behaviour of strictly allowed RTE classes                                                                                                                   |
 |            | - [BUGFIX] Add the table colspan and rowspan attributes to allowed attributes in RTE configuration                                                                         |
 |            | - [BUGFIX] Correct height operator for opengraph image - fixes #227                                                                                                        |
-|            | - [SECURITY] 6.2.16 security changes                                                                                                                                       |
 |            | - Fix more typos / grammar issues                                                                                                                                          |
 |            | - Fix typos found by codespell                                                                                                                                             |
 |            | - Followup: Use spaces instead of tabs                                                                                                                                     |
@@ -280,12 +275,7 @@ Information.
 |            | - Force preload images to allow print                                                                                                                                      |
 |            | - Add useful RTE buttons                                                                                                                                                   |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.16    | - [RELEASE] Release of 6.2.16                                                                                                                                              |
-|            | - [BUGFIX] Only check for TYPO3 6.2 and 7.6                                                                                                                                |
-|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
-|            | - [SECURITY] 6.2.16 security changes                                                                                                                                       |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.15    | - [RELEASE] Release of 6.2.15                                                                                                                                              |
+| 6.2.15     | - [RELEASE] Release of 6.2.15                                                                                                                                              |
 |            | - [TASK] Add travis-ci build status image                                                                                                                                  |
 |            | - [TASK] Remove unused coverage from travis                                                                                                                                |
 |            | - [TASK] Add phpcs as dev dependency to composer.json                                                                                                                      |
@@ -316,7 +306,7 @@ Information.
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.14    | - [RELEASE] Release of 6.2.14                                                                                                                                              |
+| 6.2.14     | - [RELEASE] Release of 6.2.14                                                                                                                                              |
 |            | - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4                                                                                             |
 |            | - [TASK] Add migration information for backend layout prefix change                                                                                                        |
 |            | - [TASK] Add missing changelog for 6.2.12 and 6.2.13                                                                                                                       |
@@ -333,7 +323,7 @@ Information.
 |            | - Update Index.rst                                                                                                                                                         |
 |            | - Create index.rst                                                                                                                                                         |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.13    | - [RELEASE] Release of 6.2.13                                                                                                                                              |
+| 6.2.13     | - [RELEASE] Release of 6.2.13                                                                                                                                              |
 |            | - [TASK] Include css_styled_content and form in static template                                                                                                            |
 |            | - [BUGFIX] Remove leading slash from classnames in typoscript setup                                                                                                        |
 |            | - [BUGFIX] Restrict options for default tab to currently assigned items - fixes #197                                                                                       |
@@ -341,10 +331,10 @@ Information.
 |            | - Multiple fixes to composer.json                                                                                                                                          |
 |            | - Fix whitespace in ext_emconf.php                                                                                                                                         |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.12    | - [RELEASE] Release of 6.2.12                                                                                                                                              |
+| 6.2.12     | - [RELEASE] Release of 6.2.12                                                                                                                                              |
 |            | - [BUGFIX] Add missing static template for bootstrap package                                                                                                               |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.11    | - [RELEASE] Release of 6.2.11                                                                                                                                              |
+| 6.2.11     | - [RELEASE] Release of 6.2.11                                                                                                                                              |
 |            | - [!!!][TASK] Remove compatibility to ext:themes through lack of resources                                                                                                 |
 |            | - [!!!][TASK] Cleanup deprecated template fallbacks                                                                                                                        |
 |            | - [!!!][FEATURE] Add template fallback support                                                                                                                             |
@@ -433,7 +423,7 @@ Information.
 |            | - Update jquery.responsiveimages.js                                                                                                                                        |
 |            | - Fix indents in tab feature                                                                                                                                               |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.10    | - [RELEASE] Release of 6.2.10                                                                                                                                              |
+| 6.2.10     | - [RELEASE] Release of 6.2.10                                                                                                                                              |
 |            | - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables                                                                      |
 |            | - [FEATURE] new constant $page.logo.alt used to overwrite the default alt attribute of the logo image                                                                      |
 |            | - [FEATURE] make site logo alt attribute configurable                                                                                                                      |
@@ -466,7 +456,7 @@ Information.
 |            | - [Bugfix] FalViewHelper.php                                                                                                                                               |
 |            | - Update Base.ts                                                                                                                                                           |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.9     | - [RELEASE] Release of 6.2.9                                                                                                                                               |
+| 6.2.9      | - [RELEASE] Release of 6.2.9                                                                                                                                               |
 |            | - [TASK] Update jquery to 1.11.2                                                                                                                                           |
 |            | - [TASK] Update modernizr to 2.8.3                                                                                                                                         |
 |            | - [TASK] Update less.php to current master                                                                                                                                 |
@@ -481,7 +471,7 @@ Information.
 |            | - Use array_merge_recursive() instead                                                                                                                                      |
 |            | - Don't overwrite existing configuration completely                                                                                                                        |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.8     | - [RELEASE] Release 6.2.8                                                                                                                                                  |
+| 6.2.8      | - [RELEASE] Release 6.2.8                                                                                                                                                  |
 |            | - [TASK] Make realurl optional                                                                                                                                             |
 |            | - [TASK] Remove e-mail from contact                                                                                                                                        |
 |            | - [TASK] Minify responsiveimages.js and and cleanup                                                                                                                        |
@@ -494,7 +484,7 @@ Information.
 |            | - Update newContentElement.txt                                                                                                                                             |
 |            | - Update jquery.responsiveimages.js                                                                                                                                        |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.7     | - [RELEASE] Release 6.2.7                                                                                                                                                  |
+| 6.2.7      | - [RELEASE] Release 6.2.7                                                                                                                                                  |
 |            | - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101                                                                                |
 |            | - [TASK] Cleanup CGL                                                                                                                                                       |
 |            | - [TASK] Reformat all project-specific content to TYPO3.CMS CGL                                                                                                            |
@@ -513,7 +503,7 @@ Information.
 |            | - Finish Hotfix-lead-text                                                                                                                                                  |
 |            | - Fixes Lead text in RTE that is not saved cause not in allowedClasses                                                                                                     |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.6     | - [FEATURE] add composer.json                                                                                                                                              |
+| 6.2.6      | - [FEATURE] add composer.json                                                                                                                                              |
 |            | - Release 6.2.6                                                                                                                                                            |
 |            | - Correct colPos for left column on Layout: Default, Subnavigation Left and 2 Columns - fixes #62                                                                          |
 |            | - Add Google Analytics tracking code anonymization - fixes #84                                                                                                             |
@@ -577,7 +567,7 @@ Information.
 |            | - Make Bootstrap Package run as a OnePage Website                                                                                                                          |
 |            | - fix 'Boostrap' typos                                                                                                                                                     |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.5     | - [FEATURE] use SymLinksIfOwnerMatch in .htaccess                                                                                                                          |
+| 6.2.5      | - [FEATURE] use SymLinksIfOwnerMatch in .htaccess                                                                                                                          |
 |            | - Release 6.2.5                                                                                                                                                            |
 |            | - Update Documentation                                                                                                                                                     |
 |            | - Add support for link "Edit me on Github"                                                                                                                                 |
@@ -629,7 +619,7 @@ Information.
 |            | - cleanup wrong committed stuff before                                                                                                                                     |
 |            | - - cleanup wrong formatting in base.ts - add chash for pagination to prevent cashing issues described in #9                                                               |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| v6.2.4     | - ter does not allow long version numbers ...                                                                                                                              |
+| 6.2.4      | - ter does not allow long version numbers ...                                                                                                                              |
 |            | - ter ist fucking up ;(                                                                                                                                                    |
 |            | - set version to 6.2.2.2                                                                                                                                                   |
 |            | - Add Basic Documentation                                                                                                                                                  |
