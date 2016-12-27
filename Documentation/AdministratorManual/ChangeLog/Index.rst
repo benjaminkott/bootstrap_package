@@ -1,4 +1,4 @@
-﻿.. ==================================================
+.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
@@ -17,384 +17,642 @@ Information.
 
 .. tabularcolumns:: |r|p{13.7cm}|
 
-=======  =========================================================================================================================
-Version  Changes
-=======  =========================================================================================================================
-7.0.0    - [!!!][FEATURE] Register optional PageTS config files
-         - [FEATURE] Add PhotoSwipe as lightbox
-         - [FEATURE] Allow media content in accordion
-         - [FEATURE] Allow media content in tabs
-         - [FEATURE] Allow photoswipe to be opened by url params
-         - [FEATURE] Allow to disable footer-section with Typoscript constant.
-         - [FEATURE] Include records without default translation in content select
-         - [FEATURE] Remaining PageTS templates are configurable
-         - [FEATURE] Thumbnail Menu
-         - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other
-         - [!!!][TASK] Disable compressing and concatenation of CSS and JS files by default
-         - [!!!][TASK] Disable link to top
-         - [!!!][TASK] Drop BackendLayoutDataProvider since its part of the core now
-         - [!!!][TASK] Drop IE8 support
-         - [!!!][TASK] Drop TemplateFileResolver fallback for 6.2
-         - [!!!][TASK] Drop TypoScript fallbacks for 6.2, 7.4
-         - [!!!][TASK] Dropping TYPO3 6.2 support and raise version to 7.0.0-dev
-         - [!!!][TASK] Remove some 6.2 specific fallbacks
-         - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor
-         - [!!!][TASK] Send cache headers per default
-         - [!!!][TASK] Use more strict template names and flatten folder structure for templates to avoid conflicts
-         - [TASK] Add FluidTemplate for bullets content element
-         - [TASK] Add FluidTemplate for header content element
-         - [TASK] Add FluidTemplate for image content element
-         - [TASK] Add FluidTemplate for text content element
-         - [TASK] Add FluidTemplate for textpic content element
-         - [TASK] Add basic configuration and template overrides for indexed_search
-         - [TASK] Add basic FluidTemplate for mailform and set paths
-         - [TASK] Add case for tt_content rendering
-         - [TASK] add classes to containers useful to better select them with CSS and Javascript
-         - [TASK] Add configuration for felogin
-         - [TASK] Add content element wizard items for header, text, textpic
-         - [TASK] Add content element wizard items for table
-         - [TASK] Add description to menu processor
-         - [TASK] Add escaped class to example in lib.dynamicContent
-         - [TASK] Add FluidTemplate for divider content element
-         - [TASK] Add FluidTemplate for html content element
-         - [TASK] Add FluidTemplate for image content element
-         - [TASK] Add FluidTemplate for list
-         - [TASK] Add FluidTemplate for menus
-         - [TASK] Add FluidTemplate for shortcut
-         - [TASK] Add FluidTemplate for table content element
-         - [TASK] Add FluidTemplate for uploads content element
-         - [TASK] Add header palette to cType list
-         - [TASK] Add note to vagrant box
-         - [TASK] Add notice about content rendering extensions
-         - [TASK] Add php cs fixer config
-         - [TASK] Add php7 to travis
-         - [TASK] Add preview for content element list-group
-         - [TASK] Add preview for external media content element in page module - CMS7 only
-         - [TASK] Add psr-4 autoload config to ext_emconf
-         - [TASK] Add recommended apache modules
-         - [TASK] Add TCA and wizard for content element div
-         - [TASK] Add TCA and wizard for content element html
-         - [TASK] Add TCA for content element bullet list
-         - [TASK] Add TCA for content element header
-         - [TASK] Add TCA for content element image
-         - [TASK] Add TCA for content element text
-         - [TASK] Add TCA for content element textpic
-         - [TASK] Add textmedia content element
-         - [TASK] Add TYPO3 branch for 7.6 and exclude php versions < 7 on master
-         - [TASK] Add TYPO3 CMS 8 as compatible version
-         - [TASK] Add typoscript parse functions
-         - [TASK] Add typoscript setup as content rendering template
-         - [TASK] Adjust frontend login configuration
-         - [TASK] Adjust icons for element carousel-item types
-         - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title.
-         - [TASK] breadcrumb: include the homepage link at the beginning of the breadcrumb.
-         - [TASK] Correct accordion rendering
-         - [TASK] Correct tab rendering when no media is selected
-         - [TASK] Drop experimental OnePage setup
-         - [TASK] Enable async loading for modernizr and windowsphone-fix
-         - [TASK] Enable header position again
-         - [TASK] Enable section frame again
-         - [TASK] Extract lib.dynamicContent from Base.ts
-         - [TASK] Fix Code according to CGL
-         - [TASK] fix tag closure for HTML5 head meta and link
-         - [TASK] Fix typo
-         - [TASK] Flatten content element rendering
-         - [TASK] Flatten content element setup and add layouts and sections
-         - [TASK] Harden expression in ExternalMediaUtility
-         - [TASK] Harden expression in PreProcessHook
-         - [TASK] Harden template names for page module previews
-         - [TASK] Keep additional params for youtube urls
-         - [TASK] Make css adjustments
-         - [TASK] Migrate reference to "wizard_element_browser" to new "wizard_link" - fixes #258
-         - [TASK] Move css_styled_content typoscript configuration
-         - [TASK] Move section frames to fluid
-         - [TASK] Move uploads to typical page content tab
-         - [TASK] Optimize export
-         - [TASK] Reduce size of external media preview
-         - [TASK] Register content element accordion
-         - [TASK] Register content element carousel icon
-         - [TASK] Register content element external-media icon
-         - [TASK] Register content element listgroup icon
-         - [TASK] Register content element panel
-         - [TASK] Register content element tab icon
-         - [TASK] Register content element tab-item icon
-         - [TASK] Register content element texticon
-         - [TASK] Register icon for element accordion-item
-         - [TASK] Register icons for element carousel-item types
-         - [TASK] Remove backend_layout upgrade wizard
-         - [TASK] Remove dependency to styles.content.get definition
-         - [TASK] Remove iconInOptionTags and noIconsBelowSelect - fixes #243
-         - [TASK] Remove leftover mention of css_styled_content
-         - [TASK] Remove realurl autoconfiguration in preparation for realurl 2
-         - [TASK] Remove unneeded rte_transform options
-         - [TASK] Remove unneeded typo3_mode check
-         - [TASK] Remove unnessesary adjustment of the header palette
-         - [TASK] Remove unnessesary column classes
-         - [TASK] RTE: Classes for links, see benjaminkott#281
-         - [TASK] Set defaults for backend configuration
-         - [TASK] Split source and distribution javascript files and use static paths
-         - [TASK] Steamline header usage templates
-         - [TASK] Test asset pipe on travis
-         - [TASK] Update bootstrap to 3.3.6
-         - [TASK] Update hammerjs to 2.0.6
-         - [TASK] Update jQuery to 2.1.4
-         - [TASK] Update jQuery to 2.2.0
-         - [TASK] Update jQuery to 2.2.1
-         - [TASK] Update less.php to 1.7.0.9
-         - [TASK] Update oyejorge/less.php to 1.7.0.10
-         - [TASK] Use dataprocessing in listgroup content element
-         - [TASK] Use default layout as identifier when not backend_layout is selected
-         - [TASK] Use fluid template name for accordion content element
-         - [TASK] Use fluid template name for carousel content element
-         - [TASK] Use fluid template name for default content element
-         - [TASK] Use fluid template name for external media content element
-         - [TASK] Use fluid template name for list group content element
-         - [TASK] Use fluid template name for panel content element
-         - [TASK] Use fluid template name for tab content element
-         - [TASK] Use fluidtemplate for breadcrumb rendering
-         - [TASK] Use fluidtemplate for languagemenu rendering
-         - [TASK] Use fluidtemplate for mainnavigation rendering
-         - [TASK] Use fluidtemplate for subnavigation rendering
-         - [TASK] Use use titlefield instead of raw data in menus - fixes #273
-         - [BUGFIX] Adapt moved language file
-         - [BUGFIX] Add header to cType List
-         - [BUGFIX] Add missing column overrides for text and textpic content elements
-         - [BUGFIX] Add missing comma in uploads field selection
-         - [BUGFIX] Add missing link for media type image in accordion
-         - [BUGFIX] Add missing link for media type image in tabs
-         - [BUGFIX] Add missing renderTypes to accordion item
-         - [BUGFIX] Add missing renderTypes to carousel item
-         - [BUGFIX] Add missing renderTypes to tab item
-         - [BUGFIX] Add missing renderTypes to tt_content fields
-         - [BUGFIX] Add missing showIconTable setting for field icon
-         - [BUGFIX] Add the table colspan and rowspan attributes to allowed attributes in RTE configuration
-         - [BUGFIX] Adjust imagepath and wizard settings for carousel links
-         - [BUGFIX] Check if content element type exists before merging
-         - [BUGFIX] Correct accordion content element markup
-         - [BUGFIX] Correct composer branch-alias
-         - [BUGFIX] Correct grunt watch tasks
-         - [BUGFIX] Correct height operator for opengraph image - fixes #227
-         - [BUGFIX] Correct PSR2  issue
-         - [BUGFIX] Correct typoscript paths
-         - [BUGFIX] Disable output escaping for viewhelpers
-         - [BUGFIX] Fix behaviour of strictly allowed RTE classes
-         - [BUGFIX] gallery in 2 cols also for devices >= 768px and < 992px
-         - [BUGFIX] Make links visible in jumbotron - fixes #248
-         - [BUGFIX] Merge type configuration in TCA instead of overriding
-         - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8
-         - [BUGFIX] Remove spaceless viewhelper
-         - [BUGFIX] Respect sorting for accordion items
-         - [BUGFIX] Respect sorting for tab items
-         - [BUGFIX] use the correct Typoscript constant in setup
-         - [CLEANUP] Bootstrap Package external media item
-         - [CLEANUP] Bootstrap Package list group item
-         - [CLEANUP] Correct email in bower setup
-         - [CLEANUP] Correct Readme
-         - [CLEANUP] Initialize fieldsToUpdate in ext_update
-         - [CLEANUP] PSR-2 stuff
-         - [CLEANUP] Remove TYPO3 6.2 and PHP5.3 and PHP5.4 from Travis CI
-         - [CLEANUP] Remove unused file
-         - [CLEANUP] Remove unused header partial
-         - [CLEANUP] Remove unused Hooks and Xclass
-         - [CLEANUP] Remove unused use statements in install service
-         - [CLEANUP] Remove unused use statements in realurl autoconfig
-         - [CLEANUP] Rendering definition for default content element
-6.2.15   - [BUGFIX] Make class.ext_update.php work on PHP <5.5 as well
-         - [BUGFIX] Use correct assignment for TypoScript value
-         - [BUGFIX] Use camel caps format for functions in external media utility
-         - [TASK] Unify license comment
-         - [TASK] Add phpcs as dev dependency to composer.json
-         - [TASK] Add Scrutinizer
-         - [TASK] Add travis-ci builds for TYPO3 6.2 and master
-         - [TASK] Remove TYPO3 dependencies and conflicts from composer.json
-         - [TASK] Update less.php to 1.7.0.5
-         - [TASK] Introduce PSR-2 Coding Style Guide
-6.2.14   - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4
-         - [BUGFIX] Use always $GLOBALS[TCA]
-         - [BUGFIX] fix missing TYPO3SEARCH_end marker
-         - [TASK] Responsive Images plugin documentation
-         - [TASK] Update TypoScript template mapping for backend layouts
-         - [TASK] Add update script to migrate old backend layout prefix to new prefix in table pages
-         - [TASK] Disable BackendLayoutDataProvider for TYPO3 versions above 7.3 and adapt core provider prefix for PageTS
-         - [TASK] Add 'active' class for shortcuts in sub navigation
-         - [TASK] Move column labels for border, normal, left, right to bootstrap_package, files moved in CMS 7
-6.2.13   - [BUGFIX] Remove leading slash from classnames in typoscript setup
-         - [BUGFIX] Restrict options for default tab to currently assigned items
-         - [BUGFIX] Fix composer.json
-         - [TASK] Include css_styled_content and form in static template
-6.2.12   - [BUGFIX] Add missing static template for bootstrap package
-6.2.11   - [BUGFIX] Add disablePageTsRTE option to extension configuration again
-         - [!!!][TASK] Remove compatibility to ext:themes through lack of resources
-         - [TASK] Use TCA renderTypes
-         - [!!!][TASK] Cleanup deprecated template fallbacks
-         - [!!!][FEATURE] Add template fallback support
-         - [FEATURE] Make DynamicContent wrappable
-         - [TASK] Copy Bootstrap font files during build process
-         - [!!!][BUGFIX] Wrong path to font files
-         - [TASK] Update Bootstrap to 3.3.5
-         - [FEATURE] Add swipe support for carousels
-         - [BUGFIX] Correct overflow problem
-         - [FEATURE] Add new page type for popup usage without header and footer
-         - [FEATURE] Enable support in lib.dynamicContent to support content from pid
-         - [FEATURE] Make breadcrumb enable treelevel configurable
-         - [TASK] Use absRefPrefix = auto instead of baseURL in TYPO3 CMS 7
-         - [BUGFIX] Deprecation of page.includeJSlibs in TYPO3 CMS 7
-         - [FEATURE] Add TypoScript TYPO3 version condition
-         - [BUGFIX] Ensure column CSS class is also set for imagecols set to 1
-         - [TASK] Add application context examples to .htaccess file
-         - [!!!][TASK] Move lightbox implemantation to a own file and remove main.js
-         - [TASK] Add hires extension icon
-         - [!!!][TASK] Make navbar toggle button compatible with bootstrap default markup
-         - [FEATURE] Add selectivizr to add CSS3 pseudo selector support to IE8
-         - [TASK] Add grunt watcher for JavaScript files
-         - [TASK] Add RespondJs to Bower
-         - [!!!][TASK] Use version number independent filename for jQuery and update to v1.11.3
-         - [BUGFIX] Set BackendLayouts columns correctly if PageTs is set via page record
-         - [TASK] Include bootstrap with Bower and Grunt
-         - [TASK] Add Grunt uglify for JavaScripts
-         - [TASK] Add initial Grunt setup for RTE and precompiled theme
-         - [TASK] Add less variables file to bootstrap theme
-         - [TASK] Unify namespace name in templates
-         - [TASK] Make ContextualClassViewHelper compilable
-         - [TASK] Make FalViewHelper compilable
-         - [TASK] Make ExternalMediaViewHelper compilable
-         - [TASK] Make VarViewHelper compilable
-         - [TASK] Make ExplodeViewHelper compilable
-         - [TASK] Make DataRelationViewHelper compilable
-         - [TASK] Remove leftover FormEngineViewHelper
-         - [TASK] Make FlexFormViewHelper compilable
-         - [TASK] Update jquery.responsiveimages.js
-         - [TASK] Reintroduce css class for first headline in column rendering
-         - [!!!][FEATURE] Support multilevel tree in subnavigation
-         - [FEATURE] Add carousel type backgroundimage
-         - [FEATURE] Make carousel header layout configurable
-         - [BUGFIX] Section Index content item produces incorrect links
-         - [FEATURE] Add CSS status classes to content wrappers
-         - [BUGFIX] Correct OnePage Markup
-         - [FEATURE] New advanced constant to enable/disable CSS source mapping
-         - [BUGFIX] Correct OnePage Markup
-         - [TASK] Move custom content element renderings to typoscript folder
-         - [TASK] Cleanup extension declaration file to match documentation
-         - [FEATURE] Add tab content element
-         - [BUGFIX] Add missing restore register in text with icon
-         - [TASK] Add individual icons for content elements in wizard
-         - [TASK] Added missing description to Bootstrap elements
-         - [FEATURE] Add external media content element for youtube and vimeo videos
-         - [TASK] Add field subheader to header palette of tt_content
-         - [TASK] Remove csc-firstHeader CSS class in lib.stdHeader
-         - [TASK] Use references instead of hard copies in lib.stdheader
-         - [TASK] Use ExtensionManagementUtility in autoload.php
-         - [TASK] Update bootstrap to 3.3.4
-6.2.10   - [TASK] Refactor jquery.responsiveimages.js
-         - [TASK] HTML5 markup for sub navigation
-         - [TASK] Make RealUrl autoconfig compatible with the version from Helmut Hummel for 7.x
-         - [TASK] Remove migration of realurl in favor of Helmut Hummels release for TYPO3 CMS 7.2
-         - [FEATURE] New advanced constant to enable/disable the use of TypoScript constants as Less variables
-         - [TASK] Carousel: allow to set the max width of background images
-         - [TASK] Remove deprecated XHTML cleaning
-         - [TASK] Update oyejorge/less.php to 1.7.0.3
-         - [BUGFIX] Correct overlapping elements on centered image
-         - [TASK] Remove automatic cache clearing
-         - [BUGFIX] Correct media display for file links content element
-         - [FEATURE] make site logo alt attribute configurable
-         - [TASK] Add slack to contact and communication
-         - [FEATURE] Disable automatic less compiling
-         - [TASK] Allow "target" attribute inside <a> tags.
-         - [BUGFIX] Missing container in default clean layout
-         - [TASK] Add <br> to allowedTags in RTE config
-         - [TASK] HTML5 improvements on footer
-         - [TASK] HTML5 improvements on navigation
-         - [TASK] HTML5 improvements on language menu
-         - [TASK] HTML5 improvements on main section
-         - [BUGFIX] Sorting on localized relations
-         - [BUGFIX] FalViewHelper missing translations
-         - [BUGFIX] Correct markup for news date
-         - [BUGFIX] Adjust language uids to match introduction database
-         - [TASK] Add admin panel config to typoscript constants
-6.2.9    - [TASK] Update jquery to 1.11.2
-         - [TASK] Update modernizr to 2.8.3
-         - [BUGFIX] Remove problematic whitespace in carousel flexform
-         - [BUGFIX] Remove superfluous slash in font definition
-         - [TASK] Update less.php to current master
-         - [TASK] Throw exception on less compile error
-         - [TASK] Use realurl autoconfig hook instead of overriding every config
-         - [BUGFIX] Classname must not start with a backslash in ext_conf_template.t
-6.2.8    - [TASK] Make realurl optional
-         - [TASK] Update jquery.responsiveimages.js
-         - [BUGFIX] Flashmessage queue throws error while installing
-         - [BUGFIX] Wrong calculation in news pagination
-         - [BUGFIX] Use correct rte transform in accordion textfield
-6.2.7    - [TASK] Deprecate backend skin for CMS7 and provide new logos
-         - [TASK] Include respond.js with conditional comment to work with static cache
-         - [TASK] Reformat all project-specific content to TYPO3.CMS CGL
-         - [TASK] Carousel needs to have background-image and background-color at the same time available
-         - [TASK] Add .editorconfig to make contributions more easy
-         - [TASK] Add 25/75 backend layout
-         - [TASK] Add migrations for realurl to be compatible with 7.0
-         - [BUGFIX] Wrong colpos was used in layout "Default, Subnavigation Left and 2 Columns
-         - [BUGFIX] Updated RTE configuration to enable wordclean correctly
-         - [BUGFIX] RTE does not save .lead
-6.2.6    - Add new RTE config for better editor usability
-         - Add responsive tables in RTE
-         - Add backend layout with 2 columns 50/50%
-         - Exclude page also from search engine index if no_search is set to the page
-         - Enhance accessibility for the carousel
-         - Add Marker ###CURRENTYEAR###
-         - Add skip to content for screen reader
-         - Remove the automatic appending icons for content links
-         - Update Bootstrap to version 3.3.0
-         - Correct image display problems in IE8
-         - Adjust language menu for smaller viewports
-         - Adjust font-size and line-height for better readability
-         - Add backend layouts for left navigation
-         - Add missing space in news date format
-         - Add caption alignment
-         - Set cache period to 24h
-         - Correct linkToTop rendering
-         - Add google analytics
-         - Provide open graph image for social networks
-         - Add basic composer.json
-         - Implement a dynamic rewrite base solution reduce problems with some hosters
-         - Change lib.dynamicContent to be more flexible
-         - Allow link tag usage in html content element
-         - Split theme less file
-         - Add new clean backend layout
-         - Add styling constants for ext:themes
-         - Provide options to disable parts of the auto included PageTs settings
-         - Make Bootstrap Package run as a OnePage Website
-         - Cleanups
-6.2.5    - Update Documentation
-         - Add support for link "Edit me on Github"
-         - Fix workspace problem for related records
-         - Make main navbar position configurable
-         - Combine less files to avoid dublicate css definitions
-         - Allow Backend Layouts to be configured via PageTsConfig
-         - Correct display of tx_form
-         - Correct type of baseURL typoscript constant
-         - Update jQuery version to 1.11.1
-         - Disable imageheight and imagewidth for textpic and image content elements to avoid wrong rendering
-         - Avoid problems with hardcoded resource links in login template, remove overriding
-         - Add conflict to dyncss to ensure correct less rendering
-         - Images displayed in one column have no restriction to current layout column
-         - Update Bootstrap to 3.2.0
-         - Removing symlink option due problems on windows apache with symlinks - affects
-         - Remove backend style module - introduce typoscript constants instead to provide a more flexible less configuration
-         - Update less.php
-         - Move TCA
-         - Text and image - center top was not centered
-         - Add missing bodytext field to carousel "text and image" and enable rte for accordion
-         - Allow table in RTE
-         - Adjust LogoView to make it a bit more secure
-         - Add link to the complete teaser item and fix the relations
-         - Make it possible to enable backend skin if themes is loaded.
-         - Make Themes compatible
-         - Add TYPO3 version to sitename in backend header
-         - Correct wizard registration
-         - Add links for carousel images in FE, optimize fal fields
-         - Wrong label for header in carousel textwithimage
-         - Carousel interval and wrap needs to be configurable
-         - Add missing text_color field to carousel textwithimage
-         - Fix wrong attributes on accordion
-         - Cleanups
-6.2.4    - Initial working TER release
-=======  =========================================================================================================================
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Version    | Changes                                                                                                                                                                    |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v7.0.4     | - [RELEASE] Release of 7.0.4                                                                                                                                               |
+|            | - [TASK] Optimize travis and composer configuration for automatic ter uploading                                                                                            |
+|            | - [TASK] remove uniqueLinkVars (#407)                                                                                                                                      |
+|            | - [TASK] Use correct icons for tt_content imageorient palette - fixes #352                                                                                                 |
+|            | - [TASK] Add changelog for release 7.0.0                                                                                                                                   |
+|            | - [TASK] Enable basic frontend editing                                                                                                                                     |
+|            | - [BUGFIX] Use GeneralUtility to get instance of PageRenderer - fixes #412                                                                                                 |
+|            | - [BUGFIX] Ensure that variables are not converted to strings by variable viewhelper                                                                                       |
+|            | - [BUGFIX] Use correct layout (#408)                                                                                                                                       |
+|            | - [BUGFIX] Enforce checkout with linux lf consistent over all plattforms                                                                                                   |
+|            | - [BUGFIX] Respect show in section menus option for pages in section index menu                                                                                            |
+|            | - [BUGFIX] Use generated title from menu processor instead of accessing the data directly - fixes #364                                                                     |
+|            | - [BUGFIX] Backport menu processor adjustments, now includes spacer and generated links from hmenu - #364                                                                  |
+|            | - [BUGFIX] Fix tab elements missing on slided content                                                                                                                      |
+|            | - [BUGFIX] Fix accordion elements missing on slided content                                                                                                                |
+|            | - [BUGFIX] Correct texticon content element rendering with default layout - fixes #336                                                                                     |
+|            | - [BUGFIX] Tabs, Accordion, and Carousel Items not referencing files on sys_file_reference and sys_refindex - fixes #349                                                   |
+|            | - [BUGFIX] Bugfix/menuprocessor (#354)                                                                                                                                     |
+|            | - [BUGFIX] Correct php-cs-fixer command                                                                                                                                    |
+|            | - [BUGFIX] Prevent double escaping of menu titles                                                                                                                          |
+|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
+|            | - [BUGFIX] Load form configuration only if ext:form is installed                                                                                                           |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v7.0.3     | - [RELEASE] Release of 7.0.3                                                                                                                                               |
+|            | - [TASK] Add missing css fixes for #325                                                                                                                                    |
+|            | - [BUGFIX] Respect padding in equalheight script                                                                                                                           |
+|            | - [BUGFIX] Correct overlapping of content elements with indention - fixes #325                                                                                             |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v7.0.2     | - [RELEASE] Release of 7.0.2                                                                                                                                               |
+|            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v7.0.1     | - [RELEASE] Release of 7.0.1 for TER release with TYPO3 8.0                                                                                                                |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v7.0.0     | - [RELEASE] Release of 6.2.16                                                                                                                                              |
+|            | - [RELEASE] Release of 7.0.0                                                                                                                                               |
+|            | - [!!!][TASK] Send cache headers per default                                                                                                                               |
+|            | - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other                                                   |
+|            | - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor                                                                                                            |
+|            | - [!!!][TASK] Disable link to top                                                                                                                                          |
+|            | - [!!!][TASK] Use more strict template names and flatten folder structure for templates to avoid conflicts                                                                 |
+|            | - [!!!][TASK] Disable compressing and concatenation of CSS and JS files by default                                                                                         |
+|            | - [!!!][TASK] Drop IE8 support                                                                                                                                             |
+|            | - [!!!][FEATURE] Register optional PageTS config files                                                                                                                     |
+|            | - [!!!][TASK] Remove some 6.2 specific fallbacks                                                                                                                           |
+|            | - [!!!][TASK] Drop TypoScript fallbacks for 6.2, 7.4                                                                                                                       |
+|            | - [!!!][TASK] Drop TemplateFileResolver fallback for 6.2                                                                                                                   |
+|            | - [!!!][TASK] Drop BackendLayoutDataProvider since its part of the core now                                                                                                |
+|            | - [!!!][TASK] Dropping TYPO3 6.2 support and raise version to 7.0.0-dev                                                                                                    |
+|            | - [FEATURE] Remaining PageTS templates are configurable                                                                                                                    |
+|            | - [FEATURE] Allow to disable footer-section with Typoscript constant.                                                                                                      |
+|            | - [FEATURE] Allow photoswipe to be opened by url params                                                                                                                    |
+|            | - [FEATURE] Add PhotoSwipe as lightbox                                                                                                                                     |
+|            | - [FEATURE] Thumbnail Menu                                                                                                                                                 |
+|            | - [FEATURE] Include records without default translation in content select                                                                                                  |
+|            | - [FEATURE] Allow media content in accordion                                                                                                                               |
+|            | - [FEATURE] Allow media content in tabs                                                                                                                                    |
+|            | - [!!!][FEATURE] Register optional PageTS config files                                                                                                                     |
+|            | - [TASK] Set defaults for backend configuration                                                                                                                            |
+|            | - [TASK] Remove backend_layout upgrade wizard                                                                                                                              |
+|            | - [TASK] Update hammerjs to 2.0.6                                                                                                                                          |
+|            | - [TASK] Update jQuery to 2.2.1                                                                                                                                            |
+|            | - [TASK] Update bootstrap to 3.3.6                                                                                                                                         |
+|            | - [TASK] Update oyejorge/less.php to 1.7.0.10                                                                                                                              |
+|            | - [TASK] Remove unneeded rte_transform options                                                                                                                             |
+|            | - [TASK] Optimize export                                                                                                                                                   |
+|            | - [TASK] Correct accordion rendering                                                                                                                                       |
+|            | - [TASK] Correct tab rendering when no media is selected                                                                                                                   |
+|            | - [TASK] Remove realurl autoconfiguration in preparation for realurl 2                                                                                                     |
+|            | - [TASK] Add TYPO3 branch for 7.6 and exclude php versions < 7 on master                                                                                                   |
+|            | - [TASK] Add php7 to travis                                                                                                                                                |
+|            | - [TASK] Fix typo                                                                                                                                                          |
+|            | - [TASK] RTE: Classes for links, see benjaminkott#281                                                                                                                      |
+|            | - [TASK] Add note to vagrant box                                                                                                                                           |
+|            | - [!!!][TASK] Send cache headers per default                                                                                                                               |
+|            | - [TASK] Update jQuery to 2.2.0                                                                                                                                            |
+|            | - [TASK] Test asset pipe on travis                                                                                                                                         |
+|            | - [TASK] Fix Code according to CGL                                                                                                                                         |
+|            | - [TASK] Add php cs fixer config                                                                                                                                           |
+|            | - [TASK] Add TYPO3 CMS 8 as compatible version                                                                                                                             |
+|            | - [TASK] Split source and distribution javascript files and use static paths                                                                                               |
+|            | - [TASK] Adjust frontend login configuration                                                                                                                               |
+|            | - [TASK] Add basic configuration and template overrides for indexed_search                                                                                                 |
+|            | - [TASK] Add notice about content rendering extensions                                                                                                                     |
+|            | - [TASK] Add header palette to cType list                                                                                                                                  |
+|            | - [TASK] Use default layout as identifier when not backend_layout is selected                                                                                              |
+|            | - [TASK] Use use titlefield instead of raw data in menus - fixes #273                                                                                                      |
+|            | - [TASK] Add escaped class to example in lib.dynamicContent                                                                                                                |
+|            | - [TASK] Use fluidtemplate for languagemenu rendering                                                                                                                      |
+|            | - [TASK] Use fluidtemplate for breadcrumb rendering                                                                                                                        |
+|            | - [TASK] Use fluidtemplate for mainnavigation rendering                                                                                                                    |
+|            | - [TASK] Use fluidtemplate for subnavigation rendering                                                                                                                     |
+|            | - [TASK] Add configuration for felogin                                                                                                                                     |
+|            | - [TASK] Remove unneeded typo3_mode check                                                                                                                                  |
+|            | - [TASK] Add textmedia content element                                                                                                                                     |
+|            | - [TASK] Add typoscript parse functions                                                                                                                                    |
+|            | - [TASK] Add basic FluidTemplate for mailform and set paths                                                                                                                |
+|            | - [TASK] Add FluidTemplate for list                                                                                                                                        |
+|            | - [TASK] Add typoscript setup as content rendering template                                                                                                                |
+|            | - [TASK] Add FluidTemplate for shortcut                                                                                                                                    |
+|            | - [TASK] Add description to menu processor                                                                                                                                 |
+|            | - [TASK] Add FluidTemplate for menus                                                                                                                                       |
+|            | - [TASK] Move uploads to typical page content tab                                                                                                                          |
+|            | - [TASK] Remove unnessesary adjustment of the header palette                                                                                                               |
+|            | - [TASK] Remove leftover mention of css_styled_content                                                                                                                     |
+|            | - [TASK] Add FluidTemplate for uploads content element                                                                                                                     |
+|            | - [TASK] Add TCA and wizard for content element div                                                                                                                        |
+|            | - [TASK] Add TCA and wizard for content element html                                                                                                                       |
+|            | - [TASK] Add content element wizard items for table                                                                                                                        |
+|            | - [TASK] Add FluidTemplate for table content element                                                                                                                       |
+|            | - [TASK] Add TCA for content element bullet list                                                                                                                           |
+|            | - [TASK] Enable header position again                                                                                                                                      |
+|            | - [TASK] Enable section frame again                                                                                                                                        |
+|            | - [TASK] Add TCA for content element header                                                                                                                                |
+|            | - [TASK] Add TCA for content element image                                                                                                                                 |
+|            | - [TASK] Add content element wizard items for header, text, textpic                                                                                                        |
+|            | - [TASK] Add TCA for content element textpic                                                                                                                               |
+|            | - [TASK] Add TCA for content element text                                                                                                                                  |
+|            | - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other                                                   |
+|            | - [TASK] Add case for tt_content rendering                                                                                                                                 |
+|            | - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor                                                                                                            |
+|            | - [TASK] Drop experimental OnePage setup                                                                                                                                   |
+|            | - [TASK] Flatten content element setup and add layouts and sections                                                                                                        |
+|            | - [TASK] Several adjustments                                                                                                                                               |
+|            | - [TASK] Make css adjustments                                                                                                                                              |
+|            | - [TASK] Remove unnessesary column classes                                                                                                                                 |
+|            | - [TASK] Move section frames to fluid                                                                                                                                      |
+|            | - [!!!][TASK] Disable link to top                                                                                                                                          |
+|            | - [TASK] Add FluidTemplate for image content element                                                                                                                       |
+|            | - [TASK] Flatten content element rendering                                                                                                                                 |
+|            | - [TASK] Steamline header usage templates                                                                                                                                  |
+|            | - [TASK]  Add FluidTemplate for image content element                                                                                                                      |
+|            | - [TASK]  Add FluidTemplate for textpic content element                                                                                                                    |
+|            | - [TASK]  Add FluidTemplate for text content element                                                                                                                       |
+|            | - [TASK]  Add FluidTemplate for header content element                                                                                                                     |
+|            | - [TASK]  Add FluidTemplate for bullets content element                                                                                                                    |
+|            | - [TASK] Add FluidTemplate for html content element                                                                                                                        |
+|            | - [TASK] Remove dependency to styles.content.get definition                                                                                                                |
+|            | - [TASK] Add FluidTemplate for divider content element                                                                                                                     |
+|            | - [TASK] Migrate reference to "wizard_element_browser" to new "wizard_link" - fixes #258                                                                                   |
+|            | - [TASK] Harden template names for page module previews                                                                                                                    |
+|            | - [!!!][TASK] Use more strict template names and flatten folder structure for templates to avoid conflicts                                                                 |
+|            | - [TASK] Use dataprocessing in listgroup content element                                                                                                                   |
+|            | - [TASK] Use fluid template name for panel content element                                                                                                                 |
+|            | - [TASK] Use fluid template name for list group content element                                                                                                            |
+|            | - [TASK] Use fluid template name for external media content element                                                                                                        |
+|            | - [TASK] Use fluid template name for default content element                                                                                                               |
+|            | - [TASK] Use fluid template name for tab content element                                                                                                                   |
+|            | - [TASK] Use fluid template name for carousel content element                                                                                                              |
+|            | - [TASK] Use fluid template name for accordion content element                                                                                                             |
+|            | - [TASK] Move css_styled_content typoscript configuration                                                                                                                  |
+|            | - [TASK] Extract lib.dynamicContent from Base.ts                                                                                                                           |
+|            | - [TASK] Remove iconInOptionTags and noIconsBelowSelect - fixes #243                                                                                                       |
+|            | - [TASK] Add preview for content element list-group                                                                                                                        |
+|            | - [TASK] Reduce size of external media preview                                                                                                                             |
+|            | - [TASK] Update less.php to 1.7.0.9                                                                                                                                        |
+|            | - [TASK] Update jQuery to 2.1.4                                                                                                                                            |
+|            | - [TASK] Add recommended apache modules                                                                                                                                    |
+|            | - [TASK] Enable async loading for modernizr and windowsphone-fix                                                                                                           |
+|            | - [!!!][TASK] Disable compressing and concatenation of CSS and JS files by default                                                                                         |
+|            | - [!!!][TASK] Drop IE8 support                                                                                                                                             |
+|            | - [TASK] Harden expression in PreProcessHook                                                                                                                               |
+|            | - [TASK] Register content element listgroup icon                                                                                                                           |
+|            | - [TASK] Register content element external-media icon                                                                                                                      |
+|            | - [TASK] Register icon for element accordion-item                                                                                                                          |
+|            | - [TASK] Adjust icons for element carousel-item types                                                                                                                      |
+|            | - [TASK] Register icons for element carousel-item types                                                                                                                    |
+|            | - [TASK] Register content element carousel icon                                                                                                                            |
+|            | - [TASK] Register content element accordion                                                                                                                                |
+|            | - [TASK] Register content element panel                                                                                                                                    |
+|            | - [TASK] Register content element texticon                                                                                                                                 |
+|            | - [TASK] Register content element tab-item icon                                                                                                                            |
+|            | - [TASK] Register content element tab icon                                                                                                                                 |
+|            | - [TASK] Harden expression in ExternalMediaUtility                                                                                                                         |
+|            | - [!!!][TASK] Remove some 6.2 specific fallbacks                                                                                                                           |
+|            | - [!!!][TASK] Drop TypoScript fallbacks for 6.2, 7.4                                                                                                                       |
+|            | - [!!!][TASK] Drop TemplateFileResolver fallback for 6.2                                                                                                                   |
+|            | - [!!!][TASK] Drop BackendLayoutDataProvider since its part of the core now                                                                                                |
+|            | - [!!!][TASK] Dropping TYPO3 6.2 support and raise version to 7.0.0-dev                                                                                                    |
+|            | - [TASK] Add preview for external media content element in page module - CMS7 only                                                                                         |
+|            | - [TASK] Keep additional params for youtube urls                                                                                                                           |
+|            | - [TASK] Add psr-4 autoload config to ext_emconf                                                                                                                           |
+|            | - [TASK] add classes to containers useful to better select them with CSS and Javascript                                                                                    |
+|            | - [TASK] fix tag closure for HTML5 head meta and link                                                                                                                      |
+|            | - [TASK] breadcrumb: include the homepage link at the beginning of the breadcrumb.                                                                                         |
+|            | - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title.                                                      |
+|            | - [BUGFIX] Only check for TYPO3 6.2 and 7.6                                                                                                                                |
+|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
+|            | - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8                                                                            |
+|            | - [BUGFIX] Disable output escaping for viewhelpers                                                                                                                         |
+|            | - [BUGFIX] Remove spaceless viewhelper                                                                                                                                     |
+|            | - [BUGFIX] gallery in 2 cols also for devices >= 768px and < 992px                                                                                                         |
+|            | - [BUGFIX] use the correct Typoscript constant in setup                                                                                                                    |
+|            | - [BUGFIX] Correct grunt watch tasks                                                                                                                                       |
+|            | - [BUGFIX] Add header to cType List                                                                                                                                        |
+|            | - [BUGFIX] Respect sorting for tab items                                                                                                                                   |
+|            | - [BUGFIX] Respect sorting for accordion items                                                                                                                             |
+|            | - [BUGFIX] Correct PSR2  issue                                                                                                                                             |
+|            | - [BUGFIX] Add missing column overrides for text and textpic content elements                                                                                              |
+|            | - [BUGFIX] Check if content element type exists before merging                                                                                                             |
+|            | - [BUGFIX] Merge type configuration in TCA instead of overriding                                                                                                           |
+|            | - [BUGFIX] Add missing comma in uploads field selection                                                                                                                    |
+|            | - [BUGFIX] Correct accordion content element markup                                                                                                                        |
+|            | - [BUGFIX] Add missing showIconTable setting for field icon                                                                                                                |
+|            | - [BUGFIX] Adjust imagepath and wizard settings for carousel links                                                                                                         |
+|            | - [BUGFIX] Adapt moved language file                                                                                                                                       |
+|            | - [BUGFIX] Add missing renderTypes to tt_content fields                                                                                                                    |
+|            | - [BUGFIX] Add missing renderTypes to tab item                                                                                                                             |
+|            | - [BUGFIX] Add missing renderTypes to accordion item                                                                                                                       |
+|            | - [BUGFIX] Add missing renderTypes to carousel item                                                                                                                        |
+|            | - [BUGFIX] Correct typoscript paths                                                                                                                                        |
+|            | - [BUGFIX] Add missing link for media type image in tabs                                                                                                                   |
+|            | - [BUGFIX] Add missing link for media type image in accordion                                                                                                              |
+|            | - [BUGFIX] Correct composer branch-alias                                                                                                                                   |
+|            | - [BUGFIX] Make links visible in jumbotron - fixes #248                                                                                                                    |
+|            | - [BUGFIX] Fix behaviour of strictly allowed RTE classes                                                                                                                   |
+|            | - [BUGFIX] Add the table colspan and rowspan attributes to allowed attributes in RTE configuration                                                                         |
+|            | - [BUGFIX] Correct height operator for opengraph image - fixes #227                                                                                                        |
+|            | - [SECURITY] 6.2.16 security changes                                                                                                                                       |
+|            | - Fix more typos / grammar issues                                                                                                                                          |
+|            | - Fix typos found by codespell                                                                                                                                             |
+|            | - Followup: Use spaces instead of tabs                                                                                                                                     |
+|            | - Fix grammar                                                                                                                                                              |
+|            | - Removed duplicate "List Group" entry                                                                                                                                     |
+|            | - add static to getVariablesFromConstants() because of deprecation notice                                                                                                  |
+|            | - Add crop to carousel background image                                                                                                                                    |
+|            | - Use settings instead of variables for configuration in FLUIDTEMPLATE                                                                                                     |
+|            | - [WIP] Image rendering                                                                                                                                                    |
+|            | - [WIP] Adjust Tab Rendering                                                                                                                                               |
+|            | - [CLEANUP] Bootstrap Package external media item                                                                                                                          |
+|            | - [CLEANUP] Bootstrap Package list group item                                                                                                                              |
+|            | - [CLEANUP] Rendering definition for default content element                                                                                                               |
+|            | - [CLEANUP] Remove unused header partial                                                                                                                                   |
+|            | - Add namespace to ext_update class                                                                                                                                        |
+|            | - Update constants.txt                                                                                                                                                     |
+|            | - Update CssStyledContent.txt                                                                                                                                              |
+|            | - Add data-preload to force image preload                                                                                                                                  |
+|            | - Merge remote-tracking branch 'upstream/master'                                                                                                                           |
+|            | - [CLEANUP] Remove unused file                                                                                                                                             |
+|            | - [CLEANUP] Correct email in bower setup                                                                                                                                   |
+|            | - Merge remote-tracking branch 'upstream/master' into disable-meta-section                                                                                                 |
+|            | - Add mod_filter to apache recommendations                                                                                                                                 |
+|            | - [CLEANUP] Correct Readme                                                                                                                                                 |
+|            | - [CLEANUP] PSR-2 stuff                                                                                                                                                    |
+|            | - [CLEANUP] Remove unused use statements in install service                                                                                                                |
+|            | - [TROLL] Update copyright text                                                                                                                                            |
+|            | - [CLEANUP] Initialize fieldsToUpdate in ext_update                                                                                                                        |
+|            | - Merge remote-tracking branch 'upstream/master' into disable-meta-section                                                                                                 |
+|            | - [CLEANUP] Remove unused Hooks and Xclass                                                                                                                                 |
+|            | - [CLEANUP] Remove TYPO3 6.2 and PHP5.3 and PHP5.4 from Travis CI                                                                                                          |
+|            | - [CLEANUP] Remove unused use statements in realurl autoconfig                                                                                                             |
+|            | - bring metaSection enable setting to constants                                                                                                                            |
+|            | - Update setup.txt with default meta section enabled                                                                                                                       |
+|            | - change Footer.html to disable meta output                                                                                                                                |
+|            | - Fixed typos                                                                                                                                                              |
+|            | - Fixed typos                                                                                                                                                              |
+|            | - Correction of minor typo                                                                                                                                                 |
+|            | - Force preload images to allow print                                                                                                                                      |
+|            | - Add useful RTE buttons                                                                                                                                                   |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.16    | - [RELEASE] Release of 6.2.16                                                                                                                                              |
+|            | - [BUGFIX] Only check for TYPO3 6.2 and 7.6                                                                                                                                |
+|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
+|            | - [SECURITY] 6.2.16 security changes                                                                                                                                       |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.15    | - [RELEASE] Release of 6.2.15                                                                                                                                              |
+|            | - [TASK] Add travis-ci build status image                                                                                                                                  |
+|            | - [TASK] Remove unused coverage from travis                                                                                                                                |
+|            | - [TASK] Add phpcs as dev dependency to composer.json                                                                                                                      |
+|            | - [TASK] Remove TYPO3 dependencies and conflicts from composer.json                                                                                                        |
+|            | - [TASK] Add travis-ci support                                                                                                                                             |
+|            | - [TASK] Unify license comment                                                                                                                                             |
+|            | - [TASK] Static declaration should come after the visibility declaration                                                                                                   |
+|            | - [TASK] Apply PSR-2                                                                                                                                                       |
+|            | - [TASK] Add scrutinizer code style fixer for psr-2                                                                                                                        |
+|            | - [TASK] Convert tabs to spaces 2                                                                                                                                          |
+|            | - [TASK] Convert tabs to spaces                                                                                                                                            |
+|            | - [TASK] Add scrutinizer psr-2 settings                                                                                                                                    |
+|            | - [TASK] Add braces in condition                                                                                                                                           |
+|            | - [TASK] Add code quality section to readme                                                                                                                                |
+|            | - [TASK] Add YML to editorconfig                                                                                                                                           |
+|            | - [TASK] Add scrutinizer configuration                                                                                                                                     |
+|            | - [TASK] Change TYPO3 composer dependency to typo3-cms                                                                                                                     |
+|            | - [TASK] Update less.php to 1.7.0.5                                                                                                                                        |
+|            | - [BUGFIX] Ignore PSR-2 check for legacy core classes                                                                                                                      |
+|            | - [BUGFIX] Use camel caps format for functions in external media utility                                                                                                   |
+|            | - [BUGFIX] PSR-2 Violations                                                                                                                                                |
+|            | - [BUGFIX] Add composer self-update to travis                                                                                                                              |
+|            | - [BUGFIX] Correct indention                                                                                                                                               |
+|            | - [BUGFIX] Use correct assignment for TypoScript value                                                                                                                     |
+|            | - [BUGFIX] Make class.ext_update.php work on PHP                                                                                                                           |
+|            | - [BUGFIX] There is no boostrap package                                                                                                                                    |
+|            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
+|            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
+|            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.14    | - [RELEASE] Release of 6.2.14                                                                                                                                              |
+|            | - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4                                                                                             |
+|            | - [TASK] Add migration information for backend layout prefix change                                                                                                        |
+|            | - [TASK] Add missing changelog for 6.2.12 and 6.2.13                                                                                                                       |
+|            | - [TASK] Update TypoScript template mapping for backend layouts                                                                                                            |
+|            | - [TASK] Add update script to migrate old backend layout prefix to new prefix in table pages                                                                               |
+|            | - [TASK] Disable BackendLayoutDataProvider for TYPO3 versions below 7.4 and adapt registration to core provider prefix for PageTS                                          |
+|            | - [TASK] Move column labels for border, normal, left, right to bootstrap_package, files moved in CMS 7                                                                     |
+|            | - [TASK] fix whitespaces                                                                                                                                                   |
+|            | - [TASK] Add 'active' class for shortcuts in sub navigation                                                                                                                |
+|            | - [BUGFIX] Use always $GLOBALS[TCA]                                                                                                                                        |
+|            | - [BUGFIX] fix missing TYPO3SEARCH_end marker                                                                                                                              |
+|            | - Update Index.rst                                                                                                                                                         |
+|            | - Rename index.rst to Index.rst                                                                                                                                            |
+|            | - Update Index.rst                                                                                                                                                         |
+|            | - Create index.rst                                                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.13    | - [RELEASE] Release of 6.2.13                                                                                                                                              |
+|            | - [TASK] Include css_styled_content and form in static template                                                                                                            |
+|            | - [BUGFIX] Remove leading slash from classnames in typoscript setup                                                                                                        |
+|            | - [BUGFIX] Restrict options for default tab to currently assigned items - fixes #197                                                                                       |
+|            | - Fix 'overridden' typos                                                                                                                                                   |
+|            | - Multiple fixes to composer.json                                                                                                                                          |
+|            | - Fix whitespace in ext_emconf.php                                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.12    | - [RELEASE] Release of 6.2.12                                                                                                                                              |
+|            | - [BUGFIX] Add missing static template for bootstrap package                                                                                                               |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.11    | - [RELEASE] Release of 6.2.11                                                                                                                                              |
+|            | - [!!!][TASK] Remove compatibility to ext:themes through lack of resources                                                                                                 |
+|            | - [!!!][TASK] Cleanup deprecated template fallbacks                                                                                                                        |
+|            | - [!!!][FEATURE] Add template fallback support                                                                                                                             |
+|            | - [!!!][BUGFIX] Wrong path to font files - fixes #139                                                                                                                      |
+|            | - [!!!][TASK] Make less files public available                                                                                                                             |
+|            | - [!!!][TASK] Move lightbox implemantation to a own file and remove main.js                                                                                                |
+|            | - [!!!][TASK] Make navbar toggle button compatible with bootstrap default markup                                                                                           |
+|            | - [!!!][TASK] Use version number independent filename for jQuery and update to v1.11.3                                                                                     |
+|            | - [!!!][FEATURE] Support multilevel tree in subnavigation - fixes #186                                                                                                     |
+|            | - [!!!][FEATURE] Add template fallback support                                                                                                                             |
+|            | - [FEATURE] Make DynamicContent wrappable                                                                                                                                  |
+|            | - [FEATURE] Add swipe support for carousels - fixes #161                                                                                                                   |
+|            | - [FEATURE] Add new page type for popup usage without header and footer typeNum 1000 - fixes #70                                                                           |
+|            | - [FEATURE] Enable support in lib.dynamicContent to support content from pid - fixes #185                                                                                  |
+|            | - [FEATURE] Make breadcrumb enable treelevel configurable - fixes #191                                                                                                     |
+|            | - [FEATURE] Add TypoScript TYPO3 version condition                                                                                                                         |
+|            | - [FEATURE] Add selectivizr to add CSS3 pseudo selector support to IE8                                                                                                     |
+|            | - [!!!][FEATURE] Support multilevel tree in subnavigation - fixes #186                                                                                                     |
+|            | - [FEATURE] Add carousel type backgroundimage - #188                                                                                                                       |
+|            | - [FEATURE] Make carousel header layout configurable - #188                                                                                                                |
+|            | - [FEATURE] Add CSS status classes to content wrappers - #fixes 85                                                                                                         |
+|            | - [FEATURE] Add tab content element                                                                                                                                        |
+|            | - [FEATURE] Add external media content element for youtube and vimeo videos                                                                                                |
+|            | - [FEATURE] New advanced constant to enable/disable CSS source mapping                                                                                                     |
+|            | - [TASK] Update Documentation for TypoScript constants                                                                                                                     |
+|            | - [TASK] Update Documentation                                                                                                                                              |
+|            | - [!!!][TASK] Remove compatibility to ext:themes through lack of resources                                                                                                 |
+|            | - [TASK] Use TCA renderTypes - fixes #192                                                                                                                                  |
+|            | - [!!!][TASK] Cleanup deprecated template fallbacks                                                                                                                        |
+|            | - [TASK] Copy Bootstrap font files during build process                                                                                                                    |
+|            | - [TASK] Update Bootstrap to 3.3.5                                                                                                                                         |
+|            | - [!!!][TASK] Make less files public available                                                                                                                             |
+|            | - [TASK] Use absRefPrefix = auto instead of baseURL in TYPO3 CMS 7                                                                                                         |
+|            | - [TASK] Add application context examples to .htaccess file                                                                                                                |
+|            | - [!!!][TASK] Move lightbox implemantation to a own file and remove main.js                                                                                                |
+|            | - [TASK] Add hires extension icon                                                                                                                                          |
+|            | - [!!!][TASK] Make navbar toggle button compatible with bootstrap default markup                                                                                           |
+|            | - [TASK] Add grunt watcher for JavaScript files                                                                                                                            |
+|            | - [TASK] Add RespondJs to Bower                                                                                                                                            |
+|            | - [!!!][TASK] Use version number independent filename for jQuery and update to v1.11.3                                                                                     |
+|            | - [TASK] Include bootstrap with Bower and Grunt                                                                                                                            |
+|            | - [TASK] Add Grunt uglify for JavaScripts                                                                                                                                  |
+|            | - [TASK] Add initial Grunt setup for RTE and precompiled theme                                                                                                             |
+|            | - [TASK] Add less variables file to bootstrap theme                                                                                                                        |
+|            | - [TASK] Unify namespace name in templates                                                                                                                                 |
+|            | - [TASK] Make ContextualClassViewHelper compilable                                                                                                                         |
+|            | - [TASK] Make FalViewHelper compilable                                                                                                                                     |
+|            | - [TASK] Make ExternalMediaViewHelper compilable                                                                                                                           |
+|            | - [TASK] Make VarViewHelper compilable                                                                                                                                     |
+|            | - [TASK] Make ExplodeViewHelper compilable                                                                                                                                 |
+|            | - [TASK] Make DataRelationViewHelper compilable                                                                                                                            |
+|            | - [TASK] Remove leftover FormEngineViewHelper                                                                                                                              |
+|            | - [TASK] Make FlexFormViewHelper compilable                                                                                                                                |
+|            | - [TASK] Update jquery.responsiveimages.js                                                                                                                                 |
+|            | - [TASK] Reintroduce css class for first headline in column rendering                                                                                                      |
+|            | - [TASK] Move custom content element renderings to typoscript folder                                                                                                       |
+|            | - [TASK] Cleanup extension declaration file to match documentation                                                                                                         |
+|            | - [TASK] Add individual icons for content elements in wizard                                                                                                               |
+|            | - [TASK] Added missing description to Bootstrap elements                                                                                                                   |
+|            | - [TASK] Add field subheader to header palette of tt_content                                                                                                               |
+|            | - [TASK] Remove csc-firstHeader CSS class in lib.stdHeader                                                                                                                 |
+|            | - [TASK] Use references instead of hard copies in lib.stdheader                                                                                                            |
+|            | - [TASK] Use ExtensionManagementUtility in autoload.php - fixes #172                                                                                                       |
+|            | - [TASK] Update bootstrap to 3.3.4                                                                                                                                         |
+|            | - [BUGFIX] Add disablePageTsRTE option to extension configuration again                                                                                                    |
+|            | - [!!!][BUGFIX] Wrong path to font files - fixes #139                                                                                                                      |
+|            | - [BUGFIX] Correct overflow problem                                                                                                                                        |
+|            | - [BUGFIX] Deprecation of page.includeJSlibs in TYPO3 CMS 7                                                                                                                |
+|            | - [BUGFIX] Ensure column CSS class is also set for imagecols set to 1 - fixes #138                                                                                         |
+|            | - [BUGFIX] Set BackendLayouts columns correctly if PageTs is set via page record                                                                                           |
+|            | - [BUGFIX] Section Index content item produces incorrect links - fixes #150                                                                                                |
+|            | - [BUGFIX] Correct OnePage Markup                                                                                                                                          |
+|            | - [BUGFIX] Add missing restore register in text with icon - fixes #174                                                                                                     |
+|            | - slightly smarter TypoScript                                                                                                                                              |
+|            | - FLUIDTEMPLATE.templateName and templateRootPaths                                                                                                                         |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Collision with jQuery width and height methods                                                                                                                           |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Event optimisation                                                                                                                                                       |
+|            | - Fine tune jquery.responsiveimage.js                                                                                                                                      |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
+|            | - Fix indents in tab feature                                                                                                                                               |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.10    | - [RELEASE] Release of 6.2.10                                                                                                                                              |
+|            | - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables                                                                      |
+|            | - [FEATURE] new constant $page.logo.alt used to overwrite the default alt attribute of the logo image                                                                      |
+|            | - [FEATURE] make site logo alt attribute configurable                                                                                                                      |
+|            | - [FEATURE] Disable automatic less compiling - fixes #162                                                                                                                  |
+|            | - [TASK] Add changelog                                                                                                                                                     |
+|            | - [TASK] Refactor jquery.responsiveimages.js                                                                                                                               |
+|            | - [TASK] HTML5 markup for sub navigation - fixes #171                                                                                                                      |
+|            | - [TASK] Make RealUrl autoconfig compatible with the version from Helmut Hummel for 7.x                                                                                    |
+|            | - [TASK] Protect configuration of extensions in default .htaccess                                                                                                          |
+|            | - [TASK] Remove migration of realurl in favor of Helmut Hummels release for TYPO3 CMS 7.2                                                                                  |
+|            | - [TASK] Carousel: allow to set the max width of background images                                                                                                         |
+|            | - [TASK] Update oyejorge/less.php to 1.7.0.3                                                                                                                               |
+|            | - [TASK] Remove automatic cache clearing - fixes #126                                                                                                                      |
+|            | - [TASK] Add slack to contact and communication                                                                                                                            |
+|            | - [TASK] replaced  with                                                                                                                                                    |
+|            | - [TASK] Add admin panel config to typoscript constants                                                                                                                    |
+|            | - [TASK] Update changelog in documentation                                                                                                                                 |
+|            | - [BUGFIX] Correct overlapping elements on centered image - fixes #113, #159                                                                                               |
+|            | - [BUGFIX] Correct media display for file links content element - fixes #164                                                                                               |
+|            | - [BUGFIX] fix for HTML5 markup validation                                                                                                                                 |
+|            | - [BUGFIX] Missing container in default clean layout                                                                                                                       |
+|            | - [BUGFIX] Adjust language uids to match introduction database - fixes #135                                                                                                |
+|            | - Stop using deprecated XHTML cleaning                                                                                                                                     |
+|            | - Allow "target" attribute inside  tags.                                                                                                                                   |
+|            | - added "br" to "allowedTags"                                                                                                                                              |
+|            | - [CLEANUP] Correct indention to CGL                                                                                                                                       |
+|            | - Modified footer and header                                                                                                                                               |
+|            | - [Bugfix] fixes sorting on localized relations                                                                                                                            |
+|            | - Update FalViewHelper.php                                                                                                                                                 |
+|            | - [Bugfix] FalViewHelper.php                                                                                                                                               |
+|            | - Update Base.ts                                                                                                                                                           |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.9     | - [RELEASE] Release of 6.2.9                                                                                                                                               |
+|            | - [TASK] Update jquery to 1.11.2                                                                                                                                           |
+|            | - [TASK] Update modernizr to 2.8.3                                                                                                                                         |
+|            | - [TASK] Update less.php to current master                                                                                                                                 |
+|            | - [TASK] Throw exception on less compile error                                                                                                                             |
+|            | - [TASK] Rise dependency of TYPO3 and css_styled_content version to 7.99.99                                                                                                |
+|            | - [TASK] Add backend skin changes to the documentation                                                                                                                     |
+|            | - [TASK] Use realurl autoconfig hook instead of overriding every config                                                                                                    |
+|            | - [BUGFIX] Remove problematic whitespace                                                                                                                                   |
+|            | - [BUGFIX] Remove superfluous slash in font definition - fixes #132                                                                                                        |
+|            | - [BUGFIX] Classname must not start with a backslash in ext_conf_template.txt                                                                                              |
+|            | - Update Index.rst                                                                                                                                                         |
+|            | - Use array_merge_recursive() instead                                                                                                                                      |
+|            | - Don't overwrite existing configuration completely                                                                                                                        |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.8     | - [RELEASE] Release 6.2.8                                                                                                                                                  |
+|            | - [TASK] Make realurl optional                                                                                                                                             |
+|            | - [TASK] Remove e-mail from contact                                                                                                                                        |
+|            | - [TASK] Minify responsiveimages.js and and cleanup                                                                                                                        |
+|            | - [TASK] Cleanup CGL                                                                                                                                                       |
+|            | - [TASK] Make removeDefaultJs configurable. fixes #105                                                                                                                     |
+|            | - [BUGFIX] Use correct rte transform in accordion textfield - fixes #67                                                                                                    |
+|            | - [BUGFIX] Wrong calculation in news pagination - fixes #106                                                                                                               |
+|            | - [BUGFIX] Flashmessage queue throws error while installing - fixes #116                                                                                                   |
+|            | - Update newContentElement.txt                                                                                                                                             |
+|            | - Update newContentElement.txt                                                                                                                                             |
+|            | - Update jquery.responsiveimages.js                                                                                                                                        |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.7     | - [RELEASE] Release 6.2.7                                                                                                                                                  |
+|            | - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101                                                                                |
+|            | - [TASK] Cleanup CGL                                                                                                                                                       |
+|            | - [TASK] Reformat all project-specific content to TYPO3.CMS CGL                                                                                                            |
+|            | - [TASK] Make getCompiledFile a static method - fixes #103 #104                                                                                                            |
+|            | - [TASK] Deprecate backend skin for CMS7 and provide new logos                                                                                                             |
+|            | - [TASK] Carousel needs to have background-image and background-color at the same time available                                                                           |
+|            | - [TASK] Add .editorconfig file                                                                                                                                            |
+|            | - [BUGFIX] Wrong colpos was used in layout "Default, Subnavigation Left and 2 Columns" fixes #98                                                                           |
+|            | - Fix for columns in backend layout                                                                                                                                        |
+|            | - Add 25/75 backend layout                                                                                                                                                 |
+|            | - Add missing migrations for realurl                                                                                                                                       |
+|            | - Add migrations for realurl to be compatible with CMS 7.0                                                                                                                 |
+|            | - Remove unused template variable - fixes #93                                                                                                                              |
+|            | - typo                                                                                                                                                                     |
+|            | - Updated RTE configuration. Implemented a workaround to get enableWordClean work again.                                                                                   |
+|            | - Finish Hotfix-lead-text                                                                                                                                                  |
+|            | - Fixes Lead text in RTE that is not saved cause not in allowedClasses                                                                                                     |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.6     | - [FEATURE] add composer.json                                                                                                                                              |
+|            | - Release 6.2.6                                                                                                                                                            |
+|            | - Correct colPos for left column on Layout: Default, Subnavigation Left and 2 Columns - fixes #62                                                                          |
+|            | - Add Google Analytics tracking code anonymization - fixes #84                                                                                                             |
+|            | - Adjust processing rules for rte                                                                                                                                          |
+|            | - Add missing styling for rte table contextual classes                                                                                                                     |
+|            | - Enhance accessibility for the accordion                                                                                                                                  |
+|            | - Describe and enhance rte config, tables are now responsive by default, css classes have translations now                                                                 |
+|            | - Fix role="main" position in 2 columns layout.                                                                                                                            |
+|            | - Add backend layout with 2 columns 50/50%                                                                                                                                 |
+|            | - Use DIR option instead of FILE to include backend layouts.                                                                                                               |
+|            | - Remove superfluous text "Bootstrap Package: " from layouts names.                                                                                                        |
+|            | - Exclude page also from search engine index if no_search is set to the page - fixes #69                                                                                   |
+|            | - Enhance accessibility for the carousel                                                                                                                                   |
+|            | - Adjustments to skip to content - resolves #63                                                                                                                            |
+|            | - Add marker for current year. Move replacements directly to the fluidtempalte - fixes #72                                                                                 |
+|            | - Add missing alt and title attributes on noscript fallback for image rendering - fixes #77                                                                                |
+|            | - TASK: Skip to content Resolves https://github.com/benjaminkott/bootstrap_package/issues/63                                                                               |
+|            | - Update bootstrap css file for the backend to 3.3.0                                                                                                                       |
+|            | - Adjust gitignore                                                                                                                                                         |
+|            | - Remove the automatic appending icons for content links                                                                                                                   |
+|            | - Fix navbar-brand-image position                                                                                                                                          |
+|            | - Fix Carousel fading in chrome                                                                                                                                            |
+|            | - Update Bootstrap to version 3.3.0                                                                                                                                        |
+|            | - Display Problems in IE8 for "width: 100% \9;"                                                                                                                            |
+|            | - Move css files for the backend to avoid missunderstandings and add plain default bootstrap.min.css - fixes #61                                                           |
+|            | - Adjust language menu for smaller viewports - #65                                                                                                                         |
+|            | - Adjust font-size and line-height for better readability                                                                                                                  |
+|            | - We are always stable ;)                                                                                                                                                  |
+|            | - Backendskin is not disabled correctly if option is set                                                                                                                   |
+|            | - Add backend layouts for left navigation - fixes #62                                                                                                                      |
+|            | - Adjust carousel - fixes #51                                                                                                                                              |
+|            | - Add missing space in news date format - fixes #59                                                                                                                        |
+|            | - Add caption alignment - fixes #58                                                                                                                                        |
+|            | - Fix small typo                                                                                                                                                           |
+|            | - Cleanup configuration for indention frames - fixes #57                                                                                                                   |
+|            | - Cleanup RTE config                                                                                                                                                       |
+|            | - Cleanup Tabs #52                                                                                                                                                         |
+|            | - Remove forgotten typoscript code for searchbar and login - #50                                                                                                           |
+|            | - Set cache period to 24h - fixes #55                                                                                                                                      |
+|            | - Correct linkToTop rendering - fixes #54                                                                                                                                  |
+|            | - Correct composer.json                                                                                                                                                    |
+|            | - Move PARAMS before SOURCECOLLECTION for better HTML code readability.                                                                                                    |
+|            | - Move img class to params for easier customization.                                                                                                                       |
+|            | - Add basic google analytics settings                                                                                                                                      |
+|            | - Provide open graph image for social networks                                                                                                                             |
+|            | - Cleanup flip ahead browsing for IE                                                                                                                                       |
+|            | - Correct dependency to TYPO3 version to ensure that the correct forms are loaded                                                                                          |
+|            | - Update composer.json                                                                                                                                                     |
+|            | - Fix dynamic rewrite base                                                                                                                                                 |
+|            | - Implement a dynamic rewrite base solution reduce problems with some hosters                                                                                              |
+|            | - Remove some image orient fields to avoid distraction                                                                                                                     |
+|            | - Remove unused link for the image in text with image - fixes #49                                                                                                          |
+|            | - Avoid error if data for lib.dynamicContent is not provided as array                                                                                                      |
+|            | - The title attribute remains empty in mainmenu of onepage variant - fixes #44                                                                                             |
+|            | - Allow link tag usage in html content element                                                                                                                             |
+|            | - Split theme less file                                                                                                                                                    |
+|            | - Add new clean backend layout                                                                                                                                             |
+|            | - Add styling constants for ext:themes                                                                                                                                     |
+|            | - Provide options to disable parts of the auto included PageTs settings                                                                                                    |
+|            | - Cleanup                                                                                                                                                                  |
+|            | - Make Bootstrap Package run as a OnePage Website                                                                                                                          |
+|            | - fix 'Boostrap' typos                                                                                                                                                     |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.5     | - [FEATURE] use SymLinksIfOwnerMatch in .htaccess                                                                                                                          |
+|            | - Release 6.2.5                                                                                                                                                            |
+|            | - Update Documentation                                                                                                                                                     |
+|            | - Add support for link "Edit me on Github"                                                                                                                                 |
+|            | - Fix workspace problem for related records #37                                                                                                                            |
+|            | - Make main navbar position configurable                                                                                                                                   |
+|            | - Combine less files to avoid dublicate css definitions                                                                                                                    |
+|            | - Allow Backend Layouts to be configured via PageTsConfig                                                                                                                  |
+|            | - Cleanup less.php integration - fixes #32                                                                                                                                 |
+|            | - Correct display of tx_form - hopefully                                                                                                                                   |
+|            | - Correct type of baseURL typoscript constant                                                                                                                              |
+|            | - Correct default icon-font-path to avoid problems if page is deployed in a folder - fixes #31                                                                             |
+|            | - Update jQuery version to 1.11.1                                                                                                                                          |
+|            | - Disable imageheight and imagewidth for textpic and image content elements to avoid wrong rendering                                                                       |
+|            | - Avoid problems with hardcoded resource links in login template, remove overriding - fixes #28                                                                            |
+|            | - Correct label definitions for content elements, $_EXTKEY is not available here - fixes #27                                                                               |
+|            | - Add conflict to dyncss to ensure correct less rendering                                                                                                                  |
+|            | - Cleanup spaces                                                                                                                                                           |
+|            | - Images displayed in one column have no restriction to current layout column - fixes #19                                                                                  |
+|            | - Update Bootstrap to 3.2.0                                                                                                                                                |
+|            | - Correct file locations                                                                                                                                                   |
+|            | - Fix bootstrap less compiler if flattensetup is not available - fixes #20                                                                                                 |
+|            | - Cleanup bootstrap file locations                                                                                                                                         |
+|            | - Move bootstrap js to separate folder                                                                                                                                     |
+|            | - Removing symlink option due problems on windows apache with symlinks - affects #25                                                                                       |
+|            | - Add missing default variables file for bootstrap                                                                                                                         |
+|            | - Remove backend style module - introduce typoscript constants instead to provide a more flexible less configuration - fixes #5 #20                                        |
+|            | - Update less.php                                                                                                                                                          |
+|            | - Move TCA                                                                                                                                                                 |
+|            | - Text and image - center top was not centered - fixes #21                                                                                                                 |
+|            | - Add missing bodytext field to carousel "text and image" and enable rte for accordion - fixes #23                                                                         |
+|            | - Allow table in RTE                                                                                                                                                       |
+|            | - Adjust LogoView to make it a bit more secure                                                                                                                             |
+|            | - added fluidpages to conflicts fixes #18                                                                                                                                  |
+|            | - Add link to the complete teaser item and fix the relations                                                                                                               |
+|            | - Fix typo                                                                                                                                                                 |
+|            | - Make it possible to enable backend skin if themes is loaded.                                                                                                             |
+|            | - Make bootstrap_package compatible with themes (part 2)                                                                                                                   |
+|            | - Correct version number                                                                                                                                                   |
+|            | - Cleanup formatting                                                                                                                                                       |
+|            | - Make bootstrap_package compatible with themes (part 1)                                                                                                                   |
+|            | - Correct types in constants                                                                                                                                               |
+|            | - Add TYPO3 version to sitename in backend header                                                                                                                          |
+|            | - Correct wizard registration                                                                                                                                              |
+|            | - Add links for carousel images in FE, optimize fal fields. fixes #15                                                                                                      |
+|            | - Update Accordion.html                                                                                                                                                    |
+|            | - add missing text_color field to carousel textwithimage #10                                                                                                               |
+|            | - carousel interval and wrap needs to be configurable #10                                                                                                                  |
+|            | - wrong label for header in carousel textwithimage #10                                                                                                                     |
+|            | - cleanup wrong committed stuff before                                                                                                                                     |
+|            | - - cleanup wrong formatting in base.ts - add chash for pagination to prevent cashing issues described in #9                                                               |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| v6.2.4     | - ter does not allow long version numbers ...                                                                                                                              |
+|            | - ter ist fucking up ;(                                                                                                                                                    |
+|            | - set version to 6.2.2.2                                                                                                                                                   |
+|            | - Add Basic Documentation                                                                                                                                                  |
+|            | - correct version to 6.2.2.1 and adjust description                                                                                                                        |
+|            | - Hide navigation toggle if no subpages exist.                                                                                                                             |
+|            | - Fix the height of the header if no subpages available                                                                                                                    |
+|            | - Provide an example .htaccess file after installation - fixes #3                                                                                                          |
+|            | - tabs and spaces ...                                                                                                                                                      |
+|            | - Remove absRefPrefix und add automatic baseURL determination instead. This will ensure that the links and pages are correct if you are running TYPO3 in a subfolder.      |
+|            | - Change README to .rst format. Change spelling and wording.                                                                                                               |
+|            | - Change README to .rst format. Change spelling and wording.                                                                                                               |
+|            | - image fix IE                                                                                                                                                             |
+|            | - set version to 6.2.3 for further development                                                                                                                             |
+|            | - cleanup main.js                                                                                                                                                          |
+|            | - remove rootpage id from realurl due complication with import                                                                                                             |
+|            | - Make absRefPrefix configurable, this is needed when typo3 is running in a subfolder                                                                                      |
+|            | - set version to 6.2.2 for further development                                                                                                                             |
+|            | - Remove generated variables from repository                                                                                                                               |
+|            | - Add RealUrl Config                                                                                                                                                       |
+|            | - Update description                                                                                                                                                       |
+|            | - Update README.md                                                                                                                                                         |
+|            | - set version to 6.2.1 for further development                                                                                                                             |
+|            | - set version to 6.2.0 - initial release in ter                                                                                                                            |
+|            | - RC 6.2                                                                                                                                                                   |
+|            | - Initial commit                                                                                                                                                           |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
