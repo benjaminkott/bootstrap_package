@@ -22,7 +22,7 @@ Support multilevel tree in subnavigation
 ========================================
 
 Frontend output of the submenu has changed and the 3rd level is now displayed
-by default. You will need to adapt this change if you are not usind the theme
+by default. You will need to adapt this change if you are not using the theme
 that comes with the Bootstrap Package.
 
 Before
