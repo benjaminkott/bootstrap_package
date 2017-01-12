@@ -1,3 +1,12 @@
+# 7.0.5
+
+## RELEASE
+- [RELEASE] Release of 7.0.5 cb791e3
+
+## BUGFIX
+- [BUGFIX] Adapt link tag parsing for RTE fields 0535f53
+- [BUGFIX] Correct changelog 2e5eacd
+
 # 7.0.4
 
 ## RELEASE
