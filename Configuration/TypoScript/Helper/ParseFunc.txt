@@ -24,6 +24,18 @@ lib.parseFunc {
             }
             parseFunc.constants = 1
         }
+        a = TEXT
+        a {
+            current = 1
+            typolink {
+                parameter.data = parameters:href
+                title.data = parameters:title
+                aTagParams.data = parameters:allParams
+                target.data = parameters:target
+                extTarget = _blank
+                extTarget.override.data = parameters:target
+            }
+        }
     }
     allowTags := addToList(a, abbr, acronym, address, article, aside, b, bdo)
     allowTags := addToList(big, blockquote, br, caption, center, cite, code, col)
