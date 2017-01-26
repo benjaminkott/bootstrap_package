@@ -48,6 +48,7 @@ Options
 ~~~~~~~
 
 * Clear Constants and Setup by checking the boxes
+* Clear the  predefined TypoScript setup from the textbox if any
 * Use this Template as Root-Level Template by checking the box
 
 Includes
