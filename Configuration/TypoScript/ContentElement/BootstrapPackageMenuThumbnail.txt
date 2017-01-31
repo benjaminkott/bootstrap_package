@@ -46,6 +46,8 @@ tt_content.menu.thumbnail_list {
         10 {
             special = list
             special.value.field = pages
+            # Editor is choosing which pages to include in the menu so let the editor to include 'not in menu' pages too
+            includeNotInMenu = 1
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
@@ -61,6 +63,8 @@ tt_content.menu.thumbnail_dir {
     dataProcessing {
         10 {
             special = directory
+            # Here the editor is not choosing so revert the previous setting
+            includeNotInMenu = 0
         }
     }
 }
