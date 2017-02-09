@@ -1,8 +1,9 @@
+<f:spaceless>
 <div id="top"></div>
 <div class="body-bg{f:if(condition:settings.navigation.type, then:' body-bg-{settings.navigation.type}')}">
 
     <a class="sr-only sr-only-focusable" href="#content">
-        {f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}
+        <span>{f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}</span>
     </a>
     <f:render partial="Navigation/Main" arguments="{_all}"/>
     <f:render partial="Navigation/Breadcrumb" arguments="{_all}"/>
@@ -17,3 +18,4 @@
     <f:render partial="Structure/ScrollTop" arguments="{_all}"/>
 
 </div>
+</f:spaceless>

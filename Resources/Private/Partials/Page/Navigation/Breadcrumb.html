@@ -8,11 +8,11 @@
                         <li class="{f:if(condition: item.current, then: 'active')}">
                             <f:if condition="{item.current}">
                                 <f:then>
-                                    {item.title}
+                                    <span>{item.title}</span>
                                 </f:then>
                                 <f:else>
                                     <a href="{item.link}" target="{item.target}" title="{item.title}">
-                                        {item.title}
+                                        <span>{item.title}</span>
                                     </a>
                                 </f:else>
                             </f:if>

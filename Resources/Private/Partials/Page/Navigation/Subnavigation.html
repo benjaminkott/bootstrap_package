@@ -15,7 +15,7 @@
             <f:else>
                 <li class="{f:if(condition: item.active, then:'active')}">
                     <a href="{item.link}" target="{item.target}" title="{item.title}">
-                        {item.title}
+                        <span>{item.title}</span>
                     </a>
                     <f:if condition="{item.children}">
                         <ul>

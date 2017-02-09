@@ -1,5 +1,4 @@
-<header
-    class="navbar navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
+<header class="navbar navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
     <div class="container">
         <div class="navbar-header navbar-header-main">
             <f:if condition="{settings.logo.file}">
@@ -36,7 +35,7 @@
                                     <f:if condition="{mainnavigationItem.children}">
                                         <f:then>
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                {mainnavigationItem.title}
+                                                <span>{mainnavigationItem.title}</span>
                                                 <b class="caret"></b>
                                                 <span class="bar"></span>
                                             </a>
@@ -44,14 +43,12 @@
                                                 <f:for each="{mainnavigationItem.children}" as="child">
                                                     <f:if condition="{child.spacer}">
                                                         <f:then>
-                                                            <li class="dropdown-header">
-                                                                {child.title}
-                                                            </li>
+                                                            <li class="dropdown-header">{child.title}</li>
                                                         </f:then>
                                                         <f:else>
                                                             <li class="{f:if(condition: child.active, then:'active')}">
                                                                 <a href="{child.link}" target="{child.target}" title="{child.title}">
-                                                                    {child.title}
+                                                                    <span>{child.title}</span>
                                                                 </a>
                                                             </li>
                                                         </f:else>
@@ -61,7 +58,7 @@
                                         </f:then>
                                         <f:else>
                                             <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}">
-                                                {mainnavigationItem.title}
+                                                <span>{mainnavigationItem.title}</span>
                                                 <span class="bar"></span>
                                             </a>
                                         </f:else>

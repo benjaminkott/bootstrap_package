@@ -5,11 +5,7 @@
     <blockquote cite="{f:uri.typolink(parameter: data.quote_link)}">
         <p>{data.bodytext}</p>
         <f:if condition="{data.quote_source}">
-            <footer>
-                <f:link.typolink parameter="{data.quote_link}">
-                    {data.quote_source}
-                </f:link.typolink>
-            </footer>
+            <footer><f:link.typolink parameter="{data.quote_link}">{data.quote_source}</f:link.typolink></footer>
         </f:if>
     </blockquote>
 

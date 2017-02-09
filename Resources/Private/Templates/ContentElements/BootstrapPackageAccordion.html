@@ -12,14 +12,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="accordion-heading-{data.uid}-{record.data.uid}">
                         <h4 class="panel-title">
-                            <a class="{f:if(condition: iteration.isFirst, else:'collapsed')}"
-                               role="button"
-                               data-toggle="collapse"
-                               data-parent="#accordion-{data.uid}"
-                               href="#accordion-{data.uid}-{record.data.uid}"
-                               aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}"
-                               aria-controls="accordion-{data.uid}-{record.data.uid}">
-                                {record.data.header}
+                            <a class="{f:if(condition: iteration.isFirst, else:'collapsed')}" role="button" data-toggle="collapse" data-parent="#accordion-{data.uid}" href="#accordion-{data.uid}-{record.data.uid}" aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
+                                <span>{record.data.header}</span>
                             </a>
                         </h4>
                     </div>

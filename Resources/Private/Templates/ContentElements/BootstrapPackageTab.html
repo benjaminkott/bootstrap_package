@@ -20,10 +20,8 @@
             <ul class="nav nav-tabs" role="tablist">
                 <f:for each="{records}" as="record" iteration="iteration">
                     <li role="presentation" {f:if(condition: '{activeTab} == {record.data.uid}',then: 'class="active"')}>
-                        <f:link.page
-                                additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{record.data.uid}'}"
-                                section="tab-{data.uid}-{record.data.uid}">
-                            {record.data.header}
+                        <f:link.page additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{record.data.uid}'}" section="tab-{data.uid}-{record.data.uid}">
+                            <span>{record.data.header}</span>
                         </f:link.page>
                     </li>
                 </f:for>

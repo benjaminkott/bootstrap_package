@@ -1,12 +1,10 @@
 <f:if condition="{metanavigation}">
+    <ul id="meta_menu" class="meta-menu">
     <f:for each="{metanavigation}" as="item" iteration="metaiteration">
-        <f:if condition="{metaiteration.isFirst}">
-            <f:else>
-                <span class="text-muted">|</span>
-            </f:else>
-        </f:if>
-        <a href="{item.link}" target="{item.target}" title="{item.title}">
-            {item.title}
-        </a>
+        <li>
+            <a href="{item.link}" target="{item.target}" title="{item.title}">
+                <span>{item.title}</span>
+            </a>
+        </li>
     </f:for>
 </f:if>
