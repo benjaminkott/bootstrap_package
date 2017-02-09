@@ -4,14 +4,14 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Textmedia
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textmedia'] = 'content-textmedia';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textmedia'] = 'content-bootstrappackage-textmedia';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textmedia',
         'textmedia',
-        'content-textmedia'
+        'content-bootstrappackage-textmedia'
     ],
     'text',
     'after'

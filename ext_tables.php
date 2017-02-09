@@ -77,6 +77,11 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/texticon.svg']
 );
 $iconRegistry->registerIcon(
+    'content-bootstrappackage-textmedia',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/textmedia.svg']
+);
+$iconRegistry->registerIcon(
     'content-bootstrappackage-panel',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/panel.svg']
