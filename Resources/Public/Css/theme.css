@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1097,7 +1097,6 @@ a:focus {
   text-decoration: none;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2526,7 +2525,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3017,7 +3015,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7164,6 +7161,9 @@ h4 + h5 {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+audio {
+  width: 100%;
+}
 .valign {
   display: table;
   table-layout: fixed;
@@ -7218,7 +7218,6 @@ img.lazyload {
 .btn-default.focus,
 .btn-default:active.focus,
 .btn-default.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7329,7 +7328,6 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary.focus,
 .btn-primary:active.focus,
 .btn-primary.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7440,7 +7438,6 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.focus,
 .btn-success:active.focus,
 .btn-success.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7551,7 +7548,6 @@ fieldset[disabled] .btn-success.focus {
 .btn-warning.focus,
 .btn-warning:active.focus,
 .btn-warning.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7662,7 +7658,6 @@ fieldset[disabled] .btn-warning.focus {
 .btn-danger.focus,
 .btn-danger:active.focus,
 .btn-danger.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -7796,11 +7791,6 @@ body,
 .navbar.navbar-fixed-bottom {
   position: fixed;
 }
-.navbar-fixed-top .navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse,
-.navbar-collapse {
-  max-height: none;
-}
 .navbar-brand > .navbar-brand-logo-normal {
   display: inline-block;
 }
@@ -7919,7 +7909,6 @@ body,
 }
 .navbar-main > li > a {
   font-family: inherit;
-  font-weight: bold;
   text-transform: uppercase;
 }
 .navbar-main > li > a .bar {
@@ -8253,17 +8242,15 @@ body,
     margin-top: -140px;
   }
 }
-.navbar-fixed-top + a + .carousel,
-.navbar-fixed-top + a + a + .carousel,
-.navbar-fixed-top + .main-section > a + .carousel,
-.navbar-fixed-top + .main-section > a + a + .carousel {
-  margin-top: -70px;
-}
 @media (min-width: 992px) {
-  .navbar-fixed-top + a + .carousel,
-  .navbar-fixed-top + a + a + .carousel,
-  .navbar-fixed-top + .main-section > a + .carousel,
-  .navbar-fixed-top + .main-section > a + a + .carousel {
+  .navbar-fixed-top.navbar-default-transition + a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -140px;
   }
 }
@@ -8919,7 +8906,6 @@ a.csc-form-element .help-block.text-danger:focus {
 .csc-form-confirmation-true input:active.focus,
 .csc-form-confirmation-false input.active.focus,
 .csc-form-confirmation-true input.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -9040,7 +9026,6 @@ fieldset[disabled] .csc-form-confirmation-true input.focus {
 .csc-form-confirmation-true input.focus,
 .csc-form-confirmation-true input:active.focus,
 .csc-form-confirmation-true input.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -9203,7 +9188,6 @@ fieldset[disabled] .csc-form-confirmation-false input.focus {
 .csc-form-confirmation-false input.focus,
 .csc-form-confirmation-false input:active.focus,
 .csc-form-confirmation-false input.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
