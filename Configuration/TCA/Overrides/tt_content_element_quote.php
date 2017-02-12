@@ -61,19 +61,16 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 50,
                 'max' => 1024,
                 'eval' => 'trim',
-                'wizards' => [
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
-                        'icon' => 'actions-wizard-link',
-                        'module' => [
-                            'name' => 'wizard_link',
+                'fieldControl' => [
+                    'linkPopup' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
                         ],
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
-                    ]
+                    ],
                 ],
                 'softref' => 'typolink'
             ]

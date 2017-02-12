@@ -279,22 +279,19 @@ return [
             'exclude' => 1,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
             'config' => [
-                'eval' => 'trim',
-                'max' => 256,
-                'size' => 50,
-                'softref' => 'typolink',
                 'type' => 'input',
-                'wizards' => [
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel',
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_link.gif',
-                        'module' => [
-                            'name' => 'wizard_link',
+                'renderType' => 'inputLink',
+                'size' => 50,
+                'max' => 1024,
+                'eval' => 'trim',
+                'fieldControl' => [
+                    'linkPopup' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
                         ],
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
                     ],
                 ],
+                'softref' => 'typolink'
             ],
         ],
         'header' => [
