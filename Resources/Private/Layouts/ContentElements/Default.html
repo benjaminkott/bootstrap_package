@@ -11,8 +11,8 @@
                     <f:render partial="DropIn/Before/All" arguments="{_all}" />
                 </f:render>
 
-                <f:render section="Header" />
-                <f:render section="Main" />
+                <f:render section="Header" optional="true" />
+                <f:render section="Main" optional="true" />
 
                 <f:render section="After" optional="true">
                     <f:render partial="DropIn/After/All" arguments="{_all}" />
@@ -30,8 +30,8 @@
                 <div class="frame-space-before-{data.space_before_class}"></div>
             </f:if>
 
-            <f:render section="Header" />
-            <f:render section="Main" />
+            <f:render section="Header" optional="true" />
+            <f:render section="Main" optional="true" />
 
             <f:render section="After" optional="true">
                 <f:render partial="DropIn/After/All" arguments="{_all}" />
