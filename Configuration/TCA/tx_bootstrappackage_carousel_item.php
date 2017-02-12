@@ -9,7 +9,7 @@ return [
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
         'type' => 'item_type',
         'delete' => 'deleted',
-        'versioningWS' => 2,
+        'versioningWS' => true,
         'origUid' => 't3_origuid',
         'hideAtCopy' => false,
         'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
