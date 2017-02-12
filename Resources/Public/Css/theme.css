@@ -5118,7 +5118,8 @@ a.badge:focus {
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
-.jumbotron {
+.jumbotron,
+.frame-jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
@@ -5126,38 +5127,50 @@ a.badge:focus {
   background-color: #ff8700;
 }
 .jumbotron h1,
-.jumbotron .h1 {
+.jumbotron .h1,
+.frame-jumbotron h1,
+.frame-jumbotron .h1 {
   color: inherit;
 }
-.jumbotron p {
+.jumbotron p,
+.frame-jumbotron p {
   margin-bottom: 15px;
   font-size: 24px;
   font-weight: 200;
 }
-.jumbotron > hr {
+.jumbotron > hr,
+.frame-jumbotron > hr {
   border-top-color: #cc6c00;
 }
 .container .jumbotron,
-.container-fluid .jumbotron {
+.container-fluid .jumbotron,
+.container .frame-jumbotron,
+.container-fluid .frame-jumbotron {
   border-radius: 0px;
   padding-left: 20px;
   padding-right: 20px;
 }
-.jumbotron .container {
+.jumbotron .container,
+.frame-jumbotron .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .jumbotron {
+  .jumbotron,
+  .frame-jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
   }
   .container .jumbotron,
-  .container-fluid .jumbotron {
+  .container-fluid .jumbotron,
+  .container .frame-jumbotron,
+  .container-fluid .frame-jumbotron {
     padding-left: 60px;
     padding-right: 60px;
   }
   .jumbotron h1,
-  .jumbotron .h1 {
+  .jumbotron .h1,
+  .frame-jumbotron h1,
+  .frame-jumbotron .h1 {
     font-size: 72px;
   }
 }
@@ -5970,7 +5983,8 @@ button.list-group-item-danger.active:focus {
 .embed-responsive-4by3 {
   padding-bottom: 75%;
 }
-.well {
+.well,
+.frame-well {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -5980,7 +5994,8 @@ button.list-group-item-danger.active:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.well blockquote {
+.well blockquote,
+.frame-well blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -7086,30 +7101,6 @@ h4 + h5 {
     column-gap: 40px;
   }
 }
-@media (min-width: 768px) {
-  .indent {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-@media (min-width: 992px) {
-  .indent {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-}
-@media (min-width: 1200px) {
-  .indent {
-    margin-left: 15%;
-    margin-right: 15%;
-  }
-}
-.indent-left {
-  margin-left: 33%;
-}
-.indent-right {
-  margin-right: 33%;
-}
 .scroll-top {
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
@@ -7176,7 +7167,11 @@ audio {
 .jumbotron a,
 .jumbotron a:hover,
 .jumbotron a:active,
-.jumbotron a:focus {
+.jumbotron a:focus,
+.frame-jumbotron a,
+.frame-jumbotron a:hover,
+.frame-jumbotron a:active,
+.frame-jumbotron a:focus {
   color: inherit;
   text-decoration: underline;
 }
@@ -8582,22 +8577,69 @@ body,
     padding-bottom: 2em;
   }
 }
-.frame.rulerbefore {
+.frame > *:last-child {
+  margin-bottom: 0;
+}
+.frame-ruler-before {
   border-top: 1px solid #eeeeee;
   margin-top: 2em;
 }
-.frame.rulerafter {
+.frame-ruler-after {
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 2em;
 }
-.frame.well *:first-child {
-  padding-top: 0px;
+@media (min-width: 768px) {
+  .frame-indent {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
-.frame.well *:last-child {
-  padding-bottom: 0px;
+@media (min-width: 992px) {
+  .frame-indent {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
-.frame > *:last-child {
-  margin-bottom: 0;
+@media (min-width: 1200px) {
+  .frame-indent {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+.frame-indent-left {
+  margin-left: 33%;
+}
+.frame-indent-right {
+  margin-right: 33%;
+}
+.frame-well {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+@media (min-width: 768px) {
+  .frame-well {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+@media (min-width: 992px) {
+  .frame-well {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+.frame-jumbotron {
+  padding: 2em!important;
+}
+@media (min-width: 768px) {
+  .frame-jumbotron {
+    padding: 3em!important;
+  }
+}
+@media (min-width: 992px) {
+  .frame-jumbotron {
+    padding: 4em!important;
+  }
 }
 .frame-small {
   padding-top: 0.5em;
@@ -8608,6 +8650,42 @@ body,
     padding-top: 1em;
     padding-bottom: 1em;
   }
+}
+.frame-space-before-none {
+  margin-top: 0;
+}
+.frame-space-before-extra-small {
+  margin-top: 1em;
+}
+.frame-space-before-small {
+  margin-top: 2em;
+}
+.frame-space-before-medium {
+  margin-top: 3em;
+}
+.frame-space-before-large {
+  margin-top: 4em;
+}
+.frame-space-before-extra-large {
+  margin-top: 5em;
+}
+.frame-space-after-none {
+  margin-bottom: 0;
+}
+.frame-space-after-extra-small {
+  margin-bottom: 1em;
+}
+.frame-space-after-small {
+  margin-bottom: 2em;
+}
+.frame-space-after-medium {
+  margin-bottom: 3em;
+}
+.frame-space-after-large {
+  margin-bottom: 4em;
+}
+.frame-space-after-extra-large {
+  margin-bottom: 5em;
 }
 .footer-section {
   color: #fff;

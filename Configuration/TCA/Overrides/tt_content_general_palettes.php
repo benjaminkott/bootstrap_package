@@ -29,12 +29,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['header'] = [
         --linebreak--
     '
 ];
-$GLOBALS['TCA']['tt_content']['palettes']['frames'] = [
-    'showitem' => '
-        layout,
-        section_frame
-    ',
-];
 $GLOBALS['TCA']['tt_content']['palettes']['tablelayout'] = [
     'showitem' => '
         table_header_position,

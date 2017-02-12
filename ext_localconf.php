@@ -95,3 +95,9 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\MenuProcessor')) {
         'TYPO3\CMS\Frontend\DataProcessing\MenuProcessor'
     );
 }
+
+/***************
+ * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\TYPO3\CMS\Install\Updates\SectionFrameToFrameClassUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\SectionFrameToFrameClassUpdate::class;

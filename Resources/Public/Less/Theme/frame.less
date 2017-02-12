@@ -12,24 +12,59 @@
         padding-top: 2em;
         padding-bottom: 2em;
     }
-    &.rulerbefore {
-        border-top: 1px solid @page-header-border-color;
-        margin-top: 2em;
-    }
-    &.rulerafter {
-        border-bottom: 1px solid @page-header-border-color;
-        margin-bottom: 2em;
-    }
-    &.well {
-        *:first-child {
-            padding-top: 0px;
-        }
-        *:last-child {
-            padding-bottom: 0px;
-        }
-    }
     > *:last-child {
         margin-bottom: 0;
+    }
+}
+.frame-ruler-before {
+    border-top: 1px solid @page-header-border-color;
+    margin-top: 2em;
+}
+.frame-ruler-after {
+    border-bottom: 1px solid @page-header-border-color;
+    margin-bottom: 2em;
+}
+.frame-indent {
+    @media (min-width: @screen-sm) {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    @media (min-width: @screen-md) {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    @media (min-width: @screen-lg) {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
+.frame-indent-left {
+    margin-left: 33%;
+}
+.frame-indent-right {
+    margin-right: 33%;
+}
+.frame-well {
+    &:extend(.well all);
+    padding-left: 1em;
+    padding-right: 1em;
+    @media (min-width: @screen-sm) {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+    @media (min-width: @screen-md) {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}
+.frame-jumbotron {
+    &:extend(.jumbotron all);
+    padding: 2em!important;
+    @media (min-width: @screen-sm) {
+        padding: 3em!important;
+    }
+    @media (min-width: @screen-md) {
+        padding: 4em!important;
     }
 }
 .frame-small {
@@ -39,4 +74,48 @@
         padding-top: 1em;
         padding-bottom: 1em;
     }
+}
+
+//
+// Space Before
+// --------------------------------------------------
+.frame-space-before-none {
+    margin-top: 0;
+}
+.frame-space-before-extra-small {
+    margin-top: 1em;
+}
+.frame-space-before-small {
+    margin-top: 2em;
+}
+.frame-space-before-medium {
+    margin-top: 3em;
+}
+.frame-space-before-large {
+    margin-top: 4em;
+}
+.frame-space-before-extra-large {
+    margin-top: 5em;
+}
+
+//
+// Space After
+// --------------------------------------------------
+.frame-space-after-none {
+    margin-bottom: 0;
+}
+.frame-space-after-extra-small {
+    margin-bottom: 1em;
+}
+.frame-space-after-small {
+    margin-bottom: 2em;
+}
+.frame-space-after-medium {
+    margin-bottom: 3em;
+}
+.frame-space-after-large {
+    margin-bottom: 4em;
+}
+.frame-space-after-extra-large {
+    margin-bottom: 5em;
 }

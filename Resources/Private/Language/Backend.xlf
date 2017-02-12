@@ -516,38 +516,11 @@
                 <source>Fullscreen</source>
             </trans-unit>
 
-            <trans-unit id="field.section_frame">
-                <source>Frame</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.default">
-                <source>Default</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.invisible">
-                <source>Invisible</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.rulerbefore">
-                <source>Ruler before</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.rulerafter">
-                <source>Ruler after</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.indentcenter">
-                <source>Indent center</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.indentleft">
-                <source>Indent left</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.indentright">
-                <source>Indent right</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.well">
+            <trans-unit id="field.frame_class.well">
                 <source>Well</source>
             </trans-unit>
-            <trans-unit id="field.section_frame.jumbotron">
+            <trans-unit id="field.frame_class.jumbotron">
                 <source>Jumbotron</source>
-            </trans-unit>
-            <trans-unit id="field.section_frame.none">
-                <source>None</source>
             </trans-unit>
 
             <trans-unit id="field.header_position">

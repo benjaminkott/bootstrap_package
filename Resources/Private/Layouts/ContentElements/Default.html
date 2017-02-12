@@ -1,31 +1,19 @@
-{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<f:if condition="{data.section_frame} == 66">
+<f:if condition="{data.frame_class} != none">
     <f:then>
+
+        <div id="c{data.uid}" class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, else: ' frame-space-before-none', then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, else: ' frame-space-after-none', then: ' frame-space-after-{data.space_after_class}')}">
+            <f:if condition="{data._LOCALIZED_UID}"><a id="c{data._LOCALIZED_UID}"></a></f:if>
+            <f:render section="Header" />
+            <f:render section="Main" />
+        </div>
+
+    </f:then>
+    <f:else>
 
         <a id="c{data.uid}"></a>
         <f:if condition="{data._LOCALIZED_UID}"><a id="c{data._LOCALIZED_UID}"></a></f:if>
         <f:render section="Header" />
         <f:render section="Main" />
-
-    </f:then>
-    <f:else>
-
-        <f:switch expression="{data.section_frame}">
-            <f:case value="1"><bk2k:var name="sectionClass" value="invisible" /></f:case>
-            <f:case value="5"><bk2k:var name="sectionClass" value="rulerbefore" /></f:case>
-            <f:case value="6"><bk2k:var name="sectionClass" value="rulerafter" /></f:case>
-            <f:case value="10"><bk2k:var name="sectionClass" value="indent" /></f:case>
-            <f:case value="11"><bk2k:var name="sectionClass" value="indent-left" /></f:case>
-            <f:case value="12"><bk2k:var name="sectionClass" value="indent-right" /></f:case>
-            <f:case value="20"><bk2k:var name="sectionClass" value="well" /></f:case>
-            <f:case value="21"><bk2k:var name="sectionClass" value="jumbotron" /></f:case>
-            <f:case default="TRUE"><bk2k:var name="sectionClass" value="default" /></f:case>
-        </f:switch>
-        <div id="c{data.uid}" class="frame frame-type-{data.CType} frame-layout-{data.layout} {sectionClass}">
-            <f:if condition="{data._LOCALIZED_UID}"><a id="c{data._LOCALIZED_UID}"></a></f:if>
-            <f:render section="Header" />
-            <f:render section="Main" />
-        </div>
 
     </f:else>
 </f:if>
