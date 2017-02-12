@@ -10,7 +10,6 @@ return [
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item',
         'delete' => 'deleted',
         'versioningWS' => 2,
-        'versioning_followPages' => true,
         'origUid' => 't3_origuid',
         'hideAtCopy' => false,
         'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
