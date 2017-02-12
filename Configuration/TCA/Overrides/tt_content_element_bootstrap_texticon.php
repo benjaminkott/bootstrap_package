@@ -41,11 +41,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_icons'] = [
 ];
 
 /***************
- * Register request update
- */
- $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] .= ',icon_type';
-
-/***************
  * Configure element type
  */
 $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon'] = array_replace_recursive(
@@ -114,6 +109,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
         ],
         'icon_type' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_type',
+            'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
