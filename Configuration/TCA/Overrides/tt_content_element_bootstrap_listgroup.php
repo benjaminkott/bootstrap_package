@@ -50,8 +50,11 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup'] = array_re
         ',
         'columnsOverrides' => [
             'bodytext' => [
-                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
-            ],
-        ],
+                'config' => [
+                    'enableRichtext' => true,
+                    'richtextConfiguration' => 'default'
+                ]
+            ]
+        ]
     ]
 );

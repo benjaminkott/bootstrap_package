@@ -174,15 +174,15 @@ return [
             ],
         ],
         'bodytext' => [
-            'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.bodytext',
+            'l10n_mode' => 'prefixLangTitle',
+            'l10n_cat' => 'text',
             'config' => [
                 'type' => 'text',
-                'cols' => 40,
-                'rows' => 3,
-                'softref' => 'rtehtmlarea_images,typolink_tag,email[subst],url',
+                'cols' => '80',
+                'rows' => '15',
+                'softref' => 'typolink_tag,images,email[subst],url',
             ],
-            'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
         ],
         'media' => [
             'exclude' => 0,

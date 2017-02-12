@@ -36,9 +36,11 @@ $GLOBALS['TCA']['tt_content']['types']['textteaser'] = array_replace_recursive(
             rowDescription',
         'columnsOverrides' => [
             'bodytext' => [
-                'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                'config' => [
+                    'enableRichtext' => true,
+                    'richtextConfiguration' => 'default'
+                ]
             ]
-
         ]
     ]
 );

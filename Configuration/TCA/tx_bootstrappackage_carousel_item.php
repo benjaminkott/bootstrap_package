@@ -105,15 +105,6 @@ return [
             '
         ],
         'html' => [
-            'columnsOverrides' => [
-                'bodytext' => [
-                    'config' => [
-                        'format' => 'html',
-                        'renderType' => 't3editor'
-                    ],
-                    'defaultExtras' => 'nowrap'
-                ],
-            ],
             'showitem' => '
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
@@ -376,30 +367,14 @@ return [
             ],
         ],
         'bodytext' => [
-            'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.bodytext',
+            'l10n_mode' => 'prefixLangTitle',
+            'l10n_cat' => 'text',
             'config' => [
                 'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'softref' => 'rtehtmlarea_images,typolink_tag,email[subst],url',
-                'eval' => 'trim',
-                'wizards' => [
-                    't3editor' => [
-                        'enableByTypeConfig' => 1,
-                        'type' => 'userFunc',
-                        'userFunc' => 'TYPO3\\CMS\\T3editor\\FormWizard->main',
-                        'title' => 't3editor',
-                        'icon' => 'wizard_table.gif',
-                        'module' => [
-                            'name' => 'wizard_table'
-                        ],
-                        'params' => [
-                            'format' => 'html',
-                            'style' => 'width:98%; height: 60%;'
-                        ],
-                    ],
-                ],
+                'cols' => '80',
+                'rows' => '15',
+                'softref' => 'typolink_tag,images,email[subst],url',
             ],
         ],
         'image' => [
