@@ -98,29 +98,27 @@ return [
             ]
         ],
         'starttime' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
+            'exclude' => true,
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'max' => '20',
+                'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
-                'default' => '0'
+                'default' => 0
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
         ],
         'endtime' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
+            'exclude' => true,
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'max' => '20',
+                'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
-                'default' => '0',
+                'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 12, 31, 2020)
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ]
             ],
             'l10n_mode' => 'exclude',
