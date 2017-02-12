@@ -427,20 +427,8 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color',
             'config' => [
                 'type' => 'input',
-                'size' => 10,
-                'eval' => 'trim',
+                'renderType' => 'colorpicker',
                 'default' => '#FFFFFF',
-                'wizards' => [
-                    'colorChoice' => [
-                        'type' => 'colorbox',
-                        'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
-                        'module' => [
-                            'name' => 'wizard_colorpicker'
-                        ],
-                        'dim' => '20x20',
-                        'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                    ],
-                ],
             ],
         ],
         'background_color' => [
@@ -448,20 +436,8 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
             'config' => [
                 'type' => 'input',
-                'size' => 10,
-                'eval' => 'trim',
+                'renderType' => 'colorpicker',
                 'default' => '#333333',
-                'wizards' => [
-                    'colorChoice' => [
-                        'type' => 'colorbox',
-                        'title' => 'LLL:EXT:lang/locallang_wizards:colorpicker_title',
-                        'module' => [
-                            'name' => 'wizard_colorpicker'
-                        ],
-                        'dim' => '20x20',
-                        'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                    ],
-                ],
             ],
         ],
         'background_image' => [
