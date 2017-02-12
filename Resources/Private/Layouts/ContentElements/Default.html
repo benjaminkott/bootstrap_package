@@ -14,6 +14,9 @@
                 <f:render section="Header" optional="true" />
                 <f:render section="Main" optional="true" />
 
+                <f:render section="Footer" optional="true">
+                    <f:render partial="Footer/All" arguments="{_all}" />
+                </f:render>
                 <f:render section="After" optional="true">
                     <f:render partial="DropIn/After/All" arguments="{_all}" />
                 </f:render>
@@ -33,6 +36,9 @@
             <f:render section="Header" optional="true" />
             <f:render section="Main" optional="true" />
 
+            <f:render section="Footer" optional="true">
+                <f:render partial="Footer/All" arguments="{_all}" />
+            </f:render>
             <f:render section="After" optional="true">
                 <f:render partial="DropIn/After/All" arguments="{_all}" />
             </f:render>
