@@ -4,22 +4,14 @@ language: php
 branches:
   only:
     - master
-    - BP_7-0
-    - BP_6-2
 
 matrix:
   fast_finish: true
   include:
-    - php: 5.5
-      env: TYPO3_VERSION=^7.6
-    - php: 5.6
-      env: TYPO3_VERSION=^7.6
     - php: 7.0
-      env: TYPO3_VERSION=^7.6
-    - php: 7.0
-      env: TYPO3_VERSION=^8.5
+      env: TYPO3_VERSION=dev-master
     - php: 7.1
-      env: TYPO3_VERSION=^8.5
+      env: TYPO3_VERSION=dev-master
 
 sudo: false
 
