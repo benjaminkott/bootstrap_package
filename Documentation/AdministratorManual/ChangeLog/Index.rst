@@ -20,6 +20,164 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 7.1.0      | - [RELEASE] Release of 7.1.0                                                                                                                                               |
+|            | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
+|            | - [!!!][TASK] Reintroduce "no frame" option - fixes #319                                                                                                                   |
+|            | - [!!!][FEATURE] Add sections to visually group elements                                                                                                                   |
+|            | - [!!!][FEATURE] Adjust make footer color configurable                                                                                                                     |
+|            | - [!!!][FEATURE] Add support for google webfonts - fixes #115                                                                                                              |
+|            | - [!!!][FEATURE] Add support for spacer in menu processor - fixes #335                                                                                                     |
+|            | - [FEATURE] Make language uids for menu configurable                                                                                                                       |
+|            | - [FEATURE] Add audio content element - fixes #399                                                                                                                         |
+|            | - [FEATURE] Add preview for quote content element                                                                                                                          |
+|            | - [FEATURE] rearrange settings for images and media assets (#395)                                                                                                          |
+|            | - [FEATURE] Add signal to compile service - fixes #371                                                                                                                     |
+|            | - [FEATURE] Add quotation content element                                                                                                                                  |
+|            | - [FEATURE] Provide generated link and target from hmenu in menu resultset - fixes #380                                                                                    |
+|            | - [FEATURE] Add smothscrolling and back to top link                                                                                                                        |
+|            | - [FEATURE] Add content element text with teaser                                                                                                                           |
+|            | - [FEATURE] Add constant for absolute favicon path                                                                                                                         |
+|            | - [FEATURE] Add subheader to carousel item header                                                                                                                          |
+|            | - [FEATURE] Add stickyheader to overlay carousel                                                                                                                           |
+|            | - [FEATURE] Add fullscreen variant of carousel                                                                                                                             |
+|            | - [FEATURE] Add support for additional iconsets and ionicons - fixes #357                                                                                                  |
+|            | - [FEATURE] Add header_link to the icon of text widh icon content element - fixes #154                                                                                     |
+|            | - [FEATURE] Add meta navigation support                                                                                                                                    |
+|            | - [FEATURE] Add marker for frontendurl                                                                                                                                     |
+|            | - [FEATURE] Add content element to display regular text in columns                                                                                                         |
+|            | - [FEATURE] Allow html entities in carousel header                                                                                                                         |
+|            | - [FEATURE] Colorize text selection in primary color                                                                                                                       |
+|            | - [FEATURE] Make imported font weights of google webfonts editable                                                                                                         |
+|            | - [FEATURE] Add transition option to switch from fade to slide - #356 #347                                                                                                 |
+|            | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
+|            | - [!!!][FEATURE] Add sections to visually group elements                                                                                                                   |
+|            | - [!!!][FEATURE] Adjust make footer color configurable                                                                                                                     |
+|            | - [!!!][FEATURE] Add support for google webfonts - fixes #115                                                                                                              |
+|            | - [!!!][FEATURE] Add support for spacer in menu processor - fixes #335                                                                                                     |
+|            | - [FEATURE] Add content element for vimeo and youtube videos                                                                                                               |
+|            | - [FEATURE] Clear less cache when all caches are cleared                                                                                                                   |
+|            | - [TASK] Optimize html output                                                                                                                                              |
+|            | - [TASK] Update dependencies                                                                                                                                               |
+|            | - [TASK] Add instruction to clear initial TypoScript (#420)                                                                                                                |
+|            | - [TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5                                                                   |
+|            | - [TASK] Update changelog schema                                                                                                                                           |
+|            | - [TASK] Optimize travis and composer configuration for automatic ter uploading                                                                                            |
+|            | - [TASK] Add TYPO3 8 dev-master to issue template                                                                                                                          |
+|            | - [TASK] Add GitHub pull request template                                                                                                                                  |
+|            | - [TASK] Add GitHub issue template                                                                                                                                         |
+|            | - [TASK] remove uniqueLinkVars (#407)                                                                                                                                      |
+|            | - [REVERT][TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5                                                           |
+|            | - [TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5                                                                   |
+|            | - [TASK] Streamline php_cs fixer configuration with TYPO3 core                                                                                                             |
+|            | - [TASK] Add checks for TYPO3_MODE to all tca override files configuration files                                                                                           |
+|            | - [TASK] Throw exception if invalid arguments are passed to menu processor                                                                                                 |
+|            | - [TASK] Drop IE8 and IE9 support for background images in carousel                                                                                                        |
+|            | - [TASK] Always trim assigned variables in var viewhelper                                                                                                                  |
+|            | - [TASK] Streamline position of columns for images and media to match textpic and textmedia                                                                                |
+|            | - [TASK] Use shorthand array syntax in custom record tca                                                                                                                   |
+|            | - [TASK] Do not set links bold in navigation bar                                                                                                                           |
+|            | - [TASK] Remove obsolete use statement                                                                                                                                     |
+|            | - [TASK] Update menu templates to use the generated links and targets from menuDataProcessor                                                                               |
+|            | - [TASK] Replace f:link.page with static link (#370)                                                                                                                       |
+|            | - [TASK] Exclude fixed navbar from scrolling to anchor                                                                                                                     |
+|            | - [TASK] Add border between same sections                                                                                                                                  |
+|            | - [TASK] Allow html entities for content element header                                                                                                                    |
+|            | - [TASK] Remove obsolete constants                                                                                                                                         |
+|            | - [TASK] Update modernizr to 3.3.1                                                                                                                                         |
+|            | - [TASK] Adjust section size                                                                                                                                               |
+|            | - [TASK] Move icon selector to new tab to have enough space for large icon sets - relates #357                                                                             |
+|            | - [TASK] Move icon registration for text with icon to itemsProcFunc - relates #357                                                                                         |
+|            | - [TASK] Remove unnessesary margin for last element in texticon content                                                                                                    |
+|            | - [TASK] Remove dependency to glyphicons in carousel control - relates #356                                                                                                |
+|            | - [TASK] Move carousel controls to partials - relates #356                                                                                                                 |
+|            | - [TASK] Adjust indentions                                                                                                                                                 |
+|            | - [TASK] Enable default and rename current to normal to ensure it can be overridden without removing the normal template                                                   |
+|            | - [!!!][TASK] Reintroduce "no frame" option - fixes #319                                                                                                                   |
+|            | - [TASK] Correct indention according to PSR2                                                                                                                               |
+|            | - [TASK] Do not exclude composer.json from export                                                                                                                          |
+|            | - [TASK] Add CType as class to outer content element frame                                                                                                                 |
+|            | - [TASK] Add scaling for text-icon                                                                                                                                         |
+|            | - [TASK] Scale headlines on smaller devices                                                                                                                                |
+|            | - [TASK] Use dataprocessors instead of viewhelpers for carousel rendering                                                                                                  |
+|            | - [TASK] Scale margin of frames                                                                                                                                            |
+|            | - [TASK] Move page class and id from section to bodytag                                                                                                                    |
+|            | - [TASK] Remove override for hover link decoration and use bootstrap variables instead - fixes #321                                                                        |
+|            | - [TASK] Split tt_content overrides                                                                                                                                        |
+|            | - [TASK] Optimize images                                                                                                                                                   |
+|            | - [TASK] Use correct icons for tt_content imageorient palette - fixes #352                                                                                                 |
+|            | - [TASK] Remove bower from travis tests                                                                                                                                    |
+|            | - [TASK] Include photoswipe via npm instead of bower                                                                                                                       |
+|            | - [TASK] Include hammerjs via npm instead of bower                                                                                                                         |
+|            | - [TASK] Include bootstrap via npm instead of bower                                                                                                                        |
+|            | - [TASK] Update jquery to 2.2.4                                                                                                                                            |
+|            | - [TASK] Update hammer.js to 2.0.8                                                                                                                                         |
+|            | - [TASK] Update grunt                                                                                                                                                      |
+|            | - [TASK] Correct composer requirements for TYPO3                                                                                                                           |
+|            | - [TASK] Remove unit tests from travis                                                                                                                                     |
+|            | - [TASK] Fix Travis 2                                                                                                                                                      |
+|            | - [TASK] Add color option to phpunit for travis                                                                                                                            |
+|            | - [TASK] Add typo3 unit tests to travis                                                                                                                                    |
+|            | - [TASK] Remove version from composer.json to prefer git tags                                                                                                              |
+|            | - [TASK] Adjust editorconfig                                                                                                                                               |
+|            | - [TASK] Add changelog for release 7.0.0                                                                                                                                   |
+|            | - [TASK] Add missing changelog entries for 7.1.0                                                                                                                           |
+|            | - [TASK] Enable basic frontend editing                                                                                                                                     |
+|            | - [TASK] Add missing css fixes for #325                                                                                                                                    |
+|            | - [TASK] Accessibility - fix of landmark error added role and aria- labelledby attribute                                                                                   |
+|            | - [TASK] Accessabiliy - added role navigation to breadcrumb                                                                                                                |
+|            | - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself                                                                         |
+|            | - [TASK] Accessibility - correction of landmark                                                                                                                            |
+|            | - [TASK] Accessibility - Add link title attributes to logo constants, setup and html                                                                                       |
+|            | - [BUGFIX] Add missing icon for text & media missing - fixes #417                                                                                                          |
+|            | - [BUGFIX] Adapt link tag parsing for RTE fields                                                                                                                           |
+|            | - [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading                                                                                      |
+|            | - [BUGFIX] Ensure that variables are not converted to strings by variable viewhelper                                                                                       |
+|            | - [BUGFIX] Use correct layout (#408)                                                                                                                                       |
+|            | - [BUGFIX] Correct position of carousel with fixed transparent header                                                                                                      |
+|            | - [BUGFIX] Ensure that navbar-collapse has a maxheight if menu is fixed                                                                                                    |
+|            | - [BUGFIX] Enforce checkout with linux lf consistent over all plattforms                                                                                                   |
+|            | - [BUGFIX] Respect show in section menus option for pages in section index menu                                                                                            |
+|            | - [BUGFIX] Use smooth scroll only on elements that have an hash… (#398)                                                                                                    |
+|            | - [BUGFIX] Move temp folder back to root of typo3 temp                                                                                                                     |
+|            | - [BUGFIX] Remove double imagecols field in showitem configuration                                                                                                         |
+|            | - [BUGFIX] Workaround variable name cut off in CMS8 - fixes #388                                                                                                           |
+|            | - [BUGFIX] Use string to identify bootstrap_package for adding static template                                                                                             |
+|            | - [BUGFIX] Allow non ID values for language fields to avoid errors on mysql strict mode                                                                                    |
+|            | - [BUGFIX] Correct sql definitions for bodytextfields for carousel, accordion and tab content element item                                                                 |
+|            | - [BUGFIX] Correct indention of sql definition                                                                                                                             |
+|            | - [BUGFIX] Correct teaser sql field definition                                                                                                                             |
+|            | - [BUGFIX] Move TCA change in ext_tables.php to Configuration/TCA/Overrides (#389)                                                                                         |
+|            | - [BUGFIX] Avoid specific DBMS literals in database queries (#384)                                                                                                         |
+|            | - [BUGFIX] Fix inline documentation of MenuProcessor (#369)                                                                                                                |
+|            | - [BUGFIX] Correct dependency for namelesscoder/typo3-repository-client                                                                                                    |
+|            | - [BUGFIX] Correct positioning of carousel when header is fixed                                                                                                            |
+|            | - [BUGFIX] Correct case error in ionicons template                                                                                                                         |
+|            | - [BUGFIX] Use correct less variable in font-family-base                                                                                                                   |
+|            | - [BUGFIX] Correct position of carousels on sticky header                                                                                                                  |
+|            | - [BUGFIX] Add missing active state to stickyheader                                                                                                                        |
+|            | - [BUGFIX] Correct navbar z-index in combination with fullscreen carousel in border column                                                                                 |
+|            | - [BUGFIX] Ensure color for headlines is correclty inherited in footer sections                                                                                            |
+|            | - [BUGFIX] Correct output of texticon if no icon is selected                                                                                                               |
+|            | - [BUGFIX] Ensure carousel headline color is inherited                                                                                                                     |
+|            | - [BUGFIX] Remove duplicate case in content element layout                                                                                                                 |
+|            | - [BUGFIX] Correct paragraph rte classes                                                                                                                                   |
+|            | - [BUGFIX] Fix tab elements missing on slided content                                                                                                                      |
+|            | - [BUGFIX] Fix carousel elements missing on slided content                                                                                                                 |
+|            | - [BUGFIX] Fix accordion elements missing on slided content                                                                                                                |
+|            | - [BUGFIX] Correct texticon content element rendering with default layout - fixes #336                                                                                     |
+|            | - [BUGFIX] Correct PSR-2 issues                                                                                                                                            |
+|            | - [BUGFIX] Tabs, Accordion, and Carousel Items not referencing files on sys_file_reference and sys_refindex - fixes #349                                                   |
+|            | - [BUGFIX] Bugfix/menuprocessor (#354)                                                                                                                                     |
+|            | - [BUGFIX] Prevent double escaping of menu titles                                                                                                                          |
+|            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
+|            | - [BUGFIX] Load form configuration only if ext:form is installed                                                                                                           |
+|            | - [BUGFIX] Respect padding in equalheight script                                                                                                                           |
+|            | - [BUGFIX] Correct overlapping of content elements with indention - fixes #325                                                                                             |
+|            | - [BUGFIX] Corrected label for attribute                                                                                                                                   |
+|            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
+|            | - "usind" is wrong                                                                                                                                                         |
+|            | - Correct php-cs-fixer command                                                                                                                                             |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 7.0.0      | - [RELEASE] Release of 7.0.0                                                                                                                                               |
 |            | - [!!!][TASK] Send cache headers per default                                                                                                                               |
 |            | - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other                                                   |

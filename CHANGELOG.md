@@ -1,3 +1,174 @@
+# 7.1.0
+
+## RELEASE
+- [RELEASE] Release of 7.1.0
+
+## BREAKING
+- [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356 d2b23d1
+- [!!!][TASK] Reintroduce "no frame" option - fixes #319 f2b06d7
+- [!!!][FEATURE] Add sections to visually group elements eedb60d
+- [!!!][FEATURE] Adjust make footer color configurable 9001189
+- [!!!][FEATURE] Add support for google webfonts - fixes #115 7d58ac6
+- [!!!][FEATURE] Add support for spacer in menu processor - fixes #335 5d0a76c
+
+## FEATURE
+- [FEATURE] Make language uids for menu configurable d07e219
+- [FEATURE] Add audio content element - fixes #399 c7ac13d
+- [FEATURE] Add preview for quote content element add8bc0
+- [FEATURE] rearrange settings for images and media assets (#395) 3c2ddf2
+- [FEATURE] Add signal to compile service - fixes #371 2b0e577
+- [FEATURE] Add quotation content element 1b528c4
+- [FEATURE] Provide generated link and target from hmenu in menu resultset - fixes #380 0f206e8
+- [FEATURE] Add smothscrolling and back to top link d5218b1
+- [FEATURE] Add content element text with teaser 477a83e
+- [FEATURE] Add constant for absolute favicon path 41f2413
+- [FEATURE] Add subheader to carousel item header 9d54f21
+- [FEATURE] Add stickyheader to overlay carousel ceaa969
+- [FEATURE] Add fullscreen variant of carousel b651815
+- [FEATURE] Add support for additional iconsets and ionicons - fixes #357 c5c6f61
+- [FEATURE] Add header_link to the icon of text widh icon content element - fixes #154 b34960f
+- [FEATURE] Add meta navigation support 66c7650
+- [FEATURE] Add marker for frontendurl 8f23e43
+- [FEATURE] Add content element to display regular text in columns ef7bcf0
+- [FEATURE] Allow html entities in carousel header f043d60
+- [FEATURE] Colorize text selection in primary color 9430c1e
+- [FEATURE] Make imported font weights of google webfonts editable 37658b8
+- [FEATURE] Add transition option to switch from fade to slide - #356 #347 7da14da
+- [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356 d2b23d1
+- [!!!][FEATURE] Add sections to visually group elements eedb60d
+- [!!!][FEATURE] Adjust make footer color configurable 9001189
+- [!!!][FEATURE] Add support for google webfonts - fixes #115 7d58ac6
+- [!!!][FEATURE] Add support for spacer in menu processor - fixes #335 5d0a76c
+- [FEATURE] Add content element for vimeo and youtube videos d36a8b2
+- [FEATURE] Clear less cache when all caches are cleared ad695e0
+
+## TASK
+- [TASK] Optimize html output 63fa499
+- [TASK] Update dependencies bcfd9ef
+- [TASK] Add instruction to clear initial TypoScript (#420) 5cd4525
+- [TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5 93e55e8
+- [TASK] Update changelog schema 82be428
+- [TASK] Optimize travis and composer configuration for automatic ter uploading ad98cd5
+- [TASK] Add TYPO3 8 dev-master to issue template 6deb278
+- [TASK] Add GitHub pull request template 0bb032e
+- [TASK] Add GitHub issue template 722b442
+- [TASK] remove uniqueLinkVars (#407) 7e79b77
+- [REVERT][TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5 4921d82
+- [TASK] Use typo3/cms classname for menu processor and provide alias as fallback for versions below 8.5 7537983
+- [TASK] Streamline php_cs fixer configuration with TYPO3 core fb6467b
+- [TASK] Add checks for TYPO3_MODE to all tca override files configuration files 60beeb9
+- [TASK] Throw exception if invalid arguments are passed to menu processor 8979cb4
+- [TASK] Drop IE8 and IE9 support for background images in carousel 53ea6d2
+- [TASK] Always trim assigned variables in var viewhelper 62e8870
+- [TASK] Streamline position of columns for images and media to match textpic and textmedia af89966
+- [TASK] Use shorthand array syntax in custom record tca b74db02
+- [TASK] Do not set links bold in navigation bar 25797b0
+- [TASK] Remove obsolete use statement 82e3c2a
+- [TASK] Update menu templates to use the generated links and targets from menuDataProcessor 9cfb365
+- [TASK] Replace f:link.page with static link (#370) 1ce0019
+- [TASK] Exclude fixed navbar from scrolling to anchor eae382e
+- [TASK] Add border between same sections 0946712
+- [TASK] Allow html entities for content element header f992024
+- [TASK] Remove obsolete constants b7b67d5
+- [TASK] Update modernizr to 3.3.1 15a6926
+- [TASK] Adjust section size 1fa43ee
+- [TASK] Move icon selector to new tab to have enough space for large icon sets - relates #357 19d1590
+- [TASK] Move icon registration for text with icon to itemsProcFunc - relates #357 c43ab1e
+- [TASK] Remove unnessesary margin for last element in texticon content 1cb56ab
+- [TASK] Remove dependency to glyphicons in carousel control - relates #356 8b1ae0a
+- [TASK] Move carousel controls to partials - relates #356 9a573c1
+- [TASK] Adjust indentions 145e164
+- [TASK] Enable default and rename current to normal to ensure it can be overridden without removing the normal template 83baee4
+- [!!!][TASK] Reintroduce "no frame" option - fixes #319 f2b06d7
+- [TASK] Correct indention according to PSR2 89cb1f8
+- [TASK] Do not exclude composer.json from export 7827744
+- [TASK] Add CType as class to outer content element frame 86306a4
+- [TASK] Add scaling for text-icon 8f982e4
+- [TASK] Scale headlines on smaller devices 2fff83a
+- [TASK] Use dataprocessors instead of viewhelpers for carousel rendering 468c5ad
+- [TASK] Scale margin of frames 148b159
+- [TASK] Move page class and id from section to bodytag 1740c47
+- [TASK] Remove override for hover link decoration and use bootstrap variables instead - fixes #321 b714e05
+- [TASK] Split tt_content overrides cde7cf0
+- [TASK] Optimize images 9ae55e7
+- [TASK] Use correct icons for tt_content imageorient palette - fixes #352 10c8ce0
+- [TASK] Remove bower from travis tests eb7036d
+- [TASK] Include photoswipe via npm instead of bower 96c2a40
+- [TASK] Include hammerjs via npm instead of bower 283fce8
+- [TASK] Include bootstrap via npm instead of bower 9f8820d
+- [TASK] Update jquery to 2.2.4 389afc8
+- [TASK] Update hammer.js to 2.0.8 cda5f1e
+- [TASK] Update grunt 6af9bba
+- [TASK] Correct composer requirements for TYPO3 9a43942
+- [TASK] Remove unit tests from travis d5c2045
+- [TASK] Fix Travis 2 374250e
+- [TASK] Add color option to phpunit for travis 000d0d8
+- [TASK] Add typo3 unit tests to travis ad0828b
+- [TASK] Remove version from composer.json to prefer git tags dfe05c9
+- [TASK] Adjust editorconfig b58e629
+- [TASK] Add changelog for release 7.0.0 b8fe3c7
+- [TASK] Add missing changelog entries for 7.1.0 3ceaaf1
+- [TASK] Enable basic frontend editing 00d42a0
+- [TASK] Add missing css fixes for #325 c49042d
+- [TASK] Accessibility - fix of landmark error added role and aria- labelledby attribute c733ffd
+- [TASK] Accessabiliy - added role navigation to breadcrumb bef517e
+- [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself 9a5a6a8
+- [TASK] Accessibility - correction of landmark a2810cb
+- [TASK] Accessibility - Add link title attributes to logo constants, setup and html 2c9ee0e
+
+## BUGFIX
+- [BUGFIX] Add missing icon for text & media missing - fixes #417 ec64324
+- [BUGFIX] Adapt link tag parsing for RTE fields 46697bd
+- [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading a04a6c7
+- [BUGFIX] Ensure that variables are not converted to strings by variable viewhelper cdd2005
+- [BUGFIX] Use correct layout (#408) 72bb577
+- [BUGFIX] Correct position of carousel with fixed transparent header c0c3cc5
+- [BUGFIX] Ensure that navbar-collapse has a maxheight if menu is fixed b698328
+- [BUGFIX] Enforce checkout with linux lf consistent over all plattforms 6886bc8
+- [BUGFIX] Respect show in section menus option for pages in section index menu 0dff070
+- [BUGFIX] Use smooth scroll only on elements that have an hash… (#398) a91373e
+- [BUGFIX] Move temp folder back to root of typo3 temp dd66961
+- [BUGFIX] Remove double imagecols field in showitem configuration 485ab96
+- [BUGFIX] Workaround variable name cut off in CMS8 - fixes #388 b27d017
+- [BUGFIX] Use string to identify bootstrap_package for adding static template ed63827
+- [BUGFIX] Allow non ID values for language fields to avoid errors on mysql strict mode f46a631
+- [BUGFIX] Correct sql definitions for bodytextfields for carousel, accordion and tab content element item 4b85507
+- [BUGFIX] Correct indention of sql definition 0645bb3
+- [BUGFIX] Correct teaser sql field definition f1b42b4
+- [BUGFIX] Move TCA change in ext_tables.php to Configuration/TCA/Overrides (#389) e089216
+- [BUGFIX] Avoid specific DBMS literals in database queries (#384) c0ba786
+- [BUGFIX] Fix inline documentation of MenuProcessor (#369) 64f9807
+- [BUGFIX] Correct dependency for namelesscoder/typo3-repository-client bcddcaf
+- [BUGFIX] Correct positioning of carousel when header is fixed cc39afc
+- [BUGFIX] Correct case error in ionicons template 8ac3100
+- [BUGFIX] Use correct less variable in font-family-base 9553484
+- [BUGFIX] Correct position of carousels on sticky header 566d135
+- [BUGFIX] Add missing active state to stickyheader 90fb0b2
+- [BUGFIX] Correct navbar z-index in combination with fullscreen carousel in border column e6cc5ab
+- [BUGFIX] Ensure color for headlines is correclty inherited in footer sections 446435f
+- [BUGFIX] Correct output of texticon if no icon is selected aa388a2
+- [BUGFIX] Ensure carousel headline color is inherited eb894e1
+- [BUGFIX] Remove duplicate case in content element layout c2db076
+- [BUGFIX] Correct paragraph rte classes c04e2b0
+- [BUGFIX] Fix tab elements missing on slided content ac12a51
+- [BUGFIX] Fix carousel elements missing on slided content a994f77
+- [BUGFIX] Fix accordion elements missing on slided content ddaab8b
+- [BUGFIX] Correct texticon content element rendering with default layout - fixes #336 5fb24e9
+- [BUGFIX] Correct PSR-2 issues 08f6994
+- [BUGFIX] Tabs, Accordion, and Carousel Items not referencing files on sys_file_reference and sys_refindex - fixes #349 a39c6bb
+- [BUGFIX] Bugfix/menuprocessor (#354) 9413d78
+- [BUGFIX] Prevent double escaping of menu titles 58824f9
+- [BUGFIX] Remove vendor dir from php lint tests 63909ec
+- [BUGFIX] Load form configuration only if ext:form is installed e39df3f
+- [BUGFIX] Respect padding in equalheight script a8bb806
+- [BUGFIX] Correct overlapping of content elements with indention - fixes #325 9b16ef3
+- [BUGFIX] Corrected label for attribute 17bf663
+- [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options bf80fe3
+
+## MISC
+- "usind" is wrong 0459bd3
+- Correct php-cs-fixer command 0a22336
+
 # 7.0.0
 
 ## RELEASE

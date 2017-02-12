@@ -1,5 +1,5 @@
 /* ==========================================================================================
- * Bootstrap Package: jquery.equalheight.js v7.1.0-dev
+ * Bootstrap Package: jquery.equalheight.js
  * -----------
  * Measure height of columns in a row and set their height to the tallest one.
  *

@@ -8149,6 +8149,9 @@ body,
 .nav.nav-sidebar li.active > a:focus {
   color: #b35f00;
 }
+.nav-tabs {
+  margin-bottom: 1.5em;
+}
 .nav-tabs > li > a {
   color: #555555;
 }
@@ -8640,6 +8643,22 @@ body,
 .footer-section-meta a:focus {
   color: #b35f00;
 }
+.footer-section-meta .meta-menu {
+  list-style: none;
+  padding-left: 0;
+}
+@media (min-width: 768px) {
+  .footer-section-meta .meta-menu {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+  }
+  .footer-section-meta .meta-menu > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
 .footer-section-meta .language-menu {
   list-style: none;
   padding-left: 0;
@@ -8756,6 +8775,15 @@ body,
 .thumbnail:hover > .thumbnail-image img,
 .thumbnail:focus > .thumbnail-image img {
   transform: translate(-50%, -50%) scale(1.05);
+}
+.uploads-fileicon {
+  margin-right: 0.25em;
+}
+.uploads-filename {
+  margin-right: 0.25em;
+}
+.uploads-filesize {
+  font-size: 0.75em;
 }
 body .typo3-feedit-element,
 .htmlarea-content-body .typo3-feedit-element {
