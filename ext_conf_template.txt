@@ -1,34 +1,32 @@
-############################
-### CUSTOM SUBCATEGORIES ###
-###########################
-# customsubcategory=100_compat=Compatibility
-# customsubcategory=110_skin=Backend Skin
-# customsubcategory=120_pagets=PageTs
-# customsubcategory=130_features=Features
+##############
+### PAGETS ###
+##############
 
-# cat=General/130_features/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableLessProcessing
-disableLessProcessing = 0
-
-# cat=General/120_pagets/70; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsNewContentElementWizard
-disablePageTsNewContentElementWizard = 0
-
-# cat=General/120_pagets/60; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTtContentPreviews
-disablePageTsTtContentPreviews = 0
-
-# cat=General/120_pagets/50; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsRTE
-disablePageTsRTE = 0
-
-# cat=General/120_pagets/40; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEFORM
-disablePageTsTCEFORM = 0
-
-# cat=General/120_pagets/30; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEMAIN
-disablePageTsTCEMAIN = 0
-
-# cat=General/120_pagets/20; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsAdmPanel
-disablePageTsAdmPanel = 0
-
-# cat=General/120_pagets/10; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsBackendLayouts
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsBackendLayouts
 disablePageTsBackendLayouts = 0
 
-# cat=General/110_skin/20; type=string; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:backendSkin.logoTop
-Logo = ../typo3conf/ext/bootstrap_package/Resources/Public/Images/Backend/TopBarLogo@2x.png
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsAdmPanel
+disablePageTsAdmPanel = 0
+
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEMAIN
+disablePageTsTCEMAIN = 0
+
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEFORM
+disablePageTsTCEFORM = 0
+
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsRTE
+disablePageTsRTE = 0
+
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTtContentPreviews
+disablePageTsTtContentPreviews = 0
+
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsNewContentElementWizard
+disablePageTsNewContentElementWizard = 0
+
+
+################
+### FEATURES ###
+################
+
+# cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableLessProcessing
+disableLessProcessing = 0
