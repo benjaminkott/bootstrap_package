@@ -1,0 +1,53 @@
+{namespace form=TYPO3\CMS\Form\ViewHelpers}
+{namespace lef=LEF\LefBootstrap3Form\ViewHelpers}
+{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
+<f:if condition="{model.additionalArguments.options}">
+   <f:then>
+     <lef:getJsonArray data="{f:cObject( typoscriptObjectPath:'lib.tx_lefbootsrap3form.dynoptions', data:'{model.additionalArguments}')}" as="options" />
+  </f:then>
+  <f:else>
+    <bk2k:var name="options" value="{form:aggregateSelectOptions(model:model, returnSelectedValues: 0)}" />
+  </f:else> 
+</f:if>
+<f:if condition="{model.showElement}">
+  <div class="form-group{f:if(condition: '{model.validationErrorMessages}', then: ' has-error')}">  
+    <label class="control-label" for="{model.additionalArguments.id}">
+      {model.additionalArguments.label}
+      <f:if condition="{model.mandatoryValidationMessages}">
+        <em><f:for each="{model.mandatoryValidationMessages}" as="mandatoryValidationMessage" iteration="iterator">{mandatoryValidationMessage}<f:if condition="{iterator.isLast}"><f:else> - </f:else></f:if></f:for></em>
+      </f:if>
+    </label>
+    <f:if condition="{model.validationErrorMessages}">
+        <strong class="text-danger pull-right"><f:for each="{model.validationErrorMessages}" as="errorValidationMessage" iteration="iterator">{errorValidationMessage}<f:if condition="{iterator.isLast}"><f:else> - </f:else></f:if></f:for></strong>
+    </f:if>
+
+    <form:select
+      class="form-control {model.additionalArguments.class}"
+      dir="{model.additionalArguments.dir}"
+      id="{model.additionalArguments.id}"
+      lang="{model.additionalArguments.lang}"
+      style="{model.additionalArguments.style}"
+      title="{model.additionalArguments.title}"
+      accesskey="{model.additionalArguments.accesskey}"
+      tabindex="{model.additionalArguments.tabindex}"
+      onclick="{model.additionalArguments.onclick}"
+
+      name="{model.additionalArguments.prefix}[{model.additionalArguments.name}]"
+      value="{f:if (condition:{model.additionalArguments.selected}, then:'{}', else:'{form:aggregateSelectOptions(model:model, returnSelectedValues: 1)}')}"
+
+      multiple="{model.additionalArguments.multiple}"
+      size="{model.additionalArguments.size}"
+
+      optionLabelField="label"
+      optionValueField="value"
+      options="{options}"
+      prependOptionLabel="{model.additionalArguments.prependOptionLabel}"
+      prependOptionValue="{model.additionalArguments.prependOptionValue}"
+      selectAllByDefault="{model.additionalArguments.selectAllByDefault}"
+      sortByOptionLabel="{model.additionalArguments.sortByOptionLabel}"
+
+      errorClass="{model.additionalArguments.errorClass}"
+      additionalAttributes="{model.htmlAttributes}"
+    />
+  </div>
+</f:if>

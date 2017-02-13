@@ -1,0 +1,25 @@
+<f:if condition="{model.childElements.0}">
+  <f:if condition="{model.showElement}">
+    <f:then>
+        <fieldset
+        <f:for each="{model.htmlAttributes}" as="htmAttributeValue" key="htmAttributeKey">
+        <f:format.raw>  {htmAttributeKey}="{htmAttributeValue}"</f:format.raw> 
+        </f:for>
+        >
+          <f:if condition="{model.additionalArguments.legend}">
+            <legend>{model.additionalArguments.legend}</legend>
+          </f:if>
+          
+            <f:for each="{model.childElements}" as="element">
+              <f:render partial="{themeName}/Confirmation/{element.partialPath}" arguments="{model: element, themeName: themeName}" />
+            </f:for>
+          
+        </fieldset>
+    </f:then>
+    <f:else>
+      <f:for each="{model.childElements}" as="element">
+        <f:render partial="{themeName}/Confirmation/{element.partialPath}" arguments="{model: element, themeName: themeName}" />
+      </f:for>
+    </f:else>
+  </f:if>
+</f:if>

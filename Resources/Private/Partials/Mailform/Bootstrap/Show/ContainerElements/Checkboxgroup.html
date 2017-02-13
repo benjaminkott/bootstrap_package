@@ -1,0 +1,29 @@
+<f:if condition="{model.showElement}">
+  <f:then>
+      <fieldset
+      <f:for each="{model.htmlAttributes}" as="htmAttributeValue" key="htmAttributeKey">
+      <f:format.raw> {htmAttributeKey}="{htmAttributeValue}"</f:format.raw>
+      </f:for>
+      >
+        <f:if condition="{model.additionalArguments.legend}">
+          <legend>
+            {model.additionalArguments.legend}
+            <f:if condition="{model.mandatoryValidationMessages}">
+              <p class="bg-info"><f:for each="{model.mandatoryValidationMessages}" as="mandatoryValidationMessage" iteration="iterator">{mandatoryValidationMessage}<f:if condition="{iterator.isLast}"><f:else> - </f:else></f:if></f:for></p>
+            </f:if>
+            <f:if condition="{model.validationErrorMessages}">
+              <p class="bg-danger"><f:for each="{model.validationErrorMessages}" as="errorValidationMessage" iteration="iterator">{errorValidationMessage}<f:if condition="{iterator.isLast}"><f:else> - </f:else></f:if></f:for></p>
+            </f:if>
+          </legend>
+        </f:if>
+          <f:for each="{model.childElements}" as="element">
+            <f:render partial="{themeName}/Show/{element.partialPath}" arguments="{model: element, themeName: themeName}" />
+          </f:for>
+      </fieldset>
+  </f:then>
+  <f:else>
+    <f:for each="{model.childElements}" as="element">
+      <f:render partial="{themeName}/Show/{element.partialPath}" arguments="{model: element, themeName: themeName}" />
+    </f:for>
+  </f:else>
+</f:if>
