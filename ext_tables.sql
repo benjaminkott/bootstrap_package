@@ -2,7 +2,6 @@
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
-    header_position varchar(6) DEFAULT '' NOT NULL,
     teaser text,
     quote_source varchar(255) DEFAULT '' NOT NULL,
     quote_link varchar(1024) DEFAULT '' NOT NULL,
@@ -17,7 +16,6 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_carousel_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_accordion_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_tab_item int(11) unsigned DEFAULT '0',
-    assets int(11) unsigned DEFAULT '0' NOT NULL,
 );
 
 
