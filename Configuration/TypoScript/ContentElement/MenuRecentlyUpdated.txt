@@ -2,14 +2,14 @@
 #### CTYPE: MENU RECENTLY UPDATED PAGES ####
 ############################################
 
-tt_content.menu.5 >
-tt_content.menu.5 =< lib.contentElement
-tt_content.menu.5 {
+tt_content.menu_recently_updated >
+tt_content.menu_recently_updated =< lib.contentElement
+tt_content.menu_recently_updated {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = MenuRecentlyUpdatedPages
+    templateName = MenuRecentlyUpdated
 
     ##########################
     ### DATA PREPROCESSING ###
