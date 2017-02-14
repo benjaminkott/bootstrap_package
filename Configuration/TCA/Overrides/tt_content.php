@@ -14,14 +14,3 @@ defined('TYPO3_MODE') || die();
     '--div--',
     'before'
 );
-
-/***************
- * Make tt_content categorizable
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'bootstrap_package',
-    'tt_content',
-    'categories',
-    [],
-    true
-);
