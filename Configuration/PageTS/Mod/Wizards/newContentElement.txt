@@ -213,13 +213,20 @@ mod.wizards {
                             CType = bootstrap_package_external_media
                         }
                     }
-                    bootstrap_package_menu_thumbnail {
+                    menu_thumbnail_list {
                         iconIdentifier = content-bootstrappackage-menu-thumbnail
-                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail
-                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail.description
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description
                         tt_content_defValues {
-                            CType = menu
-                            menu_type = thumbnail_dir
+                            CType = menu_thumbnail_list
+                        }
+                    }
+                    menu_thumbnail_dir {
+                        iconIdentifier = content-bootstrappackage-menu-thumbnail
+                        title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir
+                        description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir.description
+                        tt_content_defValues {
+                            CType = menu_thumbnail_dir
                         }
                     }
                 }

@@ -1,15 +1,15 @@
-#################################################
-#### CTYPE: BOOTSTRAP PACKAGE MENU THUMBNAIL ####
-#################################################
+########################################
+#### CTYPE: MENU THUMBNAIL SUBPAGES ####
+########################################
 
-tt_content.menu.thumbnail_list >
-tt_content.menu.thumbnail_list =< lib.contentElement
-tt_content.menu.thumbnail_list {
+tt_content.menu_thumbnail_list >
+tt_content.menu_thumbnail_list =< lib.contentElement
+tt_content.menu_thumbnail_list {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageMenuThumbnail
+    templateName = MenuThumbnailList
 
     ##########################
     ### DATA PREPROCESSING ###
@@ -28,12 +28,4 @@ tt_content.menu.thumbnail_list {
         }
     }
 
-}
-tt_content.menu.thumbnail_dir < tt_content.menu.thumbnail_list
-tt_content.menu.thumbnail_dir {
-    dataProcessing {
-        10 {
-            special = directory
-        }
-    }
 }

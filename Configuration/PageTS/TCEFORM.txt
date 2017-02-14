@@ -85,12 +85,6 @@ TCEFORM {
                 }
             }
         }
-        menu_type {
-            addItems {
-                thumbnail_dir = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir.description
-                thumbnail_list = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description
-            }
-        }
         icon {
             itemsProcFunc {
                 directory = EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/

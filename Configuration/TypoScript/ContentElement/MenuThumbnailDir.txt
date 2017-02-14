@@ -1,0 +1,31 @@
+########################################
+#### CTYPE: MENU THUMBNAIL SUBPAGES ####
+########################################
+
+tt_content.menu_thumbnail_dir >
+tt_content.menu_thumbnail_dir =< lib.contentElement
+tt_content.menu_thumbnail_dir {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = MenuThumbnailDir
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            special = directory
+            special.value.field = pages
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+
+}
