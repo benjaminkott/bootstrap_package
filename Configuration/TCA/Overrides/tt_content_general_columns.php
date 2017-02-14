@@ -4,21 +4,6 @@ defined('TYPO3_MODE') || die();
 /***************
  * Adjust columns for generic usage
  */
-$GLOBALS['TCA']['tt_content']['columns']['header_position'] = [
-    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position',
-    'exclude' => true,
-    'config' => [
-        'type' => 'select',
-        'renderType' => 'selectSingle',
-        'items' => [
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.default', ''],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.center', 'center'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.right', 'right'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_position.left', 'left']
-        ],
-        'default' => ''
-    ]
-];
 $GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.teaser',
     'exclude' => true,

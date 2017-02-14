@@ -523,22 +523,6 @@
                 <source>Jumbotron</source>
             </trans-unit>
 
-            <trans-unit id="field.header_position">
-                <source>Alignment</source>
-            </trans-unit>
-            <trans-unit id="field.header_position.default">
-                <source>Default</source>
-            </trans-unit>
-            <trans-unit id="field.header_position.center">
-                <source>Center</source>
-            </trans-unit>
-            <trans-unit id="field.header_position.left">
-                <source>Left</source>
-            </trans-unit>
-            <trans-unit id="field.header_position.right">
-                <source>Right</source>
-            </trans-unit>
-
             <trans-unit id="field.assets">
                 <source>Media elements</source>
             </trans-unit>
