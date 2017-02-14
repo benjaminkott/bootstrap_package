@@ -17,13 +17,6 @@ $extensionKey = 'bootstrap_package';
     'Bootstrap Package: Use Ionicons as Iconset'
 );
 
-// AdminPanel
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
-    'Configuration/PageTS/admPanel.txt',
-    'Bootstrap Package: Admin Panel'
-);
-
 // BackendLayouts
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,

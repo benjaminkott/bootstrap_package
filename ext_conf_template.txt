@@ -5,9 +5,6 @@
 # cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsBackendLayouts
 disablePageTsBackendLayouts = 0
 
-# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsAdmPanel
-disablePageTsAdmPanel = 0
-
 # cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEMAIN
 disablePageTsTCEMAIN = 0
 
