@@ -1,15 +1,15 @@
-###################################
-#### CTYPE: MENU SECTION INDEX ####
-###################################
+#############################################################
+#### CTYPE: MENU OF SUBPAGES TO THESE PAGES AND SECTIONS ####
+#############################################################
 
-tt_content.menu.3 >
-tt_content.menu.3 =< lib.contentElement
-tt_content.menu.3 {
+tt_content.menu_section_pages >
+tt_content.menu_section_pages =< lib.contentElement
+tt_content.menu_section_pages {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = MenuSectionIndex
+    templateName = MenuSectionPages
 
     ##########################
     ### DATA PREPROCESSING ###
@@ -17,18 +17,8 @@ tt_content.menu.3 {
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
-            special = list
-            special {
-                value {
-                    field = pages
-                    override {
-                        data = page:uid
-                        if {
-                            isFalse.field = pages
-                        }
-                    }
-                }
-            }
+            special = directory
+            special.value.field = pages
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
@@ -39,7 +29,6 @@ tt_content.menu.3 {
                     table = tt_content
                     pidInList.field = uid
                     as = content
-                    where = sectionIndex = 1
                     dataProcessing {
                         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                         10 {
