@@ -2,9 +2,9 @@
 #### CTYPE: MENU SITEMAP ####
 #############################
 
-tt_content.menu.2 >
-tt_content.menu.2 =< lib.contentElement
-tt_content.menu.2 {
+tt_content.menu_sitemap >
+tt_content.menu_sitemap =< lib.contentElement
+tt_content.menu_sitemap {
 
     ################
     ### TEMPLATE ###

@@ -2,14 +2,14 @@
 #### CTYPE: MENU SITEMAP OF SELECTED PAGES ####
 ###############################################
 
-tt_content.menu.8 >
-tt_content.menu.8 =< lib.contentElement
-tt_content.menu.8 {
+tt_content.menu_sitemap_pages >
+tt_content.menu_sitemap_pages =< lib.contentElement
+tt_content.menu_sitemap_pages {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = MenuSitemapOfSelectedPages
+    templateName = MenuSitemapPages
 
     ##########################
     ### DATA PREPROCESSING ###
