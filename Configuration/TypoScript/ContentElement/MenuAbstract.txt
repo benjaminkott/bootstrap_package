@@ -2,14 +2,14 @@
 #### CTYPE: MENU OF SUBPAGES TO THESE PAGES WITH ABSTRACT ####
 ##############################################################
 
-tt_content.menu.4 >
-tt_content.menu.4 =< lib.contentElement
-tt_content.menu.4 {
+tt_content.menu_abstract >
+tt_content.menu_abstract =< lib.contentElement
+tt_content.menu_abstract {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = MenuOfSubpagesToThesePagesAbstract
+    templateName = MenuAbstract
 
     ##########################
     ### DATA PREPROCESSING ###
