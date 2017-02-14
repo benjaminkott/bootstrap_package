@@ -43,10 +43,3 @@ $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_headersimple'] = [
         header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel
     '
 ];
-$GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_external_media'] = [
-    'canNotCollapse' => 1,
-    'showitem' => '
-        external_media_source, --linebreak--,
-        external_media_ratio
-    '
-];
