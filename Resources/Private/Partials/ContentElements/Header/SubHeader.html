@@ -1,37 +1,39 @@
-<f:if condition="{data.subheader}">
-    <f:switch expression="{data.header_layout}">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{subheader}">
+    <f:switch expression="{layout}">
         <f:case value="1">
-            <h2 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
+            <h2 class="{positionClass}">
+                <span><f:format.htmlentitiesDecode>{subheader}</f:format.htmlentitiesDecode></span>
             </h2>
         </f:case>
         <f:case value="2">
-            <h3 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
+            <h3 class="{positionClass}">
+                <span><f:format.htmlentitiesDecode>{subheader}</f:format.htmlentitiesDecode></span>
             </h3>
         </f:case>
         <f:case value="3">
-            <h4 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
+            <h4 class="{positionClass}">
+                <span><f:format.htmlentitiesDecode>{subheader}</f:format.htmlentitiesDecode></span>
             </h4>
         </f:case>
         <f:case value="4">
-            <h5 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
+            <h5 class="{positionClass}">
+                <span><f:format.htmlentitiesDecode>{subheader}</f:format.htmlentitiesDecode></span>
             </h5>
         </f:case>
         <f:case value="5">
-            <h6 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
+            <h6 class="{positionClass}">
+                <span><f:format.htmlentitiesDecode>{subheader}</f:format.htmlentitiesDecode></span>
             </h6>
         </f:case>
-        <f:case value="100">
-            <f:comment> -- do not show header -- </f:comment>
-        </f:case>
-        <f:case default="1">
-            <h2 class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
-                <span><f:format.htmlentitiesDecode>{data.subheader}</f:format.htmlentitiesDecode></span>
-            </h2>
-        </f:case>
+        <f:defaultCase>
+            <f:if condition="{default}">
+                <f:render partial="Header/SubHeader" arguments="{
+                    subheader: subheader,
+                    positionClass: positionClass,
+                    layout: default}" />
+            </f:if>
+        </f:defaultCase>
     </f:switch>
 </f:if>
+</html>

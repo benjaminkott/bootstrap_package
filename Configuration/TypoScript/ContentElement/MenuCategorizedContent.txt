@@ -2,25 +2,14 @@
 #### CTYPE: MENU OF CATEGORIZED CONTENT ####
 ############################################
 
-tt_content.menu.categorized_content = FLUIDTEMPLATE
+tt_content.menu.categorized_content >
+tt_content.menu.categorized_content =< lib.contentElement
 tt_content.menu.categorized_content {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = MenuCategorizedContent
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
 
     ##########################
     ### DATA PREPROCESSING ###

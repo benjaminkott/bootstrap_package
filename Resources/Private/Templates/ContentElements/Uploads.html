@@ -9,7 +9,7 @@
                         <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                             <div class="media-left">
                                 <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
-                                    <f:media file="{file}" width="{settings.preview.width}" height="{settings.preview.height}" alt="{file.alternative}" />
+                                    <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.alternative}" />
                                 </a>
                             </div>
                         </f:if>

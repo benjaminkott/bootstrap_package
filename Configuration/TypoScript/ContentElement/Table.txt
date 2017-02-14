@@ -3,31 +3,18 @@
 ######################
 
 tt_content.table >
-tt_content.table = FLUIDTEMPLATE
+tt_content.table =< lib.contentElement
 tt_content.table {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = Table
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
 
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-
         10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
         10 {
             fieldName = bodytext
@@ -41,7 +28,6 @@ tt_content.table {
             }
             as = table
         }
-
     }
 
 }

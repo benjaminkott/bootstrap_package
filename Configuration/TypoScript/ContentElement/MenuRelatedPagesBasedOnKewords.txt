@@ -2,25 +2,14 @@
 #### CTYPE: MENU RELATED PAGES BASED ON KEYWORDS ####
 #####################################################
 
-tt_content.menu.6 = FLUIDTEMPLATE
+tt_content.menu.6 >
+tt_content.menu.6 =< lib.contentElement
 tt_content.menu.6 {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = MenuRelatedPagesBasedOnKewords
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
 
     ##########################
     ### DATA PREPROCESSING ###

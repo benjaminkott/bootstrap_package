@@ -2,25 +2,14 @@
 #### CTYPE: MENU SITEMAP OF SELECTED PAGES ####
 ###############################################
 
-tt_content.menu.8 = FLUIDTEMPLATE
+tt_content.menu.8 >
+tt_content.menu.8 =< lib.contentElement
 tt_content.menu.8 {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = MenuSitemapOfSelectedPages
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
 
     ##########################
     ### DATA PREPROCESSING ###

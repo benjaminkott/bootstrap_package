@@ -2,25 +2,14 @@
 #### CTYPE: MENU OF SUBPAGES TO THESE PAGES AND SECTIONS ####
 #############################################################
 
-tt_content.menu.7 = FLUIDTEMPLATE
+tt_content.menu.7 >
+tt_content.menu.7 =< lib.contentElement
 tt_content.menu.7 {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = MenuOfSubpagesToThesePagesAndSections
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
 
     ##########################
     ### DATA PREPROCESSING ###

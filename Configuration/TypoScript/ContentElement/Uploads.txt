@@ -3,35 +3,13 @@
 ########################
 
 tt_content.uploads >
-tt_content.uploads = FLUIDTEMPLATE
+tt_content.uploads =< lib.contentElement
 tt_content.uploads {
 
     ################
     ### TEMPLATE ###
     ################
     templateName = Uploads
-    templateRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
-    }
-    partialRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
-    }
-    layoutRootPaths {
-        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
-    }
-
-    ################
-    ### SETTINGS ###
-    ################
-    settings {
-        preview {
-            height = {$plugin.bootstrap_package_contentelements.uploads.preview.height}
-            width = {$plugin.bootstrap_package_contentelements.uploads.preview.width}
-        }
-    }
 
     ##########################
     ### DATA PREPROCESSING ###

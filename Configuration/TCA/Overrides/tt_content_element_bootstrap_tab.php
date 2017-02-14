@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'] = array_replace_
     [
         'showitem' => '
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;bootstrap_package_header,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
             tx_bootstrappackage_tab_item,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.options,
             pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,

@@ -22,7 +22,7 @@
                                             <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
                                         </div>
                                         <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
-                                                <f:format.html>{record.data.bodytext}</f:format.html>
+                                            <f:format.html>{record.data.bodytext}</f:format.html>
                                         </div>
                                     </div>
                                 </f:then>
@@ -38,29 +38,4 @@
         </div>
     </f:if>
 
-</f:section>
-
-<f:section name="video">
-    <div class="embed-responsive embed-responsive-16by9">
-        <f:media class="embed-responsive-item" file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
-    </div>
-</f:section>
-
-<f:section name="image">
-    <div class="image-wrap">
-        <figure class="image">
-            <f:link.typolink parameter="{media.link}">
-                <f:media file="{media}" width="{settings.media.width}" height="{settings.media.height}" />
-            </f:link.typolink>
-            <f:if condition="{media.description}">
-                <figcaption class="caption">{media.description}</figcaption>
-            </f:if>
-        </figure>
-    </div>
-</f:section>
-
-<f:section name="text">
-    <div class="text">
-        <f:format.html>{text}</f:format.html>
-    </div>
 </f:section>

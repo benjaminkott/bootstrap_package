@@ -10,14 +10,14 @@
                         <div class="col-xs-6 col-sm-4">
                             <a href="{page.link}" target="{page.target}" title="{page.title}" class="thumbnail" data-equalheight="item" data-toggle="tooltip">
                                 <div class="thumbnail-image">
-                                    <f:media file="{page.files.0}" width="{settings.media.width}" height="{settings.media.height}" />
+                                    <f:media file="{page.files.0}" width="{settings.menu_thumbnail.media.width}" height="{settings.menu_thumbnail.media.height}" />
                                 </div>
                                 <div class="thumbnail-caption">
                                     <f:if condition="{page.data.title}">
-                                        <h3><f:format.crop maxCharacters="{settings.title.crop}">{page.data.title}</f:format.crop></h3>
+                                        <h3><f:format.crop maxCharacters="{settings.menu_thumbnail.title.crop}">{page.data.title}</f:format.crop></h3>
                                     </f:if>
                                     <f:if condition="{page.data.abstract}">
-                                        <p><f:format.crop maxCharacters="{settings.abstract.crop}">{page.data.abstract}</f:format.crop></p>
+                                        <p><f:format.crop maxCharacters="{settings.menu_thumbnail.abstract.crop}">{page.data.abstract}</f:format.crop></p>
                                     </f:if>
                                 </div>
                             </a>

@@ -5,9 +5,9 @@
 # customsubcategory=110=Logo
 # customsubcategory=111=Favicon
 # customsubcategory=120=Meta Settings
+# customsubcategory=138=Content Elements Preloading
+# customsubcategory=139=Content Elements Header
 # customsubcategory=140=Content Elements Templates
-# customsubcategory=141=Content Element Accordion
-# customsubcategory=142=Content Element Tabs
 # customsubcategory=143=Content Element Menu
 # customsubcategory=144=Content Element General
 # customsubcategory=145=Content Element Uploads
@@ -194,6 +194,10 @@ plugin.bootstrap_package {
 ### BOOTSTRAP PACKAGE CONTENT ELEMENTS ###
 ##########################################
 plugin.bootstrap_package_contentelements {
+    header {
+        # cat=bootstrap package: advanced/139/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
+        defaultHeaderType = 1
+    }
     view {
         # cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
@@ -202,21 +206,17 @@ plugin.bootstrap_package_contentelements {
         # cat=bootstrap package: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
     }
+    preload {
+        # cat=bootstrap package: advanced/138/100; type=boolean; label=Preload Images
+        images = 0
+    }
     lightbox {
         # cat=bootstrap package: advanced/144/100; type=string; label=Lightbox Css Class
         cssClass = lightbox
         # cat=bootstrap package: advanced/144/101; type=string; label=Lightbox Group Prefix
         prefix = lightbox-group
     }
-    accordion {
-        media {
-            # cat=bootstrap package: advanced/141/102; type=string; label=Aside Media Height
-            height = 300
-            # cat=bootstrap package: advanced/141/103; type=string; label=Aside Media Width
-            width = 400
-        }
-    }
-    menu_thumbnails {
+    menu_thumbnail {
         media {
             # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media Height
             height = 250c

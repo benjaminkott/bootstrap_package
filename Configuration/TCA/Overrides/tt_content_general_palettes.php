@@ -35,18 +35,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['tablelayout'] = [
         table_tfoot
     ',
 ];
-$GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_header'] = [
-    'canNotCollapse' => 1,
-    'showitem' => '
-        header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
-        --linebreak--,
-        subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
-        --linebreak--,
-        header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
-        --linebreak--,
-        header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel
-    '
-];
 $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_headersimple'] = [
     'canNotCollapse' => 1,
     'showitem' => '
