@@ -73,7 +73,6 @@ $GLOBALS['TCA']['tt_content']['types']['audio'] = array_replace_recursive(
                     ]
                 ]
             ]
-
         ]
     ]
 );

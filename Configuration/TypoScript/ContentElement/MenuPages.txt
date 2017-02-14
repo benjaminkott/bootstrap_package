@@ -1,15 +1,15 @@
-################################################
-#### CTYPE: MENU OF SUBPAGES TO THESE PAGES ####
-################################################
+#####################
+#### CTYPE: MENU ####
+#####################
 
-tt_content.menu.1 >
-tt_content.menu.1 =< lib.contentElement
-tt_content.menu.1 {
+tt_content.menu_pages >
+tt_content.menu_pages =< lib.contentElement
+tt_content.menu_pages {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = MenuOfSubpagesToThesePages
+    templateName = MenuPages
 
     ##########################
     ### DATA PREPROCESSING ###
@@ -17,8 +17,9 @@ tt_content.menu.1 {
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
-            special = directory
+            special = list
             special.value.field = pages
+
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
