@@ -2,7 +2,7 @@
 <f:switch expression="{file.type}">
     <f:case value="2">
         <f:render partial="Media/Type/Image" arguments="{file: file, data: data, settings: settings}" />
-    </f:if>
+    </f:case>
     <f:case value="3">
         <f:render partial="Media/Type/Audio" arguments="{file: file, data: data, settings: settings}" />
     </f:case>
