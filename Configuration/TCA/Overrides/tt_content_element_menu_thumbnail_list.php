@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Bootstrap Package Panel
+ * Enable Content Element
  */
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
     $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'] = [];

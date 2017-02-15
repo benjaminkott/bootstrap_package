@@ -9,7 +9,6 @@ TCEFORM {
     }
     tt_content {
         header_layout {
-            removeItems = 0,
             altLabels {
                 1 = H1
                 2 = H2
@@ -17,9 +16,6 @@ TCEFORM {
                 4 = H4
                 5 = H5
             }
-        }
-        list_type {
-            removeItems = indexed_search
         }
         layout {
             removeItems = 1,2,3
