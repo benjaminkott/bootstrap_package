@@ -11,6 +11,7 @@
 .travis.yml export-ignore
 
 # Enforce checkout with linux lf consistent over all plattforms
+*.xml text eol=lf
 *.html text eol=lf
 *.css text eol=lf
 *.tmpl text eol=lf
