@@ -1,17 +1,28 @@
-####################################
-#### BOOTSTRAP CONTENT ELEMENTS ####
-####################################
+###############
+#### MEDIA ####
+###############
 mod.wizards.newContentElement.wizardItems {
-    bootstrap.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
-    bootstrap.elements {
+    media.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.media
+    media.elements {
         audio {
-            iconIdentifier = content-bootstrappackage-audio
+            iconIdentifier = content-audio
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio
             description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio.description
             tt_content_defValues {
                 CType = audio
             }
         }
+    }
+    media.show := addToList(audio)
+}
+
+
+####################################
+#### BOOTSTRAP CONTENT ELEMENTS ####
+####################################
+mod.wizards.newContentElement.wizardItems {
+    bootstrap.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
+    bootstrap.elements {
         bootstrap_package_texticon {
             iconIdentifier = content-bootstrappackage-texticon
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
@@ -109,7 +120,6 @@ mod.wizards.newContentElement.wizardItems {
     bootstrap.show := addToList(bootstrap_package_listgroup)
     bootstrap.show := addToList(bootstrap_package_external_media)
     bootstrap.show := addToList(media)
-    bootstrap.show := addToList(audio)
     bootstrap.show := addToList(textcolumn)
     bootstrap.show := addToList(textteaser)
     bootstrap.show := addToList(quote)

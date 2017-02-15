@@ -17,7 +17,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio',
         'audio',
-        'content-bootstrappackage-audio'
+        'content-audio'
     ],
     'image',
     'after'
@@ -26,7 +26,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['audio'] = 'content-bootstrappackage-audio';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['audio'] = 'content-audio';
 
 /***************
  * Configure element type
