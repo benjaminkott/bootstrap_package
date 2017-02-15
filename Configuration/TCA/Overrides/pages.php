@@ -38,13 +38,6 @@ $extensionKey = 'bootstrap_package';
     'Bootstrap Package: TCEFORM'
 );
 
-// RTE
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
-    'Configuration/PageTS/RTE.txt',
-    'Bootstrap Package: RTE'
-);
-
 // TtContent Previews
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
