@@ -61,7 +61,7 @@ $(function () {
                 title: $(this).attr("title"),
                 w: $(this).data('lightbox-width'),
                 h: $(this).data('lightbox-height'),
-                caption: caption,
+                caption: caption.replace(/(?:\r\n|\r|\n)/g, '<br />'),
                 pid: $(this).index('a.lightbox[rel=' + gid + ']'),
             });
         });

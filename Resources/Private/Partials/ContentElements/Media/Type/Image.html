@@ -21,7 +21,7 @@
         </f:else>
     </f:if>
     <f:if condition="{file.description}">
-        <figcaption class="caption">{file.description}</figcaption>
+        <figcaption class="caption"><f:format.nl2br>{file.description}</f:format.nl2br></figcaption>
     </f:if>
 </figure>
 </html>
