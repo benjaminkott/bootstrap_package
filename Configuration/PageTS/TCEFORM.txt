@@ -65,6 +65,9 @@ TCEFORM {
                 condensed = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.condensed
             }
         }
+        imageborder {
+            disabled = 1
+        }
         imagecols {
             removeItems = 5,7,8
         }
