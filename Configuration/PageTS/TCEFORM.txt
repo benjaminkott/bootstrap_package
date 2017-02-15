@@ -34,17 +34,6 @@ TCEFORM {
                         130 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:listlayout.inline
                     }
                 }
-                table {
-                    removeItems = 0,1,2,3
-                    addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.default
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.basic
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.striped
-                        130 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.bordered
-                        140 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.hover
-                        150 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.condensed
-                    }
-                }
                 uploads {
                     removeItems = 3
                     altLabels {
@@ -72,6 +61,12 @@ TCEFORM {
                         150 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.danger
                     }
                 }
+            }
+        }
+        table_class {
+            addItems {
+                hover = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.hover
+                condensed = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tablelayout.condensed
             }
         }
         imagecols {
