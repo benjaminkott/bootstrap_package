@@ -35,6 +35,25 @@ mod.wizards.newContentElement.wizardItems {
 }
 
 
+##############
+#### TEXT ####
+##############
+mod.wizards.newContentElement.wizardItems {
+    text.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.text
+    text.elements {
+        textteaser {
+            iconIdentifier = content-bootstrappackage-textteaser
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser.description
+            tt_content_defValues {
+                CType = textteaser
+            }
+        }
+    }
+    text.show := addToList(textteaser)
+}
+
+
 ####################################
 #### BOOTSTRAP CONTENT ELEMENTS ####
 ####################################
@@ -97,14 +116,6 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textcolumn
             }
         }
-        textteaser {
-            iconIdentifier = content-bootstrappackage-textteaser
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser.description
-            tt_content_defValues {
-                CType = textteaser
-            }
-        }
         quote {
             iconIdentifier = content-bootstrappackage-quote
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
@@ -121,7 +132,6 @@ mod.wizards.newContentElement.wizardItems {
     bootstrap.show := addToList(bootstrap_package_panel)
     bootstrap.show := addToList(bootstrap_package_listgroup)
     bootstrap.show := addToList(textcolumn)
-    bootstrap.show := addToList(textteaser)
     bootstrap.show := addToList(quote)
 }
 

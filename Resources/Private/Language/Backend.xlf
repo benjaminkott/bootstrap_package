@@ -138,6 +138,9 @@
             <trans-unit id="content_group.media">
                 <source>Media</source>
             </trans-unit>
+            <trans-unit id="content_group.text">
+                <source>Text</source>
+            </trans-unit>
 
             <trans-unit id="content_element.media">
                 <source>Media</source>
