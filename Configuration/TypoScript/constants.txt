@@ -196,7 +196,7 @@ plugin.bootstrap_package {
 plugin.bootstrap_package_contentelements {
     header {
         # cat=bootstrap package: advanced/139/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
-        defaultHeaderType = 1
+        defaultHeaderType = 2
     }
     view {
         # cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
