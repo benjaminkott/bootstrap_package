@@ -2,6 +2,10 @@
     <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings}" />
 </f:if>
 
+<f:if condition="{file.originalFile.properties.extension} == 'pdf'">
+    <f:render partial="Media/Image" arguments="{file: file, data: data, settings: settings}" />
+</f:if>
+
 <f:if condition="{file.type} == 4">
     <f:render partial="Media/Video" arguments="{file: file, data: data, settings: settings}" />
 </f:if>
