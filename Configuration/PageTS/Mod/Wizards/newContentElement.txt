@@ -20,9 +20,18 @@ mod.wizards.newContentElement.wizardItems {
                 CType = bootstrap_package_external_media
             }
         }
+        media {
+            iconIdentifier = mimetypes-x-content-multimedia
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media.description
+            tt_content_defValues {
+                CType = media
+            }
+        }
     }
     media.show := addToList(audio)
     media.show := addToList(external_media)
+    media.show := addToList(media)
 }
 
 
@@ -96,14 +105,6 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textteaser
             }
         }
-        media {
-            iconIdentifier = mimetypes-x-content-multimedia
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media.description
-            tt_content_defValues {
-                CType = media
-            }
-        }
         quote {
             iconIdentifier = content-bootstrappackage-quote
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
@@ -119,7 +120,6 @@ mod.wizards.newContentElement.wizardItems {
     bootstrap.show := addToList(bootstrap_package_tab)
     bootstrap.show := addToList(bootstrap_package_panel)
     bootstrap.show := addToList(bootstrap_package_listgroup)
-    bootstrap.show := addToList(media)
     bootstrap.show := addToList(textcolumn)
     bootstrap.show := addToList(textteaser)
     bootstrap.show := addToList(quote)
