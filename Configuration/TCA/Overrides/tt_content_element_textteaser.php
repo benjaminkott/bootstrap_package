@@ -4,14 +4,14 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Text Teaser
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'content-bootstrappackage-textteaser';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'content-text-teaser';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser',
         'textteaser',
-        'content-bootstrappackage-textteaser'
+        'content-text-teaser'
     ],
     'text',
     'after'

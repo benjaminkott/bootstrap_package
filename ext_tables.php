@@ -58,11 +58,6 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab-item.svg']
 );
 $iconRegistry->registerIcon(
-    'content-bootstrappackage-textteaser',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/textteaser.svg']
-);
-$iconRegistry->registerIcon(
     'content-bootstrappackage-texticon',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/texticon.svg']
