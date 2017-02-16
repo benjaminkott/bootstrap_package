@@ -1,8 +1,10 @@
 # .scrutinizer.yml
 build:
+    environment:
+        php: 7.0.6
     dependencies:
         before:
-            - 'composer require typo3/cms'
+            - 'composer require --dev --prefer-source typo3/cms="^8.6.0"'
 
 checks:
     php:
@@ -53,3 +55,5 @@ tools:
 filter:
     dependency_paths:
         - Contrib/
+    excluded_paths:
+        - ".build/"
