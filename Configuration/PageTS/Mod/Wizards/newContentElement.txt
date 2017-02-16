@@ -41,6 +41,14 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     text.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.text
     text.elements {
+        texticon {
+            iconIdentifier = content-bootstrappackage-texticon
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
+            tt_content_defValues {
+                CType = bootstrap_package_texticon
+            }
+        }
         textcolumn {
             iconIdentifier = content-text-columns
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn
@@ -66,6 +74,7 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
     }
+    text.show := addToList(texticon)
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
     text.show := addToList(quote)
@@ -78,14 +87,6 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     bootstrap.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
     bootstrap.elements {
-        bootstrap_package_texticon {
-            iconIdentifier = content-bootstrappackage-texticon
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
-            tt_content_defValues {
-                CType = bootstrap_package_texticon
-            }
-        }
         bootstrap_package_carousel {
             iconIdentifier = content-bootstrappackage-carousel
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel
@@ -127,7 +128,6 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
     }
-    bootstrap.show := addToList(bootstrap_package_texticon)
     bootstrap.show := addToList(bootstrap_package_carousel)
     bootstrap.show := addToList(bootstrap_package_accordion)
     bootstrap.show := addToList(bootstrap_package_tab)
