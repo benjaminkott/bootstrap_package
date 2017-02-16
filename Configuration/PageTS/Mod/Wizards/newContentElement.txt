@@ -1,3 +1,13 @@
+################
+#### COMMON ####
+################
+mod.wizards.newContentElement.wizardItems {
+    common.show := removeFromList(uploads)
+    common.show := removeFromList(header)
+    common.show := removeFromList(text)
+}
+
+
 ###############
 #### MEDIA ####
 ###############
@@ -28,10 +38,19 @@ mod.wizards.newContentElement.wizardItems {
                 CType = media
             }
         }
+        uploads {
+            iconIdentifier = content-special-uploads
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_description
+            tt_content_defValues {
+                CType = uploads
+            }
+        }
     }
     media.show := addToList(audio)
     media.show := addToList(external_media)
     media.show := addToList(media)
+    media.show := addToList(uploads)
 }
 
 
@@ -41,6 +60,22 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     text.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.text
     text.elements {
+        header {
+            iconIdentifier = content-header
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_headerOnly_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_headerOnly_description
+            tt_content_defValues {
+                CType = header
+            }
+        }
+        text {
+            iconIdentifier = content-text
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_description
+            tt_content_defValues {
+                CType = text
+            }
+        }
         texticon {
             iconIdentifier = content-bootstrappackage-texticon
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
@@ -82,6 +117,8 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
     }
+    text.show := addToList(header)
+    text.show := addToList(text)
     text.show := addToList(texticon)
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
