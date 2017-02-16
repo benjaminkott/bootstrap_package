@@ -57,9 +57,18 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textteaser
             }
         }
+        quote {
+            iconIdentifier = content-quote
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote.description
+            tt_content_defValues {
+                CType = quote
+            }
+        }
     }
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
+    text.show := addToList(quote)
 }
 
 
@@ -117,14 +126,6 @@ mod.wizards.newContentElement.wizardItems {
                 CType = bootstrap_package_listgroup
             }
         }
-        quote {
-            iconIdentifier = content-bootstrappackage-quote
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote.description
-            tt_content_defValues {
-                CType = quote
-            }
-        }
     }
     bootstrap.show := addToList(bootstrap_package_texticon)
     bootstrap.show := addToList(bootstrap_package_carousel)
@@ -132,8 +133,6 @@ mod.wizards.newContentElement.wizardItems {
     bootstrap.show := addToList(bootstrap_package_tab)
     bootstrap.show := addToList(bootstrap_package_panel)
     bootstrap.show := addToList(bootstrap_package_listgroup)
-    bootstrap.show := addToList(textcolumn)
-    bootstrap.show := addToList(quote)
 }
 
 ###############
