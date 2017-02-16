@@ -46,17 +46,6 @@ TCEFORM {
                         120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
                     }
                 }
-                bootstrap_package_panel {
-                    removeItems = 0,1,2,3
-                    addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.default
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.primary
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.success
-                        130 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.info
-                        140 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.warning
-                        150 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:contextualalternatives.danger
-                    }
-                }
             }
         }
         table_class {

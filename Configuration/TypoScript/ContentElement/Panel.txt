@@ -2,13 +2,13 @@
 #### CTYPE: BOOTSTRAP PACKAGE PANEL ####
 ########################################
 
-tt_content.bootstrap_package_panel >
-tt_content.bootstrap_package_panel =< lib.contentElement
-tt_content.bootstrap_package_panel {
+tt_content.panel >
+tt_content.panel =< lib.contentElement
+tt_content.panel {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackagePanel
+    templateName = Panel
 
 }

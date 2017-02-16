@@ -1,9 +1,9 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Header" />
 <f:section name="Main">
 
-    <div class="panel panel-{bk2k:contextualClass(code: data.layout)}">
+    <div class="panel panel-{data.panel_class}">
         <f:if condition="{data.header}">
             <f:if condition="{data.header_layout} == 100">
                 <f:else>

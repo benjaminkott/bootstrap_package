@@ -30,14 +30,14 @@ use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * TableContentElementUpdate
+ * PanelContentElementUpdate
  */
-class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class PanelContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
 {
     /**
      * @var string
      */
-    protected $title = '[BootstrapPackage] Migrate table content element';
+    protected $title = '[BootstrapPackage] Migrate panel content element';
 
     /**
      * Checks if an update is needed
@@ -55,8 +55,7 @@ class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdat
         $elementCount = $queryBuilder->count('uid')
             ->from('tt_content')
             ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('table', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150])
+                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_panel', \PDO::PARAM_STR))
             )
             ->execute()->fetchColumn(0);
         return (bool)$elementCount;
@@ -77,8 +76,7 @@ class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdat
         $statement = $queryBuilder->select('uid', 'layout')
             ->from('tt_content')
             ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('table', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150])
+                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_panel', \PDO::PARAM_STR))
             )
             ->execute();
         while ($record = $statement->fetch()) {
@@ -91,7 +89,8 @@ class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdat
                     )
                 )
                 ->set('layout', 0, false)
-                ->set('table_class', $this->mapValues($record['layout']));
+                ->set('CType', 'panel')
+                ->set('panel_class', $this->mapValues($record['layout']));
             $databaseQueries[] = $queryBuilder->getSQL();
             $queryBuilder->execute();
         }
@@ -108,13 +107,15 @@ class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdat
     protected function mapValues($layout)
     {
         $mapping = [
-            100 => '',
-            110 => '',
-            120 => 'striped',
-            130 => 'bordered',
-            140 => 'hover',
-            150 => 'condensed',
+            110 => 'primary',
+            120 => 'success',
+            130 => 'info',
+            140 => 'warning',
+            150 => 'danger',
         ];
-        return $mapping[$layout];
+        if (array_key_exists($layout, $mapping)) {
+            return $mapping[$layout];
+        }
+        return 'default';
     }
 }

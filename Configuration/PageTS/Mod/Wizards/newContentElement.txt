@@ -65,6 +65,14 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textteaser
             }
         }
+        panel {
+            iconIdentifier = content-panel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
+            tt_content_defValues {
+                CType = panel
+            }
+        }
         quote {
             iconIdentifier = content-quote
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
@@ -77,6 +85,7 @@ mod.wizards.newContentElement.wizardItems {
     text.show := addToList(texticon)
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
+    text.show := addToList(panel)
     text.show := addToList(quote)
 }
 
@@ -111,14 +120,6 @@ mod.wizards.newContentElement.wizardItems {
                 CType = bootstrap_package_tab
             }
         }
-        bootstrap_package_panel {
-            iconIdentifier = content-bootstrappackage-panel
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
-            tt_content_defValues {
-                CType = bootstrap_package_panel
-            }
-        }
         bootstrap_package_listgroup {
             iconIdentifier = content-bootstrappackage-listgroup
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup
@@ -131,7 +132,6 @@ mod.wizards.newContentElement.wizardItems {
     bootstrap.show := addToList(bootstrap_package_carousel)
     bootstrap.show := addToList(bootstrap_package_accordion)
     bootstrap.show := addToList(bootstrap_package_tab)
-    bootstrap.show := addToList(bootstrap_package_panel)
     bootstrap.show := addToList(bootstrap_package_listgroup)
 }
 

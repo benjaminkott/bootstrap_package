@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Bootstrap Package Panel
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
+    $GLOBALS['TCA']['tt_content']['types']['panel'] = [];
 }
 
 /***************
@@ -16,8 +16,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'])
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
-        'bootstrap_package_panel',
-        'content-bootstrappackage-panel'
+        'panel',
+        'content-panel'
     ],
     'bootstrap_package_listgroup',
     'after'
@@ -26,19 +26,20 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'])
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_panel'] = 'content-bootstrappackage-panel';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['panel'] = 'content-panel';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'],
+$GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['panel'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header_minimal,
                 bodytext,
+                panel_class,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -62,5 +63,29 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_panel'] = array_replac
                 ]
             ]
         ]
+    ]
+);
+
+/***************
+ * Register fields
+ */
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['columns'],
+    [
+        'panel_class' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.panel_class',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary', 'primary'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success', 'success'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info', 'info'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning', 'warning'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.danger', 'danger'],
+                ],
+            ],
+        ],
     ]
 );

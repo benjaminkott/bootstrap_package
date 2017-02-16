@@ -350,7 +350,6 @@
                 <source>Default Tab</source>
             </trans-unit>
 
-
             <trans-unit id="tab_item">
                 <source>Tab Item</source>
             </trans-unit>
@@ -382,23 +381,8 @@
                 <source>Right</source>
             </trans-unit>
 
-            <trans-unit id="contextualalternatives.default">
-                <source>Default</source>
-            </trans-unit>
-            <trans-unit id="contextualalternatives.primary">
-                <source>Primary</source>
-            </trans-unit>
-            <trans-unit id="contextualalternatives.success">
-                <source>Success</source>
-            </trans-unit>
-            <trans-unit id="contextualalternatives.info">
-                <source>Info</source>
-            </trans-unit>
-            <trans-unit id="contextualalternatives.warning">
-                <source>Warning</source>
-            </trans-unit>
-            <trans-unit id="contextualalternatives.danger">
-                <source>Danger</source>
+            <trans-unit id="field.panel_class">
+                <source>Panel Class</source>
             </trans-unit>
 
             <trans-unit id="external_media">
@@ -437,6 +421,9 @@
                 <source>Teaser</source>
             </trans-unit>
 
+            <trans-unit id="option.default">
+                <source>Default</source>
+            </trans-unit>
             <trans-unit id="option.none">
                 <source>None</source>
             </trans-unit>
@@ -469,6 +456,21 @@
             </trans-unit>
             <trans-unit id="option.awesome">
                 <source>Awesome</source>
+            </trans-unit>
+            <trans-unit id="option.primary">
+                <source>Primary</source>
+            </trans-unit>
+            <trans-unit id="option.success">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="option.info">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="option.warning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="option.danger">
+                <source>Danger</source>
             </trans-unit>
 
             <trans-unit id="tablelayout.default">
