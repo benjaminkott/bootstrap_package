@@ -2,14 +2,14 @@
 #### CTYPE: BOOTSTRAP PACKAGE TEXTICON ####
 ###########################################
 
-tt_content.bootstrap_package_texticon >
-tt_content.bootstrap_package_texticon =< lib.contentElement
-tt_content.bootstrap_package_texticon {
+tt_content.texticon >
+tt_content.texticon =< lib.contentElement
+tt_content.texticon {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageTextIcon
+    templateName = Texticon
 
     #################
     ### VARIABLES ###

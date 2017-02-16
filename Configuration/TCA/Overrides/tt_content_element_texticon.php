@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Bootstrap Package Texticon
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
+    $GLOBALS['TCA']['tt_content']['types']['texticon'] = [];
 }
 
 /***************
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon',
-        'bootstrap_package_texticon',
+        'texticon',
         'content-bootstrappackage-texticon'
     ],
     'bootstrap_package_tab',
@@ -26,7 +26,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_texticon'] = 'content-bootstrappackage-texticon';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['texticon'] = 'content-bootstrappackage-texticon';
 
 /***************
  * Register palettes
@@ -43,8 +43,8 @@ $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_icons'] = [
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_texticon'],
+$GLOBALS['TCA']['tt_content']['types']['texticon'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['texticon'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,

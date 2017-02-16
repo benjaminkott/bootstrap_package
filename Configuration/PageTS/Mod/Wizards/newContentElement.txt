@@ -46,7 +46,7 @@ mod.wizards.newContentElement.wizardItems {
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon
             description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description
             tt_content_defValues {
-                CType = bootstrap_package_texticon
+                CType = texticon
             }
         }
         textcolumn {
