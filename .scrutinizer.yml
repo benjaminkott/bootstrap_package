@@ -1,4 +1,9 @@
 # .scrutinizer.yml
+build:
+    dependencies:
+        before:
+            - 'composer require typo3/cms'
+
 checks:
     php:
         code_rating: true
