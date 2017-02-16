@@ -1,11 +1,12 @@
-<f:layout name="Default"/>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
 <f:section name="Main">
 
     <f:if condition="{files}">
         <ul class="media-list">
             <f:for each="{files}" as="file" iteration="fileIterator">
                 <li class="media">
-                    <f:if condition="{data.layout} == 2">
+                    <f:if condition="{data.uploads_type} == 2">
                         <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                             <div class="media-left">
                                 <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
@@ -17,7 +18,7 @@
                     <div class="media-body">
                         <h4 class="media-heading">
                             <a href="{file.publicUrl}" {f:if(condition: file.title, then: 'title="{file.title}"')} {f:if(condition: data.target, then: 'target="{data.target}"')}>
-                                <f:if condition="{data.layout} > 0">
+                                <f:if condition="{data.uploads_type} == 1">
                                     <span class="uploads-fileicon">
                                         <f:switch expression="{f:format.case(value: file.extension, mode: 'lower')}">
                                             <f:case value="avi"><span class="glyphicon glyphicon-film"></span></f:case>
@@ -34,7 +35,7 @@
                                             <f:case value="ico"><span class="glyphicon glyphicon-picture"></span></f:case>
                                             <f:case value="tga"><span class="glyphicon glyphicon-picture"></span></f:case>
                                             <f:case value="tif"><span class="glyphicon glyphicon-picture"></span></f:case>
-                                            <f:case default="TRUE"><span class="glyphicon glyphicon-file"></span></f:case>
+                                            <f:defaultCase><span class="glyphicon glyphicon-file"></span></f:defaultCase>
                                         </f:switch>
                                     </span>
                                 </f:if>
@@ -44,8 +45,10 @@
                                 <span class="uploads-filesize"><f:format.bytes value="{file.size}" /></span>
                             </f:if>
                         </h4>
-                        <f:if condition="{file.description}">
-                            <p class="uploads-filedescription">{file.description}</p>
+                        <f:if condition="{data.uploads_description}">
+                            <f:if condition="{file.description}">
+                                <p class="uploads-filedescription">{file.description}</p>
+                            </f:if>
                         </f:if>
                     </div>
                 </li>
@@ -54,3 +57,4 @@
     </f:if>
 
 </f:section>
+</html>

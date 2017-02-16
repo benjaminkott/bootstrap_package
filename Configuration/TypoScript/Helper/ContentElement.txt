@@ -56,8 +56,8 @@ lib.contentElement {
         }
         uploads {
             preview {
-                height = {$plugin.bootstrap_package_contentelements.accordion.media.height}
-                width = {$plugin.bootstrap_package_contentelements.accordion.media.width}
+                height = {$plugin.bootstrap_package_contentelements.uploads.preview.height}
+                width = {$plugin.bootstrap_package_contentelements.uploads.preview.width}
             }
         }
     }
