@@ -17,7 +17,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir',
         'menu_thumbnail_dir',
-        'content-bootstrappackage-menu-thumbnail'
+        'content-menu-thumbnail'
     ],
     'menu_sitemap_pages',
     'after'
@@ -26,7 +26,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_thumbnail_dir'] = 'content-bootstrappackage-menu-thumbnail';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_thumbnail_dir'] = 'content-menu-thumbnail';
 
 /***************
  * Configure element type

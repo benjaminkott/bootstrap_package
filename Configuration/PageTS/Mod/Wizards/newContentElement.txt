@@ -142,7 +142,7 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     menu.elements {
         menu_thumbnail_list {
-            iconIdentifier = content-bootstrappackage-menu-thumbnail
+            iconIdentifier = content-menu-thumbnail
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list
             description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description
             tt_content_defValues {
@@ -150,7 +150,7 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
         menu_thumbnail_dir {
-            iconIdentifier = content-bootstrappackage-menu-thumbnail
+            iconIdentifier = content-menu-thumbnail
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir
             description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir.description
             tt_content_defValues {
