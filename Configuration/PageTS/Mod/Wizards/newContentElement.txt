@@ -41,6 +41,14 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     text.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.text
     text.elements {
+        textcolumn {
+            iconIdentifier = content-text-columns
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn.description
+            tt_content_defValues {
+                CType = textcolumn
+            }
+        }
         textteaser {
             iconIdentifier = content-bootstrappackage-textteaser
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser
@@ -50,6 +58,7 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
     }
+    text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
 }
 
@@ -106,14 +115,6 @@ mod.wizards.newContentElement.wizardItems {
             description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup.description
             tt_content_defValues {
                 CType = bootstrap_package_listgroup
-            }
-        }
-        textcolumn {
-            iconIdentifier = content-bootstrappackage-textcolumn
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn.description
-            tt_content_defValues {
-                CType = textcolumn
             }
         }
         quote {
