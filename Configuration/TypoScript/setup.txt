@@ -523,7 +523,7 @@ config {
     absRefPrefix = auto
     no_cache = {$config.no_cache}
     pageTitleFirst = 1
-    linkVars = L
+    linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
     renderCharset = utf-8
     metaCharset = utf-8
