@@ -65,7 +65,7 @@ class CompileService
     /**
      * @var string
      */
-    protected $tempDirectory = 'typo3temp/boostrappackage/';
+    protected $tempDirectory = 'typo3temp/bootstrappackage/';
 
     /**
      * @var string
