@@ -2,13 +2,13 @@
 #### CTYPE: BOOTSTRAP PACKAGE EXTERNAL MEDIA ####
 #################################################
 
-tt_content.bootstrap_package_external_media >
-tt_content.bootstrap_package_external_media =< lib.contentElement
-tt_content.bootstrap_package_external_media {
+tt_content.external_media >
+tt_content.external_media =< lib.contentElement
+tt_content.external_media {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageExternalMedia
+    templateName = ExternalMedia
 
 }

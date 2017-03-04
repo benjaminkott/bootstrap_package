@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Bootstrap Package Panel
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
+    $GLOBALS['TCA']['tt_content']['types']['external_media'] = [];
 }
 
 /***************
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
-        'bootstrap_package_external_media',
+        'external_media',
         'content-bootstrappackage-externalmedia'
     ],
     'bootstrap_package_carousel',
@@ -26,13 +26,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_external_media'] = 'content-bootstrappackage-externalmedia';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['external_media'] = 'content-bootstrappackage-externalmedia';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_external_media'],
+$GLOBALS['TCA']['tt_content']['types']['external_media'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['external_media'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -88,7 +88,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
 /***************
  * Register palettes
  */
-$GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_external_media'] = [
+$GLOBALS['TCA']['tt_content']['palettes']['external_media'] = [
     'canNotCollapse' => 1,
     'showitem' => '
         external_media_source, --linebreak--,
