@@ -6,6 +6,7 @@ mod.wizards.newContentElement.wizardItems {
     common.show := removeFromList(header)
     common.show := removeFromList(text)
     common.show := removeFromList(image)
+    common.show := removeFromList(table)
 }
 
 
@@ -110,6 +111,14 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textteaser
             }
         }
+        table {
+            iconIdentifier = content-table
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_table_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_table_description
+            tt_content_defValues {
+                CType = table
+            }
+        }
         panel {
             iconIdentifier = content-panel
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
@@ -140,6 +149,7 @@ mod.wizards.newContentElement.wizardItems {
     text.show := addToList(texticon)
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
+    text.show := addToList(table)
     text.show := addToList(panel)
     text.show := addToList(quote)
     text.show := addToList(listgroup)
