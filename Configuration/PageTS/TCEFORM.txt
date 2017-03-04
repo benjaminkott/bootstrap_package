@@ -21,15 +21,6 @@ TCEFORM {
             removeItems = 1,2,3
             disableNoMatchingValueElement = 1
             types {
-                bullets {
-                    removeItems = 0,1,2,3
-                    addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:listlayout.unordered
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:listlayout.ordered
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:listlayout.unstyled
-                        130 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:listlayout.inline
-                    }
-                }
                 uploads {
                     removeItems = 3
                     altLabels {

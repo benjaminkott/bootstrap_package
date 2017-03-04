@@ -492,19 +492,6 @@
                 <source>Condensed table</source>
             </trans-unit>
 
-            <trans-unit id="listlayout.unordered">
-                <source>Unordered</source>
-            </trans-unit>
-            <trans-unit id="listlayout.ordered">
-                <source>Ordered</source>
-            </trans-unit>
-            <trans-unit id="listlayout.unstyled">
-                <source>Unstyled</source>
-            </trans-unit>
-            <trans-unit id="listlayout.inline">
-                <source>Inline</source>
-            </trans-unit>
-
             <trans-unit id="uploadslayout.default">
                 <source>Default</source>
             </trans-unit>
