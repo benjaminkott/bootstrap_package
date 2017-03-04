@@ -2,14 +2,14 @@
 #### CTYPE: BOOTSTRAP PACKAGE LISTGROUP ####
 ############################################
 
-tt_content.bootstrap_package_listgroup >
-tt_content.bootstrap_package_listgroup =< lib.contentElement
-tt_content.bootstrap_package_listgroup {
+tt_content.listgroup >
+tt_content.listgroup =< lib.contentElement
+tt_content.listgroup {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageListGroup
+    templateName = ListGroup
 
     ##########################
     ### DATA PREPROCESSING ###

@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Bootstrap Package Panel
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'] = [];
 }
 
 /***************
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgrou
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
-        'bootstrap_package_listgroup',
+        'listgroup',
         'content-bootstrappackage-listgroup'
     ],
     'bootstrap_package_external_media',
@@ -26,13 +26,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgrou
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_listgroup'] = 'content-bootstrappackage-listgroup';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['listgroup'] = 'content-bootstrappackage-listgroup';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_listgroup'],
+$GLOBALS['TCA']['tt_content']['types']['listgroup'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
