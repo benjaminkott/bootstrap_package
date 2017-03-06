@@ -173,6 +173,20 @@
                 <source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
             </trans-unit>
 
+            <trans-unit id="content_element.carousel_small">
+                <source>Carousel Small</source>
+            </trans-unit>
+            <trans-unit id="content_element.carousel_small.description">
+                <source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.carousel_fullscreen">
+                <source>Carousel Fullscreen</source>
+            </trans-unit>
+            <trans-unit id="content_element.carousel_fullscreen.description">
+                <source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
+            </trans-unit>
+
             <trans-unit id="content_element.textcolumn">
                 <source>Text in Columns</source>
             </trans-unit>
@@ -503,16 +517,6 @@
             </trans-unit>
             <trans-unit id="uploadslayout.iconsandpreview">
                 <source>Display Icons and Preview Images</source>
-            </trans-unit>
-
-            <trans-unit id="carousellayout.normal">
-                <source>Normal</source>
-            </trans-unit>
-            <trans-unit id="carousellayout.small">
-                <source>Small</source>
-            </trans-unit>
-            <trans-unit id="carousellayout.fullscreen">
-                <source>Fullscreen</source>
             </trans-unit>
 
             <trans-unit id="field.frame_class.well">

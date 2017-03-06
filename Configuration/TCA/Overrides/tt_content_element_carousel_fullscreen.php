@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'])) {
+    $GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] = [];
 }
 
 /***************
@@ -15,8 +15,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
-        'bootstrap_package_carousel',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen',
+        'carousel_fullscreen',
         'content-bootstrappackage-carousel'
     ],
     'bootstrap_package_accordion',
@@ -26,13 +26,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_carousel'] = 'content-bootstrappackage-carousel';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['carousel_fullscreen'] = 'content-bootstrappackage-carousel';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'],
+$GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -59,43 +59,10 @@ $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_carousel'] = array_rep
 );
 
 /***************
- * Register fields
- */
-$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['columns'],
-    [
-        'tx_bootstrappackage_carousel_item' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_bootstrappackage_carousel_item',
-                'foreign_field' => 'tt_content',
-                'appearance' => [
-                    'useSortable' => true,
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => false,
-                    'expandSingle' => true,
-                    'enabledControls' => [
-                        'localize' => true,
-                    ]
-                ],
-                'behaviour' => [
-                    'localizationMode' => 'select',
-                    'mode' => 'select',
-                    'localizeChildrenAtParentLocalization' => true,
-                ]
-            ]
-        ]
-    ]
-);
-
-/***************
  * Add flexForms for content element configuration
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
-    'bootstrap_package_carousel'
+    'carousel_fullscreen'
 );

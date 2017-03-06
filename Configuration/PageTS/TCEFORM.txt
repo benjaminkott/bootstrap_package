@@ -29,14 +29,6 @@ TCEFORM {
                         2 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:uploadslayout.iconsandpreview
                     }
                 }
-                bootstrap_package_carousel {
-                    removeItems = 1,2,3
-                    addItems {
-                        100 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.normal
-                        110 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.small
-                        120 = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousellayout.fullscreen
-                    }
-                }
             }
         }
         table_class {

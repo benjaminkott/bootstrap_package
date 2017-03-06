@@ -1,31 +1,15 @@
-###########################################
-#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL ####
-###########################################
+######################################################
+#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL FULLSCREEN ####
+######################################################
 
-tt_content.bootstrap_package_carousel >
-tt_content.bootstrap_package_carousel =< lib.contentElement
-tt_content.bootstrap_package_carousel {
+tt_content.carousel_fullscreen >
+tt_content.carousel_fullscreen =< lib.contentElement
+tt_content.carousel_fullscreen {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = TEXT
-    templateName.stdWrap.cObject = CASE
-    templateName.stdWrap.cObject {
-        key.field = layout
-
-        100 = TEXT
-        100.value = BootstrapPackageCarousel
-
-        110 = TEXT
-        110.value = BootstrapPackageCarouselSmall
-
-        120 = TEXT
-        120.value = BootstrapPackageCarouselFullscreen
-
-        default = TEXT
-        default.value = BootstrapPackageCarousel
-    }
+    templateName = CarouselFullscreen
 
     ##########################
     ### DATA PREPROCESSING ###

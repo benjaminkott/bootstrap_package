@@ -25,6 +25,30 @@ mod.wizards.newContentElement.wizardItems {
                 CType = accordion
             }
         }
+        carousel {
+            iconIdentifier = content-bootstrappackage-carousel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel.description
+            tt_content_defValues {
+                CType = carousel
+            }
+        }
+        carousel_small {
+            iconIdentifier = content-bootstrappackage-carousel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small.description
+            tt_content_defValues {
+                CType = carousel_small
+            }
+        }
+        carousel_fullscreen {
+            iconIdentifier = content-bootstrappackage-carousel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen.description
+            tt_content_defValues {
+                CType = carousel_fullscreen
+            }
+        }
         tab {
             iconIdentifier = content-bootstrappackage-tab
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
@@ -36,6 +60,9 @@ mod.wizards.newContentElement.wizardItems {
     }
     interactive.show := addToList(accordion)
     interactive.show := addToList(tab)
+    interactive.show := addToList(carousel)
+    interactive.show := addToList(carousel_fullscreen)
+    interactive.show := addToList(carousel_small)
 }
 
 
@@ -193,24 +220,6 @@ mod.wizards.newContentElement.wizardItems {
     text.show := addToList(bullets)
 }
 
-
-####################################
-#### BOOTSTRAP CONTENT ELEMENTS ####
-####################################
-mod.wizards.newContentElement.wizardItems {
-    bootstrap.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name
-    bootstrap.elements {
-        bootstrap_package_carousel {
-            iconIdentifier = content-bootstrappackage-carousel
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel.description
-            tt_content_defValues {
-                CType = bootstrap_package_carousel
-            }
-        }
-    }
-    bootstrap.show := addToList(bootstrap_package_carousel)
-}
 
 ###############
 #### MENUS ####

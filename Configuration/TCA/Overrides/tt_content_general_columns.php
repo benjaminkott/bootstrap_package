@@ -24,6 +24,30 @@ $GLOBALS['TCA']['tt_content']['columns']['assets'] = [
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
     )
 ];
+$GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = [
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
+    'config' => [
+        'type' => 'inline',
+        'foreign_table' => 'tx_bootstrappackage_carousel_item',
+        'foreign_field' => 'tt_content',
+        'appearance' => [
+            'useSortable' => true,
+            'showSynchronizationLink' => true,
+            'showAllLocalizationLink' => true,
+            'showPossibleLocalizationRecords' => true,
+            'showRemovedLocalizationRecords' => false,
+            'expandSingle' => true,
+            'enabledControls' => [
+                'localize' => true,
+            ]
+        ],
+        'behaviour' => [
+            'localizationMode' => 'select',
+            'mode' => 'select',
+            'localizeChildrenAtParentLocalization' => true,
+        ]
+    ]
+];
 
 /***************
  * Add additional frame class items

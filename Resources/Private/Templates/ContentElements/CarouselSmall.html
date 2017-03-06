@@ -1,13 +1,13 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div id="carousel-{data.uid}" class="carousel carousel-fullscreen carousel-transition-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{data.pi_flexform.wrap}" data-ride="carousel">
+        <div id="carousel-{data.uid}" class="carousel carousel-small carousel-transition-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{data.pi_flexform.wrap}" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <f:for each="{records}" as="item" iteration="iteration">
-                    <bk2k:var name="itemStyleImage"><f:if condition="{item.backgroundImage.0}">background-image: url('{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}');</f:if></bk2k:var>
-                    <bk2k:var name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></bk2k:var>
+                    <f:variable name="itemStyleImage"><f:if condition="{item.backgroundImage.0}">background-image: url('{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}');</f:if></f:variable>
+                    <f:variable name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></f:variable>
                     <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}" data-itemno="{iteration.index}" style="{itemStyleImage} {itemStyleColor}">
                         <f:switch expression="{item.data.item_type}">
                             <f:case value="header">
