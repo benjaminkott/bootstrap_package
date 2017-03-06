@@ -80,7 +80,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="bootstrap_package_accordion"',
+                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="accordion"',
                 'maxitems' => 1,
             ],
         ],
