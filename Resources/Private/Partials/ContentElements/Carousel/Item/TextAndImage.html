@@ -1,3 +1,4 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="valign">
     <div class="carousel-text vcontainer lead" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
         <h{item.data.header_layout}><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
@@ -26,3 +27,4 @@
         </f:if>
     </div>
 </div>
+</html>

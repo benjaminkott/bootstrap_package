@@ -1,3 +1,4 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{subnavigation}">
     <nav class="hidden-print hidden-xs hidden-sm" role="navigation">
         <ul class="nav nav-sidebar">
@@ -5,7 +6,6 @@
         </ul>
     </nav>
 </f:if>
-
 <f:section name="SubnavigationItem">
     <f:for each="{menu}" as="item">
         <f:if condition="{item.spacer}">
@@ -27,3 +27,4 @@
         </f:if>
     </f:for>
 </f:section>
+</html>
