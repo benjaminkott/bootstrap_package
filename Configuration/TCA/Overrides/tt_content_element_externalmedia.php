@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Bootstrap Package Panel
+ * Add Content Element
  */
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
     $GLOBALS['TCA']['tt_content']['types']['external_media'] = [];

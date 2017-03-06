@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Bootstrap Package Texticon
+ * Add Content Element
  */
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
     $GLOBALS['TCA']['tt_content']['types']['texticon'] = [];

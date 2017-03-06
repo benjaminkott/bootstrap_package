@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Audio
+ * Add Content Element
  */
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
     $GLOBALS['TCA']['tt_content']['types']['audio'] = [];

@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Text Teaser
+ * Add Content Element
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'content-text-teaser';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

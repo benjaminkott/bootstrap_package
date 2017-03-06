@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Media
+ * Add Content Element
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['media'] = 'mimetypes-x-content-multimedia';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Quote
+ * Add Content Element
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['quote'] = 'content-quote';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

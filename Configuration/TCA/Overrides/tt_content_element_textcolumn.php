@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element: Text
+ * Add Content Element
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textcolumn'] = 'content-text-columns';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
