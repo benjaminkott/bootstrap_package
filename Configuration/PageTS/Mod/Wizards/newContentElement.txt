@@ -11,6 +11,25 @@ mod.wizards.newContentElement.wizardItems {
 }
 
 
+#####################
+#### INTERACTIVE ####
+#####################
+mod.wizards.newContentElement.wizardItems {
+    interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
+    interactive.elements {
+        tab {
+            iconIdentifier = content-bootstrappackage-tab
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
+            tt_content_defValues {
+                CType = tab
+            }
+        }
+    }
+    interactive.show := addToList(tab)
+}
+
+
 ###############
 #### MEDIA ####
 ###############
@@ -188,18 +207,9 @@ mod.wizards.newContentElement.wizardItems {
                 CType = bootstrap_package_accordion
             }
         }
-        bootstrap_package_tab {
-            iconIdentifier = content-bootstrappackage-tab
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab.description
-            tt_content_defValues {
-                CType = bootstrap_package_tab
-            }
-        }
     }
     bootstrap.show := addToList(bootstrap_package_carousel)
     bootstrap.show := addToList(bootstrap_package_accordion)
-    bootstrap.show := addToList(bootstrap_package_tab)
 }
 
 ###############

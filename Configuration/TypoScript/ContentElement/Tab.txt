@@ -2,14 +2,14 @@
 #### CTYPE: BOOTSTRAP PACKAGE TAB ####
 ######################################
 
-tt_content.bootstrap_package_tab >
-tt_content.bootstrap_package_tab =< lib.contentElement
-tt_content.bootstrap_package_tab {
+tt_content.tab >
+tt_content.tab =< lib.contentElement
+tt_content.tab {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageTab
+    templateName = Tab
 
     ##########################
     ### DATA PREPROCESSING ###

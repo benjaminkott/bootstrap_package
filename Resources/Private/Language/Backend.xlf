@@ -135,6 +135,9 @@
                 <source>Insert menu to display selected pages as thumbnail</source>
             </trans-unit>
 
+            <trans-unit id="content_group.interactive">
+                <source>Interactive</source>
+            </trans-unit>
             <trans-unit id="content_group.media">
                 <source>Media</source>
             </trans-unit>

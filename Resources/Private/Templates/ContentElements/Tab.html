@@ -1,13 +1,13 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <bk2k:var name="activeTab" value="{records.0.data.uid}" />
+        <f:variable name="activeTab">{records.0.data.uid}</f:variable>
         <f:if condition="{data.pi_flexform.default_tab}">
             <f:for each="{records}" as="record" iteration="iteration">
-                <f:if condition="{data.pi_flexform.default_tab} == {record.data.uid}">
-                    <bk2k:var name="activeTab" value="{record.data.uid}" />
+                <f:if condition="{data.pi_flexform.default_tab} == {record.data.uid} || {data.pi_flexform.default_tab} == {record.data._LOCALIZED_UID}">
+                    <f:variable name="activeTab">{record.data.uid}</f:variable>
                 </f:if>
             </f:for>
         </f:if>
@@ -32,7 +32,7 @@
                                         <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
                                     </div>
                                     <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
-                                            <f:format.html>{record.data.bodytext}</f:format.html>
+                                        <f:format.html>{record.data.bodytext}</f:format.html>
                                     </div>
                                 </div>
                             </f:then>

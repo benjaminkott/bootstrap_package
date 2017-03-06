@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element: Bootstrap Package Tab
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
+    $GLOBALS['TCA']['tt_content']['types']['tab'] = [];
 }
 
 /***************
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'])) 
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab',
-        'bootstrap_package_tab',
+        'tab',
         'content-bootstrappackage-tab'
     ],
     'bootstrap_package_panel',
@@ -26,13 +26,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'])) 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_tab'] = 'content-bootstrappackage-tab';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['tab'] = 'content-bootstrappackage-tab';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_tab'],
+$GLOBALS['TCA']['tt_content']['types']['tab'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['tab'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -97,5 +97,5 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/Tab.xml',
-    'bootstrap_package_tab'
+    'tab'
 );
