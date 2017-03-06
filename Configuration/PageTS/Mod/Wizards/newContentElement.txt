@@ -17,6 +17,14 @@ mod.wizards.newContentElement.wizardItems {
 mod.wizards.newContentElement.wizardItems {
     interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
     interactive.elements {
+        accordion {
+            iconIdentifier = content-bootstrappackage-accordion
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
+            tt_content_defValues {
+                CType = accordion
+            }
+        }
         tab {
             iconIdentifier = content-bootstrappackage-tab
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab
@@ -26,6 +34,7 @@ mod.wizards.newContentElement.wizardItems {
             }
         }
     }
+    interactive.show := addToList(accordion)
     interactive.show := addToList(tab)
 }
 
@@ -199,17 +208,8 @@ mod.wizards.newContentElement.wizardItems {
                 CType = bootstrap_package_carousel
             }
         }
-        bootstrap_package_accordion {
-            iconIdentifier = content-bootstrappackage-accordion
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
-            tt_content_defValues {
-                CType = bootstrap_package_accordion
-            }
-        }
     }
     bootstrap.show := addToList(bootstrap_package_carousel)
-    bootstrap.show := addToList(bootstrap_package_accordion)
 }
 
 ###############

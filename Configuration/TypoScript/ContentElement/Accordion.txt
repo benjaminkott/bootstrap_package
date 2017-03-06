@@ -2,14 +2,14 @@
 #### CTYPE: BOOTSTRAP PACKAGE ACCORDION ####
 ############################################
 
-tt_content.bootstrap_package_accordion >
-tt_content.bootstrap_package_accordion =< lib.contentElement
-tt_content.bootstrap_package_accordion {
+tt_content.accordion >
+tt_content.accordion =< lib.contentElement
+tt_content.accordion {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = BootstrapPackageAccordion
+    templateName = Accordion
 
     ##########################
     ### DATA PREPROCESSING ###

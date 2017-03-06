@@ -4,8 +4,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'])) {
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['accordion'])) {
+    $GLOBALS['TCA']['tt_content']['types']['accordion'] = [];
 }
 
 /***************
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordio
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
-        'bootstrap_package_accordion',
+        'accordion',
         'content-bootstrappackage-accordion'
     ],
     '--div--',
@@ -26,13 +26,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordio
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['bootstrap_package_accordion'] = 'content-bootstrappackage-accordion';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['accordion'] = 'content-bootstrappackage-accordion';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['bootstrap_package_accordion'],
+$GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['accordion'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
