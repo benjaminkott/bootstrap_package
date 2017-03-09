@@ -30,7 +30,7 @@ lib.parseFunc {
             typolink {
                 parameter.data = parameters:href
                 title.data = parameters:title
-                aTagParams.data = parameters:allParams
+                ATagParams.data = parameters:allParams
                 target.data = parameters:target
                 extTarget = _blank
                 extTarget.override.data = parameters:target

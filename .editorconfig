@@ -46,7 +46,7 @@ indent_style = space
 indent_size = 4
 
 # YML-Files
-[*.yml]
+[{*.yml,*.yaml}]
 indent_style = space
 indent_size = 4
 

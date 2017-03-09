@@ -1,0 +1,48 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    config:
+        contentsCss: "EXT:bootstrap_package/Resources/Public/Css/rte.min.css"
+
+        stylesSet:
+            - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
+            - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
+            - { name: "Button Success", element: "a", attributes: { 'class': 'btn btn-success' } }
+            - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
+            - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
+            - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
+
+        format_tags: "p;h1;h2;h3;pre"
+
+        toolbarGroups:
+            - { name: styles, groups: [ format, styles ] }
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - "/"
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+            - { name: editing, groups: [ spellchecker ] }
+            - { name: insert, groups: [ insert ] }
+            - { name: tools, groups: [ table, specialchar ] }
+            - { name: document, groups: [ mode ] }
+
+        justifyClasses:
+            - text-left
+            - text-center
+            - text-right
+            - text-justify
+
+        extraPlugins:
+            - justify
+
+        removePlugins:
+            - image
+
+        removeButtons:
+            - Anchor
+            - Underline
+            - Strike

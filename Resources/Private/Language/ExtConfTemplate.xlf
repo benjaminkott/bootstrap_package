@@ -4,6 +4,9 @@
         <header/>
         <body>
 
+            <trans-unit id="pageTs.disablePageTsRTE">
+                <source>Disable RTE: If this option is set the config for RTE will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/RTE.txt" in your PageTsConfig to load the config manually.</source>
+            </trans-unit>
             <trans-unit id="pageTs.disablePageTsTCEFORM">
                 <source>Disable TCEFORM: If this option is set the config for TCEFORM will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/TCEFORM.txt" in your PageTsConfig to load the config manually.</source>
             </trans-unit>

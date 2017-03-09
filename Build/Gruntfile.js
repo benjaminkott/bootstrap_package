@@ -29,6 +29,10 @@ module.exports = function(grunt) {
             theme: {
                 src: '<%= paths.css %>theme.css',
                 dest: '<%= paths.css %>theme.min.css'
+            },
+            rte: {
+                src: '<%= paths.css %>rte.css',
+                dest: '<%= paths.css %>rte.min.css'
             }
         },
         uglify: {
@@ -86,6 +90,16 @@ module.exports = function(grunt) {
                 },
                 src: '<%= paths.less %>Theme/theme.less',
                 dest: '<%= paths.css %>theme.css'
+            },
+            rte: {
+                options: {
+                    sourceMap: true,
+                    outputSourceFiles: true,
+                    sourceMapURL: 'rte.css.map',
+                    sourceMapFilename: '<%= paths.css %>rte.css.map'
+                },
+                src: '<%= paths.less %>RTE/rte.less',
+                dest: '<%= paths.css %>rte.css'
             }
         },
         watch: {

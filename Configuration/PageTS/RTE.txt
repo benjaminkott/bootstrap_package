@@ -1,0 +1,31 @@
+#############
+#### RTE ####
+#############
+RTE {
+    config {
+        tt_content {
+            bodytext {
+                types {
+                    text {
+                        preset = bootstrap
+                    }
+                    textcolumn {
+                        preset = bootstrap
+                    }
+                    texticon {
+                        preset = bootstrap
+                    }
+                    textmedia {
+                        preset = bootstrap
+                    }
+                    textpic {
+                        preset = bootstrap
+                    }
+                    textteaser {
+                        preset = bootstrap
+                    }
+                }
+            }
+        }
+    }
+}
