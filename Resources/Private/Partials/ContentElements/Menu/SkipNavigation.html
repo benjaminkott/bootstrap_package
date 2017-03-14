@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.accessibility_bypass} && {nextContentElement.0}">
+    <a href="#c{nextContentElement.0.data.uid}" class="sr-only sr-only-focusable">
+        <f:if condition="{data.accessibility_bypass_text}">
+            <f:then>
+                <span>{data.accessibility_bypass_text}</span>
+            </f:then>
+            <f:else>
+                <span><f:translate key="skipnavigation" extensionName="bootstrap_package" /></span>
+            </f:else>
+        </f:if>
+    </a>
+</f:if>
+</html>

@@ -2,6 +2,9 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
+    <f:if condition="{menu}">
+        <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
+    </f:if>
     <f:render section="Menu" arguments="{menu: menu}" />
 
 </f:section>

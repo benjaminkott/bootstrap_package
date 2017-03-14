@@ -2,6 +2,7 @@
 <f:section name="Main">
 
     <f:if condition="{content}">
+        <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
         <ul>
             <f:for each="{content}" as="element">
                 <li>

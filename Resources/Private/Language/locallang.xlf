@@ -9,6 +9,10 @@
                 <source>Skip to main content</source>
             </trans-unit>
 
+            <trans-unit id="skipnavigation">
+                <source>Skip navigation block</source>
+            </trans-unit>
+
             <trans-unit id="scrolltop">
                 <source>Scroll to top</source>
             </trans-unit>

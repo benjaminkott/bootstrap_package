@@ -30,6 +30,20 @@ tt_content.menu_recently_updated {
                 }
             }
         }
+        90 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        90 {
+            if {
+                isTrue.field = accessibility_bypass
+            }
+            table = tt_content
+            pidInList = this
+            orderBy = sorting
+            max = 1
+            where {
+                dataWrap = colPos = {field:colPos} AND sorting > {field:sorting}
+            }
+            as = nextContentElement
+        }
     }
 
 }

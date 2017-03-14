@@ -3,6 +3,7 @@
 <f:section name="Main">
 
     <f:if condition="{menu}">
+        <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
         <div class="row" data-equalheight="container">
             <f:for each="{menu}" as="page">
                 <f:if condition="{page.files.0}">
