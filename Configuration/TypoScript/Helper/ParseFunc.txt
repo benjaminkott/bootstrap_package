@@ -85,21 +85,6 @@ lib.parseFunc_RTE {
         table {
             stripNL = 1
             stdWrap {
-                HTMLparser = 1
-                HTMLparser {
-                    tags {
-                        table {
-                            fixAttrib {
-                                class {
-                                    default = table
-                                    always = 1
-                                    list = table
-                                }
-                            }
-                        }
-                    }
-                    keepNonMatchedTags = 1
-                }
                  wrap = <div class="table-responsive">|</div>
             }
             HTMLtableCells = 1
@@ -114,7 +99,6 @@ lib.parseFunc_RTE {
                         }
                     }
                 }
-                addChr10BetweenParagraphs = 1
             }
         }
         div {

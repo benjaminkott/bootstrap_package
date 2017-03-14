@@ -9,6 +9,15 @@ editor:
 
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Table", element: "table", attributes: { 'class': 'table table-hover' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-hover table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-hover table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-hover table-condensed' } }
+            - { name: "Row Active", element: "tr", attributes: { 'class': 'active' } }
+            - { name: "Row Success", element: "tr", attributes: { 'class': 'success' } }
+            - { name: "Row Info", element: "tr", attributes: { 'class': 'info' } }
+            - { name: "Row Warning", element: "tr", attributes: { 'class': 'warning' } }
+            - { name: "Row Danger", element: "tr", attributes: { 'class': 'danger' } }
             - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
             - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
             - { name: "Button Success", element: "a", attributes: { 'class': 'btn btn-success' } }
