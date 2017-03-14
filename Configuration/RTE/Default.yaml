@@ -25,8 +25,6 @@ editor:
             - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
             - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
 
-        format_tags: "p;h1;h2;h3;pre"
-
         toolbarGroups:
             - { name: styles, groups: [ format, styles ] }
             - { name: basicstyles, groups: [ basicstyles ] }
@@ -38,6 +36,8 @@ editor:
             - { name: insert, groups: [ insert ] }
             - { name: tools, groups: [ table, specialchar ] }
             - { name: document, groups: [ mode ] }
+
+        format_tags: "p;h1;h2;h3;h4;h5;pre"
 
         justifyClasses:
             - text-left
