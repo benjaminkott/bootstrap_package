@@ -64,7 +64,7 @@ lib.parseFunc {
 lib.parseFunc_RTE < lib.parseFunc
 lib.parseFunc_RTE {
     externalBlocks := addToList(article, aside, blockquote, div, dd, dl, footer)
-    externalBlocks := addToList(header, nav, ol, section, table, ul)
+    externalBlocks := addToList(header, nav, ol, section, table, ul, pre)
     externalBlocks {
         ol {
             stripNL = 1
@@ -96,6 +96,9 @@ lib.parseFunc_RTE {
                     }
                 }
             }
+        }
+        pre {
+            stripNL = 1
         }
         div {
             stripNL = 1
