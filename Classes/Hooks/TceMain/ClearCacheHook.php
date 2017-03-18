@@ -45,7 +45,7 @@ class ClearCacheHook
         switch ($params['cacheCmd']) {
             case 'all':
                 GeneralUtility::rmdir(
-                    PATH_site . 'typo3temp/bootstrappackage',
+                    PATH_site . 'typo3temp/assets/bootstrappackage',
                     true
                 );
                 break;
