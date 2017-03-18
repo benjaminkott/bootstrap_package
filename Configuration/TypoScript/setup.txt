@@ -548,9 +548,6 @@ config {
     tx_realurl_enable = 1
     simulateStaticDocuments = 0
 
-    // Disable Image Upscaling
-    noScaleUp = 1
-
     // Language Settings
     sys_language_uid = 0
     sys_language_overlay = 1
