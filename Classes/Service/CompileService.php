@@ -70,7 +70,7 @@ class CompileService
     /**
      * @var string
      */
-    protected $tempDirectoryRelativeToRoot = '../../';
+    protected $tempDirectoryRelativeToRoot = '../../../';
 
     /**
      * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
