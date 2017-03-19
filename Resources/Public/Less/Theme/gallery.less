@@ -1,0 +1,39 @@
+//
+// Gallery
+// --------------------------------------------------
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    &:last-child {
+        margin-bottom: -1em;
+    }
+}
+.gallery-item {
+    float: none;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+
+//
+// Figures
+// --------------------------------------------------
+figure {
+    display: block;
+    margin-bottom: 1em;
+    line-height: @line-height-base;
+    > img,
+    a > img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .caption {
+        padding-top: 0.5em;
+        font-size: 0.85em;
+        line-height: 1.4em;
+    }
+}

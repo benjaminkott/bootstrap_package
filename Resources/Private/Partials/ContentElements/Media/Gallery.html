@@ -29,9 +29,9 @@
         </f:else>
     </f:if>
 
-    <div class="row" data-equalheight="container">
+    <div class="row gallery-row">
         <f:for each="{files}" as="file" iteration="fileIteration">
-            <div class="{imageColumnClass}" data-equalheight="item">
+            <div class="gallery-item {imageColumnClass}">
                 <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
             </div>
         </f:for>

@@ -8177,24 +8177,6 @@ body,
   border-radius: 0;
   margin-bottom: 0;
 }
-.image {
-  display: block;
-  margin-bottom: 24px;
-  line-height: 1.55;
-}
-.image > img,
-.image a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-.image .caption {
-  padding: 9px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-}
 .csc-textpic-caption-c {
   text-align: center;
 }
@@ -8862,6 +8844,37 @@ body,
 }
 .uploads-filesize {
   font-size: 0.75em;
+}
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.gallery-row:last-child {
+  margin-bottom: -1em;
+}
+.gallery-item {
+  float: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+figure {
+  display: block;
+  margin-bottom: 1em;
+  line-height: 1.55;
+}
+figure > img,
+figure a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+figure .caption {
+  padding-top: 0.5em;
+  font-size: 0.85em;
+  line-height: 1.4em;
 }
 body .typo3-feedit-element,
 .htmlarea-content-body .typo3-feedit-element {
