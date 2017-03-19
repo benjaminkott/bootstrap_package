@@ -176,7 +176,11 @@ module.exports = function(grunt) {
                 files: [
                     {
                         cwd: '<%= paths.node %>hammerjs/',
-                        src: 'hammer.min.js',
+                        src: [
+                            'hammer.js',
+                            'hammer.min.js',
+                            'hammer.min.js.map',
+                        ],
                         dest: '<%= paths.js %>Libs/',
                         expand: true
                     }
