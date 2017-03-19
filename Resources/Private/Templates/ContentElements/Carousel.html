@@ -12,12 +12,12 @@
                         <f:switch expression="{item.data.item_type}">
                             <f:case value="header">
                                 <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/Header" arguments="{_all}"/>
+                                    <f:render partial="Carousel/Item/Header" arguments="{_all}" />
                                 </f:link.page>
                             </f:case>
                             <f:case value="textandimage">
                                 <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}"/>
+                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" />
                                 </f:link.page>
                             </f:case>
                             <f:case value="html">{item.data.bodytext->f:format.raw()}</f:case>
@@ -25,8 +25,8 @@
                     </div>
                 </f:for>
             </div>
-            <f:render partial="Carousel/Control/Indicator" arguments="{_all}"/>
-            <f:render partial="Carousel/Control/Control" arguments="{_all}"/>
+            <f:render partial="Carousel/Control/Indicator" arguments="{_all}" />
+            <f:render partial="Carousel/Control/Control" arguments="{_all}" />
         </div>
     </f:if>
 

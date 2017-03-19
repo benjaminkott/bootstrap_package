@@ -5,13 +5,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '10'}"/>
+                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '10'}" />
                     </div>
                     <div class="col-sm-4">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '11'}"/>
+                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '11'}" />
                     </div>
                     <div class="col-sm-4">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '12'}"/>
+                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '12'}" />
                     </div>
                 </div>
             </div>
@@ -20,12 +20,12 @@
             <div class="container">
                 <f:if condition="{settings.meta.enable}">
                     <div class="frame frame-small default meta">
-                        <f:render partial="Navigation/Meta" arguments="{_all}"/>
+                        <f:render partial="Navigation/Meta" arguments="{_all}" />
                     </div>
                 </f:if>
                 <f:if condition="{settings.language.enable}">
                     <div class="frame frame-small default language">
-                        <f:render partial="Navigation/Language" arguments="{_all}"/>
+                        <f:render partial="Navigation/Language" arguments="{_all}" />
                     </div>
                 </f:if>
                 <f:if condition="{settings.copyright.enable}">

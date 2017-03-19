@@ -8,17 +8,17 @@
                     <a id="c{data._LOCALIZED_UID}"></a>
                 </f:if>
                 <f:render section="Before" optional="true">
-                    <f:render partial="DropIn/Before/All" arguments="{_all}"/>
+                    <f:render partial="DropIn/Before/All" arguments="{_all}" />
                 </f:render>
                 <f:render section="Header" optional="true">
-                    <f:render partial="Header/All" arguments="{_all}"/>
+                    <f:render partial="Header/All" arguments="{_all}" />
                 </f:render>
-                <f:render section="Main" optional="true"/>
+                <f:render section="Main" optional="true" />
                 <f:render section="Footer" optional="true">
-                    <f:render partial="Footer/All" arguments="{_all}"/>
+                    <f:render partial="Footer/All" arguments="{_all}" />
                 </f:render>
                 <f:render section="After" optional="true">
-                    <f:render partial="DropIn/After/All" arguments="{_all}"/>
+                    <f:render partial="DropIn/After/All" arguments="{_all}" />
                 </f:render>
             </div>
 
@@ -33,17 +33,17 @@
                 <div class="frame-space-before-{data.space_before_class}"></div>
             </f:if>
             <f:render section="Before" optional="true">
-                <f:render partial="DropIn/Before/All" arguments="{_all}"/>
+                <f:render partial="DropIn/Before/All" arguments="{_all}" />
             </f:render>
             <f:render section="Header" optional="true">
-                <f:render partial="Header/All" arguments="{_all}"/>
+                <f:render partial="Header/All" arguments="{_all}" />
             </f:render>
-            <f:render section="Main" optional="true"/>
+            <f:render section="Main" optional="true" />
             <f:render section="Footer" optional="true">
-                <f:render partial="Footer/All" arguments="{_all}"/>
+                <f:render partial="Footer/All" arguments="{_all}" />
             </f:render>
             <f:render section="After" optional="true">
-                <f:render partial="DropIn/After/All" arguments="{_all}"/>
+                <f:render partial="DropIn/After/All" arguments="{_all}" />
             </f:render>
             <f:if condition="{data.space_after_class}">
                 <div class="frame-space-after-{data.space_after_class}"></div>
