@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}" data-src="{f:uri.image(image: file)}" data-bigger="{f:uri.image(image: file, maxWidth: 1140)}" data-large="{f:uri.image(image: file, maxWidth: 940)}" data-medium="{f:uri.image(image: file, maxWidth: 720)}" data-small="{f:uri.image(image: file, maxWidth: 320)}" title="{file.title}" alt="{file.alternative}" class="lazyload" data-preload="{f:if(condition: settings.preload.images, then: 'true', else: 'false')}" />
+<img src="{f:uri.image(src: 'EXT:bootstrap_package/Resources/Public/Images/blank.gif')}" data-src="{f:uri.image(image: file)}" data-large="{f:uri.image(image: file, cropVariant: 'default', maxWidth: 1140)}" data-medium="{f:uri.image(image: file, cropVariant: 'medium', maxWidth: 940)}" data-small="{f:uri.image(image: file, cropVariant: 'small', maxWidth: 720)}" data-extrasmall="{f:uri.image(image: file, cropVariant: 'extrasmall', maxWidth: 320)}" title="{file.title}" alt="{file.alternative}" class="lazyload" data-preload="{f:if(condition: settings.preload.images, then: 'true', else: 'false')}" />
 <noscript>
     <img src="{f:uri.image(image: file)}" title="{file.title}" alt="{file.alternative}" />
 </noscript>

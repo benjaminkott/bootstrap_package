@@ -15,19 +15,19 @@
     // ================================
     var viewport;
     var ViewPort = function(options){
-        this.viewportWidth  = 0;
+        this.viewportWidth = 0;
         this.viewportHeight = 0;
-        this.options  = $.extend({}, ViewPort.DEFAULTS, options);
+        this.options = $.extend({}, ViewPort.DEFAULTS, options);
         this.attrib = "src";
         this.update();
     };
 
     ViewPort.DEFAULTS = {
         breakpoints : {
-            0:'small',
-            768: 'medium',
-            992: 'large',
-            1200: 'bigger'
+            0: 'extrasmall',
+            768: 'small',
+            992: 'medium',
+            1200: 'large'
         }
     }
 
@@ -48,8 +48,8 @@
     ViewPort.prototype.update = function(){
         this.viewportH();
         this.viewportW();
-        var attrib  = this.attrib,
-            width   = this.viewportWidth;
+        var attrib = this.attrib,
+            width = this.viewportWidth;
 
         $.each(this.options.breakpoints, function (breakpoint, datakey) {
             if (width >= breakpoint) {
@@ -67,10 +67,10 @@
     // RESPONSIVE IMAGES CLASS DEFINITION
     // ==================================
     var ResponsiveImage = function(element, options) {
-        this.$element	= $(element);
-        this.options	= $.extend({}, ResponsiveImage.DEFAULTS, options);
-        this.attrib 	= "src";
-        this.loaded		= false;
+        this.$element = $(element);
+        this.options = $.extend({}, ResponsiveImage.DEFAULTS, options);
+        this.attrib = "src";
+        this.loaded = false;
         this.checkviewport();
     };
 
@@ -91,10 +91,10 @@
 
     ResponsiveImage.prototype.boundingbox = function() {
         var boundingbox = {},
-            coords    = this.$element[0].getBoundingClientRect(),
+            coords = this.$element[0].getBoundingClientRect(),
             threshold = +this.options.threshold || 0;
-        boundingbox['right']  = coords['right']  + threshold; boundingbox['left'] = coords['left'] - threshold;
-        boundingbox['bottom'] = coords['bottom'] + threshold; boundingbox['top']  = coords['top']  - threshold;
+        boundingbox['right'] = coords['right'] + threshold; boundingbox['left'] = coords['left'] - threshold;
+        boundingbox['bottom'] = coords['bottom'] + threshold; boundingbox['top'] = coords['top'] - threshold;
         return boundingbox;
     };
 
@@ -106,7 +106,7 @@
     ResponsiveImage.prototype.unveil = function(force) {
         if (this.loaded || !force && !this.options.preload && this.options.skip_invisible && this.$element.is(":hidden")) return;
         var inview = force || this.options.preload || this.inviewport();
-        if(inview){
+        if (inview) {
             var source = this.options[this.attrib] || this.options["src"];
             if (source) {
                 this.$element.attr("src", source);
@@ -116,7 +116,7 @@
             }
         }
     };
-    
+
     ResponsiveImage.prototype.print = function() {
         this.unveil(true);
     }
@@ -126,8 +126,8 @@
     function Plugin(option) {
         $lazyload = this;
         return this.each(function() {
-            var $this   = $(this);
-            var data    = $this.data('bk2k.responsiveimage');
+            var $this = $(this);
+            var data = $this.data('bk2k.responsiveimage');
             var options = typeof option === 'object' && option;
 
             if (!data) {
@@ -143,10 +143,8 @@
     };
 
     var old = $.fn.responsiveimages;
-
-    $.fn.responsiveimage				= Plugin;
-    $.fn.responsiveimage.Constructor	= ResponsiveImage;
-
+    $.fn.responsiveimage = Plugin;
+    $.fn.responsiveimage.Constructor = ResponsiveImage;
 
     // RESPONSIVE IMAGES NO CONFLICT
     // =============================
@@ -155,12 +153,10 @@
         return this;
     };
 
-
     // RESPONSIVE IMAGES API
     // =====================
     $(window).on('load.bk2k.responsiveimage', function() {
         $('img.lazyload').responsiveimage();
-
 
         // EVENTS
         // ======

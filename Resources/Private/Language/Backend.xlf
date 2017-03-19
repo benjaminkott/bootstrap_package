@@ -465,6 +465,12 @@
             <trans-unit id="option.circle">
                 <source>Circle</source>
             </trans-unit>
+            <trans-unit id="option.extrasmall">
+                <source>Extra Small</source>
+            </trans-unit>
+            <trans-unit id="option.small">
+                <source>Small</source>
+            </trans-unit>
             <trans-unit id="option.medium">
                 <source>Medium</source>
             </trans-unit>

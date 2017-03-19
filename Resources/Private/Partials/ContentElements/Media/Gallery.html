@@ -5,10 +5,10 @@
         <f:then>
             <f:switch expression="{data.imagecols}">
                 <f:case value="1">
-                    <f:variable name="imageColumnClass">col-md-12</f:variable>
+                    <f:variable name="imageColumnClass">col-xs-12</f:variable>
                 </f:case>
                 <f:case value="2">
-                    <f:variable name="imageColumnClass">col-md-6</f:variable>
+                    <f:variable name="imageColumnClass">col-md-6 col-xs-12</f:variable>
                 </f:case>
                 <f:case value="3">
                     <f:variable name="imageColumnClass">col-md-4 col-sm-4 col-xs-4</f:variable>
@@ -20,16 +20,16 @@
                     <f:variable name="imageColumnClass">col-md-2 col-sm-3 col-xs-4</f:variable>
                 </f:case>
                 <f:defaultCase>
-                    <f:variable name="imageColumnClass">col-md-12</f:variable>
+                    <f:variable name="imageColumnClass">col-xs-12</f:variable>
                 </f:defaultCase>
             </f:switch>
         </f:then>
         <f:else>
-            <f:variable name="imageColumnClass">col-md-12</f:variable>
+            <f:variable name="imageColumnClass">col-xs-12</f:variable>
         </f:else>
     </f:if>
 
-    <div class="row gallery-row">
+    <div class="gallery-row row">
         <f:for each="{files}" as="file" iteration="fileIteration">
             <div class="gallery-item {imageColumnClass}">
                 <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
