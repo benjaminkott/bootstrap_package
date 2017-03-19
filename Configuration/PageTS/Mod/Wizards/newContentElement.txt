@@ -1,16 +1,3 @@
-################
-#### COMMON ####
-################
-mod.wizards.newContentElement.wizardItems {
-    common.show := removeFromList(uploads)
-    common.show := removeFromList(header)
-    common.show := removeFromList(text)
-    common.show := removeFromList(image)
-    common.show := removeFromList(table)
-    common.show := removeFromList(bullets)
-}
-
-
 #####################
 #### INTERACTIVE ####
 #####################
