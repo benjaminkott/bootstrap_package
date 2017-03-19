@@ -154,7 +154,7 @@ return [
     ],
     'columns' => [
         'tt_content' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.tt_content',
             'config' => [
                 'type' => 'select',
@@ -165,7 +165,7 @@ return [
             ],
         ],
         'item_type' => [
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.type',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -197,8 +197,8 @@ return [
             ]
         ],
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -237,7 +237,7 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -245,11 +245,11 @@ return [
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
                     [
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1
                     ],
                     [
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
+                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value',
                         0
                     ]
                 ],
@@ -295,7 +295,7 @@ return [
             ],
         ],
         'header' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header',
             'config' => [
                 'type' => 'input',
@@ -331,7 +331,7 @@ return [
             ],
         ],
         'subheader' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader',
             'config' => [
                 'type' => 'input',
@@ -374,7 +374,7 @@ return [
             ],
         ],
         'image' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image',
@@ -423,7 +423,7 @@ return [
             ),
         ],
         'text_color' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color',
             'config' => [
                 'type' => 'input',
@@ -432,7 +432,7 @@ return [
             ],
         ],
         'background_color' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
             'config' => [
                 'type' => 'input',
@@ -441,7 +441,7 @@ return [
             ],
         ],
         'background_image' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'background_image',
