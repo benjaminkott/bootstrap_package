@@ -104,6 +104,22 @@ mod.wizards.newContentElement.wizardItems {
                 CType = media
             }
         }
+        textpic {
+            iconIdentifier = content-textpic
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_description
+            tt_content_defValues {
+                CType = textpic
+            }
+        }
+        textmedia {
+            iconIdentifier = content-textmedia
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_description
+            tt_content_defValues {
+                CType = textmedia
+            }
+        }
         uploads {
             iconIdentifier = content-special-uploads
             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_title
@@ -117,6 +133,8 @@ mod.wizards.newContentElement.wizardItems {
     media.show := addToList(image)
     media.show := addToList(external_media)
     media.show := addToList(media)
+    media.show := addToList(textpic)
+    media.show := addToList(textmedia)
     media.show := addToList(uploads)
 }
 
@@ -167,6 +185,22 @@ mod.wizards.newContentElement.wizardItems {
                 CType = textteaser
             }
         }
+        textpic {
+            iconIdentifier = content-textpic
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_description
+            tt_content_defValues {
+                CType = textpic
+            }
+        }
+        textmedia {
+            iconIdentifier = content-textmedia
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textMedia_description
+            tt_content_defValues {
+                CType = textmedia
+            }
+        }
         table {
             iconIdentifier = content-table
             title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_table_title
@@ -213,6 +247,8 @@ mod.wizards.newContentElement.wizardItems {
     text.show := addToList(texticon)
     text.show := addToList(textcolumn)
     text.show := addToList(textteaser)
+    text.show := addToList(textpic)
+    text.show := addToList(textmedia)
     text.show := addToList(table)
     text.show := addToList(panel)
     text.show := addToList(quote)
