@@ -125,8 +125,7 @@ return [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
-            ',
-            'canNotCollapse' => 1
+            '
         ],
         'header' => [
             'showitem' => '
@@ -135,21 +134,18 @@ return [
                 --linebreak--,
                 subheader,
                 subheader_layout,
-            ',
-            'canNotCollapse' => 1
+            '
         ],
         'general' => [
             'showitem' => '
                 tt_content,
                 item_type;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType_formlabel,
-            ',
-            'canNotCollapse' => 1
+            '
         ],
         'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item
-            ',
-            'canNotCollapse' => 1
+            '
         ],
     ],
     'columns' => [

@@ -89,7 +89,6 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
  * Register palettes
  */
 $GLOBALS['TCA']['tt_content']['palettes']['external_media'] = [
-    'canNotCollapse' => 1,
     'showitem' => '
         external_media_source, --linebreak--,
         external_media_ratio

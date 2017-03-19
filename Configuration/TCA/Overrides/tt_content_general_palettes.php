@@ -17,7 +17,6 @@ $GLOBALS['TCA']['tt_content']['palettes']['mediablock'] = [
     '
 ];
 $GLOBALS['TCA']['tt_content']['palettes']['header_minimal'] = [
-    'canNotCollapse' => 1,
     'showitem' => '
         header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
         --linebreak--,

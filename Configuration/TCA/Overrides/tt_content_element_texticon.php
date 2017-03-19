@@ -32,7 +32,6 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['texticon'] = 'content
  * Register palettes
  */
 $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_icons'] = [
-    'canNotCollapse' => 1,
     'showitem' => '
         icon_position, icon_type, icon_size, --linebreak--,
         icon_color, icon_background, --linebreak--,

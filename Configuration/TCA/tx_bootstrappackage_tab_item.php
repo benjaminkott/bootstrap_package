@@ -56,20 +56,17 @@ return [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
-            ',
-            'canNotCollapse' => 1
+            '
         ],
         'general' => [
             'showitem' => '
                 tt_content
-            ',
-            'canNotCollapse' => 1
+            '
         ],
         'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item
-            ',
-            'canNotCollapse' => 1
+            '
         ],
     ],
     'columns' => [
