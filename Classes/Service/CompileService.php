@@ -94,6 +94,7 @@ class CompileService
                         'absolute' => $file,
                     ],
                     'options' => [
+                        'compress' => true,
                         'cache_dir' => GeneralUtility::getFileAbsFileName($this->tempDirectory)
                     ],
                     'variables' => [],
