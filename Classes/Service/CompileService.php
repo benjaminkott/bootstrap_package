@@ -104,9 +104,9 @@ class CompileService
                     // Enable source mapping
                     $optionsForSourceMap = [
                         'sourceMap' => true,
-                        'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($this->tempDirectory) . 'bootstrappackage.map',
-                        'sourceMapURL' => $this->tempDirectory . 'bootstrappackage.map',
-                        'sourceMapBasepath' => PATH_site,
+                        'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($this->tempDirectory) . basename($file) . '.map',
+                        'sourceMapURL' => '/' . $this->tempDirectory . basename($file) . '.map',
+                        'sourceMapBasepath' => realpath(PATH_site),
                         'sourceMapRootpath' => '/'
                     ];
                     $arguments['options'] += $optionsForSourceMap;
