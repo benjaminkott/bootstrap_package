@@ -27,5 +27,15 @@ RTE {
                 }
             }
         }
+        tx_bootstrappackage_accordion_item {
+            bodytext {
+                preset = bootstrap
+            }
+        }
+        tx_bootstrappackage_tab_item {
+            bodytext {
+                preset = bootstrap
+            }
+        }
     }
 }
