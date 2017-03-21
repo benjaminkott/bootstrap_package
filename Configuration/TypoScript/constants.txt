@@ -155,13 +155,8 @@ config {
 ###############
 ### FELOGIN ###
 ###############
-plugin.tx_felogin_pi1 {
-    # cat=bootstrap package: advanced/cLogin; type=int+; label= PID of user archive: Enter the page-uid number (PID) of the folder where you keep your fe_users that are supposed to login on this site. This setting is necessary, if login is going to work!
-    storagePid =
-    # cat=bootstrap package: advanced/cLogin; type=; label= Login template: Enter the path for the HTML template to be used
-    templateFile = EXT:bootstrap_package/Resources/Private/Templates/Felogin/FrontendLogin.html
-    # cat=bootstrap package: advanced/cLogin; type=boolean; label=Show permanent login option
-    showPermaLogin = 1
+styles.content.loginform {
+    templateFile = EXT:bootstrap_package/Resources/Private/Templates/FrontendLogin/FrontendLogin.html
 }
 
 #########################

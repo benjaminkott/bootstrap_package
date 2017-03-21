@@ -54,9 +54,7 @@
 [global]
 
 #### FRONTEND LOGIN
-[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('felogin')]
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin.txt">
-[global]
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/FrontendLogin.txt">
 
 #### BOOTSTRAP PACKAGE CONTENT ELEMENT RENDERING
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Accordion.txt">
