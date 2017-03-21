@@ -11,23 +11,6 @@
 #### CONTENT ELEMENT RENDERING                           ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
-tt_content >
-tt_content = CASE
-tt_content {
-    key {
-        field = CType
-    }
-    stdWrap {
-		editPanel = 1
-		editPanel {
-			allow = move, new, edit, hide, delete
-			label = %s
-			onlyCurrentPid = 1
-			previewBorder = 1
-			edit.displayRecord = 1
-		}
-	}
-}
 
 #### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Audio.txt">
