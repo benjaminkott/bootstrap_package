@@ -15,7 +15,7 @@
                 <li><strong><f:translate key="result.modified" /></strong> <f:format.date>@{row.modified}</f:format.date></li>
                 <li><strong><f:translate key="result.path" /></strong> <f:format.raw>{row.path}</f:format.raw></li>
             </ul>
-	</f:if>
+        </f:if>
         <f:if condition="{row.subresults}">
             <f:for each="{row.subresults.items}" as="subrow">
                 <f:render partial="Searchresult" arguments="{row: subrow}" />
