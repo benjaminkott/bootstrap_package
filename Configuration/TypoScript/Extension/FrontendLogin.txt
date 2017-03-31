@@ -19,5 +19,4 @@
         changePasswordMessage_stdWrap.wrap = <p>|</p>
         changePasswordDoneMessage_stdWrap.wrap = <p class="text-success">|</p>
     }
-    tt_content.login =< lib.contentElement
 [global]
