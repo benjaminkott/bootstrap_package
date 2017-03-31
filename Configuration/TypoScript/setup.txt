@@ -496,6 +496,8 @@ config {
     absRefPrefix = auto
     no_cache = {$config.no_cache}
     pageTitleFirst = 1
+    pageTitleSeparator = -
+    pageTitleSeparator.noTrimWrap = | | |
     linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
     doctype = html5
