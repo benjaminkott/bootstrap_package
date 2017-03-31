@@ -122,12 +122,6 @@ page {
         }
     }
 
-    5 < styles.content.editPanelPage
-    5 {
-        stdWrap.wrap = <div class="typo3-feedit-page">|</div>
-        stdWrap.required = 1
-    }
-
     10 = FLUIDTEMPLATE
     10 {
         templateName = TEXT
@@ -504,18 +498,11 @@ config {
     pageTitleFirst = 1
     linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
-    renderCharset = utf-8
-    metaCharset = utf-8
     doctype = html5
     removeDefaultJS = {$config.removeDefaultJS}
-    inlineStyle2TempFile = 1
     admPanel = {$config.admPanel}
     debug = 0
-    cache_period = 86400
     sendCacheHeaders = {$config.sendCacheHeaders}
-    intTarget =
-    extTarget =
-    disablePrefixComment = 1
     index_enable = 1
     index_externals = 1
     index_metatags = 1
@@ -523,7 +510,6 @@ config {
 
     // Enable RealUrl
     tx_realurl_enable = 1
-    simulateStaticDocuments = 0
 
     // Language Settings
     sys_language_uid = 0
