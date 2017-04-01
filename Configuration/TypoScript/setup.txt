@@ -60,9 +60,6 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuThumbnailDir.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuThumbnailList.txt">
 
-#### NO RENDERING DEFINITION
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Default.txt">
-
 
 ###################################
 #### BOOSTRAP PACKAGE SETTINGS ####
