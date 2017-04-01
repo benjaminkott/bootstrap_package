@@ -80,7 +80,6 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     ]
                 ],
                 'behaviour' => [
-                    'localizationMode' => 'select',
                     'mode' => 'select',
                     'localizeChildrenAtParentLocalization' => true,
                 ]

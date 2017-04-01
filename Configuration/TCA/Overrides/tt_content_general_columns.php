@@ -42,7 +42,6 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = 
             ]
         ],
         'behaviour' => [
-            'localizationMode' => 'select',
             'mode' => 'select',
             'localizeChildrenAtParentLocalization' => true,
         ]
