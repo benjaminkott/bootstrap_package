@@ -64,10 +64,14 @@ $GLOBALS['TCA']['tt_content']['types']['audio'] = array_replace_recursive(
                             ]
                         ]
                     ],
-                    'foreign_selector_fieldTcaOverride' => [
-                        'config' => [
-                            'appearance' => [
-                                'elementBrowserAllowed' => 'mp3'
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'uid_local' => [
+                                'config' => [
+                                    'appearance' => [
+                                        'elementBrowserAllowed' => 'mp3'
+                                    ]
+                                ]
                             ]
                         ]
                     ]
