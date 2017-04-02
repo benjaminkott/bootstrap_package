@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['quote'] = 'content-qu
         'quote',
         'content-quote'
     ],
-    'header',
+    'panel',
     'after'
 );
 

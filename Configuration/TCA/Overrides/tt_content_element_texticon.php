@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
         'texticon',
         'content-bootstrappackage-texticon'
     ],
-    'bootstrap_package_tab',
+    'tab',
     'after'
 );
 

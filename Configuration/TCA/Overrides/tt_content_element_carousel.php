@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
         'carousel',
         'content-bootstrappackage-carousel'
     ],
-    'bootstrap_package_accordion',
+    'audio',
     'after'
 );
 

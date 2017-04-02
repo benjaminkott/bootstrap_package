@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
         'audio',
         'content-audio'
     ],
-    'image',
+    'accordion',
     'after'
 );
 

@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
         'external_media',
         'content-bootstrappackage-externalmedia'
     ],
-    'bootstrap_package_carousel',
+    'carousel',
     'after'
 );
 

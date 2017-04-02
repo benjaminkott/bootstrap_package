@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
         'tab',
         'content-bootstrappackage-tab'
     ],
-    'bootstrap_package_panel',
+    'quote',
     'after'
 );
 

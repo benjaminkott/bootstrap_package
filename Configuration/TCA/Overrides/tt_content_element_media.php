@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['media'] = 'mimetypes-
         'media',
         'mimetypes-x-content-multimedia'
     ],
-    'image',
+    'listgroup',
     'after'
 );
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['media'])) {

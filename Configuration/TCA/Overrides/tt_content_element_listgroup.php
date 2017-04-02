@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
         'listgroup',
         'content-bootstrappackage-listgroup'
     ],
-    'bootstrap_package_external_media',
+    'external_media',
     'after'
 );
 

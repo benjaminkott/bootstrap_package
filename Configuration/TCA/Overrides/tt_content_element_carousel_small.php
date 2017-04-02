@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
         'carousel_small',
         'content-bootstrappackage-carousel'
     ],
-    'bootstrap_package_accordion',
+    'carousel_fullscreen',
     'after'
 );
 

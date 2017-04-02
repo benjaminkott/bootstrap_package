@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textcolumn'] = 'conte
         'textcolumn',
         'content-text-columns'
     ],
-    'text',
+    'tab',
     'after'
 );
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {

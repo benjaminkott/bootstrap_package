@@ -19,7 +19,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
         'menu_thumbnail_dir',
         'content-menu-thumbnail'
     ],
-    'menu_sitemap_pages',
+    'media',
     'after'
 );
 
