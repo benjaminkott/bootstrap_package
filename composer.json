@@ -26,8 +26,8 @@
   },
   "require": {
     "php": ">=5.5.0",
-    "typo3/cms-core": "^8.6.0",
-    "typo3/cms-rte-ckeditor": "^8.6.0"
+    "typo3/cms-core": "^8.7.0",
+    "typo3/cms-rte-ckeditor": "^8.7.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*",
