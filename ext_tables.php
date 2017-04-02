@@ -121,14 +121,6 @@ $iconRegistry->registerIcon(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_tab_item');
 
 /***************
- * Remove new content element wizard registration for indexed_search
- * to override it and use the the extbase version instead
- */
-if (TYPO3_MODE === 'BE' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')) {
-    unset($GLOBALS['TBE_MODULES_EXT']['xMOD_db_new_content_el']['addElClasses']['tx_indexed_search_pi_wizicon']);
-}
-
-/***************
  * Reset extConf array to avoid errors
  */
 if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
