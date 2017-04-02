@@ -13,7 +13,7 @@ via TypoScript. This includes the TypoScript Constant Editor.
 Minimal Dependencies
 ====================
 
-* TYPO3 CMS 7.6 or greater
+* TYPO3 CMS 8.7 or greater
 
 Quick Install Guide
 ===================
@@ -21,10 +21,12 @@ Quick Install Guide
 Disable default content rendering extensions
 --------------------------------------------
 
-Both TYPO3 core rendering definitions are confliction each other in minor things,
-to avoid this conflicts the bootstrap_package takes full control of the content
-rendering and supports both cTypes from csc and fsc. To get the best results,
-please disable following extensions.
+You do not need to have Fluid Styled Content or CSS Styled Content installed, we
+have currently marked both extensions as conflicting to avoid missconfiguration.
+
+If you really know what you are doing, it is save to use core content rendering
+definitions alongside with the Bootstrap Package. But please be aware that we are
+adding more content elements that are not supported from those extensions.
 
 * css_styled_content
 * fluid_styled_content

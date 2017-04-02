@@ -12,10 +12,6 @@ TypoScript
 Bootstrap Package was built to be as adjustable as possible, so nothing is fixed and everything can be overridden with TypoScript constants.
 The constants are grouped in basic and advanced settings. Use the **TYPO3 Constant Editor** in the backend to modify the values.
 
-.. figure:: ../../Images/Configuration/TypoScriptConstantEditor.jpg
-	:width: 500px
-	:alt: TypoScript Constant Editor
-
 
 Bootstrap Package: Basic Constants
 ==================================
