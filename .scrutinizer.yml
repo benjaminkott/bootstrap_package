@@ -4,7 +4,7 @@ build:
         php: 7.0.6
     dependencies:
         before:
-            - 'composer require --dev --prefer-source typo3/cms="^8.6.0"'
+            - 'composer require --dev --prefer-source typo3/cms="^8.7.0"'
 
 checks:
     php:
