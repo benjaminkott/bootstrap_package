@@ -6956,6 +6956,13 @@ button.close {
   color: #fff;
   background-color: #ff8700;
 }
+.section-primary a {
+  color: #fff;
+}
+.section-primary a:focus,
+.section-primary a:hover {
+  color: #d9d9d9;
+}
 .section-primary + .section-primary {
   border-top: 1px solid #e67a00;
 }
@@ -6963,12 +6970,26 @@ button.close {
   color: #333;
   background-color: #f2f2f2;
 }
+.section-light a {
+  color: #ff8700;
+}
+.section-light a:focus,
+.section-light a:hover {
+  color: #b35f00;
+}
 .section-light + .section-light {
   border-top: 1px solid #e5e5e5;
 }
 .section-dark {
   color: #fff;
   background-color: #333;
+}
+.section-dark a {
+  color: #ff8700;
+}
+.section-dark a:focus,
+.section-dark a:hover {
+  color: #b35f00;
 }
 .section-dark + .section-dark {
   border-top: 1px solid #262626;
