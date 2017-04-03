@@ -6956,11 +6956,11 @@ button.close {
   color: #fff;
   background-color: #ff8700;
 }
-.section-primary a {
+.section-primary a:not(.btn) {
   color: #fff;
 }
-.section-primary a:focus,
-.section-primary a:hover {
+.section-primary a:not(.btn):focus,
+.section-primary a:not(.btn):hover {
   color: #d9d9d9;
 }
 .section-primary + .section-primary {
@@ -6970,11 +6970,11 @@ button.close {
   color: #333;
   background-color: #f2f2f2;
 }
-.section-light a {
+.section-light a:not(.btn) {
   color: #ff8700;
 }
-.section-light a:focus,
-.section-light a:hover {
+.section-light a:not(.btn):focus,
+.section-light a:not(.btn):hover {
   color: #b35f00;
 }
 .section-light + .section-light {
@@ -6984,11 +6984,11 @@ button.close {
   color: #fff;
   background-color: #333;
 }
-.section-dark a {
+.section-dark a:not(.btn) {
   color: #ff8700;
 }
-.section-dark a:focus,
-.section-dark a:hover {
+.section-dark a:not(.btn):focus,
+.section-dark a:not(.btn):hover {
   color: #b35f00;
 }
 .section-dark + .section-dark {
