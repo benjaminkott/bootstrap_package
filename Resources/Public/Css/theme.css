@@ -7762,6 +7762,7 @@ fieldset[disabled] .btn-danger.focus {
   margin-left: 5px;
 }
 .caption {
+  word-break: break-all;
   color: #777777;
 }
 body,
