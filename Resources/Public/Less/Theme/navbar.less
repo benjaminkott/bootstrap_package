@@ -16,10 +16,22 @@
 //
 .navbar-brand {
     > .navbar-brand-logo-normal {
-        display: inline-block;
+        display: block;
     }
     > .navbar-brand-logo-inverted {
         display: none;
+    }
+}
+@media (min-width: @grid-float-breakpoint) {
+    .navbar-brand-image {
+        position: relative;
+        > img {
+            position: relative;
+            top: 50%;
+            transform: translate(0,-50%);
+            max-height: 65%;
+            width: auto;
+        }
     }
 }
 
@@ -55,7 +67,7 @@
                 display: none;
             }
             > .navbar-brand-logo-inverted {
-                display: inline-block;
+                display: block;
             }
         }
     }
@@ -68,7 +80,7 @@
         }
         .navbar-brand {
             > .navbar-brand-logo-normal {
-                display: inline-block;
+                display: block;
             }
             > .navbar-brand-logo-inverted {
                 display: none;
