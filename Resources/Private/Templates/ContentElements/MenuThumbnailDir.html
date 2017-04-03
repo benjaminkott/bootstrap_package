@@ -9,16 +9,16 @@
                 <f:if condition="{page.files.0}">
                     <f:if condition="{page.files.0.type} == 2">
 
-                        <a href="{page.link}" target="{page.target}" title="{page.title}" class="thumbnail-menu-item" data-toggle="tooltip">
+                        <a href="{page.link}" target="{page.target}" style="max-width: {settings.menuthumbnail.media.width as integer}px" title="{page.title}" class="thumbnail-menu-item" data-toggle="tooltip">
                             <div class="thumbnail-menu-image">
-                                <f:media file="{page.files.0}" width="{settings.menu_thumbnail.media.width}" height="{settings.menu_thumbnail.media.height}" />
+                                <f:media file="{page.files.0}" width="{settings.menuthumbnail.media.width}" height="{settings.menuthumbnail.media.height}" />
                             </div>
                             <div class="thumbnail-menu-caption">
                                 <f:if condition="{page.data.title}">
-                                    <h3 class="thumbnail-menu-caption-title"><f:format.crop maxCharacters="{settings.menu_thumbnail.title.crop}">{page.data.title}</f:format.crop></h3>
+                                    <h3 class="thumbnail-menu-caption-title"><f:format.crop maxCharacters="{settings.menuthumbnail.title.crop}">{page.data.title}</f:format.crop></h3>
                                 </f:if>
-                                <f:if condition="{page.data.abstract}">
-                                    <p class="thumbnail-menu-caption-abstract"><f:format.crop maxCharacters="{settings.menu_thumbnail.abstract.crop}">{page.data.abstract}</f:format.crop></p>
+                                <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} > 300">
+                                    <p class="thumbnail-menu-caption-abstract"><f:format.crop maxCharacters="{settings.menuthumbnail.abstract.crop}">{page.data.abstract}</f:format.crop></p>
                                 </f:if>
                             </div>
                         </a>

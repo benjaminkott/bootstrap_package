@@ -8894,12 +8894,15 @@ body,
 }
 .thumbnail-menu-caption {
   text-align: center;
-  font-size: 0.8em;
   color: #333333;
   padding: 1em;
 }
+.thumbnail-menu-caption-title {
+  font-size: 1.2em;
+}
 .thumbnail-menu-caption-abstract {
   display: none;
+  font-size: 0.8em;
 }
 @media (min-width: 600px) {
   .thumbnail-menu {
@@ -8908,7 +8911,6 @@ body,
   }
   .thumbnail-menu-item {
     padding: 10px;
-    width: 33.33%;
   }
   .thumbnail-menu-caption-abstract {
     display: block;

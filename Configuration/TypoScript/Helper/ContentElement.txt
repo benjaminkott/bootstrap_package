@@ -42,7 +42,7 @@ lib.contentElement {
                 width = {$plugin.bootstrap_package_contentelements.accordion.media.width}
             }
         }
-        menu_thumbnail {
+        menuthumbnail {
             media {
                 height = {$plugin.bootstrap_package_contentelements.menu_thumbnail.media.height}
                 width = {$plugin.bootstrap_package_contentelements.menu_thumbnail.media.width}
