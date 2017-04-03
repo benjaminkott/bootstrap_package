@@ -8306,6 +8306,10 @@ body,
     background-image: none;
   }
 }
+.carousel .carousel-indicators li {
+  margin-left: 3px;
+  margin-right: 3px;
+}
 .carousel .carousel-control,
 .carousel .carousel-indicators {
   -webkit-transition: opacity 0.4s ease-in-out 0s;
