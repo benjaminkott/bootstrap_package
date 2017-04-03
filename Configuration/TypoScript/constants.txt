@@ -27,9 +27,9 @@
 page {
     logo {
         # cat=bootstrap package: basic/110/100; type=string; label=Logo: Leave blank to use website title from template instead
-        file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.png
+        file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.svg
         # cat=bootstrap package: basic/110/110; type=string; label=Logo Inverted: Leave blank to use website title from template instead
-        fileInverted = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.png
+        fileInverted = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg
         # cat=bootstrap package: basic/110/120; type=int+; label=Height: The image will not be resized!
         height = 52
         # cat=bootstrap package: basic/110/130; type=int+; label=Width: The image will not be resized!
