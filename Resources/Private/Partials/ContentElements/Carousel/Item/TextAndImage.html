@@ -9,24 +9,12 @@
     </div>
     <div class="carousel-image vcontainer">
         <f:if condition="{item.images.0}">
-            <f:if condition="{data.layout} == 110">
-                <f:then>
-                    <f:image
-                        image="{item.images.0}"
-                        title="{item.images.0.title}"
-                        alt="{item.images.0.alternative}"
-                        width="400"
-                        height="400c" />
-                </f:then>
-                <f:else>
-                    <f:image
-                        image="{item.images.0}"
-                        title="{item.images.0.title}"
-                        alt="{item.images.0.alternative}"
-                        width="600"
-                        height="600c" />
-                </f:else>
-            </f:if>
+            <f:image
+                image="{item.images.0}"
+                title="{item.images.0.title}"
+                alt="{item.images.0.alternative}"
+                width="600"
+                height="600m" />
         </f:if>
     </div>
 </div>
