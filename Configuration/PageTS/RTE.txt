@@ -24,6 +24,9 @@ RTE {
                     textteaser {
                         preset = bootstrap
                     }
+                    panel {
+                        preset = bootstrap
+                    }
                 }
             }
         }
