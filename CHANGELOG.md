@@ -1,7 +1,189 @@
+# 8.0.0
+
+## RELEASE
+- [RELEASE] Release of 8.0.0
+
+## BREAKING
+- [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead e33f0ed
+
+## FEATURE
+- [FEATURE] Enable compression of generated css files 4b39a41
+- [FEATURE] Add bootstrap responsive wrapper to table ce - fixes #385 caac09a
+- [FEATURE] Add art direction for image, media, textpic and textmedia efde1cb
+
+## TASK
+- [TASK] Force captions to break d1594b6
+- [TASK] Make thumbnail menu more flexible a122f48
+- [TASK] Apply more flexible style on thumbnail menus 7fd49b6
+- [TASK] Remove cropping from text an image carousel item 0fd7121
+- [TASK] Add missing rte configuration for content element panel 7431a08
+- [TASK] Optimize brand placement 4c3209f
+- [TASK] Use SVGs files instead of png for logos in frontend 2dd177b
+- [TASK] Raise TYPO3 dependency in scrutinizer config c751d36
+- [TASK] Remove obsolete adjustments for indexed search 13837b0
+- [TASK] Update missleading informations 54b46e5
+- [TASK] Raise TYPO3 Version requirement to 8.7 LTS 7ff8f0d
+- [TASK] Migrate foreign selector to override child tca 65315cd
+- [TASK] Remove default rendering fallback, core provides information already 215fb15
+- [TASK] Remove deprecated localizationMode from TCA d761f7d
+- [TASK] Use new form framework instead of old mailform element d0d5ef4
+- [TASK] Change seperator of page title 2d28eee
+- [TASK] Remove obsolete typoscript configuration 760f7eb
+- [TASK] Adapt generic fluid template to match requirements for plugins 960d40f
+- [TASK] Remove obsolete assignment for felogin 17071d4
+- [TASK] Adapt childtca override config for cropping variants f50b57f
+- [TASK] Adapt indexed search to CMS8 c9ce1dd
+- [TASK] Remove obsolete login template 0ed6705
+- [TASK] Adapt frontend login to CMS8 75ea29e
+- [TASK] Add generic template for general usage d55863b
+- [TASK] Remove obsolete tt_content typoscript configuration c3b01a9
+- [TASK] Add rte configuration for tabs and accordions b84a29d
+- [TASK] Restore typical content elements panel 5b5fca0
+- [TASK] Add textpic and textmedia to content element wizard media and text 7672bfd
+- [TASK] Add ckeditor as dependency - fixes #431 ad73b38
+- [TASK] Adapt php-cs-fixer configuration 47410a8
+- [TASK] Remove obsolete canNotCollapse attribute 6547a49
+- [TASK] Resolve deprecation for general language file d83b10e
+- [TASK] Optimize gallery rendering to use flexbox for better performance 743782c
+- [TASK] Enhance gallery template 0fc62da
+- [TASK] Honor CMS8 cache convention for processed less files - fixes #371 3e08b28
+- [TASK] Resolve deprecation and use f:defaultCase for default in f:switch 2c635f0
+- [TASK] Remove deprecated TypoScript property config.noScaleUp 60dd67f
+- [TASK] Enable accessibility options to bypass navigation content elements 18e4d89
+- [TASK] Streamline blockquote RTE rendering b76d355
+- [TASK] Enable RTE h4 and h5 format tags 69fa832
+- [TASK] Add table RTE configuration 043ef72
+- [TASK] Add basic RTE styling aae5594
+- [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead e33f0ed
+- [TASK] Add html tag with namespace definitions to fluid tempaltes 09d97ef
+- [TASK] Streamline carousel content element 85d2dbf
+- [TASK] Streamline accordion content element 3b310f4
+- [TASK] Remove type from content element configuration comment 0ea9263
+- [TASK] Streamline tab content element 33dc2ff
+- [TASK] Move bullets content element in wizard to text a4686fe
+- [TASK] Streamline bullet content element with fsc a0b94c4
+- [TASK] Move table content element to text tab in wizard 53a574e
+- [TASK] Streamline external media element key d239414
+- [TASK] Streamline listgroup rendering ed8c8e7
+- [TASK] Move image content element in wizard to media tab 3a73d61
+- [TASK] Move default content elements in wizard to dedicated tabs 4c08672
+- [TASK] Remove header palette override dd81e21
+- [TASK] Streamline uploads content element with fluid_styled_content 9e9b6c8
+- [TASK] Use more simple ctype for text and icon content element caec788
+- [TASK] Adapt panel element for CMS8 d0ce21a
+- [TASK] Move texticon to text palette in content element wizard d277dea
+- [TASK] Streamline default, div, header, and html templates e75c292
+- [TASK] Streamline quote definition and rendering ab971f6
+- [TASK] Remove obsolete thumbnail icon since its now available in core iconset 5d5cddd
+- [TASK] Remove obsolete textmedia icon 11fb8ef
+- [TASK] Remove obsolete textteaser icon since its now available in core iconset 105c690
+- [TASK] Streamline tabecolumn rendering f2dedfa
+- [TASK] Streamline textteaser definition and rendering 6eea954
+- [TASK] Add html tag with fluid namespace to text template 079f7bb
+- [TASK] Add html tag with fluid namespace to shortcut template 7b30786
+- [TASK] Convert new lines to break for captions c79fed5
+- [TASK] Adapt media gallery from fluid_styled_content 80901d1
+- [TASK] Adapt media element for CMS8 6952b1e
+- [TASK] Move external media content element to media group 1fb86cf
+- [TASK] Move audio content element to new media group 7a6e603
+- [TASK] Set default header to h2 1c8eb6a
+- [TASK] Enforce linux lf for xml files ec2a31d
+- [TASK] Update default .htaccess 5445e4b
+- [TASK] Remove RTE HtmlArea config e0d1f40
+- [TASK] Minor cleanups 7dfee8f
+- [TASK] Streamline table rendering with fluid_styled_content 0de50f8
+- [TASK] Remove indexed search from new content element wizard 1d92fe4
+- [TASK] Cleanup new content element wizard configuration 12a9269
+- [TASK] Move thumbnail menus to menu tab in content element wizard c36fb42
+- [TASK] Migrate pages and subpages menus to dedicated content elements 58effa9
+- [TASK] Migrate abstract menu to dedicated content element 4b60262
+- [TASK] Migrate recently updated pages menu to dedicated content element f1ea58a
+- [TASK] Migrate related pages menu to dedicated content element e039988
+- [TASK] Migrate section menus to dedicated content elements 1e6844a
+- [TASK] Migrate sitemap menus to dedicated content elements 0eae502
+- [TASK] Migrate categorized content and pages menus to dedicated menus 043e07e
+- [TASK] Migrate thumbnail menus to dedicated menus fefdc5b
+- [TASK] Remove obsolete fields from sql file 3f6571e
+- [TASK] Remove obsolete tt_content categorizable call 26d12f4
+- [TASK] Remove obsolete bullets content element definition c53d6cb
+- [TASK] Remove obsolete menu content element definition 20206b2
+- [TASK] Remove obsolete table content element definition 708f6d2
+- [TASK] Remove obsolete uploads content element definition ecebab1
+- [TASK] Remove obsolete textmedia content element definition 02e0101
+- [TASK] Remove admin panel pagets configuration 68f62f5
+- [TASK] Remove obsolete mailform content element definition 5f9a4f1
+- [TASK] Remove obsolete shortcut content element definition b074243
+- [TASK] Remove obsolete html content element definition e655ea3
+- [TASK] Remove obsolete list content element definition 7e4ae2f
+- [TASK] Remove obsolete div content element definition 9d536a3
+- [TASK] Remove obsolete tceform corrections a5a3eb0
+- [TASK] Remove obsolete image content element definition 2efd5fd
+- [TASK] Remove obsolete imageorient definition c0bd8fc
+- [TASK] Remove obsolete textpic content element definition 792f857
+- [TASK] Remove obsolete text content element definition aa88469
+- [TASK] Remove obsolete header content element definition bf467eb
+- [TASK] Remove obsolete header_position 355afcd
+- [TASK] Adapt texticon element for CMS 8 97cba7d
+- [TASK] Adapt tab element for CMS 8 1fd6e96
+- [TASK] Adapt panel element for CMS 8 a11094b
+- [TASK] Adapt carousel element for CMS 8 e2b8679
+- [TASK] Adapt accordion element for CMS 8 9cc5d98
+- [TASK] Adapt audio element for CMS 8 4eb7fa6
+- [TASK] Adapt externalmedia element for CMS 8 dfcd4d2
+- [TASK] Adapt listgroup element for CMS 8 b3d4909
+- [TASK] Streamline content element definitions and apply new header 2443f84
+- [TASK] Add fallback to header section and remove overrides e383d97
+- [TASK] Update loginscreen and extension configuration experience d7d72d0
+- [TASK] Enable appearanceLinks palette for all content elements and add footer 872afa4
+- [TASK] Mark default content element layout sections as optional 2299ebe
+- [TASK] Adapt DropIn's from Fluid Styled Content 682c36f
+- [TASK] Migrate sectionframe to frame class, enable spacebefore and after 1b0d852
+- [TASK] Hide accordion-, carousel- and tabitems after copy 607de8f
+- [TASK] Migrate requestUpdate to onChange 12dd043
+- [TASK] Migrate showIconTable to selectIcons configuration 5055e31
+- [TASK] Migrate colorChoice wizard to render type colorpicker 0584b7f
+- [TASK] Migrate TCA field quote_link and link inputLink 92cd67d
+- [TASK] Set versioningWS to true 5d0d01f
+- [TASK] Remove unused TCA control setting versioning_followPages 2f8cafb
+- [TASK] Migrate TCA field bodytext to match new wizards c143815
+- [TASK] Migrate TCA fields starttime and endtime to inputDateTime 35135f5
+
+## BUGFIX
+- [BUGFIX] Adapt thumbnail list template 8542900
+- [BUGFIX] Remove all typolinks from backend preview of quote element 12946cd
+- [BUGFIX] Remove typolink from backend preview of quote element 2306885
+- [BUGFIX] Add missing data prefix for lightbox caption 179e73f
+- [BUGFIX] Set lightbox caption 6a8037d
+- [BUGFIX] Add missing compiled css c59d57d
+- [BUGFIX] Correct font size for text and image carousel item 14150c0
+- [BUGFIX] Add missing support for subheader on carousel text and image 50256da
+- [BUGFIX] Exclude buttons from section link styling c25bfe9
+- [BUGFIX] Add missing link colors to sections d6237f3
+- [BUGFIX] Use correct external media palette e339b4c
+- [BUGFIX] Correct spacing between carousel indicators ee95762
+- [BUGFIX] Correct sorting in content element type select 7e909ea
+- [BUGFIX] Correct resolving of less sourcemaps - fixes #413 49318ce
+- [BUGFIX] Set default language value for custom records 571192e
+- [BUGFIX] Add hammer.js mapping files for debugging - fixes #396 99fbf8f
+- [BUGFIX] Resolve deprecation for language file usage 5d7521c
+- [BUGFIX] Remove focus after clicking on scroll-top link - fixes #432 f9b5e59
+- [BUGFIX] Add missing html tags and streamline selfclosing tags eaa579f
+- [BUGFIX] Correct hook to clear less caches e890dc8
+- [BUGFIX] Correct relative path for less processing 324e83f
+- [BUGFIX] Ensure correct preformatted text rendering a4f0a2a
+- [BUGFIX] Correct TCA for parent record in accordion and tab item b3ca827
+- [BUGFIX] Correct spelling of temp folder f05fc55
+- [BUGFIX] Add type to linkVars language parameter 0f0e61b
+- [REVERT][BUGFIX] Remove tools from scrutinizer config but disable analyzer a49c399
+- [BUGFIX] Remove tools from scrutinizer config b74c7d0
+- [BUGFIX] Set TYPO3 version for scrutinizer build 4d0453f
+- [BUGFIX] Require typo3/cms for scrutinizer build fa4c278
+- [BUGFIX] Restore location of well and jumbotron in frame class a65475e
+
 # 7.1.0
 
 ## RELEASE
-- [RELEASE] Release of 7.1.0
+- [RELEASE] Release of 7.1.0 fe9f029
 
 ## BREAKING
 - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356 d2b23d1

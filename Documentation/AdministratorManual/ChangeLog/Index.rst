@@ -20,6 +20,177 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.0      | - [RELEASE] Release of 8.0.0                                                                                                                                               |
+|            | - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead                                                                                                        |
+|            | - [FEATURE] Enable compression of generated css files                                                                                                                      |
+|            | - [FEATURE] Add bootstrap responsive wrapper to table ce - fixes #385                                                                                                      |
+|            | - [FEATURE] Add art direction for image, media, textpic and textmedia                                                                                                      |
+|            | - [TASK] Force captions to break                                                                                                                                           |
+|            | - [TASK] Make thumbnail menu more flexible                                                                                                                                 |
+|            | - [TASK] Apply more flexible style on thumbnail menus                                                                                                                      |
+|            | - [TASK] Remove cropping from text an image carousel item                                                                                                                  |
+|            | - [TASK] Add missing rte configuration for content element panel                                                                                                           |
+|            | - [TASK] Optimize brand placement                                                                                                                                          |
+|            | - [TASK] Use SVGs files instead of png for logos in frontend                                                                                                               |
+|            | - [TASK] Raise TYPO3 dependency in scrutinizer config                                                                                                                      |
+|            | - [TASK] Remove obsolete adjustments for indexed search                                                                                                                    |
+|            | - [TASK] Update missleading informations                                                                                                                                   |
+|            | - [TASK] Raise TYPO3 Version requirement to 8.7 LTS                                                                                                                        |
+|            | - [TASK] Migrate foreign selector to override child tca                                                                                                                    |
+|            | - [TASK] Remove default rendering fallback, core provides information already                                                                                              |
+|            | - [TASK] Remove deprecated localizationMode from TCA                                                                                                                       |
+|            | - [TASK] Use new form framework instead of old mailform element                                                                                                            |
+|            | - [TASK] Change seperator of page title                                                                                                                                    |
+|            | - [TASK] Remove obsolete typoscript configuration                                                                                                                          |
+|            | - [TASK] Adapt generic fluid template to match requirements for plugins                                                                                                    |
+|            | - [TASK] Remove obsolete assignment for felogin                                                                                                                            |
+|            | - [TASK] Adapt childtca override config for cropping variants                                                                                                              |
+|            | - [TASK] Adapt indexed search to CMS8                                                                                                                                      |
+|            | - [TASK] Remove obsolete login template                                                                                                                                    |
+|            | - [TASK] Adapt frontend login to CMS8                                                                                                                                      |
+|            | - [TASK] Add generic template for general usage                                                                                                                            |
+|            | - [TASK] Remove obsolete tt_content typoscript configuration                                                                                                               |
+|            | - [TASK] Add rte configuration for tabs and accordions                                                                                                                     |
+|            | - [TASK] Restore typical content elements panel                                                                                                                            |
+|            | - [TASK] Add textpic and textmedia to content element wizard media and text                                                                                                |
+|            | - [TASK] Add ckeditor as dependency - fixes #431                                                                                                                           |
+|            | - [TASK] Adapt php-cs-fixer configuration                                                                                                                                  |
+|            | - [TASK] Remove obsolete canNotCollapse attribute                                                                                                                          |
+|            | - [TASK] Resolve deprecation for general language file                                                                                                                     |
+|            | - [TASK] Optimize gallery rendering to use flexbox for better performance                                                                                                  |
+|            | - [TASK] Enhance gallery template                                                                                                                                          |
+|            | - [TASK] Honor CMS8 cache convention for processed less files - fixes #371                                                                                                 |
+|            | - [TASK] Resolve deprecation and use f:defaultCase for default in f:switch                                                                                                 |
+|            | - [TASK] Remove deprecated TypoScript property config.noScaleUp                                                                                                            |
+|            | - [TASK] Enable accessibility options to bypass navigation content elements                                                                                                |
+|            | - [TASK] Streamline blockquote RTE rendering                                                                                                                               |
+|            | - [TASK] Enable RTE h4 and h5 format tags                                                                                                                                  |
+|            | - [TASK] Add table RTE configuration                                                                                                                                       |
+|            | - [TASK] Add basic RTE styling                                                                                                                                             |
+|            | - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead                                                                                                        |
+|            | - [TASK] Add html tag with namespace definitions to fluid tempaltes                                                                                                        |
+|            | - [TASK] Streamline carousel content element                                                                                                                               |
+|            | - [TASK] Streamline accordion content element                                                                                                                              |
+|            | - [TASK] Remove type from content element configuration comment                                                                                                            |
+|            | - [TASK] Streamline tab content element                                                                                                                                    |
+|            | - [TASK] Move bullets content element in wizard to text                                                                                                                    |
+|            | - [TASK] Streamline bullet content element with fsc                                                                                                                        |
+|            | - [TASK] Move table content element to text tab in wizard                                                                                                                  |
+|            | - [TASK] Streamline external media element key                                                                                                                             |
+|            | - [TASK] Streamline listgroup rendering                                                                                                                                    |
+|            | - [TASK] Move image content element in wizard to media tab                                                                                                                 |
+|            | - [TASK] Move default content elements in wizard to dedicated tabs                                                                                                         |
+|            | - [TASK] Remove header palette override                                                                                                                                    |
+|            | - [TASK] Streamline uploads content element with fluid_styled_content                                                                                                      |
+|            | - [TASK] Use more simple ctype for text and icon content element                                                                                                           |
+|            | - [TASK] Adapt panel element for CMS8                                                                                                                                      |
+|            | - [TASK] Move texticon to text palette in content element wizard                                                                                                           |
+|            | - [TASK] Streamline default, div, header, and html templates                                                                                                               |
+|            | - [TASK] Streamline quote definition and rendering                                                                                                                         |
+|            | - [TASK] Remove obsolete thumbnail icon since its now available in core iconset                                                                                            |
+|            | - [TASK] Remove obsolete textmedia icon                                                                                                                                    |
+|            | - [TASK] Remove obsolete textteaser icon since its now available in core iconset                                                                                           |
+|            | - [TASK] Streamline tabecolumn rendering                                                                                                                                   |
+|            | - [TASK] Streamline textteaser definition and rendering                                                                                                                    |
+|            | - [TASK] Add html tag with fluid namespace to text template                                                                                                                |
+|            | - [TASK] Add html tag with fluid namespace to shortcut template                                                                                                            |
+|            | - [TASK] Convert new lines to break for captions                                                                                                                           |
+|            | - [TASK] Adapt media gallery from fluid_styled_content                                                                                                                     |
+|            | - [TASK] Adapt media element for CMS8                                                                                                                                      |
+|            | - [TASK] Move external media content element to media group                                                                                                                |
+|            | - [TASK] Move audio content element to new media group                                                                                                                     |
+|            | - [TASK] Set default header to h2                                                                                                                                          |
+|            | - [TASK] Enforce linux lf for xml files                                                                                                                                    |
+|            | - [TASK] Update default .htaccess                                                                                                                                          |
+|            | - [TASK] Remove RTE HtmlArea config                                                                                                                                        |
+|            | - [TASK] Minor cleanups                                                                                                                                                    |
+|            | - [TASK] Streamline table rendering with fluid_styled_content                                                                                                              |
+|            | - [TASK] Remove indexed search from new content element wizard                                                                                                             |
+|            | - [TASK] Cleanup new content element wizard configuration                                                                                                                  |
+|            | - [TASK] Move thumbnail menus to menu tab in content element wizard                                                                                                        |
+|            | - [TASK] Migrate pages and subpages menus to dedicated content elements                                                                                                    |
+|            | - [TASK] Migrate abstract menu to dedicated content element                                                                                                                |
+|            | - [TASK] Migrate recently updated pages menu to dedicated content element                                                                                                  |
+|            | - [TASK] Migrate related pages menu to dedicated content element                                                                                                           |
+|            | - [TASK] Migrate section menus to dedicated content elements                                                                                                               |
+|            | - [TASK] Migrate sitemap menus to dedicated content elements                                                                                                               |
+|            | - [TASK] Migrate categorized content and pages menus to dedicated menus                                                                                                    |
+|            | - [TASK] Migrate thumbnail menus to dedicated menus                                                                                                                        |
+|            | - [TASK] Remove obsolete fields from sql file                                                                                                                              |
+|            | - [TASK] Remove obsolete tt_content categorizable call                                                                                                                     |
+|            | - [TASK] Remove obsolete bullets content element definition                                                                                                                |
+|            | - [TASK] Remove obsolete menu content element definition                                                                                                                   |
+|            | - [TASK] Remove obsolete table content element definition                                                                                                                  |
+|            | - [TASK] Remove obsolete uploads content element definition                                                                                                                |
+|            | - [TASK] Remove obsolete textmedia content element definition                                                                                                              |
+|            | - [TASK] Remove admin panel pagets configuration                                                                                                                           |
+|            | - [TASK] Remove obsolete mailform content element definition                                                                                                               |
+|            | - [TASK] Remove obsolete shortcut content element definition                                                                                                               |
+|            | - [TASK] Remove obsolete html content element definition                                                                                                                   |
+|            | - [TASK] Remove obsolete list content element definition                                                                                                                   |
+|            | - [TASK] Remove obsolete div content element definition                                                                                                                    |
+|            | - [TASK] Remove obsolete tceform corrections                                                                                                                               |
+|            | - [TASK] Remove obsolete image content element definition                                                                                                                  |
+|            | - [TASK] Remove obsolete imageorient definition                                                                                                                            |
+|            | - [TASK] Remove obsolete textpic content element definition                                                                                                                |
+|            | - [TASK] Remove obsolete text content element definition                                                                                                                   |
+|            | - [TASK] Remove obsolete header content element definition                                                                                                                 |
+|            | - [TASK] Remove obsolete header_position                                                                                                                                   |
+|            | - [TASK] Adapt texticon element for CMS 8                                                                                                                                  |
+|            | - [TASK] Adapt tab element for CMS 8                                                                                                                                       |
+|            | - [TASK] Adapt panel element for CMS 8                                                                                                                                     |
+|            | - [TASK] Adapt carousel element for CMS 8                                                                                                                                  |
+|            | - [TASK] Adapt accordion element for CMS 8                                                                                                                                 |
+|            | - [TASK] Adapt audio element for CMS 8                                                                                                                                     |
+|            | - [TASK] Adapt externalmedia element for CMS 8                                                                                                                             |
+|            | - [TASK] Adapt listgroup element for CMS 8                                                                                                                                 |
+|            | - [TASK] Streamline content element definitions and apply new header                                                                                                       |
+|            | - [TASK] Add fallback to header section and remove overrides                                                                                                               |
+|            | - [TASK] Update loginscreen and extension configuration experience                                                                                                         |
+|            | - [TASK] Enable appearanceLinks palette for all content elements and add footer                                                                                            |
+|            | - [TASK] Mark default content element layout sections as optional                                                                                                          |
+|            | - [TASK] Adapt DropIn's from Fluid Styled Content                                                                                                                          |
+|            | - [TASK] Migrate sectionframe to frame class, enable spacebefore and after                                                                                                 |
+|            | - [TASK] Hide accordion-, carousel- and tabitems after copy                                                                                                                |
+|            | - [TASK] Migrate requestUpdate to onChange                                                                                                                                 |
+|            | - [TASK] Migrate showIconTable to selectIcons configuration                                                                                                                |
+|            | - [TASK] Migrate colorChoice wizard to render type colorpicker                                                                                                             |
+|            | - [TASK] Migrate TCA field quote_link and link inputLink                                                                                                                   |
+|            | - [TASK] Set versioningWS to true                                                                                                                                          |
+|            | - [TASK] Remove unused TCA control setting versioning_followPages                                                                                                          |
+|            | - [TASK] Migrate TCA field bodytext to match new wizards                                                                                                                   |
+|            | - [TASK] Migrate TCA fields starttime and endtime to inputDateTime                                                                                                         |
+|            | - [BUGFIX] Adapt thumbnail list template                                                                                                                                   |
+|            | - [BUGFIX] Remove all typolinks from backend preview of quote element                                                                                                      |
+|            | - [BUGFIX] Remove typolink from backend preview of quote element                                                                                                           |
+|            | - [BUGFIX] Add missing data prefix for lightbox caption                                                                                                                    |
+|            | - [BUGFIX] Set lightbox caption                                                                                                                                            |
+|            | - [BUGFIX] Add missing compiled css                                                                                                                                        |
+|            | - [BUGFIX] Correct font size for text and image carousel item                                                                                                              |
+|            | - [BUGFIX] Add missing support for subheader on carousel text and image                                                                                                    |
+|            | - [BUGFIX] Exclude buttons from section link styling                                                                                                                       |
+|            | - [BUGFIX] Add missing link colors to sections                                                                                                                             |
+|            | - [BUGFIX] Use correct external media palette                                                                                                                              |
+|            | - [BUGFIX] Correct spacing between carousel indicators                                                                                                                     |
+|            | - [BUGFIX] Correct sorting in content element type select                                                                                                                  |
+|            | - [BUGFIX] Correct resolving of less sourcemaps - fixes #413                                                                                                               |
+|            | - [BUGFIX] Set default language value for custom records                                                                                                                   |
+|            | - [BUGFIX] Add hammer.js mapping files for debugging - fixes #396                                                                                                          |
+|            | - [BUGFIX] Resolve deprecation for language file usage                                                                                                                     |
+|            | - [BUGFIX] Remove focus after clicking on scroll-top link - fixes #432                                                                                                     |
+|            | - [BUGFIX] Add missing html tags and streamline selfclosing tags                                                                                                           |
+|            | - [BUGFIX] Correct hook to clear less caches                                                                                                                               |
+|            | - [BUGFIX] Correct relative path for less processing                                                                                                                       |
+|            | - [BUGFIX] Ensure correct preformatted text rendering                                                                                                                      |
+|            | - [BUGFIX] Correct TCA for parent record in accordion and tab item                                                                                                         |
+|            | - [BUGFIX] Correct spelling of temp folder                                                                                                                                 |
+|            | - [BUGFIX] Add type to linkVars language parameter                                                                                                                         |
+|            | - [REVERT][BUGFIX] Remove tools from scrutinizer config but disable analyzer                                                                                               |
+|            | - [BUGFIX] Remove tools from scrutinizer config                                                                                                                            |
+|            | - [BUGFIX] Set TYPO3 version for scrutinizer build                                                                                                                         |
+|            | - [BUGFIX] Require typo3/cms for scrutinizer build                                                                                                                         |
+|            | - [BUGFIX] Restore location of well and jumbotron in frame class                                                                                                           |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 7.1.0      | - [RELEASE] Release of 7.1.0                                                                                                                                               |
 |            | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
 |            | - [!!!][TASK] Reintroduce "no frame" option - fixes #319                                                                                                                   |
