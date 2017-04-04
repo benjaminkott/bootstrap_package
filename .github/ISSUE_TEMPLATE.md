@@ -1,7 +1,6 @@
 ### Prerequisites
 
-* [ ] Can you reproduce the problem on TYPO3 8.6
-* [ ] Can you reproduce the problem on TYPO3 8 dev-master
+* [ ] Can you reproduce the problem on TYPO3 8.7 LTS
 * [ ] Did you [perform a cursory search](https://github.com/issues?q=is%3Aissue+user%3Abenjaminkott+repo%3Abenjaminkott%2Fbootstrap_package) to see if your bug or enhancement is already reported?
 
 ### Description
