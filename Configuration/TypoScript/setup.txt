@@ -65,10 +65,10 @@
 #### BOOSTRAP PACKAGE SETTINGS ####
 ###################################
 plugin.tx_bootstrappackage {
-    settings {
-        overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
-        cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
-    }
+  settings {
+    overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
+    cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
+  }
 }
 
 
