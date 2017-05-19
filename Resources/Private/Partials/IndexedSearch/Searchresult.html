@@ -6,7 +6,7 @@
             </f:if>
             <f:format.raw>{row.title}</f:format.raw>
             <span>{row.rating}</span>
-        </h3>
+        </h4>
         <f:if condition="{row.headerOnly} == 0">
             <p><f:format.crop maxCharacters="{settings.results.summaryCropAfter}">{row.item_description}</f:format.crop></p>
             <ul class="list-inline">
