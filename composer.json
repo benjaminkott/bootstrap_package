@@ -8,7 +8,8 @@
     "sitepackage",
     "bootstrap",
     "responsive",
-    "front-end",
+    "frontend",
+    "theme",
     "web"
   ],
   "homepage": "https://github.com/benjaminkott/bootstrap_package",
