@@ -30,8 +30,7 @@
     "typo3/cms-rte-ckeditor": "^8.7.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*",
-    "namelesscoder/typo3-repository-client": "^1.2"
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
     "psr-4": {
