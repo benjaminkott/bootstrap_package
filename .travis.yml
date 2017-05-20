@@ -44,8 +44,8 @@ script:
     find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
     echo;
-    echo "Running phpcs";
-    .build/bin/phpcs --standard=PSR2 -n Classes/
+    echo "Running php-cs-fixer";
+    .build/bin/php-cs-fixer --diff --dry-run -v fix
   - >
     echo "Installing npm modules";
     pushd Build;
