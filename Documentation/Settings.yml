@@ -6,8 +6,8 @@
 conf.py:
   copyright: 2014
   project: Bootstrap Package
-  version: 8.0.0
-  release: 8.0.0
+  version: 8.0.1
+  release: 8.0.1
   latex_documents:
   - - Index
     - BootstrapPackage.tex

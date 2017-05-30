@@ -20,6 +20,27 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.1      | - [FEATURE] Enable cropping of carousel background image                                                                                                                   |
+|            | - [FEATURE] Enable cropping for image in carousel                                                                                                                          |
+|            | - [TASK] Remove release commit from changelog                                                                                                                              |
+|            | - [TASK] Replace unwanted characters in commit messages                                                                                                                    |
+|            | - [TASK] Add composer changelog script                                                                                                                                     |
+|            | - [TASK] Streamline version of documentation                                                                                                                               |
+|            | - [TASK] Add composer version script                                                                                                                                       |
+|            | - [TASK] Cleanup code formatting for palette configuration                                                                                                                 |
+|            | - [TASK] Use php-cs-fixer instead of php-codesniffer                                                                                                                       |
+|            | - [TASK] Adjust composer keywords                                                                                                                                          |
+|            | - [TASK] Raise php dependency to 7.x                                                                                                                                       |
+|            | - [TASK] Remove not working ter upload                                                                                                                                     |
+|            | - [TASK] Add typo3 8.7 to travis                                                                                                                                           |
+|            | - [BUGFIX] Correct sys_file_referece palettes for tab items                                                                                                                |
+|            | - [BUGFIX] Correct sys_file_referece palettes for accordion items                                                                                                          |
+|            | - [BUGFIX] Use override child tca for carousel background image                                                                                                            |
+|            | - [BUGFIX] Correct value type of data-wrap for bootstrap carousels - fixes #437                                                                                            |
+|            | - [BUGFIX] Remove conflicting btn stylings for legacy rtehtmlarea - fixes #447                                                                                             |
+|            | - [BUGFIX] Correct dependencies for typo3 cms 9.x                                                                                                                          |
+|            | - Use correct closing tag                                                                                                                                                  |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.0      | - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead                                                                                                        |
 |            | - [FEATURE] Enable compression of generated css files                                                                                                                      |
 |            | - [FEATURE] Add bootstrap responsive wrapper to table ce - fixes #385                                                                                                      |

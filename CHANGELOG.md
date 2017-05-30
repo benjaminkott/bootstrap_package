@@ -1,3 +1,33 @@
+# 8.0.1
+
+## FEATURE
+- [FEATURE] Enable cropping of carousel background image e336b75
+- [FEATURE] Enable cropping for image in carousel eb93ef8
+
+## TASK
+- [TASK] Remove release commit from changelog 771b398
+- [TASK] Replace unwanted characters in commit messages 3c02852
+- [TASK] Add composer changelog script 4ad28ba
+- [TASK] Streamline version of documentation d602c3d
+- [TASK] Add composer version script 1f132a9
+- [TASK] Cleanup code formatting for palette configuration bd8451b
+- [TASK] Use php-cs-fixer instead of php-codesniffer 5e91b6e
+- [TASK] Adjust composer keywords 6ab10af
+- [TASK] Raise php dependency to 7.x 3ca8672
+- [TASK] Remove not working ter upload eae707f
+- [TASK] Add typo3 8.7 to travis a5db121
+
+## BUGFIX
+- [BUGFIX] Correct sys_file_referece palettes for tab items f7a37b4
+- [BUGFIX] Correct sys_file_referece palettes for accordion items 5845294
+- [BUGFIX] Use override child tca for carousel background image 4a370fb
+- [BUGFIX] Correct value type of data-wrap for bootstrap carousels - fixes #437 56c9141
+- [BUGFIX] Remove conflicting btn stylings for legacy rtehtmlarea - fixes #447 81f6fbf
+- [BUGFIX] Correct dependencies for typo3 cms 9.x 72884fb
+
+## MISC
+- Use correct closing tag 35c3df6
+
 # 8.0.0
 
 ## BREAKING
