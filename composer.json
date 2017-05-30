@@ -54,6 +54,9 @@
     "set-version": [
       "BK2K\\BootstrapPackage\\Composer\\VersionScript::setVersion"
     ],
+    "changelog": [
+      "BK2K\\BootstrapPackage\\Composer\\ChangelogScript::generateChangelog"
+    ],
     "post-autoload-dump": [
       "mkdir -p .build/web/typo3conf/ext/",
       "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
