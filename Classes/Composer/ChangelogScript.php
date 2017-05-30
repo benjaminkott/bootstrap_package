@@ -275,7 +275,7 @@ class ChangelogScript
                     'date' => $formattedCommit[3],
                     'timestamp' => $formattedCommit[4],
                     'author' => $formattedCommit[1],
-                    'message' => $formattedCommit[2]
+                    'message' => static::cleanMessage($formattedCommit[2])
                 ];
             }
             $logs[$revisionRange['end']] = [
@@ -288,6 +288,19 @@ class ChangelogScript
             ];
         }
         return static::filterLogs($logs);
+    }
+
+    /**
+     * Replace unwanted characters in commit messages
+     *
+     * @param string $message
+     * @return string
+     */
+    public static function cleanMessage($message)
+    {
+        $message = str_replace('…', '...', $message);
+        $message = trim($message);
+        return $message;
     }
 
     /**
