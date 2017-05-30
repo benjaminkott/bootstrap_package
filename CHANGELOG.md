@@ -1,8 +1,5 @@
 # 8.0.0
 
-## RELEASE
-- [RELEASE] Release of 8.0.0
-
 ## BREAKING
 - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead e33f0ed
 
@@ -182,9 +179,6 @@
 
 # 7.1.0
 
-## RELEASE
-- [RELEASE] Release of 7.1.0 fe9f029
-
 ## BREAKING
 - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356 d2b23d1
 - [!!!][TASK] Reintroduce "no frame" option - fixes #319 f2b06d7
@@ -308,7 +302,7 @@
 - [BUGFIX] Ensure that navbar-collapse has a maxheight if menu is fixed b698328
 - [BUGFIX] Enforce checkout with linux lf consistent over all plattforms 6886bc8
 - [BUGFIX] Respect show in section menus option for pages in section index menu 0dff070
-- [BUGFIX] Use smooth scroll only on elements that have an hash… (#398) a91373e
+- [BUGFIX] Use smooth scroll only on elements that have an hash... (#398) a91373e
 - [BUGFIX] Move temp folder back to root of typo3 temp dd66961
 - [BUGFIX] Remove double imagecols field in showitem configuration 485ab96
 - [BUGFIX] Workaround variable name cut off in CMS8 - fixes #388 b27d017
@@ -352,9 +346,6 @@
 - Correct php-cs-fixer command 0a22336
 
 # 7.0.0
-
-## RELEASE
-- [RELEASE] Release of 7.0.0 2bc505c
 
 ## BREAKING
 - [!!!][TASK] Send cache headers per default 9b9f945
@@ -588,9 +579,6 @@
 
 # 6.2.15
 
-## RELEASE
-- [RELEASE] Release of 6.2.15 9b9fdf1
-
 ## TASK
 - [TASK] Add travis-ci build status image 3e5f00f
 - [TASK] Remove unused coverage from travis f0ef2c5
@@ -628,9 +616,6 @@
 
 # 6.2.14
 
-## RELEASE
-- [RELEASE] Release of 6.2.14 4ffb96a
-
 ## FEATURE
 - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4 2734c16
 
@@ -656,9 +641,6 @@
 
 # 6.2.13
 
-## RELEASE
-- [RELEASE] Release of 6.2.13 639545e
-
 ## TASK
 - [TASK] Include css_styled_content and form in static template 4f031d5
 
@@ -673,16 +655,10 @@
 
 # 6.2.12
 
-## RELEASE
-- [RELEASE] Release of 6.2.12 8b57118
-
 ## BUGFIX
 - [BUGFIX] Add missing static template for bootstrap package 9347264
 
 # 6.2.11
-
-## RELEASE
-- [RELEASE] Release of 6.2.11 51972e5
 
 ## BREAKING
 - [!!!][TASK] Remove compatibility to ext:themes through lack of resources 987c203
@@ -783,9 +759,6 @@
 
 # 6.2.10
 
-## RELEASE
-- [RELEASE] Release of 6.2.10 75fe900
-
 ## FEATURE
 - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables e01b136
 - [FEATURE] new constant $page.logo.alt used to overwrite the default alt attribute of the logo image a7544c2
@@ -827,9 +800,6 @@
 
 # 6.2.9
 
-## RELEASE
-- [RELEASE] Release of 6.2.9 4e3aede
-
 ## TASK
 - [TASK] Update jquery to 1.11.2 e8822fc
 - [TASK] Update modernizr to 2.8.3 559ff0c
@@ -851,9 +821,6 @@
 
 # 6.2.8
 
-## RELEASE
-- [RELEASE] Release 6.2.8 1f41eb1
-
 ## TASK
 - [TASK] Make realurl optional 6f92339
 - [TASK] Remove e-mail from contact b162f60
@@ -872,9 +839,6 @@
 - Update jquery.responsiveimages.js e40750d
 
 # 6.2.7
-
-## RELEASE
-- [RELEASE] Release 6.2.7 a11d1db
 
 ## TASK
 - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101 66ce0a6
