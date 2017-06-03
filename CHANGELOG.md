@@ -1,3 +1,9 @@
+# 8.0.2
+
+## BUGFIX
+- [BUGFIX] Remove .php_cs.dist from export 49d59ac
+- [BUGFIX] Correct less variable: @icon-font-path (#450) 4f8bb27
+
 # 8.0.1
 
 ## FEATURE
