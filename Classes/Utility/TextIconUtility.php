@@ -74,6 +74,7 @@ class TextIconUtility
             if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'jpg', 'gif'])) {
                 $pathinfo = pathinfo($fileinfo->getPathname());
                 $iconPath = str_replace(PATH_site . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
+                $iconPath = str_replace('\\', '/', $iconPath);
                 $icons[] = [
                     $pathinfo['filename'],
                     $identifier . '__' . $pathinfo['filename'],
