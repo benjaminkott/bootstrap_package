@@ -1,3 +1,9 @@
+# 8.0.3
+
+## BUGFIX
+- [BUGFIX] Prepare colPos field for proper quoting (#452) a61dd80
+- [BUGFIX] Correct texticon preview paths on windows bb69dea
+
 # 8.0.2
 
 ## BUGFIX
