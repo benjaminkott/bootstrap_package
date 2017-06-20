@@ -70,7 +70,7 @@ lib.dynamicContent {
         select {
             includeRecordsWithoutDefaultTranslation = 1
             orderBy = sorting
-            where = colPos={register:colPos}
+            where = {#colPos}={register:colPos}
             where.insertData = 1
             pidInList.data = register:pageUid
             pidInList.override.data = register:contentFromPid
