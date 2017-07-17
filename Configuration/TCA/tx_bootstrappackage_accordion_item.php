@@ -45,6 +45,7 @@ return [
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;;hiddenLanguagePalette,
             '
         ],
     ],
@@ -67,6 +68,11 @@ return [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item
             '
+        ],
+        // hidden but needs to be included all the time, so sys_language_uid is set correctly
+        'hiddenLanguagePalette' => [
+            'showitem' => 'sys_language_uid, l10n_parent',
+            'isHiddenPalette' => true,
         ],
     ],
     'columns' => [
