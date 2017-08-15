@@ -9,7 +9,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
 }
 
 /***************
- * Add content element to seletor list
+ * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
