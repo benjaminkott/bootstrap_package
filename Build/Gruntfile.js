@@ -67,10 +67,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 dest: '<%= paths.js %>Dist/bootstrap.stickyheader.min.js'
             },
-            equalheight: {
-                src: '<%= paths.js %>Src/jquery.equalheight.js',
-                dest: '<%= paths.js %>Dist/jquery.equalheight.min.js'
-            },
             responsiveimages: {
                 src: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
@@ -126,10 +122,6 @@ module.exports = function(grunt) {
             bootstrapStickyheader: {
                 files: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 tasks: 'uglify:bootstrapStickyheader'
-            },
-            equalheight: {
-                files: '<%= paths.js %>Src/jquery.equalheight.js',
-                tasks: 'uglify:equalheight'
             },
             responsiveimages: {
                 files: '<%= paths.js %>Src/jquery.responsiveimages.js',

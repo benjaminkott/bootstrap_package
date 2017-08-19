@@ -418,7 +418,6 @@ page {
         jquery = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/jquery.min.js
         jquery.forceOnTop = 1
         responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
-        equalheight = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.equalheight.min.js
         bootstrap = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap.min.js
         photoswipe_core = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe.min.js
         photoswipe_ui = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe-ui-default.min.js
