@@ -410,8 +410,6 @@ page {
         modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/modernizr.min.js
         modernizr.forceOnTop = 1
         modernizr.async = 1
-        wpfix = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/windowsphone-viewportfix.min.js
-        wpfix.async = 1
     }
 
     includeJSFooterlibs {

@@ -70,10 +70,6 @@ module.exports = function(grunt) {
             responsiveimages: {
                 src: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
-            },
-            viewportfix: {
-                src: '<%= paths.js %>Src/windowsphone-viewportfix.js',
-                dest: '<%= paths.js %>Dist/windowsphone-viewportfix.min.js'
             }
         },
         less: {
