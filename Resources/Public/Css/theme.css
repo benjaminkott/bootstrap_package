@@ -7277,6 +7277,12 @@ body,
   }
 }
 @media (min-width: 992px) {
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (min-width: 992px) {
   .navbar-default-transition,
   .navbar-inverse-transition {
     -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
