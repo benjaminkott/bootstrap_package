@@ -7481,7 +7481,7 @@ body,
   }
 }
 @media (min-width: 992px) {
-  .navbar-main {
+  .navbar-main:last-child {
     float: right;
   }
   .navbar-main > li.dropdown > a > .caret {

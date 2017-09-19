@@ -266,7 +266,9 @@
         }
     }
     @media (min-width: @grid-float-breakpoint) {
-        float: right;
+        &:last-child {
+            float: right;
+        }
         > li {
             &.dropdown {
                 > a >.caret {
