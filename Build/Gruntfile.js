@@ -78,7 +78,8 @@ module.exports = function(grunt) {
                     sourceMap: true,
                     outputSourceFiles: true,
                     sourceMapURL: 'theme.css.map',
-                    sourceMapFilename: '<%= paths.css %>theme.css.map'
+                    sourceMapFilename: '<%= paths.css %>theme.css.map',
+                    rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>Theme/theme.less',
                 dest: '<%= paths.css %>theme.css'
@@ -88,7 +89,8 @@ module.exports = function(grunt) {
                     sourceMap: true,
                     outputSourceFiles: true,
                     sourceMapURL: 'rte.css.map',
-                    sourceMapFilename: '<%= paths.css %>rte.css.map'
+                    sourceMapFilename: '<%= paths.css %>rte.css.map',
+                    rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>RTE/rte.less',
                 dest: '<%= paths.css %>rte.css'
