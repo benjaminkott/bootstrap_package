@@ -33,10 +33,10 @@
                                 <ul class="nav navbar-nav navbar-main">
                             </f:then>
                             <f:else>
-                                <li class="{f:if(condition: mainnavigationItem.active, then:'active')} {f:if(condition: mainnavigationItem.children, then:'dropdown')}">
+                                <li class="{f:if(condition: mainnavigationItem.active, then:'active')} {f:if(condition: mainnavigationItem.children, then:'dropdown dropdown-hover')}">
                                     <f:if condition="{mainnavigationItem.children}">
                                         <f:then>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}" class="dropdown-link">
                                                 <span>{mainnavigationItem.title}</span>
                                                 <b class="caret"></b>
                                                 <span class="bar"></span>
@@ -61,6 +61,7 @@
                                         <f:else>
                                             <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}">
                                                 <span>{mainnavigationItem.title}</span>
+
                                                 <span class="bar"></span>
                                             </a>
                                         </f:else>

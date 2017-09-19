@@ -47,9 +47,9 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 dest: '<%= paths.js %>Dist/bootstrap.lightbox.min.js'
             },
-            bootstrapNavbarToggle: {
-                src: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
-                dest: '<%= paths.js %>Dist/bootstrap.navbartoggle.min.js'
+            bootstrapNavbar: {
+                src: '<%= paths.js %>Src/bootstrap.navbar.js',
+                dest: '<%= paths.js %>Dist/bootstrap.navbar.min.js'
             },
             bootstrapPopover: {
                 src: '<%= paths.js %>Src/bootstrap.popover.js',
@@ -101,9 +101,9 @@ module.exports = function(grunt) {
                 files: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 tasks: 'uglify:bootstrapLightbox'
             },
-            bootstrapNavbarToggle: {
-                files: '<%= paths.js %>Src/bootstrap.navbartoggle.js',
-                tasks: 'uglify:bootstrapNavbarToggle'
+            bootstrapNavbar: {
+                files: '<%= paths.js %>Src/bootstrap.navbar.js',
+                tasks: 'uglify:bootstrapNavbar'
             },
             bootstrapPopover: {
                 files: '<%= paths.js %>Src/bootstrap.popover.js',

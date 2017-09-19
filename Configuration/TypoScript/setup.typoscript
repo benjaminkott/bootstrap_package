@@ -428,8 +428,8 @@ page {
         bootstrap_smoothscroll = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.smoothscroll.min.js
         #### Basic lightbox implementation for bootstrap
         bootstrap_lightbox = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.lightbox.min.js
-        #### Toggle collapsed CSS class on the navbar toggle button
-        bootstrap_navbartoggle = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.navbartoggle.min.js
+        #### Toggle collapsed CSS class on the navbar toggle button and fixes dropdown on touch devices
+        bootstrap_navbar = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.navbar.min.js
     }
 
     jsFooterInline {
