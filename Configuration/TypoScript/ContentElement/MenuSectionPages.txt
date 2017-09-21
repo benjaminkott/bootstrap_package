@@ -29,6 +29,7 @@ tt_content.menu_section_pages {
                     table = tt_content
                     pidInList.field = uid
                     as = content
+                    where = sectionIndex = 1
                     dataProcessing {
                         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                         10 {
