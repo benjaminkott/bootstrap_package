@@ -12,7 +12,7 @@
                                     <span>{item.title}</span>
                                 </f:then>
                                 <f:else>
-                                    <a href="{item.link}" target="{item.target}" title="{item.title}">
+                                    <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
                                         <span>{item.title}</span>
                                     </a>
                                 </f:else>

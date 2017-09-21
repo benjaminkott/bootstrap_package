@@ -48,7 +48,7 @@
                                                         </f:then>
                                                         <f:else>
                                                             <li class="{f:if(condition: child.active, then:'active')}">
-                                                                <a href="{child.link}" target="{child.target}" title="{child.title}">
+                                                                <a href="{child.link}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
                                                                     <span>{child.title}</span>
                                                                 </a>
                                                             </li>
@@ -58,7 +58,7 @@
                                             </ul>
                                         </f:then>
                                         <f:else>
-                                            <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}">
+                                            <a href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then: ' target="{mainnavigationItem.target}"')} title="{mainnavigationItem.title}">
                                                 <span>{mainnavigationItem.title}</span>
                                                 <span class="bar"></span>
                                             </a>
