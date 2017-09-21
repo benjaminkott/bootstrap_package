@@ -67,6 +67,6 @@ after_success:
         sudo mv deployer.phar /usr/local/bin/dep;
         sudo chmod +x /usr/local/bin/dep;
         dep self-update;
-        dep deploy;
+        dep --file="./Build/deploy.php" deploy;
       fi;
     fi;
