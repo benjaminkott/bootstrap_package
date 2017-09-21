@@ -36,12 +36,6 @@ lib.contentElement {
             cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
             prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
         }
-        accordion {
-            media {
-                height = {$plugin.bootstrap_package_contentelements.accordion.media.height}
-                width = {$plugin.bootstrap_package_contentelements.accordion.media.width}
-            }
-        }
         menuthumbnail {
             media {
                 height = {$plugin.bootstrap_package_contentelements.menu_thumbnail.media.height}
