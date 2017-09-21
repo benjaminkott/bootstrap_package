@@ -20,6 +20,8 @@ matrix:
 sudo: false
 
 addons:
+  ssh_known_hosts:
+    - bootstrap-package.com
   apt:
     packages:
       - parallel
