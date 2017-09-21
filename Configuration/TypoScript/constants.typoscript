@@ -112,6 +112,8 @@ page {
         compatible = IE=edge
         # cat=bootstrap package: advanced/120/140; type=string; label=google
         google = notranslate
+        # cat=bootstrap package: advanced/120/150; type=string; label=google-site-verfification
+        google-site-verification =
     }
 
     tracking {

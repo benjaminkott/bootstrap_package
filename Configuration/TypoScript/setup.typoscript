@@ -325,7 +325,6 @@ page {
         # see https://forge.typo3.org/issues/67360 for more details
         viewport = {$page.meta.viewport}
         robots = {$page.meta.robots}
-        google = {$page.meta.google}
         apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
         description = {$page.meta.description}
         description {
@@ -343,6 +342,10 @@ page {
         X-UA-Compatible {
             attribute = http-equiv
         }
+
+        # Google
+        google = {$page.meta.google}
+        google-site-verification = {$page.meta.google-site-verification}
 
         # OpenGraph Tags
         og:title {
