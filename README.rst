@@ -2,7 +2,7 @@
 Bootstrap Package
 ==================================================
 
-.. image:: https://rawgit.com/benjaminkott/bootstrap_package/master/dist/Documentation/Images/Screens/typo3-frontend.png
+.. image:: Documentation/Images/Screens/typo3-frontend.png?raw=true
    :alt: Bootstrap Package
 
 Bootstrap Package delivers a full configured frontend
