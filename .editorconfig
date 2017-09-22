@@ -45,6 +45,16 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
+# ReST-Files
+[*.rst]
+indent_style = space
+indent_size = 3
+
+# TypoScript
+[*.typoscript]
+indent_style = space
+indent_size = 4
+
 # YML-Files
 [{*.yml,*.yaml}]
 indent_style = space
