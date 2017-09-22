@@ -2,13 +2,16 @@
 Bootstrap Package
 ==================================================
 
+.. image:: benjaminkott/bootstrap_package/blob/master/Documentation/Images/Screens/typo3-frontend.png
+   :alt: Bootstrap Package
+
 Bootstrap Package delivers a full configured frontend
 theme for TYPO3, based on the Bootstrap CSS Framework.
 
 The goal of this package is to give an advanced example of how modern templating
 in TYPO3 CMS can be handled nicely without depending on third party extensions.
-Bootstrap Package is built for >= 7.6 and comes with a fully configurable Frontend
-via TypoScript. This includes the TypoScript Constant Editor.
+Bootstrap Package comes with a fully configurable Frontend via TypoScript. This
+includes the TypoScript Constant Editor.
 
 Minimal Dependencies
 ====================
@@ -91,7 +94,9 @@ with your changes.
 We check the source code according to the TYPO3 Coding Guidelines. To reformat
 the code automatically, you can use `php-cs-fixer` as follows:
 
-`php-cs-fixer fix --config-file .php_cs`
+.. code-block::
+
+   php-cs-fixer fix
 
 Bug reporting
 -------------
