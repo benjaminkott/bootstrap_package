@@ -81,17 +81,6 @@ if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
 }
 
 /***************
- * Set alias for menu processor as fallback if the core menu
- * processor does not exist for TYPO3 Versions below 8.5
- */
-if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\MenuProcessor')) {
-    class_alias(
-        \BK2K\BootstrapPackage\DataProcessing\MenuProcessor::class,
-        'TYPO3\CMS\Frontend\DataProcessing\MenuProcessor'
-    );
-}
-
-/***************
  * Add default RTE configuration for bootstrap package
  */
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
