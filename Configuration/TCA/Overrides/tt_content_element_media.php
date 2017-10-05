@@ -55,16 +55,19 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = array_replace_recursive(
                             ]
                         ]
                     ],
-                    'foreign_selector_fieldTcaOverride' => [
-                        'config' => [
-                            'appearance' => [
-                                'elementBrowserAllowed' => 'youtube, vimeo'
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'uid_local' => [
+                                'config' => [
+                                    'appearance' => [
+                                        'elementBrowserAllowed' => 'youtube, vimeo'
+                                    ]
+                                ]
                             ]
                         ]
                     ]
                 ]
             ]
-
         ]
     ]
 );
