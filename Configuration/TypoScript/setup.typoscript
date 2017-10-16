@@ -287,6 +287,11 @@ page {
                     if.isTrue = {$page.logo.alt}
                 }
             }
+            # BreadcrumbExtendedValue should be used to display the title of a
+            # single record. For example the title of a news record.
+            breadcrumbExtendedValue = COA
+            breadcrumbExtendedValue {
+            }
         }
 
         stdWrap.replacement {

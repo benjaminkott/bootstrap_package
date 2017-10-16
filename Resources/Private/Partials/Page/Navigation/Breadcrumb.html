@@ -6,19 +6,35 @@
                 <p class="sr-only" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
                     <f:for each="{breadcrumb}" as="item">
-                        <li class="{f:if(condition: item.current, then: 'active')}">
-                            <f:if condition="{item.current}">
-                                <f:then>
-                                    <span>{item.title}</span>
-                                </f:then>
-                                <f:else>
+                        <f:if condition="{breadcrumbExtendedValue}">
+                            <f:then>
+                                <li>
                                     <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
                                         <span>{item.title}</span>
                                     </a>
-                                </f:else>
-                            </f:if>
-                        </li>
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li class="{f:if(condition: item.current, then: 'active')}">
+                                    <f:if condition="{item.current}">
+                                        <f:then>
+                                            <span>{item.title}</span>
+                                        </f:then>
+                                        <f:else>
+                                            <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
+                                                <span>{item.title}</span>
+                                            </a>
+                                        </f:else>
+                                    </f:if>
+                                </li>
+                            </f:else>
+                        </f:if>
                     </f:for>
+                    <f:if condition="{breadcrumbExtendedValue}">
+                        <li class="active">
+                            <span>{breadcrumbExtendedValue}</span>
+                        </li>
+                    </f:if>
                 </ol>
             </div>
         </div>
