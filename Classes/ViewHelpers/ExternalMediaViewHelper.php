@@ -25,38 +25,34 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  */
 
+use BK2K\BootstrapPackage\Utility\ExternalMediaUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableInterface
+class ExternalMediaViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
+
     /**
      * @var bool
      */
     protected $escapeOutput = false;
 
     /**
-     * Render
+     * Initialize arguments.
      *
-     * @param string $url
-     * @param mixed $class
-     * @return string
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      */
-    public function render($url, $class)
+    public function initializeArguments()
     {
-        return self::renderStatic(
-            [
-                'url' => $url,
-                'class' => $class
-            ],
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+        parent::initializeArguments();
+        $this->registerArgument('url', 'string', 'External media url');
+        $this->registerArgument('class', 'string', 'CSS class rendered on the generated iframe code');
     }
 
     /**
@@ -74,12 +70,12 @@ class ExternalMediaViewHelper extends AbstractViewHelper implements CompilableIn
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
-        $externalMediaUtility = GeneralUtility::makeInstance('BK2K\\BootstrapPackage\\Utility\\ExternalMediaUtility');
+        $variableProvider = $renderingContext->getVariableProvider();
+        $externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);
         $externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class']);
-        $templateVariableContainer->add('externalMedia', $externalMedia);
+        $variableProvider->add('externalMedia', $externalMedia);
         $content = $renderChildrenClosure();
-        $templateVariableContainer->remove('externalMedia');
+        $variableProvider->remove('externalMedia');
         return $content;
     }
 }
