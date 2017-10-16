@@ -50,20 +50,14 @@ class LastImageInfoViewHelper extends AbstractViewHelper implements CompilableIn
     ];
 
     /**
-     * Render
+     * Initialize arguments.
      *
-     * @param string $property
-     * @return string
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      */
-    public function render($property = null)
+    public function initializeArguments()
     {
-        return self::renderStatic(
-            [
-                'property' => $property
-            ],
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+        parent::initializeArguments();
+        $this->registerArgument('property', 'string', 'Possible values: width, height, type, file, origFile, origFile_mtime, originalFile, processedFile, fileCacheHash');
     }
 
     /**
