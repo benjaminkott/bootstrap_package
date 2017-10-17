@@ -25,15 +25,17 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  *  THE SOFTWARE.
  */
 
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class LastImageInfoViewHelper extends AbstractViewHelper implements CompilableInterface
+class LastImageInfoViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
+
     /**
      * @var array
      */
