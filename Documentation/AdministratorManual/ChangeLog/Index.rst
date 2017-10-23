@@ -20,6 +20,25 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.4      | - [TASK] Use initialize arguments instead of render arguments in FalViewHelper                                                                                             |
+|            | - [TASK] Use initialize arguments instead of render arguments in DataRelationViewHelper                                                                                    |
+|            | - [TASK] Use initialize arguments instead of render arguments in ExplodeViewHelper                                                                                         |
+|            | - [TASK] Use initialize arguments instead of render arguments in ExternalMediaViewHelper                                                                                   |
+|            | - [TASK] Use initialize arguments instead of render arguments in LastImageInfoViewHelper                                                                                   |
+|            | - [TASK] Ensure link target attribute is only rendered if target is set - fixes #468                                                                                       |
+|            | - [BUGFIX] Correct preview template assignments for listgroup and external_media                                                                                           |
+|            | - [BUGFIX] Set default value for tt_content reference fields in *_item tables (#482)                                                                                       |
+|            | - [BUGFIX] Correct indention in generic template                                                                                                                           |
+|            | - [BUGFIX] Correct rendering method of LastImageInfoVIewHelper                                                                                                             |
+|            | - [BUGFIX] Add parseFunc handling to pre tags                                                                                                                              |
+|            | - [BUGFIX] Limit media element to youtube and vimeo                                                                                                                        |
+|            | - [BUGFIX] Display cropping variants for textmedia - fixes #438                                                                                                            |
+|            | - [BUGFIX] Fix sys_language_uid when adding item to translated tt_content (#458)                                                                                           |
+|            | - [BUGFIX] Only show content in MenuSectionPages that is marked for section index - fixes #466                                                                             |
+|            | - [BUGFIX] Close tags in meta menu properly - fixes #469                                                                                                                   |
+|            | - [BUGFIX] Remove unused constant assignments - fixes #477                                                                                                                 |
+|            | - [BUGFIX] Remove wrong placed comma in navbar less file - fixes #460                                                                                                      |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.3      | - [BUGFIX] Prepare colPos field for proper quoting (#452)                                                                                                                  |
 |            | - [BUGFIX] Correct texticon preview paths on windows                                                                                                                       |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

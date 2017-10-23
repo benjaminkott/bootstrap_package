@@ -1,3 +1,27 @@
+# 8.0.4
+
+## TASK
+- [TASK] Use initialize arguments instead of render arguments in FalViewHelper a3ed93d
+- [TASK] Use initialize arguments instead of render arguments in DataRelationViewHelper 8e4e514
+- [TASK] Use initialize arguments instead of render arguments in ExplodeViewHelper e5592be
+- [TASK] Use initialize arguments instead of render arguments in ExternalMediaViewHelper 404e949
+- [TASK] Use initialize arguments instead of render arguments in LastImageInfoViewHelper 66edcd7
+- [TASK] Ensure link target attribute is only rendered if target is set - fixes #468 e33ef8b
+
+## BUGFIX
+- [BUGFIX] Correct preview template assignments for listgroup and external_media 3135a76
+- [BUGFIX] Set default value for tt_content reference fields in *_item tables (#482) f55fbaa
+- [BUGFIX] Correct indention in generic template cf1a610
+- [BUGFIX] Correct rendering method of LastImageInfoVIewHelper 5145ed4
+- [BUGFIX] Add parseFunc handling to pre tags 9cce8e9
+- [BUGFIX] Limit media element to youtube and vimeo 4cc811b
+- [BUGFIX] Display cropping variants for textmedia - fixes #438 df2ec1c
+- [BUGFIX] Fix sys_language_uid when adding item to translated tt_content (#458) c47e848
+- [BUGFIX] Only show content in MenuSectionPages that is marked for section index - fixes #466 b1ff52c
+- [BUGFIX] Close tags in meta menu properly - fixes #469 e8ee601
+- [BUGFIX] Remove unused constant assignments - fixes #477 e3775f0
+- [BUGFIX] Remove wrong placed comma in navbar less file - fixes #460 a8a1a39
+
 # 8.0.3
 
 ## BUGFIX
