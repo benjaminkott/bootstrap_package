@@ -168,6 +168,7 @@ return [
                 'foreign_table' => 'tt_content',
                 'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType IN ("carousel","carousel_small","carousel_fullscreen")',
                 'maxitems' => 1,
+                'default' => 0,
             ],
         ],
         'item_type' => [
