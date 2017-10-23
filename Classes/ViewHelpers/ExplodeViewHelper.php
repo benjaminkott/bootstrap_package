@@ -26,46 +26,40 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterface
+class ExplodeViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
+
     /**
      * @var bool
      */
     protected $escapeOutput = false;
 
     /**
-     * Render
+     * Initialize arguments.
      *
-     * @param string $data
-     * @param string $as
-     * @param string $delimiter
-     * @return string
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      */
-    public function render($data, $as = 'items', $delimiter = LF)
+    public function initializeArguments()
     {
-        return self::renderStatic(
-            [
-                'data' => $data,
-                'as' => $as,
-                'delimiter' => $delimiter
-            ],
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+        parent::initializeArguments();
+        $this->registerArgument('data', 'string', 'The input string', true);
+        $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
+        $this->registerArgument('delimiter', 'string', 'The boundary string', false, LF);
     }
 
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return string
+     * @return void
      */
     public static function renderStatic(
         array $arguments,
@@ -74,11 +68,11 @@ class ExplodeViewHelper extends AbstractViewHelper implements CompilableInterfac
     ) {
         $content = '';
         if (isset($arguments['data'])) {
-            $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+            $variableProvider = $renderingContext->getVariableProvider();
             $items = GeneralUtility::trimExplode($arguments['delimiter'], $arguments['data']);
-            $templateVariableContainer->add($arguments['as'], $items);
+            $variableProvider->add($arguments['as'], $items);
             $content = $renderChildrenClosure();
-            $templateVariableContainer->remove($arguments['as']);
+            $variableProvider->remove($arguments['as']);
         }
         return $content;
     }
