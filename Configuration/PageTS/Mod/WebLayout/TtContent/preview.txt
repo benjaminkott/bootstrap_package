@@ -5,8 +5,8 @@ mod {
     web_layout {
         tt_content {
             preview {
-                bootstrap_package_external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/BootstrapPackageExternalMedia.html
-                bootstrap_package_listgroup = EXT:bootstrap_package/Resources/Private/Templates/Preview/BootstrapPackageListGroup.html
+                external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/ExternalMedia.html
+                listgroup = EXT:bootstrap_package/Resources/Private/Templates/Preview/ListGroup.html
                 quote = EXT:bootstrap_package/Resources/Private/Templates/Preview/Quote.html
             }
         }
