@@ -26,70 +26,52 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class DataRelationViewHelper extends AbstractViewHelper implements CompilableInterface
+class DataRelationViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
+
     /**
      * @var bool
      */
     protected $escapeOutput = false;
 
     /**
-     * Render
+     * Initialize arguments.
      *
-     * @param int $uid
-     * @param string $table
-     * @param string $foreignField
-     * @param string $selectFields
-     * @param string $as
-     * @param string $sortby
-     * @param string $additionalWhere
-     * @return string
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      */
-    public function render(
-        $uid,
-        $table,
-        $foreignField = 'tt_content',
-        $selectFields = '*',
-        $as = 'items',
-        $sortby = 'sorting ASC',
-        $additionalWhere = ''
-    ) {
-        return self::renderStatic(
-            [
-                'uid' => $uid,
-                'table' => $table,
-                'foreignField' => $foreignField,
-                'selectFields' => $selectFields,
-                'as' => $as,
-                'sortby' => $sortby,
-                'additionalWhere' => $additionalWhere
-            ],
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('uid', 'integer', 'uid', true);
+        $this->registerArgument('table', 'string', 'table', true);
+        $this->registerArgument('foreignField', 'string', 'foreignField', false, 'tt_content');
+        $this->registerArgument('selectFields', 'string', 'selectFields', false, '*');
+        $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
+        $this->registerArgument('sortby', 'string', 'sortby', false, 'sorting ASC');
+        $this->registerArgument('additionalWhere', 'string', 'additionalWhere', false, '');
     }
 
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface|RenderingContext $renderingContext
-     * @return string
+     * @param RenderingContextInterface $renderingContext
+     * @return void
      */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        $variableProvider = $renderingContext->getVariableProvider();
         if ($arguments['uid'] !== null && $arguments['table'] !== null) {
             $connection = static::getDatabaseConnection();
             $frontendController = static::getFrontendController();
@@ -128,9 +110,9 @@ class DataRelationViewHelper extends AbstractViewHelper implements CompilableInt
         } else {
             $items = null;
         }
-        $templateVariableContainer->add($arguments['as'], $items);
+        $variableProvider->add($arguments['as'], $items);
         $content = $renderChildrenClosure();
-        $templateVariableContainer->remove($arguments['as']);
+        $variableProvider->remove($arguments['as']);
         return $content;
     }
 
