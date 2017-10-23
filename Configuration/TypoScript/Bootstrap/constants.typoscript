@@ -46,6 +46,7 @@
 # customsubcategory=391=Section Light
 # customsubcategory=392=Section Dark
 # customsubcategory=400=Footer
+# customsubcategory=401=Footer Meta
 
 plugin.bootstrap_package {
     settings {
@@ -97,6 +98,17 @@ plugin.bootstrap_package {
             footer-link-hover-color = darken(@footer-link-color, 15%)
             # cat=bootstrap package: styling/400/footer-link-hover-decoration; type=string; label=@footer-link-hover-decoration:
             footer-link-hover-decoration = underline
+
+            # cat=bootstrap package: styling/401/footer-meta-bg; type=string; label=@footer-meta-bg:
+            footer-meta-bg = darken(@footer-bg, 3%)
+            # cat=bootstrap package: styling/401/footer-meta-color; type=string; label=@footer-meta-color:
+            footer-meta-color = @footer-color
+            # cat=bootstrap package: styling/401/footer-meta-link-color; type=string; label=@footer-meta-link-color:
+            footer-meta-link-color = @footer-link-color
+            # cat=bootstrap package: styling/401/footer-meta-link-hover-color; type=string; label=@footer-meta-link-hover-color:
+            footer-meta-link-hover-color = darken(@footer-meta-link-color, 15%)
+            # cat=bootstrap package: styling/401/footer-meta-link-hover-decoration; type=string; label=@footer-meta-link-hover-decoration:
+            footer-meta-link-hover-decoration = @footer-link-hover-decoration
 
             ###
             ### CUSTOM VARIABLES END
