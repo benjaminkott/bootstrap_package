@@ -26,41 +26,34 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FalViewHelper extends AbstractViewHelper implements CompilableInterface
+class FalViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
+
     /**
      * @var bool
      */
     protected $escapeOutput = false;
 
     /**
-     * Render
+     * Initialize arguments.
      *
-     * @param array $data
-     * @param string $as
-     * @param string $table
-     * @param string $field
-     * @return string
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      */
-    public function render($data, $as = 'items', $table = 'tt_content', $field = 'image')
+    public function initializeArguments()
     {
-        return self::renderStatic(
-            [
-                'data' => $data,
-                'as' => $as,
-                'table' => $table,
-                'field' => $field
-            ],
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+        parent::initializeArguments();
+        $this->registerArgument('data', 'array', 'Data of current record', true);
+        $this->registerArgument('table', 'string', 'table', false, 'tt_content');
+        $this->registerArgument('field', 'string', 'field', false, 'image');
+        $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
     }
 
     /**
@@ -74,7 +67,7 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        $variableProvider = $renderingContext->getVariableProvider();
         if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
             $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
             $items = $fileRepository->findByRelation(
@@ -98,9 +91,9 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         } else {
             $items = null;
         }
-        $templateVariableContainer->add($arguments['as'], $items);
+        $variableProvider->add($arguments['as'], $items);
         $content = $renderChildrenClosure();
-        $templateVariableContainer->remove($arguments['as']);
+        $variableProvider->remove($arguments['as']);
         return $content;
     }
 }
