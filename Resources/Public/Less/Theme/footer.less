@@ -40,14 +40,28 @@
         list-style: none;
         padding-left: 0;
         @media (min-width: @screen-sm-min) {
-            .list-inline();
+            .list-unstyled();
+            margin-left: -0.5em;
+            margin-right: -0.5em;
+            > li {
+                display: inline-block;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
         }
     }
     .language-menu {
         list-style: none;
         padding-left: 0;
         @media (min-width: @screen-sm-min) {
-            .list-inline();
+            .list-unstyled();
+            margin-left: -0.5em;
+            margin-right: -0.5em;
+            > li {
+                display: inline-block;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
         }
         .active a {
             font-weight: bold;
