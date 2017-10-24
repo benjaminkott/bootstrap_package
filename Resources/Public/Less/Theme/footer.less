@@ -24,16 +24,16 @@
 
 
 //
-// Language Menu
+// Footer Section Meta
 // --------------------------------------------------
 .footer-section-meta {
     color: @footer-meta-color;
     background: @footer-meta-bg;
     a {
-        color: inherit;
+        color: @footer-meta-link-hover-color;
         &:hover,
         &:focus {
-            color: @footer-link-hover-color;
+            color: @footer-meta-link-hover-color;
         }
     }
     .meta-menu {
@@ -65,7 +65,7 @@
         }
         .active a {
             font-weight: bold;
-            color: @footer-link-color;
+            color: @footer-meta-link-color;
         }
     }
     @media (min-width: @screen-md) {
