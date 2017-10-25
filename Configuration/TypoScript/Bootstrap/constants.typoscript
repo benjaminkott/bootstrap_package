@@ -412,15 +412,15 @@ plugin.bootstrap_package {
             grid-float-breakpoint-max = (@grid-float-breakpoint - 1)
 
             # cat=bootstrap package: styling/312/container-tablet; type=string; label=@container-tablet:
-            container-tablet = (720px + @grid-gutter-width)
+            container-tablet = (@screen-sm-min - (@grid-gutter-width / 2))
             # cat=bootstrap package: styling/312/container-sm; type=string; label=@container-sm: For `@screen-sm-min` and up.
             container-sm = @container-tablet
             # cat=bootstrap package: styling/312/container-desktop; type=string; label=@container-desktop:
-            container-desktop = (940px + @grid-gutter-width)
+            container-desktop = (@screen-md-min - (@grid-gutter-width / 2))
             # cat=bootstrap package: styling/312/container-md; type=string; label=@container-md: For `@screen-md-min` and up.
             container-md = @container-desktop
             # cat=bootstrap package: styling/312/container-large-desktop; type=string; label=@container-large-desktop:
-            container-large-desktop = (1140px + @grid-gutter-width)
+            container-large-desktop = (@screen-lg-min - (@grid-gutter-width / 2))
             # cat=bootstrap package: styling/312/container-lg; type=string; label=@container-lg: For `@screen-lg-min` and up.
             container-lg = @container-large-desktop
 
