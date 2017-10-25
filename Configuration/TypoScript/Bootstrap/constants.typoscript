@@ -110,6 +110,20 @@ plugin.bootstrap_package {
             # cat=bootstrap package: styling/401/footer-meta-link-hover-decoration; type=string; label=@footer-meta-link-hover-decoration:
             footer-meta-link-hover-decoration = @footer-link-hover-decoration
 
+            # cat=bootstrap package: styling/302/headline-scaling-sm; type=string; label=@headline-scaling-sm:
+            headline-scaling-sm = 1.1
+            # cat=bootstrap package: styling/302/headline-scaling-md; type=string; label=@headline-scaling-md:
+            headline-scaling-md = 1.2
+            # cat=bootstrap package: styling/302/headline-scaling-lg; type=string; label=@headline-scaling-lg:
+            headline-scaling-lg = 1.3
+
+            # cat=bootstrap package: styling/302/headline-awesome-scaling-sm; type=string; label=@headline-awesome-scaling-sm:
+            headline-awesome-scaling-sm = 1.25
+            # cat=bootstrap package: styling/302/headline-awesome-scaling-md; type=string; label=@headline-awesome-scaling-md:
+            headline-awesome-scaling-md = 1.5
+            # cat=bootstrap package: styling/302/headline-awesome-scaling-lg; type=string; label=@headline-awesome-scaling-lg:
+            headline-awesome-scaling-lg = 1.75
+
             ###
             ### CUSTOM VARIABLES END
             ###
