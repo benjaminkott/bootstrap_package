@@ -24,6 +24,8 @@ editor:
             - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
             - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
             - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
+            - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
+            - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
 
         toolbarGroups:
             - { name: styles, groups: [ format, styles ] }
