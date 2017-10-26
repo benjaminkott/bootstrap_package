@@ -183,6 +183,13 @@ page {
                 levels = 2
                 includeSpacer = 1
                 as = mainnavigation
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
+                    }
+                }
             }
             20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             20 {
@@ -248,6 +255,10 @@ page {
             navigation {
                 style = {$page.theme.navigationstyle}
                 type = {$page.theme.navigationtype}
+                icon {
+                    width = {$page.theme.navigationicon.width}
+                    height = {$page.theme.navigationicon.height}
+                }
             }
             copyright {
                 enable = {$page.theme.copyright.enable}

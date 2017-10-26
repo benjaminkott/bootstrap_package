@@ -9,6 +9,10 @@
                 <source>Bootstrap Package</source>
             </trans-unit>
 
+            <trans-unit id="pages.nav_icon">
+                <source>Navigation Icon</source>
+            </trans-unit>
+
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
             </trans-unit>

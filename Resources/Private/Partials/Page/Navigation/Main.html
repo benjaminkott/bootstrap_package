@@ -37,7 +37,12 @@
                                     <f:if condition="{mainnavigationItem.children}">
                                         <f:then>
                                             <a href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then: ' target="{mainnavigationItem.target}"')} title="{mainnavigationItem.title}" class="dropdown-link">
-                                                <span>{mainnavigationItem.title}</span>
+                                                <f:if condition="{mainnavigationItem.icon}">
+                                                    <span class="navbar-item-icon">
+                                                        <f:image image="{mainnavigationItem.icon.0}" alt="{mainnavigationItem.icon.0.alternative}" title="{mainnavigationItem.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                                    </span>
+                                                </f:if>
+                                                <span class="navbar-item-text">{mainnavigationItem.title}</span>
                                                 <b class="caret"></b>
                                                 <span class="bar"></span>
                                             </a>
@@ -50,7 +55,12 @@
                                                         <f:else>
                                                             <li class="{f:if(condition: child.active, then:'active')}">
                                                                 <a href="{child.link}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
-                                                                    <span>{child.title}</span>
+                                                                    <f:if condition="{child.icon}">
+                                                                        <span class="navbar-item-icon">
+                                                                            <f:image image="{child.icon.0}" alt="{child.icon.0.alternative}" title="{child.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                                                        </span>
+                                                                    </f:if>
+                                                                    <span class="navbar-item-text">{child.title}</span>
                                                                 </a>
                                                             </li>
                                                         </f:else>
@@ -60,8 +70,12 @@
                                         </f:then>
                                         <f:else>
                                             <a href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then: ' target="{mainnavigationItem.target}"')} title="{mainnavigationItem.title}">
-                                                <span>{mainnavigationItem.title}</span>
-
+                                                <f:if condition="{mainnavigationItem.icon}">
+                                                    <span class="navbar-item-icon">
+                                                        <f:image image="{mainnavigationItem.icon.0}" alt="{mainnavigationItem.icon.0.alternative}" title="{mainnavigationItem.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                                    </span>
+                                                </f:if>
+                                                <span class="navbar-item-text">{mainnavigationItem.title}</span>
                                                 <span class="bar"></span>
                                             </a>
                                         </f:else>
