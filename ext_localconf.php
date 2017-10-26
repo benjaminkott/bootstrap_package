@@ -50,15 +50,26 @@ if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsTCEFO
 }
 
 if (TYPO3_MODE === 'BE') {
+    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+
     /**
-     * Provides an example .htaccess file for Apache after extension is installed and shows a warning if TYPO3 is not running on Apache.
+     * Provide example webserver configuration after extension is installed.
      */
-    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
     $signalSlotDispatcher->connect(
-        'TYPO3\\CMS\\Extensionmanager\\Service\\ExtensionManagementService',
+        \TYPO3\CMS\Extensionmanager\Service\ExtensionManagementService::class,
         'hasInstalledExtensions',
-        'BK2K\\BootstrapPackage\\Service\\InstallService',
+        \BK2K\BootstrapPackage\Service\InstallService::class,
         'generateApacheHtaccess'
+    );
+
+    /**
+     * Add current Bootstrap Package version to system information toolbar
+     */
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem::class,
+        'getSystemInformation',
+        \BK2K\BootstrapPackage\Backend\ToolbarItem\VersionToolbarItem::class,
+        'addVersionInformation'
     );
 }
 
