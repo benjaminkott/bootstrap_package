@@ -16,7 +16,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * DataRelationViewHelper
  */
 class DataRelationViewHelper extends AbstractViewHelper
 {

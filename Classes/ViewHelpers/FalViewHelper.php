@@ -15,7 +15,7 @@ use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * FalViewHelper
  */
 class FalViewHelper extends AbstractViewHelper
 {

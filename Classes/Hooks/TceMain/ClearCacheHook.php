@@ -13,7 +13,7 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * ClearCacheHook
  */
 class ClearCacheHook
 {

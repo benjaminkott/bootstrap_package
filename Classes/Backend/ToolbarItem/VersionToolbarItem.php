@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Utility\CommandUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * VersionToolbarItem
  */
 class VersionToolbarItem
 {

@@ -13,7 +13,7 @@ use BK2K\BootstrapPackage\Service\CompileService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * PreProcessHook
  */
 class PreProcessHook
 {

@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * InstallService
  */
 class InstallService
 {
