@@ -285,6 +285,12 @@
             <trans-unit id="carousel.wrap.description">
                 <source>Start the Carousel from the beginning once it has arrived at the end.</source>
             </trans-unit>
+            <trans-unit id="carousel.show_nav_title">
+                <source>Show Navigation Title</source>
+            </trans-unit>
+            <trans-unit id="carousel.show_nav_title.description">
+                <source>Show the navigation title of the records instead of the bubbles.</source>
+            </trans-unit>
 
             <trans-unit id="carousel_item">
                 <source>Carousel Item</source>
@@ -306,6 +312,9 @@
             </trans-unit>
             <trans-unit id="carousel_item.subheader_layout">
                 <source>Subheader Layout</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.nav_title">
+                <source>Navigation Title</source>
             </trans-unit>
             <trans-unit id="carousel_item.bodytext">
                 <source>Text</source>

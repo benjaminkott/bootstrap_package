@@ -70,6 +70,20 @@
                             </config>
                         </TCEforms>
                     </wrap>
+                    <show_nav_title>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title.description</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </show_nav_title>
                 </el>
             </ROOT>
         </sDEF>

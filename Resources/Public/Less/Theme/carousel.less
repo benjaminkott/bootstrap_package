@@ -118,6 +118,7 @@
     }
     .carousel-indicators {
         li {
+            overflow: hidden;
             margin-left: 3px;
             margin-right: 3px;
         }
@@ -172,6 +173,52 @@
         }
         .right .carousel-control-icon {
             right: 0;
+        }
+    }
+    .carousel-indicators-navigation {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 (@grid-gutter-width / 2);
+        margin: 0;
+        width: 100%;
+        z-index: 15;
+        opacity: 1;
+        color: @carousel-caption-color;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        > li {
+            overflow: visible;
+            position: relative;
+            padding: 0.75em;
+            margin: 0;
+            border: 0;
+            text-indent: 0;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            border-radius: 0;
+            &.active:before {
+                content: '';
+                position: absolute;
+                bottom: 0.65em;
+                left: 0.75em;
+                right: 0.75em;
+                border-top: 1px solid @brand-primary;
+            }
+            &:first-child {
+                padding-left: 0;
+                &.active:before {
+                    left: 0;
+                }
+            }
+            &:last-child {
+                padding-right: 0;
+                &.active:before {
+                    right: 0;
+                }
+            }
         }
     }
 }
