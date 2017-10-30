@@ -9,19 +9,7 @@
                     <f:variable name="itemStyleImage"><f:if condition="{item.backgroundImage.0}">background-image: url('{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}');</f:if></f:variable>
                     <f:variable name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></f:variable>
                     <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item-type carousel-item-type-{item.data.item_type}" data-itemno="{iteration.index}" style="{itemStyleImage} {itemStyleColor}">
-                        <f:switch expression="{item.data.item_type}">
-                            <f:case value="header">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/Header" arguments="{_all}" />
-                                </f:link.page>
-                            </f:case>
-                            <f:case value="textandimage">
-                                <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
-                                    <f:render partial="Carousel/Item/TextAndImage" arguments="{_all}" />
-                                </f:link.page>
-                            </f:case>
-                            <f:case value="html">{item.data.bodytext->f:format.raw()}</f:case>
-                        </f:switch>
+                        <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
                     </div>
                 </f:for>
             </div>

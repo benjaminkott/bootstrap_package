@@ -35,8 +35,8 @@ return [
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-carousel-item',
             'header' => 'content-bootstrappackage-carousel-item-header',
-            'textandimage' => 'content-bootstrappackage-carousel-item-textandimage',
-            'backgroundimage' => 'content-bootstrappackage-carousel-item-backgroundimage',
+            'text_and_image' => 'content-bootstrappackage-carousel-item-textandimage',
+            'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
             'html' => 'content-bootstrappackage-carousel-item-html'
         ]
     ],
@@ -89,7 +89,7 @@ return [
                 --palette--;;hiddenLanguagePalette,
             '
         ],
-        'textandimage' => [
+        'text_and_image' => [
             'showitem' => '
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
@@ -107,7 +107,7 @@ return [
                 --palette--;;hiddenLanguagePalette,
             '
         ],
-        'backgroundimage' => [
+        'background_image' => [
             'showitem' => '
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
@@ -198,12 +198,12 @@ return [
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
-                        'textandimage',
+                        'text_and_image',
                         'content-bootstrappackage-carousel-item-textandimage'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
-                        'backgroundimage',
+                        'background_image',
                         'content-bootstrappackage-carousel-item-backgroundimage'
                     ],
                     [
