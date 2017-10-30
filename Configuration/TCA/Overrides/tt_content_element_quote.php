@@ -12,7 +12,13 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['quote'] = 'content-quote';
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
+    $GLOBALS['TCA']['tt_content']['types']['quote'] = [];
+}
+
+/***************
+ * Add content element to selector list
+ */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -26,11 +32,13 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['quote'] = 'content-qu
 );
 
 /***************
+ * Assign Icon
+ */
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['quote'] = 'content-quote';
+
+/***************
  * Configure element type
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
-    $GLOBALS['TCA']['tt_content']['types']['quote'] = [];
-}
 $GLOBALS['TCA']['tt_content']['types']['quote'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['quote'],
     [
