@@ -19,6 +19,7 @@ return [
         'delete' => 'deleted',
         'versioningWS' => true,
         'origUid' => 't3_origuid',
+        'hideTable' => true,
         'hideAtCopy' => true,
         'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
