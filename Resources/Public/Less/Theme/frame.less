@@ -16,6 +16,11 @@
         margin-bottom: 0;
     }
 }
+.frame-inner {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
 .frame-ruler-before {
     border-top: 1px solid @page-header-border-color;
     margin-top: 2em;
@@ -25,24 +30,30 @@
     margin-bottom: 2em;
 }
 .frame-indent {
-    @media (min-width: @screen-sm) {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-    @media (min-width: @screen-md) {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    @media (min-width: @screen-lg) {
-        margin-left: 15%;
-        margin-right: 15%;
+    .frame-inner {
+        @media (min-width: @screen-sm) {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        @media (min-width: @screen-md) {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        @media (min-width: @screen-lg) {
+            margin-left: 15%;
+            margin-right: 15%;
+        }
     }
 }
 .frame-indent-left {
-    margin-left: 33%;
+    .frame-inner {
+        margin-left: 33%;
+    }
 }
 .frame-indent-right {
-    margin-right: 33%;
+    .frame-inner {
+        margin-right: 33%;
+    }
 }
 .frame-well {
     &:extend(.well all);
