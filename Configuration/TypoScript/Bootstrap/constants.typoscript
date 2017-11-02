@@ -42,6 +42,9 @@
 # customsubcategory=334=Close
 # customsubcategory=335=Code
 # customsubcategory=336=Type
+# customsubcategory=380=Frame Primary
+# customsubcategory=381=Frame Light
+# customsubcategory=382=Frame Dark
 # customsubcategory=390=Section Primary
 # customsubcategory=391=Section Light
 # customsubcategory=392=Section Dark
@@ -60,6 +63,33 @@ plugin.bootstrap_package {
             google-webfont = Source Sans Pro
             # cat=bootstrap package: basic/160/101; type=string; label=Google Webfont Weights: Comma separated list of font weights
             google-webfont-weight = 300,400,700
+
+            # cat=bootstrap package: styling/380/frame-primary-bg; type=string; label=@frame-primary-bg:
+            frame-primary-bg = @brand-primary
+            # cat=bootstrap package: styling/380/frame-primary-color; type=string; label=@frame-primary-color:
+            frame-primary-color = #fff
+            # cat=bootstrap package: styling/380/frame-primary-link-color; type=string; label=@frame-primary-link-color:
+            frame-primary-link-color = #fff
+            # cat=bootstrap package: styling/380/frame-primary-link-hover-color; type=string; label=@frame-primary-link-hover-color:
+            frame-primary-link-hover-color = darken(@frame-primary-link-color, 15%)
+
+            # cat=bootstrap package: styling/381/frame-light-bg; type=string; label=@frame-light-bg:
+            frame-light-bg = #f2f2f2
+            # cat=bootstrap package: styling/381/frame-light-color; type=string; label=@frame-light-color:
+            frame-light-color = #333
+            # cat=bootstrap package: styling/381/frame-light-link-color; type=string; label=@frame-light-link-color:
+            frame-light-link-color = @link-color
+            # cat=bootstrap package: styling/381/frame-light-link-hover-color; type=string; label=@frame-light-link-hover-color:
+            frame-light-link-hover-color = darken(@frame-light-link-color, 15%)
+
+            # cat=bootstrap package: styling/382/frame-dark-bg; type=string; label=@frame-dark-bg:
+            frame-dark-bg = #333
+            # cat=bootstrap package: styling/382/frame-dark-color; type=string; label=@frame-dark-color:
+            frame-dark-color = #fff
+            # cat=bootstrap package: styling/382/frame-dark-link-color; type=string; label=@frame-dark-link-color:
+            frame-dark-link-color = @link-color
+            # cat=bootstrap package: styling/382/frame-dark-link-hover-color; type=string; label=@frame-dark-link-hover-color:
+            frame-dark-link-hover-color = darken(@frame-dark-link-color, 15%)
 
             # cat=bootstrap package: styling/390/section-primary-bg; type=string; label=@section-primary-bg:
             section-primary-bg = @brand-primary

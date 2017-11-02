@@ -22,6 +22,17 @@ lib.contentElement {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        1509614342 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        1509614342 {
+            references.fieldName = background_image
+            as = backgroundImage
+        }
+    }
+
     ################
     ### SETTINGS ###
     ################

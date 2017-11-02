@@ -447,6 +447,12 @@
                 <source>Background</source>
             </trans-unit>
 
+            <trans-unit id="field.background_image">
+                <source>Background Image</source>
+            </trans-unit>
+            <trans-unit id="field.background_color_class">
+                <source>Background Color</source>
+            </trans-unit>
             <trans-unit id="field.teaser">
                 <source>Teaser</source>
             </trans-unit>

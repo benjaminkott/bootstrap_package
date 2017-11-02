@@ -1,9 +1,21 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:spaceless>
+
+    <f:variable name="frameClass">frame-{data.frame_class}</f:variable>
+    <f:variable name="typeClass">frame-type-{data.CType}</f:variable>
+    <f:variable name="layoutClass">frame-layout-{data.layout}</f:variable>
+    <f:variable name="backgroundClass">frame-background-{data.background_color_class}</f:variable>
+    <f:variable name="spaceBeforeClass">frame-space-before-{f:if(condition: data.space_before_class, else: 'none', then: data.space_before_class)}</f:variable>
+    <f:variable name="spaceAfterClass">frame-space-after-{f:if(condition: data.space_after_class, else: 'none', then: data.space_after_class)}</f:variable>
+
     <f:if condition="{data.frame_class} != none">
         <f:then>
 
-            <div id="c{data.uid}" class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, else: ' frame-space-before-none', then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, else: ' frame-space-after-none', then: ' frame-space-after-{data.space_after_class}')}">
+            <f:variable name="itemStyleImage"><f:if condition="{backgroundImage.0}">background-image: url('{f:uri.image(image: backgroundImage.0)}');</f:if></f:variable>
+            <f:variable name="itemStyle">{itemStyleImage}</f:variable>
+            <f:variable name="backgroundImageClass">{f:if(condition: itemStyleImage, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
+
+            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}"{f:if(condition: itemStyle, then: ' style="{itemStyle}"')}>
                 <div class="frame-container">
                     <div class="frame-inner">
                         <f:if condition="{data._LOCALIZED_UID}">
@@ -34,7 +46,7 @@
                 <a id="c{data._LOCALIZED_UID}"></a>
             </f:if>
             <f:if condition="{data.space_before_class}">
-                <div class="frame-space-before-{data.space_before_class}"></div>
+                <div class="{spaceBeforeClass}"></div>
             </f:if>
             <f:render section="Before" optional="true">
                 <f:render partial="DropIn/Before/All" arguments="{_all}" />
@@ -50,7 +62,7 @@
                 <f:render partial="DropIn/After/All" arguments="{_all}" />
             </f:render>
             <f:if condition="{data.space_after_class}">
-                <div class="frame-space-after-{data.space_after_class}"></div>
+                <div class="{spaceAfterClass}"></div>
             </f:if>
 
         </f:else>
