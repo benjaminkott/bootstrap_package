@@ -5,8 +5,9 @@
 # customsubcategory=110=Logo
 # customsubcategory=111=Favicon
 # customsubcategory=120=Meta Settings
-# customsubcategory=138=Content Elements Preloading
-# customsubcategory=139=Content Elements Header
+# customsubcategory=137=Content Elements Preloading
+# customsubcategory=138=Content Elements Header
+# customsubcategory=139=Content Elements Subheader
 # customsubcategory=140=Content Elements Templates
 # customsubcategory=143=Content Element Menu
 # customsubcategory=144=Content Element General
@@ -200,8 +201,14 @@ plugin.bootstrap_package {
 ##########################################
 plugin.bootstrap_package_contentelements {
     header {
-        # cat=bootstrap package: advanced/139/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
+        # cat=bootstrap package: advanced/138/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
         defaultHeaderType = 2
+        # cat=bootstrap package: advanced/138/class; type=string; label=Default Header class
+        class = element-header
+    }
+    subheader {
+        # cat=bootstrap package: advanced/139/class; type=string; label=Default Subheader class
+        class = element-subheader
     }
     view {
         # cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
@@ -212,7 +219,7 @@ plugin.bootstrap_package_contentelements {
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
     }
     preload {
-        # cat=bootstrap package: advanced/138/100; type=boolean; label=Preload Images
+        # cat=bootstrap package: advanced/137/100; type=boolean; label=Preload Images
         images = 0
     }
     lightbox {

@@ -39,6 +39,10 @@ lib.contentElement {
     settings {
         header {
             defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
+            class = {$plugin.bootstrap_package_contentelements.header.class}
+        }
+        subheader {
+            class = {$plugin.bootstrap_package_contentelements.subheader.class}
         }
         preload {
             images = {$plugin.bootstrap_package_contentelements.preload.images}
