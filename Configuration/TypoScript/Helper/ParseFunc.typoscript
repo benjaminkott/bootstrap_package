@@ -76,6 +76,13 @@ lib.parseFunc_RTE {
             stripNL = 1
             stdWrap {
                 parseFunc = < lib.parseFunc
+                HTMLparser = 1
+                HTMLparser {
+                    tags.ul.fixAttrib.class {
+                        default = list-normal
+                    }
+                    keepNonMatchedTags = 1
+                }
             }
         }
         table {
