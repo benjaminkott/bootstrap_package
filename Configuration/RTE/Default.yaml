@@ -26,6 +26,15 @@ editor:
             - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
             - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
             - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
+            - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
+            - { name: "Uppercased text", element: "span", attributes: { 'class': 'text-uppercase' } }
+            - { name: "Capitalized text", element: "span", attributes: { 'class': 'text-capitalize' } }
+            - { name: "Muted", element: "span", attributes: { 'class': 'text-muted' } }
+            - { name: "Primary", element: "span", attributes: { 'class': 'text-primary' } }
+            - { name: "Success", element: "span", attributes: { 'class': 'text-success' } }
+            - { name: "Info", element: "span", attributes: { 'class': 'text-info' } }
+            - { name: "Warning", element: "span", attributes: { 'class': 'text-warning' } }
+            - { name: "Danger", element: "span", attributes: { 'class': 'text-danger' } }
 
         toolbarGroups:
             - { name: styles, groups: [ format, styles ] }
