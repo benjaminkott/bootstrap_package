@@ -9,6 +9,7 @@ editor:
 
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Small", element: "small" }
             - { name: "Table", element: "table", attributes: { 'class': 'table table-hover' } }
             - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-hover table-striped' } }
             - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-hover table-bordered' } }
