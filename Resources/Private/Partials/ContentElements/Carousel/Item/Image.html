@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+    <div class="valign">
+        <div class="carousel-image vcontainer">
+            <f:if condition="{item.images.0}">
+                <f:image
+                    image="{item.images.0}"
+                    title="{item.images.0.title}"
+                    alt="{item.images.0.alternative}" />
+            </f:if>
+        </div>
+    </div>
+</f:link.page>
+</html>

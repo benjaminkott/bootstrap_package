@@ -335,6 +335,9 @@
             <trans-unit id="carousel_item.item_type.header">
                 <source>Header</source>
             </trans-unit>
+            <trans-unit id="carousel_item.item_type.image">
+                <source>Image</source>
+            </trans-unit>
             <trans-unit id="carousel_item.item_type.textandimage">
                 <source>Text and Image</source>
             </trans-unit>
