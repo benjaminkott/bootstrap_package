@@ -125,10 +125,6 @@ module.exports = function(grunt) {
                 files: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 tasks: 'uglify:responsiveimages'
             },
-            viewportfix: {
-                files: '<%= paths.js %>Src/windowsphone-viewportfix.js',
-                tasks: 'uglify:viewportfix'
-            },
             less: {
                 files: '<%= paths.less %>**/*.less',
                 tasks: 'css'
