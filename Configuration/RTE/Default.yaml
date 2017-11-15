@@ -4,6 +4,10 @@ imports:
     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
 
 editor:
+    externalPlugins:
+        box:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+
     config:
         contentsCss: "EXT:bootstrap_package/Resources/Public/Css/rte.min.css"
 
@@ -59,6 +63,7 @@ editor:
 
         extraPlugins:
             - justify
+            - box
 
         removePlugins:
             - image

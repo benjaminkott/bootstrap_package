@@ -70,6 +70,10 @@ module.exports = function(grunt) {
             responsiveimages: {
                 src: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
+            },
+            ckeditor_box: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
             }
         },
         less: {
@@ -124,6 +128,10 @@ module.exports = function(grunt) {
             responsiveimages: {
                 files: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 tasks: 'uglify:responsiveimages'
+            },
+            ckeditor_box: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
+                tasks: 'uglify:ckeditor_box'
             },
             less: {
                 files: '<%= paths.less %>**/*.less',
