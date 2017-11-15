@@ -74,6 +74,10 @@ module.exports = function(grunt) {
             ckeditor_box: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
+            },
+            ckeditor_table: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
             }
         },
         less: {
@@ -132,6 +136,10 @@ module.exports = function(grunt) {
             ckeditor_box: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 tasks: 'uglify:ckeditor_box'
+            },
+            ckeditor_table: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
+                tasks: 'uglify:ckeditor_table'
             },
             less: {
                 files: '<%= paths.less %>**/*.less',

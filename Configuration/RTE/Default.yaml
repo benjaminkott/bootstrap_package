@@ -7,6 +7,8 @@ editor:
     externalPlugins:
         bootstrappackage_box:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+        bootstrappackage_table:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
 
     config:
         contentsCss: "EXT:bootstrap_package/Resources/Public/Css/rte.min.css"
@@ -14,10 +16,10 @@ editor:
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
             - { name: "Small", element: "small" }
-            - { name: "Table", element: "table", attributes: { 'class': 'table table-hover' } }
-            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-hover table-striped' } }
-            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-hover table-bordered' } }
-            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-hover table-condensed' } }
+            - { name: "Table", element: "table", attributes: { 'class': 'table' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-condensed' } }
             - { name: "Row Active", element: "tr", attributes: { 'class': 'active' } }
             - { name: "Row Success", element: "tr", attributes: { 'class': 'success' } }
             - { name: "Row Info", element: "tr", attributes: { 'class': 'info' } }
@@ -64,6 +66,7 @@ editor:
         extraPlugins:
             - justify
             - bootstrappackage_box
+            - bootstrappackage_table
 
         removePlugins:
             - image
