@@ -1,5 +1,5 @@
 CKEDITOR.plugins.setLang(
-    'box',
+    'bootstrappackage_box',
     'de',
     {
         toolbar: 'Box'

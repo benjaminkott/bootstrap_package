@@ -5,7 +5,7 @@ imports:
 
 editor:
     externalPlugins:
-        box:
+        bootstrappackage_box:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
 
     config:
@@ -63,7 +63,7 @@ editor:
 
         extraPlugins:
             - justify
-            - box
+            - bootstrappackage_box
 
         removePlugins:
             - image

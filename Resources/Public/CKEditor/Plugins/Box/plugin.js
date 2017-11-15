@@ -2,7 +2,7 @@
 
 (function() {
 
-    CKEDITOR.plugins.add('box', {
+    CKEDITOR.plugins.add('bootstrappackage_box', {
         lang: 'en,de',
         icons: 'box',
         hidpi: true,
@@ -11,7 +11,7 @@
                 return;
 
             // Add command
-            editor.addCommand('box', {
+            editor.addCommand('bootstrappackage_box', {
                 exec: toggleBox,
                 refresh: setButtonState,
                 context: 'div',
@@ -21,8 +21,8 @@
 
             // Add Button
             editor.ui.addButton && editor.ui.addButton('Box', {
-                label: editor.lang.box.toolbar,
-                command: 'box',
+                label: editor.lang.bootstrappackage_box.toolbar,
+                command: 'bootstrappackage_box',
                 toolbar: 'blocks'
             });
         }
@@ -53,7 +53,7 @@
             blocks.push(block);
 
         // Add or remove the wrap
-        if (editor.getCommand('box').state == CKEDITOR.TRISTATE_OFF) {
+        if (editor.getCommand('bootstrappackage_box').state == CKEDITOR.TRISTATE_OFF) {
             addWrap(editor, blocks);
         } else {
             removeWrap(editor, blocks);
