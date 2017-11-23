@@ -47,7 +47,7 @@ class VersionToolbarItem
         }
 
         // Fallback to version from extension manager
-        if (!$value) {
+        if ($value === null) {
             $value = ExtensionManagementUtility::getExtensionVersion('bootstrap_package');
         }
 
