@@ -57,9 +57,9 @@ class DataRelationViewHelper extends AbstractViewHelper
     ) {
         $variableProvider = $renderingContext->getVariableProvider();
         if ($arguments['uid'] !== null && $arguments['table'] !== null) {
-            $connection = static::getDatabaseConnection();
-            $frontendController = static::getFrontendController();
-            $contentObjectRenderer = static::createContentObjectRenderer();
+            $connection = self::getDatabaseConnection();
+            $frontendController = self::getFrontendController();
+            $contentObjectRenderer = self::createContentObjectRenderer();
             $whereClause = $arguments['foreignField'] . '=' . (int)$arguments['uid']
                 . ' ' . $arguments['additionalWhere']
                 . $contentObjectRenderer->enableFields($arguments['table']);
