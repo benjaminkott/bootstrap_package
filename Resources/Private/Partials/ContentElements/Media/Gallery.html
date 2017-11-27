@@ -1,6 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{files}">
-
     <f:if condition="{files -> f:count()} > 1">
         <f:then>
             <f:switch expression="{data.imagecols}">
@@ -8,16 +7,16 @@
                     <f:variable name="imageColumnClass">col-xs-12</f:variable>
                 </f:case>
                 <f:case value="2">
-                    <f:variable name="imageColumnClass">col-md-6 col-xs-12</f:variable>
+                    <f:variable name="imageColumnClass">col-sm-6</f:variable>
                 </f:case>
                 <f:case value="3">
-                    <f:variable name="imageColumnClass">col-md-4 col-sm-4 col-xs-4</f:variable>
+                    <f:variable name="imageColumnClass">col-sm-4</f:variable>
                 </f:case>
                 <f:case value="4">
-                    <f:variable name="imageColumnClass">col-md-3 col-sm-3 col-xs-6</f:variable>
+                    <f:variable name="imageColumnClass">col-sm-3</f:variable>
                 </f:case>
                 <f:case value="6">
-                    <f:variable name="imageColumnClass">col-md-2 col-sm-3 col-xs-4</f:variable>
+                    <f:variable name="imageColumnClass">col-sm-3 col-md-2</f:variable>
                 </f:case>
                 <f:defaultCase>
                     <f:variable name="imageColumnClass">col-xs-12</f:variable>
@@ -28,7 +27,6 @@
             <f:variable name="imageColumnClass">col-xs-12</f:variable>
         </f:else>
     </f:if>
-
     <div class="gallery-row row">
         <f:for each="{files}" as="file" iteration="fileIteration">
             <div class="gallery-item {imageColumnClass}">
@@ -36,6 +34,5 @@
             </div>
         </f:for>
     </div>
-
 </f:if>
 </html>
