@@ -3,19 +3,19 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
+        <f:variable name="activeElement">{data.pi_flexform.default_element}</f:variable>
         <div class="panel-group" id="accordion-{data.uid}" role="tablist" aria-multiselectable="true">
             <f:for each="{records}" as="record" iteration="iteration">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="accordion-heading-{data.uid}-{record.data.uid}">
                         <h4 class="panel-title">
-                            <a class="{f:if(condition: iteration.isFirst, else:'collapsed')}" role="button" data-toggle="collapse" data-parent="#accordion-{data.uid}" href="#accordion-{data.uid}-{record.data.uid}" aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
+                            <a class="{f:if(condition: '{activeElement} == {record.data.uid}', else:'collapsed')}" role="button" data-toggle="collapse" data-parent="#accordion-{data.uid}" href="#accordion-{data.uid}-{record.data.uid}" aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
                                 <span>{record.data.header}</span>
                             </a>
                         </h4>
                     </div>
-                    <div id="accordion-{data.uid}-{record.data.uid}" class="panel-collapse collapse {f:if(condition: iteration.isFirst, then: 'in')}" role="tabpanel" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}">
+                    <div id="accordion-{data.uid}-{record.data.uid}" class="panel-collapse collapse {f:if(condition: '{activeElement} == {record.data.uid}', then: 'in')}" role="tabpanel" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}">
                         <div class="panel-body">
-
                             <f:if condition="{record.files}">
                                 <f:then>
                                     <div class="row">
@@ -31,7 +31,6 @@
                                     <f:format.html>{record.data.bodytext}</f:format.html>
                                 </f:else>
                             </f:if>
-
                         </div>
                     </div>
                 </div>

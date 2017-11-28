@@ -348,7 +348,14 @@
                 <source>HTML</source>
             </trans-unit>
 
-            <trans-unit id="accordion_item">
+            <trans-unit id="accordion.options">
+                <source>Accordion Options</source>
+            </trans-unit>
+            <trans-unit id="accordion.default_element">
+                <source>Default Element</source>
+            </trans-unit>
+
+            <trans-unit id="_item">
                 <source>Accordion Item</source>
             </trans-unit>
             <trans-unit id="accordion_item.tt_content">
