@@ -7656,6 +7656,11 @@ body,
 .navbar-toggle:hover .icon-bar:nth-child(3) {
   margin-left: 2px;
 }
+@media (hover: none), (hover: on-demand) {
+  .navbar-toggle:hover .icon-bar:nth-child(3) {
+    margin-left: 0;
+  }
+}
 .navbar-toggle:focus {
   outline: 0;
 }

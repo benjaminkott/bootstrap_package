@@ -338,6 +338,9 @@
         .icon-bar {
             &:nth-child(3) {
                 margin-left: 2px;
+                @media (hover:none), (hover:on-demand) {
+                    margin-left: 0;
+                }
             }
         }
     }
