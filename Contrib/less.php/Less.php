@@ -8869,7 +8869,7 @@ class Less_Visitor_processExtends extends Less_Visitor{
 				throw new Less_Exception_Parser("extend circular reference detected. One of the circular extends is currently:" . $selectorOne . ":extend(" . $selectorTwo . ")");
 			}
 
-			// now process the new extends on the existing rules so that we can handle a extending b extending c ectending d extending e...
+			// now process the new extends on the existing rules so that we can handle a extending b extending c extending d extending e...
 			$extendsToAdd = $this->doExtendChaining( $extendsToAdd, $extendsListTarget, $iterationCount+1);
 		}
 
