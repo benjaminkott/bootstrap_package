@@ -62,23 +62,27 @@
     .navbar-default-transition,
     .navbar-inverse-transition {
         .transition(all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s);
+    }
+    .navbar-default-transition {
         background-color: transparent;
         border-color: transparent;
-        .navbar-nav > .open,
-        .navbar-nav > .active,
-        .navbar-nav > li {
-            > a,
-            > a:hover,
-            > a:focus {
-                color: #ffffff;
-            }
-        }
+    }
+    .navbar-inverse-transition {
         .navbar-brand {
             > .navbar-brand-logo-normal {
                 display: none;
             }
             > .navbar-brand-logo-inverted {
                 display: block;
+            }
+        }
+        .navbar-nav > .open,
+        .navbar-nav > .active,
+        .navbar-nav > li, {
+            > a,
+            > a:hover,
+            > a:focus {
+                color: #ffffff;
             }
         }
     }
@@ -88,14 +92,6 @@
         .navbar-main > li > a {
             line-height: @navbar-height;
             height: @navbar-height;
-        }
-        .navbar-brand {
-            > .navbar-brand-logo-normal {
-                display: block;
-            }
-            > .navbar-brand-logo-inverted {
-                display: none;
-            }
         }
     }
 }
