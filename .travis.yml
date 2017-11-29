@@ -72,3 +72,9 @@ after_success:
         dep --file="./Build/deploy.php" deploy;
       fi;
     fi;
+
+notifications:
+  slack:
+    secure: fj3lIrSaDe0EzBu+Twng/3vz/Bn2bGtKhEA6hG2vBg1g+/n54l7uhzXjRWgMaI4gfwuBmDcJvPnG2EFweBuSJgQgxcXzCvScZ1Z4Xu+gAeCCCeuVJHsWE34erE86a5MeIAsDZhH2UG/MTOlpUqqdFCD59z5XA+E52LiyTp7QMi0=
+    on_success: change
+    on_failure: always
