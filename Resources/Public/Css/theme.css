@@ -7818,15 +7818,23 @@ body,
 }
 .navbar + a + .carousel-fullscreen,
 .navbar + a + a + .carousel-fullscreen,
+.navbar + .typo3-feedit-element > a + .carousel-fullscreen,
+.navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
 .navbar + .main-section > a + .carousel-fullscreen,
-.navbar + .main-section > a + a + .carousel-fullscreen {
+.navbar + .main-section > a + a + .carousel-fullscreen,
+.navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
+.navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
   margin-top: -70px;
 }
 @media (min-width: 992px) {
   .navbar + a + .carousel-fullscreen,
   .navbar + a + a + .carousel-fullscreen,
+  .navbar + .typo3-feedit-element > a + .carousel-fullscreen,
+  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar + .main-section > a + .carousel-fullscreen,
-  .navbar + .main-section > a + a + .carousel-fullscreen {
+  .navbar + .main-section > a + a + .carousel-fullscreen,
+  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
+  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
     margin-top: -140px;
   }
 }
@@ -7835,25 +7843,41 @@ body,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
     margin-top: -140px;
   }
 }
 .navbar-fixed-bottom + a + .carousel-fullscreen,
 .navbar-fixed-bottom + a + a + .carousel-fullscreen,
+.navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
+.navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
 .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-.navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
+.navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
+.navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
+.navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
   margin-top: 0;
   height: calc(100vh - 70px);
 }
 @media (min-width: 992px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
   .navbar-fixed-bottom + a + a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
+  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
     height: calc(100vh - 70px - 70px);
   }
 }
@@ -8718,70 +8742,45 @@ figure .caption {
 }
 body .typo3-feedit-element,
 .htmlarea-content-body .typo3-feedit-element {
-  outline: 3px solid rgba(255, 135, 0, 0.5) !important;
+  border: none;
+  outline: 3px solid rgba(230, 122, 0, 0.5) !important;
+  margin: 0;
 }
 body .typo3-feedit-element:hover,
 .htmlarea-content-body .typo3-feedit-element:hover {
-  outline: 3px solid #ff8700 !important;
+  outline: 3px solid #e67a00 !important;
 }
-.typo3-editPanel {
+body .typo3-feedit-element + .typo3-feedit-element,
+.htmlarea-content-body .typo3-feedit-element + .typo3-feedit-element {
+  margin-top: 1.5em;
+}
+body .typo3-editPanel,
+.htmlarea-content-body .typo3-editPanel {
   background-color: #eaeaea!important;
+  border-color: #cacaca!important;
   color: #333333;
-  padding: 0px 5px;
   line-height: 2em;
-  margin-bottom: 24px;
-}
-.typo3-editPanel:before,
-.typo3-editPanel:after {
-  content: " ";
-  display: table;
-}
-.typo3-editPanel:after {
-  clear: both;
-}
-.typo3-editPanel:before,
-.typo3-editPanel:after {
-  content: " ";
-  display: table;
-}
-.typo3-editPanel:after {
-  clear: both;
+  margin: 0;
 }
 body .typo3-feedit-element-hidden,
 .htmlarea-content-body .typo3-feedit-element-hidden {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
+  outline: 3px solid #e5b848 !important;
 }
 body .typo3-feedit-element-hidden:hover,
 .htmlarea-content-body .typo3-feedit-element-hidden:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  outline: 3px solid #e5b848 !important;
   opacity: 1;
 }
-.t3-icon {
-  vertical-align: middle;
+body .typo3-editPanel-btn,
+.htmlarea-content-body .typo3-editPanel-btn {
+  background-color: #eeeeee!important;
+  border-color: #bbbbbb!important;
+  color: #333333!important;
 }
-.typo3-feedit-page:before,
-.typo3-feedit-page:after {
-  content: " ";
-  display: table;
-}
-.typo3-feedit-page:after {
-  clear: both;
-}
-.typo3-feedit-page:before,
-.typo3-feedit-page:after {
-  content: " ";
-  display: table;
-}
-.typo3-feedit-page:after {
-  clear: both;
-}
-.typo3-feedit-page .typo3-feedit-element {
-  outline: none!important;
-  border-bottom: 3px solid #ff8700;
-}
-.typo3-feedit-page .typo3-editPanel {
-  margin-bottom: 0;
+body .typo3-editPanel-btn:hover,
+.htmlarea-content-body .typo3-editPanel-btn:hover {
+  background-color: #dadada!important;
 }
 .form-check-input + span {
   margin-left: 0.5em;

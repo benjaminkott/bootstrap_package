@@ -1,38 +1,42 @@
 //
 // Frontend Editing
 // --------------------------------------------------
-body .typo3-feedit-element {
-    outline: 3px solid fade(@brand-primary, 50%) !important;
-    &:hover {
-        outline: 3px solid @brand-primary !important;
-    }
-}
-.typo3-editPanel {
-    .clearfix();
-    background-color: #eaeaea!important;
-    color: #333333;
-    padding: 0px 5px;
-    line-height: 2em;
-    margin-bottom: @line-height-computed;
-}
-body .typo3-feedit-element-hidden {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-    opacity: 0.5;
-    &:hover {
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-        opacity: 1;
-    }
-}
-.t3-icon {
-    vertical-align: middle;
-}
-.typo3-feedit-page {
-    .clearfix();
+@enabled-color: darken(@brand-primary, 5%);
+@disabled-color: #e5b848;
+
+body {
     .typo3-feedit-element {
-        outline: none!important;
-        border-bottom: 3px solid @brand-primary;
+        border: none;
+        outline: 3px solid fade(@enabled-color, 50%) !important;
+        margin: 0;
+        &:hover {
+            outline: 3px solid @enabled-color !important;
+        }
+        + .typo3-feedit-element {
+            margin-top: 1.5em;
+        }
     }
     .typo3-editPanel {
-        margin-bottom: 0;
+        background-color: #eaeaea!important;
+        border-color: #cacaca!important;
+        color: #333333;
+        line-height: 2em;
+        margin: 0;
+    }
+    .typo3-feedit-element-hidden {
+        opacity: 0.5;
+        outline: 3px solid @disabled-color !important;
+        &:hover {
+            outline: 3px solid @disabled-color !important;
+            opacity: 1;
+        }
+    }
+    .typo3-editPanel-btn {
+        background-color: #eeeeee!important;
+        border-color: #bbbbbb!important;
+        color: #333333!important;
+        &:hover {
+            background-color: #dadada!important;
+        }
     }
 }
