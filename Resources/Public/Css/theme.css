@@ -8107,19 +8107,27 @@ body,
     width: 65%;
   }
 }
-.carousel-item-type-textandimage .carousel-image {
+.carousel-item-type-text_and_image .carousel-image {
   display: none;
 }
-.carousel-item-type-textandimage .carousel-image img {
+.carousel-item-type-text_and_image .carousel-image img {
   margin: 0 auto;
   max-width: 100%;
   display: block;
   height: auto;
 }
 @media (min-width: 768px) {
-  .carousel-item-type-textandimage .carousel-image {
+  .carousel-item-type-text_and_image .carousel-image {
     display: table-cell;
   }
+}
+.carousel-item-type-background_image a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 .carousel-item-type-image .carousel-image img {
   margin: 0 auto;
