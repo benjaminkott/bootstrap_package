@@ -111,7 +111,7 @@
             if (source) {
                 this.$element.attr("src", source);
                 this.$element.css("opacity", 1);
-                $(window).trigger('loaded.bk2k.responsiveimage');
+                $(window).trigger('loaded.bk2k.responsiveimage', [this.$element]);
                 this.loaded	= true;
             }
         }
