@@ -20,6 +20,141 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 9.0.0      | - [!!!][TASK] Remove obsolete pagetype popup - fixes #476                                                                                                                  |
+|            | - [!!!][FEATURE] Make css classes of footer columns directly addressable                                                                                                   |
+|            | - [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core                                                                                           |
+|            | - [!!!][TASK] Remove mod_filter check by default                                                                                                                           |
+|            | - [!!!][FEATURE] Load bootstrap rte configuration for all records by default                                                                                               |
+|            | - [!!!][FEATURE] Enable links on dropdown menus in main navigation                                                                                                         |
+|            | - [!!!][FEATURE] Split menus instead of adding text when adding a spacer on main level                                                                                     |
+|            | - [!!!][TASK] Use .typoscript instead of .txt for configuration files                                                                                                      |
+|            | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
+|            | - [!!!][TASK] Drop obsolete windows phone fix                                                                                                                              |
+|            | - [!!!][TASK] Drop equalheight script                                                                                                                                      |
+|            | - [FEATURE] Pass current element on trigger loaded.bk2k.responsiveimage - fixes #471                                                                                       |
+|            | - [FEATURE] Allow links on carousel type background image - fixes #455                                                                                                     |
+|            | - [FEATURE] Enable frontend editing for pages                                                                                                                              |
+|            | - [FEATURE] Enable frontend editing for content elements                                                                                                                   |
+|            | - [FEATURE] Make open accordion item configurable                                                                                                                          |
+|            | - [FEATURE] Make gallery item column sizes configurable - fixes #465                                                                                                       |
+|            | - [FEATURE]  Add table class in ckeditor by default                                                                                                                        |
+|            | - [FEATURE] Add ckeditor plugin to insert boxes                                                                                                                            |
+|            | - [FEATURE] Add carousel item type image                                                                                                                                   |
+|            | - [FEATURE] Add configurable header and subheader css classes                                                                                                              |
+|            | - [FEATURE] Add additional inline text style classes to editor config                                                                                                      |
+|            | - [FEATURE] Add background image and base coloring support for content elements                                                                                            |
+|            | - [FEATURE] Introduce frame-container and frame-inner for more detailed control options                                                                                    |
+|            | - [FEATURE] Add auto lookup for carousel item templates and move wrapping links to partials                                                                                |
+|            | - [FEATURE] Add UpperCamelCaseViewHelper                                                                                                                                   |
+|            | - [FEATURE] Add option to show navigation title in carousel navigation                                                                                                     |
+|            | - [FEATURE] Add navigation icons for main navigation                                                                                                                       |
+|            | - [FEATURE] Add current version to system information toolbar                                                                                                              |
+|            | - [FEATURE] Make scaling options for headlines configurable                                                                                                                |
+|            | - [!!!][FEATURE] Make css classes of footer columns directly addressable                                                                                                   |
+|            | - [FEATURE] Make footer meta section colors configurable                                                                                                                   |
+|            | - [FEATURE] Make breadcrumb extendable to show title of single records                                                                                                     |
+|            | - [FEATURE] Add example configuration for Microsoft-IIS                                                                                                                    |
+|            | - [FEATURE] Add support for google-site-verification meta tag                                                                                                              |
+|            | - [FEATURE] add element wrap in lib.dynamicContent                                                                                                                         |
+|            | - [!!!][FEATURE] Load bootstrap rte configuration for all records by default                                                                                               |
+|            | - [!!!][FEATURE] Enable links on dropdown menus in main navigation                                                                                                         |
+|            | - [!!!][FEATURE] Split menus instead of adding text when adding a spacer on main level                                                                                     |
+|            | - [FEATURE] Make config.typolinkEnableLinksAcrossDomains available through constant                                                                                        |
+|            | - [FEATURE] Enable cropping of carousel background image                                                                                                                   |
+|            | - [FEATURE] Enable cropping for image in carousel                                                                                                                          |
+|            | - [!!!][TASK] Remove obsolete pagetype popup - fixes #476                                                                                                                  |
+|            | - [TASK] Push notifications to slack                                                                                                                                       |
+|            | - [TASK] Register bk2k as global namespace for viewhelpers                                                                                                                 |
+|            | - [TASK] Check for explicit for null value in version toolbar item                                                                                                         |
+|            | - [TASK] Adjust scrutinizer build                                                                                                                                          |
+|            | - [TASK] Remove obsolete divider to tabs option                                                                                                                            |
+|            | - [TASK] Rename ckeditor box plugin to avoid naming conflicts                                                                                                              |
+|            | - [TASK] Reduce form css to minimum and adapt to new form elements                                                                                                         |
+|            | - [TASK] Update package-lock                                                                                                                                               |
+|            | - [TASK] Remove obsolete watch task for viewportfix                                                                                                                        |
+|            | - [TASK] Add small option to ckeditor                                                                                                                                      |
+|            | - [TASK] Add default css class to unordered lists from rte                                                                                                                 |
+|            | - [TASK] Reduce default fields of carousel item                                                                                                                            |
+|            | - [TASK] Streamline element quote TCA                                                                                                                                      |
+|            | - [TASK] Hide relation tables to avoid problems when managed without proper context                                                                                        |
+|            | - [TASK] Remove authors from phpdoc                                                                                                                                        |
+|            | - [TASK] Streamline php header comments and add fixer rule                                                                                                                 |
+|            | - [TASK] Remove obsolete margin bottom from breadcrumb                                                                                                                     |
+|            | - [TASK] Enhance positioning of scroll to top button                                                                                                                       |
+|            | - [TASK] Avoid ambiguous "uid" error (#480)                                                                                                                                |
+|            | - [TASK] Use initialize arguments instead of render arguments in FalViewHelper                                                                                             |
+|            | - [TASK] Use initialize arguments instead of render arguments in DataRelationViewHelper                                                                                    |
+|            | - [TASK] Use initialize arguments instead of render arguments in ExplodeViewHelper                                                                                         |
+|            | - [TASK] Add mini section styling                                                                                                                                          |
+|            | - [TASK] Use initialize arguments instead of render arguments in ExternalMediaViewHelper                                                                                   |
+|            | - [TASK] Use initialize arguments instead of render arguments in LastImageInfoViewHelper                                                                                   |
+|            | - [TASK] Remove obsolete tt_content palettes                                                                                                                               |
+|            | - [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core                                                                                           |
+|            | - [TASK] Update readme and include frontend screenshot                                                                                                                     |
+|            | - [TASK] Add .rst and .typoscript to editorconfig                                                                                                                          |
+|            | - [TASK] Add deployment for www.bootstrap-package.com                                                                                                                      |
+|            | - [!!!][TASK] Remove mod_filter check by default                                                                                                                           |
+|            | - [TASK] Ensure link target attribute is only rendered if target is set - fixes #468                                                                                       |
+|            | - [!!!][TASK] Use .typoscript instead of .txt for configuration files                                                                                                      |
+|            | - [TASK] Update npm dependencies                                                                                                                                           |
+|            | - [!!!][TASK] Drop obsolete windows phone fix                                                                                                                              |
+|            | - [!!!][TASK] Drop equalheight script                                                                                                                                      |
+|            | - [TASK] Remove release commit from changelog                                                                                                                              |
+|            | - [TASK] Replace unwanted characters in commit messages                                                                                                                    |
+|            | - [TASK] Add composer changelog script                                                                                                                                     |
+|            | - [TASK] Drop development affix for version numbers                                                                                                                        |
+|            | - [TASK] Add composer version script                                                                                                                                       |
+|            | - [TASK] Cleanup code formatting for palette configuration                                                                                                                 |
+|            | - [TASK] Use php-cs-fixer instead of php-codesniffer                                                                                                                       |
+|            | - [TASK] Adjust composer keywords                                                                                                                                          |
+|            | - [TASK] Raise php dependency to 7.x                                                                                                                                       |
+|            | - [TASK] Remove not working ter upload                                                                                                                                     |
+|            | - [TASK] Add typo3 8.7 to travis                                                                                                                                           |
+|            | - [BUGFIX] Correct css selector for carousel item type text and image                                                                                                      |
+|            | - [BUGFIX] Correct indentions                                                                                                                                              |
+|            | - [BUGFIX] Show correct translations in language menu (#487)                                                                                                               |
+|            | - [BUGFIX] Ensure aria-expanded is correctly set for accordion items                                                                                                       |
+|            | - [BUGFIX] Ensure selected tab item is shown in the backend                                                                                                                |
+|            | - [BUGFIX] Only support hover for on navbar toggle if hover is completely supported - fixes #459                                                                           |
+|            | - [BUGFIX] Add missing namespaces to carousel small and fullscreen templates                                                                                               |
+|            | - [BUGFIX] Use self instead of static in DataRelationViewHelper                                                                                                            |
+|            | - [BUGFIX] Add css to precompiled css files                                                                                                                                |
+|            | - [BUGFIX] Correct jumbotron button styling                                                                                                                                |
+|            | - [BUGFIX] Add missing list styles to rte configuration                                                                                                                    |
+|            | - [BUGFIX] Correct bootstraps calculation of container widths                                                                                                              |
+|            | - [BUGFIX] Ensure correct link colors are loaded for footer meta section                                                                                                   |
+|            | - [BUGFIX] Ensure footer list are actually centered                                                                                                                        |
+|            | - [BUGFIX] Correct preview template assignments for listgroup and external_media                                                                                           |
+|            | - [BUGFIX] Set default value for tt_content reference fields in *_item tables (#482)                                                                                       |
+|            | - [BUGFIX] Add parseFunc handling to pre tags                                                                                                                              |
+|            | - [BUGFIX] Correct rendering method of LastImageInfoVIewHelper                                                                                                             |
+|            | - [BUGFIX] Correct indention in generic template                                                                                                                           |
+|            | - [BUGFIX] Limit media element to youtube and vimeo                                                                                                                        |
+|            | - [BUGFIX] Display cropping variants for textmedia - fixes #438                                                                                                            |
+|            | - [BUGFIX] Ensure link is displayed correctly in readme                                                                                                                    |
+|            | - [BUGFIX] Correct image link in readme                                                                                                                                    |
+|            | - [BUGFIX] Add boostrap-package.com as known host                                                                                                                          |
+|            | - [BUGFIX] Specify Deployer file                                                                                                                                           |
+|            | - [BUGFIX] Fix sys_language_uid when adding item to translated tt_content (#458)                                                                                           |
+|            | - [BUGFIX] Only show content in MenuSectionPages that is marked for section index - fixes #466                                                                             |
+|            | - [BUGFIX] Close tags in meta menu properly - fixes #469                                                                                                                   |
+|            | - [BUGFIX] Remove unused constant assignments - fixes #477                                                                                                                 |
+|            | - [BUGFIX] Remove padding of navbar-collapse on desktop                                                                                                                    |
+|            | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
+|            | - [BUGFIX] Remove wrong placed comma in navbar less file - fixes #460                                                                                                      |
+|            | - [BUGFIX] Prepare colPos field for proper quoting (#452)                                                                                                                  |
+|            | - [BUGFIX] Correct texticon preview paths on windows                                                                                                                       |
+|            | - [BUGFIX] Remove .php_cs.dist from export                                                                                                                                 |
+|            | - [BUGFIX] Correct less variable: @icon-font-path (#450)                                                                                                                   |
+|            | - [BUGFIX] Correct sys_file_referece palettes for tab items                                                                                                                |
+|            | - [BUGFIX] Correct sys_file_referece palettes for accordion items                                                                                                          |
+|            | - [BUGFIX] Use override child tca for carousel background image                                                                                                            |
+|            | - [BUGFIX] Correct value type of data-wrap for bootstrap carousels - fixes #437                                                                                            |
+|            | - [BUGFIX] Remove conflicting btn stylings for legacy rtehtmlarea - fixes #447                                                                                             |
+|            | - [BUGFIX] Correct dependencies for typo3 cms 9.x                                                                                                                          |
+|            | - [CLEANUP] Fix typo by adding missing c to "seletor"                                                                                                                      |
+|            | - Use correct closing tag                                                                                                                                                  |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.0      | - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead                                                                                                        |
 |            | - [FEATURE] Enable compression of generated css files                                                                                                                      |
 |            | - [FEATURE] Add bootstrap responsive wrapper to table ce - fixes #385                                                                                                      |

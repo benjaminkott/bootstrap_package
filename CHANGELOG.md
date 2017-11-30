@@ -1,3 +1,149 @@
+# 9.0.0
+
+## BREAKING
+- [!!!][TASK] Remove obsolete pagetype popup - fixes #476 20124b9
+- [!!!][FEATURE] Make css classes of footer columns directly addressable a500b6d
+- [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core 625af26
+- [!!!][TASK] Remove mod_filter check by default da1db9d
+- [!!!][FEATURE] Load bootstrap rte configuration for all records by default 4036bd3
+- [!!!][FEATURE] Enable links on dropdown menus in main navigation 4b8baee
+- [!!!][FEATURE] Split menus instead of adding text when adding a spacer on main level 25b731d
+- [!!!][TASK] Use .typoscript instead of .txt for configuration files 9583970
+- [!!!][BUGFIX] Streamline grunt less and less.php rendering 3123bd2
+- [!!!][TASK] Drop obsolete windows phone fix a2f9dea
+- [!!!][TASK] Drop equalheight script 835b16b
+
+## FEATURE
+- [FEATURE] Pass current element on trigger loaded.bk2k.responsiveimage - fixes #471 450e465
+- [FEATURE] Allow links on carousel type background image - fixes #455 33e6ffe
+- [FEATURE] Enable frontend editing for pages 48ef140
+- [FEATURE] Enable frontend editing for content elements 8d06457
+- [FEATURE] Make open accordion item configurable dca76d1
+- [FEATURE] Make gallery item column sizes configurable - fixes #465 e5d9cad
+- [FEATURE]  Add table class in ckeditor by default 6fbd0f2
+- [FEATURE] Add ckeditor plugin to insert boxes a54478b
+- [FEATURE] Add carousel item type image e85c213
+- [FEATURE] Add configurable header and subheader css classes e13a417
+- [FEATURE] Add additional inline text style classes to editor config 5a60918
+- [FEATURE] Add background image and base coloring support for content elements a9bd8c5
+- [FEATURE] Introduce frame-container and frame-inner for more detailed control options 34e0039
+- [FEATURE] Add auto lookup for carousel item templates and move wrapping links to partials 42a676d
+- [FEATURE] Add UpperCamelCaseViewHelper 7b0f406
+- [FEATURE] Add option to show navigation title in carousel navigation 88e86ec
+- [FEATURE] Add navigation icons for main navigation 642eaff
+- [FEATURE] Add current version to system information toolbar aad4bf5
+- [FEATURE] Make scaling options for headlines configurable 4be3c37
+- [!!!][FEATURE] Make css classes of footer columns directly addressable a500b6d
+- [FEATURE] Make footer meta section colors configurable 0d6c2eb
+- [FEATURE] Make breadcrumb extendable to show title of single records 57ca005
+- [FEATURE] Add example configuration for Microsoft-IIS 33d8524
+- [FEATURE] Add support for google-site-verification meta tag 7a19e6e
+- [FEATURE] add element wrap in lib.dynamicContent 4f93616
+- [!!!][FEATURE] Load bootstrap rte configuration for all records by default 4036bd3
+- [!!!][FEATURE] Enable links on dropdown menus in main navigation 4b8baee
+- [!!!][FEATURE] Split menus instead of adding text when adding a spacer on main level 25b731d
+- [FEATURE] Make config.typolinkEnableLinksAcrossDomains available through constant cd47544
+- [FEATURE] Enable cropping of carousel background image 770c96a
+- [FEATURE] Enable cropping for image in carousel 42558ae
+
+## TASK
+- [!!!][TASK] Remove obsolete pagetype popup - fixes #476 20124b9
+- [TASK] Push notifications to slack cf4cefc
+- [TASK] Register bk2k as global namespace for viewhelpers ba56d07
+- [TASK] Check for explicit for null value in version toolbar item 849d9dd
+- [TASK] Adjust scrutinizer build 6da63b5
+- [TASK] Remove obsolete divider to tabs option b9c14b2
+- [TASK] Rename ckeditor box plugin to avoid naming conflicts 22077d2
+- [TASK] Reduce form css to minimum and adapt to new form elements 4245a42
+- [TASK] Update package-lock 8299c8c
+- [TASK] Remove obsolete watch task for viewportfix ff4d2f7
+- [TASK] Add small option to ckeditor a5628c4
+- [TASK] Add default css class to unordered lists from rte fff4b2c
+- [TASK] Reduce default fields of carousel item 2104e7b
+- [TASK] Streamline element quote TCA 3d2c4b0
+- [TASK] Hide relation tables to avoid problems when managed without proper context 014fb17
+- [TASK] Remove authors from phpdoc 7d66f2e
+- [TASK] Streamline php header comments and add fixer rule ddd4880
+- [TASK] Remove obsolete margin bottom from breadcrumb c991413
+- [TASK] Enhance positioning of scroll to top button b13a1bd
+- [TASK] Avoid ambiguous "uid" error (#480) b839cb2
+- [TASK] Use initialize arguments instead of render arguments in FalViewHelper 430fb3a
+- [TASK] Use initialize arguments instead of render arguments in DataRelationViewHelper 769928f
+- [TASK] Use initialize arguments instead of render arguments in ExplodeViewHelper 60eb760
+- [TASK] Add mini section styling 092eb3a
+- [TASK] Use initialize arguments instead of render arguments in ExternalMediaViewHelper e9394bb
+- [TASK] Use initialize arguments instead of render arguments in LastImageInfoViewHelper 228aeb8
+- [TASK] Remove obsolete tt_content palettes cc8328e
+- [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core 625af26
+- [TASK] Update readme and include frontend screenshot d70b031
+- [TASK] Add .rst and .typoscript to editorconfig d0bf834
+- [TASK] Add deployment for www.bootstrap-package.com 1d36a5b
+- [!!!][TASK] Remove mod_filter check by default da1db9d
+- [TASK] Ensure link target attribute is only rendered if target is set - fixes #468 9e13ae1
+- [!!!][TASK] Use .typoscript instead of .txt for configuration files 9583970
+- [TASK] Update npm dependencies a702b26
+- [!!!][TASK] Drop obsolete windows phone fix a2f9dea
+- [!!!][TASK] Drop equalheight script 835b16b
+- [TASK] Remove release commit from changelog 528b851
+- [TASK] Replace unwanted characters in commit messages 61ce04b
+- [TASK] Add composer changelog script bdef9ab
+- [TASK] Drop development affix for version numbers 9e1456f
+- [TASK] Add composer version script cb2480b
+- [TASK] Cleanup code formatting for palette configuration 2c224fd
+- [TASK] Use php-cs-fixer instead of php-codesniffer c22ff31
+- [TASK] Adjust composer keywords 6773db4
+- [TASK] Raise php dependency to 7.x c100722
+- [TASK] Remove not working ter upload 05c42f6
+- [TASK] Add typo3 8.7 to travis 88fa5d6
+
+## BUGFIX
+- [BUGFIX] Correct css selector for carousel item type text and image c105a13
+- [BUGFIX] Correct indentions bb499d7
+- [BUGFIX] Show correct translations in language menu (#487) 54dc3d2
+- [BUGFIX] Ensure aria-expanded is correctly set for accordion items 6b0551a
+- [BUGFIX] Ensure selected tab item is shown in the backend e0b8cef
+- [BUGFIX] Only support hover for on navbar toggle if hover is completely supported - fixes #459 a5925b1
+- [BUGFIX] Add missing namespaces to carousel small and fullscreen templates 5e4a16d
+- [BUGFIX] Use self instead of static in DataRelationViewHelper 6cd7491
+- [BUGFIX] Add css to precompiled css files 617e898
+- [BUGFIX] Correct jumbotron button styling 3fd55f6
+- [BUGFIX] Add missing list styles to rte configuration 47bfded
+- [BUGFIX] Correct bootstraps calculation of container widths c8ae888
+- [BUGFIX] Ensure correct link colors are loaded for footer meta section 537fe9d
+- [BUGFIX] Ensure footer list are actually centered 84a6674
+- [BUGFIX] Correct preview template assignments for listgroup and external_media b441bc8
+- [BUGFIX] Set default value for tt_content reference fields in *_item tables (#482) 1f8fb5c
+- [BUGFIX] Add parseFunc handling to pre tags 34834d8
+- [BUGFIX] Correct rendering method of LastImageInfoVIewHelper 7e3565d
+- [BUGFIX] Correct indention in generic template 7267a2e
+- [BUGFIX] Limit media element to youtube and vimeo c9cd0a0
+- [BUGFIX] Display cropping variants for textmedia - fixes #438 49f894f
+- [BUGFIX] Ensure link is displayed correctly in readme 8411a1d
+- [BUGFIX] Correct image link in readme e842ce9
+- [BUGFIX] Add boostrap-package.com as known host fa32c50
+- [BUGFIX] Specify Deployer file c0826c4
+- [BUGFIX] Fix sys_language_uid when adding item to translated tt_content (#458) 5a91e6f
+- [BUGFIX] Only show content in MenuSectionPages that is marked for section index - fixes #466 7f7b788
+- [BUGFIX] Close tags in meta menu properly - fixes #469 191395d
+- [BUGFIX] Remove unused constant assignments - fixes #477 024c532
+- [BUGFIX] Remove padding of navbar-collapse on desktop 9bf16d5
+- [!!!][BUGFIX] Streamline grunt less and less.php rendering 3123bd2
+- [BUGFIX] Remove wrong placed comma in navbar less file - fixes #460 afead77
+- [BUGFIX] Prepare colPos field for proper quoting (#452) 498f970
+- [BUGFIX] Correct texticon preview paths on windows d9a56f4
+- [BUGFIX] Remove .php_cs.dist from export 439c38e
+- [BUGFIX] Correct less variable: @icon-font-path (#450) 13edd33
+- [BUGFIX] Correct sys_file_referece palettes for tab items a740752
+- [BUGFIX] Correct sys_file_referece palettes for accordion items ef33c3e
+- [BUGFIX] Use override child tca for carousel background image e687152
+- [BUGFIX] Correct value type of data-wrap for bootstrap carousels - fixes #437 dc47cc9
+- [BUGFIX] Remove conflicting btn stylings for legacy rtehtmlarea - fixes #447 ce256fe
+- [BUGFIX] Correct dependencies for typo3 cms 9.x 9ce70d2
+
+## MISC
+- [CLEANUP] Fix typo by adding missing c to "seletor" 448d684
+- Use correct closing tag 8ae85ef
+
 # 8.0.0
 
 ## BREAKING
