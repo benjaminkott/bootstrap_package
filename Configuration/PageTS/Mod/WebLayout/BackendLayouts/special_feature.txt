@@ -116,7 +116,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/special_feature.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/special_feature.svg
             }
         }
     }

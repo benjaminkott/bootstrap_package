@@ -24,8 +24,11 @@ lib.page.class {
     // Backend layout
     40 = TEXT
     40 {
-        data = levelfield:-1, backend_layout_next_level, slide
-        override.field = backend_layout
+        data = pagelayout
+        replacement.10 {
+            search = pagets__
+            replace =
+        }
         ifEmpty = default
         noTrimWrap = | backendlayout-||
     }

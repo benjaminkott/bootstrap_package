@@ -1,11 +1,11 @@
-##########################################
-#### BACKENDLAYOUT: DEFAULT 2 COLUMNS ####
-##########################################
+###############################################
+#### BACKENDLAYOUT: 2 COLUMNS OFFSET RIGHT ####
+###############################################
 mod {
     web_layout {
         BackendLayouts {
-            default_2_columns {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_2_columns
+            2_columns_offset_right {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns_offset_right
                 config {
                     backend_layout {
                         colCount = 6
@@ -47,7 +47,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_2_columns.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/2_columns_offset_right.svg
             }
         }
     }

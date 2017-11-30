@@ -1,11 +1,11 @@
-########################################################
-#### BACKENDLAYOUT: DEFAULT SUBNAVIGATION 2 COLUMNS ####
-########################################################
+#####################################################
+#### BACKENDLAYOUT: SUBNAVIGATION LEFT 2 COLUMNS ####
+#####################################################
 mod {
     web_layout {
         BackendLayouts {
-            default_subnavigation_left_2_columns {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation_left_2_columns
+            subnavigation_left_2_columns {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.subnavigation_left_2_columns
                 config {
                     backend_layout {
                         colCount = 6
@@ -51,7 +51,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation_left_2_columns.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/subnavigation_left_2_columns.svg
             }
         }
     }

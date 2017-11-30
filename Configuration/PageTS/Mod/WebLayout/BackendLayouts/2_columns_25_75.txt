@@ -1,11 +1,11 @@
-##############################################
-#### BACKENDLAYOUT: DEFAULT SUBNAVIGATION ####
-##############################################
+########################################
+#### BACKENDLAYOUT: 2 COLUMNS 25/75 ####
+########################################
 mod {
     web_layout {
         BackendLayouts {
-            default_subnavigation_right {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_subnavigation_right
+            2_columns_25_75 {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns_25_75
                 config {
                     backend_layout {
                         colCount = 6
@@ -14,13 +14,14 @@ mod {
                             1 {
                                 columns {
                                     1 {
-                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
-                                        colPos = 0
-                                        colspan = 5
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.left
+                                        colPos = 1
+                                        colspan = 2
                                     }
                                     2 {
-                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.subnav
-                                        colspan = 1
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
+                                        colPos = 0
+                                        colspan = 4
                                     }
                                 }
                             }
@@ -46,7 +47,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_subnavigation_right.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/2_columns_25_75.svg
             }
         }
     }

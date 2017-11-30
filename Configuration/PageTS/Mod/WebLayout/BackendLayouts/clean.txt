@@ -1,11 +1,11 @@
-#######################################################
-#### BACKENDLAYOUT: DEFAULT 3 COLUMNS OFFSET RIGHT ####
-#######################################################
+##############################
+#### BACKENDLAYOUT: CLEAN ####
+##############################
 mod {
     web_layout {
         BackendLayouts {
-            default_2_columns_offset_right {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_2_columns_offset_right
+            clean {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.clean
                 config {
                     backend_layout {
                         colCount = 6
@@ -16,12 +16,7 @@ mod {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
                                         colPos = 0
-                                        colspan = 4
-                                    }
-                                    2 {
-                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.right
-                                        colPos = 2
-                                        colspan = 2
+                                        colspan = 6
                                     }
                                 }
                             }
@@ -47,7 +42,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_2_columns_offset_right.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/clean.svg
             }
         }
     }

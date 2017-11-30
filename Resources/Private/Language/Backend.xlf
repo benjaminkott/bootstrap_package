@@ -16,36 +16,35 @@
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_clean">
-                <source>Default, Clean</source>
+            <trans-unit id="backend_layout.clean">
+                <source>Clean</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_2_columns">
-                <source>Default, 2 Columns</source>
+            <trans-unit id="backend_layout.2_columns">
+                <source>2 Columns</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_2_columns_25_75">
-                <source>Default, 2 Columns 25/75</source>
+            <trans-unit id="backend_layout.2_columns_25_75">
+                <source>2 Columns 25/75</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_2_columns_50_50">
-                <source>Default, 2 Columns 50/50</source>
+            <trans-unit id="backend_layout.2_columns_50_50">
+                <source>2 Columns 50/50</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_2_columns_offset_right">
-                <source>Default, 2 Columns, Offset Right</source>
+            <trans-unit id="backend_layout.2_columns_offset_right">
+                <source>2 Columns, Offset Right</source>
             </trans-unit>
-
-            <trans-unit id="backend_layout.default_3_columns">
-                <source>Default, 3 Columns</source>
+            <trans-unit id="backend_layout.3_columns">
+                <source>3 Columns</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation_right">
-                <source>Default, Subnavigation Right</source>
+            <trans-unit id="backend_layout.subnavigation_right">
+                <source>Subnavigation Right</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation_right_2_columns">
-                <source>Default, Subnavigation Right and 2 Columns</source>
+            <trans-unit id="backend_layout.subnavigation_right_2_columns">
+                <source>Subnavigation Right and 2 Columns</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation_left">
-                <source>Default, Subnavigation Left</source>
+            <trans-unit id="backend_layout.subnavigation_left">
+                <source>Subnavigation Left</source>
             </trans-unit>
-            <trans-unit id="backend_layout.default_subnavigation_left_2_columns">
-                <source>Default, Subnavigation Left and 2 Columns</source>
+            <trans-unit id="backend_layout.subnavigation_left_2_columns">
+                <source>Subnavigation Left and 2 Columns</source>
             </trans-unit>
             <trans-unit id="backend_layout.special_start">
                 <source>Special Startpage</source>

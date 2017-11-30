@@ -118,48 +118,19 @@ page {
     10 = FLUIDTEMPLATE
     10 {
         templateName = TEXT
-        templateName.stdWrap.cObject = CASE
-        templateName.stdWrap.cObject {
-            key.data = pagelayout
-
-            pagets__default_clean = TEXT
-            pagets__default_clean.value = DefaultClean
-
-            pagets__default_2_columns = TEXT
-            pagets__default_2_columns.value = Default2Columns
-
-            pagets__default_2_columns_25_75 = TEXT
-            pagets__default_2_columns_25_75.value = Default2Columns2575
-
-            pagets__default_2_columns_50_50 = TEXT
-            pagets__default_2_columns_50_50.value = Default2Columns5050
-
-            pagets__default_2_columns_offset_right = TEXT
-            pagets__default_2_columns_offset_right.value = Default2ColumnsOffsetRight
-
-            pagets__default_3_columns = TEXT
-            pagets__default_3_columns.value = Default3Columns
-
-            pagets__default_subnavigation_right = TEXT
-            pagets__default_subnavigation_right.value = DefaultSubNavRight
-
-            pagets__default_subnavigation_right_2_columns = TEXT
-            pagets__default_subnavigation_right_2_columns.value = DefaultSubNavRight2Columns
-
-            pagets__default_subnavigation_left = TEXT
-            pagets__default_subnavigation_left.value = DefaultSubNavLeft
-
-            pagets__default_subnavigation_left_2_columns = TEXT
-            pagets__default_subnavigation_left_2_columns.value = DefaultSubNavLeft2Columns
-
-            pagets__special_start = TEXT
-            pagets__special_start.value = SpecialStart
-
-            pagets__special_feature = TEXT
-            pagets__special_feature.value = SpecialFeature
-
-            default = TEXT
-            default.value = Default
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
         }
 
         templateRootPaths {

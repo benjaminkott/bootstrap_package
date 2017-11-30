@@ -1,11 +1,11 @@
-##########################################
-#### BACKENDLAYOUT: DEFAULT 3 COLUMNS ####
-##########################################
+##################################
+#### BACKENDLAYOUT: 2 COLUMNS ####
+##################################
 mod {
     web_layout {
         BackendLayouts {
-            default_3_columns {
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default_3_columns
+            2_columns {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns
                 config {
                     backend_layout {
                         colCount = 6
@@ -14,19 +14,14 @@ mod {
                             1 {
                                 columns {
                                     1 {
-                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.left
-                                        colPos = 1
-                                        colspan = 1
-                                    }
-                                    2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
                                         colPos = 0
                                         colspan = 4
                                     }
-                                    3 {
+                                    2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.right
                                         colPos = 2
-                                        colspan = 1
+                                        colspan = 2
                                     }
                                 }
                             }
@@ -52,7 +47,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default_3_columns.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/2_columns.svg
             }
         }
     }

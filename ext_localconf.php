@@ -127,6 +127,8 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class]
     = \BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class;
 
 /***************
  * Register "bk2k" as global fluid namespace

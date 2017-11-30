@@ -51,7 +51,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:bootstrap_package/Resources/Public/Images/BackendLayouts/default.gif
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/default.svg
             }
         }
     }
