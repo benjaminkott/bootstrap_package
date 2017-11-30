@@ -20,6 +20,12 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.5      | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
+|            | - [TASK] Avoid ambiguous "uid" error (#480)                                                                                                                                |
+|            | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
+|            | - [BUGFIX] Add missing list styles to rte configuration                                                                                                                    |
+|            | - [BUGFIX] Correct bootstraps calculation of container widths                                                                                                              |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.4      | - [TASK] Use initialize arguments instead of render arguments in FalViewHelper                                                                                             |
 |            | - [TASK] Use initialize arguments instead of render arguments in DataRelationViewHelper                                                                                    |
 |            | - [TASK] Use initialize arguments instead of render arguments in ExplodeViewHelper                                                                                         |

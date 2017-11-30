@@ -1,3 +1,16 @@
+# 8.0.5
+
+## BREAKING
+- [!!!][BUGFIX] Streamline grunt less and less.php rendering 9dbc82f
+
+## TASK
+- [TASK] Avoid ambiguous "uid" error (#480) 7a2aa2b
+
+## BUGFIX
+- [!!!][BUGFIX] Streamline grunt less and less.php rendering 9dbc82f
+- [BUGFIX] Add missing list styles to rte configuration 94dbda1
+- [BUGFIX] Correct bootstraps calculation of container widths ddead2c
+
 # 8.0.4
 
 ## TASK
