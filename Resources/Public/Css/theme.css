@@ -1578,12 +1578,12 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 760px;
+    width: 748px;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 980px;
+    width: 972px;
   }
 }
 @media (min-width: 1200px) {
@@ -7761,12 +7761,12 @@ body,
 }
 @media (min-width: 768px) {
   .carousel .item .valign {
-    width: 720px;
+    width: 708px;
   }
 }
 @media (min-width: 992px) {
   .carousel .item .valign {
-    width: 940px;
+    width: 932px;
   }
 }
 @media (min-width: 1200px) {
