@@ -34,5 +34,6 @@ lib.page.class {
     50 {
         field = layout
         noTrimWrap = | layout-||
+        ifEmpty = default
     }
 }
