@@ -32,6 +32,7 @@ cache:
 
 before_install:
   - phpenv config-rm xdebug.ini
+  - echo "extension = intl.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer self-update
   - composer --version
 
