@@ -36,7 +36,7 @@ before_install:
   - composer --version
 
 before_script:
-  - composer require typo3/cms="$TYPO3_VERSION"
+  - composer require typo3/cms:${TYPO3_VERSION}
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
 script:
