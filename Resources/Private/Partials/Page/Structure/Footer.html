@@ -1,21 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{showFooter}">
     <footer>
-        <section class="section footer-section footer-section-content">
-            <div class="container">
-                <div class="section-row">
-                    <div class="section-column footer-section-content-column-left">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '10'}" />
-                    </div>
-                    <div class="section-column footer-section-content-column-middle">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '11'}" />
-                    </div>
-                    <div class="section-column footer-section-content-column-right">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '12'}" />
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="section section-small footer-section footer-section-meta">
             <div class="container">
                 <f:if condition="{settings.meta.enable}">

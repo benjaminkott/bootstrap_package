@@ -162,6 +162,11 @@ page {
         ### DATA PREPROCESSING ###
         ##########################
         dataProcessing {
+            1 = BK2K\BootstrapPackage\DataProcessing\PageProcessor
+            1 {
+                additionalRowClass = section-row
+                additionalColumnClass = section-column
+            }
             10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             10 {
                 levels = 2

@@ -8,38 +8,49 @@ mod {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.subnavigation_left
                 config {
                     backend_layout {
-                        colCount = 6
+                        colCount = 12
                         rowCount = 2
                         rows {
                             1 {
+                                sectionClass = section-default
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.subnav
-                                        colspan = 1
+                                        colspan = 3
+                                        partial = Navigation/Subnavigation
+                                        class = col-xs-12 col-md-3 subnav-wrap
                                     }
                                     2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
                                         colPos = 0
-                                        colspan = 5
+                                        colspan = 9
+                                        class = col-xs-12 col-md-9 maincontent-wrap
                                     }
                                 }
                             }
                             2 {
+                                sectionClass = section-dark
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
                                         colPos = 10
-                                        colspan = 2
+                                        colspan = 4
+                                        slide = true
+                                        class = footer-section-content-column-left
                                     }
                                     2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
                                         colPos = 11
-                                        colspan = 2
+                                        colspan = 4
+                                        slide = true
+                                        class = footer-section-content-column-left
                                     }
                                     3 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
                                         colPos = 12
-                                        colspan = 2
+                                        colspan = 4
+                                        slide = true
+                                        class = footer-section-content-column-left
                                     }
                                 }
                             }

@@ -2,11 +2,7 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
-    <div class="section section-default">
-        <div class="container">
-            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
-        </div>
-    </div>
+    <f:render partial="Section/Automatic" arguments="{_all}" />
 
 </f:section>
 </html>

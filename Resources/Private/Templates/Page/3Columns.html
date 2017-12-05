@@ -2,21 +2,7 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
-    <div class="section section-default">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 subcontent-wrap">
-                    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '1'}" />
-                </div>
-                <main class="col-md-6 maincontent-wrap" role="main">
-                    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
-                </main>
-                <div class="col-md-3 subcontent-wrap">
-                    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '2'}" />
-                </div>
-            </div>
-        </div>
-    </div>
+    <f:render partial="Section/Automatic" arguments="{_all}" />
 
 </f:section>
 </html>

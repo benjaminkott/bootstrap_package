@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"></html>
+
+    <f:if condition="{column.wrap}">
+        <f:then>
+            <div class="{column.class}" data-column="{column.colPos}" data-colspan="{column.colspan}">
+                <f:if condition="{column.partial}">
+                    <f:render partial="{column.partial}" arguments="{_all}" />
+                </f:if>
+                <f:for each="{column.contentElements}" as="contentElement">
+                    {contentElement.markup -> f:format.raw()}
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <f:if condition="{column.partial}">
+                <f:render partial="{column.partial}" arguments="{_all}" />
+            </f:if>
+            <f:for each="{column.contentElements}" as="contentElement">
+                {contentElement.markup -> f:format.raw()}
+            </f:for>
+        </f:else>
+    </f:if>
+
+</html>
