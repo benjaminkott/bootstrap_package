@@ -20,10 +20,23 @@ if (PHP_SAPI !== 'cli') {
     die('This script supports command line usage only. Please check your command.');
 }
 
+$header = <<<EOF
+This file is part of the package bk2k/bootstrap-package.
+
+For the full copyright and license information, please read the
+LICENSE file that was distributed with this source code.
+EOF;
+
 return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
+        'header_comment' => [
+            'header' => $header
+        ],
+        'general_phpdoc_annotation_remove' => [
+            'author'
+        ],
         'no_leading_import_slash' => true,
         'no_trailing_comma_in_singleline_array' => true,
         'no_singleline_whitespace_before_semicolons' => true,
