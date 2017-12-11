@@ -20,6 +20,15 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.6      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [TASK] Move CMS9 backend branding to service that is only called on installation                                                                                         |
+|            | - [TASK] Move icon registration to localconf                                                                                                                               |
+|            | - [TASK] Exclude php less libary from extension scanner                                                                                                                    |
+|            | - [TASK] Remove correct addStaticFile function from extension scanner                                                                                                      |
+|            | - [TASK] Streamline php header comments and add fixer rule                                                                                                                 |
+|            | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [BUGFIX] Ensure page layout class is never empty                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.5      | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
 |            | - [TASK] Avoid ambiguous "uid" error (#480)                                                                                                                                |
 |            | - [!!!][BUGFIX] Streamline grunt less and less.php rendering                                                                                                               |
