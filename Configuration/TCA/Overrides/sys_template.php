@@ -12,6 +12,7 @@ defined('TYPO3_MODE') || die();
 /***************
  * Default TypoScript
  */
+// @extensionScannerIgnoreLine
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'bootstrap_package',
     'Configuration/TypoScript',
