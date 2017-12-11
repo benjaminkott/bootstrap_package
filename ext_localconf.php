@@ -134,3 +134,83 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
  * Register "bk2k" as global fluid namespace
  */
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
+
+/***************
+ * Register Icons
+ */
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-tab',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-tab-item',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab-item.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-texticon',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/texticon.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-accordion',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-accordion-item',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion-item.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item-header',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-header.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item-image',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-image.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item-textandimage',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-textandimage.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item-backgroundimage',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-backgroundimage.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-carousel-item-html',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-html.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-externalmedia',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/externalmedia.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-listgroup',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']
+);
+$iconRegistry->registerIcon(
+    'systeminformation-bootstrappackage',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']
+);
