@@ -75,25 +75,31 @@ if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
  * Backend Styling
  */
 if (TYPO3_MODE == 'BE') {
+    $backendConfigurationHasChanges = false;
     // Login Logo
     if (!isset($backendConfiguration['loginLogo']) || empty(trim($backendConfiguration['loginLogo']))) {
+        $backendConfigurationHasChanges = true;
         $backendConfiguration['loginLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-logo.svg';
     }
     // Login Background
     if (!isset($backendConfiguration['loginBackgroundImage']) || empty(trim($backendConfiguration['loginBackgroundImage']))) {
+        $backendConfigurationHasChanges = true;
         $backendConfiguration['loginBackgroundImage'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-background-image.jpg';
     }
     // Backend Logo
     if (!isset($backendConfiguration['backendLogo']) || empty(trim($backendConfiguration['backendLogo']))) {
+        $backendConfigurationHasChanges = true;
         $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
     }
-    // Set Backend Configuration
-    if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
-        $extensionConfiguration->set('backend', '', $backendConfiguration);
-    } else {
-        // Fallback for CMS8
-        // @extensionScannerIgnoreLine
-        $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+    // Set backend configuration if it has changed
+    if ($backendConfigurationHasChanges === true) {
+        if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+            $extensionConfiguration->set('backend', '', $backendConfiguration);
+        } else {
+            // Fallback for CMS8
+            // @extensionScannerIgnoreLine
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+        }
     }
 }
 
