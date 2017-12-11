@@ -18,7 +18,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class InstallService
 {
-
     /**
      * @var string
      */

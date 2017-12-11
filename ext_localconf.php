@@ -22,18 +22,12 @@ if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
         \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
     );
     $bootstrapPackageConfiguration = $extensionConfiguration->get('bootstrap_package');
-    $backendConfiguration = $extensionConfiguration->get('backend');
 } else {
     // Fallback for CMS8
     // @extensionScannerIgnoreLine
     $bootstrapPackageConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bootstrap_package'];
     if (!is_array($bootstrapPackageConfiguration)) {
         $bootstrapPackageConfiguration = unserialize($bootstrapPackageConfiguration);
-    }
-    // @extensionScannerIgnoreLine
-    $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
-    if (!is_array($backendConfiguration)) {
-        $backendConfiguration = unserialize($backendConfiguration);
     }
 }
 
@@ -71,38 +65,6 @@ if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEFORM.txt">');
 }
 
-/***************
- * Backend Styling
- */
-if (TYPO3_MODE == 'BE') {
-    $backendConfigurationHasChanges = false;
-    // Login Logo
-    if (!isset($backendConfiguration['loginLogo']) || empty(trim($backendConfiguration['loginLogo']))) {
-        $backendConfigurationHasChanges = true;
-        $backendConfiguration['loginLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-logo.svg';
-    }
-    // Login Background
-    if (!isset($backendConfiguration['loginBackgroundImage']) || empty(trim($backendConfiguration['loginBackgroundImage']))) {
-        $backendConfigurationHasChanges = true;
-        $backendConfiguration['loginBackgroundImage'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-background-image.jpg';
-    }
-    // Backend Logo
-    if (!isset($backendConfiguration['backendLogo']) || empty(trim($backendConfiguration['backendLogo']))) {
-        $backendConfigurationHasChanges = true;
-        $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
-    }
-    // Set backend configuration if it has changed
-    if ($backendConfigurationHasChanges === true) {
-        if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
-            $extensionConfiguration->set('backend', '', $backendConfiguration);
-        } else {
-            // Fallback for CMS8
-            // @extensionScannerIgnoreLine
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
-        }
-    }
-}
-
 if (TYPO3_MODE === 'BE') {
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
 
@@ -114,6 +76,16 @@ if (TYPO3_MODE === 'BE') {
         'hasInstalledExtensions',
         \BK2K\BootstrapPackage\Service\InstallService::class,
         'generateApacheHtaccess'
+    );
+
+    /**
+     * Add backend styling
+     */
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Extensionmanager\Service\ExtensionManagementService::class,
+        'hasInstalledExtensions',
+        \BK2K\BootstrapPackage\Service\BrandingService::class,
+        'setBackendStyling'
     );
 
     /**
@@ -255,3 +227,28 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']
 );
+
+/***************
+ * Backend Styling for CMS8
+ * Please see \BK2K\BootstrapPackage\Service\BrandingService for CMS9
+ */
+if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+    // @extensionScannerIgnoreLine
+    $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
+    if (!is_array($backendConfiguration)) {
+        $backendConfiguration = unserialize($backendConfiguration);
+    }
+    // Login Logo
+    if (!isset($backendConfiguration['loginLogo']) || empty(trim($backendConfiguration['loginLogo']))) {
+        $backendConfiguration['loginLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-logo.svg';
+    }
+    // Login Background
+    if (!isset($backendConfiguration['loginBackgroundImage']) || empty(trim($backendConfiguration['loginBackgroundImage']))) {
+        $backendConfiguration['loginBackgroundImage'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-background-image.jpg';
+    }
+    // Backend Logo
+    if (!isset($backendConfiguration['backendLogo']) || empty(trim($backendConfiguration['backendLogo']))) {
+        $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
+    }
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+}
