@@ -20,6 +20,14 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 9.0.1      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [TASK] Move CMS9 backend branding to service that is only called on installation                                                                                         |
+|            | - [TASK] Move icon registration to localconf                                                                                                                               |
+|            | - [TASK] Exclude php less libary from extension scanner                                                                                                                    |
+|            | - [TASK] Remove correct addStaticFile function from extension scanner                                                                                                      |
+|            | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [BUGFIX] Ensure page layout class is never empty                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 9.0.0      | - [!!!][TASK] Remove obsolete pagetype popup - fixes #476                                                                                                                  |
 |            | - [!!!][FEATURE] Make css classes of footer columns directly addressable                                                                                                   |
 |            | - [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core                                                                                           |

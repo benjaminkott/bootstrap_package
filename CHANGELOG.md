@@ -1,3 +1,18 @@
+# 9.0.1
+
+## BREAKING
+- [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. 5c554ac
+
+## TASK
+- [TASK] Move CMS9 backend branding to service that is only called on installation 1d479f9
+- [TASK] Move icon registration to localconf 4a49fa0
+- [TASK] Exclude php less libary from extension scanner 144c4f6
+- [TASK] Remove correct addStaticFile function from extension scanner 2a0c745
+
+## BUGFIX
+- [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. 5c554ac
+- [BUGFIX] Ensure page layout class is never empty 20709de
+
 # 9.0.0
 
 ## BREAKING
