@@ -62,7 +62,6 @@ if (!$bootstrapPackageConfiguration['disablePageTsRTE']) {
 }
 
 // TCEMAIN
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsTCEMAIN']) {
 if (!$bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEMAIN.txt">');
 }
