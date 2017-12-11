@@ -17,8 +17,24 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappac
 /***************
  * Make the extension configuration accessible
  */
-if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
-    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+    $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+    );
+    $bootstrapPackageConfiguration = $extensionConfiguration->get('bootstrap_package');
+    $backendConfiguration = $extensionConfiguration->get('backend');
+} else {
+    // Fallback for CMS8
+    // @extensionScannerIgnoreLine
+    $bootstrapPackageConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bootstrap_package'];
+    if (!is_array($bootstrapPackageConfiguration)) {
+        $bootstrapPackageConfiguration = unserialize($bootstrapPackageConfiguration);
+    }
+    // @extensionScannerIgnoreLine
+    $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
+    if (!is_array($backendConfiguration)) {
+        $backendConfiguration = unserialize($backendConfiguration);
+    }
 }
 
 /***************
@@ -26,33 +42,60 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
  */
 
 // Add Bootstrap Content Elements to newContentElement Wizard
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsNewContentElementWizard']) {
+if (!$bootstrapPackageConfiguration['disablePageTsNewContentElementWizard']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/Wizards/newContentElement.txt">');
 }
 
 // Add Previews for Bootstrap Content Elements
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsTtContentPreviews']) {
+if (!$bootstrapPackageConfiguration['disablePageTsTtContentPreviews']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt">');
 }
 
 // Add BackendLayouts BackendLayouts for the BackendLayout DataProvider
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsBackendLayouts']) {
+if (!$bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt">');
 }
 
 // RTE
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsRTE']) {
+if (!$bootstrapPackageConfiguration['disablePageTsRTE']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/RTE.txt">');
 }
 
 // TCEMAIN
 if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsTCEMAIN']) {
+if (!$bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEMAIN.txt">');
 }
 
 // TCEFORM
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disablePageTsTCEFORM']) {
+if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEFORM.txt">');
+}
+
+/***************
+ * Backend Styling
+ */
+if (TYPO3_MODE == 'BE') {
+    // Login Logo
+    if (!isset($backendConfiguration['loginLogo']) || empty(trim($backendConfiguration['loginLogo']))) {
+        $backendConfiguration['loginLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-logo.svg';
+    }
+    // Login Background
+    if (!isset($backendConfiguration['loginBackgroundImage']) || empty(trim($backendConfiguration['loginBackgroundImage']))) {
+        $backendConfiguration['loginBackgroundImage'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-background-image.jpg';
+    }
+    // Backend Logo
+    if (!isset($backendConfiguration['backendLogo']) || empty(trim($backendConfiguration['backendLogo']))) {
+        $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
+    }
+    // Set Backend Configuration
+    if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+        $extensionConfiguration->set('backend', '', $backendConfiguration);
+    } else {
+        // Fallback for CMS8
+        // @extensionScannerIgnoreLine
+        $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+    }
 }
 
 if (TYPO3_MODE === 'BE') {
@@ -82,19 +125,12 @@ if (TYPO3_MODE === 'BE') {
 /***************
  * Register hook for processing less files
  */
-if (!$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]['disableLessProcessing']) {
+if (!$bootstrapPackageConfiguration['disableLessProcessing']) {
     if (TYPO3_MODE === 'FE') {
         require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php');
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\PreProcessHook->execute';
     }
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'BK2K\\BootstrapPackage\\Hooks\\TceMain\\ClearCacheHook->clearLessCache';
-}
-
-/***************
- * Reset extConf array to avoid errors
- */
-if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY])) {
-    $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
 }
 
 /***************
