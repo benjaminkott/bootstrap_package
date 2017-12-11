@@ -5,6 +5,7 @@
  *
  * @package Less
  * @subpackage version
+ * @extensionScannerIgnoreFile
  */
 class Less_Version{
 
