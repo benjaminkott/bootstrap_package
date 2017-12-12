@@ -1,3 +1,30 @@
+# 9.1.0
+
+## BREAKING
+- [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. c00049b
+- [!!!][FEATURE] Add auto lookup for page templates 7b1fbdf
+
+## FEATURE
+- [!!!][FEATURE] Add auto lookup for page templates 7b1fbdf
+- [FEATURE] Add auto lookup for page templates 2505133
+
+## TASK
+- [TASK] Raise allowed TYPO3 version to 9.5.99 ec39538
+- [TASK] Add travis tests for php 7.2 on typo3 master c489860
+- [TASK] Move CMS9 backend branding to service that is only called on installation c677ad9
+- [TASK] Only write backend configuration if it has changes c7d0fc1
+- [TASK] Remove correct addStaticFile function from extension scanner b8f9249
+- [TASK] Move icon registration to localconf edf09e6
+- [TASK] Exclude php less libary from extension scanner da16625
+
+## BUGFIX
+- [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. c00049b
+- [BUGFIX] Set default backend configuration for CMS9 9868010
+- [REVERT][BUGFIX] Install php extension intl on travis ci 00a2867
+- [BUGFIX] Install php extension intl on travis ci 3333064
+- [BUGFIX] Adapt travisci build configuration to documentation 80121cd
+- [BUGFIX] Ensure page layout class is never empty 2fc802b
+
 # 9.0.0
 
 ## BREAKING

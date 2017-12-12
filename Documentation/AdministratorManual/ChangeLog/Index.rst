@@ -20,6 +20,24 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 9.1.0      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
+|            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
+|            | - [FEATURE] Add auto lookup for page templates                                                                                                                             |
+|            | - [TASK] Raise allowed TYPO3 version to 9.5.99                                                                                                                             |
+|            | - [TASK] Add travis tests for php 7.2 on typo3 master                                                                                                                      |
+|            | - [TASK] Move CMS9 backend branding to service that is only called on installation                                                                                         |
+|            | - [TASK] Only write backend configuration if it has changes                                                                                                                |
+|            | - [TASK] Remove correct addStaticFile function from extension scanner                                                                                                      |
+|            | - [TASK] Move icon registration to localconf                                                                                                                               |
+|            | - [TASK] Exclude php less libary from extension scanner                                                                                                                    |
+|            | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
+|            | - [BUGFIX] Set default backend configuration for CMS9                                                                                                                      |
+|            | - [REVERT][BUGFIX] Install php extension intl on travis ci                                                                                                                 |
+|            | - [BUGFIX] Install php extension intl on travis ci                                                                                                                         |
+|            | - [BUGFIX] Adapt travisci build configuration to documentation                                                                                                             |
+|            | - [BUGFIX] Ensure page layout class is never empty                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 9.0.0      | - [!!!][TASK] Remove obsolete pagetype popup - fixes #476                                                                                                                  |
 |            | - [!!!][FEATURE] Make css classes of footer columns directly addressable                                                                                                   |
 |            | - [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core                                                                                           |
