@@ -13,7 +13,7 @@ matrix:
     - php: 7.1
       env: TYPO3_VERSION=^8.7
     - php: 7.2
-      env: TYPO3_VERSION=dev-master
+      env: TYPO3_VERSION=^8.7
 
 sudo: false
 
