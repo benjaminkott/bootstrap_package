@@ -47,9 +47,9 @@ script:
     echo "Running php-cs-fixer";
     .build/bin/php-cs-fixer --diff --dry-run -v fix
   - >
-    echo "Installing npm modules";
+    echo "Installing node_modules";
     pushd Build;
-    npm install && npm install grunt-cli;
+    yarn install && npm install grunt-cli;
     echo "Executing grunt";
     node_modules/.bin/grunt;
     popd
