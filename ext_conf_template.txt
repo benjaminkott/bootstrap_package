@@ -25,5 +25,5 @@ disablePageTsNewContentElementWizard = 0
 ### FEATURES ###
 ################
 
-# cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableLessProcessing
-disableLessProcessing = 0
+# cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableCssProcessing
+disableCssProcessing = 0

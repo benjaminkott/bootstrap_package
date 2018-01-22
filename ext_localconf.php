@@ -100,15 +100,26 @@ if (TYPO3_MODE === 'BE') {
 }
 
 /***************
- * Register hook for processing less files
+ * Register css processing parser
  */
-if (!$bootstrapPackageConfiguration['disableLessProcessing']) {
-    if (TYPO3_MODE === 'FE') {
-        require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php');
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\PreProcessHook->execute';
-    }
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'BK2K\\BootstrapPackage\\Hooks\\TceMain\\ClearCacheHook->clearLessCache';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+    \BK2K\BootstrapPackage\Parser\ScssParser::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+    \BK2K\BootstrapPackage\Parser\LessParser::class;
+
+/***************
+ * Register css processing hooks
+ */
+if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing'])) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\PreProcessHook->execute';
 }
+
+/***************
+ * Register cache hooks to clear bootstrap cache files
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][]
+    = 'BK2K\\BootstrapPackage\\Hooks\\TceMain\\ClearCacheHook->clearCache';
 
 /***************
  * Add default RTE configuration for bootstrap package

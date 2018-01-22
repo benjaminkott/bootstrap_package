@@ -21,7 +21,7 @@ class ClearCacheHook
      * @param array $params
      * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      */
-    public function clearLessCache(array $params, DataHandler &$pObj)
+    public function clearCache(array $params, DataHandler &$pObj)
     {
         if (!isset($params['cacheCmd'])) {
             return;

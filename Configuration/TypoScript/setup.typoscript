@@ -67,7 +67,7 @@
 ###################################
 plugin.tx_bootstrappackage {
     settings {
-        overrideLessVariables = {$plugin.bootstrap_package.settings.overrideLessVariables}
+        overrideParserVariables = {$plugin.bootstrap_package.settings.overrideParserVariables}
         cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
     }
 }
