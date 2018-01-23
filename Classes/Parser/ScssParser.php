@@ -86,7 +86,6 @@ class ScssParser extends AbstractParser
             ]);
         }
         $css = $scss->compile('@import "' . $file . '"');
-        $parsedFiles = $scss->getParsedFiles();
 
         // Correct relative urls
         $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
