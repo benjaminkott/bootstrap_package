@@ -28,20 +28,24 @@ class PreProcessHook
      */
     public function execute(&$params, &$pagerenderer)
     {
-        if (TYPO3_MODE !== 'FE' || !is_array($params['cssFiles'])) {
+        if (TYPO3_MODE !== 'FE') {
             return;
         }
         $files = [];
-        foreach ($params['cssFiles'] as $file => $settings) {
-            $compiledFile = $this->getCompileService()->getCompiledFile($file);
-            if ($compiledFile !== false) {
-                $settings['file'] = $compiledFile;
-                $files[$compiledFile] = $settings;
-            } else {
-                $files[$file] = $settings;
+        foreach (['cssLibs','cssFiles'] as $key) {
+            if (is_array($params[$key])) {
+                foreach ($params[$key] as $file => $settings) {
+                    $compiledFile = $this->getCompileService()->getCompiledFile($file);
+                    if ($compiledFile !== false) {
+                        $settings['file'] = $compiledFile;
+                        $files[$compiledFile] = $settings;
+                    } else {
+                        $files[$file] = $settings;
+                    }
+                }
+                $params[$key] = $files;
             }
         }
-        $params['cssFiles'] = $files;
     }
 
     /**
