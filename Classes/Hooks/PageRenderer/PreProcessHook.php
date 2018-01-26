@@ -32,7 +32,7 @@ class PreProcessHook
             return;
         }
         $files = [];
-        foreach (['cssLibs','cssFiles'] as $key) {
+        foreach (['cssLibs', 'cssFiles'] as $key) {
             if (is_array($params[$key])) {
                 foreach ($params[$key] as $file => $settings) {
                     $compiledFile = $this->getCompileService()->getCompiledFile($file);
