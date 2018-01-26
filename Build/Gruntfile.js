@@ -19,7 +19,8 @@ module.exports = function(grunt) {
             fonts: '<%= paths.resources %>Public/Fonts/',
             less: '<%= paths.resources %>Public/Less/',
             css: '<%= paths.resources %>Public/Css/',
-            js: '<%= paths.resources %>Public/JavaScript/'
+            js: '<%= paths.resources %>Public/JavaScript/',
+            contrib: '<%= paths.resources %>Public/Contrib/'
         },
         cssmin: {
             options: {
@@ -169,7 +170,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>jquery/dist/',
                         src: 'jquery.min.js',
-                        dest: '<%= paths.js %>Libs/',
+                        dest: '<%= paths.contrib %>jquery/',
                         expand: true
                     }
                 ]
@@ -183,7 +184,7 @@ module.exports = function(grunt) {
                             'hammer.min.js',
                             'hammer.min.js.map',
                         ],
-                        dest: '<%= paths.js %>Libs/',
+                        dest: '<%= paths.contrib %>hammerjs/',
                         expand: true
                     }
                 ]
@@ -196,7 +197,7 @@ module.exports = function(grunt) {
                             'photoswipe.min.js',
                             'photoswipe-ui-default.min.js'
                         ],
-                        dest: '<%= paths.js %>Libs/',
+                        dest: '<%= paths.contrib %>photoswipe/',
                         expand: true
                     },
                     {
@@ -216,7 +217,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>bootstrap/dist/js/',
                         src: 'bootstrap.min.js',
-                        dest: '<%= paths.js %>Libs/',
+                        dest: '<%= paths.contrib %>bootstrap3/',
                         expand: true
                     },
                     {
@@ -238,7 +239,7 @@ module.exports = function(grunt) {
             dist: {
                 'crawl': false,
                 'customTests': [],
-                'dest': '<%= paths.js %>Dist/modernizr.min.js',
+                'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
                 'tests': [
                     'applicationcache',
                     'audio',

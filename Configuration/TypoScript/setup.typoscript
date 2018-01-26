@@ -410,28 +410,27 @@ page {
     }
 
     includeJSLibs {
-        modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/modernizr.min.js
+        modernizr = EXT:bootstrap_package/Resources/Public/Contrib/modernizr/modernizr.min.js
         modernizr.forceOnTop = 1
         modernizr.async = 1
     }
 
     includeJSFooterlibs {
-        jquery = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/jquery.min.js
+        #### Contrib
+        jquery = EXT:bootstrap_package/Resources/Public/Contrib/jquery/jquery.min.js
         jquery.forceOnTop = 1
-        responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
-        bootstrap = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap.min.js
-        photoswipe_core = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe.min.js
-        photoswipe_ui = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe-ui-default.min.js
+        bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/bootstrap.min.js
+        hammerjs = EXT:bootstrap_package/Resources/Public/Contrib/hammerjs/hammer.min.js
+        photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.min.js
+        photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-ui-default.min.js
 
-        #### Add swipe support for boostrap components
-        hammerjs = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/hammer.min.js
+        #### Custom Modules
+        responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
         bootstrap_swipe = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.swipe.min.js
         bootstrap_popover = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.popover.min.js
         bootstrap_stickyheader = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.stickyheader.min.js
         bootstrap_smoothscroll = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.smoothscroll.min.js
-        #### Basic lightbox implementation for bootstrap
         bootstrap_lightbox = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.lightbox.min.js
-        #### Toggle collapsed CSS class on the navbar toggle button and fixes dropdown on touch devices
         bootstrap_navbar = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.navbar.min.js
     }
 
