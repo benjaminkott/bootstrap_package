@@ -31,8 +31,8 @@ class PreProcessHook
         if (TYPO3_MODE !== 'FE') {
             return;
         }
-        $files = [];
         foreach (['cssLibs', 'cssFiles'] as $key) {
+            $files = [];
             if (is_array($params[$key])) {
                 foreach ($params[$key] as $file => $settings) {
                     $compiledFile = $this->getCompileService()->getCompiledFile($file);
