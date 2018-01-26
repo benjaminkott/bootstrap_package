@@ -60,7 +60,7 @@ Options -MultiViews
     AddType application/xml                             rdf xml
 
     # JavaScript
-    AddType application/javascript                      js
+    AddType text/javascript                             js
 
     # Manifest files
     AddType application/manifest+json                   webmanifest
