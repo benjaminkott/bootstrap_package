@@ -72,7 +72,7 @@ Options -MultiViews
     AddType audio/mp4                                   f4a f4b m4a
     AddType audio/ogg                                   oga ogg opus
     AddType image/bmp                                   bmp
-    AddType image/svg+xml                               svg svgz
+    AddType text/xml                                    svg svgz
     AddType image/webp                                  webp
     AddType video/mp4                                   f4v f4p m4v mp4
     AddType video/ogg                                   ogv
