@@ -116,6 +116,12 @@ if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessin
 }
 
 /***************
+ * Register font loader
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+    = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\FontLoaderHook->execute';
+
+/***************
  * Register cache hooks to clear bootstrap cache files
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][]

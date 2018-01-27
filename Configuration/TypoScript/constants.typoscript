@@ -4,6 +4,7 @@
 # customsubcategory=100=Page Template
 # customsubcategory=110=Logo
 # customsubcategory=111=Favicon
+# customsubcategory=112=Preloader
 # customsubcategory=120=Meta Settings
 # customsubcategory=137=Content Elements Preloading
 # customsubcategory=138=Content Elements Header
@@ -40,6 +41,23 @@ page {
         alt =
         # cat=bootstrap package: basic/110/150; type=string; label=Link title: Title of the link attribute of the logo image
         linktitle =
+    }
+
+    preloader {
+        # cat=bootstrap package: basic/112/1_enable; type=boolean; label=Preloader: Enable to display the preloader
+        enable = 1
+        logo {
+            # cat=bootstrap package: basic/112/2_logo_file; type=string; label=Logo: Leave blank to don´t show a logo
+            file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg
+            # cat=bootstrap package: basic/112/3_logo_height; type=int+; label=Height: The image will not be resized!
+            height = 52
+            # cat=bootstrap package: basic/112/4_logo_width; type=int+; label=Width: The image will not be resized!
+            width = 180
+        }
+        # cat=bootstrap package: basic/112/5_background_color; type=color; label=Background Color
+        backgroundColor = #333333
+        # cat=bootstrap package: basic/112/6_fade_duration; type=string; label=Fade duration
+        fadeDuration = 0.25
     }
 
     favicon {

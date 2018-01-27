@@ -398,8 +398,22 @@ page {
             external = 1
             disableCompression = 1
             excludeFromConcatenation = 1
+            fontLoader {
+                families {
+                    0 = {$plugin.bootstrap_package.settings.less.google-webfont}:{$plugin.bootstrap_package.settings.less.google-webfont-weight}
+                }
+                enabled = 1
+            }
         }
         ionicons = EXT:bootstrap_package/Resources/Public/Css/ionicons.min.css
+        ionicons {
+            fontLoader {
+                families {
+                    0 = Ionicons
+                }
+                enabled = 1
+            }
+        }
     }
 
     includeCSS {
