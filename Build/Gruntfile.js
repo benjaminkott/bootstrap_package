@@ -214,22 +214,22 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            bootstrap: {
+            bootstrap3: {
                 files: [
                     {
-                        cwd: '<%= paths.node %>bootstrap/dist/js/',
+                        cwd: '<%= paths.node %>bootstrap3/dist/js/',
                         src: 'bootstrap.min.js',
                         dest: '<%= paths.contrib %>bootstrap3/js/',
                         expand: true
                     },
                     {
-                        cwd: '<%= paths.node %>bootstrap/dist/fonts/',
+                        cwd: '<%= paths.node %>bootstrap3/dist/fonts/',
                         src: '*',
                         dest: '<%= paths.contrib %>bootstrap3/fonts/',
                         expand: true
                     },
                     {
-                        cwd: '<%= paths.node %>bootstrap/less/',
+                        cwd: '<%= paths.node %>bootstrap3/less/',
                         src: '**',
                         dest: '<%= paths.contrib %>bootstrap3/less/',
                         expand: true
