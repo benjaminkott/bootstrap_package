@@ -294,7 +294,7 @@ plugin.bootstrap_package_contentelements {
     <INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt">
 [global]
 
-##################################
-#### BOOTSTRAP LESS CONSTANTS ####
-##################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap/constants.typoscript">
+#################################
+#### BOOTSTRAP 3.x CONSTANTS ####
+#################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">
