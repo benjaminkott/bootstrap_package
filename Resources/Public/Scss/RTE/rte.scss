@@ -1,0 +1,14 @@
+/*
+ * Import needed Bootstrap Files
+ */
+@import "../../Contrib/bootstrap4/scss/bootstrap";
+
+/*
+ * RTE Stylings
+ */
+body {
+    margin: 20px;
+}
+.cke_combopanel {
+    min-width: 200px;
+}

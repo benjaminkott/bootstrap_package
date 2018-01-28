@@ -18,6 +18,7 @@ module.exports = function(grunt) {
             images: '<%= paths.resources %>Public/Images/',
             fonts: '<%= paths.resources %>Public/Fonts/',
             less: '<%= paths.resources %>Public/Less/',
+            sass: '<%= paths.resources %>Public/Scss/',
             css: '<%= paths.resources %>Public/Css/',
             js: '<%= paths.resources %>Public/JavaScript/',
             contrib: '<%= paths.resources %>Public/Contrib/'
@@ -26,6 +27,14 @@ module.exports = function(grunt) {
             options: {
                 keepSpecialComments: '*',
                 advanced: false
+            },
+            bootstrap4_theme: {
+                src: '<%= paths.css %>bootstrap4-theme.css',
+                dest: '<%= paths.css %>bootstrap4-theme.min.css'
+            },
+            bootstrap4_rte: {
+                src: '<%= paths.css %>bootstrap4-rte.css',
+                dest: '<%= paths.css %>bootstrap4-rte.min.css'
             },
             bootstrap3_theme: {
                 src: '<%= paths.css %>bootstrap3-theme.css',
@@ -79,6 +88,23 @@ module.exports = function(grunt) {
             ckeditor_table: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
+            }
+        },
+        sass: {
+            options: {
+                outputStyle: 'expanded',
+                precision: 8,
+                sourceMap: true
+            },
+            bootstrap4_theme: {
+                files: {
+                    '<%= paths.css %>bootstrap4-theme.css': '<%= paths.sass %>Theme/theme.scss'
+                }
+            },
+            bootstrap4_rte: {
+                files: {
+                    '<%= paths.css %>bootstrap4-rte.css': '<%= paths.sass %>RTE/rte.scss'
+                }
             }
         },
         less: {
@@ -143,6 +169,10 @@ module.exports = function(grunt) {
             ckeditor_table: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
                 tasks: 'uglify:ckeditor_table'
+            },
+            scss: {
+                files: '<%= paths.scss %>**/*.scss',
+                tasks: 'css'
             },
             less: {
                 files: '<%= paths.less %>**/*.less',
@@ -214,6 +244,19 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+            popper: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>popper.js/dist/umd/',
+                        src: [
+                            'popper.min.js',
+                            'popper.min.js.map',
+                        ],
+                        dest: '<%= paths.contrib %>popper/',
+                        expand: true
+                    }
+                ]
+            },
             bootstrap3: {
                 files: [
                     {
@@ -232,6 +275,25 @@ module.exports = function(grunt) {
                         cwd: '<%= paths.node %>bootstrap3/less/',
                         src: '**',
                         dest: '<%= paths.contrib %>bootstrap3/less/',
+                        expand: true
+                    }
+                ]
+            },
+            bootstrap4: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>bootstrap/dist/js/',
+                        src: [
+                            'bootstrap.min.js',
+                            'bootstrap.min.js.map',
+                        ],
+                        dest: '<%= paths.contrib %>bootstrap4/js/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>bootstrap/scss/',
+                        src: '**',
+                        dest: '<%= paths.contrib %>bootstrap4/scss/',
                         expand: true
                     }
                 ]
@@ -313,12 +375,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks("grunt-modernizr");
+    grunt.loadNpmTasks('grunt-sass');
 
     /**
      * Grunt update task
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
-    grunt.registerTask('css', ['less', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('build', ['update', 'css', 'js', 'image']);
