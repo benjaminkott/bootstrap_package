@@ -411,7 +411,7 @@ page {
                 enabled = 1
             }
         }
-        ionicons = EXT:bootstrap_package/Resources/Public/Css/ionicons.min.css
+        ionicons = EXT:bootstrap_package/Resources/Public/Contrib/ionicons/css/ionicons.min.css
         ionicons {
             fontLoader {
                 families {
