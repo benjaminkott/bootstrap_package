@@ -235,7 +235,7 @@ plugin.bootstrap_package {
             headings-color = inherit
 
             # cat=bootstrap 3.x: styling/303/icon-font-path; type=string; label=@icon-font-path: Load fonts from this directory.
-            icon-font-path = "../../Fonts/"
+            icon-font-path = "../fonts/"
             # cat=bootstrap 3.x: styling/303/icon-font-name; type=string; label=@icon-font-name: File name for all font files.
             icon-font-name = "glyphicons-halflings-regular"
             # cat=bootstrap 3.x: styling/303/icon-font-svg-id; type=string; label=@icon-font-svg-id: Element ID within SVG icon file.

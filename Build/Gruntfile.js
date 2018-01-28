@@ -223,13 +223,13 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>bootstrap/dist/fonts/',
                         src: '*',
-                        dest: '<%= paths.fonts %>',
+                        dest: '<%= paths.contrib %>bootstrap3/fonts/',
                         expand: true
                     },
                     {
                         cwd: '<%= paths.node %>bootstrap/less/',
                         src: '**',
-                        dest: '<%= paths.less %>Bootstrap/',
+                        dest: '<%= paths.contrib %>bootstrap3/less/',
                         expand: true
                     }
                 ]
