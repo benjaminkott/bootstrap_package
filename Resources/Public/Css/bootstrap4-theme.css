@@ -1,6 +1,3 @@
-/*
- * Import needed Bootstrap Files
- */
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -8103,12 +8100,6 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-/*
- * Bootstrap Package Theme
- */
-/**
- * Breadcrumbs
- */
 .breadcrumb-section {
   background-color: #e9ecef;
 }
@@ -8118,6 +8109,50 @@ a.text-dark:hover, a.text-dark:focus {
   padding-right: 0;
   border-radius: 0;
   margin-bottom: 0;
+}
+
+.scroll-top {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1020;
+  background-color: #495057;
+  color: #fff;
+  bottom: 15px;
+  right: 15px;
+  position: fixed;
+  opacity: 0;
+  width: 3em;
+  height: 3em;
+}
+
+.scroll-top:active, .scroll-top:focus, .scroll-top:hover {
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.scroll-top.scroll-top-visible {
+  opacity: 1;
+}
+
+.css-arrow, .scroll-top .scroll-top-icon {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.css-arrow:before, .scroll-top .scroll-top-icon:before {
+  content: '';
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=bootstrap4-theme.css.map */
