@@ -8103,4 +8103,21 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+/*
+ * Bootstrap Package Theme
+ */
+/**
+ * Breadcrumbs
+ */
+.breadcrumb-section {
+  background-color: #e9ecef;
+}
+
+.breadcrumb-section .breadcrumb {
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
 /*# sourceMappingURL=bootstrap4-theme.css.map */
