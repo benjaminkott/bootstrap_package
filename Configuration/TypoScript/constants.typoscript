@@ -1,3 +1,9 @@
+###################
+#### FRAMEWORK ####
+###################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">
+
+
 ############################
 ### CUSTOM SUBCATEGORIES ###
 ###########################
@@ -293,8 +299,3 @@ plugin.bootstrap_package_contentelements {
 [userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
     <INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt">
 [global]
-
-#################################
-#### BOOTSTRAP 3.x CONSTANTS ####
-#################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">
