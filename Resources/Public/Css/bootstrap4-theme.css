@@ -8155,4 +8155,8 @@ a.text-dark:hover, a.text-dark:focus {
   transform: translate(-50%, -50%);
 }
 
+audio {
+  width: 100%;
+}
+
 /*# sourceMappingURL=bootstrap4-theme.css.map */
