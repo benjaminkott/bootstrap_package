@@ -9,6 +9,6 @@ page {
         theme = EXT:bootstrap_package/Resources/Public/Less/Theme/theme.less
     }
     includeJSFooterlibs {
-        bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/bootstrap.min.js
+        bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/js/bootstrap.min.js
     }
 }

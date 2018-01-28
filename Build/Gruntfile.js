@@ -86,6 +86,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
                     outputSourceFiles: true,
+                    relativeUrls: true,
                     sourceMapURL: 'theme.css.map',
                     sourceMapFilename: '<%= paths.css %>theme.css.map',
                     rootpath: 'Public/'
@@ -97,6 +98,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
                     outputSourceFiles: true,
+                    relativeUrls: true,
                     sourceMapURL: 'rte.css.map',
                     sourceMapFilename: '<%= paths.css %>rte.css.map',
                     rootpath: 'Public/'
@@ -217,7 +219,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>bootstrap/dist/js/',
                         src: 'bootstrap.min.js',
-                        dest: '<%= paths.contrib %>bootstrap3/',
+                        dest: '<%= paths.contrib %>bootstrap3/js/',
                         expand: true
                     },
                     {
