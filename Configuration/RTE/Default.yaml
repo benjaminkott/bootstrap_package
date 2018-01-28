@@ -11,7 +11,7 @@ editor:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
 
     config:
-        contentsCss: "EXT:bootstrap_package/Resources/Public/Css/rte.min.css"
+        contentsCss: "EXT:bootstrap_package/Resources/Public/Css/bootstrap3-rte.min.css"
 
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }

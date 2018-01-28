@@ -27,13 +27,13 @@ module.exports = function(grunt) {
                 keepSpecialComments: '*',
                 advanced: false
             },
-            theme: {
-                src: '<%= paths.css %>theme.css',
-                dest: '<%= paths.css %>theme.min.css'
+            bootstrap3_theme: {
+                src: '<%= paths.css %>bootstrap3-theme.css',
+                dest: '<%= paths.css %>bootstrap3-theme.min.css'
             },
-            rte: {
-                src: '<%= paths.css %>rte.css',
-                dest: '<%= paths.css %>rte.min.css'
+            bootstrap3_rte: {
+                src: '<%= paths.css %>bootstrap3-rte.css',
+                dest: '<%= paths.css %>bootstrap3-rte.min.css'
             }
         },
         uglify: {
@@ -82,29 +82,29 @@ module.exports = function(grunt) {
             }
         },
         less: {
-            theme: {
+            bootstrap3_theme: {
                 options: {
                     sourceMap: true,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'theme.css.map',
-                    sourceMapFilename: '<%= paths.css %>theme.css.map',
+                    sourceMapURL: 'bootstrap3-theme.css.map',
+                    sourceMapFilename: '<%= paths.css %>bootstrap3-theme.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>Theme/theme.less',
-                dest: '<%= paths.css %>theme.css'
+                dest: '<%= paths.css %>bootstrap3-theme.css'
             },
-            rte: {
+            bootstrap3_rte: {
                 options: {
                     sourceMap: true,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'rte.css.map',
-                    sourceMapFilename: '<%= paths.css %>rte.css.map',
+                    sourceMapURL: 'bootstrap3-rte.css.map',
+                    sourceMapFilename: '<%= paths.css %>bootstrap3-rte.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>RTE/rte.less',
-                dest: '<%= paths.css %>rte.css'
+                dest: '<%= paths.css %>bootstrap3-rte.css'
             }
         },
         watch: {
