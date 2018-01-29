@@ -53,3 +53,15 @@
 audio {
     width: 100%;
 }
+
+//
+// Vertical Alignment
+//
+.valign {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    .vcontainer {
+        width: 100%;
+    }
+}
