@@ -8496,4 +8496,96 @@ audio {
   width: 100%;
 }
 
+.texticon::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.texticon-icon {
+  font-size: 2em;
+}
+
+.texticon-icon .texticon-inner-icon {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  height: 1em;
+  width: 1em;
+}
+
+.texticon-size-awesome {
+  font-size: 3em;
+}
+
+@media (min-width: 576px) {
+  .texticon-size-large {
+    font-size: 3em;
+  }
+  .texticon-size-awesome {
+    font-size: 4em;
+  }
+}
+
+@media (min-width: 576px) {
+  .texticon-size-medium {
+    font-size: 3em;
+  }
+  .texticon-size-large {
+    font-size: 4em;
+  }
+  .texticon-size-awesome {
+    font-size: 5em;
+  }
+}
+
+.texticon-top .texticon-icon {
+  margin-bottom: 0.5em;
+}
+
+.texticon-type-square .texticon-inner-icon,
+.texticon-type-circle .texticon-inner-icon {
+  line-height: 2.3em;
+  height: 2.3em;
+  width: 2.3em;
+}
+
+.texticon-type-circle .texticon-inner-icon {
+  border-radius: 50%;
+}
+
+.texticon-left .texticon-icon,
+.texticon-right .texticon-icon {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.texticon-left .texticon-icon {
+  float: left;
+  margin-left: -15px;
+}
+
+.texticon-right .texticon-icon {
+  float: right;
+  margin-right: -15px;
+}
+
+.texticon-left .texticon-content,
+.texticon-right .texticon-content {
+  overflow: hidden;
+  zoom: 1;
+}
+
+.texticon-left .texticon-content *:first-child,
+.texticon-right .texticon-content *:first-child {
+  margin-top: 0px;
+}
+
+.texticon-left .texticon-content *:last-child,
+.texticon-right .texticon-content *:last-child {
+  margin-bottom: 0px;
+}
+
 /*# sourceMappingURL=bootstrap4-theme.css.map */
