@@ -8221,6 +8221,7 @@ a.text-dark:hover, a.text-dark:focus {
 .carousel .carousel-indicators {
   transition: opacity 0.4s ease-in-out 0s;
   z-index: 1;
+  opacity: 0;
 }
 
 .carousel:hover .carousel-indicators,
@@ -8415,6 +8416,26 @@ a.text-dark:hover, a.text-dark:focus {
   max-width: 100%;
   display: block;
   height: auto;
+}
+
+figure {
+  display: block;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+figure > img,
+figure a > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+figure .caption {
+  padding-top: 0.5em;
+  font-size: 0.85em;
+  line-height: 1.4em;
 }
 
 .scroll-top {

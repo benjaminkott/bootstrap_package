@@ -84,7 +84,7 @@
     .carousel-indicators {
         @include transition(opacity .4s ease-in-out 0s);
         z-index: 1;
-        // opacity: 0;
+        opacity: 0;
     }
     &:hover {
         .carousel-indicators,
