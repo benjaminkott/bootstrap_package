@@ -425,6 +425,15 @@ page {
                 enabled = 1
             }
         }
+        socialmediaicons = EXT:bootstrap_package/Resources/Public/Fonts/socialmedia.min.css
+        socialmediaicons {
+            fontLoader {
+                families {
+                    0 = BootstrapPackageSocialMedia
+                }
+                enabled = 1
+            }
+        }
     }
 
     includeJSLibs {

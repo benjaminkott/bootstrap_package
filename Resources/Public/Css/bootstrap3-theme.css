@@ -8573,6 +8573,12 @@ body,
     text-align: center;
   }
 }
+.footer-copyright p {
+  margin-bottom: 0;
+}
+.footer-sociallinks .sociallinks {
+  margin-top: 0.5em;
+}
 .modal-lightbox {
   margin: 10px auto;
 }
@@ -8792,6 +8798,37 @@ body .typo3-editPanel-btn:hover,
 }
 .form-check-input + span {
   margin-left: 0.5em;
+}
+.sociallinks {
+  overflow: hidden;
+}
+.sociallinks-list {
+  padding: 0;
+  margin: 0 -0.25em;
+  list-style: none;
+}
+.sociallinks-item {
+  display: inline-block;
+  margin: 0.25em;
+  height: 1.5em;
+  width: 1.5em;
+}
+.sociallinks-link {
+  position: relative;
+  height: 1.5em;
+  width: 1.5em;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none!important;
+}
+.sociallinks-link-label {
+  vertical-align: middle;
+  display: none;
+}
+.sociallinks-link-icon {
+  font-size: 1.25em;
+  text-align: center;
+  opacity: 0.8;
 }
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 .pswp {

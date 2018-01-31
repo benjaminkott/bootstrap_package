@@ -22,6 +22,7 @@
 # customsubcategory=146=Content Element Gallery
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
+# customsubcategory=165=Social Media
 # customsubcategory=166=Section Footer
 # customsubcategory=167=Section Meta
 # customsubcategory=168=Section Language
@@ -108,6 +109,58 @@ page {
             enable = 1
             # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids
             languageValue = 0,1,2
+        }
+
+        socialmedia {
+            # cat=bootstrap package: basic/165/00_enable; type=boolean; label=Social Media: Enable to display the social media links
+            enable = 1
+            channels {
+                facebook {
+                    label = Facebook
+                    # cat=bootstrap package: basic/165/01_facebook_url; type=string; label=Facebook: Insert the full account url
+                    url =
+                }
+                twitter {
+                    label = Twitter
+                    # cat=bootstrap package: basic/165/02_twitter_url; type=string; label=Twitter: Insert the full account url
+                    url =
+                }
+                instagram {
+                    label = Instagram
+                    # cat=bootstrap package: basic/165/03_instagram_url; type=string; label=Instagram: Insert the full account url
+                    url =
+                }
+                github {
+                    label = GitHub
+                    # cat=bootstrap package: basic/165/04_googleplus_url; type=string; label=GitHub: Insert the full account url
+                    url =
+                }
+                googleplus {
+                    label = Google+
+                    # cat=bootstrap package: basic/165/04_googleplus_url; type=string; label=Google+: Insert the full account url
+                    url =
+                }
+                linkedin {
+                    label = LinkedIn
+                    # cat=bootstrap package: basic/165/05_linkedin_url; type=string; label=LinkedIn: Insert the full account url
+                    url =
+                }
+                xing {
+                    label = Xing
+                    # cat=bootstrap package: basic/165/06_xing_url; type=string; label=Xing: Insert the full account url
+                    url =
+                }
+                youtube {
+                    label = YouTube
+                    # cat=bootstrap package: basic/165/07_youtube_url; type=string; label=YouTube: Insert the full account url
+                    url =
+                }
+                vimeo {
+                    label = Vimeo
+                    # cat=bootstrap package: basic/165/08_vimeo_url; type=string; label=Vimeo: Insert the full account url
+                    url =
+                }
+            }
         }
 
         copyright {

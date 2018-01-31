@@ -36,15 +36,22 @@
                         </div>
                     </div>
                 </f:if>
-                <f:if condition="{settings.copyright.enable}">
-                    <div class="frame frame-small default copyright">
-                        <div class="frame-container">
-                            <div class="frame-inner">
-                                <f:format.html>{settings.copyright.text}</f:format.html>
-                            </div>
+                <div class="frame frame-small default copyright">
+                    <div class="frame-container">
+                        <div class="frame-inner">
+                            <f:if condition="{theme.copyright.enable}">
+                                <div class="footer-copyright">
+                                    <f:render partial="Structure/Copyright" arguments="{_all}" />
+                                </div>
+                            </f:if>
+                            <f:if condition="{theme.socialmedia.enable}">
+                                <div class="footer-sociallinks">
+                                    <f:render partial="Structure/SocialLinks" arguments="{_all}" />
+                                </div>
+                            </f:if>
                         </div>
                     </div>
-                </f:if>
+                </div>
             </div>
         </section>
     </footer>

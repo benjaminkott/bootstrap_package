@@ -15,6 +15,7 @@ module.exports = function(grunt) {
             bower: 'bower_components/',
             node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
+            icons: '<%= paths.resources %>Public/Icons/',
             images: '<%= paths.resources %>Public/Images/',
             fonts: '<%= paths.resources %>Public/Fonts/',
             less: '<%= paths.resources %>Public/Less/',
@@ -43,6 +44,10 @@ module.exports = function(grunt) {
             bootstrap3_rte: {
                 src: '<%= paths.css %>bootstrap3-rte.css',
                 dest: '<%= paths.css %>bootstrap3-rte.min.css'
+            },
+            socialmedia: {
+                src: '<%= paths.fonts %>socialmedia.css',
+                dest: '<%= paths.fonts %>socialmedia.min.css'
             }
         },
         uglify: {
@@ -362,6 +367,23 @@ module.exports = function(grunt) {
                 ],
                 'uglify': true
             }
+        },
+        webfont: {
+            brands: {
+                src: '<%= paths.icons %>SocialMedia/*.svg',
+                dest: '<%= paths.fonts %>',
+                options: {
+                    font: 'socialmedia',
+                    fontFamilyName: 'BootstrapPackageSocialMedia',
+                    engine: 'node',
+                    autoHint: false,
+                    htmlDemo: false,
+                    templateOptions: {
+                        baseClass: 'socialmedia-icon',
+                        classPrefix: 'socialmedia-icon-'
+                    }
+                }
+            }
         }
     });
 
@@ -376,6 +398,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-webfont');
 
     /**
      * Grunt update task
@@ -384,7 +407,7 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass', 'less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('image', ['imagemin']);
-    grunt.registerTask('build', ['update', 'css', 'js', 'image']);
+    grunt.registerTask('build', ['webfont', 'update', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);
 
 };
