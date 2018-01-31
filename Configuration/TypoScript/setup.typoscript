@@ -168,6 +168,11 @@ page {
         ### DATA PREPROCESSING ###
         ##########################
         dataProcessing {
+            1 = BK2K\BootstrapPackage\DataProcessing\ConstantsProcessor
+            1 {
+                as = theme
+                key = page.theme
+            }
             10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             10 {
                 levels = 2
