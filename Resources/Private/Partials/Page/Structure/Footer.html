@@ -20,17 +20,29 @@
             <div class="container">
                 <f:if condition="{settings.meta.enable}">
                     <div class="frame frame-small default meta">
-                        <f:render partial="Navigation/Meta" arguments="{_all}" />
+                        <div class="frame-container">
+                            <div class="frame-inner">
+                                <f:render partial="Navigation/Meta" arguments="{_all}" />
+                            </div>
+                        </div>
                     </div>
                 </f:if>
                 <f:if condition="{settings.language.enable}">
                     <div class="frame frame-small default language">
-                        <f:render partial="Navigation/Language" arguments="{_all}" />
+                        <div class="frame-container">
+                            <div class="frame-inner">
+                                <f:render partial="Navigation/Language" arguments="{_all}" />
+                            </div>
+                        </div>
                     </div>
                 </f:if>
                 <f:if condition="{settings.copyright.enable}">
                     <div class="frame frame-small default copyright">
-                        <f:format.html>{settings.copyright.text}</f:format.html>
+                        <div class="frame-container">
+                            <div class="frame-inner">
+                                <f:format.html>{settings.copyright.text}</f:format.html>
+                            </div>
+                        </div>
                     </div>
                 </f:if>
             </div>
