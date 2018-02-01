@@ -23,7 +23,6 @@
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=165=Social Media
-# customsubcategory=166=Section Footer
 # customsubcategory=167=Section Meta
 # customsubcategory=168=Section Language
 # customsubcategory=169=Section Copyright
@@ -87,11 +86,6 @@ page {
         breadcrumb = 1
         # cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
         breadcrumbEnableLevel = 2
-
-        footersection {
-            # cat=bootstrap package: basic/166/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
-            enable = 1
-        }
 
         meta {
             # cat=bootstrap package: basic/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom

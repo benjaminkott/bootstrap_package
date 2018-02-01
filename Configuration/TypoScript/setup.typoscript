@@ -271,8 +271,6 @@ page {
         ### VARIABLES ###
         #################
         variables {
-            showFooter = TEXT
-            showFooter.value = {$page.theme.footersection.enable}
             pageTitle = TEXT
             pageTitle.data = page:title
             siteTitle = TEXT
