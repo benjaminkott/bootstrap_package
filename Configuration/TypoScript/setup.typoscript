@@ -255,16 +255,6 @@ page {
                     height = {$page.theme.navigationicon.height}
                 }
             }
-            copyright {
-                enable = {$page.theme.copyright.enable}
-                text = {$page.theme.copyright.text}
-            }
-            meta {
-                enable = {$page.theme.meta.enable}
-            }
-            language {
-                enable = {$page.theme.language.enable}
-            }
         }
 
         #################
