@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{menu}">
+        <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
+        <div class="card-deck card-deck-menu">
+            <f:for each="{menu}" as="page">
+
+                <div class="card">
+                    <f:if condition="{page.files.0} && {page.files.0.type} == 2">
+                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
+                            <f:media file="{page.files.0}" width="{settings.menucard.media.width}" height="{settings.menucard.media.height}" class="card-img card-img-top" />
+                        </a>
+                    </f:if>
+                    <div class="card-body">
+                        <f:if condition="{page.data.title}">
+                            <h3 class="card-title">
+                                <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
+                                    <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.data.title}</f:format.crop>
+                                </a>
+                            </h3>
+                        </f:if>
+                        <f:if condition="{page.data.subtitle}">
+                            <h4 class="card-subtitle">
+                                <f:format.crop maxCharacters="{settings.menucard.subtitle.crop}">{page.data.subtitle}</f:format.crop>
+                            </h4>
+                        </f:if>
+                        <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} > 300">
+                            <p class="card-text"><f:format.crop maxCharacters="{settings.menucard.abstract.crop}">{page.data.abstract}</f:format.crop></p>
+                        </f:if>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} class="card-link" title="{page.title}" data-toggle="tooltip">
+                            <f:if condition="{data.readmore_label}">
+                                <f:then>
+                                    {data.readmore_label}
+                                </f:then>
+                                <f:else>
+                                    <f:translate key="readmore" extensionName="bootstrap_package" />
+                                </f:else>
+                            </f:if>
+                        </a>
+                    </div>
+                </div>
+
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+</html>

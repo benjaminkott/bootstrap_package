@@ -62,6 +62,16 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
     ),
 ];
+$GLOBALS['TCA']['tt_content']['columns']['readmore_label'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.readmore_label',
+    'config' => [
+        'type' => 'input',
+        'eval' => 'trim',
+        'size' => 50,
+        'max' => 255
+    ]
+];
 $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',

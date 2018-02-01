@@ -11,6 +11,7 @@ CREATE TABLE pages (
 #
 CREATE TABLE tt_content (
     teaser text,
+    readmore_label varchar(255) DEFAULT '' NOT NULL,
     quote_source varchar(255) DEFAULT '' NOT NULL,
     quote_link varchar(1024) DEFAULT '' NOT NULL,
     panel_class varchar(60) DEFAULT 'default' NOT NULL,

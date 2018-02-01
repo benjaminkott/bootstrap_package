@@ -125,6 +125,19 @@
                 <source>Footer: Right</source>
             </trans-unit>
 
+            <trans-unit id="menu.card_dir">
+                <source>Cards of subpages</source>
+            </trans-unit>
+            <trans-unit id="menu.card_dir.description">
+                <source>Insert menu to display subpages as cards</source>
+            </trans-unit>
+            <trans-unit id="menu.card_list">
+                <source>Cards</source>
+            </trans-unit>
+            <trans-unit id="menu.card_list.description">
+                <source>Insert menu to display selected pages as cards</source>
+            </trans-unit>
+
             <trans-unit id="menu.thumbnail_dir">
                 <source>Thumbnails of subpages</source>
             </trans-unit>
@@ -584,6 +597,10 @@
 
             <trans-unit id="palette.alignment">
                 <source>Alignment</source>
+            </trans-unit>
+
+            <trans-unit id="field.readmore_label">
+                <source>Read More Label</source>
             </trans-unit>
 
         </body>

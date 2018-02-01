@@ -50,6 +50,7 @@
 # customsubcategory=392=Section Dark
 # customsubcategory=400=Footer
 # customsubcategory=401=Footer Meta
+# customsubcategory=402=Webfont
 
 plugin.bootstrap_package {
     settings {
@@ -59,9 +60,9 @@ plugin.bootstrap_package {
             ### CUSTOM VARIABLES START
             ###
 
-            # cat=bootstrap 3.x: basic/160/100; type=options[Lora=Lora, Merriweather=Merriweather, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Ubuntu=Ubuntu]; label=Google Webfont
+            # cat=bootstrap 3.x: basic/402/100; type=options[Lora=Lora, Merriweather=Merriweather, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Ubuntu=Ubuntu]; label=Google Webfont
             google-webfont = Source Sans Pro
-            # cat=bootstrap 3.x: basic/160/101; type=string; label=Google Webfont Weights: Comma separated list of font weights
+            # cat=bootstrap 3.x: basic/402/101; type=string; label=Google Webfont Weights: Comma separated list of font weights
             google-webfont-weight = 300,400,700
 
             # cat=bootstrap 3.x: styling/380/frame-primary-bg; type=string; label=@frame-primary-bg:

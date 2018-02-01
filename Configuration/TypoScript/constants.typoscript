@@ -1,9 +1,3 @@
-###################
-#### FRAMEWORK ####
-###################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">
-
-
 ############################
 ### CUSTOM SUBCATEGORIES ###
 ###########################
@@ -16,10 +10,11 @@
 # customsubcategory=138=Content Elements Header
 # customsubcategory=139=Content Elements Subheader
 # customsubcategory=140=Content Elements Templates
-# customsubcategory=143=Content Element Menu
+# customsubcategory=143=Content Element Menu Thumbnail
 # customsubcategory=144=Content Element General
 # customsubcategory=145=Content Element Uploads
 # customsubcategory=146=Content Element Gallery
+# customsubcategory=147=Content Element Menu Card
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=165=Social Media
@@ -28,7 +23,7 @@
 # customsubcategory=169=Section Copyright
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
-# customsubcategory=BoostrapPackageExtensions=Extension Overrides
+# customsubcategory=200=Extension Overrides
 
 ############
 ### PAGE ###
@@ -205,9 +200,9 @@ page {
     }
 }
 
-##############
-### CONFIG ###
-##############
+// ##############
+// ### CONFIG ###
+// ##############
 config {
     # cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
     no_cache = 0
@@ -259,11 +254,11 @@ plugin.bootstrap_package {
 ####################################
 plugin.bootstrap_package {
     view {
-        # cat=bootstrap package: advanced/BoostrapPackageExtensions/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        # cat=bootstrap package: advanced/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
-        # cat=bootstrap package: advanced/BoostrapPackageExtensions/partialRootPath; type=string; label=Partial Root Path: Path to partials
+        # cat=bootstrap package: advanced/200/partialRootPath; type=string; label=Partial Root Path: Path to partials
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
-        # cat=bootstrap package: advanced/BoostrapPackageExtensions/templateRootPath; type=string; label=Template Root Path: Path to templates
+        # cat=bootstrap package: advanced/200/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
     }
 }
@@ -330,6 +325,26 @@ plugin.bootstrap_package_contentelements {
             crop = 250
         }
     }
+    menu_card {
+        media {
+            # cat=bootstrap package: advanced/147/102; type=string; label=Card Menu Media Height
+            height = 250c
+            # cat=bootstrap package: advanced/147/103; type=string; label=Card Menu Media Width
+            width = 440c
+        }
+        title {
+            # cat=bootstrap package: advanced/147/104; type=string; label=Card Menu Crop Title
+            crop = 100
+        }
+        subtitle {
+            # cat=bootstrap package: advanced/147/106; type=string; label=Card Menu Crop Subtitle
+            crop = 100
+        }
+        abstract {
+            # cat=bootstrap package: advanced/147/107; type=string; label=Card Menu Crop Abstract
+            crop = 250
+        }
+    }
     uploads {
         preview {
             # cat=bootstrap package: advanced/145/100; type=string; label=Uploads Preview Height
@@ -346,3 +361,8 @@ plugin.bootstrap_package_contentelements {
 [userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
     <INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt">
 [global]
+
+###################
+#### FRAMEWORK ####
+###################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">

@@ -240,6 +240,11 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']
 );
 $iconRegistry->registerIcon(
+    'content-menu-card',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-card.svg']
+);
+$iconRegistry->registerIcon(
     'systeminformation-bootstrappackage',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']
