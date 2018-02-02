@@ -57,6 +57,7 @@ class FontLoaderHook
         if (count($urls) > 0 || count($families) > 0) {
             $config['custom']['urls'] = $urls;
             $config['custom']['families'] = $families;
+            $config['timeout'] = 2000;
             $params['headerData'][] = '<style>' . $this->generateCss() . '</style>';
             $params['headerData'][] = '<script>' . $this->generateJavaScript($config) . '</script>';
         }
