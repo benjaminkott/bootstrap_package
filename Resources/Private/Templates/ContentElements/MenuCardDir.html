@@ -26,7 +26,7 @@
                                 <f:format.crop maxCharacters="{settings.menucard.subtitle.crop}">{page.data.subtitle}</f:format.crop>
                             </h4>
                         </f:if>
-                        <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} > 300">
+                        <f:if condition="{page.data.abstract}">
                             <p class="card-text"><f:format.crop maxCharacters="{settings.menucard.abstract.crop}">{page.data.abstract}</f:format.crop></p>
                         </f:if>
                     </div>
