@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+ <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{settings.breadcrumb.enable}">
     <f:if condition="{breadcrumb}">
         <nav class="breadcrumb-section" aria-label="breadcrumb">
@@ -15,7 +15,7 @@
                                 </li>
                             </f:then>
                             <f:else>
-                                <li class="breadcrumb-item{f:if(condition: item.current, then: ' active')}"{f:if(condition: item.current, then: 'aria-current="page"')}>
+                                <li class="breadcrumb-item{f:if(condition: item.current, then: ' active')}"{f:if(condition: item.current, then: ' aria-current="page"')}>
                                     <f:if condition="{item.current}">
                                         <f:then>
                                             <span>{item.title}</span>
