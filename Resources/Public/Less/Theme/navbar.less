@@ -294,73 +294,108 @@
 
 
 //
-// Navbar Toggle
-// --------------------------------------------------
-.navbar-toggle {
+// Navbar Toggler
+//
+.navbar-toggler {
+    float: right;
+    margin-right: @navbar-padding-horizontal;
+    .navbar-vertical-align(34px);
+    background-color: transparent;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    border-radius: @border-radius-base;
+
+    padding: 0;
     height: 34px;
     width: 34px;
-    padding: 0;
-    .icon-bar {
-        position: absolute;
-        top: 50%;
-        left: 5px;
-        margin-top: -1px;
-        .transition(all 0.3s ease-in-out);
-        &:nth-child(2) {
-            margin-top: -1px;
-            .rotate(-45deg);
-        }
-        &:nth-child(3) {
-            margin-top: -1px;
-            opacity: 0;
-        }
-        &:nth-child(4) {
-            margin-top: -1px;
-            .rotate(45deg);
-        }
-    }
-    &.collapsed {
-        .icon-bar {
-            &:nth-child(2) {
-                margin-top: -7px;
-                .rotate(0deg);
-            }
-            &:nth-child(3) {
-                opacity: 1;
-            }
-            &:nth-child(4) {
-                margin-top: 5px;
-                .rotate(0deg);
-            }
-        }
-    }
-    &:hover {
-        .icon-bar {
-            &:nth-child(3) {
-                margin-left: 2px;
-                @media (hover:none), (hover:on-demand) {
-                    margin-left: 0;
-                }
-            }
-        }
-    }
+    position: relative;
+    border: 0;
     &:focus {
         outline: 0;
+    }
+}
+.navbar-toggler-icon:after,
+.navbar-toggler-icon,
+.navbar-toggler-icon:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: none!important;
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease-in;
+}
+.navbar-toggler-icon {
+    top: 50%;
+    left: 50%;
+    height: 0;
+    transform: translate(-50%, -50%);
+}
+.navbar-toggler-icon:before {
+    transition-delay: 0.1s;
+    transform: rotate(-45deg);
+    top: 0px;
+}
+.navbar-toggler-icon:after {
+    transition-delay: 0.1s;
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+
+//
+// Navbar Toggler collapsed
+//
+.navbar-toggler.collapsed {
+    .navbar-toggler-icon {
+        transition-delay: 0.2s;
+        height: 2px;
+    }
+    .navbar-toggler-icon:before {
+        transition-delay: 0;
+        transform: rotate(0);
+        top: -6px;
+    }
+    .navbar-toggler-icon:after {
+        transition-delay: 0;
+        transform: rotate(0);
+        top: 6px;
+    }
+}
+
+
+//
+// Navbar Default
+//
+.navbar-default {
+    .navbar-toggler {
+        border-color: @navbar-default-toggle-border-color;
+        color: @navbar-default-toggle-icon-bar-bg;
+        &:hover,
+        &:focus {
+            background-color: @navbar-default-toggle-hover-bg;
+        }
     }
 }
 
 
 //
 // Navbar Inverse
-// --------------------------------------------------
+//
 .navbar-inverse {
-    .navbar-header-main {
-        .navbar-toggle {
-            color: @navbar-inverse-toggle-icon-bar-bg;
+    .navbar-toggler {
+        border-color: @navbar-inverse-toggle-border-color;
+        color: @navbar-inverse-toggle-icon-bar-bg;
+        &:hover,
+        &:focus {
+          background-color: @navbar-inverse-toggle-hover-bg;
         }
-        .navbar-header-border-bottom {
-            background-color: @navbar-inverse-border;
-        }
+    }
+    .navbar-header-border-bottom {
+        background-color: @navbar-inverse-border;
     }
 }
 

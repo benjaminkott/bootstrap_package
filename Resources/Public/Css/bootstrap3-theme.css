@@ -7608,74 +7608,99 @@ body,
     display: none;
   }
 }
-.navbar-toggle {
+.navbar-toggler {
+  float: right;
+  margin-right: 20px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  padding: 0;
   height: 34px;
   width: 34px;
-  padding: 0;
+  position: relative;
+  border: 0;
 }
-.navbar-toggle .icon-bar {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  margin-top: -1px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.navbar-toggle .icon-bar:nth-child(2) {
-  margin-top: -1px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-.navbar-toggle .icon-bar:nth-child(3) {
-  margin-top: -1px;
-  opacity: 0;
-}
-.navbar-toggle .icon-bar:nth-child(4) {
-  margin-top: -1px;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.navbar-toggle.collapsed .icon-bar:nth-child(2) {
-  margin-top: -7px;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.navbar-toggle.collapsed .icon-bar:nth-child(3) {
-  opacity: 1;
-}
-.navbar-toggle.collapsed .icon-bar:nth-child(4) {
-  margin-top: 5px;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.navbar-toggle:hover .icon-bar:nth-child(3) {
-  margin-left: 2px;
-}
-@media (hover: none), (hover: on-demand) {
-  .navbar-toggle:hover .icon-bar:nth-child(3) {
-    margin-left: 0;
-  }
-}
-.navbar-toggle:focus {
+.navbar-toggler:focus {
   outline: 0;
 }
-.navbar-inverse .navbar-header-main .navbar-toggle,
-.navbar-inverse-transition .navbar-header-main .navbar-toggle,
-.navbar-inverse-transition.navbar-transition .navbar-header-main .navbar-toggle {
+.navbar-toggler-icon:after,
+.navbar-toggler-icon,
+.navbar-toggler-icon:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: none!important;
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease-in;
+}
+.navbar-toggler-icon {
+  top: 50%;
+  left: 50%;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+.navbar-toggler-icon:before {
+  transition-delay: 0.1s;
+  transform: rotate(-45deg);
+  top: 0px;
+}
+.navbar-toggler-icon:after {
+  transition-delay: 0.1s;
+  transform: rotate(45deg);
+  top: 0px;
+}
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  transition-delay: 0.2s;
+  height: 2px;
+}
+.navbar-toggler.collapsed .navbar-toggler-icon:before {
+  transition-delay: 0;
+  transform: rotate(0);
+  top: -6px;
+}
+.navbar-toggler.collapsed .navbar-toggler-icon:after {
+  transition-delay: 0;
+  transform: rotate(0);
+  top: 6px;
+}
+.navbar-default .navbar-toggler,
+.navbar-default-transition .navbar-toggler,
+.navbar-default-transition.navbar-transition .navbar-toggler {
+  border-color: transparent;
+  color: #8c8c8c;
+}
+.navbar-default .navbar-toggler:hover,
+.navbar-default .navbar-toggler:focus,
+.navbar-default-transition .navbar-toggler:hover,
+.navbar-default-transition .navbar-toggler:focus,
+.navbar-default-transition.navbar-transition .navbar-toggler:hover,
+.navbar-default-transition.navbar-transition .navbar-toggler:focus {
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggler,
+.navbar-inverse-transition .navbar-toggler,
+.navbar-inverse-transition.navbar-transition .navbar-toggler {
+  border-color: transparent;
   color: #bfbfbf;
 }
-.navbar-inverse .navbar-header-main .navbar-header-border-bottom,
-.navbar-inverse-transition .navbar-header-main .navbar-header-border-bottom,
-.navbar-inverse-transition.navbar-transition .navbar-header-main .navbar-header-border-bottom {
+.navbar-inverse .navbar-toggler:hover,
+.navbar-inverse .navbar-toggler:focus,
+.navbar-inverse-transition .navbar-toggler:hover,
+.navbar-inverse-transition .navbar-toggler:focus,
+.navbar-inverse-transition.navbar-transition .navbar-toggler:hover,
+.navbar-inverse-transition.navbar-transition .navbar-toggler:focus {
+  background-color: transparent;
+}
+.navbar-inverse .navbar-header-border-bottom,
+.navbar-inverse-transition .navbar-header-border-bottom,
+.navbar-inverse-transition.navbar-transition .navbar-header-border-bottom {
   background-color: #2b2b2b;
 }
 .navbar-item-text,
