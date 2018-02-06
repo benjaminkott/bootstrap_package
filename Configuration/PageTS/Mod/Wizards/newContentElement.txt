@@ -75,6 +75,14 @@ mod.wizards.newContentElement.wizardItems {
                 CType = image
             }
         }
+        icon_group {
+            iconIdentifier = content-bootstrappackage-icon-group
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.description
+            tt_content_defValues {
+                CType = icon_group
+            }
+        }
         external_media {
             iconIdentifier = content-bootstrappackage-externalmedia
             title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
@@ -118,6 +126,7 @@ mod.wizards.newContentElement.wizardItems {
     }
     media.show := addToList(audio)
     media.show := addToList(image)
+    media.show := addToList(icon_group)
     media.show := addToList(external_media)
     media.show := addToList(media)
     media.show := addToList(textpic)

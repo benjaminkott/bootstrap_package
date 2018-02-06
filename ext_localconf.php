@@ -235,6 +235,16 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/externalmedia.svg']
 );
 $iconRegistry->registerIcon(
+    'content-bootstrappackage-icon-group',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group.svg']
+);
+$iconRegistry->registerIcon(
+    'content-bootstrappackage-icon-group-item',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group-item.svg']
+);
+$iconRegistry->registerIcon(
     'content-bootstrappackage-listgroup',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']

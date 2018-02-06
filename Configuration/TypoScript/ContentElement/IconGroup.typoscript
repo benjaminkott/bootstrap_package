@@ -1,0 +1,38 @@
+#####################
+#### CTYPE: HTML ####
+#####################
+
+tt_content.icon_group >
+tt_content.icon_group =< lib.contentElement
+tt_content.icon_group {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = IconGroup
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = tx_bootstrappackage_icon_group_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = sorting
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = icon_file
+                    as = iconFile
+                }
+            }
+        }
+    }
+
+}

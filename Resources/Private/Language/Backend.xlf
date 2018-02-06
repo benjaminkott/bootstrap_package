@@ -238,6 +238,13 @@
                 <source>Insert several Tabelement(s) with headline and text</source>
             </trans-unit>
 
+            <trans-unit id="content_element.icon_group">
+                <source>Icon Group</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.description">
+                <source>Insert a element with several icons</source>
+            </trans-unit>
+
             <trans-unit id="content_element.listgroup">
                 <source>List Group</source>
             </trans-unit>
@@ -431,6 +438,22 @@
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.right">
                 <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="icon_group_item">
+                <source>Icon Group Item</source>
+            </trans-unit>
+            <trans-unit id="tab_item.tt_content">
+                <source>Icon Group</source>
+            </trans-unit>
+            <trans-unit id="icon_group_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="icon_group_item.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="icon_group_item.icon_file">
+                <source>Icon File</source>
             </trans-unit>
 
             <trans-unit id="field.panel_class">

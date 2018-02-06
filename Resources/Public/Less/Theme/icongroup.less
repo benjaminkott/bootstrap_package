@@ -1,0 +1,59 @@
+//
+// Icon Group
+//
+
+//
+// Variables
+//
+@icongroup-margin: (@grid-gutter-width / 2);
+@icongroup-icon-size: 60px;
+
+//
+// Component
+//
+.icongroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -@icongroup-margin!important;
+    margin-bottom: -@icongroup-margin!important;
+    @media (min-width: @screen-sm) {
+        margin-right: -@icongroup-margin;
+        margin-left: -@icongroup-margin;
+    }
+}
+.icongroup-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: @icongroup-margin;
+    margin-bottom: @icongroup-margin;
+    width: 100%;
+    @media (min-width: @screen-sm) {
+        margin-right: @icongroup-margin;
+        margin-left: @icongroup-margin;
+        width: calc(~'50% - @{icongroup-margin} * 2');
+    }
+    @media (min-width: @screen-md) {
+        width: calc(~'25% - @{icongroup-margin} * 2');
+    }
+}
+.icongroup-item-icon-container {
+    width: 20%;
+    max-width: @icongroup-icon-size;
+    margin-right: @icongroup-margin;
+    svg {
+        display: block;
+    }
+}
+.icongroup-item-text-container {
+    flex-grow: 1;
+}
+.icongroup-item-text-header {
+    margin-bottom: 0.15em;
+}
+.icongroup-item-text-subheader {
+    margin-bottom: 0;
+}

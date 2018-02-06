@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <div class="icongroup">
+            <f:for each="{records}" as="item" iteration="iteration">
+                <div class="icongroup-item">
+                    <f:if condition="{item.iconFile.0}">
+                        <div class="icongroup-item-icon-container">
+                            <bk2k:inlineSvg image="{item.iconFile.0}" />
+                        </div>
+                    </f:if>
+                    <div class="icongroup-item-text-container">
+                        <h4 class="icongroup-item-text-header">{item.data.header}</h4>
+                        <f:if condition="{item.data.subheader}">
+                            <p class="icongroup-item-text-subheader">{item.data.subheader}</p>
+                        </f:if>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+</html>
