@@ -7623,6 +7623,11 @@ body,
   position: relative;
   border: 0;
 }
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
 .navbar-toggler:focus {
   outline: 0;
 }

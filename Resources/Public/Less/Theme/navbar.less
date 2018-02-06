@@ -297,6 +297,9 @@
 // Navbar Toggler
 //
 .navbar-toggler {
+    @media (min-width: @grid-float-breakpoint) {
+        display: none;
+    }
     float: right;
     margin-right: @navbar-padding-horizontal;
     .navbar-vertical-align(34px);
