@@ -75,3 +75,26 @@ editor:
             - Anchor
             - Underline
             - Strike
+
+classesAnchor:
+    page:
+        class: 'link-page'
+        type: 'page'
+    folder:
+        class: 'link-folder'
+        type: 'folder'
+    file:
+        class: 'link-file'
+        type: 'file'
+    external:
+        class: 'link-external'
+        type: 'url'
+    mail:
+        class: 'link-mail'
+        type: 'mail'
+
+buttons:
+    link:
+        properties:
+            class:
+                allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail'

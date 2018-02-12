@@ -4,6 +4,11 @@
 @import "../../Contrib/bootstrap4/scss/bootstrap";
 
 /*
+ * Import nessesary additional stylings
+ */
+ @import "../Theme/link";
+
+/*
  * RTE Stylings
  */
 body {

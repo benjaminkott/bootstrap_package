@@ -8104,6 +8104,20 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /*
+ * Import nessesary additional stylings
+ */
+.link-arrow:after,
+.link-page:after,
+.link-folder:after,
+.link-file:after,
+.link-external:after,
+.link-mail:after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 0.15em;
+}
+
+/*
  * RTE Stylings
  */
 body {

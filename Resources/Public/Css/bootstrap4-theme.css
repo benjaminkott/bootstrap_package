@@ -8717,4 +8717,15 @@ audio {
   margin-bottom: 0;
 }
 
+.link-arrow:after,
+.link-page:after,
+.link-folder:after,
+.link-file:after,
+.link-external:after,
+.link-mail:after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 0.15em;
+}
+
 /*# sourceMappingURL=bootstrap4-theme.css.map */

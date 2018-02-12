@@ -9094,6 +9094,16 @@ body .typo3-editPanel-btn:hover,
   font-size: 1em;
   margin-bottom: 0;
 }
+.link-arrow:after,
+.link-page:after,
+.link-folder:after,
+.link-file:after,
+.link-external:after,
+.link-mail:after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 0.15em;
+}
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 .pswp {
   display: none;
