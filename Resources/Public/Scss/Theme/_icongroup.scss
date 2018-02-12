@@ -16,24 +16,16 @@ $icongroup-icon-size: 40px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: -$icongroup-margin!important;
-    margin-bottom: -$icongroup-margin!important;
-    @include media-breakpoint-up(sm) {
-        margin-right: -$icongroup-margin;
-        margin-left: -$icongroup-margin;
-    }
+    margin: -$icongroup-margin!important;
 }
 .icongroup-item {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    margin-top: $icongroup-margin;
-    margin-bottom: $icongroup-margin;
-    width: 100%;
+    margin: $icongroup-margin;
+    width: calc('100% - #{$icongroup-margin} * 2');
     @include media-breakpoint-up(sm) {
-        margin-right: $icongroup-margin;
-        margin-left: $icongroup-margin;
         width: calc('50% - #{$icongroup-margin} * 2');
     }
     @include media-breakpoint-up(md) {

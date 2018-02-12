@@ -8656,15 +8656,7 @@ audio {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: -15px !important;
-  margin-bottom: -15px !important;
-}
-
-@media (min-width: 576px) {
-  .icongroup {
-    margin-right: -15px;
-    margin-left: -15px;
-  }
+  margin: -15px !important;
 }
 
 .icongroup-item {
@@ -8672,15 +8664,12 @@ audio {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
+  margin: 15px;
+  width: calc("100% - 15px * 2");
 }
 
 @media (min-width: 576px) {
   .icongroup-item {
-    margin-right: 15px;
-    margin-left: 15px;
     width: calc("50% - 15px * 2");
   }
 }
