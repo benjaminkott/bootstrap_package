@@ -18,7 +18,6 @@ $(function() {
      * click on a dropdown, the first click will open the menu.
      */
     $(document).on('pointerover', 'li.dropdown-hover', function (e) {
-        console.log('hover');
         if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden') && !$(this).hasClass('open')) {
             $(this).parent().parent().find('li').removeClass('open');
             $(this).addClass('open');
