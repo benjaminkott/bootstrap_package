@@ -18,13 +18,14 @@ $(function() {
      * click on a dropdown, the first click will open the menu.
      */
     $(document).on('pointerover', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggle').is(':hidden') && !$(this).hasClass('open')) {
+        console.log('hover');
+        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden') && !$(this).hasClass('open')) {
             $(this).parent().parent().find('li').removeClass('open');
             $(this).addClass('open');
         }
     });
     $(document).on('pointerleave', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggle').is(':hidden')) {
+        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden')) {
             $(this).removeClass('open');
         }
     });
