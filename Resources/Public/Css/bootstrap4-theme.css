@@ -8692,13 +8692,15 @@ audio {
 }
 
 .icongroup-item-icon-container {
-  width: 20%;
-  max-width: 60px;
+  flex-shrink: 0;
+  width: 40px;
   margin-right: 15px;
 }
 
 .icongroup-item-icon-container svg {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
 .icongroup-item-text-container {
@@ -8706,10 +8708,12 @@ audio {
 }
 
 .icongroup-item-text-header {
+  font-size: 1.25em;
   margin-bottom: 0.15em;
 }
 
 .icongroup-item-text-subheader {
+  font-size: 1em;
   margin-bottom: 0;
 }
 

@@ -6,7 +6,7 @@
 // Variables
 //
 @icongroup-margin: (@grid-gutter-width / 2);
-@icongroup-icon-size: 60px;
+@icongroup-icon-size: 40px;
 
 //
 // Component
@@ -41,19 +41,23 @@
     }
 }
 .icongroup-item-icon-container {
-    width: 20%;
-    max-width: @icongroup-icon-size;
+    flex-shrink: 0;
+    width: @icongroup-icon-size;
     margin-right: @icongroup-margin;
     svg {
         display: block;
+        width: 100%;
+        height: auto;
     }
 }
 .icongroup-item-text-container {
     flex-grow: 1;
 }
 .icongroup-item-text-header {
+    font-size: 1.25em;
     margin-bottom: 0.15em;
 }
 .icongroup-item-text-subheader {
+    font-size: 1em;
     margin-bottom: 0;
 }
