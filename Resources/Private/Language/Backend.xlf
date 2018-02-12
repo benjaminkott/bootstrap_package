@@ -354,7 +354,7 @@
                 <source>Default Element</source>
             </trans-unit>
 
-            <trans-unit id="_item">
+            <trans-unit id="accordion_item">
                 <source>Accordion Item</source>
             </trans-unit>
             <trans-unit id="accordion_item.tt_content">
