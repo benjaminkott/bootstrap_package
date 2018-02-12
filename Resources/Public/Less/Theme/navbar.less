@@ -162,7 +162,8 @@
         > a {
             font-family: @headings-font-family;
             text-transform: uppercase;
-            .bar {
+            &:before {
+                content: '';
                 position: absolute;
                 top: -10px;
                 left: 0px;
@@ -176,14 +177,14 @@
         &.dropdown.open,
         &:hover,
         &.active {
-            > a > .bar {
+            > a:before {
                 top: 0px;
                 opacity: .5;
             }
         }
         &.dropdown.open,
         &.active {
-            > a > .bar {
+            > a:before {
                 opacity: 1;
             }
         }
@@ -193,16 +194,14 @@
     .navbar-bottom {
         .navbar-main {
             > li {
-                > a {
-                    .bar {
-                        top: auto;
-                        bottom: -10px;
-                    }
+                > a:before {
+                    top: auto;
+                    bottom: -10px;
                 }
                 &.dropdown.open,
                 &:hover,
                 &.active {
-                    > a > .bar {
+                    > a:before {
                         top: auto;
                         bottom: 0px;
                     }
@@ -225,19 +224,17 @@
             border-left: 4px solid fade(@brand-primary, 50%);
         }
         > li {
-            > a {
-                .bar {
-                    top: 0px;
-                    left: -10px;
-                    width: 4px;
-                    height: 100%;
-                    .transition(left 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;);
-                }
+            > a:before {
+                top: 0px;
+                left: -10px;
+                width: 4px;
+                height: 100%;
+                .transition(left 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;);
             }
             &.dropdown.open,
             &:hover,
             &.active {
-                > a > .bar {
+                > a:before {
                     left: 0px;
                 }
             }

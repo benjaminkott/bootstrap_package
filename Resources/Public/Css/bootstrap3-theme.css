@@ -7504,7 +7504,8 @@ body,
   font-family: inherit;
   text-transform: uppercase;
 }
-.navbar-main > li > a .bar {
+.navbar-main > li > a:before {
+  content: '';
   position: absolute;
   top: -10px;
   left: 0px;
@@ -7516,24 +7517,24 @@ body,
   -o-transition: top 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;
   transition: top 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;
 }
-.navbar-main > li.dropdown.open > a > .bar,
-.navbar-main > li:hover > a > .bar,
-.navbar-main > li.active > a > .bar {
+.navbar-main > li.dropdown.open > a:before,
+.navbar-main > li:hover > a:before,
+.navbar-main > li.active > a:before {
   top: 0px;
   opacity: .5;
 }
-.navbar-main > li.dropdown.open > a > .bar,
-.navbar-main > li.active > a > .bar {
+.navbar-main > li.dropdown.open > a:before,
+.navbar-main > li.active > a:before {
   opacity: 1;
 }
 @media (min-width: 992px) {
-  .navbar-bottom .navbar-main > li > a .bar {
+  .navbar-bottom .navbar-main > li > a:before {
     top: auto;
     bottom: -10px;
   }
-  .navbar-bottom .navbar-main > li.dropdown.open > a > .bar,
-  .navbar-bottom .navbar-main > li:hover > a > .bar,
-  .navbar-bottom .navbar-main > li.active > a > .bar {
+  .navbar-bottom .navbar-main > li.dropdown.open > a:before,
+  .navbar-bottom .navbar-main > li:hover > a:before,
+  .navbar-bottom .navbar-main > li.active > a:before {
     top: auto;
     bottom: 0px;
   }
@@ -7549,7 +7550,7 @@ body,
   .navbar-main .open .dropdown-menu {
     border-left: 4px solid rgba(255, 135, 0, 0.5);
   }
-  .navbar-main > li > a .bar {
+  .navbar-main > li > a:before {
     top: 0px;
     left: -10px;
     width: 4px;
@@ -7558,9 +7559,9 @@ body,
     -o-transition: left 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;
     transition: left 0.19s ease-in-out 0s, opacity 0.25s ease-in-out;
   }
-  .navbar-main > li.dropdown.open > a > .bar,
-  .navbar-main > li:hover > a > .bar,
-  .navbar-main > li.active > a > .bar {
+  .navbar-main > li.dropdown.open > a:before,
+  .navbar-main > li:hover > a:before,
+  .navbar-main > li.active > a:before {
     left: 0px;
   }
   .navbar-main > li.dropdown > a {
