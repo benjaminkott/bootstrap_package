@@ -22,58 +22,6 @@
         height: 100vh;
     }
 }
-.navbar {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel-fullscreen {
-            margin-top: -@navbar-height;
-            @media (min-width: @grid-float-breakpoint) {
-                margin-top: -(round(@navbar-height*2));
-            }
-        }
-    }
-}
-.navbar-fixed-top.navbar-default-transition,
-.navbar-fixed-top.navbar-inverse-transition {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel {
-            @media (min-width: @grid-float-breakpoint) {
-                margin-top: -(round(@navbar-height*2));
-            }
-        }
-    }
-}
-.navbar-fixed-bottom {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel-fullscreen {
-            margin-top: 0;
-            height: calc(~"100vh - @{navbar-height}");
-            @media (min-width: @grid-float-breakpoint) {
-                height: calc(~"100vh - @{navbar-height} - @{navbar-height}");
-            }
-        }
-    }
-}
 
 
 //

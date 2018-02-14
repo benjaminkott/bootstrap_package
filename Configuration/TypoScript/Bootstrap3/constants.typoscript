@@ -476,7 +476,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/313/navbar-border-radius; type=string; label=@navbar-border-radius:
             navbar-border-radius = @border-radius-base
             # cat=bootstrap 3.x: styling/313/navbar-padding-horizontal; type=string; label=@navbar-padding-horizontal:
-            navbar-padding-horizontal = floor((@grid-gutter-width / 2))
+            navbar-padding-horizontal = 15px
             # cat=bootstrap 3.x: styling/313/navbar-padding-vertical; type=string; label=@navbar-padding-vertical:
             navbar-padding-vertical = ((@navbar-height - @line-height-computed) / 2)
             # cat=bootstrap 3.x: styling/313/navbar-collapse-max-height; type=string; label=@navbar-collapse-max-height:

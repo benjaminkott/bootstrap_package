@@ -1,87 +1,76 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<header class="navbar navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<header class="navbar navbar-mainnavigation navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
     <div class="container">
-        <div class="navbar-header navbar-header-main">
-            <f:if condition="{settings.logo.file}">
-                <f:then>
-                    <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image" title="{settings.logo.linktitle}">
-                        <img class="navbar-brand-logo-normal" src="{f:uri.image(src: settings.logo.file)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                        <img class="navbar-brand-logo-inverted" src="{f:uri.image(src: settings.logo.fileInverted)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                    </f:link.page>
-                </f:then>
-                <f:else>
-                    <f:link.page pageUid="{rootPage}" class="navbar-brand" title="{settings.logo.linktitle}">{siteTitle}</f:link.page>
-                </f:else>
-            </f:if>
-            <f:if condition="{mainnavigation}">
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </f:if>
-            <span class="navbar-header-border-bottom"></span>
-        </div>
+        <f:if condition="{settings.logo.file}">
+            <f:then>
+                <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image" title="{settings.logo.linktitle}">
+                    <img class="navbar-brand-logo-normal" src="{f:uri.image(src: settings.logo.file)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
+                    <img class="navbar-brand-logo-inverted" src="{f:uri.image(src: settings.logo.fileInverted)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
+                </f:link.page>
+            </f:then>
+            <f:else>
+                <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-text" title="{settings.logo.linktitle}">{siteTitle}</f:link.page>
+            </f:else>
+        </f:if>
         <f:if condition="{mainnavigation}">
-            <nav id="mainnavigation" class="navbar-collapse collapse" role="navigation">
-                <ul class="nav navbar-nav navbar-main">
-                    <f:for each="{mainnavigation}" as="mainnavigationItem">
-                        <f:if condition="{mainnavigationItem.spacer}">
-                            <f:then>
-                                </ul>
-                                <ul class="nav navbar-nav navbar-main">
-                            </f:then>
-                            <f:else>
-                                <li class="{f:if(condition: mainnavigationItem.active, then:'active')} {f:if(condition: mainnavigationItem.children, then:'dropdown dropdown-hover')}">
-                                    <f:if condition="{mainnavigationItem.children}">
-                                        <f:then>
-                                            <a href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then: ' target="{mainnavigationItem.target}"')} title="{mainnavigationItem.title}" class="dropdown-link">
-                                                <f:if condition="{mainnavigationItem.icon}">
-                                                    <span class="navbar-item-icon">
-                                                        <f:image image="{mainnavigationItem.icon.0}" alt="{mainnavigationItem.icon.0.alternative}" title="{mainnavigationItem.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
-                                                    </span>
-                                                </f:if>
-                                                <span class="navbar-item-text">{mainnavigationItem.title}</span>
-                                                <b class="caret"></b>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <f:for each="{mainnavigationItem.children}" as="child">
-                                                    <f:if condition="{child.spacer}">
-                                                        <f:then>
-                                                            <li class="dropdown-header">{child.title}</li>
-                                                        </f:then>
-                                                        <f:else>
-                                                            <li class="{f:if(condition: child.active, then:'active')}">
-                                                                <a href="{child.link}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
-                                                                    <f:if condition="{child.icon}">
-                                                                        <span class="navbar-item-icon">
-                                                                            <f:image image="{child.icon.0}" alt="{child.icon.0.alternative}" title="{child.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
-                                                                        </span>
-                                                                    </f:if>
-                                                                    <span class="navbar-item-text">{child.title}</span>
-                                                                </a>
-                                                            </li>
-                                                        </f:else>
-                                                    </f:if>
-                                                </f:for>
-                                            </ul>
-                                        </f:then>
-                                        <f:else>
-                                            <a href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then: ' target="{mainnavigationItem.target}"')} title="{mainnavigationItem.title}">
-                                                <f:if condition="{mainnavigationItem.icon}">
-                                                    <span class="navbar-item-icon">
-                                                        <f:image image="{mainnavigationItem.icon.0}" alt="{mainnavigationItem.icon.0.alternative}" title="{mainnavigationItem.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
-                                                    </span>
-                                                </f:if>
-                                                <span class="navbar-item-text">{mainnavigationItem.title}</span>
-                                            </a>
-                                        </f:else>
-                                    </f:if>
-                                </li>
-                            </f:else>
-                        </f:if>
-                    </f:for>
-                </ul>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav id="mainnavigation" class="collapse navbar-collapse">
+                <f:render section="MainNavigation" arguments="{menu: mainnavigation, settings: settings}" />
             </nav>
         </f:if>
     </div>
 </header>
+
+<f:section name="MainNavigation">
+    <f:if condition="{menu}">
+        <ul class="navbar-nav">
+            <f:for each="{menu}" as="item">
+                <f:if condition="{item.spacer}">
+                    <f:then>
+                        </ul>
+                        <ul class="navbar-nav">
+                    </f:then>
+                    <f:else>
+                        <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
+                            <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
+                                <f:if condition="{item.icon}">
+                                    <span class="nav-link-icon">
+                                        <f:if condition="{item.icon.0.extension} === svg">
+                                            <f:then>
+                                                <bk2k:inlineSvg image="{item.icon.0}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                            </f:then>
+                                            <f:else>
+                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                            </f:else>
+                                        </f:if>
+                                    </span>
+                                </f:if>
+                                <span class="nav-link-text">{item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if></span>
+                            </a>
+                            <f:if condition="{item.children}">
+                                <ul class="dropdown-menu" aria-labelledby="nav-item-{item.data.uid}">
+                                    <f:for each="{item.children}" as="child">
+                                        <f:if condition="{child.spacer}">
+                                            <f:then>
+                                                <li class="dropdown-divider"></li>
+                                            </f:then>
+                                            <f:else>
+                                                <li>
+                                                    <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">{child.title}<f:if condition="{child.current}"> <span class="sr-only">(current)</span></f:if></a>
+                                                </li>
+                                            </f:else>
+                                        </f:if>
+                                    </f:for>
+                                </ul>
+                            </f:if>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:if>
+</f:section>
 </html>

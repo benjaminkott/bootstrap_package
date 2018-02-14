@@ -1,4 +1,9 @@
 //
+// Variables
+//
+@import "variables";
+
+//
 // Import needed Bootstrap Files
 //
 @import "../../Contrib/bootstrap4/scss/bootstrap";
@@ -6,6 +11,7 @@
 //
 // Bootstrap Package Theme
 //
+@import "body";
 @import "navbar";
 @import "breadcrumb";
 @import "carousel";

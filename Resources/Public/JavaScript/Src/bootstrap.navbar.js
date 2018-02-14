@@ -19,19 +19,27 @@ $(function() {
      */
     $(document).on('pointerover', 'li.dropdown-hover', function (e) {
         if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden') && !$(this).hasClass('open')) {
-            $(this).parent().parent().find('li').removeClass('open');
-            $(this).addClass('open');
+            $(this).parent().parent().find('li').removeClass('show');
+            $(this).addClass('show');
+            $(this).find('> .dropdown-toggle').attr("aria-expanded", "true");
+            $(this).find('> .dropdown-menu').addClass('show');
         }
     });
     $(document).on('pointerleave', 'li.dropdown-hover', function (e) {
         if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden')) {
-            $(this).removeClass('open');
+            $(this).removeClass('show');
+            $(this).find('> .dropdown-toggle').attr("aria-expanded", "false");
+            $(this).find('> .dropdown-menu').removeClass('show');
         }
     });
-    $(document).on('click', '.dropdown-link', function(e) {
-        if ($(this).parent().hasClass('dropdown-hover') && !$(this).parent().hasClass('open')) {
-            $(this).parent().parent().find('.dropdown-hover').removeClass('open');
-            $(this).parent().addClass('open');
+    $(document).on('click', '.nav-link', function(e) {
+        if ($(this).parent().hasClass('dropdown-hover') && !$(this).parent().hasClass('show')) {
+            $(this).parent().parent().find('.dropdown-hover').removeClass('show');
+            $(this).parent().parent().find('.dropdown-hover').find('> .dropdown-toggle').attr("aria-expanded", "false");
+            $(this).parent().parent().find('.dropdown-hover').find('> .dropdown-menu').removeClass('show');
+            $(this).parent().addClass('show');
+            $(this).parent().find('> .dropdown-toggle').attr("aria-expanded", "true");
+            $(this).parent().find('> .dropdown-menu').addClass('show');
             e.stopImmediatePropagation();
             e.preventDefault();
             return false;

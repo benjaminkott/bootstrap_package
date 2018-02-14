@@ -1,0 +1,28 @@
+//
+// Breakpoints
+//
+$grid-float-breakpoint:       992px !default;
+
+//
+// Components
+//
+$border-radius:               0 !default;
+$border-radius-lg:            0 !default;
+$border-radius-sm:            0 !default;
+
+//
+// Grid
+//
+$grid-gutter-width:           40px !default;
+
+//
+// Navbar
+//
+$navbar-nav-link-padding-x:   0.75rem !default;
+$navbar-heights: (
+  xs: 70px,
+  sm: 70px,
+  md: 100px,
+  lg: 130px,
+  xl: 130px
+) !default;
