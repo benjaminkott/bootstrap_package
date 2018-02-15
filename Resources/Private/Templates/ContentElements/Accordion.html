@@ -9,7 +9,7 @@
                 <div class="accordion-item card">
                     <div class="accordion-header card-header" id="accordion-heading-{data.uid}-{record.data.uid}">
                         <h4 class="accordion-title">
-                            <a href="#" class="accordion-title-link{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" data-toggle="collapse" data-target="#accordion-{data.uid}-{record.data.uid}" aria-expanded="{f:if(condition: '{activeElement} == {record.data.uid}', then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
+                            <a href="#accordion-{data.uid}-{record.data.uid}" class="accordion-title-link{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" data-toggle="collapse" data-parent="#accordion-{data.uid}" aria-expanded="{f:if(condition: '{activeElement} == {record.data.uid}', then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
                                 <span class="accordion-title-link-text">{record.data.header}</span>
                                 <span class="accordion-title-link-state"></span>
                             </a>
