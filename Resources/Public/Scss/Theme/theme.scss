@@ -16,10 +16,15 @@
 @import "breadcrumb";
 @import "lazyload";
 @import "gallery";
-@import "carousel";
 @import "figure";
+@import "carousel";
 @import "misc";
 @import "texticon";
 @import "accordion";
 @import "icongroup";
 @import "link";
+
+//
+// Plugins
+//
+@import "photoswipe";

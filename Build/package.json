@@ -18,11 +18,13 @@
     "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-modernizr": "^1.0.2",
+    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
     "grunt-webfont": "^1.6.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "photoswipe": "^4.1.2",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "postcss-url": "^7.3.1"
   }
 }

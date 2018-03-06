@@ -1,6 +1,31 @@
 module.exports = function(grunt) {
 
     /**
+     * Grunt correct scss urls
+     */
+    grunt.registerMultiTask('rebase', 'Grunt task zo rebase urls after sass processing', function () {
+        var options = this.options(),
+            done = this.async(),
+            postcss = require('postcss'),
+            url = require('postcss-url'),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath);
+                postcss().use(url(options)).process(content, { from: undefined }).then(function (result) {
+                    grunt.file.write(file.dest, result.css);
+                    grunt.log.success('Source file "' + filepath + '" was processed.');
+                    counter++;
+                    if (counter >= files.length) done(true);
+                });
+            });
+        });
+    });
+
+    /**
      * Project configuration.
      */
     grunt.initConfig({
@@ -23,6 +48,17 @@ module.exports = function(grunt) {
             css: '<%= paths.resources %>Public/Css/',
             js: '<%= paths.resources %>Public/JavaScript/',
             contrib: '<%= paths.resources %>Public/Contrib/'
+        },
+        rebase: {
+            bootstrap4: {
+                options: {
+                    url: "rebase",
+                    assetsPath: '../'
+                },
+                files: {
+                    '<%= paths.css %>bootstrap4-theme.css': '<%= paths.css %>bootstrap4-theme.css'
+                }
+            },
         },
         cssmin: {
             options: {
@@ -99,7 +135,7 @@ module.exports = function(grunt) {
             options: {
                 outputStyle: 'expanded',
                 precision: 8,
-                sourceMap: true
+                sourceMap: false
             },
             bootstrap4_theme: {
                 files: {
@@ -115,11 +151,9 @@ module.exports = function(grunt) {
         less: {
             bootstrap3_theme: {
                 options: {
-                    sourceMap: true,
+                    sourceMap: false,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'bootstrap3-theme.css.map',
-                    sourceMapFilename: '<%= paths.css %>bootstrap3-theme.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>Theme/theme.less',
@@ -127,11 +161,9 @@ module.exports = function(grunt) {
             },
             bootstrap3_rte: {
                 options: {
-                    sourceMap: true,
+                    sourceMap: false,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'bootstrap3-rte.css.map',
-                    sourceMapFilename: '<%= paths.css %>bootstrap3-rte.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>RTE/rte.less',
@@ -404,7 +436,7 @@ module.exports = function(grunt) {
      * Grunt update task
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
-    grunt.registerTask('css', ['sass', 'less', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('build', ['webfont', 'update', 'css', 'js', 'image']);
