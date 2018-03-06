@@ -41,7 +41,7 @@ TCEFORM {
             disabled = 1
         }
         imagecols {
-            removeItems = 5,7,8
+            removeItems = 7,8
         }
         image_zoom {
             types {

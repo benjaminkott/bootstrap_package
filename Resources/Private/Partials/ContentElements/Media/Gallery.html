@@ -16,6 +16,9 @@
                 <f:case value="4">
                     <f:variable name="imageColumnClass">{settings.gallery.columnClass.4}</f:variable>
                 </f:case>
+                <f:case value="5">
+                    <f:variable name="imageColumnClass">{settings.gallery.columnClass.5}</f:variable>
+                </f:case>
                 <f:case value="6">
                     <f:variable name="imageColumnClass">{settings.gallery.columnClass.6}</f:variable>
                 </f:case>
@@ -29,7 +32,7 @@
         </f:else>
     </f:if>
 
-    <div class="gallery-row row">
+    <div class="gallery-row">
         <f:for each="{files}" as="file" iteration="fileIteration">
             <div class="gallery-item {imageColumnClass}">
                 <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />

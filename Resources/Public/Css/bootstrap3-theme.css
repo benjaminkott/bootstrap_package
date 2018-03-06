@@ -7303,21 +7303,35 @@ audio {
 .panel-body *:last-child {
   margin-bottom: 0;
 }
-img.lazyload {
-  opacity: 0.3;
-  -webkit-transition: opacity 0.3s ease-in 0s;
-  -o-transition: opacity 0.3s ease-in 0s;
-  transition: opacity 0.3s ease-in 0s;
-}
 .panel-group {
   margin-bottom: 20px;
 }
 .caret {
   margin-left: 5px;
 }
-.caption {
+img.lazyload {
+  opacity: 0.3;
+  -webkit-transition: opacity 0.3s ease-in 0s;
+  -o-transition: opacity 0.3s ease-in 0s;
+  transition: opacity 0.3s ease-in 0s;
+}
+figure {
+  display: block;
+  margin-bottom: 1em;
+  line-height: 1.55;
+}
+figure > img,
+figure a > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+figure .caption {
+  padding-top: 0.5em;
+  font-size: 0.85em;
   word-break: break-all;
-  color: #777777;
+  opacity: 0.8;
 }
 html {
   font-size: 16px;
@@ -8975,30 +8989,57 @@ body,
   margin-left: -0.5em;
   margin-right: -0.5em;
 }
-.frame > .gallery-row:last-child {
+.gallery-row:last-child {
   margin-bottom: -1em;
 }
 .gallery-item {
+  position: relative;
   float: none;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-figure {
-  display: block;
-  margin-bottom: 1em;
-  line-height: 1.55;
+.gallery-item-size-1 {
+  width: 100%;
 }
-figure > img,
-figure a > img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  margin: 0 auto;
+.gallery-item-size-2 {
+  width: calc(100% / 2);
 }
-figure .caption {
-  padding-top: 0.5em;
-  font-size: 0.85em;
-  line-height: 1.4em;
+.gallery-item-size-3 {
+  width: calc(100% / 3);
+}
+.gallery-item-size-4 {
+  width: calc(100% / 2);
+}
+@media (min-width: 768px) {
+  .gallery-item-size-4 {
+    width: calc(100% / 4);
+  }
+}
+.gallery-item-size-5 {
+  width: calc(100% / 2);
+}
+@media (min-width: 768px) {
+  .gallery-item-size-5 {
+    width: calc(100% / 3);
+  }
+}
+@media (min-width: 992px) {
+  .gallery-item-size-5 {
+    width: calc(100% / 5);
+  }
+}
+.gallery-item-size-6 {
+  width: calc(100% / 2);
+}
+@media (min-width: 768px) {
+  .gallery-item-size-6 {
+    width: calc(100% / 3);
+  }
+}
+@media (min-width: 992px) {
+  .gallery-item-size-6 {
+    width: calc(100% / 6);
+  }
 }
 body .typo3-feedit-element,
 .htmlarea-content-body .typo3-feedit-element {

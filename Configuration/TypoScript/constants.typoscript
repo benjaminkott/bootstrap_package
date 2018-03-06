@@ -298,15 +298,17 @@ plugin.bootstrap_package_contentelements {
     gallery {
         columnClass {
             # cat=bootstrap package: advanced/146/100; type=string; label=Gallery Item CSS Class for 1 column
-            1 = col-xs-12
+            1 = gallery-item-size-1
             # cat=bootstrap package: advanced/146/101; type=string; label=Gallery Item CSS Class for 2 columns
-            2 = col-sm-6 col-xs-12
+            2 = gallery-item-size-2
             # cat=bootstrap package: advanced/146/102; type=string; label=Gallery Item CSS Class for 3 columns
-            3 = col-xs-4
+            3 = gallery-item-size-3
             # cat=bootstrap package: advanced/146/103; type=string; label=Gallery Item CSS Class for 4 Columns
-            4 = col-sm-3 col-xs-6
-            # cat=bootstrap package: advanced/146/104; type=string; label=Gallery Item CSS Class for 6 Columns
-            6 = col-md-2 col-sm-3 col-xs-4
+            4 = gallery-item-size-4
+            # cat=bootstrap package: advanced/146/104; type=string; label=Gallery Item CSS Class for 5 Columns
+            5 = gallery-item-size-5
+            # cat=bootstrap package: advanced/146/105; type=string; label=Gallery Item CSS Class for 6 Columns
+            6 = gallery-item-size-6
         }
     }
     menu_thumbnail {

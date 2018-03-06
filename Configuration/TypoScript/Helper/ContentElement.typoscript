@@ -57,6 +57,7 @@ lib.contentElement {
                 2 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.2}
                 3 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.3}
                 4 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.4}
+                5 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.5}
                 6 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.6}
             }
         }

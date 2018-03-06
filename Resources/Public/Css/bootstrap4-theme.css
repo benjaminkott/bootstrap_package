@@ -8884,6 +8884,81 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 0;
 }
 
+img.lazyload {
+  opacity: 0.3;
+  transition: opacity .3s ease-in 0s;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.gallery-row:last-child {
+  margin-bottom: -1rem;
+}
+
+.gallery-item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.gallery-item-size-1 {
+  width: 100%;
+}
+
+.gallery-item-size-2 {
+  width: calc(100% / 2);
+}
+
+.gallery-item-size-3 {
+  width: calc(100% / 3);
+}
+
+.gallery-item-size-4 {
+  width: calc(100% / 2);
+}
+
+@media (min-width: 576px) {
+  .gallery-item-size-4 {
+    width: calc(100% / 4);
+  }
+}
+
+.gallery-item-size-5 {
+  width: calc(100% / 2);
+}
+
+@media (min-width: 576px) {
+  .gallery-item-size-5 {
+    width: calc(100% / 3);
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-item-size-5 {
+    width: calc(100% / 5);
+  }
+}
+
+.gallery-item-size-6 {
+  width: calc(100% / 2);
+}
+
+@media (min-width: 576px) {
+  .gallery-item-size-6 {
+    width: calc(100% / 3);
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-item-size-6 {
+    width: calc(100% / 6);
+  }
+}
+
 .carousel .item {
   height: 400px;
 }
@@ -9193,7 +9268,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 figure {
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   line-height: 1.5;
 }
 
@@ -9206,9 +9281,10 @@ figure a > img {
 }
 
 figure .caption {
-  padding-top: 0.5em;
-  font-size: 0.85em;
-  line-height: 1.4em;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  word-break: break-all;
+  opacity: 0.8;
 }
 
 .scroll-top {
