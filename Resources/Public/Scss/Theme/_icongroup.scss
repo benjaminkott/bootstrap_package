@@ -24,12 +24,12 @@ $icongroup-icon-size: 40px;
     flex-wrap: nowrap;
     align-items: center;
     margin: $icongroup-margin;
-    width: calc('100% - #{$icongroup-margin} * 2');
+    width: calc(100% - #{$icongroup-margin} * 2);
     @include media-breakpoint-up(sm) {
-        width: calc('50% - #{$icongroup-margin} * 2');
+        width: calc(50% - #{$icongroup-margin} * 2);
     }
     @include media-breakpoint-up(md) {
-        width: calc('25% - #{$icongroup-margin} * 2');
+        width: calc(25% - #{$icongroup-margin} * 2);
     }
 }
 .icongroup-item-icon-container {

@@ -9547,18 +9547,18 @@ audio {
   flex-wrap: nowrap;
   align-items: center;
   margin: 20px;
-  width: calc("100% - 20px * 2");
+  width: calc(100% - 20px * 2);
 }
 
 @media (min-width: 576px) {
   .icongroup-item {
-    width: calc("50% - 20px * 2");
+    width: calc(50% - 20px * 2);
   }
 }
 
 @media (min-width: 768px) {
   .icongroup-item {
-    width: calc("25% - 20px * 2");
+    width: calc(25% - 20px * 2);
   }
 }
 
