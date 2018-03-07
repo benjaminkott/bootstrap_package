@@ -1,0 +1,132 @@
+//
+// Form
+//
+.form-element {
+    display: flex;
+    flex-direction: column;
+}
+.form-actions {
+    margin-top: 1em;
+}
+
+//
+// Feedback
+//
+.valid-feedback,
+.invalid-feedback {
+    display: block;
+}
+
+//
+// Grid
+//
+.form-row {
+    &:before {
+        display: none;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.form-column {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+//
+// Groups
+//
+.form-image {
+    margin-top: $form-text-margin-top;
+}
+
+//
+// Fieldset
+//
+.form-fieldset {
+    height: 100%;
+}
+.form-fieldset-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+//
+// Controls
+//
+.custom-radio-multiple,
+.custom-checkbox-multiple {
+    .invalid-feedback,
+    .valid-feedback,
+    .form-text {
+        padding-left: $custom-control-gutter;
+    }
+}
+.custom-select {
+    // Add browser prefixes
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.custom-file-input ~ .custom-file-label[data-browse-label]:after {
+    content: attr(data-browse-label) ;
+}
+
+//
+// Types
+//
+.form-element-type-textarea {
+    flex-grow: 1;
+    .input {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    textarea {
+        min-height: 90px;
+        flex-grow: 1;
+    }
+}
+.form-element-type-date-picker {
+    .form-column-hours,
+    .form-column-minute {
+        min-width: 75px;
+        flex-grow: 0;
+    }
+}
+.form-element-type-advanced-password {
+    .form-group + .form-group {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Special Fields
+//
+.form-element-mandatory {
+    h2 {
+        font-size: 1.35em;
+        flex-grow: 1;
+    }
+    p {
+        size: 0.8em;
+        color: $primary;
+    }
+    @include media-breakpoint-up('sm') {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        * {
+            margin-bottom: 0;
+        }
+        p {
+            padding-left: 1.5em;
+        }
+    }
+}

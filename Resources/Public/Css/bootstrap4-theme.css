@@ -9287,62 +9287,120 @@ figure .caption {
   height: auto;
 }
 
-.scroll-top {
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  z-index: 1020;
-  background-color: #495057;
-  color: #fff;
-  bottom: 20px;
-  right: 20px;
-  position: fixed;
-  opacity: 0;
-  width: 3em;
-  height: 3em;
-}
-
-.scroll-top:active, .scroll-top:focus, .scroll-top:hover {
-  color: #ffffff;
-  background-color: #007bff;
-}
-
-.scroll-top.scroll-top-visible {
-  opacity: 1;
-}
-
-.css-arrow, .scroll-top .scroll-top-icon {
-  transform: rotate(45deg);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.css-arrow:before, .scroll-top .scroll-top-icon:before {
-  content: '';
-  position: absolute;
-  height: 30%;
-  width: 30%;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  top: 55%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-}
-
-audio {
-  width: 100%;
-}
-
-.valign {
+.form-element {
   display: flex;
-  width: 100%;
-  align-items: center;
+  flex-direction: column;
 }
 
-.valign .vcontainer {
-  width: 100%;
+.form-actions {
+  margin-top: 1em;
+}
+
+.valid-feedback,
+.invalid-feedback {
+  display: block;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.form-row:before {
+  display: none;
+}
+
+.form-column {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.form-image {
+  margin-top: 0.25rem;
+}
+
+.form-fieldset {
+  height: 100%;
+}
+
+.form-fieldset-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-radio-multiple .invalid-feedback,
+.custom-radio-multiple .valid-feedback,
+.custom-radio-multiple .form-text,
+.custom-checkbox-multiple .invalid-feedback,
+.custom-checkbox-multiple .valid-feedback,
+.custom-checkbox-multiple .form-text {
+  padding-left: 1.5rem;
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-file-input ~ .custom-file-label[data-browse-label]:after {
+  content: attr(data-browse-label);
+}
+
+.form-element-type-textarea {
+  flex-grow: 1;
+}
+
+.form-element-type-textarea .input {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.form-element-type-textarea textarea {
+  min-height: 90px;
+  flex-grow: 1;
+}
+
+.form-element-type-date-picker .form-column-hours,
+.form-element-type-date-picker .form-column-minute {
+  min-width: 75px;
+  flex-grow: 0;
+}
+
+.form-element-type-advanced-password .form-group + .form-group {
+  margin-bottom: 0;
+}
+
+.form-element-mandatory h2 {
+  font-size: 1.35em;
+  flex-grow: 1;
+}
+
+.form-element-mandatory p {
+  size: 0.8em;
+  color: #007bff;
+}
+
+@media (min-width: 576px) {
+  .form-element-mandatory {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  .form-element-mandatory * {
+    margin-bottom: 0;
+  }
+  .form-element-mandatory p {
+    padding-left: 1.5em;
+  }
 }
 
 .texticon::after {
@@ -9597,6 +9655,64 @@ audio {
   content: '\2192';
   display: inline-block;
   margin-left: 0.15em;
+}
+
+.scroll-top {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1020;
+  background-color: #495057;
+  color: #fff;
+  bottom: 20px;
+  right: 20px;
+  position: fixed;
+  opacity: 0;
+  width: 3em;
+  height: 3em;
+}
+
+.scroll-top:active, .scroll-top:focus, .scroll-top:hover {
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.scroll-top.scroll-top-visible {
+  opacity: 1;
+}
+
+.css-arrow, .scroll-top .scroll-top-icon {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.css-arrow:before, .scroll-top .scroll-top-icon:before {
+  content: '';
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+audio {
+  width: 100%;
+}
+
+.valign {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.valign .vcontainer {
+  width: 100%;
 }
 
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */

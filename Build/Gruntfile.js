@@ -94,6 +94,10 @@ module.exports = function(grunt) {
                 },
                 preserveComments: false
             },
+            bootstrapForm: {
+                src: '<%= paths.js %>Src/bootstrap.form.js',
+                dest: '<%= paths.js %>Dist/bootstrap.form.min.js'
+            },
             bootstrapLightbox: {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 dest: '<%= paths.js %>Dist/bootstrap.lightbox.min.js'
@@ -171,6 +175,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            bootstrapForm: {
+                files: '<%= paths.js %>Src/bootstrap.form.js',
+                tasks: 'uglify:bootstrapForm'
+            },
             bootstrapLightbox: {
                 files: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 tasks: 'uglify:bootstrapLightbox'

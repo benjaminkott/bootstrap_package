@@ -65,6 +65,26 @@ if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEFORM.txt">');
 }
 
+/***************
+ * Register custom EXT:form configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
+    module.tx_form {
+        settings {
+            yamlConfigurations {
+                100 = EXT:bootstrap_package/Configuration/Forms/Setup.yaml
+            }
+        }
+    }
+    plugin.tx_form {
+        settings {
+            yamlConfigurations {
+                100 = EXT:bootstrap_package/Configuration/Forms/Setup.yaml
+            }
+        }
+    }
+'));
+
 if (TYPO3_MODE === 'BE') {
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
 

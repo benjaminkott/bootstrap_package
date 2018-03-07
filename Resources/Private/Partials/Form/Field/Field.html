@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form.validationResults for="{element.rootForm.identifier}.{element.identifier}">
+    <div class="form-element form-element-{element.identifier} form-element-type-{element.type -> bk2k:format.lowercaseDashed()} form-group{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
+        <div class="{element.properties.containerClassAttribute}">
+            <f:if condition="{doNotShowLabel} != 1">
+                <label for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
+            </f:if>
+            <f:format.raw>
+                {elementContent}
+                <f:if condition="{validationResults.flattenedErrors}">
+                    <div class="invalid-feedback">
+                        <f:for each="{validationResults.errors}" as="error">
+                            {formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+                            <br>
+                        </f:for>
+                    </div>
+                </f:if>
+            </f:format.raw>
+            <f:if condition="{element.properties.elementDescription}">
+                <small class="form-text text-muted">{formvh:translateElementProperty(element: element, property: 'elementDescription')}</small>
+            </f:if>
+        </div>
+    </div>
+</f:form.validationResults>
+</html>
