@@ -314,9 +314,9 @@ plugin.bootstrap_package_contentelements {
     menu_thumbnail {
         media {
             # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media Height
-            height = 250c
+            height = 128m
             # cat=bootstrap package: advanced/143/103; type=string; label=Thumbnail Menu Media Width
-            width = 440c
+            width = 250m
         }
         title {
             # cat=bootstrap package: advanced/143/104; type=string; label=Thumbnail Menu Crop Title

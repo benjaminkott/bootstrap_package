@@ -9,15 +9,17 @@
                 <f:if condition="{page.files.0}">
                     <f:if condition="{page.files.0.type} == 2">
 
-                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} style="max-width: {settings.menuthumbnail.media.width as integer}px" title="{page.title}" class="thumbnail-menu-item" data-toggle="tooltip">
-                            <div class="thumbnail-menu-image">
+                        <f:variable name="imageWidth" value="{settings.menuthumbnail.media.width as integer}" />
+                        <f:variable name="imageHeight" value="{settings.menuthumbnail.media.height as integer}" />
+                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} style="width: {settings.menuthumbnail.media.width as integer}px" title="{page.title}" class="thumbnail-menu-item" data-toggle="tooltip">
+                            <div class="thumbnail-menu-image" style="padding-bottom: {imageHeight / imageWidth * 100}%;">
                                 <f:media file="{page.files.0}" width="{settings.menuthumbnail.media.width}" height="{settings.menuthumbnail.media.height}" />
                             </div>
                             <div class="thumbnail-menu-caption">
                                 <f:if condition="{page.data.title}">
                                     <h3 class="thumbnail-menu-caption-title"><f:format.crop maxCharacters="{settings.menuthumbnail.title.crop}">{page.data.title}</f:format.crop></h3>
                                 </f:if>
-                                <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} > 300">
+                                <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} >= 300">
                                     <p class="thumbnail-menu-caption-abstract"><f:format.crop maxCharacters="{settings.menuthumbnail.abstract.crop}">{page.data.abstract}</f:format.crop></p>
                                 </f:if>
                             </div>
