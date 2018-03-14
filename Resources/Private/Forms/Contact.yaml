@@ -7,12 +7,12 @@ finishers:
     -
         identifier: EmailToReceiver
         options:
-            subject: 'Contact'
+            subject: '{subject}'
             recipientAddress: ''
-            recipientName: '{fullname}'
-            senderAddress: ''
-            senderName: ''
-            replyToAddress: ''
+            recipientName: ''
+            senderAddress: '{email}'
+            senderName: '{fullname}'
+            replyToAddress: '{email}'
             carbonCopyAddress: ''
             blindCarbonCopyAddress: ''
             format: html
