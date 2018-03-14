@@ -7,7 +7,7 @@ finishers:
     -
         identifier: EmailToReceiver
         options:
-            subject: Kontaktformular
+            subject: 'Contact'
             recipientAddress: ''
             recipientName: '{fullname}'
             senderAddress: ''
