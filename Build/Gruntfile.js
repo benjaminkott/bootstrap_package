@@ -26,6 +26,20 @@ module.exports = function(grunt) {
     });
 
     /**
+     * Grunt task for modernizr
+     */
+    grunt.registerMultiTask("modernizr", "Respond to your user’s browser features.", function () {
+        var options = this.options(),
+            done = this.async(),
+            modernizr = require("modernizr"),
+            dest = this.data.dest;
+        modernizr.build(options, function(output) {
+            grunt.file.write(dest, output);
+            done();
+        });
+	});
+
+    /**
      * Project configuration.
      */
     grunt.initConfig({
@@ -92,7 +106,16 @@ module.exports = function(grunt) {
                 compress: {
                     warnings: false
                 },
-                preserveComments: false
+                output: {
+                    comments: false
+                }
+            },
+            modernizr: {
+                options: {
+                    banner: ''
+                },
+                src: '<%= paths.contrib %>modernizr/modernizr.js',
+                dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
             },
             bootstrapForm: {
                 src: '<%= paths.js %>Src/bootstrap.form.js',
@@ -345,67 +368,67 @@ module.exports = function(grunt) {
             }
         },
         modernizr: {
-            dist: {
-                'crawl': false,
-                'customTests': [],
-                'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
-                'tests': [
-                    'applicationcache',
-                    'audio',
-                    'canvas',
-                    'canvastext',
-                    'geolocation',
-                    'hashchange',
-                    'history',
-                    'indexeddb',
-                    'input',
-                    'inputtypes',
-                    'postmessage',
-                    'svg',
-                    'video',
-                    'webgl',
-                    'websockets',
-                    'cssanimations',
-                    'backgroundsize',
-                    'borderimage',
-                    'borderradius',
-                    'boxshadow',
-                    'csscolumns',
-                    'flexbox',
-                    'flexboxlegacy',
-                    'fontface',
-                    'generatedcontent',
-                    'cssgradients',
-                    'hsla',
-                    'multiplebgs',
-                    'opacity',
-                    'cssreflections',
-                    'rgba',
-                    'textshadow',
-                    'csstransforms',
-                    'csstransforms3d',
-                    'csstransitions',
-                    'cssvhunit',
-                    'cssvwunit',
-                    'localstorage',
-                    'sessionstorage',
-                    'websqldatabase',
-                    'svgclippaths',
-                    'inlinesvg',
-                    'smil',
-                    'webworkers'
-                ],
-                'options': [
-                    'domPrefixes',
-                    'prefixes',
-                    'hasEvent',
-                    'testAllProps',
-                    'testProp',
-                    'testStyles',
-                    'html5shiv',
-                    'setClasses'
-                ],
-                'uglify': true
+            main: {
+                'dest': '<%= paths.contrib %>modernizr/modernizr.js',
+                'options': {
+                    'options': [
+                        'domPrefixes',
+                        'prefixes',
+                        'hasEvent',
+                        'testAllProps',
+                        'testProp',
+                        'testStyles',
+                        'html5shiv',
+                        'setClasses'
+                    ],
+                    'feature-detects': [
+                        'applicationcache',
+                        'audio',
+                        'canvas',
+                        'canvastext',
+                        'geolocation',
+                        'hashchange',
+                        'history',
+                        'indexeddb',
+                        'input',
+                        'inputtypes',
+                        'postmessage',
+                        'svg',
+                        'video',
+                        'webgl',
+                        'websockets',
+                        'css/animations',
+                        'css/backgroundsize',
+                        'css/borderimage',
+                        'css/borderradius',
+                        'css/boxshadow',
+                        'css/columns',
+                        'css/flexbox',
+                        'css/focuswithin',
+                        'css/flexboxlegacy',
+                        'css/fontface',
+                        'css/generatedcontent',
+                        'css/gradients',
+                        'css/hsla',
+                        'css/multiplebgs',
+                        'css/opacity',
+                        'css/reflections',
+                        'css/rgba',
+                        'css/textshadow',
+                        'css/transforms',
+                        'css/transforms3d',
+                        'css/transitions',
+                        'css/vhunit',
+                        'css/vwunit',
+                        'storage/localstorage',
+                        'storage/sessionstorage',
+                        'storage/websqldatabase',
+                        'svg/clippaths',
+                        'svg/inline',
+                        'svg/smil',
+                        'workers/webworkers'
+                    ]
+                }
             }
         },
         webfont: {
@@ -436,7 +459,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-webfont');
 
