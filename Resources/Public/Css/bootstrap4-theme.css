@@ -463,7 +463,7 @@ mark,
 
 .blockquote {
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .blockquote-footer {
@@ -8123,6 +8123,29 @@ a.text-dark:hover, a.text-dark:focus {
     -moz-column-gap: 40px;
     column-gap: 40px;
   }
+}
+
+blockquote {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid rgba(0, 0, 0, 0.125);
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+
+blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+blockquote footer {
+  display: block;
+  font-size: 80%;
+  color: #6c757d;
+  margin-top: -0.5rem;
+}
+
+blockquote footer::before {
+  content: "\2014 \00A0";
 }
 
 .navbar-mainnavigation {

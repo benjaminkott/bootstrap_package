@@ -6,7 +6,9 @@ $primary:                      #4faf98 !default;
 //
 // Fonts
 //
+$font-size-base:               1rem !default;
 $headings-font-weight:         300 !default;
+$blockquote-font-size:         ($font-size-base * 1.15) !default;
 
 //
 // Breakpoints
