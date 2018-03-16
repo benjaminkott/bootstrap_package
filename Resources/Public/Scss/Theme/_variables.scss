@@ -1,4 +1,14 @@
 //
+// Color system
+//
+$primary:                      #4faf98 !default;
+
+//
+// Fonts
+//
+$headings-font-weight:         300 !default;
+
+//
 // Breakpoints
 //
 $grid-float-breakpoint:        992px !default;
@@ -26,3 +36,8 @@ $navbar-heights: (
   lg: 130px,
   xl: 130px
 ) !default;
+
+//
+// Breadcrumbs
+//
+$breadcrumb-bg:                #f2f2f2 !default;
