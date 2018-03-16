@@ -22,7 +22,6 @@
                             <a href="{file.publicUrl}"{f:if(condition: file.title, then: ' title="{file.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
                                 <f:if condition="{data.uploads_type} == 1">
                                     <span class="uploads-fileicon">
-                                        <f:debug>{file.extension}</f:debug>
                                         <f:switch expression="{f:format.case(value: file.extension, mode: 'lower')}">
                                             <f:case value="mp3"><span class="bootstrappackageicon bootstrappackageicon-file-audio"></span></f:case>
                                             <f:case value="avi"><span class="bootstrappackageicon bootstrappackageicon-file-video"></span></f:case>
