@@ -95,9 +95,9 @@ module.exports = function(grunt) {
                 src: '<%= paths.css %>bootstrap3-rte.css',
                 dest: '<%= paths.css %>bootstrap3-rte.min.css'
             },
-            socialmedia: {
-                src: '<%= paths.fonts %>socialmedia.css',
-                dest: '<%= paths.fonts %>socialmedia.min.css'
+            bootstrappackageicon: {
+                src: '<%= paths.fonts %>bootstrappackageicon.css',
+                dest: '<%= paths.fonts %>bootstrappackageicon.min.css'
             }
         },
         uglify: {
@@ -433,17 +433,17 @@ module.exports = function(grunt) {
         },
         webfont: {
             brands: {
-                src: '<%= paths.icons %>SocialMedia/*.svg',
+                src: '<%= paths.icons %>BootstrapPackageIcon/*.svg',
                 dest: '<%= paths.fonts %>',
                 options: {
-                    font: 'socialmedia',
-                    fontFamilyName: 'BootstrapPackageSocialMedia',
+                    font: 'bootstrappackageicon',
+                    fontFamilyName: 'BootstrapPackageIcon',
                     engine: 'node',
                     autoHint: false,
                     htmlDemo: false,
                     templateOptions: {
-                        baseClass: 'socialmedia-icon',
-                        classPrefix: 'socialmedia-icon-'
+                        baseClass: 'bootstrappackageicon',
+                        classPrefix: 'bootstrappackageicon-'
                     }
                 }
             }

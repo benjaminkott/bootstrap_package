@@ -416,11 +416,11 @@ page {
                 enabled = 1
             }
         }
-        socialmediaicons = EXT:bootstrap_package/Resources/Public/Fonts/socialmedia.min.css
-        socialmediaicons {
+        bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
+        bootstrappackageicon {
             fontLoader {
                 families {
-                    0 = BootstrapPackageSocialMedia
+                    0 = BootstrapPackageIcon
                 }
                 enabled = 1
             }

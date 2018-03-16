@@ -9777,6 +9777,43 @@ figure .caption {
   margin-left: 0.15em;
 }
 
+.sociallinks {
+  overflow: hidden;
+}
+
+.sociallinks-list {
+  padding: 0;
+  margin: 0 -0.25rem;
+  list-style: none;
+}
+
+.sociallinks-item {
+  display: inline-block;
+  margin: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.sociallinks-link {
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none !important;
+}
+
+.sociallinks-link-label {
+  vertical-align: middle;
+  display: none;
+}
+
+.sociallinks-link-icon {
+  font-size: 1.25rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
 .scroll-top {
   overflow: hidden;
   transition: all 0.3s ease-in-out;

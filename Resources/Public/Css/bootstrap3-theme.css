@@ -9327,7 +9327,7 @@ body .typo3-editPanel-btn:hover,
   width: 1.5em;
   display: inline-block;
   overflow: hidden;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .sociallinks-link-label {
   vertical-align: middle;
