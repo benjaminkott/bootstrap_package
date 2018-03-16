@@ -7309,6 +7309,9 @@ audio {
 .caret {
   margin-left: 5px;
 }
+iframe {
+  border: 0;
+}
 img.lazyload {
   opacity: 0.3;
   -webkit-transition: opacity 0.3s ease-in 0s;

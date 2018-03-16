@@ -1,0 +1,22 @@
+//
+// Media List
+//
+.media-list {
+    padding-left: 0;
+    list-style: none;
+    .media + .media {
+        margin-top: $spacer;
+    }
+}
+
+//
+// Media
+//
+.media-left {
+    padding-right: 0.5rem;
+}
+.media-body {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}

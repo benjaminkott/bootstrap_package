@@ -8125,6 +8125,23 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.media-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.media-list .media + .media {
+  margin-top: 1rem;
+}
+
+.media-left {
+  padding-right: 0.5rem;
+}
+
+.media-body > *:last-child {
+  margin-bottom: 0;
+}
+
 blockquote {
   position: relative;
   padding: 1.25rem 1.5rem;
@@ -9688,6 +9705,11 @@ figure .caption {
   margin-bottom: 0;
 }
 
+.uploads-filesize {
+  margin-left: 0.5rem;
+  font-size: 80%;
+}
+
 .thumbnail-menu {
   display: flex;
   flex-wrap: wrap;
@@ -9870,6 +9892,10 @@ audio {
 
 .valign .vcontainer {
   width: 100%;
+}
+
+iframe {
+  border: 0;
 }
 
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */

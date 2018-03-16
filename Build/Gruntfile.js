@@ -432,11 +432,12 @@ module.exports = function(grunt) {
             }
         },
         webfont: {
-            brands: {
+            bootstrappackageicon: {
                 src: '<%= paths.icons %>BootstrapPackageIcon/*.svg',
                 dest: '<%= paths.fonts %>',
                 options: {
                     font: 'bootstrappackageicon',
+                    template: 'templates/font.css',
                     fontFamilyName: 'BootstrapPackageIcon',
                     engine: 'node',
                     autoHint: false,
@@ -466,6 +467,7 @@ module.exports = function(grunt) {
      * Grunt update task
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
+    grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('image', ['imagemin']);
