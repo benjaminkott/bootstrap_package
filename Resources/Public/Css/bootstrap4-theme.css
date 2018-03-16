@@ -8106,6 +8106,25 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.text-column > *:first-child {
+  margin-top: 0;
+}
+
+.text-column > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .text-column {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+  }
+}
+
 .navbar-mainnavigation {
   position: relative;
 }
