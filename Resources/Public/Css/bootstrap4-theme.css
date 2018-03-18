@@ -2174,37 +2174,39 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(79, 175, 152, 0.5);
 }
 
-.btn-secondary {
+.btn-secondary, .btn-default {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover, .btn-default:hover {
   color: #fff;
   background-color: #5a6268;
   border-color: #545b62;
 }
 
-.btn-secondary:focus, .btn-secondary.focus {
+.btn-secondary:focus, .btn-default:focus, .btn-secondary.focus, .focus.btn-default {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 
-.btn-secondary.disabled, .btn-secondary:disabled {
+.btn-secondary.disabled, .disabled.btn-default, .btn-secondary:disabled, .btn-default:disabled {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
-.show > .btn-secondary.dropdown-toggle {
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-default:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .btn-default:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle,
+.show > .dropdown-toggle.btn-default {
   color: #fff;
   background-color: #545b62;
   border-color: #4e555b;
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-secondary.dropdown-toggle:focus {
+.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-default:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-default:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle:focus,
+.show > .dropdown-toggle.btn-default:focus {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 
@@ -9703,6 +9705,10 @@ figure .caption {
 .icongroup-item-text-subheader {
   font-size: 1em;
   margin-bottom: 0;
+}
+
+.uploads-fileicon {
+  margin-right: 0.25rem;
 }
 
 .uploads-filesize {
