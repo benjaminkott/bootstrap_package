@@ -16,6 +16,9 @@
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
             </trans-unit>
+            <trans-unit id="backend_layout.simple">
+                <source>Simple</source>
+            </trans-unit>
             <trans-unit id="backend_layout.clean">
                 <source>Clean</source>
             </trans-unit>
