@@ -135,27 +135,3 @@ $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
     --linebreak--,
     background_color_class
 ';
-
-/***************
- * Add additional frame class items
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'frame_class',
-    [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_class.well',
-        'well'
-    ],
-    'indent-right',
-    'after'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'frame_class',
-    [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_class.jumbotron',
-        'jumbotron'
-    ],
-    'well',
-    'after'
-);

@@ -592,13 +592,6 @@
                 <source>Display Icons and Preview Images</source>
             </trans-unit>
 
-            <trans-unit id="field.frame_class.well">
-                <source>Well</source>
-            </trans-unit>
-            <trans-unit id="field.frame_class.jumbotron">
-                <source>Jumbotron</source>
-            </trans-unit>
-
             <trans-unit id="field.assets">
                 <source>Media elements</source>
             </trans-unit>

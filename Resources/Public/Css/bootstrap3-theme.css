@@ -5118,8 +5118,7 @@ a.badge:focus {
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
-.jumbotron,
-.frame-jumbotron {
+.jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
@@ -5127,50 +5126,38 @@ a.badge:focus {
   background-color: #ff8700;
 }
 .jumbotron h1,
-.jumbotron .h1,
-.frame-jumbotron h1,
-.frame-jumbotron .h1 {
+.jumbotron .h1 {
   color: inherit;
 }
-.jumbotron p,
-.frame-jumbotron p {
+.jumbotron p {
   margin-bottom: 15px;
   font-size: 24px;
   font-weight: 200;
 }
-.jumbotron > hr,
-.frame-jumbotron > hr {
+.jumbotron > hr {
   border-top-color: #cc6c00;
 }
 .container .jumbotron,
-.container-fluid .jumbotron,
-.container .frame-jumbotron,
-.container-fluid .frame-jumbotron {
+.container-fluid .jumbotron {
   border-radius: 0px;
   padding-left: 20px;
   padding-right: 20px;
 }
-.jumbotron .container,
-.frame-jumbotron .container {
+.jumbotron .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .jumbotron,
-  .frame-jumbotron {
+  .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
   }
   .container .jumbotron,
-  .container-fluid .jumbotron,
-  .container .frame-jumbotron,
-  .container-fluid .frame-jumbotron {
+  .container-fluid .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
   }
   .jumbotron h1,
-  .jumbotron .h1,
-  .frame-jumbotron h1,
-  .frame-jumbotron .h1 {
+  .jumbotron .h1 {
     font-size: 72px;
   }
 }
@@ -5983,8 +5970,7 @@ button.list-group-item-danger.active:focus {
 .embed-responsive-4by3 {
   padding-bottom: 75%;
 }
-.well,
-.frame-well {
+.well {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -5994,8 +5980,7 @@ button.list-group-item-danger.active:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.well blockquote,
-.frame-well blockquote {
+.well blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -7292,11 +7277,7 @@ audio {
 .jumbotron a,
 .jumbotron a:hover,
 .jumbotron a:active,
-.jumbotron a:focus,
-.frame-jumbotron a,
-.frame-jumbotron a:hover,
-.frame-jumbotron a:active,
-.frame-jumbotron a:focus {
+.jumbotron a:focus {
   color: inherit;
   text-decoration: underline;
 }
@@ -8556,48 +8537,6 @@ body,
 }
 .frame-indent-right .frame-inner {
   margin-right: 33%;
-}
-.frame-well {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-@media (min-width: 768px) {
-  .frame-well {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-  }
-}
-@media (min-width: 992px) {
-  .frame-well {
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-}
-.frame-jumbotron {
-  padding: 2em!important;
-}
-.frame-jumbotron .btn {
-  text-decoration: none!important;
-}
-@media (min-width: 768px) {
-  .frame-jumbotron {
-    padding: 3em!important;
-  }
-}
-@media (min-width: 992px) {
-  .frame-jumbotron {
-    padding: 4em!important;
-  }
-}
-.frame-small {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-@media (min-width: 768px) {
-  .frame-small {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
 }
 .frame-has-backgroundimage,
 .frame-background-primary,
