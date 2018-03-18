@@ -1,0 +1,27 @@
+//
+// Section
+//
+@each $name, $background in $theme-colors {
+    $color: color-yiq($background);
+    .section-#{$name} {
+        color: $color;
+        background-color: $background;
+    }
+    .section-#{$name} + .section-#{$name} {
+        border-top: 1px solid darken($background, 5%);
+    }
+}
+
+//
+// Section Columns
+//
+.section-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($grid-gutter-width / 4);
+    margin-right: -($grid-gutter-width / 4);
+}
+.section-column {
+    padding-left: ($grid-gutter-width / 4);
+    padding-right: ($grid-gutter-width / 4);
+}

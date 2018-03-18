@@ -1,34 +1,6 @@
 //
 // Section
-// --------------------------------------------------
-.section {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: @screen-sm) {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-    @media (min-width: @screen-md) {
-        padding-top: 4em;
-        padding-bottom: 4em;
-    }
-    @media (min-width: @screen-lg) {
-        padding-top: 5em;
-        padding-bottom: 5em;
-    }
-}
-.section-mini {
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-.section-small {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: @screen-sm) {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-}
+//
 .make-section(@name, @background, @color, @link-color, @link-color-hover) {
     .@{name} {
         color: @color;
@@ -52,7 +24,7 @@
 
 //
 // Section Columns
-// --------------------------------------------------
+//
 .section-row {
     display: flex;
     flex-wrap: wrap;

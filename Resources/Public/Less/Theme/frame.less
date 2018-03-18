@@ -1,16 +1,42 @@
 //
-// Frames
-// --------------------------------------------------
-.frame {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    @media (min-width: @screen-sm) {
-        padding-top: 1.5em;
-        padding-bottom: 1.5em;
+// Frame Container
+//
+.frame-container {
+    .container-fixed();
+    @media (min-width: @screen-sm-min) {
+        max-width: @container-sm;
     }
-    @media (min-width: @screen-md) {
+    @media (min-width: @screen-md-min) {
+        max-width: @container-md;
+    }
+    @media (min-width: @screen-lg-min) {
+        max-width: @container-lg;
+    }
+}
+.container {
+    .frame-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//
+// Frame
+//
+.frame {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    @media (min-width: @screen-sm) {
         padding-top: 2em;
         padding-bottom: 2em;
+    }
+    @media (min-width: @screen-md) {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+    @media (min-width: @screen-lg) {
+        padding-top: 3.5em;
+        padding-bottom: 3.5em;
     }
     > *:last-child {
         margin-bottom: 0;
@@ -21,12 +47,16 @@
         margin-bottom: 0;
     }
 }
+
+//
+// Frame Styles
+//
 .frame-ruler-before {
-    border-top: 1px solid @page-header-border-color;
+    border-top: 1px solid rgba(0, 0, 0, .125);
     margin-top: 2em;
 }
 .frame-ruler-after {
-    border-bottom: 1px solid @page-header-border-color;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
     margin-bottom: 2em;
 }
 .frame-indent {
@@ -62,17 +92,43 @@
 .frame-has-backgroundimage {
     background-position: center;
     background-size: cover;
-    padding-left: 1em;
-    padding-right: 1em;
-    @media (min-width: @screen-sm) {
+}
+.container {
+    .frame-has-backgroundimage {
         padding-left: 1.5em;
         padding-right: 1.5em;
-    }
-    @media (min-width: @screen-md) {
-        padding-left: 2em;
-        padding-right: 2em;
+        @media (min-width: @screen-sm) {
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        @media (min-width: @screen-md) {
+            padding-left: 3em;
+            padding-right: 3em;
+        }
+        @media (min-width: @screen-lg) {
+            padding-left: 3.5em;
+            padding-right: 3.5em;
+        }
     }
 }
+.frame-collapsible {
+    margin-top: -1.5em;
+    @media (min-width: @screen-sm) {
+        margin-top: -2em;
+    }
+    @media (min-width: @screen-md) {
+        margin-top: -3em;
+    }
+    @media (min-width: @screen-lg) {
+        margin-top: -3.5em;
+    }
+}
+.make-frame-spacing(@name) {
+    .@{name}.frame-space-after-none:not(.frame-ruler-after) + .@{name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+        &:extend(.frame-collapsible);
+    }
+}
+.make-frame-spacing(frame-background-none);
 .make-frame-background(@name, @background, @color, @link-color, @link-color-hover) {
     .@{name} {
         &:extend(.frame-has-backgroundimage all);
@@ -85,20 +141,8 @@
                 color: @link-color-hover;
             }
         }
-        padding-left: 1em;
-        padding-right: 1em;
-        @media (min-width: @screen-sm) {
-            padding-left: 1.5em;
-            padding-right: 1.5em;
-        }
-        @media (min-width: @screen-md) {
-            padding-left: 2em;
-            padding-right: 2em;
-        }
     }
-    .@{name} + .@{name} {
-        border-top: 1px solid darken(@background, 5%);
-    }
+    .make-frame-spacing(@name);
 }
 .make-frame-background(frame-background-primary, @frame-primary-bg, @frame-primary-color, @frame-primary-link-color, @frame-primary-link-hover-color);
 .make-frame-background(frame-background-light, @frame-light-bg, @frame-light-color, @frame-light-link-color, @frame-light-link-hover-color);
@@ -115,16 +159,16 @@
     margin-top: 1em;
 }
 .frame-space-before-small {
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 .frame-space-before-medium {
-    margin-top: 3em;
+    margin-top: 2em;
 }
 .frame-space-before-large {
-    margin-top: 4em;
+    margin-top: 2.5em;
 }
 .frame-space-before-extra-large {
-    margin-top: 5em;
+    margin-top: 3em;
 }
 
 //
@@ -137,14 +181,14 @@
     margin-bottom: 1em;
 }
 .frame-space-after-small {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 .frame-space-after-medium {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 .frame-space-after-large {
-    margin-bottom: 4em;
+    margin-bottom: 2.5em;
 }
 .frame-space-after-extra-large {
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 }

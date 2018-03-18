@@ -1,49 +1,32 @@
 //
 // Footer Columns
-// --------------------------------------------------
+//
 .footer-section-content-column-left,
 .footer-section-content-column-middle,
 .footer-section-content-column-right {
     width: 100%;
-    @media (min-width: @screen-sm-min) {
-        width: calc(~"100% / 3");
+    @include media-breakpoint-up('sm') {
+        width: calc(100% / 3);
     }
 }
 
 //
-// Footer Section
-// --------------------------------------------------
-.footer-section {
-    color: @footer-color;
-    background: @footer-bg;
-    a {
-        color: @footer-link-color;
-        &:hover,
-        &:focus {
-          color: @footer-link-hover-color;
-          text-decoration: @footer-link-hover-decoration;
-        }
-    }
-    h1, .h1,
-    h2, .h2,
-    h3, .h3,
-    h4, .h4,
-    h5, .h5 {
-        color: inherit;
-    }
-}
-
+// Footer Sections
 //
-// Footer Section Meta
-// --------------------------------------------------
-.footer-section-meta {
-    color: @footer-meta-color;
-    background: @footer-meta-bg;
-    a {
-        color: @footer-meta-link-hover-color;
-        &:hover,
-        &:focus {
-            color: @footer-meta-link-hover-color;
+@each $name, $settings in $footer-sections {
+    $footer-background: map-get($settings, 'background');
+    $footer-color: map-get($settings, 'color');
+    $footer-link-color: map-get($settings, 'link-color');
+    $footer-link-color-hover: darken($footer-link-color, 3%);
+    .footer-section-#{$name} {
+        color: $footer-color;
+        background-color: $footer-background;
+        a {
+            color: $footer-link-color;
+            &:hover,
+            &:focus {
+              color: $footer-link-color-hover;
+            }
         }
     }
 }
@@ -52,11 +35,11 @@
 // Footer Section Meta
 //
 .footer-section-meta {
-    @media (min-width: @screen-sm-min) {
+    @include media-breakpoint-up('sm') {
         text-align: center;
     }
     .frame-inner > *:not(:first-child) {
-        margin-top: 1em;
+        margin-top: 1rem;
     }
 }
 
@@ -69,7 +52,7 @@
         margin: 0;
         list-style: none;
         padding-left: 0;
-        @media (min-width: @screen-sm-min) {
+        @include media-breakpoint-up('sm') {
             margin-left: -0.5em;
             margin-right: -0.5em;
             > li {
@@ -77,6 +60,9 @@
                 padding-left: 0.5em;
                 padding-right: 0.5em;
             }
+        }
+        .active a {
+            font-weight: bold;
         }
     }
 }
@@ -90,7 +76,7 @@
         margin: 0;
         list-style: none;
         padding-left: 0;
-        @media (min-width: @screen-sm-min) {
+        @include media-breakpoint-up('sm') {
             margin-left: -0.5em;
             margin-right: -0.5em;
             > li {

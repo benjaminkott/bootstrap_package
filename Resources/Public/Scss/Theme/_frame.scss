@@ -1,0 +1,180 @@
+//
+// Frame Container
+//
+.frame-container {
+    @include make-container();
+    @include make-container-max-widths();
+}
+.container {
+    .frame-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//
+// Frame
+//
+.frame {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $i: index(map-keys($grid-breakpoints), $breakpoint);
+        $i: $i - 1;
+        @include media-breakpoint-up($breakpoint) {
+            padding-top: ($spacer * 1.5) + (($spacer / 2) * $i);
+            padding-bottom: ($spacer * 1.5) + (($spacer / 2) * $i);
+        }
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.frame-inner {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Frame Styles
+//
+.frame-ruler-before {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $i: index(map-keys($grid-breakpoints), $breakpoint);
+        $i: $i - 1;
+        @include media-breakpoint-up($breakpoint) {
+            margin-top: ($spacer * 1.5) + (($spacer / 2) * $i);
+        }
+    }
+}
+.frame-ruler-after {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $i: index(map-keys($grid-breakpoints), $breakpoint);
+        $i: $i - 1;
+        @include media-breakpoint-up($breakpoint) {
+            margin-bottom: ($spacer * 1.5) + (($spacer / 2) * $i);
+        }
+    }
+}
+.frame-indent {
+    .frame-inner {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
+                margin-left: $i * 4%;
+                margin-right: $i * 4%;
+            }
+        }
+    }
+}
+.frame-indent-left {
+    .frame-inner {
+        margin-left: 33%;
+    }
+}
+.frame-indent-right {
+    .frame-inner {
+        margin-right: 33%;
+    }
+}
+.frame-small {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    @include media-breakpoint-up('sm') {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+//
+// Background
+//
+.frame-has-backgroundimage {
+    background-position: center;
+    background-size: cover;
+}
+.container {
+    .frame-has-backgroundimage {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
+                padding-left: ($spacer * 1.5) + (($spacer / 2) * $i);
+                padding-right: ($spacer * 1.5) + (($spacer / 2) * $i);
+            }
+        }
+    }
+}
+.frame-collapsible {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $i: index(map-keys($grid-breakpoints), $breakpoint);
+        $i: $i - 1;
+        @include media-breakpoint-up($breakpoint) {
+            margin-top: -(($spacer * 1.5) + (($spacer / 2) * $i));
+        }
+    }
+}
+@mixin make-frame-spacing($name) {
+    .frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after) + .frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+        @extend .frame-collapsible;
+    }
+}
+@include make-frame-spacing('none');
+@mixin make-frame-background($name, $background) {
+    $color: color-yiq($background);
+    .frame-background-#{$name} {
+        @extend .frame-has-backgroundimage;
+        color: $color;
+        background-color: $background;
+    }
+    @include make-frame-spacing($name);
+}
+@each $name, $background in $theme-colors {
+    @include make-frame-background($name, $background);
+}
+
+//
+// Space Before
+//
+.frame-space-before-none {
+    margin-top: ($spacer * 0);
+}
+.frame-space-before-extra-small {
+    margin-top: ($spacer * 1);
+}
+.frame-space-before-small {
+    margin-top: ($spacer * 1.5);
+}
+.frame-space-before-medium {
+    margin-top: ($spacer * 2);
+}
+.frame-space-before-large {
+    margin-top: ($spacer * 2.5);
+}
+.frame-space-before-extra-large {
+    margin-top: ($spacer * 3);
+}
+
+//
+// Space After
+//
+.frame-space-after-none {
+    margin-bottom: ($spacer * 0);
+}
+.frame-space-after-extra-small {
+    margin-bottom: ($spacer * 1);
+}
+.frame-space-after-small {
+    margin-bottom: ($spacer * 1.5);
+}
+.frame-space-after-medium {
+    margin-bottom: ($spacer * 2);
+}
+.frame-space-after-large {
+    margin-bottom: ($spacer * 2.5);
+}
+.frame-space-after-extra-large {
+    margin-bottom: ($spacer * 3);
+}
