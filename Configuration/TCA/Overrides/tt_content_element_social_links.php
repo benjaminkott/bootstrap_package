@@ -71,5 +71,3 @@ $GLOBALS['TCA']['tt_content']['types']['social_links'] = array_replace_recursive
         ]
     ]
 );
-
-
