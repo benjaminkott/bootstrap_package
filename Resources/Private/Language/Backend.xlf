@@ -163,6 +163,9 @@
             <trans-unit id="content_group.text">
                 <source>Text</source>
             </trans-unit>
+            <trans-unit id="content_group.social_media">
+                <source>Social Media</source>
+            </trans-unit>
 
             <trans-unit id="content_element.media">
                 <source>Media</source>
@@ -281,6 +284,13 @@
             </trans-unit>
             <trans-unit id="quote.source">
                 <source>Quote Source</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.social_links">
+                <source>Social Links</source>
+            </trans-unit>
+            <trans-unit id="content_element.social_links.description">
+                <source>Insert a element to display configured social media channels</source>
             </trans-unit>
 
             <trans-unit id="carousel.options">

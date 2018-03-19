@@ -277,6 +277,11 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-card.svg']
 );
 $iconRegistry->registerIcon(
+    'content-bootstrappackage-social-links',
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/social-links.svg']
+);
+$iconRegistry->registerIcon(
     'systeminformation-bootstrappackage',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']

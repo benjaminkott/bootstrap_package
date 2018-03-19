@@ -92,6 +92,28 @@
 }
 
 //
+// Footer Social
+//
+.footer-sociallinks {
+    .sociallinks {
+        overflow: hidden;
+    }
+    .sociallinks-list {
+        margin: -0.5rem;
+    }
+    .sociallinks-item {
+        display: inline-block;
+        margin: 0.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    .sociallinks-link {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+//
 // Footer Copyright
 //
 .footer-copyright {

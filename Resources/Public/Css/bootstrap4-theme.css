@@ -8210,6 +8210,26 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: bold;
 }
 
+.footer-sociallinks .sociallinks {
+  overflow: hidden;
+}
+
+.footer-sociallinks .sociallinks-list {
+  margin: -0.5rem;
+}
+
+.footer-sociallinks .sociallinks-item {
+  display: inline-block;
+  margin: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.footer-sociallinks .sociallinks-link {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 .footer-copyright p {
   margin-bottom: 0;
 }
@@ -10344,35 +10364,26 @@ figure .caption {
 
 .sociallinks-list {
   padding: 0;
-  margin: 0 -0.25rem;
   list-style: none;
-}
-
-.sociallinks-item {
-  display: inline-block;
-  margin: 0.5rem;
-  height: 1.5rem;
-  width: 1.5rem;
 }
 
 .sociallinks-link {
   position: relative;
-  height: 1.5rem;
-  width: 1.5rem;
   display: inline-block;
   overflow: hidden;
   text-decoration: none !important;
-}
-
-.sociallinks-link-label {
-  vertical-align: middle;
-  display: none;
 }
 
 .sociallinks-link-icon {
   font-size: 1.25rem;
   text-align: center;
   opacity: 0.8;
+  vertical-align: middle;
+}
+
+.sociallinks-link-label {
+  vertical-align: middle;
+  margin-left: 0.5rem;
 }
 
 .scroll-top {

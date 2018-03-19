@@ -296,3 +296,21 @@ mod.wizards.newContentElement.wizardItems {
     menu.show := addToList(menu_thumbnail_list)
     menu.show := addToList(menu_thumbnail_dir)
 }
+
+################
+#### SOCIAL ####
+################
+mod.wizards.newContentElement.wizardItems {
+    social.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.social_media
+    social.elements {
+        social_links {
+            iconIdentifier = content-bootstrappackage-social-links
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links.description
+            tt_content_defValues {
+                CType = social_links
+            }
+        }
+    }
+    social.show := addToList(social_links)
+}
