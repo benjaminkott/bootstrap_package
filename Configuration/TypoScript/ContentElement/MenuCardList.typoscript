@@ -19,6 +19,7 @@ tt_content.menu_card_list {
         10 {
             special = list
             special.value.field = pages
+            includeNotInMenu = 1
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
