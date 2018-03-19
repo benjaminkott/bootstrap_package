@@ -72,14 +72,14 @@ if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
     module.tx_form {
         settings {
             yamlConfigurations {
-                100 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
             }
         }
     }
     plugin.tx_form {
         settings {
             yamlConfigurations {
-                100 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
             }
         }
     }

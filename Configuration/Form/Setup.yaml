@@ -3,7 +3,7 @@ TYPO3:
         Form:
             persistenceManager:
                 allowedExtensionPaths:
-                    100: EXT:bootstrap_package/Resources/Private/Forms/
+                    110: EXT:bootstrap_package/Resources/Private/Forms/
             prototypes:
                 standard:
                     formElementsDefinition:
@@ -11,7 +11,7 @@ TYPO3:
                             renderingOptions:
                                 translation:
                                     translationFile:
-                                        100: 'EXT:bootstrap_package/Resources/Private/Language/locallang.xlf'
+                                        110: 'EXT:bootstrap_package/Resources/Private/Language/locallang.xlf'
                                 layoutRootPaths:
                                     20: 'EXT:bootstrap_package/Resources/Private/Layouts/Form/'
                                 templateRootPaths:
