@@ -6960,6 +6960,14 @@ button.close {
   padding-left: 10px;
   padding-right: 10px;
 }
+address.address > *:last-child {
+  margin-bottom: 0;
+}
+.address-title,
+.address-phone,
+.address-email {
+  margin-bottom: 0;
+}
 @media (min-width: 768px) {
   h1.awesome,
   .h1.awesome {

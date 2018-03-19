@@ -6746,3 +6746,53 @@ body {
 .cke_combopanel {
   min-width: 200px;
 }
+address.address {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 5px;
+  background-color: #f2f2f2;
+}
+address.address:last-child {
+  margin-bottom: 0;
+}
+.address-title,
+.address-address,
+.address-phone,
+.address-fax,
+.address-email,
+.address-www {
+  padding: 0.25em;
+  margin-bottom: 5px;
+}
+.address-address,
+.address-fax,
+.address-phone,
+.address-email,
+.address-www {
+  padding-left: 3em;
+}
+.address-address:before,
+.address-fax:before,
+.address-phone:before,
+.address-email:before,
+.address-www:before {
+  text-align: center;
+  display: block;
+  float: left;
+  width: 3em;
+  margin-left: -3em;
+}
+.address-address:before {
+  content: '\1F4CD';
+}
+.address-fax:before {
+  content: '\1F4E0';
+}
+.address-phone:before {
+  content: '\1F4DE';
+}
+.address-email:before {
+  content: '\1F4E7';
+}
+.address-www:before {
+  content: '\1F310';
+}

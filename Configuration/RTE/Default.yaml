@@ -5,6 +5,8 @@ imports:
 
 editor:
     externalPlugins:
+        bootstrappackage_address:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
         bootstrappackage_box:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
         bootstrappackage_table:
@@ -65,6 +67,7 @@ editor:
 
         extraPlugins:
             - justify
+            - bootstrappackage_address
             - bootstrappackage_box
             - bootstrappackage_table
 

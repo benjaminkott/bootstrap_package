@@ -8661,6 +8661,16 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 3rem;
 }
 
+address.address > *:last-child {
+  margin-bottom: 0;
+}
+
+.address-title,
+.address-phone,
+.address-email {
+  margin-bottom: 0;
+}
+
 .text-column > *:first-child {
   margin-top: 0;
 }
