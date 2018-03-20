@@ -9632,8 +9632,8 @@ figure .caption {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media (min-width: 576px) {
@@ -9902,6 +9902,17 @@ figure .caption {
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.carousel-item-type-call_to_action .carousel-box {
+  background-color: #fff;
+  padding: 2rem;
+}
+
+@media (min-width: 576px) {
+  .carousel-item-type-call_to_action .carousel-box {
+    max-width: 50%;
+  }
 }
 
 .carousel-item-type-image .carousel-image img {

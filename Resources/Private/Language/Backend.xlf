@@ -348,6 +348,9 @@
             <trans-unit id="carousel_item.nav_title">
                 <source>Navigation Title</source>
             </trans-unit>
+            <trans-unit id="carousel_item.button_text">
+                <source>Button Text</source>
+            </trans-unit>
             <trans-unit id="carousel_item.bodytext">
                 <source>Text</source>
             </trans-unit>
@@ -366,6 +369,9 @@
 
             <trans-unit id="carousel_item.item_type.header">
                 <source>Header</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.item_type.calltoaction">
+                <source>Call to Action</source>
             </trans-unit>
             <trans-unit id="carousel_item.item_type.image">
                 <source>Image</source>

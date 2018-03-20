@@ -32,8 +32,8 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        padding-left: @grid-gutter-width;
-        padding-right: @grid-gutter-width;
+        padding-left: (@grid-gutter-width / 2);
+        padding-right: (@grid-gutter-width / 2);
         @media (min-width: @screen-sm) {
             padding-left: 0;
             padding-right: 0;
@@ -293,6 +293,20 @@
             max-width: 100%;
             display: block;
             height: auto;
+        }
+    }
+}
+
+
+//
+// Type: Call to Action
+//
+.carousel-item-type-call_to_action {
+    .carousel-box {
+        background-color: @body-bg;
+        padding: 2em;
+        @media (min-width: @screen-sm) {
+            max-width: 50%;
         }
     }
 }

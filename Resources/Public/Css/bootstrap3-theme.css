@@ -8104,8 +8104,8 @@ body,
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (min-width: 768px) {
   .carousel .carousel-item {
@@ -8353,6 +8353,15 @@ body,
   max-width: 100%;
   display: block;
   height: auto;
+}
+.carousel-item-type-call_to_action .carousel-box {
+  background-color: #fff;
+  padding: 2em;
+}
+@media (min-width: 768px) {
+  .carousel-item-type-call_to_action .carousel-box {
+    max-width: 50%;
+  }
 }
 .container .carousel {
   margin-left: -20px;

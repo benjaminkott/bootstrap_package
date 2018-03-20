@@ -31,8 +31,8 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        padding-left: $grid-gutter-width;
-        padding-right: $grid-gutter-width;
+        padding-left: ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
         @include media-breakpoint-up(sm) {
             padding-left: 0;
             padding-right: 0;
@@ -269,6 +269,19 @@
         left: 0;
         height: 100%;
         width: 100%;
+    }
+}
+
+//
+// Type: Call to Action
+//
+.carousel-item-type-call_to_action {
+    .carousel-box {
+        background-color: $body-bg;
+        padding: 2rem;
+        @include media-breakpoint-up(sm) {
+            max-width: 50%;
+        }
     }
 }
 
