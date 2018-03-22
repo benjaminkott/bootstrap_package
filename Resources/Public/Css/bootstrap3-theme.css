@@ -8069,6 +8069,9 @@ body,
   border-radius: 0;
   margin-bottom: 0;
 }
+.breadcrumb-section .breadcrumb-icon + .breadcrumb-text {
+  margin-left: 0.25em;
+}
 .csc-textpic-caption-c {
   text-align: center;
 }

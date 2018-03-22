@@ -9508,6 +9508,10 @@ blockquote footer::before {
   margin-bottom: 0;
 }
 
+.breadcrumb-section .breadcrumb-icon + .breadcrumb-text {
+  margin-left: 0.25em;
+}
+
 img.lazyload {
   opacity: 0.3;
   transition: opacity .3s ease-in 0s;

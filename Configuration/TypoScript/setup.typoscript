@@ -205,7 +205,7 @@ page {
                 includeNotInMenu = 1
                 as = breadcrumb
                 if {
-                    value = {$page.theme.breadcrumbEnableLevel}
+                    value = {$page.theme.breadcrumb.enableLevel}
                     value {
                         insertData = 1
                         prioriCalc = 1
@@ -213,6 +213,13 @@ page {
                     }
                     isGreaterThan {
                         data = level
+                    }
+                }
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
                     }
                 }
             }
@@ -247,9 +254,6 @@ page {
                 height = {$page.logo.height}
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
-            }
-            breadcrumb {
-                enable = {$page.theme.breadcrumb}
             }
             navigation {
                 style = {$page.theme.navigationstyle}

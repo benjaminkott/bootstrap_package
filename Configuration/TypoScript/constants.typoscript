@@ -17,6 +17,7 @@
 # customsubcategory=147=Content Element Menu Card
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
+# customsubcategory=162=Breadcrumb
 # customsubcategory=165=Social Media
 # customsubcategory=167=Section Meta
 # customsubcategory=168=Section Language
@@ -77,10 +78,21 @@ page {
             # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
             height = 20
         }
-        # cat=bootstrap package: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
-        breadcrumb = 1
-        # cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
-        breadcrumbEnableLevel = 2
+
+        breadcrumb {
+            # cat=bootstrap package: basic/162/breadcrumb_enable; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
+            enable = 1
+            # cat=bootstrap package: basic/162/breadcrumb_enableLevel; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
+            enableLevel = 2
+            icon {
+                # cat=bootstrap package: basic/162/breadcrumb_icon_enable; type=boolean; label=Breadcrumb Icon: Enable navigation icons in the breadcrumb
+                enable = 0
+                # cat=bootstrap package: basic/162/breadcrumb_icon_width; type=int+; label=Breadcrumb Icon Width
+                width = 16
+                # cat=bootstrap package: basic/162/breadcrumb_icon_height; type=int+; label=Breadcrumb Icon Height
+                height = 16
+            }
+        }
 
         meta {
             # cat=bootstrap package: basic/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
