@@ -15,9 +15,9 @@
             </f:if>
             <f:if condition="{item.data.link}">
                 <f:link.page pageUid="{item.data.link}" class="carousel-item-button btn btn-primary" additionalAttributes="{draggable:'false'}">
-                    <f:if condition="{data.button_text}">
+                    <f:if condition="{item.data.button_text}">
                         <f:then>
-                            <span>{data.button_text}</span>
+                            <span>{item.data.button_text}</span>
                         </f:then>
                         <f:else>
                             <span><f:translate key="readmore" extensionName="bootstrap_package" /></span>
