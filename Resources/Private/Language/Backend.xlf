@@ -462,7 +462,7 @@
             <trans-unit id="icon_group_item">
                 <source>Icon Group Item</source>
             </trans-unit>
-            <trans-unit id="tab_item.tt_content">
+            <trans-unit id="icon_group_item.tt_content">
                 <source>Icon Group</source>
             </trans-unit>
             <trans-unit id="icon_group_item.header">
