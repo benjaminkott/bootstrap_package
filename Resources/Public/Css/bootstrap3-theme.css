@@ -9480,6 +9480,60 @@ body .typo3-editPanel-btn:hover,
 .card-deck-menu .card-link {
   color: #ff8700;
 }
+.card-panel .card-header {
+  font-size: 1.125rem !important;
+}
+.card-panel .card-body > *:last-child {
+  margin-bottom: 0;
+}
+.card-panel-default {
+  border-color: #ddd;
+}
+.card-panel-default > .card-header {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.card-panel-primary {
+  border-color: #ff8700;
+}
+.card-panel-primary > .card-header {
+  color: #fff;
+  background-color: #ff8700;
+  border-color: #ff8700;
+}
+.card-panel-success {
+  border-color: #d6e9c6;
+}
+.card-panel-success > .card-header {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.card-panel-info {
+  border-color: #bce8f1;
+}
+.card-panel-info > .card-header {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.card-panel-warning {
+  border-color: #faebcc;
+}
+.card-panel-warning > .card-header {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.card-panel-danger {
+  border-color: #ebccd1;
+}
+.card-panel-danger > .card-header {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
 .accordion-item + .accordion-item {
   margin-top: 0.25em;
 }

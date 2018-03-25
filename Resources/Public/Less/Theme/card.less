@@ -230,3 +230,49 @@
         color: @link-color;
     }
 }
+
+
+//
+// Card Panel
+//
+.card-panel {
+    .card-header {
+        font-size: 1.125rem !important;
+    }
+    .card-body {
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+//
+// Variants
+//
+.card-panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+    border-color: @border;
+    & > .card-header {
+        color: @heading-text-color;
+        background-color: @heading-bg-color;
+        border-color: @heading-border;
+    }
+}
+.card-panel-default {
+    .card-panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+.card-panel-primary {
+    .card-panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.card-panel-success {
+    .card-panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.card-panel-info {
+    .card-panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.card-panel-warning {
+    .card-panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.card-panel-danger {
+    .card-panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}

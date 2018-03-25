@@ -5461,86 +5461,102 @@ button.close {
   vertical-align: text-top !important;
 }
 
-.bg-primary {
+.bg-primary, .card-panel-primary .card-header {
   background-color: #4faf98 !important;
 }
 
-a.bg-primary:hover, a.bg-primary:focus,
+a.bg-primary:hover, .card-panel-primary a.card-header:hover, a.bg-primary:focus, .card-panel-primary a.card-header:focus,
 button.bg-primary:hover,
-button.bg-primary:focus {
+.card-panel-primary button.card-header:hover,
+button.bg-primary:focus,
+.card-panel-primary button.card-header:focus {
   background-color: #3f8c79 !important;
 }
 
-.bg-secondary {
+.bg-secondary, .card-panel-secondary .card-header {
   background-color: #6c757d !important;
 }
 
-a.bg-secondary:hover, a.bg-secondary:focus,
+a.bg-secondary:hover, .card-panel-secondary a.card-header:hover, a.bg-secondary:focus, .card-panel-secondary a.card-header:focus,
 button.bg-secondary:hover,
-button.bg-secondary:focus {
+.card-panel-secondary button.card-header:hover,
+button.bg-secondary:focus,
+.card-panel-secondary button.card-header:focus {
   background-color: #545b62 !important;
 }
 
-.bg-success {
+.bg-success, .card-panel-success .card-header {
   background-color: #28a745 !important;
 }
 
-a.bg-success:hover, a.bg-success:focus,
+a.bg-success:hover, .card-panel-success a.card-header:hover, a.bg-success:focus, .card-panel-success a.card-header:focus,
 button.bg-success:hover,
-button.bg-success:focus {
+.card-panel-success button.card-header:hover,
+button.bg-success:focus,
+.card-panel-success button.card-header:focus {
   background-color: #1e7e34 !important;
 }
 
-.bg-info {
+.bg-info, .card-panel-info .card-header {
   background-color: #17a2b8 !important;
 }
 
-a.bg-info:hover, a.bg-info:focus,
+a.bg-info:hover, .card-panel-info a.card-header:hover, a.bg-info:focus, .card-panel-info a.card-header:focus,
 button.bg-info:hover,
-button.bg-info:focus {
+.card-panel-info button.card-header:hover,
+button.bg-info:focus,
+.card-panel-info button.card-header:focus {
   background-color: #117a8b !important;
 }
 
-.bg-warning {
+.bg-warning, .card-panel-warning .card-header {
   background-color: #ffc107 !important;
 }
 
-a.bg-warning:hover, a.bg-warning:focus,
+a.bg-warning:hover, .card-panel-warning a.card-header:hover, a.bg-warning:focus, .card-panel-warning a.card-header:focus,
 button.bg-warning:hover,
-button.bg-warning:focus {
+.card-panel-warning button.card-header:hover,
+button.bg-warning:focus,
+.card-panel-warning button.card-header:focus {
   background-color: #d39e00 !important;
 }
 
-.bg-danger {
+.bg-danger, .card-panel-danger .card-header {
   background-color: #dc3545 !important;
 }
 
-a.bg-danger:hover, a.bg-danger:focus,
+a.bg-danger:hover, .card-panel-danger a.card-header:hover, a.bg-danger:focus, .card-panel-danger a.card-header:focus,
 button.bg-danger:hover,
-button.bg-danger:focus {
+.card-panel-danger button.card-header:hover,
+button.bg-danger:focus,
+.card-panel-danger button.card-header:focus {
   background-color: #bd2130 !important;
 }
 
-.bg-light {
+.bg-light, .card-panel-light .card-header {
   background-color: #f8f9fa !important;
 }
 
-a.bg-light:hover, a.bg-light:focus,
+a.bg-light:hover, .card-panel-light a.card-header:hover, a.bg-light:focus, .card-panel-light a.card-header:focus,
 button.bg-light:hover,
-button.bg-light:focus {
+.card-panel-light button.card-header:hover,
+button.bg-light:focus,
+.card-panel-light button.card-header:focus {
   background-color: #dae0e5 !important;
 }
 
-.bg-dark, .navbar-inverse, .navbar-inverse-transition,
+.bg-dark, .card-panel-dark .card-header, .navbar-inverse, .navbar-inverse-transition,
 .navbar-inverse-transition.navbar-transition {
   background-color: #2b2b2b !important;
 }
 
-a.bg-dark:hover, a.navbar-inverse:hover, a.navbar-inverse-transition:hover, a.bg-dark:focus, a.navbar-inverse:focus, a.navbar-inverse-transition:focus,
+a.bg-dark:hover, .card-panel-dark a.card-header:hover, a.navbar-inverse:hover, a.navbar-inverse-transition:hover, a.bg-dark:focus, .card-panel-dark a.card-header:focus, a.navbar-inverse:focus, a.navbar-inverse-transition:focus,
 button.bg-dark:hover,
+.card-panel-dark button.card-header:hover,
 button.navbar-inverse:hover,
 button.navbar-inverse-transition:hover,
 button.bg-dark:focus,
+.card-panel-dark button.card-header:focus,
 button.navbar-inverse:focus,
 button.navbar-inverse-transition:focus {
   background-color: #121111 !important;
@@ -5595,35 +5611,35 @@ button.navbar-inverse-transition:focus {
   border-left: 0 !important;
 }
 
-.border-primary {
+.border-primary, .card-panel-primary {
   border-color: #4faf98 !important;
 }
 
-.border-secondary {
+.border-secondary, .card-panel-secondary {
   border-color: #6c757d !important;
 }
 
-.border-success {
+.border-success, .card-panel-success {
   border-color: #28a745 !important;
 }
 
-.border-info {
+.border-info, .card-panel-info {
   border-color: #17a2b8 !important;
 }
 
-.border-warning {
+.border-warning, .card-panel-warning {
   border-color: #ffc107 !important;
 }
 
-.border-danger {
+.border-danger, .card-panel-danger {
   border-color: #dc3545 !important;
 }
 
-.border-light {
+.border-light, .card-panel-light {
   border-color: #f8f9fa !important;
 }
 
-.border-dark {
+.border-dark, .card-panel-dark {
   border-color: #2b2b2b !important;
 }
 
@@ -8659,6 +8675,46 @@ a.text-dark:hover, a.text-dark:focus {
 
 .frame-space-after-extra-large {
   margin-bottom: 3rem;
+}
+
+.card-panel .card-header {
+  font-size: 1.125rem !important;
+}
+
+.card-panel .card-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.card-panel-primary .card-header {
+  color: #fff !important;
+}
+
+.card-panel-secondary .card-header {
+  color: #fff !important;
+}
+
+.card-panel-success .card-header {
+  color: #fff !important;
+}
+
+.card-panel-info .card-header {
+  color: #fff !important;
+}
+
+.card-panel-warning .card-header {
+  color: #2b2b2b !important;
+}
+
+.card-panel-danger .card-header {
+  color: #fff !important;
+}
+
+.card-panel-light .card-header {
+  color: #2b2b2b !important;
+}
+
+.card-panel-dark .card-header {
+  color: #fff !important;
 }
 
 address.address > *:last-child {

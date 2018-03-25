@@ -1,0 +1,27 @@
+//
+// Card Panel
+//
+.card-panel {
+    .card-header {
+        font-size: 1.125rem !important;
+    }
+    .card-body {
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+//
+// Variants
+//
+@each $name, $background in $theme-colors {
+    .card-panel-#{$name} {
+        @extend .border-#{$name};
+        .card-header {
+            @extend .bg-#{$name};
+            color: color-yiq($background) !important;
+        }
+    }
+}

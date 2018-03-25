@@ -3,25 +3,18 @@
 <f:section name="Header" />
 <f:section name="Main">
 
-    <div class="panel panel-{data.panel_class}">
+    <div class="card card-panel card-panel-{data.panel_class}">
         <f:if condition="{data.header}">
-            <f:if condition="{data.header_layout} == 100">
-                <f:else>
-                    <div class="panel-heading">
-                        <f:switch expression="{data.header_layout}">
-                            <f:case value="0">{data.header}</f:case>
-                            <f:case value="1"><h1 class="panel-title">{data.header}</h1></f:case>
-                            <f:case value="2"><h2 class="panel-title">{data.header}</h2></f:case>
-                            <f:case value="3"><h3 class="panel-title">{data.header}</h3></f:case>
-                            <f:case value="4"><h4 class="panel-title">{data.header}</h4></f:case>
-                            <f:case value="5"><h5 class="panel-title">{data.header}</h5></f:case>
-                        </f:switch>
-                    </div>
-                </f:else>
-            </f:if>
+            <f:render partial="Header/Header" arguments="{
+                header: data.header,
+                layout: data.header_layout,
+                class: 'card-header',
+                positionClass: '',
+                link: '',
+                default: settings.header.defaultHeaderType}" />
         </f:if>
         <f:if condition="{data.bodytext}">
-            <div class="panel-body">
+            <div class="card-body">
                 <f:format.html>{data.bodytext}</f:format.html>
             </div>
         </f:if>
