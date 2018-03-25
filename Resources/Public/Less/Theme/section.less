@@ -28,10 +28,26 @@
 .section-row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -(@grid-gutter-width / 4);
-    margin-right: -(@grid-gutter-width / 4);
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
 }
 .section-column {
-    padding-left: (@grid-gutter-width / 4);
-    padding-right: (@grid-gutter-width / 4);
+    width: 100%;
+    padding-left: (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+}
+
+
+//
+// Section Column Sizes
+//
+.section-column-half {
+    @media (min-width: @screen-sm) {
+        width: 50%;
+    }
+}
+.section-column-third {
+    @media (min-width: @screen-sm) {
+        width: calc(100% / 3);
+    }
 }
