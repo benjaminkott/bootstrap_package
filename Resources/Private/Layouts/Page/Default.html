@@ -6,6 +6,7 @@
         <span>{f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}</span>
     </a>
     <f:render partial="Navigation/Main" arguments="{_all}" />
+    <f:render section="Border" optional="true" />
     <f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
 
     <div id="content" class="main-section">
