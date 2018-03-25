@@ -512,7 +512,6 @@ config {
     pageTitleFirst = 1
     pageTitleSeparator = -
     pageTitleSeparator.noTrimWrap = | | |
-    linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
     typolinkEnableLinksAcrossDomains = {$config.typolinkEnableLinksAcrossDomains}
     doctype = html5
@@ -543,11 +542,15 @@ config {
     concatenateCss = {$config.concatenateCss}
 }
 
+[globalVar = LIT:1 = {$page.theme.language.enable}]
+config.linkVars = L(int)
+[global]
+
 
 #############################
 #### LANGUAGE CONDITIONS ####
 #############################
-[globalVar = GP:L = 1]
+[globalVar = GP:L = 1] && [globalVar = LIT:1 = {$page.theme.language.enable}]
     config {
         sys_language_uid = 1
         language = da
@@ -555,7 +558,7 @@ config {
         htmlTag_setParams = lang="da" dir="ltr" class="no-js"
     }
 [global]
-[globalVar = GP:L = 2]
+[globalVar = GP:L = 2] && [globalVar = LIT:1 = {$page.theme.language.enable}]
     config {
         sys_language_uid = 2
         language = de
