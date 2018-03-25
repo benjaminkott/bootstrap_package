@@ -168,7 +168,7 @@ page {
             # cat=bootstrap package: basic/169/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
             # cat=bootstrap package: basic/169/121; type=string; label=Copyright Text
-            text = Built on a Windows 10 Surface Book. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.<br> Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            text = Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a> and <a href="https://www.bootstrap-package.com" target="_blank">Bootstrap Package</a>.
         }
     }
 
