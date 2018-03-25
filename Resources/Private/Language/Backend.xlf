@@ -19,9 +19,6 @@
             <trans-unit id="backend_layout.simple">
                 <source>Simple</source>
             </trans-unit>
-            <trans-unit id="backend_layout.clean">
-                <source>Clean</source>
-            </trans-unit>
             <trans-unit id="backend_layout.2_columns">
                 <source>2 Columns</source>
             </trans-unit>
