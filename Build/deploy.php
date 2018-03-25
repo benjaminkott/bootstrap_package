@@ -55,6 +55,7 @@ set('shared_dirs', [
 set('shared_files', [
     'composer.json',
     'web/.htaccess',
+    'web/robots.txt',
     'web/typo3conf/LocalConfiguration.php',
     'web/typo3conf/PackageStates.php'
 ]);
