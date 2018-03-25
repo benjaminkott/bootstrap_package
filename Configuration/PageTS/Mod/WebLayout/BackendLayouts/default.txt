@@ -8,7 +8,7 @@ mod {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default
                 config {
                     backend_layout {
-                        colCount = 6
+                        colCount = 12
                         rowCount = 3
                         rows {
                             1 {
@@ -16,7 +16,7 @@ mod {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
                                         colPos = 3
-                                        colspan = 6
+                                        colspan = 12
                                     }
                                 }
                             }
@@ -25,7 +25,7 @@ mod {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
                                         colPos = 0
-                                        colspan = 6
+                                        colspan = 12
                                     }
                                 }
                             }
@@ -34,17 +34,17 @@ mod {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
                                         colPos = 10
-                                        colspan = 2
+                                        colspan = 4
                                     }
                                     2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
                                         colPos = 11
-                                        colspan = 2
+                                        colspan = 4
                                     }
                                     3 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
                                         colPos = 12
-                                        colspan = 2
+                                        colspan = 4
                                     }
                                 }
                             }
