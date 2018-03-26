@@ -18,7 +18,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav id="mainnavigation" class="collapse navbar-collapse">
+                <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
                 <f:render section="MainNavigation" arguments="{menu: mainnavigation, settings: settings}" />
+                <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
             </nav>
         </f:if>
     </div>
