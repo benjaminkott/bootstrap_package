@@ -15,7 +15,10 @@
         <!--TYPO3SEARCH_end-->
     </div>
 
-    <f:render partial="Structure/Footer" arguments="{_all}" />
+    <footer>
+        <f:render section="Footer" optional="true" />
+        <f:render partial="Structure/FooterMeta" arguments="{_all}" />
+    </footer>
     <f:render partial="Structure/ScrollTop" arguments="{_all}" />
 
 </div>
