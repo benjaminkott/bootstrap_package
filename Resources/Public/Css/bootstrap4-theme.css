@@ -8794,6 +8794,35 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 3rem;
 }
 
+.card-deck-menu .card {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 576px) {
+  .card-deck-menu .card {
+    flex-grow: 0;
+    min-width: calc(50% - 20px * 2);
+  }
+}
+
+@media (min-width: 992px) {
+  .card-deck-menu .card {
+    min-width: calc(33.33% - 20px * 2);
+  }
+}
+
+.card-deck-menu .card-img {
+  height: auto;
+}
+
+.card-deck-menu .card-subtitle {
+  margin-bottom: 0.75rem;
+}
+
+.card-deck-menu .card-link {
+  color: #4faf98;
+}
+
 .card-panel .card-header {
   font-size: 1.125rem !important;
 }

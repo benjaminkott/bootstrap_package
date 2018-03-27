@@ -1,4 +1,30 @@
 //
+// Card Deck Menu
+//
+.card-deck-menu {
+    .card {
+        margin-bottom: $card-deck-margin * 2;
+        @include media-breakpoint-up('sm') {
+            flex-grow: 0;
+            min-width: calc(50% - #{$card-deck-margin} * 2);
+        }
+        @include media-breakpoint-up('lg') {
+            min-width: calc(33.33% - #{$card-deck-margin} * 2);
+        }
+    }
+    .card-img {
+        height: auto;
+    }
+    .card-subtitle {
+        margin-bottom: $card-spacer-y;
+    }
+    .card-link {
+        color: $link-color;
+    }
+}
+
+
+//
 // Card Panel
 //
 .card-panel {
