@@ -6737,6 +6737,12 @@ button.close {
   display: inline-block;
   margin-left: 0.15em;
 }
+.link-file:after {
+  content: '\2193';
+}
+.link-mail:after {
+  content: '\2709';
+}
 /*
  * RTE Stylings
  */
