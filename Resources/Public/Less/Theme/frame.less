@@ -77,12 +77,28 @@
 }
 .frame-indent-left {
     .frame-inner {
-        margin-left: 33%;
+        @media (min-width: @screen-sm) {
+            margin-left: 11%;
+        }
+        @media (min-width: @screen-md) {
+            margin-left: 22%;
+        }
+        @media (min-width: @screen-lg) {
+            margin-left: 33%;
+        }
     }
 }
 .frame-indent-right {
     .frame-inner {
-        margin-right: 33%;
+        @media (min-width: @screen-sm) {
+            margin-right: 11%;
+        }
+        @media (min-width: @screen-md) {
+            margin-right: 22%;
+        }
+        @media (min-width: @screen-lg) {
+            margin-right: 33%;
+        }
     }
 }
 

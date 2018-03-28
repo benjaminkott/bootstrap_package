@@ -8621,11 +8621,59 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .frame-indent-left .frame-inner {
-  margin-left: 33%;
+  margin-left: 0%;
+}
+
+@media (min-width: 576px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 8%;
+  }
+}
+
+@media (min-width: 768px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 16%;
+  }
+}
+
+@media (min-width: 992px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 24%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 32%;
+  }
 }
 
 .frame-indent-right .frame-inner {
-  margin-right: 33%;
+  margin-right: 0%;
+}
+
+@media (min-width: 576px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 8%;
+  }
+}
+
+@media (min-width: 768px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 16%;
+  }
+}
+
+@media (min-width: 992px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 24%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 32%;
+  }
 }
 
 .frame-small {

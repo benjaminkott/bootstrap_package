@@ -8655,11 +8655,35 @@ body,
     margin-right: 15%;
   }
 }
-.frame-indent-left .frame-inner {
-  margin-left: 33%;
+@media (min-width: 768px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 11%;
+  }
 }
-.frame-indent-right .frame-inner {
-  margin-right: 33%;
+@media (min-width: 992px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 22%;
+  }
+}
+@media (min-width: 1200px) {
+  .frame-indent-left .frame-inner {
+    margin-left: 33%;
+  }
+}
+@media (min-width: 768px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 11%;
+  }
+}
+@media (min-width: 992px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 22%;
+  }
+}
+@media (min-width: 1200px) {
+  .frame-indent-right .frame-inner {
+    margin-right: 33%;
+  }
 }
 .frame-has-backgroundimage,
 .frame-background-primary,
