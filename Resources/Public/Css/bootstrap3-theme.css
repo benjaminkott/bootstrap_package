@@ -8488,6 +8488,60 @@ body,
 .container .carousel-inner .valign {
   width: 100%;
 }
+.textmedia,
+.textpic {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.textmedia-item,
+.textpic-item {
+  order: 1;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.textmedia-text > *:last-child,
+.textpic-text > *:last-child {
+  margin-bottom: 0;
+}
+.textmedia-gallery,
+.textpic-gallery {
+  margin-bottom: 24px;
+}
+.textmedia-above .textmedia-text,
+.textpic-above .textmedia-text,
+.textmedia-above .textpic-text,
+.textpic-above .textpic-text {
+  order: 0;
+  margin-bottom: 24px;
+}
+.textmedia-above .textmedia-gallery,
+.textpic-above .textmedia-gallery,
+.textmedia-above .textpic-gallery,
+.textpic-above .textpic-gallery {
+  margin-bottom: 0;
+}
+@media (min-width: 992px) {
+  .textmedia-right .textmedia-item,
+  .textmedia-left .textmedia-item,
+  .textpic-right .textmedia-item,
+  .textpic-left .textmedia-item,
+  .textmedia-right .textpic-item,
+  .textmedia-left .textpic-item,
+  .textpic-right .textpic-item,
+  .textpic-left .textpic-item {
+    margin-bottom: 0;
+    width: 50%;
+  }
+  .textmedia-right .textmedia-gallery,
+  .textpic-right .textmedia-gallery,
+  .textmedia-right .textpic-gallery,
+  .textpic-right .textpic-gallery {
+    order: 2;
+  }
+}
 .texticon:before,
 .texticon:after {
   content: " ";

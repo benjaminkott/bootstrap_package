@@ -3,11 +3,11 @@
 <f:section name="Header" />
 <f:section name="Main">
 
-    <div class="row">
-        <div class="col-md-push-6 col-md-6 col-xs-12">
+    <div class="textpic textpic-right">
+        <div class="textpic-item textpic-gallery">
             <f:render partial="Media/Gallery" arguments="{_all}" />
         </div>
-        <div class="col-md-pull-6 col-md-6 col-xs-12">
+        <div class="textpic-item textpic-text">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.bodytext}</f:format.html>
         </div>
