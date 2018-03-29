@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -50,12 +51,6 @@ use TYPO3\CMS\Frontend\DataProcessing;
  */
 class LanguageMenuProcessor extends MenuProcessor
 {
-    /** @var \TYPO3\CMS\Core\Database\DatabaseConnection */
-    protected $databaseConnection;
-
-    /** @var bool */
-    protected $hasStaticInfoTables;
-
     /**
      * Gets the value of a TS constant
      *
@@ -102,7 +97,7 @@ class LanguageMenuProcessor extends MenuProcessor
         direction = 'ltr'
         */
 
-        if ($languageData === null || empty($languageData[$languageUid])) {
+        if ($languageData === null || !is_array($languageData[$languageUid])) {
             if ($languageUid === 0) {
                 $languageData[$languageUid]['title'] = $this->getConstantValue('page.theme.language.defaultTitle');
                 $languageData[$languageUid]['language'] = $this->getConstantValue('page.theme.language.defaultLanguage');
@@ -112,9 +107,19 @@ class LanguageMenuProcessor extends MenuProcessor
             }
             else
             {
-                $language = $this->databaseConnection->exec_SELECTgetRows('t1.title, t1.language_isocode AS language, t1.locale, t1.hreflang, t1.direction, t1.nav_title', 'sys_language t1', 't1.hidden=0 AND t1.language_isocode<>\'\'');
+                static $queryBuilder = null;
 
-                if (!empty($language)) {
+                if ($queryBuilder === null) {
+                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+                }
+
+                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                    ->from('sys_language')
+                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                    ->execute()
+                    ->fetch();
+
+                if (is_array($language)) {
                     $languageData[$languageUid] = $language;
 
                     if (!empty($languageData[$languageUid][nav_title])) {
@@ -140,8 +145,6 @@ class LanguageMenuProcessor extends MenuProcessor
         unset($this->menuLevelConfig['stdWrap.']['cObject.']['10.']);
         $this->menuDefaults['as'] = 'languagemenu';
         $this->menuDefaults['titleField'] = '';
-		$this->databaseConnection = $GLOBALS['TYPO3_DB'];
-        $this->hasStaticInfoTables = ExtensionManagementUtility::isLoaded('static_info_tables');
     }
 
     /**
