@@ -50,6 +50,85 @@ use TYPO3\CMS\Frontend\DataProcessing;
  */
 class LanguageMenuProcessor extends MenuProcessor
 {
+    /** @var \TYPO3\CMS\Core\Database\DatabaseConnection */
+    protected $databaseConnection;
+
+    /** @var bool */
+    protected $hasStaticInfoTables;
+
+    /**
+     * Gets the value of a TS constant
+     *
+     * @param int $key
+     * @return string Value of the constant
+     */
+    protected function getConstantValue($key)
+    {
+        $result = '';
+        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
+            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+            $GLOBALS['TSFE']->tmpl->generateConfig();
+        }
+        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+            if (strpos($constant, $key) === 0) {
+                $result = $value;
+                break;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * Gets the language data for the languageUid
+     *
+     * @param int $languageUid
+     * @return string JSON encoded data
+     */
+    protected function getLanguageData($languageUid)
+    {
+        static $languageData = null;
+
+        /*
+        title => 'English', 
+        link => '/en/',
+        active => 0, 
+        current => 0,
+        available => 1,
+        languageUid => 1,
+        language = 'en',
+        locale = 'en_GB.UTF-8',
+        hreflang = 'en-GB',
+        direction = 'ltr'
+        */
+
+        if ($languageData === null || empty($languageData[$languageUid])) {
+            if ($languageUid === 0) {
+                $languageData[$languageUid]['title'] = $this->getConstantValue('page.theme.language.defaultTitle');
+                $languageData[$languageUid]['language'] = $this->getConstantValue('page.theme.language.defaultLanguage');
+                $languageData[$languageUid]['locale'] = $this->getConstantValue('page.theme.language.defaultLocale');
+                $languageData[$languageUid]['hreflang'] = $this->getConstantValue('page.theme.language.defaultHreflang');
+                $languageData[$languageUid]['direction'] = $this->getConstantValue('page.theme.language.defaultDirection');
+            }
+            else
+            {
+                $language = $this->databaseConnection->exec_SELECTgetRows('t1.title, t1.language_isocode AS language, t1.locale, t1.hreflang, t1.direction, t1.nav_title', 'sys_language t1', 't1.hidden=0 AND t1.language_isocode<>\'\'');
+
+                if (!empty($language)) {
+                    $languageData[$languageUid] = $language;
+
+                    if (!empty($languageData[$languageUid][nav_title])) {
+                        $languageData[$languageUid]['title'] = $languageData[$languageUid][nav_title];
+                    }
+
+                    unset($languageData[$languageUid][nav_title]);
+                }
+            }
+        }
+
+        return $languageData;
+    }
+
     /**
      * Constructor
      */
@@ -57,12 +136,16 @@ class LanguageMenuProcessor extends MenuProcessor
     {
         parent::__construct();
 
+        unset($this->menuLevelConfig['stdWrap.']['cObject.']['10']);
+        unset($this->menuLevelConfig['stdWrap.']['cObject.']['10.']);
         $this->menuDefaults['as'] = 'languagemenu';
         $this->menuDefaults['titleField'] = '';
+		$this->databaseConnection = $GLOBALS['TYPO3_DB'];
+        $this->hasStaticInfoTables = ExtensionManagementUtility::isLoaded('static_info_tables');
     }
 
     /**
-     * Validate configuration
+     * Add loading from sys_languages in case special.value is not set
      *
      * @throws \InvalidArgumentException
      */
@@ -102,7 +185,7 @@ class LanguageMenuProcessor extends MenuProcessor
     }
 
     /**
-     * Prepare the configuration when rendering a language menu
+     * Add more language properties
      */
     public function prepareLevelLanguageConfiguration()
     {
@@ -186,7 +269,7 @@ class LanguageMenuProcessor extends MenuProcessor
     }
 
     /**
-     * Gets the data of the current record in JSON format
+     * Gets the language title for the language id submitted as conf in JSON format
      *
      * @param string $content
      * @param array $conf
@@ -194,11 +277,15 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     public function getLanguageTitleAsJson($content, $conf)
     {
-        return $this->jsonEncode($this->cObj->data);
+        $result = '';
+        if (is_array($conf) && !empty($conf['languageUid'])) {
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['title']);
+        }
+        return $result;
     }
 
     /**
-     * Gets the data of the current record in JSON format
+     * Gets the language for the language id submitted as conf in JSON format
      *
      * @param string $content
      * @param array $conf
@@ -206,11 +293,15 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     public function getLanguageAsJson($content, $conf)
     {
-        return $this->jsonEncode($this->cObj->data);
+        $result = '';
+        if (is_array($conf) && !empty($conf['languageUid'])) {
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['language']);
+        }
+        return $result;
     }
 
     /**
-     * Gets the data of the current record in JSON format
+     * Gets the locale for the language id submitted as conf in JSON format
      *
      * @param string $content
      * @param array $conf
@@ -218,11 +309,15 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     public function getLocaleAsJson($content, $conf)
     {
-        return $this->jsonEncode($this->cObj->data);
+        $result = '';
+        if (is_array($conf) && !empty($conf['languageUid'])) {
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['local']);
+        }
+        return $result;
     }
 
     /**
-     * Gets the data of the current record in JSON format
+     * Gets the hreflang for the language id submitted as conf in JSON format
      *
      * @param string $content
      * @param array $conf
@@ -230,11 +325,15 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     public function getHreflangAsJson($content, $conf)
     {
-        return $this->jsonEncode($this->cObj->data);
+        $result = '';
+        if (is_array($conf) && !empty($conf['languageUid'])) {
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['hreflang']);
+        }
+        return $result;
     }
 
     /**
-     * Gets the data of the current record in JSON format
+     * Gets the direction for the language id submitted as conf in JSON format
      *
      * @param string $content
      * @param array $conf
@@ -242,6 +341,10 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     public function getDirectionAsJson($content, $conf)
     {
-        return $this->jsonEncode($this->cObj->data);
+        $result = '';
+        if (is_array($conf) && !empty($conf['languageUid'])) {
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['direction']);
+        }
+        return $result;
     }
 }
