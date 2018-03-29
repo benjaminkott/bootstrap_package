@@ -11,9 +11,9 @@ page {
             # cat=bootstrap package: basic/168/language_defaultLocale; type=string; label=Language Navigation Values: Comma separated list of language uids
             defaultLocale = en_US.UTF-8
             # cat=bootstrap package: basic/168/language_defaultHreflang; type=string; label=Language Navigation Values: Comma separated list of language uids
-            defaultHreflang = en-GB
-            # cat=bootstrap package: basic/168/language_defaultDirection; type=options[Left to Right=ltr, Right to Left=rtl]; label=Language direction
-            defaultDirection = ltr
+            defaultHreflang = en-US
+            # cat=bootstrap package: basic/168/language_defaultDirection; type=options[None=, Left to Right=ltr, Right to Left=rtl]; label=Language direction
+            defaultDirection = 
         }
     }
 }
