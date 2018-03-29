@@ -212,9 +212,9 @@ page {
     }
 }
 
-// ##############
-// ### CONFIG ###
-// ##############
+##############
+### CONFIG ###
+##############
 config {
     # cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
     no_cache = 0
