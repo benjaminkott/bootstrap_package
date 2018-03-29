@@ -32,13 +32,6 @@ if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
 }
 
 /***************
- * Create class alias for older TYPO3 versions
- */
-if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
-    use BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor as TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor;
-}
-
-/***************
  * PageTS
  */
 
@@ -322,4 +315,15 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
         $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
     }
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+}
+
+/***************
+ * Set alias for language menu processor as fallback if the core menu
+ * processor does not exist for TYPO3 Versions below 9.x???
+ */
+if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    class_alias(
+        \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
+        'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor'
+    );
 }
