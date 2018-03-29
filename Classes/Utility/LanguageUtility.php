@@ -49,29 +49,8 @@ class LanguageUtility
     {
         static $languageData = null;
 
-        /*
-        title => 'English', 
-        link => '/en/',
-        active => 0, 
-        current => 0,
-        available => 1,
-        languageUid => 1,
-        language = 'en',
-        locale = 'en_GB.UTF-8',
-        hreflang = 'en-GB',
-        direction = 'ltr'
-        */
-
         if ($languageData === null || !is_array($languageData[$languageUid])) {
-            if ($languageUid === 0) {
-                $languageData[$languageUid]['title'] = self::getConstantValue('page.theme.language.defaultTitle');
-                $languageData[$languageUid]['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
-                $languageData[$languageUid]['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
-                $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
-                $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
-            }
-            else
-            {
+            if ($languageUid > 0) {
                 static $queryBuilder = null;
 
                 if ($queryBuilder === null) {
@@ -93,6 +72,14 @@ class LanguageUtility
 
                     unset($languageData[$languageUid][nav_title]);
                 }
+            }
+
+            if (!is_array($languageData[$languageUid])) {
+                $languageData[$languageUid]['title'] = self::getConstantValue('page.theme.language.defaultTitle');
+                $languageData[$languageUid]['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
+                $languageData[$languageUid]['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
+                $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
+                $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
             }
         }
 

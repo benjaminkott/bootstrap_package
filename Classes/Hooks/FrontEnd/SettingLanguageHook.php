@@ -16,18 +16,10 @@ use TYPO3\CMS\Core\Utility\PathUtility;
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
 
 /**
- * FontLoaderHook
+ * SettingLanguageHook
  */
 class SettingLanguageHook
 {
-    /**
-     * @var array
-     */
-    protected $includeMapping = [
-        'includeCSSLibs' => 'cssLibs',
-        'includeCSS' => 'cssFiles'
-    ];
-
     /**
      * Gets the language data for the languageUid
      *
@@ -40,6 +32,8 @@ class SettingLanguageHook
     }
 
     /**
+     * Overrides various config settings
+     * 
      * @param array $params
      * @param TypoScriptFrontendController $tsfe
      */
