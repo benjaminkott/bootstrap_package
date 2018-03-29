@@ -15,7 +15,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Frontend\DataProcessing;
-
+use BK2K\BootstrapPackage\Utility\LanguageUtility;
 
 /**
  * This menu processor utilizes HMENU to generate a json encoded menu
@@ -52,29 +52,6 @@ use TYPO3\CMS\Frontend\DataProcessing;
 class LanguageMenuProcessor extends MenuProcessor
 {
     /**
-     * Gets the value of a TS constant
-     *
-     * @param int $key
-     * @return string Value of the constant
-     */
-    protected function getConstantValue($key)
-    {
-        $result = '';
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
-            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
-        }
-        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
-            if (strpos($constant, $key) === 0) {
-                $result = $value;
-                break;
-            }
-        }
-        return $result;
-    }
-
-    /**
      * Gets the language data for the languageUid
      *
      * @param int $languageUid
@@ -82,56 +59,7 @@ class LanguageMenuProcessor extends MenuProcessor
      */
     protected function getLanguageData($languageUid)
     {
-        static $languageData = null;
-
-        /*
-        title => 'English', 
-        link => '/en/',
-        active => 0, 
-        current => 0,
-        available => 1,
-        languageUid => 1,
-        language = 'en',
-        locale = 'en_GB.UTF-8',
-        hreflang = 'en-GB',
-        direction = 'ltr'
-        */
-
-        if ($languageData === null || !is_array($languageData[$languageUid])) {
-            if ($languageUid === 0) {
-                $languageData[$languageUid]['title'] = $this->getConstantValue('page.theme.language.defaultTitle');
-                $languageData[$languageUid]['language'] = $this->getConstantValue('page.theme.language.defaultLanguage');
-                $languageData[$languageUid]['locale'] = $this->getConstantValue('page.theme.language.defaultLocale');
-                $languageData[$languageUid]['hreflang'] = $this->getConstantValue('page.theme.language.defaultHreflang');
-                $languageData[$languageUid]['direction'] = $this->getConstantValue('page.theme.language.defaultDirection');
-            }
-            else
-            {
-                static $queryBuilder = null;
-
-                if ($queryBuilder === null) {
-                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-                }
-
-                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
-                    ->from('sys_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                    ->execute()
-                    ->fetch();
-
-                if (is_array($language)) {
-                    $languageData[$languageUid] = $language;
-
-                    if (!empty($languageData[$languageUid][nav_title])) {
-                        $languageData[$languageUid]['title'] = $languageData[$languageUid][nav_title];
-                    }
-
-                    unset($languageData[$languageUid][nav_title]);
-                }
-            }
-        }
-
-        return $languageData;
+        return LanguageUtility::getLanguageData($languageUid);
     }
 
     /**

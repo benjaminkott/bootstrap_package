@@ -538,24 +538,3 @@ config {
     concatenateJs = {$config.concatenateJs}
     concatenateCss = {$config.concatenateCss}
 }
-
-
-#############################
-#### LANGUAGE CONDITIONS ####
-#############################
-[globalVar = GP:L = 1]
-    config {
-        sys_language_uid = 1
-        language = da
-        locale_all = da_DK.UTF-8
-        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
-    }
-[global]
-[globalVar = GP:L = 2]
-    config {
-        sys_language_uid = 2
-        language = de
-        locale_all = de_DE.UTF-8
-        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
-    }
-[global]
