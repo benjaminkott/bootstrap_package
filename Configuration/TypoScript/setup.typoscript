@@ -225,7 +225,6 @@ page {
             }
             40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
             40 {
-                #special = language
                 special.value = {$page.theme.language.languageValue}
                 as = languagenavigation
             }
