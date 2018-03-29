@@ -32,6 +32,13 @@ if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
 }
 
 /***************
+ * Create class alias for older TYPO3 versions
+ */
+if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    use BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor as TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor;
+}
+
+/***************
  * PageTS
  */
 
