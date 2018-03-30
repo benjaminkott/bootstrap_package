@@ -220,6 +220,14 @@ class LanguageMenuProcessor extends MenuProcessor
         }
     }
 
+    public function buildConfiguration()
+    {
+        parent::buildConfiguration();
+        echo '<pre>';
+        echo var_dump($this->menuConfig);
+        echo '</pre>';
+    }
+
     /**
      * Gets the language title for the language id submitted as conf in JSON format
      *
