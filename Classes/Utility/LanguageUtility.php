@@ -64,6 +64,10 @@ class LanguageUtility
                     ->execute()
                     ->fetch();
 
+                echo '<pre>';
+                echo var_dump($language);
+                echo '</pre>';
+
                 if (is_array($language)) {
                     $languageData[$languageUid] = $language;
 
@@ -82,11 +86,11 @@ class LanguageUtility
                 $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
                 $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
             }
-        }
 
-        echo '<pre>';
-        echo var_dump($languageData);
-        echo '</pre>';
+            echo '<pre>';
+            echo var_dump($languageData);
+            echo '</pre>';
+        }
 
         return $languageData;
     }
