@@ -81,8 +81,6 @@ class LanguageMenuProcessor extends MenuProcessor
     {
         parent::__construct();
 
-        unset($this->menuLevelConfig['stdWrap.']['cObject.']['10']);
-        unset($this->menuLevelConfig['stdWrap.']['cObject.']['10.']);
         $this->menuDefaults['as'] = 'languagemenu';
         $this->menuDefaults['titleField'] = '';
     }
@@ -135,6 +133,9 @@ class LanguageMenuProcessor extends MenuProcessor
         parent::prepareLevelLanguageConfiguration();
 
         if ($this->menuConfig['special'] === 'language') {
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['10']);
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['10.']);
+    
             $this->menuLevelConfig['stdWrap.']['cObject.'] = [
                 '1' => 'LOAD_REGISTER',
                 '1.' => [
