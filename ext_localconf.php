@@ -318,8 +318,8 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
 }
 
 /***************
- * Set alias for language menu processor as fallback if the core menu
- * processor does not exist for TYPO3 Versions below 9.x???
+ * Set alias for language menu processor as fallback if the core language menu
+ * processor does not exist for older TYPO3 Versions
  */
 if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
     class_alias(
@@ -329,7 +329,8 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
 }
 
 /***************
- * Register cache hooks to clear bootstrap cache files
+ * Register setting language hook to dynamically add language config to
+ * TypoScript Setup
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.tslib_fe.php']['settingLanguage_preProcess'][]
     = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess';
