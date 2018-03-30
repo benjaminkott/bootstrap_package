@@ -135,6 +135,10 @@ class LanguageMenuProcessor extends MenuProcessor
         if ($this->menuConfig['special'] === 'language') {
             unset($this->menuLevelConfig['stdWrap.']['cObject.']['10']);
             unset($this->menuLevelConfig['stdWrap.']['cObject.']['10.']);
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['20']);
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['20.']);
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['70.']['value']);
+            unset($this->menuLevelConfig['stdWrap.']['cObject.']['70.']['listNum.']);
     
             $this->menuLevelConfig['stdWrap.']['cObject.'] = [
                 '1' => 'LOAD_REGISTER',
@@ -165,7 +169,7 @@ class LanguageMenuProcessor extends MenuProcessor
                             'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
-                            'wrap' => '"title":|'
+                            'wrap' => ',"title":|'
                         ]
                     ],
                     '70.' => [
@@ -181,7 +185,7 @@ class LanguageMenuProcessor extends MenuProcessor
                             'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
-                            'wrap' => '"language":|'
+                            'wrap' => ',"language":|'
                         ]
                     ],
                     '72' => 'USER',
@@ -191,7 +195,7 @@ class LanguageMenuProcessor extends MenuProcessor
                             'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
-                            'wrap' => '"locale":|'
+                            'wrap' => ',"locale":|'
                         ]
                     ],
                     '73' => 'USER',
@@ -201,7 +205,7 @@ class LanguageMenuProcessor extends MenuProcessor
                             'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
-                            'wrap' => '"hreflang":|'
+                            'wrap' => ',"hreflang":|'
                         ]
                     ],
                     '74' => 'USER',
@@ -211,7 +215,7 @@ class LanguageMenuProcessor extends MenuProcessor
                             'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
-                            'wrap' => '"direction":|'
+                            'wrap' => ',"direction":|'
                         ]
                     ],
                     '99' => 'RESTORE_REGISTER'
