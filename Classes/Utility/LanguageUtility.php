@@ -84,6 +84,10 @@ class LanguageUtility
             }
         }
 
+        echo '<pre>';
+        echo var_dump($languageData);
+        echo '</pre>';
+
         return $languageData;
     }
 }
