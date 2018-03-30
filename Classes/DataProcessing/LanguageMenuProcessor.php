@@ -156,22 +156,22 @@ class LanguageMenuProcessor extends MenuProcessor
                             ]
                         ]
                     ]
+                ],
+                '20' => 'USER',
+                '20.' => [
+                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getLanguageTitleAsJson',
+                    'languageUid.' => [
+                        'data' => 'register:languageUid'
+                    ],
+                    'stdWrap.' => [
+                        'wrap' => '"title":|'
+                    ]
                 ]
             ] + $this->menuLevelConfig['stdWrap.']['cObject.'];
 
             $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
                 $this->menuLevelConfig['stdWrap.']['cObject.'],
                 [
-                    '20' => 'USER',
-                    '20.' => [
-                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getLanguageTitleAsJson',
-                        'languageUid.' => [
-                            'data' => 'register:languageUid'
-                        ],
-                        'stdWrap.' => [
-                            'wrap' => ',"title":|'
-                        ]
-                    ],
                     '70.' => [
                         'stdWrap.' => [
                             'data' => 'register:languageUid'
