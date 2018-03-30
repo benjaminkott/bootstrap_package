@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use TYPO3\CMS\Frontend\DataProcessing;
+use TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor;
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
 
 /**
