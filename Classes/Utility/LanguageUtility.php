@@ -51,7 +51,7 @@ class LanguageUtility
         static $languageData = null;
 
         if ($languageData === null || !isset($languageData[$languageUid])) {
-            if ((is_int($languageUid)) && $languageUid > 0) {
+            if ((is_numeric($languageUid)) && $languageUid > 0) {
                 static $queryBuilder = null;
 
                 if ($queryBuilder === null) {
@@ -63,10 +63,6 @@ class LanguageUtility
                     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute()
                     ->fetch();
-
-                echo '<pre>';
-                echo var_dump($language);
-                echo '</pre>';
 
                 if (is_array($language)) {
                     $languageData[$languageUid] = $language;
@@ -86,12 +82,8 @@ class LanguageUtility
                 $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
                 $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
             }
-
-            echo '<pre>';
-            echo var_dump($languageData);
-            echo '</pre>';
         }
 
-        return $languageData;
+        return $languageData[$languageUid];
     }
 }

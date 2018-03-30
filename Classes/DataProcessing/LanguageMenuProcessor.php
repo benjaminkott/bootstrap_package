@@ -227,9 +227,9 @@ class LanguageMenuProcessor extends MenuProcessor
     public function buildConfiguration()
     {
         parent::buildConfiguration();
-        echo '<pre>';
-        echo var_dump($this->menuConfig);
-        echo '</pre>';
+        //echo '<pre>';
+        //echo var_dump($this->menuConfig);
+        //echo '</pre>';
     }
 
     /**
