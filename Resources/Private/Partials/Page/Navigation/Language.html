@@ -6,11 +6,11 @@
                 <f:if condition="{item.available}">
                     <f:then>
                         <a href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
-                            <span>{item.title}</span>
+                            <span>{item.localizedTitle}</span>
                         </a>
                     </f:then>
                     <f:else>
-                        <span>{item.title}</span>
+                        <span>{item.localizedTitle}</span>
                     </f:else>
                 </f:if>
             </li>
