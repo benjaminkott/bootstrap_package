@@ -297,7 +297,7 @@ class LanguageMenuProcessor extends MenuProcessor
         $result = '';
         $this->stdWrap($conf);
         if (isset($conf['languageUid'])) {
-            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['local']);
+            $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['locale']);
         }
         return $result;
     }
