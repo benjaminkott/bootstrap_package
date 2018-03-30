@@ -58,7 +58,7 @@ class LanguageUtility
                     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 }
 
-                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
                     ->from('sys_language')
                     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute()
@@ -66,21 +66,20 @@ class LanguageUtility
 
                 if (is_array($language)) {
                     $languageData[$languageUid] = $language;
-
-                    if (!empty($languageData[$languageUid]['nav_title'])) {
-                        $languageData[$languageUid]['title'] = $languageData[$languageUid]['nav_title'];
-                    }
-
-                    unset($languageData[$languageUid]['nav_title']);
                 }
             }
 
             if (!isset($languageData[$languageUid])) {
                 $languageData[$languageUid]['title'] = self::getConstantValue('page.theme.language.defaultTitle');
+                $languageData[$languageUid]['localized_title'] = self::getConstantValue('page.theme.language.defaultLocalizedTitle');
                 $languageData[$languageUid]['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
                 $languageData[$languageUid]['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
                 $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
                 $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
+            }
+
+            if (empty($languageData[$languageUid]['localized_title'])) {
+                $languageData[$languageUid]['localized_title'] = $languageData[$languageUid]['title'];
             }
         }
 
