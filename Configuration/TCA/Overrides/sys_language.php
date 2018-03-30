@@ -1,63 +1,66 @@
 <?php
-/***************
- * Register fields
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_language', 
-    [
-        'nav_title' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'max' => 255,
-                'eval' => 'trim'
-            ]
-        ],
-        'locale' => [
-            'exclude' => true,
-            'label' => 'locale',
-            'config' => [
-                'type' => 'input',
-                'size' => 35,
-                'max' => 20,
-                'eval' => 'trim,required'
-            ]
-        ],
-        'hreflang' => [
-            'exclude' => true,
-            'label' => 'hreflang',
-            'config' => [
-                'type' => 'input',
-                'size' => 35,
-                'max' => 20,
-                'eval' => 'trim,required'
-            ]
-        ],
-        'direction' => [
-            'label' => 'direction',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['None', '', ''],
-                    ['Left to right', 'ltr', ''],
-                    ['Right to left', 'rtl', '']
-                ],
-                'size' => 1,
-                'minitems' => 1,
-                'maxitems' => 1,
-                'fieldWizard' => [
-                    'selectIcons' => [
-                        'disabled' => false,
+
+if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sites')) {
+    /***************
+     * Register fields
+     */
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_language', 
+        [
+            'nav_title' => [
+                'exclude' => true,
+                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title',
+                'config' => [
+                    'type' => 'input',
+                    'size' => 50,
+                    'max' => 255,
+                    'eval' => 'trim'
+                ]
+            ],
+            'locale' => [
+                'exclude' => true,
+                'label' => 'locale',
+                'config' => [
+                    'type' => 'input',
+                    'size' => 35,
+                    'max' => 20,
+                    'eval' => 'trim,required'
+                ]
+            ],
+            'hreflang' => [
+                'exclude' => true,
+                'label' => 'hreflang',
+                'config' => [
+                    'type' => 'input',
+                    'size' => 35,
+                    'max' => 20,
+                    'eval' => 'trim,required'
+                ]
+            ],
+            'direction' => [
+                'label' => 'direction',
+                'config' => [
+                    'type' => 'select',
+                    'renderType' => 'selectSingle',
+                    'items' => [
+                        ['None', '', ''],
+                        ['Left to right', 'ltr', ''],
+                        ['Right to left', 'rtl', '']
                     ],
-                ],
+                    'size' => 1,
+                    'minitems' => 1,
+                    'maxitems' => 1,
+                    'fieldWizard' => [
+                        'selectIcons' => [
+                            'disabled' => false,
+                        ],
+                    ],
+                ]
             ]
         ]
-    ]
-);
+    );
 
-/***************
- * Assign position to fields
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_language', 'nav_title,locale,hreflang,direction', '', 'after:title');
+    /***************
+     * Assign position to fields
+     */
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_language', 'nav_title,locale,hreflang,direction', '', 'after:title');
+}
