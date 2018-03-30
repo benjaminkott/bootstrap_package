@@ -332,4 +332,4 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  * Register cache hooks to clear bootstrap cache files
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.tslib_fe.php']['settingLanguage_preProcess'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\FrontEnd\\SettingLanguageHook->preProcess';
+    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess';

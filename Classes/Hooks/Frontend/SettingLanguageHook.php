@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-namespace BK2K\BootstrapPackage\Hooks\FrontEnd;
+namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
