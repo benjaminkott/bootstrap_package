@@ -63,6 +63,18 @@ class LanguageMenuProcessor extends MenuProcessor
     }
 
     /**
+     * Executes stdWrap on global properties
+     *
+     * @param array $conf
+     */
+    protected function stdWrap(&$conf)
+    {
+        if (isset($conf['languageUid.'])) {
+            $conf['languageUid'] = $this->cObj->stdWrap($conf['languageUid'], $conf['languageUid.']);
+        }
+    }
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -145,19 +157,27 @@ class LanguageMenuProcessor extends MenuProcessor
             $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
                 $this->menuLevelConfig['stdWrap.']['cObject.'],
                 [
+                    '20' => 'USER',
                     '20.' => [
-                        'trim' => '1',
-                        'wrap' => ',"title":|',
-                        'preUserFunc' => 'BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor->getLanguageTitleAsJson',
-                        'preUserFunc.' => [
-                            'languageUid' => '{register:languageUid}'
+                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getLanguageTitleAsJson',
+                        'languageUid.' => [
+                            'data' => 'register:languageUid'
                         ],
+                        'stdWrap.' => [
+                            'wrap' => '"title":|'
+                        ]
+                    ],
+                    '70.' => [
+                        'stdWrap.' => [
+                            'data' => 'register:languageUid'
+                        ],
+                        'wrap' => ',"languageUid":"|"'
                     ],
                     '71' => 'USER',
                     '71.' => [
-                        'userFunc' => 'BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor->getLanguageAsJson',
-                        'userFunc.' => [
-                            'languageUid' => '{register:languageUid}'
+                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getLanguageAsJson',
+                        'languageUid.' => [
+                            'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
                             'wrap' => '"language":|'
@@ -165,9 +185,9 @@ class LanguageMenuProcessor extends MenuProcessor
                     ],
                     '72' => 'USER',
                     '72.' => [
-                        'userFunc' => 'BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor->getLocaleAsJson',
-                        'userFunc.' => [
-                            'languageUid' => '{register:languageUid}'
+                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getLocaleAsJson',
+                        'languageUid.' => [
+                            'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
                             'wrap' => '"locale":|'
@@ -175,9 +195,9 @@ class LanguageMenuProcessor extends MenuProcessor
                     ],
                     '73' => 'USER',
                     '73.' => [
-                        'userFunc' => 'BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor->getHreflangAsJson',
-                        'userFunc.' => [
-                            'languageUid' => '{register:languageUid}'
+                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getHreflangAsJson',
+                        'languageUid.' => [
+                            'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
                             'wrap' => '"hreflang":|'
@@ -185,9 +205,9 @@ class LanguageMenuProcessor extends MenuProcessor
                     ],
                     '74' => 'USER',
                     '74.' => [
-                        'userFunc' => 'BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor->getDirectionAsJson',
-                        'userFunc.' => [
-                            'languageUid' => '{register:languageUid}'
+                        'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getDirectionAsJson',
+                        'languageUid.' => [
+                            'data' => 'register:languageUid'
                         ],
                         'stdWrap.' => [
                             'wrap' => '"direction":|'
@@ -202,14 +222,19 @@ class LanguageMenuProcessor extends MenuProcessor
     /**
      * Gets the language title for the language id submitted as conf in JSON format
      *
-     * @param string $content
-     * @param array $conf
+     * @param string Empty string (no content to process)
+     * @param array TypoScript configuration
      * @return string JSON encoded data
+     * 
+     * @param  string          Empty string (no content to process)
+     * @param  array           TypoScript configuration
+     * @return string          HTML output, showing content elements (in reverse order, if configured)
      */
     public function getLanguageTitleAsJson($content, $conf)
     {
-        $result = '';
-        if (is_array($conf) && !empty($conf['languageUid'])) {
+        $result = $this->jsonEncode('empty');
+        $this->stdWrap($conf);
+        if (isset($conf['languageUid'])) {
             $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['title']);
         }
         return $result;
@@ -225,7 +250,8 @@ class LanguageMenuProcessor extends MenuProcessor
     public function getLanguageAsJson($content, $conf)
     {
         $result = '';
-        if (is_array($conf) && !empty($conf['languageUid'])) {
+        $this->stdWrap($conf);
+        if (isset($conf['languageUid'])) {
             $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['language']);
         }
         return $result;
@@ -241,7 +267,8 @@ class LanguageMenuProcessor extends MenuProcessor
     public function getLocaleAsJson($content, $conf)
     {
         $result = '';
-        if (is_array($conf) && !empty($conf['languageUid'])) {
+        $this->stdWrap($conf);
+        if (isset($conf['languageUid'])) {
             $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['local']);
         }
         return $result;
@@ -257,7 +284,8 @@ class LanguageMenuProcessor extends MenuProcessor
     public function getHreflangAsJson($content, $conf)
     {
         $result = '';
-        if (is_array($conf) && !empty($conf['languageUid'])) {
+        $this->stdWrap($conf);
+        if (isset($conf['languageUid'])) {
             $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['hreflang']);
         }
         return $result;
@@ -273,7 +301,8 @@ class LanguageMenuProcessor extends MenuProcessor
     public function getDirectionAsJson($content, $conf)
     {
         $result = '';
-        if (is_array($conf) && !empty($conf['languageUid'])) {
+        $this->stdWrap($conf);
+        if (isset($conf['languageUid'])) {
             $result = $this->jsonEncode($this->getLanguageData($conf['languageUid'])['direction']);
         }
         return $result;

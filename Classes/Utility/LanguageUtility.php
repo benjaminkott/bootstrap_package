@@ -50,7 +50,7 @@ class LanguageUtility
     {
         static $languageData = null;
 
-        if ($languageData === null || !is_set($languageData[$languageUid])) {
+        if ($languageData === null || !isset($languageData[$languageUid])) {
             if ((is_int($languageUid)) && $languageUid > 0) {
                 static $queryBuilder = null;
 
@@ -75,7 +75,7 @@ class LanguageUtility
                 }
             }
 
-            if (!is_set($languageData[$languageUid])) {
+            if (!isset($languageData[$languageUid])) {
                 $languageData[$languageUid]['title'] = self::getConstantValue('page.theme.language.defaultTitle');
                 $languageData[$languageUid]['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
                 $languageData[$languageUid]['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
