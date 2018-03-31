@@ -15,9 +15,9 @@ use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
- * SettingLanguageHook
+ * ConfigArray
  */
-class SettingLanguageHook
+class ConfigArray
 {
     /**
      * Gets the language data for the languageUid
@@ -36,7 +36,7 @@ class SettingLanguageHook
      * @param array $params
      * @param TypoScriptFrontendController $tsfe
      */
-    public function preProcess(&$params, &$tsfe)
+    public function postProc(&$params, &$tsfe)
     {
         $language = GeneralUtility::_GP('L');
         $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
@@ -52,9 +52,16 @@ class SettingLanguageHook
         }
         $htmlTagParams .= 'class="no-js"';
 
-        $tsfe->config['config']['sys_language_uid'] = $languageUid;
-        $tsfe->config['config']['language'] = $languageRec['language'];
-        $tsfe->config['config']['locale_all'] = $languageRec['locale'];
-        $tsfe->config['config']['htmlTag_setParams'] = $htmlTagParams;
+        echo '<pre>';
+        var_dump($params);
+
+        $params['config']['sys_language_uid'] = $languageUid;
+        $params['config']['language'] = $languageRec['language'];
+        $params['config']['locale_all'] = $languageRec['locale'];
+        $params['config']['htmlTag_setParams'] = $htmlTagParams;
+
+        echo '<br>';
+        var_dump($params);
+        echo '</pre>';
     }
 }
