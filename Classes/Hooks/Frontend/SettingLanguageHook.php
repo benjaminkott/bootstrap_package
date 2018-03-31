@@ -41,17 +41,17 @@ class SettingLanguageHook
         $language = getLanguageData($languageUid);
 
         $htmlTagParams = '';
-        if (!empty($language[$languageUid]['hreflang'])) {
-            $htmlTagParams .= 'lang="' . $language[$languageUid]['hreflang'] . '" ';
+        if (!empty($language['hreflang'])) {
+            $htmlTagParams .= 'lang="' . $language['hreflang'] . '" ';
         }
-        if (!empty($language[$languageUid]['direction'])) {
-            $htmlTagParams .= 'dir="' . $language[$languageUid]['direction'] . '" ';
+        if (!empty($language['direction'])) {
+            $htmlTagParams .= 'dir="' . $language['direction'] . '" ';
         }
         $htmlTagParams .= 'class="no-js"';
 
         $tsfe->config['config']['sys_language_uid'] = $languageUid;
-        $tsfe->config['config']['language'] = $language[$languageUid]['language'];
-        $tsfe->config['config']['locale_all'] = $language[$languageUid]['locale'];
+        $tsfe->config['config']['language'] = $language['language'];
+        $tsfe->config['config']['locale_all'] = $language['locale'];
         $tsfe->config['config']['htmlTag_setParams'] = $htmlTagParams;
     }
 }
