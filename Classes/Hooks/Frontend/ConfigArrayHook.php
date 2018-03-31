@@ -15,9 +15,9 @@ use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
- * ConfigArray
+ * ConfigArrayHook
  */
-class ConfigArray
+class ConfigArrayHook
 {
     /**
      * Gets the language data for the languageUid
