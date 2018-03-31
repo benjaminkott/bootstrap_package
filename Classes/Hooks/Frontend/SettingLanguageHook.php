@@ -38,7 +38,7 @@ class SettingLanguageHook
      */
     public function preProcess(&$params, &$tsfe)
     {
-		$language = GeneralUtility::_GP('L');
+        $language = GeneralUtility::_GP('L');
         $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
 
         $languageRec = $this->getLanguageData($languageUid);
