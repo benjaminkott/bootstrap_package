@@ -11,6 +11,7 @@ namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
@@ -37,22 +38,23 @@ class SettingLanguageHook
      */
     public function preProcess(&$params, &$tsfe)
     {
-        $lPar = GeneralUtility::_GPmerged('L');
-        $languageUid = is_numeric($lPar) ? (int)$lPar : 0;
-        $language = $this->getLanguageData($languageUid);
+		$language = GeneralUtility::_GPmerged('L');
+        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
+
+        $languageRec = $this->getLanguageData($languageUid);
 
         $htmlTagParams = '';
-        if (!empty($language['hreflang'])) {
-            $htmlTagParams .= 'lang="' . $language['hreflang'] . '" ';
+        if (!empty($languageRec['hreflang'])) {
+            $htmlTagParams .= 'lang="' . $languageRec['hreflang'] . '" ';
         }
-        if (!empty($language['direction'])) {
-            $htmlTagParams .= 'dir="' . $language['direction'] . '" ';
+        if (!empty($languageRec['direction'])) {
+            $htmlTagParams .= 'dir="' . $languageRec['direction'] . '" ';
         }
         $htmlTagParams .= 'class="no-js"';
 
         $tsfe->config['config']['sys_language_uid'] = $languageUid;
-        $tsfe->config['config']['language'] = $language['language'];
-        $tsfe->config['config']['locale_all'] = $language['locale'];
+        $tsfe->config['config']['language'] = $languageRec['language'];
+        $tsfe->config['config']['locale_all'] = $languageRec['locale'];
         $tsfe->config['config']['htmlTag_setParams'] = $htmlTagParams;
     }
 
@@ -64,13 +66,17 @@ class SettingLanguageHook
      */
     public function preProcess2(&$params, &$tsfe)
     {
-        $lPar = GeneralUtility::_GPmerged('L');
-        $languageUid = is_numeric($lPar) ? (int)$lPar : 0;
-        $language = $this->getLanguageData($languageUid);
+		$language = GeneralUtility::_GPmerged('L');
+        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
 
-        echo '<pre>';
+        $languageRec = $this->getLanguageData($languageUid);
+
         echo 'L:'.$languageUid;
+        echo '<pre>';
         var_dump($language);
+        var_dump($languageUid);
+        var_dump($languageRec);
+        var_dump($tsfe->config['config']['sys_language_uid']);
         var_dump($tsfe->config['config']);
         echo '</pre>';
     }
