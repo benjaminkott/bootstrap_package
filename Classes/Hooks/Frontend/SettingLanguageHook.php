@@ -37,7 +37,8 @@ class SettingLanguageHook
      */
     public function preProcess(&$params, &$tsfe)
     {
-        $languageUid = GeneralUtility::_GPmerged('L');
+        $lPar = GeneralUtility::_GPmerged('L');
+        $languageUid = is_numeric($lPar) ? (int)$lPar : 0;
         $language = $this->getLanguageData($languageUid);
 
         $htmlTagParams = '';
@@ -63,7 +64,8 @@ class SettingLanguageHook
      */
     public function preProcess2(&$params, &$tsfe)
     {
-        $languageUid = GeneralUtility::_GPmerged('L');
+        $lPar = GeneralUtility::_GPmerged('L');
+        $languageUid = is_numeric($lPar) ? (int)$lPar : 0;
         $language = $this->getLanguageData($languageUid);
 
         echo '<pre>';
