@@ -334,5 +334,3 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['settingLanguage_preProcess'][]
     = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess';
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['settingLanguage_preProcess'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess2';

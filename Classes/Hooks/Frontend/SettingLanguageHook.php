@@ -38,7 +38,7 @@ class SettingLanguageHook
      */
     public function preProcess(&$params, &$tsfe)
     {
-		$language = GeneralUtility::_GPmerged('L');
+		$language = GeneralUtility::_GP('L');
         $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
 
         $languageRec = $this->getLanguageData($languageUid);
@@ -56,28 +56,5 @@ class SettingLanguageHook
         $tsfe->config['config']['language'] = $languageRec['language'];
         $tsfe->config['config']['locale_all'] = $languageRec['locale'];
         $tsfe->config['config']['htmlTag_setParams'] = $htmlTagParams;
-    }
-
-    /**
-     * Overrides various config settings
-     *
-     * @param array $params
-     * @param TypoScriptFrontendController $tsfe
-     */
-    public function preProcess2(&$params, &$tsfe)
-    {
-		$language = GeneralUtility::_GPmerged('L');
-        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
-
-        $languageRec = $this->getLanguageData($languageUid);
-
-        echo 'L:'.$languageUid;
-        echo '<pre>';
-        var_dump($language);
-        var_dump($languageUid);
-        var_dump($languageRec);
-        var_dump($tsfe->config['config']['sys_language_uid']);
-        var_dump($tsfe->config['config']);
-        echo '</pre>';
     }
 }
