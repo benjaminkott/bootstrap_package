@@ -3,7 +3,7 @@ Fixes # .
 ### Prerequisites
 
 * [ ] Changes have been tested on TYPO3 8.7 LTS
-* [ ] Changes have been checked for CGL compliance `php-cs-fixer fix --config-file .php_cs`
+* [ ] Changes have been checked for CGL compliance `php-cs-fixer fix`
 
 ### Description
 
