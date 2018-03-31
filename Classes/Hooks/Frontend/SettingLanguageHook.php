@@ -9,11 +9,9 @@
 
 namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
-use TYPO3\CMS\Core\TypoScript\TemplateService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\PathUtility;
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
  * SettingLanguageHook
@@ -33,7 +31,7 @@ class SettingLanguageHook
 
     /**
      * Overrides various config settings
-     * 
+     *
      * @param array $params
      * @param TypoScriptFrontendController $tsfe
      */
@@ -51,7 +49,7 @@ class SettingLanguageHook
         }
         $htmlTagParams .= 'class="no-js"';
 
-        $tsfe->config['config']['sys_language_uid'] = $languageUid;        
+        $tsfe->config['config']['sys_language_uid'] = $languageUid;
         $tsfe->config['config']['language'] = $language[$languageUid]['language'];
         $tsfe->config['config']['locale_all'] = $language[$languageUid]['locale'];
         $tsfe->config['config']['htmlTag_setParams'] = $htmlTagParams;

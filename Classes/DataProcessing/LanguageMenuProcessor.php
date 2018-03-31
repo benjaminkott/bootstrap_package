@@ -9,13 +9,8 @@
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use TYPO3\CMS\Frontend\DataProcessing\MenuProcessor;
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use TYPO3\CMS\Frontend\DataProcessing\MenuProcessor;
 
 /**
  * This menu processor utilizes HMENU to generate a json encoded menu
@@ -139,7 +134,7 @@ class LanguageMenuProcessor extends MenuProcessor
             unset($this->menuLevelConfig['stdWrap.']['cObject.']['20.']);
             unset($this->menuLevelConfig['stdWrap.']['cObject.']['70.']['value']);
             unset($this->menuLevelConfig['stdWrap.']['cObject.']['70.']['listNum.']);
-    
+
             $this->menuLevelConfig['stdWrap.']['cObject.'] = [
                 '1' => 'LOAD_REGISTER',
                 '1.' => [
