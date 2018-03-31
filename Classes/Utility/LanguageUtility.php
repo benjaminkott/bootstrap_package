@@ -52,17 +52,49 @@ class LanguageUtility
 
         if ($languageData === null || !isset($languageData[$languageUid])) {
             if ((is_numeric($languageUid)) && $languageUid > 0) {
-                static $queryBuilder = null;
+                static $hasSites = null;
 
-                if ($queryBuilder === null) {
-                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+                if ($hasSites === null) {
+                    $hasSites = ExtensionManagementUtility::isLoaded('sites');
                 }
 
-                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
-                    ->from('sys_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                    ->execute()
-                    ->fetch();
+                static $queryBuilder = null;
+
+                if ($hasSites) {
+                    if ($queryBuilder === null) {
+                        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
+                    }
+
+                    $language = null;
+                    /*
+                    $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                        ->from('sys_site_language')
+                        ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                        ->execute()
+                        ->fetch();
+
+                    if (is_array($language)) {
+                        // Fetch default language    
+                        $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                            ->from('sys_site_language')
+                            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                            ->execute()
+                            ->fetch();
+                    }
+                    */
+                }
+                else
+                {
+                    if ($queryBuilder === null) {
+                        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+                    }
+
+                    $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                        ->from('sys_language')
+                        ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                        ->execute()
+                        ->fetch();
+                }
 
                 if (is_array($language)) {
                     $languageData[$languageUid] = $language;
