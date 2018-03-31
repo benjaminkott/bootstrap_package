@@ -332,5 +332,7 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  * Register setting language hook to dynamically add language config to
  * TypoScript Setup
  */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.tslib_fe.php']['settingLanguage_preProcess'][]
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['settingLanguage_preProcess'][]
     = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['settingLanguage_preProcess'][]
+    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\SettingLanguageHook->preProcess2';
