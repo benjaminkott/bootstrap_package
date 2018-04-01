@@ -15,9 +15,9 @@ use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
- * ConfigArrayHook
+ * DetermineIdHook
  */
-class ConfigArrayHook
+class DetermineIdHook
 {
     const SYS_LANGUAGE_UID_PLACEHOLDER = '###SYSLANGUAGEUIDPLACEHOLDER###';
     const LANGUAGE_PLACEHOLDER = '###LANGUAGEPLACEHOLDER###';
