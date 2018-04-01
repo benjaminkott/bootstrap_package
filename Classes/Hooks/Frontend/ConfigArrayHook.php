@@ -36,7 +36,7 @@ class ConfigArrayHook
      * @param array $params
      * @param TypoScriptFrontendController $tsfe
      */
-    public function postProc(&$params, &$tsfe)
+    protected function updateConfig(&$params, &$tsfe)
     {
         $language = GeneralUtility::_GP('L');
         $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
@@ -52,16 +52,62 @@ class ConfigArrayHook
         }
         $htmlTagParams .= 'class="no-js"';
 
+        /*
         echo '<pre>';
         var_dump($params);
+        */
 
-        $params['config']['sys_language_uid'] = $languageUid;
-        $params['config']['language'] = $languageRec['language'];
-        $params['config']['locale_all'] = $languageRec['locale'];
-        $params['config']['htmlTag_setParams'] = $htmlTagParams;
+        $params['sys_language_uid'] = $languageUid;
+        $params['language'] = $languageRec['language'];
+        $params['locale_all'] = $languageRec['locale'];
+        $params['htmlTag_setParams'] = $htmlTagParams;
 
+        /*
         echo '<br>';
         var_dump($params);
+        echo '</pre>';
+        */
+    }
+
+    /**
+     * Overrides various config settings
+     *
+     * @param array $params
+     * @param TypoScriptFrontendController $tsfe
+     */
+    public function manipulateCacheConfig(&$params, &$tsfe)
+    {
+        $_params = &$params['cache_pages_row']['cache_data'];
+
+        echo '<pre>';
+        echo 'manipulateCacheConfig<br>';
+        var_dump($_params);
+
+        $this->updateConfig($_params, $tsfe);
+
+        echo '<hr>';
+        var_dump($_params);
+        echo '</pre>';
+    }
+
+    /**
+     * Overrides various config settings
+     *
+     * @param array $params
+     * @param TypoScriptFrontendController $tsfe
+     */
+    public function manipulateConfig(&$params, &$tsfe)
+    {
+        $_params = &$params['config'];
+
+        echo '<pre>';
+        echo 'manipulateCacheConfig<br>';
+        var_dump($_params);
+
+        $this->updateConfig($_params, $tsfe);
+
+        echo '<hr>';
+        var_dump($_params);
         echo '</pre>';
     }
 }
