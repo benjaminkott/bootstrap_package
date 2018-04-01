@@ -57,10 +57,10 @@ class ConfigArrayHook
         var_dump($params);
         */
 
-        $params['sys_language_uid'] = $languageUid;
-        $params['language'] = $languageRec['language'];
-        $params['locale_all'] = $languageRec['locale'];
-        $params['htmlTag_setParams'] = $htmlTagParams;
+        $params['config']['sys_language_uid'] = $languageUid;
+        $params['config']['language'] = $languageRec['language'];
+        $params['config']['locale_all'] = $languageRec['locale'];
+        $params['config']['htmlTag_setParams'] = $htmlTagParams;
 
         /*
         echo '<br>';
@@ -98,10 +98,10 @@ class ConfigArrayHook
      */
     public function manipulateConfig(&$params, &$tsfe)
     {
-        $_params = &$params['config'];
+        $_params = &$params;
 
         echo '<pre>';
-        echo 'manipulateCacheConfig<br>';
+        echo 'manipulateConfig<br>';
         var_dump($_params);
 
         $this->updateConfig($_params, $tsfe);
