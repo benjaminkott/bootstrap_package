@@ -538,3 +538,12 @@ config {
     concatenateJs = {$config.concatenateJs}
     concatenateCss = {$config.concatenateCss}
 }
+
+
+###################################
+#### BEGIN LANGUAGE CONDITIONS ####
+###################################
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3temp/assets/bootstrappackage/tssetup_language_conditions.typoscript">
+###################################
+#### END LANGUAGE CONDITIONS   ####
+###################################

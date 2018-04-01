@@ -19,6 +19,41 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  */
 class ConfigArrayHook
 {
+    const SYS_LANGUAGE_UID_PLACEHOLDER = '###SYSLANGUAGEUIDPLACEHOLDER###';
+    const LANGUAGE_PLACEHOLDER = '###LANGUAGEPLACEHOLDER###';
+    const LOCALE_PLACEHOLDER = '###LOCALEPLACEHOLDER###';
+    const HREF_LANG_PLACEHOLDER = '###HREFLANGPLACEHOLDER###';
+    const DIRECTION_PLACEHOLDER = '###DIRECTIONPLACEHOLDER###';
+
+    /**
+     * @var string
+     */
+    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/';
+
+    /**
+     * @var array
+     */
+    protected $includeHeader = [];
+
+    /**
+     * @var array
+     */
+    protected $includeContent = [
+        '[globalVar = GP:L = ###SYSLANGUAGEUIDPLACEHOLDER###]',
+        'config {',
+        '    sys_language_uid = ###SYSLANGUAGEUIDPLACEHOLDER###',
+        '    language = ###LANGUAGEPLACEHOLDER###',
+        '    locale_all = ###LOCALEPLACEHOLDER###',
+        '    htmlTag_setParams = lang="###HREFLANGPLACEHOLDER###" dir="###DIRECTIONPLACEHOLDER###" class="no-js"',
+        '}',
+        '[global]'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $includeFooter = [];
+
     /**
      * Gets the language data for the languageUid
      *
@@ -109,5 +144,34 @@ class ConfigArrayHook
         echo '<hr>';
         var_dump($_params);
         echo '</pre>';
+    }
+
+    /**
+     * Overrides various config settings
+     *
+     * @param array $params
+     * @param TypoScriptFrontendController $tsfe
+     */
+    public function createTSSetupInclude(&$params, &$tsfe)
+    {
+        /* $_params = ['pObj' => &$this]; */
+
+        $language = GeneralUtility::_GP('L');
+        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
+
+        $languageRec = $this->getLanguageData($languageUid);
+
+        $includeFile = implode(LF, $includeHeader + $includeContentHeader + $includeFooterHeader);
+
+        $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $link, $languageUid);
+        $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $link, $languageRec['language']);
+        $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $link, $languageRec['locale']);
+        $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $link, $languageRec['hreflang']);
+        $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $link, $languageRec['direction']);
+
+        GeneralUtility::writeFileToTypo3tempDir(
+            PATH_site . $this->tempDirectory . 'tssetup_language_conditions.typoscript',
+            $includeFile . LF
+        );
     }
 }
