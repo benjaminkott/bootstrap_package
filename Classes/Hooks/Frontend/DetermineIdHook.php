@@ -155,23 +155,26 @@ class DetermineIdHook
     public function createTSSetupInclude(&$params, &$tsfe)
     {
         /* $_params = ['pObj' => &$this]; */
+        $filepath = PATH_site . $this->tempDirectory . 'tssetup_language_conditions.typoscript';
 
-        $language = GeneralUtility::_GP('L');
-        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
+        if (!@is_file($filepath)) {
+            $language = GeneralUtility::_GP('L');
+            $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
 
-        $languageRec = $this->getLanguageData($languageUid);
+            $languageRec = $this->getLanguageData($languageUid);
 
-        $includeFile = implode(LF, $includeHeader + $includeContentHeader + $includeFooterHeader);
+            $includeFile = implode(LF, $includeHeader + $includeContentHeader + $includeFooterHeader);
 
-        $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $link, $languageUid);
-        $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $link, $languageRec['language']);
-        $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $link, $languageRec['locale']);
-        $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $link, $languageRec['hreflang']);
-        $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $link, $languageRec['direction']);
+            $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $link, $languageUid);
+            $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $link, $languageRec['language']);
+            $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $link, $languageRec['locale']);
+            $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $link, $languageRec['hreflang']);
+            $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $link, $languageRec['direction']);
 
-        GeneralUtility::writeFileToTypo3tempDir(
-            PATH_site . $this->tempDirectory . 'tssetup_language_conditions.typoscript',
-            $includeFile . LF
-        );
+            GeneralUtility::writeFileToTypo3tempDir(
+                $filepath,
+                $includeFile . LF
+            );
+        }
     }
 }
