@@ -147,7 +147,7 @@ class DetermineIdHook
     }
 
     /**
-     * Overrides various config settings
+     * Create TS language conditions include file if not exists
      *
      * @param array $params
      * @param TypoScriptFrontendController $tsfe
@@ -161,15 +161,20 @@ class DetermineIdHook
             $language = GeneralUtility::_GP('L');
             $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
 
-            $languageRec = $this->getLanguageData($languageUid);
+            $includeFile = implode(LF, $this->includeHeader);
 
-            $includeFile = implode(LF, $includeHeader + $includeContentHeader + $includeFooterHeader);
+            $languages = LanguageUtility::getLanguages();
+            foreach ($languages as $languageRec => $languageUid) {
+                $includeFile .= implode(LF, $this->includeContent);
 
-            $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $link, $languageUid);
-            $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $link, $languageRec['language']);
-            $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $link, $languageRec['locale']);
-            $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $link, $languageRec['hreflang']);
-            $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $link, $languageRec['direction']);
+                $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $includeFile);
+                $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $includeFile);
+                $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $includeFile);
+                $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $includeFile);
+                $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $includeFile);
+            }
+
+            $includeFile .= implode(LF, $this->includeFooter);
 
             GeneralUtility::writeFileToTypo3tempDir(
                 $filepath,

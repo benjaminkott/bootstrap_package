@@ -19,6 +19,18 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class LanguageUtility
 {
     /**
+     * @var array
+     */
+    public static $languageDefaults = [
+        'title' => '',
+        'localized_title' => '',
+        'language' => '',
+        'locale' => '',
+        'hreflang' => '',
+        'direction' => ''
+    ];
+
+    /**
      * Gets the value of a TS constant
      *
      * @param int $key
@@ -27,17 +39,58 @@ class LanguageUtility
     protected static function getConstantValue($key)
     {
         $result = '';
+
         if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
             || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
             || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
             $GLOBALS['TSFE']->tmpl->generateConfig();
         }
+
         foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
             if (strpos($constant, $key) === 0) {
                 $result = $value;
                 break;
             }
         }
+
+        return $result;
+    }
+
+    /**
+     * Extract the language data from the row or constants
+     *
+     * @param int $languageUid
+     * @param array $row
+     * @return array|null Sanitized language data
+     */
+    protected static function extractLanguageData($languageUid, $row)
+    {
+        $result = [];
+
+        if (is_numeric($languageUid)) {
+            // todo: handling with sites will be a little bit different, everything is stored in sys_sites_language
+            if (is_array($row) && $languageUid > 0) {
+                // Load language from row
+                $result['title'] = $row['title'];
+            } else {
+                // Load default language from constants
+                $result['title'] = self::getConstantValue('page.theme.language.defaultTitle');
+                $result['localized_title'] = self::getConstantValue('page.theme.language.defaultLocalizedTitle');
+                $result['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
+                $result['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
+                $result['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
+                $result['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
+            }
+
+            // Take localized title from title if not set
+            if (empty($result['localized_title'])) {
+                $result['localized_title'] = $result['title'];
+            }
+
+            // Sanitize array
+            $result = array_replace_recursive(self::$languageDefaults, $result);
+        }
+
         return $result;
     }
 
@@ -45,14 +98,23 @@ class LanguageUtility
      * Gets the language data for the languageUid
      *
      * @param int $languageUid
-     * @return string JSON encoded data
+     * @return array JSON encoded data
      */
-    public static function getLanguageData($languageUid)
+    public static function getLanguage($languageUid)
     {
-        static $languageData = null;
+        if (!is_numeric($languageUid) || $languageUid < 0) {
+            throw new \InvalidArgumentException('$languageUid must be a positive integer.', 1522602868);
+        }
 
-        if ($languageData === null || !isset($languageData[$languageUid])) {
-            if ((is_numeric($languageUid)) && $languageUid > 0) {
+        // Cache languages data for later calls
+        static $languageCache = null;
+
+        if ($languageCache === null || !isset($languageCache[$languageUid])) {
+            $languageRow = null;
+
+            // Prepare and fetch from Database
+            if ($languageUid > 0) {
+                // Cache state for later calls
                 static $hasSites = null;
 
                 if ($hasSites === null) {
@@ -66,54 +128,72 @@ class LanguageUtility
                         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
                     }
 
-                    $language = null;
-                /*
-                $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
-                    ->from('sys_site_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                    ->execute()
-                    ->fetch();
-
-                if (is_array($language)) {
-                    // Fetch default language
-                    $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    // todo: verify query
+                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
                         ->from('sys_site_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
                         ->fetch();
-                }
-                */
                 } else {
                     if ($queryBuilder === null) {
                         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                     }
 
-                    $language = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
                         ->from('sys_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
                         ->fetch();
                 }
-
-                if (is_array($language)) {
-                    $languageData[$languageUid] = $language;
-                }
             }
 
-            if (!isset($languageData[$languageUid])) {
-                $languageData[$languageUid]['title'] = self::getConstantValue('page.theme.language.defaultTitle');
-                $languageData[$languageUid]['localized_title'] = self::getConstantValue('page.theme.language.defaultLocalizedTitle');
-                $languageData[$languageUid]['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
-                $languageData[$languageUid]['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
-                $languageData[$languageUid]['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
-                $languageData[$languageUid]['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
+            $languageCache[$languageUid] = self::extractLanguageData($languageUid, $languageRow);
+        }
+
+        return $languageCache[$languageUid];
+    }
+
+    /**
+     * Gets the language data for the languageUid
+     *
+     * @param int $languageUid
+     * @return array JSON encoded data
+     */
+    public static function getLanguages()
+    {
+        // Cache languages data for later calls
+        static $languageCache = null;
+
+        if ($languageCache === null) {
+            $languageRows = null;
+
+            if (ExtensionManagementUtility::isLoaded('sites')) {
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
+
+                $languageRows = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    ->from('sys_site_language')
+                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                    ->execute()
+                    ->fetchAll();
+            } else {
+                // Fetch default language
+                $languageCache[0] = self::getLanguage(0);
+
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+
+                $languageRows = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    ->from('sys_language')
+                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                    ->execute()
+                    ->fetchAll();
             }
 
-            if (empty($languageData[$languageUid]['localized_title'])) {
-                $languageData[$languageUid]['localized_title'] = $languageData[$languageUid]['title'];
+            foreach ($languageRows as $languageRow) {
+                $languageCache[$languageRow['uid']] = self::extractLanguageData($languageRow['uid'], $languageRow);
+                unset($languageCache[$languageRow['uid']]['uid']);
             }
         }
 
-        return $languageData[$languageUid];
+        return $languageCache;
     }
 }
