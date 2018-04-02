@@ -220,7 +220,7 @@ class LanguageUtility
             }
 
             while ($row = $statement->fetch()) {
-                $languageListCache .= (empty($languageListCache) ? '' : ',') . self::extractLanguageData($row['uid'], $row);
+                $languageListCache .= (empty($languageListCache) ? '' : ',') . $row['uid'];
             }
         }
 

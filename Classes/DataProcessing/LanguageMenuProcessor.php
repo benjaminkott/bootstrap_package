@@ -304,9 +304,11 @@ class LanguageMenuProcessor implements DataProcessorInterface
         // Support of stdWrap for parameters
         if (isset($conf['language.'])) {
             $conf['language'] = $this->cObj->stdWrap($conf['language'], $conf['language.']);
+            unset($conf['language.']);
         }
         if (isset($conf['field.'])) {
             $conf['field'] = $this->cObj->stdWrap($conf['field'], $conf['field.']);
+            unset($conf['field.']);
         }
 
         if (isset($conf['language']) && isset($conf['field'])) {
