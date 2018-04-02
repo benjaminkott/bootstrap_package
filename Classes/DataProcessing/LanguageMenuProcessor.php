@@ -114,8 +114,11 @@ class LanguageMenuProcessor implements DataProcessorInterface
      * @var array
      */
     protected $menuConfig = [
-        'wrap' => '[|]',
-        'special' => 'language'
+        'special' => 'language',
+        'special.' => [
+            'value' => '' // Will be set by prepareConfiguration
+        ],
+        'wrap' => '[|]'
     ];
 
     /**
@@ -330,7 +333,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
             }
         }
         if (!empty($invalidArguments)) {
-            throw new \InvalidArgumentException('MenuProcessor Configuration contains invalid Arguments: ' . implode(', ', $invalidArguments), 1478806566);
+            throw new \InvalidArgumentException('LanguageMenuProcessor Configuration contains invalid Arguments: ' . implode(', ', $invalidArguments), 1478806566);
         }
     }
 
@@ -364,22 +367,16 @@ class LanguageMenuProcessor implements DataProcessorInterface
     public function buildConfiguration()
     {
         $this->menuConfig['1'] = 'TMENU';
-        $this->menuConfig['1.']['IProcFunc'] = 'TYPO3\CMS\Frontend\DataProcessing\MenuProcessor->replacePlaceholderInRenderedMenuItem';
+        $this->menuConfig['1.']['IProcFunc'] = 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->replacePlaceholderInRenderedMenuItem';
         $this->menuConfig['1.']['alternativeSortingField'] = $this->menuAlternativeSortingField;
         $this->menuConfig['1.']['NO'] = '1';
         $this->menuConfig['1.']['NO.'] = $this->menuLevelConfig;
-        $this->menuConfig['1.']['IFSUB'] = '1';
-        $this->menuConfig['1.']['IFSUB.'] = $this->menuConfig['1.']['NO.'];
         $this->menuConfig['1.']['ACT'] = '1';
         $this->menuConfig['1.']['ACT.'] = $this->menuConfig['1.']['NO.'];
         $this->menuConfig['1.']['ACT.']['stdWrap.']['cObject.']['30.']['value'] = '1';
-        $this->menuConfig['1.']['ACTIFSUB'] = '1';
-        $this->menuConfig['1.']['ACTIFSUB.'] = $this->menuConfig['1.']['ACT.'];
         $this->menuConfig['1.']['CUR'] = '1';
         $this->menuConfig['1.']['CUR.'] = $this->menuConfig['1.']['ACT.'];
         $this->menuConfig['1.']['CUR.']['stdWrap.']['cObject.']['40.']['value'] = '1';
-        $this->menuConfig['1.']['CURIFSUB'] = '1';
-        $this->menuConfig['1.']['CURIFSUB.'] = $this->menuConfig['1.']['CUR.'];
         $this->menuConfig['1.']['USERDEF1'] = $this->menuConfig['1.']['NO'];
         $this->menuConfig['1.']['USERDEF1.'] = $this->menuConfig['1.']['NO.'];
         $this->menuConfig['1.']['USERDEF1.']['stdWrap.']['cObject.']['50.']['value'] = '0';
