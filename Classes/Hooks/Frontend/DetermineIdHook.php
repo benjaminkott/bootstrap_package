@@ -163,7 +163,7 @@ class DetermineIdHook
 
             $languageRec = $this->getLanguageData($languageUid);
 
-            $includeFile = implode(LF, $includeHeader + $includeContentHeader + $includeFooterHeader);
+            $includeFile = implode(LF, $this->includeHeader + $this->includeContent + $this->includeFooter);
 
             $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $link, $languageUid);
             $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $link, $languageRec['language']);
