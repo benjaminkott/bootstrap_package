@@ -61,7 +61,7 @@ class LanguageUtility
      *
      * @param int $languageUid
      * @param array $row
-     * @return array|null Sanitized language data
+     * @return array Sanitized language data
      */
     protected static function extractLanguageData($languageUid, $row)
     {
@@ -71,7 +71,7 @@ class LanguageUtility
             // todo: handling with sites will be a little bit different, everything is stored in sys_sites_language
             if (is_array($row) && $languageUid > 0) {
                 // Load language from row
-                $result['title'] = $row['title'];
+                $result = $row;
             } else {
                 // Load default language from constants
                 $result['title'] = self::getConstantValue('page.theme.language.defaultTitle');
@@ -88,7 +88,7 @@ class LanguageUtility
             }
 
             // Sanitize array
-            $result = array_replace_recursive(self::$languageDefaults, $result);
+            //$result = array_replace_recursive(self::$languageDefaults, $result);
         }
 
         return $result;

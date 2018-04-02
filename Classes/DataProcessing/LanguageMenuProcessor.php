@@ -345,22 +345,19 @@ class LanguageMenuProcessor implements DataProcessorInterface
     public function prepareConfiguration()
     {
         $this->menuConfig += $this->processorConfiguration;
+        // Process languages
+        if (!isset($this->menuConfig['languages']) && !isset($this->menuConfig['languages.'])) {
+            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList();
+        } elseif (isset($this->menuConfig['languages.'])) {
+            $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
+        }
+        $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
         // Filter configuration
         foreach ($this->menuConfig as $key => $value) {
             if (in_array($key, $this->removeConfigurationKeysForHmenu)) {
                 unset($this->menuConfig[$key]);
             }
         }
-        // Process languages
-        if (!isset($this->menuConfig['languages']) && !isset($this->menuConfig['languages.'])) {
-            $this->menuConfig['languages'] = LanguageUtility::getLanguageList();
-        } elseif (isset($this->menuConfig['languages.'])) {
-            $this->menuConfig['languages'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
-            unset($this->menuConfig['languages.']);
-        }
-        $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
-        $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['languages'];
-        unset($this->menuConfig['languages']);
     }
 
     /**
