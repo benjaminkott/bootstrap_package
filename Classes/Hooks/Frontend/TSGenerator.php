@@ -65,7 +65,7 @@ class TSGenerator
 
         if (!@is_file($filepath)) {
             $content = implode(LF, $this->includeHeader);
-            $languages = LanguageUtility::getLanguages();
+            $languages = LanguageUtility::getLanguageRows();
 
             foreach ($languages as $languageRec => $languageUid) {
                 $content .= implode(LF, $this->includeContent);

@@ -112,7 +112,7 @@ class LanguageUtility
         if ($languageCache === null || !isset($languageCache[$languageUid])) {
             $languageRow = null;
 
-            // Prepare and fetch from Database
+            // Prepare and fetch from database
             if ($languageUid > 0) {
                 // Cache state for later calls
                 static $hasSites = null;
@@ -151,6 +151,47 @@ class LanguageUtility
         }
 
         return $languageCache[$languageUid];
+    }
+
+    /**
+     * Returns the language data for all languages
+     *
+     * @return array
+     */
+    public static function getLanguageRows()
+    {
+        // Cache languages data for later calls
+        static $languagesCache = null;
+
+        if ($languagesCache === null) {
+            // Prepare and fetch from database
+            if (ExtensionManagementUtility::isLoaded('sites')) {
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
+
+                // todo: verify query
+                $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                    ->from('sys_site_language')
+                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                    ->execute();
+            } else {
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+
+                // Set default language
+                $languagesCache[0] = self::extractLanguageData(0, null);
+
+                $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                    ->from('sys_language')
+                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
+                    ->execute();
+            }
+
+            while ($row = $statement->fetch()) {
+                // Do something with that single row
+                $languagesCache[$row['uid']] = self::extractLanguageData($row['uid'], $row);
+            }
+        }
+
+        return $languagesCache;
     }
 
     /**
