@@ -40,7 +40,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *   }
  * }
  */
-class LanguageMenuProcessor extends DataProcessorInterface
+class LanguageMenuProcessor implements DataProcessorInterface
 {
     const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
     const TARGET_PLACEHOLDER = '###TARGETPLACEHOLDER###';
