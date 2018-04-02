@@ -14,9 +14,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
- * DetermineIdHook
+ * TSGenerator
  */
-class DetermineIdHook
+class TSGenerator
 {
     const SYS_LANGUAGE_UID_PLACEHOLDER = '###SYSLANGUAGEUIDPLACEHOLDER###';
     const LANGUAGE_PLACEHOLDER = '###LANGUAGEPLACEHOLDER###';

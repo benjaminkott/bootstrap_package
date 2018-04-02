@@ -332,12 +332,5 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  * Register determineId hook to dynamically create a include with the language
  * config conditions for TypoScript Setup
  */
-/*
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['determineId-PostProc'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\DetermineIdHook->createTSSetupInclude';
-/*
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['pageLoadedFromCache'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\ConfigArrayHook->manipulateCacheConfig';
-*/
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['configArrayPostProc'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\DetermineIdHook->createTSSetupInclude';
+    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TSGenerator->createTSSetupInclude';
