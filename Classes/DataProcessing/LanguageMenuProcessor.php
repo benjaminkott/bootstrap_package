@@ -68,10 +68,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
      */
     public $allowedConfigurationKeys = [
         'cache_period',
-        'entryLevel',
-        'entryLevel.',
-        'special',
-        'special.',
         'minItems',
         'minItems.',
         'maxItems',
@@ -83,7 +79,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
         'excludeUidList',
         'excludeUidList.',
         'excludeDoktypes',
-        'includeNotInMenu',
         'alwaysActivePIDlist',
         'alwaysActivePIDlist.',
         'protectLvar',
