@@ -10,7 +10,9 @@
 namespace BK2K\BootstrapPackage\DataProcessing;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
-use TYPO3\CMS\Frontend\DataProcessing\MenuProcessor;
+use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
  * This menu processor utilizes HMENU to generate a json encoded menu
