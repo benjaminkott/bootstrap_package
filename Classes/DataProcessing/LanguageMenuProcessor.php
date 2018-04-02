@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\DataProcessing;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -102,8 +103,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
      * @var array
      */
     public $removeConfigurationKeysForHmenu = [
-        'language',
-        'language.',
+        'languages',
+        'languages.',
         'as',
         'dataProcessing',
         'dataProcessing.'
@@ -113,7 +114,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
      * @var array
      */
     protected $menuConfig = [
-        'wrap' => '[|]'
+        'wrap' => '[|]',
+        'special' => 'language'
     ];
 
     /**
@@ -351,9 +353,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $this->menuConfig['languages'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
             unset($this->menuConfig['languages.']);
         }
-        $this->menuConfig['special'] = 'language';
         $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['languages'];
+        unset($this->menuConfig['languages']);
     }
 
     /**

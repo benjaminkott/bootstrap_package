@@ -129,7 +129,7 @@ class LanguageUtility
                     }
 
                     // todo: verify query
-                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                    $languageRow = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                         ->from('sys_site_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
@@ -139,7 +139,7 @@ class LanguageUtility
                         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                     }
 
-                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                    $languageRow = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                         ->from('sys_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
@@ -171,7 +171,6 @@ class LanguageUtility
                 // todo: verify query
                 $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                     ->from('sys_site_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute();
             } else {
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
@@ -181,12 +180,10 @@ class LanguageUtility
 
                 $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                     ->from('sys_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute();
             }
 
             while ($row = $statement->fetch()) {
-                // Do something with that single row
                 $languagesCache[$row['uid']] = self::extractLanguageData($row['uid'], $row);
             }
         }
@@ -205,35 +202,25 @@ class LanguageUtility
         static $languageListCache = null;
 
         if ($languageListCache === null) {
-            $languageRows = null;
-
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $languageListCache = '';
 
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
-
-                $languageRows = $queryBuilder->select('uid')
+                $statement = $queryBuilder->select('uid')
                     ->from('sys_site_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                    ->execute()
-                    ->fetchAll();
+                    ->execute();
             } else {
                 // Set default language
                 $languageListCache = '0';
 
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-
-                $languageRows = $queryBuilder->select('uid')
+                $statement = $queryBuilder->select('uid')
                     ->from('sys_language')
-                    ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                    ->execute()
-                    ->fetchAll();
+                    ->execute();
             }
 
-            if (is_array($languageRows)) {
-                foreach ($languageRows as $languageRow) {
-                    $languageListCache .= empty($languageListCache) ? '' : ',' . self::extractLanguageData($languageRow['uid'], $languageRow);
-                }
+            while ($row = $statement->fetch()) {
+                $languageListCache .= (empty($languageListCache) ? '' : ',') . self::extractLanguageData($row['uid'], $row);
             }
         }
 
