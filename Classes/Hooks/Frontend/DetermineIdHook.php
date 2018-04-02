@@ -39,12 +39,12 @@ class DetermineIdHook
      * @var array
      */
     protected $includeContent = [
-        '[globalVar = GP:L = ###SYSLANGUAGEUIDPLACEHOLDER###]',
+        '[globalVar = GP:L = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER . ']',
         'config {',
-        '    sys_language_uid = ###SYSLANGUAGEUIDPLACEHOLDER###',
-        '    language = ###LANGUAGEPLACEHOLDER###',
-        '    locale_all = ###LOCALEPLACEHOLDER###',
-        '    htmlTag_setParams = lang="###HREFLANGPLACEHOLDER###" dir="###DIRECTIONPLACEHOLDER###" class="no-js"',
+        '    sys_language_uid = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER,
+        '    language = ' . self::LANGUAGE_PLACEHOLDER,
+        '    locale_all = ' . self::LOCALE_PLACEHOLDER,
+        '    htmlTag_setParams = lang="' . self::HREF_LANG_PLACEHOLDER . '" dir="' . self::DIRECTION_PLACEHOLDER . '" class="no-js"',
         '}',
         '[global]'
     ];
@@ -55,98 +55,6 @@ class DetermineIdHook
     protected $includeFooter = [];
 
     /**
-     * Gets the language data for the languageUid
-     *
-     * @param int $languageUid
-     * @return string JSON encoded data
-     */
-    protected function getLanguageData($languageUid)
-    {
-        return LanguageUtility::getLanguageData($languageUid);
-    }
-
-    /**
-     * Overrides various config settings
-     *
-     * @param array $params
-     * @param TypoScriptFrontendController $tsfe
-     */
-    protected function updateConfig(&$params, &$tsfe)
-    {
-        $language = GeneralUtility::_GP('L');
-        $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
-
-        $languageRec = $this->getLanguageData($languageUid);
-
-        $htmlTagParams = '';
-        if (!empty($languageRec['hreflang'])) {
-            $htmlTagParams .= 'lang="' . $languageRec['hreflang'] . '" ';
-        }
-        if (!empty($languageRec['direction'])) {
-            $htmlTagParams .= 'dir="' . $languageRec['direction'] . '" ';
-        }
-        $htmlTagParams .= 'class="no-js"';
-
-        /*
-        echo '<pre>';
-        var_dump($params);
-        */
-
-        $params['config']['sys_language_uid'] = $languageUid;
-        $params['config']['language'] = $languageRec['language'];
-        $params['config']['locale_all'] = $languageRec['locale'];
-        $params['config']['htmlTag_setParams'] = $htmlTagParams;
-
-        /*
-        echo '<br>';
-        var_dump($params);
-        echo '</pre>';
-        */
-    }
-
-    /**
-     * Overrides various config settings
-     *
-     * @param array $params
-     * @param TypoScriptFrontendController $tsfe
-     */
-    public function manipulateCacheConfig(&$params, &$tsfe)
-    {
-        $_params = &$params['cache_pages_row']['cache_data'];
-
-        echo '<pre>';
-        echo 'manipulateCacheConfig<br>';
-        var_dump($_params);
-
-        $this->updateConfig($_params, $tsfe);
-
-        echo '<hr>';
-        var_dump($_params);
-        echo '</pre>';
-    }
-
-    /**
-     * Overrides various config settings
-     *
-     * @param array $params
-     * @param TypoScriptFrontendController $tsfe
-     */
-    public function manipulateConfig(&$params, &$tsfe)
-    {
-        $_params = &$params;
-
-        echo '<pre>';
-        echo 'manipulateConfig<br>';
-        var_dump($_params);
-
-        $this->updateConfig($_params, $tsfe);
-
-        echo '<hr>';
-        var_dump($_params);
-        echo '</pre>';
-    }
-
-    /**
      * Create TS language conditions include file if not exists
      *
      * @param array $params
@@ -154,31 +62,27 @@ class DetermineIdHook
      */
     public function createTSSetupInclude(&$params, &$tsfe)
     {
-        /* $_params = ['pObj' => &$this]; */
-        $filepath = PATH_site . $this->tempDirectory . 'tssetup_language_conditions.typoscript';
+        $filepath = PATH_site . $this->tempDirectory . 'setup_language_conditions.typoscript';
 
         if (!@is_file($filepath)) {
-            $language = GeneralUtility::_GP('L');
-            $languageUid = (MathUtility::canBeInterpretedAsInteger($language)) ? (int)$language : 0;
-
-            $includeFile = implode(LF, $this->includeHeader);
-
+            $content = implode(LF, $this->includeHeader);
             $languages = LanguageUtility::getLanguages();
-            foreach ($languages as $languageRec => $languageUid) {
-                $includeFile .= implode(LF, $this->includeContent);
 
-                $includeFile = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $includeFile);
-                $includeFile = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $includeFile);
-                $includeFile = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $includeFile);
-                $includeFile = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $includeFile);
-                $includeFile = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $includeFile);
+            foreach ($languages as $languageRec => $languageUid) {
+                $content .= implode(LF, $this->includeContent);
+
+                $content = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $content);
+                $content = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $content);
+                $content = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $content);
+                $content = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $content);
+                $content = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $content);
             }
 
-            $includeFile .= implode(LF, $this->includeFooter);
+            $content .= implode(LF, $this->includeFooter);
 
             GeneralUtility::writeFileToTypo3tempDir(
                 $filepath,
-                $includeFile . LF
+                $content . LF
             );
         }
     }

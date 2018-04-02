@@ -100,6 +100,8 @@ class LanguageMenuProcessor extends DataProcessorInterface
      * @var array
      */
     public $removeConfigurationKeysForHmenu = [
+        'language',
+        'language.',
         'as',
         'dataProcessing',
         'dataProcessing.'
@@ -292,7 +294,7 @@ class LanguageMenuProcessor extends DataProcessorInterface
     {
         $result = '';
 
-        // Support of stdWrap
+        // Support of stdWrap for parameters
         if (isset($conf['language.'])) {
             $conf['language'] = $this->cObj->stdWrap($conf['language'], $conf['language.']);
         }
@@ -301,10 +303,10 @@ class LanguageMenuProcessor extends DataProcessorInterface
         }
 
         if (isset($conf['language']) && isset($conf['field'])) {
-            $row = LanguageUtility::getLanguage($conf['language']);
+            $row = LanguageUtility::getLanguageRow($conf['language']);
             if (isset($row[$conf['field']])) {
                 $result = $this->jsonEncode($row[$conf['field']]);
-            } 
+            }
         }
 
         return $result;
@@ -342,31 +344,13 @@ class LanguageMenuProcessor extends DataProcessorInterface
         }
         // Process languages
         if (!isset($this->menuConfig['languages']) && !isset($this->menuConfig['languages.'])) {
-            // todo: add sites support
-            $this->menuConfig['languages.'] = [
-                'cObject' => 'COA',
-                'cObject.' => [
-                    'wrap' => '0|',
-                    '10' => 'CONTENT',
-                    '10.' => [
-                        'table' => 'sys_language',
-                        'select.' => [
-                            'pidInList' => 'root',
-                            'orderBy' => 'sorting'
-                        ],
-                        'renderObj' => 'TEXT',
-                        'renderObj.' => [
-                            'wrap' => ',|',
-                            'field' => 'uid'
-                        ]
-                    ]
-                ]
-            ];
-        }
-        if (isset($this->menuConfig['languages.'])) {
+            $this->menuConfig['languages'] = LanguageUtility::getLanguageList();
+        } elseif (isset($this->menuConfig['languages.'])) {
             $this->menuConfig['languages'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
             unset($this->menuConfig['languages.']);
         }
+        $this->menuConfig['special'] = 'language';
+        $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['languages'];
     }
 
@@ -375,30 +359,29 @@ class LanguageMenuProcessor extends DataProcessorInterface
      */
     public function buildConfiguration()
     {
-        $i = 1;
-        $this->menuConfig[$i] = 'TMENU';
-        $this->menuConfig[$i . '.']['IProcFunc'] = 'TYPO3\CMS\Frontend\DataProcessing\MenuProcessor->replacePlaceholderInRenderedMenuItem';
-        $this->menuConfig[$i . '.']['alternativeSortingField'] = $this->menuAlternativeSortingField;
-        $this->menuConfig[$i . '.']['NO'] = '1';
-        $this->menuConfig[$i . '.']['NO.'] = $this->menuLevelConfig;
-        $this->menuConfig[$i . '.']['IFSUB'] = '1';
-        $this->menuConfig[$i . '.']['IFSUB.'] = $this->menuConfig[$i . '.']['NO.'];
-        $this->menuConfig[$i . '.']['ACT'] = '1';
-        $this->menuConfig[$i . '.']['ACT.'] = $this->menuConfig[$i . '.']['NO.'];
-        $this->menuConfig[$i . '.']['ACT.']['stdWrap.']['cObject.']['30.']['value'] = '1';
-        $this->menuConfig[$i . '.']['ACTIFSUB'] = '1';
-        $this->menuConfig[$i . '.']['ACTIFSUB.'] = $this->menuConfig[$i . '.']['ACT.'];
-        $this->menuConfig[$i . '.']['CUR'] = '1';
-        $this->menuConfig[$i . '.']['CUR.'] = $this->menuConfig[$i . '.']['ACT.'];
-        $this->menuConfig[$i . '.']['CUR.']['stdWrap.']['cObject.']['40.']['value'] = '1';
-        $this->menuConfig[$i . '.']['CURIFSUB'] = '1';
-        $this->menuConfig[$i . '.']['CURIFSUB.'] = $this->menuConfig[$i . '.']['CUR.'];
-        $this->menuConfig[$i . '.']['USERDEF1'] = $this->menuConfig[$i . '.']['NO'];
-        $this->menuConfig[$i . '.']['USERDEF1.'] = $this->menuConfig[$i . '.']['NO.'];
-        $this->menuConfig[$i . '.']['USERDEF1.']['stdWrap.']['cObject.']['60.']['value'] = '0';
-        $this->menuConfig[$i . '.']['USERDEF2'] = $this->menuConfig[$i . '.']['ACT'];
-        $this->menuConfig[$i . '.']['USERDEF2.'] = $this->menuConfig[$i . '.']['ACT.'];
-        $this->menuConfig[$i . '.']['USERDEF2.']['stdWrap.']['cObject.']['60.']['value'] = '0';
+        $this->menuConfig['1'] = 'TMENU';
+        $this->menuConfig['1.']['IProcFunc'] = 'TYPO3\CMS\Frontend\DataProcessing\MenuProcessor->replacePlaceholderInRenderedMenuItem';
+        $this->menuConfig['1.']['alternativeSortingField'] = $this->menuAlternativeSortingField;
+        $this->menuConfig['1.']['NO'] = '1';
+        $this->menuConfig['1.']['NO.'] = $this->menuLevelConfig;
+        $this->menuConfig['1.']['IFSUB'] = '1';
+        $this->menuConfig['1.']['IFSUB.'] = $this->menuConfig['1.']['NO.'];
+        $this->menuConfig['1.']['ACT'] = '1';
+        $this->menuConfig['1.']['ACT.'] = $this->menuConfig['1.']['NO.'];
+        $this->menuConfig['1.']['ACT.']['stdWrap.']['cObject.']['30.']['value'] = '1';
+        $this->menuConfig['1.']['ACTIFSUB'] = '1';
+        $this->menuConfig['1.']['ACTIFSUB.'] = $this->menuConfig['1.']['ACT.'];
+        $this->menuConfig['1.']['CUR'] = '1';
+        $this->menuConfig['1.']['CUR.'] = $this->menuConfig['1.']['ACT.'];
+        $this->menuConfig['1.']['CUR.']['stdWrap.']['cObject.']['40.']['value'] = '1';
+        $this->menuConfig['1.']['CURIFSUB'] = '1';
+        $this->menuConfig['1.']['CURIFSUB.'] = $this->menuConfig['1.']['CUR.'];
+        $this->menuConfig['1.']['USERDEF1'] = $this->menuConfig['1.']['NO'];
+        $this->menuConfig['1.']['USERDEF1.'] = $this->menuConfig['1.']['NO.'];
+        $this->menuConfig['1.']['USERDEF1.']['stdWrap.']['cObject.']['50.']['value'] = '0';
+        $this->menuConfig['1.']['USERDEF2'] = $this->menuConfig['1.']['ACT'];
+        $this->menuConfig['1.']['USERDEF2.'] = $this->menuConfig['1.']['ACT.'];
+        $this->menuConfig['1.']['USERDEF2.']['stdWrap.']['cObject.']['50.']['value'] = '0';
     }
 
     /**

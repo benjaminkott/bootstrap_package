@@ -31,7 +31,7 @@ class LanguageUtility
     ];
 
     /**
-     * Gets the value of a TS constant
+     * Returns the value of a TS constant
      *
      * @param int $key
      * @return string Value of the constant
@@ -95,12 +95,12 @@ class LanguageUtility
     }
 
     /**
-     * Gets the language data for the languageUid
+     * Returns the language data for the languageUid
      *
      * @param int $languageUid
-     * @return array JSON encoded data
+     * @return array
      */
-    public static function getLanguage($languageUid)
+    public static function getLanguageRow($languageUid)
     {
         if (!is_numeric($languageUid) || $languageUid < 0) {
             throw new \InvalidArgumentException('$languageUid must be a positive integer.', 1522602868);
@@ -129,7 +129,7 @@ class LanguageUtility
                     }
 
                     // todo: verify query
-                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                         ->from('sys_site_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
@@ -139,7 +139,7 @@ class LanguageUtility
                         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                     }
 
-                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                    $languageRow = $queryBuilder->select('title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                         ->from('sys_language')
                         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                         ->execute()
@@ -154,46 +154,48 @@ class LanguageUtility
     }
 
     /**
-     * Gets the language data for the languageUid
+     * Returns a list of all languages
      *
-     * @param int $languageUid
-     * @return array JSON encoded data
+     * @return array List of available languages (e.g. 0,1,2)
      */
-    public static function getLanguages()
+    public static function getLanguageList()
     {
-        // Cache languages data for later calls
-        static $languageCache = null;
+        // Cache languages for later calls
+        static $languageListCache = null;
 
-        if ($languageCache === null) {
+        if ($languageListCache === null) {
             $languageRows = null;
 
             if (ExtensionManagementUtility::isLoaded('sites')) {
+                $languageListCache = '';
+
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
 
-                $languageRows = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                $languageRows = $queryBuilder->select('uid')
                     ->from('sys_site_language')
                     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute()
                     ->fetchAll();
             } else {
-                // Fetch default language
-                $languageCache[0] = self::getLanguage(0);
+                // Set default language
+                $languageListCache = '0';
 
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
 
-                $languageRows = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title AS localized_title')
+                $languageRows = $queryBuilder->select('uid')
                     ->from('sys_language')
                     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute()
                     ->fetchAll();
             }
 
-            foreach ($languageRows as $languageRow) {
-                $languageCache[$languageRow['uid']] = self::extractLanguageData($languageRow['uid'], $languageRow);
-                unset($languageCache[$languageRow['uid']]['uid']);
+            if (is_array($languageRows)) {
+                foreach ($languageRows as $languageRow) {
+                    $languageListCache .= empty($languageListCache) ? '' : ',' . self::extractLanguageData($languageRow['uid'], $languageRow);
+                }
             }
         }
 
-        return $languageCache;
+        return $languageListCache;
     }
 }
