@@ -91,6 +91,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
         'addQueryString.',
         'if',
         'if.',
+        'languages',
+        'languages.',
         'as',
         'dataProcessing',
         'dataProcessing.'
