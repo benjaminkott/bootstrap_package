@@ -23,7 +23,7 @@ class LanguageUtility
      */
     public static $languageDefaults = [
         'title' => '',
-        'localized_title' => '',
+        'nav_title' => '',
         'language' => '',
         'locale' => '',
         'hreflang' => '',
@@ -75,16 +75,16 @@ class LanguageUtility
             } else {
                 // Load default language from constants
                 $result['title'] = self::getConstantValue('page.theme.language.defaultTitle');
-                $result['localized_title'] = self::getConstantValue('page.theme.language.defaultLocalizedTitle');
+                $result['nav_title'] = self::getConstantValue('page.theme.language.defaultNavigationTitle');
                 $result['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
                 $result['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
                 $result['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
                 $result['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
             }
 
-            // Take localized title from title if not set
-            if (empty($result['localized_title'])) {
-                $result['localized_title'] = $result['title'];
+            // Take nav_title from title if not set
+            if (empty($result['nav_title'])) {
+                $result['nav_title'] = $result['title'];
             }
 
             // Sanitize array
