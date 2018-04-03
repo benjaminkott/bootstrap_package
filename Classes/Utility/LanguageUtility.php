@@ -41,7 +41,7 @@ class LanguageUtility
         $result = '';
 
         if (TYPO3_MODE == 'BE') {
-            $result = '[' . $key . ']';
+            $result = '{$' . $key . '}';
         } else {
             if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
                 || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
