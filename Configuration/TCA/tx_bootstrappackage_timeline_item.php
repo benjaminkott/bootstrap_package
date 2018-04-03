@@ -184,9 +184,10 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'eval' => 'date,int,required',
-                'default' => 0
-            ]
+                'dbType' => 'date',
+                'eval' => 'date',
+                'default' => '0000-00-00'
+            ],
         ],
         'header' => [
             'exclude' => true,
