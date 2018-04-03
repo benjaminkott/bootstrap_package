@@ -67,7 +67,7 @@ class TSGenerator
             $content = implode(LF, $this->includeHeader);
             $languages = LanguageUtility::getLanguageRows();
 
-            foreach ($languages as $languageRec => $languageUid) {
+            foreach ($languages as $languageUid => $languageRec) {
                 $content .= implode(LF, $this->includeContent) . LF;
 
                 $content = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $content);

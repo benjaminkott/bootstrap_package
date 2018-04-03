@@ -194,7 +194,7 @@ class LanguageUtility
     /**
      * Returns a list of all languages
      *
-     * @return array List of available languages (e.g. 0,1,2)
+     * @return array List of available languages (e.g. 0,2,3)
      */
     public static function getLanguageList()
     {
@@ -222,6 +222,7 @@ class LanguageUtility
             while ($row = $statement->fetch()) {
                 $languageListCache .= (empty($languageListCache) ? '' : ',') . $row['uid'];
             }
+            debug($languageListCache);
         }
 
         return $languageListCache;
