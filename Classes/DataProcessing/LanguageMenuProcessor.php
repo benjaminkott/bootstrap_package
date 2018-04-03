@@ -17,8 +17,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
  * This menu processor generates a json encoded menu string that will be
- * decoded again and assigned to FLUIDTEMPLATE as variable. Additional
- * DataProcessing is supported and will be applied to each record.
+ * decoded again and assigned to FLUIDTEMPLATE as variable.
  *
  * Options:
  * alternativeSortingField -
@@ -33,12 +32,6 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  * 10 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
  * 10 {
  *   as = languagenavigation
- *   dataProcessing {
- *     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
- *     10 {
- *        references.fieldName = media
- *     }
- *   }
  * }
  */
 class LanguageMenuProcessor implements DataProcessorInterface
@@ -84,11 +77,11 @@ class LanguageMenuProcessor implements DataProcessorInterface
      * @var array
      */
     public $removeConfigurationKeysForHmenu = [
+        'alternativeSortingField',
+        'alternativeSortingField.',
         'languages',
         'languages.',
-        'as',
-        'dataProcessing',
-        'dataProcessing.'
+        'as'
     ];
 
     /**
