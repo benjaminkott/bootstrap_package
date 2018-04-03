@@ -73,12 +73,12 @@ class LanguageUtility
                 $result = $row;
             } else {
                 // Load default language from constants
-                $result['title'] = self::getConstantValue('page.theme.language.defaultTitle');
-                $result['nav_title'] = self::getConstantValue('page.theme.language.defaultNavigationTitle');
-                $result['language'] = self::getConstantValue('page.theme.language.defaultLanguage');
-                $result['locale'] = self::getConstantValue('page.theme.language.defaultLocale');
-                $result['hreflang'] = self::getConstantValue('page.theme.language.defaultHreflang');
-                $result['direction'] = self::getConstantValue('page.theme.language.defaultDirection');
+                $result['title'] = self::getConstantValue('page.language.defaultTitle');
+                $result['nav_title'] = self::getConstantValue('page.language.defaultNavigationTitle');
+                $result['language'] = self::getConstantValue('page.language.defaultLanguage');
+                $result['locale'] = self::getConstantValue('page.language.defaultLocale');
+                $result['hreflang'] = self::getConstantValue('page.language.defaultHreflang');
+                $result['direction'] = self::getConstantValue('page.language.defaultDirection');
             }
 
             // Take nav_title from title if not set

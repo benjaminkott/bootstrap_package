@@ -1,21 +1,21 @@
-#####################################
-### PAGE compatibility for T3 < 9 ###
-#####################################
+#######################################
+### Compatibility without sites ext ###
+#######################################
 page {
-    theme {
-        language {
-            # cat=bootstrap package: basic/168/language_defaultTitle; type=string; label=Default Title: Title of the default language
-            defaultTitle = English
-            # cat=bootstrap package: basic/168/language_defaultNavigationTitle; type=string; label=Default Navigation Title: Navigation title of the default language
-            defaultNavigationTitle = English
-            # cat=bootstrap package: basic/168/language_defaultLanguage; type=string; label=Default Language: Language of the default language
-            defaultLanguage = en
-            # cat=bootstrap package: basic/168/language_defaultLocale; type=string; label=Default Locale: Locale of the default language
-            defaultLocale = en_US.UTF-8
-            # cat=bootstrap package: basic/168/language_defaultHreflang; type=string; label=Default Hreflang: Hreflang of the default language
-            defaultHreflang = en-US
-            # cat=bootstrap package: basic/168/language_defaultDirection; type=options[None=, Left to Right=ltr, Right to Left=rtl]; label=Default Language Direction: Direction of the default language
-            defaultDirection = 
-        }
+    language {
+        # cat=bootstrap package: basic/168/language_defaultHide; type=string; label=Hide Default Language: If checked the default language will not be rendered
+        defaultHide = 0
+        # cat=bootstrap package: basic/168/language_defaultTitle; type=string; label=Default Title: Title of the default language
+        defaultTitle = English
+        # cat=bootstrap package: basic/168/language_defaultNavigationTitle; type=string; label=Default Navigation Title: Navigation title of the default language
+        defaultNavigationTitle = English
+        # cat=bootstrap package: basic/168/language_defaultLanguage; type=string; label=Default Language: Language of the default language
+        defaultLanguage = en
+        # cat=bootstrap package: basic/168/language_defaultLocale; type=string; label=Default Locale: Locale of the default language
+        defaultLocale = en_US.UTF-8
+        # cat=bootstrap package: basic/168/language_defaultHreflang; type=string; label=Default Hreflang: Hreflang of the default language
+        defaultHreflang = en-US
+        # cat=bootstrap package: basic/168/language_defaultDirection; type=options[None=, Left to Right=ltr, Right to Left=rtl]; label=Default Language Direction: Direction of the default language
+        defaultDirection = 
     }
 }

@@ -108,8 +108,8 @@ page {
         language {
             # cat=bootstrap package: basic/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
             enable = 1
-            # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids. Leave empty to load all enabled system languages
-            languageValue = 
+            # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids or set to 'auto' to load all enabled system languages
+            languageValue = auto
         }
 
         socialmedia {

@@ -7,6 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
+// todo: check field names
 if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sites')) {
     /***************
      * Register fields

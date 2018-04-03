@@ -61,6 +61,7 @@ class TSGenerator
      */
     public function createTSSetupInclude(&$params, &$tsfe)
     {
+        // todo: hook to delete file on language changes (sys_language and sys_site_language)
         $filepath = PATH_site . $this->tempDirectory . 'setup_language_conditions.typoscript';
 
         if (!@is_file($filepath)) {

@@ -340,7 +340,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         $this->menuConfig += $this->processorConfiguration;
         // Process languages
-        if (empty($this->menuConfig['languages']) && empty($this->menuConfig['languages.'])) {
+        if ($this->menuConfig['languages'] === 'auto' && empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList();
         } elseif (!empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
@@ -412,8 +412,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $menu = json_decode($renderedMenu, true);
         $processedMenu = [];
 
-        foreach ($menu as $key => $page) {
-            $processedMenu[$key] = $this->processAdditionalDataProcessors($page, $processorConfiguration);
+        foreach ($menu as $key => $language) {
+            $processedMenu[$key] = $this->processAdditionalDataProcessors($language, $processorConfiguration);
         }
 
         // Return processed data
@@ -424,16 +424,12 @@ class LanguageMenuProcessor implements DataProcessorInterface
     /**
      * Process additional data processors
      *
-     * @param array $page
+     * @param array $language
      * @param array $processorConfiguration
+     * @todo Check if this is currently useful at all
      */
-    protected function processAdditionalDataProcessors($page, $processorConfiguration)
+    protected function processAdditionalDataProcessors($language, $processorConfiguration)
     {
-        if (is_array($page['children'])) {
-            foreach ($page['children'] as $key => $item) {
-                $page['children'][$key] = $this->processAdditionalDataProcessors($item, $processorConfiguration);
-            }
-        }
         /** @var ContentObjectRenderer $recordContentObjectRenderer */
         $recordContentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
         $recordContentObjectRenderer->start($page['data'], 'pages');
