@@ -1,0 +1,42 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <div class="timeline">
+            <f:for each="{records}" as="item" iteration="iteration">
+                <div class="timeline-item">
+                    <div class="timeline-item-inner">
+                        <f:if condition="{item.image.0}">
+                            <div class="timeline-item-image">
+                                <f:image image="{item.image.0}" width="{settings.timeline.media.width}" height="{settings.timeline.media.height}" title="{item.image.0.title}" alt="{item.image.0.alternative}" />
+                            </div>
+                        </f:if>
+                        <div class="timeline-item-marker{f:if(condition:item.iconFile.0,then:' timeline-item-icon')}">
+                            <span>
+                                <f:if condition="{item.iconFile.0}">
+                                    <bk2k:inlineSvg image="{item.iconFile.0}" />
+                                </f:if>
+                            </span>
+                        </div>
+                        <div class="timeline-item-date">
+                            <time datetime="{item.data.date -> f:format.date(format: '%Y-%m-%d')}">
+                                <f:format.date format="{settings.timeline.date.format}">{item.data.date}</f:format.date>
+                            </time>
+                        </div>
+                        <div class="timeline-item-header">
+                            <h4 class="timeline-item-header-headline">{item.data.header}</h4>
+                        </div>
+                        <f:if condition="{item.data.bodytext}">
+                            <div class="timeline-item-text">
+                                <f:format.html>{item.data.bodytext}</f:format.html>
+                            </div>
+                        </f:if>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+</html>

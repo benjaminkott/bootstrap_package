@@ -290,6 +290,13 @@
                 <source>Insert a element to display configured social media channels</source>
             </trans-unit>
 
+            <trans-unit id="content_element.timeline">
+                <source>Timeline</source>
+            </trans-unit>
+            <trans-unit id="content_element.timeline.description">
+                <source>Insert a element to display a timeline</source>
+            </trans-unit>
+
             <trans-unit id="carousel.options">
                 <source>Carousel Options</source>
             </trans-unit>
@@ -454,6 +461,28 @@
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.right">
                 <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="timeline_item">
+                <source>Timeline Item</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.tt_content">
+                <source>Timeline</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.icon_file">
+                <source>Icon File</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.image">
+                <source>Image</source>
             </trans-unit>
 
             <trans-unit id="icon_group_item">

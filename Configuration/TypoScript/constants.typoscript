@@ -15,6 +15,7 @@
 # customsubcategory=145=Content Element Uploads
 # customsubcategory=146=Content Element Gallery
 # customsubcategory=147=Content Element Menu Card
+# customsubcategory=148=Content Element Timeline
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=162=Breadcrumb
@@ -357,6 +358,18 @@ plugin.bootstrap_package_contentelements {
         abstract {
             # cat=bootstrap package: advanced/147/107; type=string; label=Card Menu Crop Abstract
             crop = 250
+        }
+    }
+    timeline {
+        date {
+            # cat=bootstrap package: advanced/148/101; type=string; label=Timeline Date Format
+            format = %B %e, %Y
+        }
+        media {
+            # cat=bootstrap package: advanced/148/102; type=string; label=Timeline Media Height
+            height = 200c
+            # cat=bootstrap package: advanced/148/103; type=string; label=Timeline Media Width
+            width = 525c
         }
     }
     uploads {

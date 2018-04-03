@@ -44,9 +44,18 @@ mod.wizards.newContentElement.wizardItems {
                 CType = tab
             }
         }
+        timeline {
+            iconIdentifier = content-bootstrappackage-timeline
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline.description
+            tt_content_defValues {
+                CType = timeline
+            }
+        }
     }
     interactive.show := addToList(accordion)
     interactive.show := addToList(tab)
+    interactive.show := addToList(timeline)
     interactive.show := addToList(carousel)
     interactive.show := addToList(carousel_fullscreen)
     interactive.show := addToList(carousel_small)
