@@ -21,6 +21,8 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  * DataProcessing is supported and will be applied to each record.
  *
  * Options:
+ * alternativeSortingField -
+ * if -
  * languages - A list of languages id's (e.g. 0,1,2) to use for the menu
  *             creation or 'auto' to load from system or site languages
  * as - The variable to be used within the result
@@ -42,7 +44,6 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 class LanguageMenuProcessor implements DataProcessorInterface
 {
     const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
-    const TARGET_PLACEHOLDER = '###TARGETPLACEHOLDER###';
 
     /**
      * The content object renderer
@@ -65,23 +66,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
      * @var array
      */
     public $allowedConfigurationKeys = [
-        'cache_period',
-        'minItems',
-        'minItems.',
-        'maxItems',
-        'maxItems.',
-        'begin',
-        'begin.',
         'alternativeSortingField',
         'alternativeSortingField.',
-        'excludeUidList',
-        'excludeUidList.',
-        'excludeDoktypes',
-        'alwaysActivePIDlist',
-        'alwaysActivePIDlist.',
-        'protectLvar',
-        'addQueryString',
-        'addQueryString.',
         'if',
         'if.',
         'languages',
@@ -153,11 +139,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 '21.' => [
                     'value' => self::LINK_PLACEHOLDER,
                     'wrap' => ',"link":|',
-                ],
-                '22' => 'TEXT',
-                '22.' => [
-                    'value' => self::TARGET_PLACEHOLDER,
-                    'wrap' => ',"target":|',
                 ],
                 '30' => 'TEXT',
                 '30.' => [
@@ -478,10 +459,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
     public function replacePlaceholderInRenderedMenuItem($menuItem, $conf)
     {
         $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
-        $target = $this->jsonEncode($menuItem['linkHREF']['TARGET']);
 
         $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
-        $menuItem['parts']['title'] = str_replace(self::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
 
         return $menuItem;
     }
