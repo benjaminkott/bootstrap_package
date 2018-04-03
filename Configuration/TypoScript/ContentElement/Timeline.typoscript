@@ -24,7 +24,15 @@ tt_content.timeline {
                 intval = 1
                 wrap = tt_content=|
             }
-            orderBy = date
+            orderBy.stdWrap.cObject = TEXT
+            orderBy.stdWrap.cObject {
+                data = flexform:pi_flexform:sorting
+                ifEmpty.cObject = TEXT
+                ifEmpty.cObject {
+                    value.current = 1
+                    ifEmpty = date desc
+                }
+            }
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
