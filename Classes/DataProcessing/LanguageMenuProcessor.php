@@ -402,8 +402,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         /** @var ContentObjectRenderer $recordContentObjectRenderer */
         $recordContentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
-        $recordContentObjectRenderer->start($page['data'], 'pages');
-        $processedPage = $this->contentDataProcessor->process($recordContentObjectRenderer, $processorConfiguration, $page);
+        $recordContentObjectRenderer->start($language['data'], 'pages');
+        $processedPage = $this->contentDataProcessor->process($recordContentObjectRenderer, $processorConfiguration, $language);
         return $processedPage;
     }
 
