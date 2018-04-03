@@ -103,7 +103,7 @@ class LanguageUtility
     public static function getLanguageRow($languageUid)
     {
         if (!is_numeric($languageUid) || $languageUid < 0) {
-            throw new \InvalidArgumentException('$languageUid must be a positive integer but was "' . $languageUid . '".', 1522602868);
+            throw new \InvalidArgumentException('$languageUid must be a positive integer but was \'' . $languageUid . '\'.', 1522602868);
         }
 
         // Cache languages data for later calls
