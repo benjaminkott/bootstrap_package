@@ -220,9 +220,8 @@ class LanguageUtility
             }
 
             while ($row = $statement->fetch()) {
-                $languageListCache .= (empty($languageListCache) ? '' : ',') . $row['uid'];
+                $languageListCache .= (($languageListCache === '') ? '' : ',') . $row['uid'];
             }
-            debug($languageListCache);
         }
 
         return $languageListCache;

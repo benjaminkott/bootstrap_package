@@ -112,9 +112,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
      */
     protected $menuConfig = [
         'special' => 'language',
-        'special.' => [
-            'value' => '' // Will be set by prepareConfiguration
-        ],
         'wrap' => '[|]'
     ];
 
@@ -343,9 +340,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         $this->menuConfig += $this->processorConfiguration;
         // Process languages
-        if (!isset($this->menuConfig['languages']) && !isset($this->menuConfig['languages.'])) {
+        if (empty($this->menuConfig['languages']) && empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList();
-        } elseif (isset($this->menuConfig['languages.'])) {
+        } elseif (!empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
         }
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
