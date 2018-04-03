@@ -16,10 +16,9 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
- * This menu processor utilizes HMENU to generate a json encoded menu
- * string that will be decoded again and assigned to FLUIDTEMPLATE as
- * variable. Additional DataProcessing is supported and will be applied
- * to each record.
+ * This menu processor generates a json encoded menu string that will be 
+ * decoded again and assigned to FLUIDTEMPLATE as variable. Additional 
+ * DataProcessing is supported and will be applied to each record.
  *
  * Options:
  * languages - A list of languages id's (e.g. 0,1,2) to use for the menu 
