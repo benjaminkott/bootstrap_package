@@ -334,3 +334,5 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['configArrayPostProc'][]
     = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TSGenerator->createTSSetupInclude';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TSGenerator->addLanguageConditions';

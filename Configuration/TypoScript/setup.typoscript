@@ -543,7 +543,7 @@ config {
 ###################################
 #### BEGIN LANGUAGE CONDITIONS ####
 ###################################
-<INCLUDE_TYPOSCRIPT: source="FILE:typo3temp/var/Cache/Code/bootstrappackage/setup_language_conditions.typoscript">
+#<INCLUDE_TYPOSCRIPT: source="FILE:typo3temp/var/Cache/Code/bootstrappackage/setup_language_conditions.typoscript">
 ###################################
 #### END LANGUAGE CONDITIONS   ####
 ###################################

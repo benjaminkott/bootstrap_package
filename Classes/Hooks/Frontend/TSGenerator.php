@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
@@ -54,6 +55,31 @@ class TSGenerator
     protected $includeFooter = [];
 
     /**
+     * Returns the TypoScript Setup language conditions
+     *
+     * @return string
+     */
+    protected function createLanguageConditions()
+    {
+        $content = implode(LF, $this->includeHeader);
+        $languages = LanguageUtility::getLanguageRows();
+
+        foreach ($languages as $languageUid => $languageRec) {
+            $content .= implode(LF, $this->includeContent) . LF;
+
+            $content = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $content);
+            $content = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $content);
+            $content = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $content);
+            $content = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $content);
+            $content = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $content);
+        }
+
+        $content .= implode(LF, $this->includeFooter) . LF;
+
+        return $content;
+    }
+
+    /**
      * Create TS language conditions include file if not exists
      *
      * @param array $params
@@ -65,25 +91,22 @@ class TSGenerator
         $filepath = PATH_site . $this->tempDirectory . 'setup_language_conditions.typoscript';
 
         if (!@is_file($filepath)) {
-            $content = implode(LF, $this->includeHeader);
-            $languages = LanguageUtility::getLanguageRows();
-
-            foreach ($languages as $languageUid => $languageRec) {
-                $content .= implode(LF, $this->includeContent) . LF;
-
-                $content = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $content);
-                $content = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $content);
-                $content = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $content);
-                $content = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $content);
-                $content = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $content);
-            }
-
-            $content .= implode(LF, $this->includeFooter);
-
             GeneralUtility::writeFileToTypo3tempDir(
                 $filepath,
-                $content . LF
+                $this->createLanguageConditions()
             );
         }
+    }
+
+    /**
+     * Add TS language conditions to setup
+     *
+     * @param array $params
+     * @param TemplateService $ts
+     */
+    public function addLanguageConditions(&$params, &$ts)
+    {
+        //$ts->constants[] = $row['constants'];
+        $ts->config[] = $this->createLanguageConditions();
     }
 }
