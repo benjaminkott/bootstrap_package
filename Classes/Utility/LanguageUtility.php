@@ -191,15 +191,18 @@ class LanguageUtility
     /**
      * Returns a list of all languages
      *
+     * @param string $sortingField
      * @return array List of available languages (e.g. 0,2,3)
      */
-    public static function getLanguageList()
+    public static function getLanguageList($sortingField = '')
     {
         // Cache languages for later calls
         static $languageListCache = null;
 
-        // todo: include correct sorting
         if ($languageListCache === null) {
+            if (empty($sortingField)) {
+                $sortingField = 'sorting';
+            }
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $languageListCache = '';
 
@@ -207,6 +210,7 @@ class LanguageUtility
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
                 $statement = $queryBuilder->select('uid')
                     ->from('sys_site_language')
+                    ->orderBy($sortingField)
                     ->execute();
             } else {
                 // Set default language
@@ -215,6 +219,7 @@ class LanguageUtility
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 $statement = $queryBuilder->select('uid')
                     ->from('sys_language')
+                    ->orderBy($sortingField)
                     ->execute();
             }
 
