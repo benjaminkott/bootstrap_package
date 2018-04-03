@@ -187,7 +187,7 @@ return [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'dbType' => 'date',
-                'eval' => 'date',
+                'eval' => 'date,required',
                 'default' => '0000-00-00'
             ],
         ],
