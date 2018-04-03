@@ -65,9 +65,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
         'if.',
         'languages',
         'languages.',
-        'as',
-        'dataProcessing',
-        'dataProcessing.'
+        'as'
     ];
 
     /**
