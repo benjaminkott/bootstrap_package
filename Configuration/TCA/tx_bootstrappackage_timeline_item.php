@@ -9,7 +9,9 @@
 
 return [
     'ctrl' => [
-        'label' => 'header',
+        'label' => 'date',
+        'label_alt' => 'header',
+        'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
