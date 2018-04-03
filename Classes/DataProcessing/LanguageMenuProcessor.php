@@ -255,16 +255,15 @@ class LanguageMenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * Gets the data field for the language submitted in $conf in JSON format
+     * Returns the data from the field and language submitted by $conf in JSON format
      *
      * @param string Empty string (no content to process)
      * @param array TypoScript configuration
      * @return string JSON encoded data
+     * @throws \InvalidArgumentException
      */
     public function getFieldAsJson($content, $conf)
     {
-        $result = '';
-
         // Support of stdWrap for parameters
         if (isset($conf['language.'])) {
             $conf['language'] = $this->cObj->stdWrap($conf['language'], $conf['language.']);
@@ -275,19 +274,25 @@ class LanguageMenuProcessor implements DataProcessorInterface
             unset($conf['field.']);
         }
 
-        if (isset($conf['language']) && isset($conf['field'])) {
-            $row = LanguageUtility::getLanguageRow($conf['language']);
-            if (isset($row[$conf['field']])) {
-                $result = $this->jsonEncode($row[$conf['field']]);
-            }
+        // Check required fields
+        if (empty($conf['language'])) {
+            throw new \InvalidArgumentException('Argument \'language\' must be supplied.', 1522795243);
+        }
+        if (empty($conf['field'])) {
+            throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
+        }
+
+        $result = '';
+
+        $row = LanguageUtility::getLanguageRow($conf['language']);
+        if (isset($row[$conf['field']])) {
+            $result = $this->jsonEncode($row[$conf['field']]);
         }
 
         return $result;
     }
 
     /**
-     * Validate configuration
-     *
      * @throws \InvalidArgumentException
      */
     public function validateConfiguration()
@@ -304,11 +309,12 @@ class LanguageMenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * Prepare Configuration
+     * Process languages and filter the configuration
      */
     public function prepareConfiguration()
     {
         $this->menuConfig += $this->processorConfiguration;
+
         // Process languages
         if (($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) && empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->menuAlternativeSortingField);
@@ -316,6 +322,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
         }
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
+
         // Filter configuration
         foreach ($this->menuConfig as $key => $value) {
             if (in_array($key, $this->removeConfigurationKeysForHmenu)) {
@@ -331,7 +338,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         $this->menuConfig['1'] = 'TMENU';
         $this->menuConfig['1.']['IProcFunc'] = 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->replacePlaceholderInRenderedMenuItem';
-        $this->menuConfig['1.']['alternativeSortingField'] = $this->menuAlternativeSortingField;
         $this->menuConfig['1.']['NO'] = '1';
         $this->menuConfig['1.']['NO.'] = $this->menuLevelConfig;
         $this->menuConfig['1.']['ACT'] = '1';
@@ -396,7 +402,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
      *
      * @param array $language
      * @param array $processorConfiguration
-     * @todo Check if this is currently useful at all
      */
     protected function processAdditionalDataProcessors($language, $processorConfiguration)
     {
@@ -405,29 +410,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $recordContentObjectRenderer->start($language['data'], 'pages');
         $processedPage = $this->contentDataProcessor->process($recordContentObjectRenderer, $processorConfiguration, $language);
         return $processedPage;
-    }
-
-    /**
-     * Gets the data of the current record in JSON format
-     *
-     * @return string JSON encoded data
-     */
-    public function getDataAsJson()
-    {
-        return $this->jsonEncode($this->cObj->data);
-    }
-
-    /**
-     * This UserFunc encodes the content as Json
-     *
-     * @param string $content
-     * @param array $conf
-     * @return string JSON encoded content
-     */
-    public function jsonEncodeUserFunc($content, $conf)
-    {
-        $content = $this->jsonEncode($content);
-        return $content;
     }
 
     /**
