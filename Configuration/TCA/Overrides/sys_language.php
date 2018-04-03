@@ -35,9 +35,9 @@ if (!class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                     'eval' => 'trim,required'
                 ]
             ],
-            'hreflang' => [
+            'language_rfc1766' => [
                 'exclude' => true,
-                'label' => 'hreflang',
+                'label' => 'Language tag defined by RFC 1766 / 3066 for lang and hreflang attributes',
                 'config' => [
                     'type' => 'input',
                     'size' => 35,
