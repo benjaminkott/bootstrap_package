@@ -68,7 +68,6 @@ class LanguageUtility
         $result = [];
 
         if (is_numeric($languageUid)) {
-            // todo: handling with sites will be a little bit different, everything is stored in sys_sites_language
             if (is_array($row) && $languageUid > 0) {
                 // Load language from row
                 $result = $row;
@@ -167,17 +166,15 @@ class LanguageUtility
             // Prepare and fetch from database
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
-
                 // todo: verify query
                 $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                     ->from('sys_site_language')
                     ->execute();
             } else {
-                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-
                 // Set default language
                 $languagesCache[0] = self::extractLanguageData(0, null);
 
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
                     ->from('sys_language')
                     ->execute();
@@ -201,10 +198,12 @@ class LanguageUtility
         // Cache languages for later calls
         static $languageListCache = null;
 
+        // todo: include correct sorting
         if ($languageListCache === null) {
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $languageListCache = '';
 
+                // todo: verify query
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
                 $statement = $queryBuilder->select('uid')
                     ->from('sys_site_language')
