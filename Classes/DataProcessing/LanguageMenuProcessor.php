@@ -16,12 +16,12 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
- * This menu processor generates a json encoded menu string that will be 
- * decoded again and assigned to FLUIDTEMPLATE as variable. Additional 
+ * This menu processor generates a json encoded menu string that will be
+ * decoded again and assigned to FLUIDTEMPLATE as variable. Additional
  * DataProcessing is supported and will be applied to each record.
  *
  * Options:
- * languages - A list of languages id's (e.g. 0,1,2) to use for the menu 
+ * languages - A list of languages id's (e.g. 0,1,2) to use for the menu
  *             creation or 'auto' to load from system or site languages
  * as - The variable to be used within the result
  *
