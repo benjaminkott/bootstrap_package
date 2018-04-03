@@ -27,7 +27,7 @@ class TSGenerator
     /**
      * @var string
      */
-    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/';
+    protected $tempDirectory = 'typo3temp/var/Cache/Code/bootstrappackage/';
 
     /**
      * @var array
