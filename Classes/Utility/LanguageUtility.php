@@ -73,12 +73,12 @@ class LanguageUtility
                 $result = $row;
             } else {
                 // Load default language from constants
-                $result['title'] = self::getConstantValue('page.language.defaultTitle');
-                $result['nav_title'] = self::getConstantValue('page.language.defaultNavigationTitle');
-                $result['language'] = self::getConstantValue('page.language.defaultLanguage');
-                $result['locale'] = self::getConstantValue('page.language.defaultLocale');
-                $result['hreflang'] = self::getConstantValue('page.language.defaultHreflang');
-                $result['direction'] = self::getConstantValue('page.language.defaultDirection');
+                $result['title'] = self::getConstantValue('config.language.default.title');
+                $result['nav_title'] = self::getConstantValue('config.language.default.nav_title');
+                $result['language'] = self::getConstantValue('config.language.default.language');
+                $result['locale'] = self::getConstantValue('config.language.default.locale');
+                $result['hreflang'] = self::getConstantValue('config.language.default.hreflang');
+                $result['direction'] = self::getConstantValue('config.language.default.direction');
             }
 
             // Take nav_title from title if not set
@@ -87,7 +87,7 @@ class LanguageUtility
             }
 
             // Sanitize array
-            //$result = array_replace_recursive(self::$languageDefaults, $result);
+            $result = array_replace_recursive(self::$languageDefaults, $result);
         }
 
         return $result;
