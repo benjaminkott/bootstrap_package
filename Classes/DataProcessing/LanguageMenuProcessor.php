@@ -22,10 +22,9 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  * to each record.
  *
  * Options:
+ * languages - A list of languages id's (e.g. 0,1,2) to use for the menu 
+ *             creation or 'auto' to load from system or site languages
  * as - The variable to be used within the result
- *
- * See HMENU docs for more options.
- * https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Hmenu/Index.html
  *
  *
  * Example TypoScript configuration:
@@ -340,7 +339,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         $this->menuConfig += $this->processorConfiguration;
         // Process languages
-        if ($this->menuConfig['languages'] === 'auto' && empty($this->menuConfig['languages.'])) {
+        if (($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) && empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList();
         } elseif (!empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
