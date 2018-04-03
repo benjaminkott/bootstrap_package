@@ -102,11 +102,11 @@ class TSGenerator
      * Add TS language conditions to setup
      *
      * @param array $params
-     * @param TemplateService $ts
+     * @param TemplateService $tmpl
      */
-    public function addLanguageConditions(&$params, &$ts)
+    public function addLanguageConditions(&$params, &$tmpl)
     {
-        //$ts->constants[] = $row['constants'];
-        $ts->config[] = $this->createLanguageConditions();
+        //$tmpl->constants[] = $row['constants'];
+        $tmpl->config[] = $this->createLanguageConditions();
     }
 }

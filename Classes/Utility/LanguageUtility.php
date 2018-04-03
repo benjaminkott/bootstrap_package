@@ -40,16 +40,20 @@ class LanguageUtility
     {
         $result = '';
 
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
-            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
-        }
+        if (TYPO3_MODE == 'BE') {
+            $result = '[' . $key . ']';
+        } else {
+            if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+                || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
+                || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+                $GLOBALS['TSFE']->tmpl->generateConfig();
+            }
 
-        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
-            if (strpos($constant, $key) === 0) {
-                $result = $value;
-                break;
+            foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+                if (strpos($constant, $key) === 0) {
+                    $result = $value;
+                    break;
+                }
             }
         }
 
