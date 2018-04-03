@@ -13,7 +13,7 @@ use BK2K\BootstrapPackage\Utility\LanguageUtility;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 
 /**
- * TSGenerator
+ * Dynamically creates language config for TS Setup
  */
 class TSGenerator
 {

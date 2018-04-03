@@ -13,7 +13,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * LanguageUtility
+ * Static utility functions for language processing
  */
 class LanguageUtility
 {
@@ -99,7 +99,7 @@ class LanguageUtility
     }
 
     /**
-     * Returns the language data for the languageUid
+     * Returns the language data for $languageUid
      *
      * @param int $languageUid
      * @return array

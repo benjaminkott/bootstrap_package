@@ -370,11 +370,11 @@ plugin.bootstrap_package_contentelements {
     }
 }
 
-#####################################
-### PAGE compatibility for T3 < 9 ###
-#####################################
-[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sites')]
-    # Using sites extension
+#######################################
+### Compatibility without sites ext ###
+#######################################
+[userFunc = class_exists('TYPO3\CMS\Core\Site\SiteFinder')]
+    # Using values from sites extension
 [else]
     # Include compatibility constants if sites extension not found
     <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Compatibility/constants.typoscript">
