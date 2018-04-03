@@ -8,6 +8,7 @@
  */
 
 // todo: check field names
+// todo: other detection is needed because it's now integrated to the core (version based?)
 if (!\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sites')) {
     /***************
      * Register fields

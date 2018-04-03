@@ -116,6 +116,7 @@ class LanguageUtility
                 // Cache state for later calls
                 static $hasSites = null;
 
+                // todo: other detection is needed because it's now integrated to the core (version based?)
                 if ($hasSites === null) {
                     $hasSites = ExtensionManagementUtility::isLoaded('sites');
                 }
@@ -164,6 +165,7 @@ class LanguageUtility
 
         if ($languagesCache === null) {
             // Prepare and fetch from database
+            // todo: other detection is needed because it's now integrated to the core (version based?)
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
                 // todo: verify query
@@ -203,6 +205,7 @@ class LanguageUtility
             if (empty($sortingField)) {
                 $sortingField = 'sorting';
             }
+            // todo: other detection is needed because it's now integrated to the core (version based?)
             if (ExtensionManagementUtility::isLoaded('sites')) {
                 $languageListCache = '';
 
