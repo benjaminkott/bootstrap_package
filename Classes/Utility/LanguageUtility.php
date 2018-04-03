@@ -10,7 +10,6 @@
 namespace BK2K\BootstrapPackage\Utility;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -31,7 +30,7 @@ class LanguageUtility
     ];
 
     /**
-     * Returns the value of a TS constant
+     * Returns the value of a TS constant and in BE mode fallback to the name
      *
      * @param int $key
      * @return string Value of the constant
@@ -69,30 +68,32 @@ class LanguageUtility
      */
     protected static function extractLanguageData($languageUid, $row)
     {
+        if (!is_numeric($languageUid) || $languageUid < 0) {
+            throw new \InvalidArgumentException('$languageUid must be a positive integer but was \'' . $languageUid . '\'.', 1522795889);
+        }
+
         $result = [];
 
-        if (is_numeric($languageUid)) {
-            if (is_array($row) && $languageUid > 0) {
-                // Load language from row
-                $result = $row;
-            } else {
-                // Load default language from constants
-                $result['title'] = self::getConstantValue('config.language.default.title');
-                $result['nav_title'] = self::getConstantValue('config.language.default.nav_title');
-                $result['language'] = self::getConstantValue('config.language.default.language');
-                $result['locale'] = self::getConstantValue('config.language.default.locale');
-                $result['hreflang'] = self::getConstantValue('config.language.default.hreflang');
-                $result['direction'] = self::getConstantValue('config.language.default.direction');
-            }
-
-            // Take nav_title from title if not set
-            if (empty($result['nav_title'])) {
-                $result['nav_title'] = $result['title'];
-            }
-
-            // Sanitize array
-            $result = array_replace_recursive(self::$languageDefaults, $result);
+        if (is_array($row) && $languageUid > 0) {
+            // Load language from row
+            $result = $row;
+        } else {
+            // Load default language from constants
+            $result['title'] = self::getConstantValue('config.language.default.title');
+            $result['nav_title'] = self::getConstantValue('config.language.default.nav_title');
+            $result['language'] = self::getConstantValue('config.language.default.language');
+            $result['locale'] = self::getConstantValue('config.language.default.locale');
+            $result['hreflang'] = self::getConstantValue('config.language.default.hreflang');
+            $result['direction'] = self::getConstantValue('config.language.default.direction');
         }
+
+        // Fallback to title if nav_title not set
+        if (empty($result['nav_title'])) {
+            $result['nav_title'] = $result['title'];
+        }
+
+        // Sanitize array
+        $result = array_replace_recursive(self::$languageDefaults, $result);
 
         return $result;
     }
@@ -120,9 +121,8 @@ class LanguageUtility
                 // Cache state for later calls
                 static $hasSites = null;
 
-                // todo: other detection is needed because it's now integrated to the core (version based?)
                 if ($hasSites === null) {
-                    $hasSites = ExtensionManagementUtility::isLoaded('sites');
+                    $hasSites = class_exists('TYPO3\CMS\Core\Site\SiteFinder');
                 }
 
                 static $queryBuilder = null;
@@ -169,8 +169,7 @@ class LanguageUtility
 
         if ($languagesCache === null) {
             // Prepare and fetch from database
-            // todo: other detection is needed because it's now integrated to the core (version based?)
-            if (ExtensionManagementUtility::isLoaded('sites')) {
+            if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
                 // todo: verify query
                 $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
@@ -209,8 +208,8 @@ class LanguageUtility
             if (empty($sortingField)) {
                 $sortingField = 'sorting';
             }
-            // todo: other detection is needed because it's now integrated to the core (version based?)
-            if (ExtensionManagementUtility::isLoaded('sites')) {
+
+            if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $languageListCache = '';
 
                 // todo: verify query
@@ -220,8 +219,8 @@ class LanguageUtility
                     ->orderBy($sortingField)
                     ->execute();
             } else {
-                // Set default language
-                $languageListCache = '0';
+                // Set default language if enabled
+                $languageListCache = self::getConstantValue('config.language.default.enable') ? '0' : '';
 
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 $statement = $queryBuilder->select('uid')
