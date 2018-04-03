@@ -11,8 +11,6 @@ namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
  * TSGenerator
@@ -24,11 +22,6 @@ class TSGenerator
     const LOCALE_PLACEHOLDER = '###LOCALEPLACEHOLDER###';
     const HREF_LANG_PLACEHOLDER = '###HREFLANGPLACEHOLDER###';
     const DIRECTION_PLACEHOLDER = '###DIRECTIONPLACEHOLDER###';
-
-    /**
-     * @var string
-     */
-    protected $tempDirectory = 'typo3temp/var/Cache/Code/bootstrappackage/';
 
     /**
      * @var array
@@ -77,25 +70,6 @@ class TSGenerator
         $content .= implode(LF, $this->includeFooter) . LF;
 
         return $content;
-    }
-
-    /**
-     * Create TS language conditions include file if not exists
-     *
-     * @param array $params
-     * @param TypoScriptFrontendController $tsfe
-     */
-    public function createTSSetupInclude(&$params, &$tsfe)
-    {
-        // todo: hook to delete file on language changes (sys_language and sys_site_language)
-        $filepath = PATH_site . $this->tempDirectory . 'setup_language_conditions.typoscript';
-
-        if (!@is_file($filepath)) {
-            GeneralUtility::writeFileToTypo3tempDir(
-                $filepath,
-                $this->createLanguageConditions()
-            );
-        }
     }
 
     /**

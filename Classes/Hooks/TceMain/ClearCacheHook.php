@@ -32,10 +32,6 @@ class ClearCacheHook
                     PATH_site . 'typo3temp/assets/bootstrappackage',
                     true
                 );
-                GeneralUtility::rmdir(
-                    PATH_site . 'typo3temp/var/Cache/Code/bootstrappackage',
-                    true
-                );
                 break;
             default:
         }
