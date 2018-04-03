@@ -12,7 +12,7 @@ CREATE TABLE pages (
 CREATE TABLE sys_language (
 	nav_title varchar(255) DEFAULT '' NOT NULL,
 	locale varchar(20) DEFAULT '' NOT NULL,
-	hreflang varchar(20) DEFAULT '' NOT NULL,
+	language_rfc1766 varchar(20) DEFAULT '' NOT NULL,
 	direction varchar(3) DEFAULT '' NOT NULL,
 );
 
