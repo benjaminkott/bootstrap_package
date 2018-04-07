@@ -50,12 +50,13 @@ class TSGenerator
     /**
      * Returns the TypoScript Setup language conditions
      *
+     * @param int $pageId
      * @return string
      */
-    protected function createLanguageConditions()
+    protected function createLanguageConditions($pageId)
     {
         $content = implode(LF, $this->includeHeader);
-        $languages = LanguageUtility::getLanguageRows();
+        $languages = LanguageUtility::getLanguageRows($pageId);
 
         foreach ($languages as $languageUid => $languageRec) {
             $content .= implode(LF, $this->includeContent) . LF;
@@ -81,6 +82,6 @@ class TSGenerator
     public function addLanguageConditions(&$params, &$tmpl)
     {
         //$tmpl->constants[] = $row['constants'];
-        $tmpl->config[] = $this->createLanguageConditions();
+        $tmpl->config[] = $this->createLanguageConditions($tmpl->getRootId());
     }
 }

@@ -37,6 +37,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 class LanguageMenuProcessor implements DataProcessorInterface
 {
     const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
+    const PAGE_PLACEHOLDER = '###PAGEPLACEHOLDER###';
 
     /**
      * The content object renderer
@@ -122,6 +123,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'title',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => '"title":|'
                     ]
@@ -160,6 +162,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'nav_title',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => ',"navigationTitle":|'
                     ]
@@ -171,6 +174,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'language',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => ',"language":|'
                     ]
@@ -182,6 +186,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'locale',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => ',"locale":|'
                     ]
@@ -193,6 +198,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'hreflang',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => ',"hreflang":|'
                     ]
@@ -204,6 +210,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'direction',
+                    'page' => self::PAGE_PLACEHOLDER,
                     'stdWrap.' => [
                         'wrap' => ',"direction":|'
                     ]
@@ -273,6 +280,10 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $conf['field'] = $this->cObj->stdWrap($conf['field'], $conf['field.']);
             unset($conf['field.']);
         }
+        if (isset($conf['page.'])) {
+            $conf['page'] = $this->cObj->stdWrap($conf['page'], $conf['page.']);
+            unset($conf['page.']);
+        }
 
         // Check required fields
         if (empty($conf['language'])) {
@@ -281,10 +292,13 @@ class LanguageMenuProcessor implements DataProcessorInterface
         if (empty($conf['field'])) {
             throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
         }
+        if (empty($conf['page'])) {
+            throw new \InvalidArgumentException('Argument \'page\' must be supplied.', 1523106560);
+        }
 
         $result = '';
 
-        $row = LanguageUtility::getLanguageRow($conf['language']);
+        $row = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
         if (isset($row[$conf['field']])) {
             $result = $this->jsonEncode($row[$conf['field']]);
         }
@@ -317,7 +331,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
 
         // Process languages
         if (($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) && empty($this->menuConfig['languages.'])) {
-            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->menuAlternativeSortingField);
+            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->cObj->typoScriptFrontendController->id, $this->menuAlternativeSortingField);
         } elseif (!empty($this->menuConfig['languages.'])) {
             $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
         }
@@ -432,8 +446,10 @@ class LanguageMenuProcessor implements DataProcessorInterface
     public function replacePlaceholderInRenderedMenuItem($menuItem, $conf)
     {
         $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
+        $pageId = $this->cObj->typoScriptFrontendController->id;
 
         $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(self::PAGE_PLACEHOLDER, $pageId, $menuItem['parts']['title']);
 
         return $menuItem;
     }

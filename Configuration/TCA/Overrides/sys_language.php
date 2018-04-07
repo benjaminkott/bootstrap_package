@@ -35,7 +35,7 @@ if (!class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                     'eval' => 'trim,required'
                 ]
             ],
-            'language_rfc1766' => [
+            'hreflang' => [
                 'exclude' => true,
                 'label' => 'Language tag defined by RFC 1766 / 3066 for lang and hreflang attributes',
                 'config' => [
@@ -52,8 +52,8 @@ if (!class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                     'renderType' => 'selectSingle',
                     'items' => [
                         ['None', '', ''],
-                        ['Left to right', 'ltr', ''],
-                        ['Right to left', 'rtl', '']
+                        ['Left to Right', 'ltr', ''],
+                        ['Right to Left', 'rtl', '']
                     ],
                     'size' => 1,
                     'minitems' => 1,
