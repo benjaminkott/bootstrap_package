@@ -122,7 +122,7 @@ class LanguageUtility
                 // Cache site finder for later calls
                 static $siteFinder = null;
 
-                if ($siteFinder === null) {
+                if ($siteFinder === null && class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                     $siteFinder = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder');
                 }
 
