@@ -160,7 +160,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                     'language.' => [
                         'data' => 'register:languageUid'
                     ],
-                    'field' => 'nav_title',
+                    'field' => 'navigationTitle',
                     'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"navigationTitle":|'
@@ -172,7 +172,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                     'language.' => [
                         'data' => 'register:languageUid'
                     ],
-                    'field' => 'language',
+                    'field' => 'twoLetterIsoCode',
                     'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"language":|'

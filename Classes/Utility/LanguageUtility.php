@@ -21,10 +21,11 @@ class LanguageUtility
      * @var array
      */
     public static $languageDefaults = [
-        'title' => '',
-        'nav_title' => '',
-        'language' => '',
+        'languageId' => '',
         'locale' => '',
+        'title' => '',
+        'navigationTitle' => '',
+        'twoLetterIsoCode' => '',
         'hreflang' => '',
         'direction' => ''
     ];
@@ -74,7 +75,7 @@ class LanguageUtility
 
         $result = [];
 
-        if (is_array($row) && $languageUid > 0) {
+        if (isset($row) && is_array($row)) {
             // Load language from row
             $result = $row;
         } else {
@@ -117,42 +118,28 @@ class LanguageUtility
         if ($languageCache === null || !isset($languageCache[$languageUid])) {
             $languageRow = null;
 
-            // Prepare and fetch from database
-            if ($languageUid > 0) {
-                // Cache site finder for later calls
-                static $siteFinder = null;
+            // Cache site finder for later calls
+            static $siteFinder = null;
 
-                if ($siteFinder === null && class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
-                    $siteFinder = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder');
-                }
+            if ($siteFinder === null && class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
+                $siteFinder = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder');
+            }
 
+            if ($siteFinder !== null) {
+                $languageRow = $siteFinder->getSiteByPageId($pageId)->getLanguageById($languageUid)->toArray();
+            } elseif ($languageUid > 0) {
+                // Prepare and fetch from database
                 static $queryBuilder = null;
 
-                if ($siteFinder !== null) {
-                    $languageRow = $siteFinder->getSiteByPageId($pageId)->getLanguageById($languageUid)->toArray();
-                /*
                 if ($queryBuilder === null) {
-                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
+                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 }
 
-                // todo: verify query
-                $languageRow = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
-                    ->from('sys_site_language')
+                $languageRow = $queryBuilder->select('uid AS languageId', 'locale', 'title', 'nav_title AS navigationTitle', 'language_isocode AS twoLetterIsoCode', 'hreflang', 'direction')
+                    ->from('sys_language')
                     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
                     ->execute()
                     ->fetch();
-                */
-                } else {
-                    if ($queryBuilder === null) {
-                        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-                    }
-
-                    $languageRow = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
-                        ->from('sys_language')
-                        ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($languageUid, \PDO::PARAM_INT)))
-                        ->execute()
-                        ->fetch();
-                }
             }
 
             $languageCache[$languageUid] = self::extractLanguageData($languageUid, $languageRow);
@@ -179,24 +166,17 @@ class LanguageUtility
                 foreach ($languages as $languageUid => $language) {
                     $languagesCache[$languageUid] = self::extractLanguageData($languageUid, $language);
                 }
-                /*
-                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
-                // todo: verify query
-                $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
-                    ->from('sys_site_language')
-                    ->execute();
-                */
             } else {
                 // Set default language
                 $languagesCache[0] = self::extractLanguageData(0, null);
 
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-                $statement = $queryBuilder->select('uid', 'title', 'language_isocode AS language', 'locale', 'hreflang', 'direction', 'nav_title')
+                $statement = $queryBuilder->select('uid AS languageId', 'locale', 'title', 'nav_title AS navigationTitle', 'language_isocode AS twoLetterIsoCode', 'hreflang', 'direction')
                     ->from('sys_language')
                     ->execute();
 
                 while ($row = $statement->fetch()) {
-                    $languagesCache[$row['uid']] = self::extractLanguageData($row['uid'], $row);
+                    $languagesCache[$row['languageId']] = self::extractLanguageData($row['languageId'], $row);
                 }
             }
         }
@@ -224,18 +204,9 @@ class LanguageUtility
             if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $languageListCache = '';
                 $languages = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder')->getSiteByPageId($pageId)->getLanguages();
-                foreach ($languages as $languageUid) {
+                foreach ($languages as $languageUid => $language) {
                     $languageListCache .= (($languageListCache === '') ? '' : ',') . $languageUid;
                 }
-
-                /*
-                // todo: verify query
-                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_site_language');
-                $statement = $queryBuilder->select('uid')
-                    ->from('sys_site_language')
-                    ->orderBy($sortingField)
-                    ->execute();
-                */
             } else {
                 // Set default language if enabled
                 $languageListCache = self::getConstantValue('config.language.default.enable') ? '0' : '';
