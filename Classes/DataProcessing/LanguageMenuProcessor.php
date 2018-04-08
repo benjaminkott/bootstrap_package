@@ -37,7 +37,6 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 class LanguageMenuProcessor implements DataProcessorInterface
 {
     const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
-    const PAGE_PLACEHOLDER = '###PAGEPLACEHOLDER###';
 
     /**
      * The content object renderer
@@ -123,7 +122,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'title',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => '"title":|'
                     ]
@@ -162,7 +161,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'nav_title',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"navigationTitle":|'
                     ]
@@ -174,7 +173,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'language',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"language":|'
                     ]
@@ -186,7 +185,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'locale',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"locale":|'
                     ]
@@ -198,7 +197,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'hreflang',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"hreflang":|'
                     ]
@@ -210,7 +209,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         'data' => 'register:languageUid'
                     ],
                     'field' => 'direction',
-                    'page' => self::PAGE_PLACEHOLDER,
+                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"direction":|'
                     ]
@@ -286,13 +285,13 @@ class LanguageMenuProcessor implements DataProcessorInterface
         }
 
         // Check required fields
-        if (empty($conf['language'])) {
+        if ($conf['language'] === '') {
             throw new \InvalidArgumentException('Argument \'language\' must be supplied.', 1522795243);
         }
-        if (empty($conf['field'])) {
+        if ($conf['field'] === '') {
             throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
         }
-        if (empty($conf['page'])) {
+        if ($conf['page'] === '') {
             throw new \InvalidArgumentException('Argument \'page\' must be supplied.', 1523106560);
         }
 
@@ -341,6 +340,15 @@ class LanguageMenuProcessor implements DataProcessorInterface
         }
 
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
+
+        // Set page id
+        $pageId = strval($GLOBALS['TSFE']->id);
+        $this->menuLevelConfig['stdWrap.']['cObject.']['20.']['page'] = $pageId;
+        $this->menuLevelConfig['stdWrap.']['cObject.']['70.']['page'] = $pageId;
+        $this->menuLevelConfig['stdWrap.']['cObject.']['71.']['page'] = $pageId;
+        $this->menuLevelConfig['stdWrap.']['cObject.']['72.']['page'] = $pageId;
+        $this->menuLevelConfig['stdWrap.']['cObject.']['80.']['page'] = $pageId;
+        $this->menuLevelConfig['stdWrap.']['cObject.']['81.']['page'] = $pageId;
 
         // Filter configuration
         foreach ($this->menuConfig as $key => $value) {
@@ -454,7 +462,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $pageId = $GLOBALS['TSFE']->id;
 
         $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
-        $menuItem['parts']['title'] = str_replace(self::PAGE_PLACEHOLDER, $pageId, $menuItem['parts']['title']);
 
         return $menuItem;
     }
