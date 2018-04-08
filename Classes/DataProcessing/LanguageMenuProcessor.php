@@ -446,7 +446,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
     public function replacePlaceholderInRenderedMenuItem($menuItem, $conf)
     {
         $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
-        $pageId = $this->cObj->typoScriptFrontendController->id;
+        $pageId = $GLOBALS['TSFE']->id;
 
         $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
         $menuItem['parts']['title'] = str_replace(self::PAGE_PLACEHOLDER, $pageId, $menuItem['parts']['title']);
