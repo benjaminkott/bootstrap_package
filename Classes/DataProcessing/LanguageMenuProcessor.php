@@ -330,11 +330,16 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $this->menuConfig += $this->processorConfiguration;
 
         // Process languages
-        if (($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) && empty($this->menuConfig['languages.'])) {
+        if (!empty($this->menuConfig['languages.'])) {
+            $this->menuConfig['languages'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
+        } 
+        
+        if ($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) {
             $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($GLOBALS['TSFE']->id, $this->menuAlternativeSortingField);
-        } elseif (!empty($this->menuConfig['languages.'])) {
-            $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
+        } else {
+            $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         }
+
         $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
 
         // Filter configuration
