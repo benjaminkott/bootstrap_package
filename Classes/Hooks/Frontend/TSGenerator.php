@@ -82,6 +82,6 @@ class TSGenerator
     public function addLanguageConditions(&$params, &$tmpl)
     {
         //$tmpl->constants[] = $row['constants'];
-        $tmpl->config[] = $this->createLanguageConditions($tmpl->getRootId());
+        $tmpl->config[] = $this->createLanguageConditions($tmpl->rootId);
     }
 }
