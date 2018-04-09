@@ -343,11 +343,17 @@
             <trans-unit id="carousel_item.header_layout">
                 <source>Header Layout</source>
             </trans-unit>
+            <trans-unit id="carousel_item.header_class">
+                <source>Header Class</source>
+            </trans-unit>
             <trans-unit id="carousel_item.subheader">
                 <source>Subheader</source>
             </trans-unit>
             <trans-unit id="carousel_item.subheader_layout">
                 <source>Subheader Layout</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.subheader_class">
+                <source>Subheader Class</source>
             </trans-unit>
             <trans-unit id="carousel_item.nav_title">
                 <source>Navigation Title</source>
