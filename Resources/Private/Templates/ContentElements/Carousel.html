@@ -3,7 +3,7 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div id="carousel-{data.uid}" class="carousel carousel-transition-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
+        <div id="carousel-{data.uid}" class="carousel carousel-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <f:for each="{records}" as="item" iteration="iteration">
                     <f:variable name="itemStyleImage"><f:if condition="{item.backgroundImage.0}">background-image: url('{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}');</f:if></f:variable>

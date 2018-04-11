@@ -8379,46 +8379,46 @@ body,
 .carousel .carousel-indicators-navigation > li:last-child.active:before {
   right: 0;
 }
-.carousel-transition-fade {
+.carousel-fade {
   -webkit-transition: opacity 0.6s ease-in-out 0s;
   -o-transition: opacity 0.6s ease-in-out 0s;
   transition: opacity 0.6s ease-in-out 0s;
 }
-.carousel-transition-fade .carousel-item {
+.carousel-fade .carousel-item {
   opacity: 0;
 }
 @media all and (transform-3d), (-webkit-transform-3d) {
-  .carousel-transition-fade .carousel-item {
+  .carousel-fade .carousel-item {
     transition: opacity 0.6s ease-in-out 0s;
     backface-visibility: visible;
     perspective: none;
   }
-  .carousel-transition-fade .carousel-item.next,
-  .carousel-transition-fade .carousel-item.next.left,
-  .carousel-transition-fade .carousel-item.prev,
-  .carousel-transition-fade .carousel-item.prev.right,
-  .carousel-transition-fade .carousel-item.active.right,
-  .carousel-transition-fade .carousel-item.active.left,
-  .carousel-transition-fade .carousel-item.active {
+  .carousel-fade .carousel-item.next,
+  .carousel-fade .carousel-item.next.left,
+  .carousel-fade .carousel-item.prev,
+  .carousel-fade .carousel-item.prev.right,
+  .carousel-fade .carousel-item.active.right,
+  .carousel-fade .carousel-item.active.left,
+  .carousel-fade .carousel-item.active {
     transform: none;
   }
 }
-.carousel-transition-fade .carousel-inner > .active {
+.carousel-fade .carousel-inner > .active {
   z-index: 1;
   opacity: 1;
 }
-.carousel-transition-fade .carousel-inner > .next,
-.carousel-transition-fade .carousel-inner > .prev {
+.carousel-fade .carousel-inner > .next,
+.carousel-fade .carousel-inner > .prev {
   opacity: 1;
 }
-.carousel-transition-fade .carousel-inner > .next,
-.carousel-transition-fade .carousel-inner > .prev,
-.carousel-transition-fade .carousel-inner > .active.left,
-.carousel-transition-fade .carousel-inner > .active.right {
+.carousel-fade .carousel-inner > .next,
+.carousel-fade .carousel-inner > .prev,
+.carousel-fade .carousel-inner > .active.left,
+.carousel-fade .carousel-inner > .active.right {
   left: 0;
 }
-.carousel-transition-fade .carousel-inner > .active.left,
-.carousel-transition-fade .carousel-inner > .active.right {
+.carousel-fade .carousel-inner > .active.left,
+.carousel-fade .carousel-inner > .active.right {
   opacity: 0;
 }
 .carousel-item-type-header .carousel-text-inner {

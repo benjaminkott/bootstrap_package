@@ -182,50 +182,6 @@
 }
 
 //
-// Carousel Transition
-//
-.carousel-transition-fade {
-    @include transition(opacity .6s ease-in-out 0s);
-    .carousel-item {
-        opacity: 0;
-        @media all and (transform-3d), (-webkit-transform-3d) {
-            transition: opacity .6s ease-in-out 0s;
-            backface-visibility: visible;
-            perspective: none;
-            &.carousel-item-next,
-            &.carousel-item-next.carousel-item-left,
-            &.carousel-item-prev,
-            &.carousel-item-prev.carousel-item-right,
-            &.active.carousel-item-right,
-            &.active.carousel-item-left,
-            &.active {
-                transform: none;
-            }
-        }
-    }
-    .carousel-inner {
-        > .active {
-            z-index: 1;
-            opacity: 1;
-        }
-        > .carousel-item-next,
-        > .carousel-item-prev {
-            opacity: 1;
-        }
-        > .carousel-item-next,
-        > .carousel-item-prev,
-        > .active.carousel-item-left,
-        > .active.carousel-item-right {
-            left: 0;
-        }
-        > .active.carousel-item-left,
-        > .active.carousel-item-right {
-            opacity: 0;
-        }
-    }
-}
-
-//
 // Type: Header
 //
 .carousel-item-type-header {
