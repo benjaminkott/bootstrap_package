@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Utility;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Exception\SiteNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -115,23 +116,31 @@ class LanguageUtility
         // Cache languages data for later calls
         static $languageCache = null;
 
-        if ($languageCache === null || !isset($languageCache[$languageUid])) {
+        if (!isset($languageCache) || !isset($languageCache[$languageUid])) {
             $languageRow = null;
 
             // Cache site finder for later calls
             static $siteFinder = null;
 
-            if ($siteFinder === null && class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
+            if (!isset($siteFinder) && class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $siteFinder = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder');
             }
 
-            if ($siteFinder !== null) {
-                $languageRow = $siteFinder->getSiteByPageId($pageId)->getLanguageById($languageUid)->toArray();
-            } elseif ($languageUid > 0) {
+            if (isset($siteFinder)) {
+                try {
+                    $languageRow = $siteFinder->getSiteByPageId($pageId)->getLanguageById($languageUid)->toArray();
+                } catch (SiteNotFoundException $e) {
+                    $languageRow = null;
+                } catch (InvalidArgumentException $e) {
+                    $languageRow = null;
+                }
+            }
+
+            if (!isset($languageRow) && ($languageUid > 0)) {
                 // Prepare and fetch from database
                 static $queryBuilder = null;
 
-                if ($queryBuilder === null) {
+                if (!isset($queryBuilder)) {
                     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 }
 
@@ -159,14 +168,23 @@ class LanguageUtility
         // Cache languages data for later calls
         static $languagesCache = null;
 
-        if ($languagesCache === null) {
+        if (!isset($languagesCache)) {
             // Prepare and fetch from database
             if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
-                $languages = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder')->getSiteByPageId($pageId)->getLanguages();
-                foreach ($languages as $languageUid => $language) {
-                    $languagesCache[$languageUid] = self::extractLanguageData($languageUid, $language);
+                try {
+                    $languages = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder')->getSiteByPageId($pageId)->getLanguages();
+                } catch (SiteNotFoundException $e) {
+                    $languages = null;
                 }
-            } else {
+
+                if (isset($languages)) {
+                    foreach ($languages as $languageUid => $language) {
+                        $languagesCache[$languageUid] = self::extractLanguageData($languageUid, $language);
+                    }
+                }
+            }
+
+            if (!isset($languagesCache)) {
                 // Set default language
                 $languagesCache[0] = self::extractLanguageData(0, null);
 
@@ -196,18 +214,27 @@ class LanguageUtility
         // Cache languages for later calls
         static $languageListCache = null;
 
-        if ($languageListCache === null) {
+        if (!isset($languageListCache)) {
             if (empty($sortingField)) {
                 $sortingField = 'sorting';
             }
 
             if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $languageListCache = '';
-                $languages = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder')->getSiteByPageId($pageId)->getLanguages();
-                foreach ($languages as $languageUid => $language) {
-                    $languageListCache .= (($languageListCache === '') ? '' : ',') . $languageUid;
+                try {
+                    $languages = GeneralUtility::makeInstance('TYPO3\CMS\Core\Site\SiteFinder')->getSiteByPageId($pageId)->getLanguages();
+                } catch (SiteNotFoundException $e) {
+                    $languages = null;
                 }
-            } else {
+
+                if (isset($languages)) {
+                    foreach ($languages as $languageUid => $language) {
+                        $languageListCache .= (($languageListCache === '') ? '' : ',') . $languageUid;
+                    }
+                }
+            }
+
+            if (!isset($languageListCache)) {
                 // Set default language if enabled
                 $languageListCache = self::getConstantValue('config.language.default.enable') ? '0' : '';
 
