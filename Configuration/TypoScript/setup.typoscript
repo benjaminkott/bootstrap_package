@@ -484,6 +484,19 @@ page {
 }
 
 
+########################
+#### COOKIE CONSENT ####
+########################
+[globalVar = LIT:1 = {$page.theme.cookieconsent.enable}]
+    page {
+        includeJSFooterlibs {
+            contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
+            bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsent.min.js
+        }
+    }
+[end]
+
+
 ###################################################
 #### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
 #### IF NO SEARCH IS SET FOR THIS PAGE         ####

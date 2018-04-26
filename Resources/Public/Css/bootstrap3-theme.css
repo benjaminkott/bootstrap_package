@@ -2989,7 +2989,8 @@ select[multiple].input-lg {
     font-size: 12px;
   }
 }
-.btn {
+.btn,
+.cc-btn {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -9634,6 +9635,8 @@ body .typo3-editPanel-btn:hover,
   .card-columns {
     column-count: 3;
     column-gap: 1.25em;
+    orphans: 1;
+    widows: 1;
   }
   .card-columns .card {
     display: inline-block;
@@ -10008,6 +10011,380 @@ body .typo3-editPanel-btn:hover,
 }
 .link-mail:after {
   content: '\2709';
+}
+.cc-window {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.cc-window.cc-invisible {
+  opacity: 0;
+}
+.cc-animate.cc-revoke {
+  transition: transform 1s ease;
+}
+.cc-animate.cc-revoke.cc-top {
+  transform: translateY(-2em);
+}
+.cc-animate.cc-revoke.cc-bottom {
+  transform: translateY(2em);
+}
+.cc-animate.cc-revoke.cc-active.cc-top {
+  transform: translateY(0);
+}
+.cc-animate.cc-revoke.cc-active.cc-bottom {
+  transform: translateY(0);
+}
+.cc-revoke:hover {
+  transform: translateY(0);
+}
+.cc-grower {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s;
+}
+.cc-window,
+.cc-revoke {
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  z-index: 1080;
+}
+.cc-window.cc-static {
+  position: static;
+}
+.cc-window.cc-floating {
+  padding: 2em;
+  max-width: 380px;
+  flex-direction: column;
+}
+.cc-window.cc-banner {
+  padding: 20px;
+  width: 100%;
+  flex-direction: row;
+}
+.cc-revoke {
+  padding: .5em;
+}
+.cc-revoke:hover {
+  text-decoration: underline;
+}
+.cc-header {
+  font-weight: bold;
+}
+.cc-link,
+.cc-close,
+.cc-revoke {
+  cursor: pointer;
+}
+.cc-link {
+  opacity: .8;
+  display: inline-block;
+  padding: .2em 0;
+  text-decoration: underline;
+}
+.cc-link:hover {
+  opacity: 1;
+}
+.cc-link:active,
+.cc-link:visited {
+  color: initial;
+}
+.cc-banner .cc-btn:last-child {
+  min-width: 140px;
+}
+.cc-highlight .cc-btn:first-child {
+  background-color: transparent;
+  border-color: transparent;
+}
+.cc-highlight .cc-btn:first-child:hover,
+.cc-highlight .cc-btn:first-child:focus {
+  background-color: transparent;
+  text-decoration: underline;
+}
+.cc-close {
+  display: block;
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  font-size: 1.6em;
+  opacity: .9;
+  line-height: .75;
+}
+.cc-close:hover,
+.cc-close:focus {
+  opacity: 1;
+}
+.cc-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .cc-container {
+    max-width: 708px;
+  }
+}
+@media (min-width: 992px) {
+  .cc-container {
+    max-width: 932px;
+  }
+}
+@media (min-width: 1200px) {
+  .cc-container {
+    max-width: 1140px;
+  }
+}
+.cc-window.cc-floating .cc-container {
+  flex-direction: column;
+}
+.cc-window.cc-banner .cc-container {
+  flex-direction: row;
+  align-items: center;
+}
+.cc-revoke.cc-top {
+  top: 0;
+  left: 3em;
+  border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
+}
+.cc-revoke.cc-bottom {
+  bottom: 0;
+  left: 3em;
+  border-top-left-radius: .5em;
+  border-top-right-radius: .5em;
+}
+.cc-revoke.cc-left {
+  left: 3em;
+  right: unset;
+}
+.cc-revoke.cc-right {
+  right: 3em;
+  left: unset;
+}
+.cc-top {
+  top: 20px;
+}
+.cc-left {
+  left: 20px;
+}
+.cc-right {
+  right: 20px;
+}
+.cc-bottom {
+  bottom: 20px;
+}
+.cc-message {
+  line-height: 1.25em;
+}
+.cc-floating > .cc-container > .cc-link,
+.cc-floating > .cc-link {
+  margin-bottom: 1em;
+}
+.cc-floating .cc-message {
+  display: block;
+  margin-bottom: 1em;
+}
+.cc-window.cc-floating .cc-compliance {
+  flex: 1 0 auto;
+}
+.cc-window.cc-banner {
+  align-items: center;
+}
+.cc-banner.cc-top {
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.cc-banner.cc-bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.cc-banner .cc-message {
+  padding-right: 1em;
+  flex: 1;
+}
+.cc-compliance {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+}
+.cc-compliance > .cc-btn {
+  flex: 1;
+}
+.cc-btn + .cc-btn {
+  margin-left: .5em;
+}
+@media print {
+  .cc-window,
+  .cc-revoke {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cc-btn {
+    white-space: normal;
+  }
+}
+@media screen and (max-width: 480px) and (orientation: portrait), screen and (max-width: 736px) and (orientation: landscape) {
+  .cc-window.cc-top {
+    top: 0;
+  }
+  .cc-window.cc-bottom {
+    bottom: 0;
+  }
+  .cc-window.cc-banner,
+  .cc-window.cc-right,
+  .cc-window.cc-left {
+    left: 0;
+    right: 0;
+  }
+  .cc-window.cc-banner {
+    flex-direction: column;
+    align-items: unset;
+  }
+  .cc-window.cc-banner .cc-compliance {
+    flex: 1;
+  }
+  .cc-window.cc-floating {
+    padding: 20px;
+    max-width: none;
+  }
+  .cc-window .cc-message {
+    padding-right: 0;
+    margin-bottom: 1em;
+  }
+  .cc-window.cc-banner .cc-container {
+    align-items: unset;
+    flex-direction: column;
+  }
+}
+.cc-window,
+.cc-revoke {
+  color: white;
+  background-color: #222222;
+}
+.cc-link,
+.cc-link:active,
+.cc-link:visited {
+  color: #ff8700;
+}
+.cc-btn {
+  color: #fff;
+  background-color: #ff8700;
+  border-color: #e67a00;
+}
+.cc-btn:focus,
+.cc-btn.focus {
+  color: #fff;
+  background-color: #cc6c00;
+  border-color: #663600;
+}
+.cc-btn:hover {
+  color: #fff;
+  background-color: #cc6c00;
+  border-color: #a85900;
+}
+.cc-btn:active,
+.cc-btn.active,
+.open > .dropdown-toggle.cc-btn {
+  color: #fff;
+  background-color: #cc6c00;
+  border-color: #a85900;
+}
+.cc-btn:active:hover,
+.cc-btn.active:hover,
+.open > .dropdown-toggle.cc-btn:hover,
+.cc-btn:active:focus,
+.cc-btn.active:focus,
+.open > .dropdown-toggle.cc-btn:focus,
+.cc-btn:active.focus,
+.cc-btn.active.focus,
+.open > .dropdown-toggle.cc-btn.focus {
+  color: #fff;
+  background-color: #a85900;
+  border-color: #663600;
+}
+.cc-btn:active,
+.cc-btn.active,
+.open > .dropdown-toggle.cc-btn {
+  background-image: none;
+}
+.cc-btn.disabled:hover,
+.cc-btn[disabled]:hover,
+fieldset[disabled] .cc-btn:hover,
+.cc-btn.disabled:focus,
+.cc-btn[disabled]:focus,
+fieldset[disabled] .cc-btn:focus,
+.cc-btn.disabled.focus,
+.cc-btn[disabled].focus,
+fieldset[disabled] .cc-btn.focus {
+  background-color: #ff8700;
+  border-color: #e67a00;
+}
+.cc-btn .badge {
+  color: #ff8700;
+  background-color: #fff;
+}
+.cc-highlight .cc-btn:first-child {
+  color: #ff8700;
+  background-color: transparent;
+  border-color: transparent;
+}
+.cc-highlight .cc-btn:first-child:focus,
+.cc-highlight .cc-btn:first-child.focus {
+  color: #ff8700;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+.cc-highlight .cc-btn:first-child:hover {
+  color: #ff8700;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+.cc-highlight .cc-btn:first-child:active,
+.cc-highlight .cc-btn:first-child.active,
+.open > .dropdown-toggle.cc-highlight .cc-btn:first-child {
+  color: #ff8700;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+.cc-highlight .cc-btn:first-child:active:hover,
+.cc-highlight .cc-btn:first-child.active:hover,
+.open > .dropdown-toggle.cc-highlight .cc-btn:first-child:hover,
+.cc-highlight .cc-btn:first-child:active:focus,
+.cc-highlight .cc-btn:first-child.active:focus,
+.open > .dropdown-toggle.cc-highlight .cc-btn:first-child:focus,
+.cc-highlight .cc-btn:first-child:active.focus,
+.cc-highlight .cc-btn:first-child.active.focus,
+.open > .dropdown-toggle.cc-highlight .cc-btn:first-child.focus {
+  color: #ff8700;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+.cc-highlight .cc-btn:first-child:active,
+.cc-highlight .cc-btn:first-child.active,
+.open > .dropdown-toggle.cc-highlight .cc-btn:first-child {
+  background-image: none;
+}
+.cc-highlight .cc-btn:first-child.disabled:hover,
+.cc-highlight .cc-btn:first-child[disabled]:hover,
+fieldset[disabled] .cc-highlight .cc-btn:first-child:hover,
+.cc-highlight .cc-btn:first-child.disabled:focus,
+.cc-highlight .cc-btn:first-child[disabled]:focus,
+fieldset[disabled] .cc-highlight .cc-btn:first-child:focus,
+.cc-highlight .cc-btn:first-child.disabled.focus,
+.cc-highlight .cc-btn:first-child[disabled].focus,
+fieldset[disabled] .cc-highlight .cc-btn:first-child.focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+.cc-highlight .cc-btn:first-child .badge {
+  color: transparent;
+  background-color: #ff8700;
 }
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 .pswp {
