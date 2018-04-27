@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 
 /**
@@ -26,7 +27,30 @@ class TypoScriptLanguageHook
     /**
      * @var array
      */
-    protected $includeContent = [
+    protected $constants = [
+        '# customsubcategory=99=Language',
+        'config.language.default {',
+        '    # cat=bootstrap package: language/99/10; type=boolean; label=Enable Default Language: If not checked the default language will not be rendered',
+        '    enable = 1',
+        '    # cat=bootstrap package: language/99/20; type=string; label=Default Title: Title of the default language',
+        '    title = English',
+        '    # cat=bootstrap package: language/99/30; type=string; label=Default Navigation Title: Navigation title of the default language',
+        '    nav_title = English',
+        '    # cat=bootstrap package: language/99/40; type=string; label=Default Language: Language of the default language',
+        '    language = en',
+        '    # cat=bootstrap package: language/99/50; type=string; label=Default Locale: Locale of the default language',
+        '    locale = en_US.UTF-8',
+        '    # cat=bootstrap package: language/99/60; type=string; label=Default Hreflang: Hreflang of the default language',
+        '    hreflang = en-US',
+        '    # cat=bootstrap package: language/99/70; type=options[Left to Right=ltr, Right to Left=rtl]; label=Default Language Direction: Direction of the default language',
+        '    direction = ltr',
+        '}'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $setupTemplate = [
         '[globalVar = GP:L = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER . ']',
         'config {',
         '    sys_language_uid = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER,
@@ -45,30 +69,31 @@ class TypoScriptLanguageHook
      */
     protected function createLanguageConditions($pageId)
     {
-        $content = '';
+        $setup = '';
         $languages = LanguageUtility::getLanguageRows($pageId);
 
-        foreach ($languages as $languageUid => $languageRec) {
-            $content .= implode(LF, $this->includeContent) . LF;
-
-            $content = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $languageUid, $content);
-            $content = str_replace(self::LANGUAGE_PLACEHOLDER, $languageRec['language'], $content);
-            $content = str_replace(self::LOCALE_PLACEHOLDER, $languageRec['locale'], $content);
-            $content = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $content);
-            $content = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $content);
+        foreach ($languages as $uid => $row) {
+            $setup .= implode(LF, $this->setupTemplate) . LF;
+            $setup = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $uid, $setup);
+            $setup = str_replace(self::LANGUAGE_PLACEHOLDER, $row['language'], $setup);
+            $setup = str_replace(self::LOCALE_PLACEHOLDER, $row['locale'], $setup);
+            $setup = str_replace(self::HREF_LANG_PLACEHOLDER, $row['hreflang'], $setup);
+            $setup = str_replace(self::DIRECTION_PLACEHOLDER, $row['direction'], $setup);
         }
 
-        return $content;
+        return $setup;
     }
 
     /**
      * Add TS language conditions to setup
      *
      * @param array $params
-     * @param TemplateService $tmpl
+     * @param TemplateService $templateService
      */
-    public function addLanguageConditions(&$params, &$tmpl)
+    public function addLanguageConditions(&$params, &$templateService)
     {
-        $tmpl->config[] = $this->createLanguageConditions(method_exists($tmpl, 'getRootId') ? $tmpl->getRootId() : 0);
+        $rootPage = method_exists($templateService, 'getRootId') ? $templateService->getRootId() : $params['rootLine'][0]['uid'];
+        ExtensionManagementUtility::addTypoScriptConstants(implode(LF, $this->constants));
+        ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions($rootPage));
     }
 }

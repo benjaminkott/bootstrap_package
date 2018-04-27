@@ -23,8 +23,6 @@
 # customsubcategory=167=Section Meta
 # customsubcategory=168=Section Language
 # customsubcategory=169=Section Copyright
-## used in Compatibility\constants.typoscript
-# customsubcategory=170=Section Default Language
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=200=Extension Overrides
@@ -413,16 +411,6 @@ plugin.bootstrap_package_contentelements {
         }
     }
 }
-
-#######################################
-### Compatibility without sites ext ###
-#######################################
-[userFunc = class_exists('TYPO3\CMS\Core\Site\SiteFinder')]
-    # Using values from sites extension
-[else]
-    # Include compatibility constants if sites extension not found
-    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Compatibility/constants.typoscript">
-[global]
 
 ####################
 #### EXTENSIONS ####
