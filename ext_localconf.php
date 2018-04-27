@@ -327,9 +327,9 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
 }
 
-/***************
- * Set alias for language menu processor as fallback if the core language menu
- * processor does not exist for older TYPO3 Versions
+/***
+ * Automatic Language Menus
+ * Compatibility for CMS 8.7
  */
 if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
     // Register slot to build nessesary sql
@@ -342,15 +342,12 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Frontend\DataProcessing\Langu
     );
 }
 if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    // Set alias for language menu processor as polyfill functionality for older TYPO3 versions
     class_alias(
         \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
         'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor'
     );
+    // Register hook to dynamically add language config conditions to the TypoScript Setup
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+        = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TypoScriptLanguageHook->addLanguageConditions';
 }
-
-/***************
- * Register runThroughTemplatesPostProcessing hook to dynamically add the language
- * config conditions to the TypoScript Setup
- */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TypoScriptLanguageHook->addLanguageConditions';
