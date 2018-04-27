@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\TypoScript\TemplateService;
 /**
  * Dynamically creates language config for TS Setup
  */
-class TSGenerator
+class TypoScriptLanguageHook
 {
     const SYS_LANGUAGE_UID_PLACEHOLDER = '###SYSLANGUAGEUIDPLACEHOLDER###';
     const LANGUAGE_PLACEHOLDER = '###LANGUAGEPLACEHOLDER###';

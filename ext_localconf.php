@@ -333,4 +333,4 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
  * config conditions to the TypoScript Setup
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TSGenerator->addLanguageConditions';
+    = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TypoScriptLanguageHook->addLanguageConditions';
