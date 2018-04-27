@@ -26,11 +26,6 @@ class TypoScriptLanguageHook
     /**
      * @var array
      */
-    protected $includeHeader = [];
-
-    /**
-     * @var array
-     */
     protected $includeContent = [
         '[globalVar = GP:L = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER . ']',
         'config {',
@@ -43,11 +38,6 @@ class TypoScriptLanguageHook
     ];
 
     /**
-     * @var array
-     */
-    protected $includeFooter = [];
-
-    /**
      * Returns the TypoScript Setup language conditions
      *
      * @param int $pageId
@@ -55,7 +45,7 @@ class TypoScriptLanguageHook
      */
     protected function createLanguageConditions($pageId)
     {
-        $content = implode(LF, $this->includeHeader);
+        $content = '';
         $languages = LanguageUtility::getLanguageRows($pageId);
 
         foreach ($languages as $languageUid => $languageRec) {
@@ -67,8 +57,6 @@ class TypoScriptLanguageHook
             $content = str_replace(self::HREF_LANG_PLACEHOLDER, $languageRec['hreflang'], $content);
             $content = str_replace(self::DIRECTION_PLACEHOLDER, $languageRec['direction'], $content);
         }
-
-        $content .= implode(LF, $this->includeFooter) . LF;
 
         return $content;
     }
