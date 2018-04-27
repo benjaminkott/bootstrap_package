@@ -1,0 +1,118 @@
+<?php
+
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+namespace BK2K\BootstrapPackage\Slot;
+
+/**
+ * LanguageMenuSlot
+ */
+class LanguageMenuSlot
+{
+    /**
+     * Adds additional SQL fields to sys_language
+     *
+     * @param array $sqlString
+     * @return array
+     */
+    public function addSqlFields(array $sql)
+    {
+        $sql[] = '
+            CREATE TABLE sys_language (
+                nav_title varchar(255) DEFAULT \'\' NOT NULL,
+                locale varchar(20) DEFAULT \'\' NOT NULL,
+                hreflang varchar(20) DEFAULT \'\' NOT NULL,
+                direction varchar(3) DEFAULT \'\' NOT NULL,
+            );
+        ';
+
+        return [
+            $sql
+        ];
+    }
+
+    /**
+     * Adds additional TCA fields to sys_language
+     *
+     * @param array $tca
+     * @return array
+     */
+    public function addTcaFields(array $tca)
+    {
+        // Add columns
+        $tca['sys_language']['columns'] = array_replace_recursive(
+            $tca['sys_language']['columns'],
+            [
+                'nav_title' => [
+                    'exclude' => true,
+                    'label' => 'Navigation title (e.g. "English", "Deutsch", "Français")',
+                    'config' => [
+                        'type' => 'input',
+                        'size' => 35,
+                        'max' => 255,
+                        'eval' => 'trim'
+                    ]
+                ],
+                'locale' => [
+                    'exclude' => true,
+                    'label' => 'Language locale',
+                    'config' => [
+                        'type' => 'input',
+                        'size' => 35,
+                        'max' => 20,
+                        'eval' => 'trim,required'
+                    ]
+                ],
+                'hreflang' => [
+                    'exclude' => true,
+                    'label' => 'Language tag defined by RFC 1766 / 3066 for "lang" and "hreflang" attributes',
+                    'config' => [
+                        'type' => 'input',
+                        'size' => 35,
+                        'max' => 20,
+                        'eval' => 'trim,required'
+                    ]
+                ],
+                'direction' => [
+                    'label' => 'Language direction for "dir" attribute',
+                    'config' => [
+                        'type' => 'select',
+                        'renderType' => 'selectSingle',
+                        'items' => [
+                            ['Left to Right', 'ltr'],
+                            ['Right to Left', 'rtl']
+                        ],
+                        'size' => 1
+                    ]
+                ]
+            ]
+        );
+
+        // Add fields to
+        $tca['sys_language']['types'][1] = array_replace_recursive(
+            $tca['sys_language']['types'][1],
+            [
+                'showitem' => '
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                        title,
+                        nav_title,
+                        locale,
+                        hreflang,
+                        direction,
+                        language_isocode,
+                        flag,
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                        hidden,
+                    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
+                '
+            ]
+        );
+
+        return [$tca];
+    }
+}

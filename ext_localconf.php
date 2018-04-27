@@ -331,17 +331,23 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
  * Automatic Language Menus
  * Compatibility for CMS 8.7
  */
-if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
-    // Register slot to build nessesary sql
+if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    // SignalSlot dispatcher
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+    // Register slot to build nessesary sql
     $signalSlotDispatcher->connect(
         \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
         'tablesDefinitionIsBeingBuilt',
-        \BK2K\BootstrapPackage\Slot\LanguageMenuSchemaSlot::class,
-        'registerLanguageMenuFields'
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addSqlFields'
     );
-}
-if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    // Register slot to build TCA for content elements
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::class,
+        'tcaIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addTcaFields'
+    );
     // Set alias for language menu processor as polyfill functionality for older TYPO3 versions
     class_alias(
         \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
