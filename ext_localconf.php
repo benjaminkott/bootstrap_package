@@ -331,6 +331,16 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
  * Set alias for language menu processor as fallback if the core language menu
  * processor does not exist for older TYPO3 Versions
  */
+if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    // Register slot to build nessesary sql
+    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
+        'tablesDefinitionIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSchemaSlot::class,
+        'registerLanguageMenuFields'
+    );
+}
 if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
     class_alias(
         \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,

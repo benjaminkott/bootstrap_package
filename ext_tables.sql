@@ -7,17 +7,6 @@ CREATE TABLE pages (
 
 
 #
-# Table structure for table 'sys_language'
-#
-CREATE TABLE sys_language (
-    nav_title varchar(255) DEFAULT '' NOT NULL,
-    locale varchar(20) DEFAULT '' NOT NULL,
-    hreflang varchar(20) DEFAULT '' NOT NULL,
-    direction varchar(3) DEFAULT '' NOT NULL,
-);
-
-
-#
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
