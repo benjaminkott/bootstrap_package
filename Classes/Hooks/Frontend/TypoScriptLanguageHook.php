@@ -10,8 +10,8 @@
 namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * Dynamically creates language config for TS Setup
