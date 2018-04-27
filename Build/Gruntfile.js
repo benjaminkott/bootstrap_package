@@ -145,6 +145,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 dest: '<%= paths.js %>Dist/bootstrap.stickyheader.min.js'
             },
+            cookieconsent: {
+                src: '<%= paths.js %>Src/jquery.cookieconsent.js',
+                dest: '<%= paths.js %>Dist/jquery.cookieconsent.min.js'
+            },
             responsiveimages: {
                 src: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
@@ -230,6 +234,10 @@ module.exports = function(grunt) {
                 files: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 tasks: 'uglify:bootstrapStickyheader'
             },
+            cookieconsent: {
+                files: '<%= paths.js %>Src/jquery.cookieconsent.js',
+                tasks: 'uglify:cookieconsent'
+            },
             responsiveimages: {
                 files: '<%= paths.js %>Src/jquery.responsiveimages.js',
                 tasks: 'uglify:responsiveimages'
@@ -279,6 +287,19 @@ module.exports = function(grunt) {
                         cwd: '<%= paths.node %>jquery/dist/',
                         src: 'jquery.min.js',
                         dest: '<%= paths.contrib %>jquery/',
+                        expand: true
+                    }
+                ]
+            },
+            cookieconsent: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>cookieconsent/build/',
+                        src: [
+                            'cookieconsent.min.css',
+                            'cookieconsent.min.js',
+                        ],
+                        dest: '<%= paths.contrib %>cookieconsent/',
                         expand: true
                     }
                 ]

@@ -1,0 +1,329 @@
+//
+// Cookie Consent
+//
+
+//
+// Variables
+//
+@cookieconsent-zindex: 1080;
+@cookieconsent-bg: @gray-darker;
+@cookieconsent-color: contrast(@cookieconsent-bg, black, white, 43%);
+@cookieconsent-link-color: @brand-primary;
+
+@cookieconsent-button-bg: @btn-primary-bg;
+@cookieconsent-button-border: @btn-primary-border;
+@cookieconsent-button-color: @btn-primary-color;
+
+@cookieconsent-button-highlight-bg: transparent;
+@cookieconsent-button-highlight-border: transparent;
+@cookieconsent-button-highlight-color: @cookieconsent-link-color;
+
+//
+// Animation
+//
+.cc-window {
+    opacity: 1;
+    transition: opacity 1s ease;
+    &.cc-invisible {
+        opacity: 0;
+    }
+}
+.cc-animate {
+    &.cc-revoke {
+        transition: transform 1s ease;
+        &.cc-top {
+            transform: translateY(-2em);
+        }
+        &.cc-bottom {
+            transform: translateY(2em);
+        }
+        &.cc-active {
+            &.cc-top {
+                transform: translateY(0);
+            }
+            &.cc-bottom {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+.cc-revoke:hover {
+    transform: translateY(0);
+}
+.cc-grower {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+
+//
+// Base
+//
+.cc-window,
+.cc-revoke {
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    z-index: @cookieconsent-zindex;
+}
+.cc-window {
+    &.cc-static {
+        position: static;
+    }
+    &.cc-floating {
+        padding: 2em;
+        max-width: 380px;
+        flex-direction: column;
+    }
+    &.cc-banner {
+        padding: (@grid-gutter-width / 2);
+        width: 100%;
+        flex-direction: row;
+    }
+}
+.cc-revoke {
+    padding: .5em;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.cc-header {
+    font-weight: bold;
+}
+.cc-link,
+.cc-close,
+.cc-revoke {
+    cursor: pointer;
+}
+.cc-link {
+    opacity: .8;
+    display: inline-block;
+    padding: .2em 0;
+    text-decoration: underline;
+    &:hover {
+        opacity: 1;
+    }
+    &:active,
+    &:visited {
+        color: initial;
+    }
+}
+.cc-btn {
+    &:extend(.btn);
+}
+.cc-banner {
+    .cc-btn:last-child {
+        min-width: 140px;
+    }
+}
+.cc-highlight {
+    .cc-btn:first-child {
+        background-color: transparent;
+        border-color: transparent;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+}
+.cc-close {
+    display: block;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    font-size: 1.6em;
+    opacity: .9;
+    line-height: .75;
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+//
+// Container
+//
+.cc-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    @media (min-width: @screen-sm-min) {
+        max-width: @container-sm - @grid-gutter-width;
+    }
+    @media (min-width: @screen-md-min) {
+        max-width: @container-md - @grid-gutter-width;
+    }
+    @media (min-width: @screen-lg-min) {
+        max-width: @container-lg - @grid-gutter-width;
+    }
+}
+.cc-window.cc-floating {
+    .cc-container {
+        flex-direction: column;
+    }
+}
+.cc-window.cc-banner {
+    .cc-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+//
+// Styling
+//
+.cc-revoke {
+    &.cc-top {
+        top:0;
+        left: 3em;
+        border-bottom-left-radius:.5em;
+        border-bottom-right-radius:.5em;
+    }
+    &.cc-bottom {
+        bottom:0;
+        left: 3em;
+        border-top-left-radius:.5em;
+        border-top-right-radius:.5em;
+    }
+    &.cc-left{
+        left: 3em;
+        right: unset;
+    }
+    &.cc-right{
+        right: 3em;
+        left: unset;
+    }
+}
+.cc-top {
+    top: (@grid-gutter-width / 2);
+}
+.cc-left {
+    left: (@grid-gutter-width / 2);
+}
+.cc-right {
+    right: (@grid-gutter-width / 2);
+}
+.cc-bottom {
+    bottom: (@grid-gutter-width / 2);
+}
+.cc-message {
+    line-height: 1.25em;
+}
+.cc-floating {
+    > .cc-container > .cc-link,
+    > .cc-link {
+        margin-bottom: 1em
+    }
+    .cc-message {
+        display: block;
+        margin-bottom: 1em;
+    }
+}
+.cc-window {
+    &.cc-floating {
+        .cc-compliance {
+            flex: 1 0 auto;
+        }
+    }
+    &.cc-banner {
+        align-items: center;
+    }
+}
+.cc-banner {
+    &.cc-top {
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    &.cc-bottom {
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .cc-message {
+        padding-right: 1em;
+        flex: 1;
+    }
+}
+.cc-compliance {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    > .cc-btn {
+        flex: 1;
+    }
+}
+.cc-btn + .cc-btn {
+    margin-left: .5em;
+}
+@media print {
+    .cc-window, .cc-revoke {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    .cc-btn {
+        white-space: normal;
+    }
+}
+@media screen and (max-width: 480px) and (orientation: portrait), screen and (max-width: 736px) and (orientation: landscape) {
+    .cc-window {
+        &.cc-top {
+            top:0;
+        }
+        &.cc-bottom {
+            bottom:0;
+        }
+        &.cc-banner,
+        &.cc-right,
+        &.cc-left {
+            left:0;
+            right:0;
+        }
+        &.cc-banner {
+            flex-direction: column;
+            align-items: unset;
+            .cc-compliance {
+                flex: 1;
+            }
+        }
+        &.cc-floating {
+            padding: (@grid-gutter-width / 2);
+            max-width: none;
+        }
+        .cc-message {
+            padding-right: 0;
+            margin-bottom: 1em;
+        }
+    }
+    .cc-window.cc-banner {
+        .cc-container {
+            align-items: unset;
+            flex-direction: column;
+        }
+    }
+}
+
+//
+// Colors
+//
+.cc-window,
+.cc-revoke {
+    color: @cookieconsent-color;
+    background-color: @cookieconsent-bg;
+}
+.cc-link,
+.cc-link:active,
+.cc-link:visited {
+    color: @cookieconsent-link-color;
+}
+.cc-btn {
+    .button-variant(@cookieconsent-button-color; @cookieconsent-button-bg; @cookieconsent-button-border);
+}
+.cc-highlight .cc-btn:first-child {
+    .button-variant(@cookieconsent-button-highlight-color; @cookieconsent-button-highlight-bg; @cookieconsent-button-highlight-border);
+}

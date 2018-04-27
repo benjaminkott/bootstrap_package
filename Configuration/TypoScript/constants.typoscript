@@ -15,6 +15,7 @@
 # customsubcategory=145=Content Element Uploads
 # customsubcategory=146=Content Element Gallery
 # customsubcategory=147=Content Element Menu Card
+# customsubcategory=148=Content Element Timeline
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=162=Breadcrumb
@@ -27,6 +28,7 @@
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=200=Extension Overrides
+# customsubcategory=230=Cookie Consent
 
 ############
 ### PAGE ###
@@ -79,6 +81,37 @@ page {
             width = 20
             # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
             height = 20
+        }
+
+        cookieconsent {
+            # cat=bootstrap package: cookie consent/230/01_enable; type=boolean; label=Enable Cookie Consent: For more information about this solution please head over to https://cookieconsent.insites.com/
+            enable = 1
+            # cat=bootstrap package: cookie consent/230/02_layout; type=options[Basic=basic, Basic Close=basic-close, Basic Header=basic-header]; label=Layout
+            layout = basic
+            # cat=bootstrap package: cookie consent/230/03_position; type=options[Banner Top=top, Banner Bottom=bottom, Floating Top Left=top-left, Floating Top Right=top-right, Floating Bottom Left=bottom-left, Floating Bottom Right=bottom-right]; label=Position: Position is used to describe where on the screen your popup should display. We also use 'position' to assume the shape of your popup. If you specify 'top' or 'bottom', we assume that a full width 'banner' is required. If however you specify a horizontal direction, we assume that a corner popup is required (which we call 'floating').
+            position = bottom
+            # cat=bootstrap package: cookie consent/230/04_static; type=boolean; label=Static Position: The popup uses position fixed to stay in one place on the screen despite any scroll bars. This option makes the popup position static so it displays at the top of the page. A height animation has also been added by default so the popup doesn’t make the page jump, but gradually grows and fades in.
+            static = 0
+            content {
+                # cat=bootstrap package: cookie consent/230/05_content_href; type=string; label=Privacy Police: Insert a full Link to the privacy police page or a page uid from your current TYPO3 System.
+                href =
+            }
+            # cat=bootstrap package: cookie consent/230/06_revokable; type=boolean; label=Revokable: If set true, revoke button is displayed every time. If false, revoke button is only displayed for advanced compliance options (opt-in and opt-out) and in countries that require revokable consent. The latter can be disabled by regionalLaw.
+            revokable = 0
+            # cat=bootstrap package: cookie consent/230/07_location; type=boolean; label=Location Detection: Location is simply a tool for getting the two letter country code that the user is in.
+            location = 0
+            law {
+                # cat=bootstrap package: cookie consent/230/08_law_countryCode; type=string; label=Country Code: Rather than getting the country code from the location services, you can hard code a particular country into the tool.
+                countryCode =
+                # cat=bootstrap package: cookie consent/230/09_law_regionalLaw; type=boolean; label=Regional Law: If false, then we only enable the popup if the country has the cookie law. We ignore all other country specific rules.
+                regionalLaw = 1
+            }
+            # cat=bootstrap package: cookie consent/230/10_type; type=options[Informal=info, Opt-In=opt-in, Opt-Out=opt-out]; label=Compliance: The informal confirmation does not require any further adjustments to your JavaScript. The Opt-In and Opt-Out options are not out-of-the-box solutions, manual adjustments to your software are necessary. For your support we provide the events bk2k.cookie.enable, bk2k.cookie.disable and bk2k.cookie.revoke. These events allow you to let your application react to them and to set or remove cookies accordingly. The cookie that contains the current status is called cookieconsent_status.
+            type = info
+            cookie {
+                # cat=bootstrap package: cookie consent/230/11_expiryDays; type=int; label=Expiry Days: The cookies expire date, specified in days (specify -1 for no expiry)
+                expiryDays = 365
+            }
         }
 
         breadcrumb {
@@ -208,8 +241,6 @@ page {
         google {
             # cat=bootstrap package: basic/180/100; type=string; label=Google: Tracking-ID
             trackingID =
-            # cat=bootstrap package: basic/180/110; type=boolean; label=Google: IP-anonymisation
-            anonymizeIp = 1
         }
     }
 }
@@ -235,7 +266,7 @@ config {
     # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
     prefixLocalAnchors = all
     # cat=bootstrap package: advanced/150/190; type=string; label=Header Comment
-    headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
+    headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/
     # cat=bootstrap package: advanced/150/200; type=boolean; label=Force images preload: Preload images even when not visible on page to allow print
     preloadImages = 0
     # cat=bootstrap package: advanced/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
@@ -359,6 +390,18 @@ plugin.bootstrap_package_contentelements {
         abstract {
             # cat=bootstrap package: advanced/147/107; type=string; label=Card Menu Crop Abstract
             crop = 250
+        }
+    }
+    timeline {
+        date {
+            # cat=bootstrap package: advanced/148/101; type=string; label=Timeline Date Format
+            format = %B %e, %Y
+        }
+        media {
+            # cat=bootstrap package: advanced/148/102; type=string; label=Timeline Media Height
+            height = 200c
+            # cat=bootstrap package: advanced/148/103; type=string; label=Timeline Media Width
+            width = 525c
         }
     }
     uploads {

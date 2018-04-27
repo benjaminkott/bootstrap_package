@@ -47,8 +47,10 @@ return [
             tt_content,
             header,
             header_layout,
+            header_class,
             subheader,
             subheader_layout,
+            subheader_class
             bodytext,
             image,
             text_color,
@@ -179,9 +181,11 @@ return [
             'showitem' => '
                 header,
                 header_layout,
+                header_class,
                 --linebreak--,
                 subheader,
                 subheader_layout,
+                subheader_class,
             '
         ],
         'general' => [
@@ -368,7 +372,7 @@ return [
             ],
         ],
         'header_layout' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_layout',
             'config' => [
                 'type' => 'select',
@@ -392,6 +396,22 @@ return [
                     ],
                 ],
                 'default' => '1'
+            ],
+        ],
+        'header_class' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_class',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['', 'none'],
+                    ['h1', 'h1'],
+                    ['h2', 'h2'],
+                    ['h3', 'h3'],
+                    ['h4', 'h4'],
+                    ['h5', 'h5']
+                ]
             ],
         ],
         'subheader' => [
@@ -424,6 +444,22 @@ return [
                     ],
                 ],
                 'default' => '2'
+            ],
+        ],
+        'subheader_class' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_class',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['', 'none'],
+                    ['h1', 'h1'],
+                    ['h2', 'h2'],
+                    ['h3', 'h3'],
+                    ['h4', 'h4'],
+                    ['h5', 'h5']
+                ]
             ],
         ],
         'nav_title' => [

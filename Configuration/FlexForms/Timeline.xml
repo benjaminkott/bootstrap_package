@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <sorting>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.desc</numIndex>
+                                        <numIndex index="1">date desc</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.asc</numIndex>
+                                        <numIndex index="1">date asc</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </sorting>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

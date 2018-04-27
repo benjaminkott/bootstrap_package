@@ -52,6 +52,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Panel.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Tab.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Texticon.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Timeline.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCardDir.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCardList.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuThumbnailDir.typoscript">
@@ -467,19 +468,8 @@ page {
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', '{$page.tracking.google.trackingID}', 'auto');
-            )
-            20 = TEXT
-            20 {
-                if {
-                    isTrue = {$page.tracking.google.anonymizeIp}
-                }
-
-                value (
-
     ga('set', 'anonymizeIp', true);
-                )
-            }
-
+            )
             90 = TEXT
             90.value (
 
@@ -488,6 +478,19 @@ page {
         }
     }
 }
+
+
+########################
+#### COOKIE CONSENT ####
+########################
+[globalVar = LIT:1 = {$page.theme.cookieconsent.enable}]
+    page {
+        includeJSFooterlibs {
+            contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
+            bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsent.min.js
+        }
+    }
+[end]
 
 
 ###################################################
