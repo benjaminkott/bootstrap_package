@@ -1,0 +1,54 @@
+######################
+### TEMPLATE BLOCK ###
+######################
+#
+#  TypoScript Example:
+#  ---------------
+#
+#  10 < lib.block
+#  10.templateName = MyBlock
+#
+#
+#  Fluid Example:
+#  ---------------
+#
+#  <f:cObject typoscriptObjectPath="lib.block" data="{template: 'MyBlock'}" />
+#
+######################
+lib.block = FLUIDTEMPLATE
+lib.block {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Default
+    templateName {
+        override {
+            field = template
+        }
+    }
+    templateRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
+        10 = {$plugin.bootstrap_package_blocks.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Partials/Blocks/
+        10 = {$plugin.bootstrap_package_blocks.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
+        10 = {$plugin.bootstrap_package_blocks.view.layoutRootPath}
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        1 = BK2K\BootstrapPackage\DataProcessing\ConstantsProcessor
+        1 {
+            as = theme
+            key = page.theme
+        }
+    }
+
+}

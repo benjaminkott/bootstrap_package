@@ -26,6 +26,7 @@
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=200=Extension Overrides
+# customsubcategory=201=Blocks
 # customsubcategory=230=Cookie Consent
 
 ############
@@ -289,6 +290,20 @@ plugin.bootstrap_package {
         overrideParserVariables = 1
         # cat=bootstrap package: advanced/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
         cssSourceMapping = 0
+    }
+}
+
+#################################
+### BOOTSTRAP PACKAGE BLOCKS ####
+#################################
+plugin.bootstrap_package_blocks {
+    view {
+        # cat=bootstrap package: blocks/201/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
+        # cat=bootstrap package: blocks/201/partialRootPath; type=string; label=Partial Root Path: Path to partials
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Blocks/
+        # cat=bootstrap package: blocks/201/templateRootPath; type=string; label=Template Root Path: Path to templates
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
     }
 }
 
