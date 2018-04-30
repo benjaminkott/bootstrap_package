@@ -110,6 +110,19 @@
                 <source>Learn more</source>
             </trans-unit>
 
+            <trans-unit id="googleanalyticsstatus.title">
+                <source>Google Analytics Status</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.description">
+                <source>Here you can object to the anonymous collection by Google Analytics on this website for your browser by using an "Opt-Out-Cookie". Please note that if you delete the exclusion cookie or use a different computer or web browser, you will need to re-set the exclusion.</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.link.enable">
+                <source>Enable Google Analytics (Opt-In)</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.link.disable">
+                <source>Deactivate Google Analytics (Opt-Out)</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
