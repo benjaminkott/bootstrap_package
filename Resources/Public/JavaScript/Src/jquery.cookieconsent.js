@@ -100,32 +100,40 @@
         cookieConsentOptions.onPopupOpen = function() {
             var type = this.options.type;
             if (type == "info" || type == "opt-out") {
-                $(window).trigger('bk2k.cookie.enable', [type, 'onPopupOpen', undefined]);
+                var event = document.createEvent('Event');
+                event.initEvent('bk2k.cookie.enable', true, true);
+                window.dispatchEvent(event);
             }
         };
         cookieConsentOptions.onInitialise = function (status) {
-            var type = this.options.type;
             var didConsent = this.hasConsented();
+            var event = document.createEvent('Event');
             if (didConsent) {
-                $(window).trigger('bk2k.cookie.enable', [type, 'onInitialise', status]);
+                event.initEvent('bk2k.cookie.enable', true, true);
+                window.dispatchEvent(event);
             }
             if (!didConsent) {
-                $(window).trigger('bk2k.cookie.disable', [type, 'onInitialise', status]);
+                event.initEvent('bk2k.cookie.disable', true, true);
+                window.dispatchEvent(event);
             }
         };
         cookieConsentOptions.onStatusChange = function (status, chosenBefore) {
             var type = this.options.type;
             var didConsent = this.hasConsented();
+            var event = document.createEvent('Event');
             if (didConsent && type == 'opt-in') {
-                $(window).trigger('bk2k.cookie.enable', [type, 'onStatusChange', status]);
+                event.initEvent('bk2k.cookie.enable', true, true);
+                window.dispatchEvent(event);
             }
             if (!didConsent && (type == 'opt-in' || type == 'opt-out')) {
-                $(window).trigger('bk2k.cookie.disable', [type, 'onStatusChange', status]);
+                event.initEvent('bk2k.cookie.disable', true, true);
+                window.dispatchEvent(event);
             }
         };
         cookieConsentOptions.onRevokeChoice = function () {
-            var type = this.options.type;
-            $(window).trigger('bk2k.cookie.revoke', [type, 'onRevokeChoice', undefined]);
+            var event = document.createEvent('Event');
+            event.initEvent('bk2k.cookie.revoke', true, true);
+            window.dispatchEvent(event);
         };
 
         // Initialize
