@@ -353,7 +353,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
     protected function buildConfiguration(): void
     {
         $this->menuConfig['1'] = 'TMENU';
-        $this->menuConfig['1.']['IProcFunc'] = LanguageMenuProcessor::class . '->replacePlaceholderInRenderedMenuItem';
+        $this->menuConfig['1.']['IProcFunc'] = self::class . '->replacePlaceholderInRenderedMenuItem';
         $this->menuConfig['1.']['NO'] = '1';
         $this->menuConfig['1.']['NO.'] = $this->menuLevelConfig;
         $this->menuConfig['1.']['ACT'] = '1';
