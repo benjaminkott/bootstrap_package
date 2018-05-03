@@ -287,14 +287,15 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $this->menuConfig += $this->processorConfiguration;
 
         // Process languages
-        if (!empty($this->menuConfig['languages.'])) {
-            $this->menuConfig['languages'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
-        }
-
-        if ($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) {
-            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->getTypoScriptFrontendController()->id);
+        if (empty($this->menuConfig['languages']) && empty($this->menuConfig['languages.'])) {
+            $this->menuConfig['special.']['value'] = 'auto';
+        } elseif (!empty($this->menuConfig['languages.'])) {
+            $this->menuConfig['special.']['value'] = $this->cObj->stdWrap($this->menuConfig['languages'], $this->menuConfig['languages.']);
         } else {
             $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
+        }
+        if ($this->menuConfig['special.']['value'] === 'auto') {
+            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->getTypoScriptFrontendController()->id);
         }
 
         // Set language value
