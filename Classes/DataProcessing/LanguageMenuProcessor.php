@@ -253,48 +253,14 @@ class LanguageMenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * Returns the data from the field and language submitted by $conf in JSON format
+     * JSON Encode
      *
-     * @param string Empty string (no content to process)
-     * @param array TypoScript configuration
-     * @return string JSON encoded data
-     * @throws \InvalidArgumentException
+     * @param mixed $value
+     * @return string
      */
-    public function getFieldAsJson(string $content, array $conf): string
+    protected function jsonEncode($value): string
     {
-        // Support of stdWrap for parameters
-        if (isset($conf['language.'])) {
-            $conf['language'] = $this->cObj->stdWrap($conf['language'], $conf['language.']);
-            unset($conf['language.']);
-        }
-        if (isset($conf['field.'])) {
-            $conf['field'] = $this->cObj->stdWrap($conf['field'], $conf['field.']);
-            unset($conf['field.']);
-        }
-        if (isset($conf['page.'])) {
-            $conf['page'] = $this->cObj->stdWrap($conf['page'], $conf['page.']);
-            unset($conf['page.']);
-        }
-
-        // Check required fields
-        if ($conf['language'] === '') {
-            throw new \InvalidArgumentException('Argument \'language\' must be supplied.', 1522959186);
-        }
-        if ($conf['field'] === '') {
-            throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
-        }
-        if ($conf['page'] === '') {
-            throw new \InvalidArgumentException('Argument \'page\' must be supplied.', 1523106560);
-        }
-
-        $result = '';
-
-        $row = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
-        if (isset($row[$conf['field']])) {
-            $result = $this->jsonEncode($row[$conf['field']]);
-        }
-
-        return $result;
+        return json_encode($value, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -415,17 +381,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
     }
 
     /**
-     * JSON Encode
-     *
-     * @param mixed $value
-     * @return string
-     */
-    protected function jsonEncode($value): string
-    {
-        return json_encode($value, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
-    }
-
-    /**
      * This UserFunc gets the link and the target
      *
      * @param array $menuItem
@@ -438,5 +393,51 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
 
         return $menuItem;
+    }
+
+
+    /**
+     * Returns the data from the field and language submitted by $conf in JSON format
+     *
+     * @param string Empty string (no content to process)
+     * @param array TypoScript configuration
+     * @return string JSON encoded data
+     * @throws \InvalidArgumentException
+     */
+    public function getFieldAsJson(string $content, array $conf): string
+    {
+        // Support of stdWrap for parameters
+        if (isset($conf['language.'])) {
+            $conf['language'] = $this->cObj->stdWrap($conf['language'], $conf['language.']);
+            unset($conf['language.']);
+        }
+        if (isset($conf['field.'])) {
+            $conf['field'] = $this->cObj->stdWrap($conf['field'], $conf['field.']);
+            unset($conf['field.']);
+        }
+        if (isset($conf['page.'])) {
+            $conf['page'] = $this->cObj->stdWrap($conf['page'], $conf['page.']);
+            unset($conf['page.']);
+        }
+
+        // Check required fields
+        if ($conf['language'] === '') {
+            throw new \InvalidArgumentException('Argument \'language\' must be supplied.', 1522959186);
+        }
+        if ($conf['field'] === '') {
+            throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
+        }
+        if ($conf['page'] === '') {
+            throw new \InvalidArgumentException('Argument \'page\' must be supplied.', 1523106560);
+        }
+
+        $result = '';
+
+        $row = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
+        if (isset($row[$conf['field']])) {
+            $result = $this->jsonEncode($row[$conf['field']]);
+        }
+
+        return $result;
     }
 }
