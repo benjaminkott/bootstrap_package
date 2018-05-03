@@ -94,9 +94,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
         'stdWrap.' => [
             'cObject' => 'COA',
             'cObject.' => [
-                '10' => 'LOAD_REGISTER',
-                '10.' => [
-                    'languageUid.' => [
+                '1' => 'LOAD_REGISTER',
+                '1.' => [
+                    'languageId.' => [
                         'cObject' => 'TEXT',
                         'cObject.' => [
                             'value' => '', // Will be set by prepareConfiguration
@@ -110,104 +110,98 @@ class LanguageMenuProcessor implements DataProcessorInterface
                         ]
                     ]
                 ],
-                '20' => 'USER',
-                '20.' => [
+                '10' => 'TEXT',
+                '10.' => [
+                    'stdWrap.' => [
+                        'data' => 'register:languageId'
+                    ],
+                    'wrap' => '"languageId":|'
+                ],
+                '11' => 'USER',
+                '11.' => [
                     'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
                     'language.' => [
-                        'data' => 'register:languageUid'
-                    ],
-                    'field' => 'title',
-                    'page' => '', // Will be set by prepareConfiguration
-                    'stdWrap.' => [
-                        'wrap' => '"title":|'
-                    ]
-                ],
-                '21' => 'TEXT',
-                '21.' => [
-                    'value' => self::LINK_PLACEHOLDER,
-                    'wrap' => ',"link":|',
-                ],
-                '30' => 'TEXT',
-                '30.' => [
-                    'value' => '0',
-                    'wrap' => ',"active":|'
-                ],
-                '40' => 'TEXT',
-                '40.' => [
-                    'value' => '0',
-                    'wrap' => ',"current":|'
-                ],
-                '50' => 'TEXT',
-                '50.' => [
-                    'value' => '1',
-                    'wrap' => ',"available":|'
-                ],
-                '60' => 'TEXT',
-                '60.' => [
-                    'stdWrap.' => [
-                        'data' => 'register:languageUid'
-                    ],
-                    'wrap' => ',"languageUid":"|"'
-                ],
-                '70' => 'USER',
-                '70.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
-                    'language.' => [
-                        'data' => 'register:languageUid'
-                    ],
-                    'field' => 'navigationTitle',
-                    'page' => '', // Will be set by prepareConfiguration
-                    'stdWrap.' => [
-                        'wrap' => ',"navigationTitle":|'
-                    ]
-                ],
-                '71' => 'USER',
-                '71.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
-                    'language.' => [
-                        'data' => 'register:languageUid'
-                    ],
-                    'field' => 'twoLetterIsoCode',
-                    'page' => '', // Will be set by prepareConfiguration
-                    'stdWrap.' => [
-                        'wrap' => ',"language":|'
-                    ]
-                ],
-                '72' => 'USER',
-                '72.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
-                    'language.' => [
-                        'data' => 'register:languageUid'
+                        'data' => 'register:languageId'
                     ],
                     'field' => 'locale',
-                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"locale":|'
                     ]
                 ],
-                '80' => 'USER',
-                '80.' => [
+                '20' => 'USER',
+                '20.' => [
                     'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
                     'language.' => [
-                        'data' => 'register:languageUid'
+                        'data' => 'register:languageId'
+                    ],
+                    'field' => 'title',
+                    'stdWrap.' => [
+                        'wrap' => ',"title":|'
+                    ]
+                ],
+                '21' => 'USER',
+                '21.' => [
+                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'language.' => [
+                        'data' => 'register:languageId'
+                    ],
+                    'field' => 'navigationTitle',
+                    'stdWrap.' => [
+                        'wrap' => ',"navigationTitle":|'
+                    ]
+                ],
+                '22' => 'USER',
+                '22.' => [
+                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'language.' => [
+                        'data' => 'register:languageId'
+                    ],
+                    'field' => 'twoLetterIsoCode',
+                    'stdWrap.' => [
+                        'wrap' => ',"twoLetterIsoCode":|'
+                    ]
+                ],
+                '23' => 'USER',
+                '23.' => [
+                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'language.' => [
+                        'data' => 'register:languageId'
                     ],
                     'field' => 'hreflang',
-                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"hreflang":|'
                     ]
                 ],
-                '81' => 'USER',
-                '81.' => [
+                '24' => 'USER',
+                '24.' => [
                     'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
                     'language.' => [
-                        'data' => 'register:languageUid'
+                        'data' => 'register:languageId'
                     ],
                     'field' => 'direction',
-                    'page' => '', // Will be set by prepareConfiguration
                     'stdWrap.' => [
                         'wrap' => ',"direction":|'
                     ]
+                ],
+                '90' => 'TEXT',
+                '90.' => [
+                    'value' => self::LINK_PLACEHOLDER,
+                    'wrap' => ',"link":|',
+                ],
+                '91' => 'TEXT',
+                '91.' => [
+                    'value' => '0',
+                    'wrap' => ',"active":|'
+                ],
+                '92' => 'TEXT',
+                '92.' => [
+                    'value' => '0',
+                    'wrap' => ',"current":|'
+                ],
+                '93' => 'TEXT',
+                '93.' => [
+                    'value' => '1',
+                    'wrap' => ',"available":|'
                 ],
                 '99' => 'RESTORE_REGISTER'
             ]
@@ -337,16 +331,8 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         }
 
-        $this->menuLevelConfig['stdWrap.']['cObject.']['10.']['languageUid.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
-
-        // Set page id
-        $pageId = strval($GLOBALS['TSFE']->id);
-        $this->menuLevelConfig['stdWrap.']['cObject.']['20.']['page'] = $pageId;
-        $this->menuLevelConfig['stdWrap.']['cObject.']['70.']['page'] = $pageId;
-        $this->menuLevelConfig['stdWrap.']['cObject.']['71.']['page'] = $pageId;
-        $this->menuLevelConfig['stdWrap.']['cObject.']['72.']['page'] = $pageId;
-        $this->menuLevelConfig['stdWrap.']['cObject.']['80.']['page'] = $pageId;
-        $this->menuLevelConfig['stdWrap.']['cObject.']['81.']['page'] = $pageId;
+        // Set language value
+        $this->menuLevelConfig['stdWrap.']['cObject.']['1.']['languageId.']['cObject.']['value'] = $this->menuConfig['special.']['value'];
 
         // Filter configuration
         foreach ($this->menuConfig as $key => $value) {
@@ -365,18 +351,18 @@ class LanguageMenuProcessor implements DataProcessorInterface
         $this->menuConfig['1.']['IProcFunc'] = self::class . '->replacePlaceholderInRenderedMenuItem';
         $this->menuConfig['1.']['NO'] = '1';
         $this->menuConfig['1.']['NO.'] = $this->menuLevelConfig;
-        $this->menuConfig['1.']['ACT'] = '1';
+        $this->menuConfig['1.']['ACT'] = $this->menuConfig['1.']['NO'];
         $this->menuConfig['1.']['ACT.'] = $this->menuConfig['1.']['NO.'];
-        $this->menuConfig['1.']['ACT.']['stdWrap.']['cObject.']['30.']['value'] = '1';
-        $this->menuConfig['1.']['CUR'] = '1';
+        $this->menuConfig['1.']['ACT.']['stdWrap.']['cObject.']['91.']['value'] = '1';
+        $this->menuConfig['1.']['CUR'] = $this->menuConfig['1.']['ACT'];
         $this->menuConfig['1.']['CUR.'] = $this->menuConfig['1.']['ACT.'];
-        $this->menuConfig['1.']['CUR.']['stdWrap.']['cObject.']['40.']['value'] = '1';
+        $this->menuConfig['1.']['CUR.']['stdWrap.']['cObject.']['92.']['value'] = '1';
         $this->menuConfig['1.']['USERDEF1'] = $this->menuConfig['1.']['NO'];
         $this->menuConfig['1.']['USERDEF1.'] = $this->menuConfig['1.']['NO.'];
-        $this->menuConfig['1.']['USERDEF1.']['stdWrap.']['cObject.']['50.']['value'] = '0';
+        $this->menuConfig['1.']['USERDEF1.']['stdWrap.']['cObject.']['93.']['value'] = '0';
         $this->menuConfig['1.']['USERDEF2'] = $this->menuConfig['1.']['ACT'];
         $this->menuConfig['1.']['USERDEF2.'] = $this->menuConfig['1.']['ACT.'];
-        $this->menuConfig['1.']['USERDEF2.']['stdWrap.']['cObject.']['50.']['value'] = '0';
+        $this->menuConfig['1.']['USERDEF2.']['stdWrap.']['cObject.']['93.']['value'] = '0';
     }
 
     /**
