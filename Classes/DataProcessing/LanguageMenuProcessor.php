@@ -15,6 +15,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
  * This menu processor generates a json encoded menu string that will be
@@ -250,6 +251,14 @@ class LanguageMenuProcessor implements DataProcessorInterface
     }
 
     /**
+     * @return TypoScriptFrontendController
+     */
+    protected function getTypoScriptFrontendController(): TypoScriptFrontendController
+    {
+        return $GLOBALS['TSFE'];
+    }
+
+    /**
      * Returns the data from the field and language submitted by $conf in JSON format
      *
      * @param string Empty string (no content to process)
@@ -323,7 +332,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
         }
 
         if ($this->menuConfig['languages'] === 'auto' || empty($this->menuConfig['languages'])) {
-            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($GLOBALS['TSFE']->id);
+            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->getTypoScriptFrontendController()->id);
         } else {
             $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         }
