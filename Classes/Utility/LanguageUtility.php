@@ -206,19 +206,14 @@ class LanguageUtility
      * Returns a list of all languages
      *
      * @param int $pageId
-     * @param string $sortingField
      * @return array List of available languages (e.g. 0,2,3)
      */
-    public static function getLanguageList($pageId, $sortingField = '')
+    public static function getLanguageList($pageId)
     {
         // Cache languages for later calls
         static $languageListCache = null;
 
         if (!isset($languageListCache)) {
-            if (empty($sortingField)) {
-                $sortingField = 'sorting';
-            }
-
             if (class_exists('TYPO3\CMS\Core\Site\SiteFinder')) {
                 $languageListCache = '';
                 try {
@@ -241,7 +236,6 @@ class LanguageUtility
                 $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 $statement = $queryBuilder->select('uid')
                     ->from('sys_language')
-                    ->orderBy($sortingField)
                     ->execute();
 
                 while ($row = $statement->fetch()) {
