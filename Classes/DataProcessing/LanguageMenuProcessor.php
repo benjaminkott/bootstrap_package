@@ -395,7 +395,6 @@ class LanguageMenuProcessor implements DataProcessorInterface
         return $menuItem;
     }
 
-
     /**
      * Returns the data from the field and language submitted by $conf in JSON format
      *
