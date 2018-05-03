@@ -415,20 +415,13 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $conf['field'] = $this->cObj->stdWrap($conf['field'], $conf['field.']);
             unset($conf['field.']);
         }
-        if (isset($conf['page.'])) {
-            $conf['page'] = $this->cObj->stdWrap($conf['page'], $conf['page.']);
-            unset($conf['page.']);
-        }
 
         // Check required fields
         if ($conf['language'] === '') {
             throw new \InvalidArgumentException('Argument \'language\' must be supplied.', 1522959186);
         }
         if ($conf['field'] === '') {
-            throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522795274);
-        }
-        if ($conf['page'] === '') {
-            throw new \InvalidArgumentException('Argument \'page\' must be supplied.', 1523106560);
+            throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522959187);
         }
 
         $result = '';
