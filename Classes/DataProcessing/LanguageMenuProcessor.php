@@ -424,13 +424,13 @@ class LanguageMenuProcessor implements DataProcessorInterface
             throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522959187);
         }
 
-        $result = '';
+        $language = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
 
-        $row = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
-        if (isset($row[$conf['field']])) {
-            $result = $this->jsonEncode($row[$conf['field']]);
+        // Check field for return exists
+        if ($language !== null && !isset($language[$conf['field']])) {
+            throw new \InvalidArgumentException('Invalid value \'' . $conf['field'] . '\' for argument \'field\' supplied.', 1524063160);
         }
 
-        return $result;
+        return $this->jsonEncode($language[$conf['field']]);
     }
 }
