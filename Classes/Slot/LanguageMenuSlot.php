@@ -45,36 +45,42 @@ class LanguageMenuSlot
     public function addTcaFields(array $tca)
     {
         // Add columns
-        $tca['sys_language']['columns'] = array_replace_recursive(
+        $tca['sys_language']['columns'] = array_merge_recursive(
             $tca['sys_language']['columns'],
             [
+                'title' => [
+                    'config' => [
+                        'placeholder' => 'English'
+                    ]
+                ],
                 'nav_title' => [
-                    'exclude' => true,
                     'label' => 'Navigation title (e.g. "English", "Deutsch", "Français")',
                     'config' => [
                         'type' => 'input',
-                        'size' => 35,
-                        'max' => 255,
+                        'size' => 10,
+                        'placeholder' => 'English',
                         'eval' => 'trim'
                     ]
                 ],
                 'locale' => [
-                    'exclude' => true,
                     'label' => 'Language locale',
+                    'desciption' => 'should be something like de_DE or en_US.UTF-8',
                     'config' => [
                         'type' => 'input',
-                        'size' => 35,
-                        'max' => 20,
-                        'eval' => 'trim,required'
+                        'placeholder' => 'en_US.UTF-8',
+                        'eval' => 'trim,required',
+                        'fieldInformation' => [
+                            'AdditionalFieldInformation' => [
+                                'renderType' => 'AdditionalFieldInformation',
+                            ]
+                        ]
                     ]
                 ],
                 'hreflang' => [
-                    'exclude' => true,
                     'label' => 'Language tag defined by RFC 1766 / 3066 for "lang" and "hreflang" attributes',
                     'config' => [
                         'type' => 'input',
-                        'size' => 35,
-                        'max' => 20,
+                        'placeholder' => 'en-US',
                         'eval' => 'trim,required'
                     ]
                 ],
