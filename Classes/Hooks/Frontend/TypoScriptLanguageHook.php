@@ -70,7 +70,7 @@ class TypoScriptLanguageHook
     protected function createLanguageConditions($pageId)
     {
         $setup = '';
-        $languages = LanguageUtility::getLanguageRows($pageId);
+        $languages = LanguageUtility::getLanguageRows();
 
         foreach ($languages as $uid => $row) {
             $setup .= implode(LF, $this->setupTemplate) . LF;
