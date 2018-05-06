@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -80,17 +81,17 @@ class LanguageUtility
             $result = $row;
         } else {
             // Load default language from constants
-            $result['title'] = self::getConstantValue('config.language.default.title');
-            $result['nav_title'] = self::getConstantValue('config.language.default.nav_title');
-            $result['language'] = self::getConstantValue('config.language.default.language');
             $result['locale'] = self::getConstantValue('config.language.default.locale');
+            $result['title'] = self::getConstantValue('config.language.default.title');
+            $result['navigationTitle'] = self::getConstantValue('config.language.default.nav_title');
+            $result['twoLetterIsoCode'] = self::getConstantValue('config.language.default.language_isocode');
             $result['hreflang'] = self::getConstantValue('config.language.default.hreflang');
             $result['direction'] = self::getConstantValue('config.language.default.direction');
         }
 
         // Fallback to title if nav_title not set
-        if (empty($result['nav_title'])) {
-            $result['nav_title'] = $result['title'];
+        if (empty($result['navigationTitle'])) {
+            $result['navigationTitle'] = $result['title'];
         }
 
         // Sanitize array
