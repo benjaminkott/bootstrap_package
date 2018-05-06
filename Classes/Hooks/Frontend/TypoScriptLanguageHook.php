@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -66,7 +67,7 @@ class TypoScriptLanguageHook
      *
      * @return string
      */
-    protected function createLanguageConditions()
+    protected function createLanguageConditions(): string
     {
         $setup = '';
         $languages = LanguageUtility::getLanguageRows();
@@ -88,8 +89,9 @@ class TypoScriptLanguageHook
      *
      * @param array $params
      * @param TemplateService $templateService
+     * @return void
      */
-    public function addLanguageConditions(&$params, &$templateService)
+    public function addLanguageConditions(&$params, &$templateService): void
     {
         $rootPage = method_exists($templateService, 'getRootId') ? $templateService->getRootId() : $params['rootLine'][0]['uid'];
         ExtensionManagementUtility::addTypoScriptConstants(implode(LF, $this->constants));

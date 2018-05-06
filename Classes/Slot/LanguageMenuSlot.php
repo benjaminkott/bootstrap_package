@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -20,7 +21,7 @@ class LanguageMenuSlot
      * @param array $sql
      * @return array
      */
-    public function addSqlFields(array $sql)
+    public function addSqlFields(array $sql): array
     {
         $sql[] = '
             CREATE TABLE sys_language (
@@ -42,7 +43,7 @@ class LanguageMenuSlot
      * @param array $tca
      * @return array
      */
-    public function addTcaFields(array $tca)
+    public function addTcaFields(array $tca): array
     {
         // Add columns
         $tca['sys_language']['columns'] = array_merge_recursive(
