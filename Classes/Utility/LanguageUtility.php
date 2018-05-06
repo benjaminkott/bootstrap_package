@@ -34,10 +34,10 @@ class LanguageUtility
     /**
      * Returns the value of a TS constant and in BE mode fallback to the name
      *
-     * @param int $key
+     * @param string $key
      * @return string Value of the constant
      */
-    protected static function getConstantValue($key)
+    protected static function getConstantValue(string $key): string
     {
         $result = '';
 
@@ -67,7 +67,7 @@ class LanguageUtility
      * @param array $row
      * @return array Sanitized language data
      */
-    protected static function extractLanguageData($row)
+    protected static function extractLanguageData($row): array
     {
         $result = [];
 
@@ -83,12 +83,10 @@ class LanguageUtility
             $result['hreflang'] = self::getConstantValue('config.language.default.hreflang');
             $result['direction'] = self::getConstantValue('config.language.default.direction');
         }
-
         // Fallback to title if nav_title not set
         if (empty($result['navigationTitle'])) {
             $result['navigationTitle'] = $result['title'];
         }
-
         // Sanitize array
         $result = array_replace_recursive(self::$languageDefaults, $result);
 
@@ -101,14 +99,13 @@ class LanguageUtility
      * @param int $languageUid
      * @return array
      */
-    public static function getLanguageRow($languageUid)
+    public static function getLanguageRow(int $languageUid): array
     {
         // Cache languages data for later calls
         static $languageCache = null;
 
         if (!isset($languageCache) || !isset($languageCache[$languageUid])) {
             $languageRow = null;
-
             if (!isset($languageRow) && ($languageUid > 0)) {
                 // Prepare and fetch from database
                 static $queryBuilder = null;
@@ -122,7 +119,6 @@ class LanguageUtility
                     ->execute()
                     ->fetch();
             }
-
             $languageCache[$languageUid] = self::extractLanguageData($languageRow);
         }
 
@@ -134,20 +130,18 @@ class LanguageUtility
      *
      * @return array
      */
-    public static function getLanguageRows()
+    public static function getLanguageRows(): array
     {
         // Cache languages data for later calls
         static $languagesCache = null;
 
         if (!isset($languagesCache)) {
             // Set default language
-            $languagesCache[0] = self::extractLanguageData(null);
-
+            $languagesCache[0] = self::extractLanguageData([]);
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
             $statement = $queryBuilder->select('uid AS languageId', 'locale', 'title', 'nav_title AS navigationTitle', 'language_isocode AS twoLetterIsoCode', 'hreflang', 'direction')
                 ->from('sys_language')
                 ->execute();
-
             while ($row = $statement->fetch()) {
                 $languagesCache[$row['languageId']] = self::extractLanguageData($row);
             }
@@ -159,10 +153,9 @@ class LanguageUtility
     /**
      * Returns a list of all languages
      *
-     * @param int $pageId
-     * @return array List of available languages (e.g. 0,2,3)
+     * @return string List of available languages (e.g. 0,2,3)
      */
-    public static function getLanguageList($pageId)
+    public static function getLanguageList(): string
     {
         // Cache languages for later calls
         static $languageListCache = null;

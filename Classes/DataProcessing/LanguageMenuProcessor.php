@@ -295,7 +295,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
             $this->menuConfig['special.']['value'] = $this->menuConfig['languages'];
         }
         if ($this->menuConfig['special.']['value'] === 'auto') {
-            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList($this->getTypoScriptFrontendController()->id);
+            $this->menuConfig['special.']['value'] = LanguageUtility::getLanguageList();
         }
 
         // Set language value
@@ -424,7 +424,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
             throw new \InvalidArgumentException('Argument \'field\' must be supplied.', 1522959187);
         }
 
-        $language = LanguageUtility::getLanguageRow($conf['page'], $conf['language']);
+        $language = LanguageUtility::getLanguageRow((int)$conf['language']);
 
         // Check field for return exists
         if ($language !== null && !isset($language[$conf['field']])) {
