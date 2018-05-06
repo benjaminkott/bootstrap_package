@@ -17,7 +17,7 @@ class LanguageMenuSlot
     /**
      * Adds additional SQL fields to sys_language
      *
-     * @param array $sqlString
+     * @param array $sql
      * @return array
      */
     public function addSqlFields(array $sql)

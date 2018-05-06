@@ -64,10 +64,9 @@ class TypoScriptLanguageHook
     /**
      * Returns the TypoScript Setup language conditions
      *
-     * @param int $pageId
      * @return string
      */
-    protected function createLanguageConditions($pageId)
+    protected function createLanguageConditions()
     {
         $setup = '';
         $languages = LanguageUtility::getLanguageRows();
