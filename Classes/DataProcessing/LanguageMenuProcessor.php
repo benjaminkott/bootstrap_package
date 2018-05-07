@@ -35,7 +35,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  */
 class LanguageMenuProcessor implements DataProcessorInterface
 {
-    protected const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
+    const LINK_PLACEHOLDER = '###LINKPLACEHOLDER###';
 
     /**
      * The content object renderer
