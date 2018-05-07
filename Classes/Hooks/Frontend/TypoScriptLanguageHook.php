@@ -28,29 +28,6 @@ class TypoScriptLanguageHook
     /**
      * @var array
      */
-    protected $constants = [
-        '# customsubcategory=99=Language',
-        'config.language.default {',
-        '    # cat=bootstrap package: language/99/10; type=boolean; label=Enable Default Language: If not checked the default language will not be rendered',
-        '    enable = 1',
-        '    # cat=bootstrap package: language/99/20; type=string; label=Default Title: Title of the default language',
-        '    title = English',
-        '    # cat=bootstrap package: language/99/30; type=string; label=Default Navigation Title: Navigation title (e.g. "English", "Deutsch", "Français")',
-        '    nav_title = English',
-        '    # cat=bootstrap package: language/99/40; type=string; label=Default Locale: Language locale should be something like de_DE or en_US.UTF-8',
-        '    locale = en_US.UTF-8',
-        '    # cat=bootstrap package: language/99/50; type=string; label=Default two letter ISO code: Two letter ISO code of the default language (e.g. en)',
-        '    language_isocode = en',
-        '    # cat=bootstrap package: language/99/60; type=string; label=Default Language tag: Language tag defined by RFC 1766 / 3066 for "lang" and "hreflang" attributes (e.g. en-US)',
-        '    hreflang = en-US',
-        '    # cat=bootstrap package: language/99/70; type=options[Left to Right=ltr, Right to Left=rtl]; label=Default Language Direction: Language direction for "dir" attribute',
-        '    direction = ltr',
-        '}'
-    ];
-
-    /**
-     * @var array
-     */
     protected $setupTemplate = [
         '[globalVar = GP:L = ' . self::SYS_LANGUAGE_UID_PLACEHOLDER . ']',
         'config {',
@@ -72,7 +49,11 @@ class TypoScriptLanguageHook
         $setup = '';
         $languages = LanguageUtility::getLanguageRows();
         foreach ($languages as $uid => $row) {
-            $setup .= implode(LF, $this->setupTemplate) . LF;
+            $template = $this->setupTemplate;
+            if ($uid === 0) {
+                $template = array_slice($template, 1, -1);
+            }
+            $setup .= implode(LF, $template) . LF;
             $setup = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $uid, $setup);
             $setup = str_replace(self::LANGUAGE_PLACEHOLDER, $row['twoLetterIsoCode'], $setup);
             $setup = str_replace(self::LOCALE_PLACEHOLDER, $row['locale'], $setup);
@@ -84,15 +65,18 @@ class TypoScriptLanguageHook
     }
 
     /**
-     * Add TS language conditions to setup
+     * Add TypoScript language setup
      *
      * @param array $params
      * @param TemplateService $templateService
      * @return void
      */
-    public function addLanguageConditions(&$params, &$templateService): void
+    public function addLanguageSetup(&$params, &$templateService): void
     {
-        ExtensionManagementUtility::addTypoScriptConstants(implode(LF, $this->constants));
-        ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
+        if (TYPO3_MODE == 'BE') {
+            ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
+        } else {
+            $templateService->config = [$this->createLanguageConditions()] + $templateService->config;
+        }
     }
 }
