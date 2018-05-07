@@ -580,12 +580,8 @@ config {
     tx_realurl_enable = 1
 
     // Language Settings
-    sys_language_uid = 0
     sys_language_overlay = 1
     sys_language_mode = content_fallback
-    language = en
-    locale_all = en_US.UTF-8
-    htmlTag_setParams = lang="en" dir="ltr" class="no-js"
 
     // Compression and Concatenation of CSS and JS Files
     compressJs = {$config.compressJs}
