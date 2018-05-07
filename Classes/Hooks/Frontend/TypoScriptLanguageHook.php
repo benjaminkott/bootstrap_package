@@ -71,11 +71,10 @@ class TypoScriptLanguageHook
     {
         $setup = '';
         $languages = LanguageUtility::getLanguageRows();
-
         foreach ($languages as $uid => $row) {
             $setup .= implode(LF, $this->setupTemplate) . LF;
             $setup = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $uid, $setup);
-            $setup = str_replace(self::LANGUAGE_PLACEHOLDER, $row['language'], $setup);
+            $setup = str_replace(self::LANGUAGE_PLACEHOLDER, $row['twoLetterIsoCode'], $setup);
             $setup = str_replace(self::LOCALE_PLACEHOLDER, $row['locale'], $setup);
             $setup = str_replace(self::HREF_LANG_PLACEHOLDER, $row['hreflang'], $setup);
             $setup = str_replace(self::DIRECTION_PLACEHOLDER, $row['direction'], $setup);
