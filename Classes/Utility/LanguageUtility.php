@@ -71,7 +71,7 @@ class LanguageUtility
     {
         $result = [];
 
-        if (isset($row) && is_array($row)) {
+        if (isset($row) && is_array($row) && !empty($row)) {
             // Load language from row
             $result = $row;
         } else {
