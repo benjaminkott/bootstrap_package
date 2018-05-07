@@ -92,8 +92,7 @@ class TypoScriptLanguageHook
      */
     public function addLanguageConditions(&$params, &$templateService): void
     {
-        $rootPage = method_exists($templateService, 'getRootId') ? $templateService->getRootId() : $params['rootLine'][0]['uid'];
         ExtensionManagementUtility::addTypoScriptConstants(implode(LF, $this->constants));
-        ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions($rootPage));
+        ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
     }
 }
