@@ -183,6 +183,15 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class;
 
 /***************
+ * Register formEngine nodes
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
+    'nodeName' => 'AdditionalFieldInformation',
+    'priority' => '70',
+    'class' => \BK2K\BootstrapPackage\Form\FieldInformation\AdditionalFieldInformation::class
+];
+
+/***************
  * Register "bk2k" as global fluid namespace
  */
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
@@ -325,4 +334,35 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
         $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
     }
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+}
+
+/***
+ * Automatic Language Menus
+ * Compatibility for CMS 8.7
+ */
+if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+    // SignalSlot dispatcher
+    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+    // Register slot to build nessesary sql
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
+        'tablesDefinitionIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addSqlFields'
+    );
+    // Register slot to build TCA for content elements
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::class,
+        'tcaIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addTcaFields'
+    );
+    // Set alias for language menu processor as polyfill functionality for older TYPO3 versions
+    class_alias(
+        \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
+        'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor'
+    );
+    // Register hook to dynamically add language config conditions to the TypoScript Setup
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+        = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TypoScriptLanguageHook->addLanguageConditions';
 }

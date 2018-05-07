@@ -225,14 +225,10 @@ page {
                     }
                 }
             }
-            40 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
             40 {
-                special = language
-                special.value = {$page.theme.language.languageValue}
+                languages = {$page.theme.language.languageValue}
                 as = languagenavigation
-                if {
-                    isTrue = {$page.theme.language.languageValue}
-                }
             }
             50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             50 {
@@ -597,24 +593,3 @@ config {
     concatenateJs = {$config.concatenateJs}
     concatenateCss = {$config.concatenateCss}
 }
-
-
-#############################
-#### LANGUAGE CONDITIONS ####
-#############################
-[globalVar = GP:L = 1]
-    config {
-        sys_language_uid = 1
-        language = da
-        locale_all = da_DK.UTF-8
-        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
-    }
-[global]
-[globalVar = GP:L = 2]
-    config {
-        sys_language_uid = 2
-        language = de
-        locale_all = de_DE.UTF-8
-        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
-    }
-[global]
