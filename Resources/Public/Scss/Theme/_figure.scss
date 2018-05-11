@@ -5,8 +5,8 @@ figure {
     display: block;
     margin-bottom: 1rem;
     line-height: $line-height-base;
-    > img,
-    a > img {
+    img,
+    picture {
         display: block;
         height: auto;
         max-width: 100%;

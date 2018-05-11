@@ -1,8 +1,9 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Header" />
 <f:section name="Main">
 
+    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.responsiveimages.contentelements.textpic_right.multiplier}" />
     <div class="textpic textpic-right">
         <div class="textpic-item textpic-gallery">
             <f:render partial="Media/Gallery" arguments="{_all}" />

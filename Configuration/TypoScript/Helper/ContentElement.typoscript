@@ -33,6 +33,21 @@ lib.contentElement {
         }
     }
 
+    #################
+    ### VARIABLES ###
+    #################
+    variables {
+        backendlayout = TEXT
+        backendlayout {
+            data = pagelayout
+            replacement.10 {
+                search = pagets__
+                replace =
+            }
+            ifEmpty = default
+        }
+    }
+
     ################
     ### SETTINGS ###
     ################
@@ -50,15 +65,346 @@ lib.contentElement {
         lightbox {
             cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
             prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
+            dimensions {
+                maxWidth = 1200
+                maxHeight = 1200
+            }
         }
         gallery {
-            columnClass {
-                1 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.1}
-                2 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.2}
-                3 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.3}
-                4 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.4}
-                5 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.5}
-                6 = {$plugin.bootstrap_package_contentelements.gallery.columnClass.6}
+            columns {
+                1 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.1}
+                    multiplier {
+                        default = 1
+                        large = 1
+                        medium = 1
+                        small = 1
+                        extrasmall = 1
+                    }
+                }
+                2  {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.2}
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                        small = 0.5
+                        extrasmall = 0.5
+                    }
+                }
+                3 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.3}
+                    multiplier {
+                        default = 0.3333
+                        large = 0.3333
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.3333
+                    }
+                }
+                4 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.4}
+                    multiplier {
+                        default = 0.25
+                        large = 0.25
+                        medium = 0.5
+                        small = 0.5
+                        extrasmall = 0.5
+                    }
+                }
+                5 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.5}
+                    multiplier {
+                        default = 0.2
+                        large = 0.2
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.5
+                    }
+                }
+                6 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.6}
+                    multiplier {
+                        default = 0.1666
+                        large = 0.16666
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.5
+                    }
+                }
+            }
+        }
+        responsiveimages {
+            variants {
+                default {
+                    breakpoint = 1200
+                    width = 1100
+                }
+                large {
+                    breakpoint = 992
+                    width = 920
+                }
+                medium {
+                    breakpoint = 768
+                    width = 680
+                }
+                small {
+                    breakpoint = 576
+                    width = 500
+                }
+                extrasmall {
+                    breakpoint = null
+                    width = 300
+                }
+            }
+            backendlayout {
+                2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+                2_columns_25_75 {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+                2_columns_50_50 {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                    }
+                }
+                subnavigation_left {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                    }
+                }
+                2_columns_offset_right {
+                    0 {
+                        multiplier {
+                            default = 0.6666
+                            large = 0.6666
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+                3_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+                special_feature {
+                    30 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    31 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    32 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    33 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    34 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    35 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    36 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                    37 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                    }
+                }
+                special_start {
+                    20 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                    }
+                    21 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                    }
+                    22 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                    }
+                }
+                subnavigation_left {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                    }
+                }
+                subnavigation_left_2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+                subnavigation_right {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                    }
+                }
+                subnavigation_right_2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                    }
+                }
+            }
+            contentelements {
+                textmedia_left {
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                    }
+                }
+                textmedia_right {
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                    }
+                }
+                textpic_left {
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                    }
+                }
+                textpic_right {
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                    }
+                }
             }
         }
         menuthumbnail {

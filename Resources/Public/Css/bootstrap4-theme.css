@@ -10223,8 +10223,8 @@ figure {
   line-height: 1.5;
 }
 
-figure > img,
-figure a > img {
+figure img,
+figure picture {
   display: block;
   height: auto;
   max-width: 100%;

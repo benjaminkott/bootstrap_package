@@ -7385,8 +7385,8 @@ figure {
   margin-bottom: 1em;
   line-height: 1.55;
 }
-figure > img,
-figure a > img {
+figure img,
+figure picture {
   display: block;
   height: auto;
   max-width: 100%;
