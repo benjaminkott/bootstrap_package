@@ -1,13 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{files}">
 
+    <f:variable name="imagecols">1</f:variable>
     <f:if condition="{files -> f:count()} > 1">
-        <f:then>
-            <f:variable name="imagecols">{data.imagecols as integer}</f:variable>
-        </f:then>
-        <f:else>
-            <f:variable name="imagecols">1</f:variable>
-        </f:else>
+        <f:variable name="imagecols">{data.imagecols as integer}</f:variable>
     </f:if>
     <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.gallery.columns.{imagecols}.multiplier}" />
 

@@ -70,7 +70,7 @@ lib.contentElement {
         gallery {
             columns {
                 1 {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.1}
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.1.class}
                     multiplier {
                         default = 1
                         large = 1
@@ -79,8 +79,8 @@ lib.contentElement {
                         extrasmall = 1
                     }
                 }
-                2  {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.2}
+                2 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.2.class}
                     multiplier {
                         default = 0.5
                         large = 0.5
@@ -90,7 +90,7 @@ lib.contentElement {
                     }
                 }
                 3 {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.3}
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.3.class}
                     multiplier {
                         default = 0.3333
                         large = 0.3333
@@ -100,7 +100,7 @@ lib.contentElement {
                     }
                 }
                 4 {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.4}
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.4.class}
                     multiplier {
                         default = 0.25
                         large = 0.25
@@ -110,7 +110,7 @@ lib.contentElement {
                     }
                 }
                 5 {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.5}
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.5.class}
                     multiplier {
                         default = 0.2
                         large = 0.2
@@ -120,7 +120,7 @@ lib.contentElement {
                     }
                 }
                 6 {
-                    class = {$plugin.bootstrap_package_contentelements.gallery.columnClass.6}
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.6.class}
                     multiplier {
                         default = 0.1666
                         large = 0.16666
