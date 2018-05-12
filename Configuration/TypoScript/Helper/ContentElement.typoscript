@@ -50,6 +50,10 @@ lib.contentElement {
         lightbox {
             cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
             prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
+            image {
+                maxHeight = {$plugin.bootstrap_package_contentelements.lightbox.image.maxHeight}
+                maxWidth = {$plugin.bootstrap_package_contentelements.lightbox.image.maxWidth}
+            }
         }
         gallery {
             columnClass {

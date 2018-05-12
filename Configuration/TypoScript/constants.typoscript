@@ -352,6 +352,12 @@ plugin.bootstrap_package_contentelements {
         cssClass = lightbox
         # cat=bootstrap package: advanced/144/101; type=string; label=Lightbox Group Prefix
         prefix = lightbox-group
+        image {
+            # cat=bootstrap package: advanced/144/102; type=int+; label=Lightbox Max Image Hight
+            maxHeight = 1200
+            # cat=bootstrap package: advanced/144/103; type=int+; label=Lightbox Max Image Width
+            maxWidth = 1200
+        }
     }
     gallery {
         columnClass {
