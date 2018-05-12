@@ -57,22 +57,22 @@ lib.contentElement {
         }
         gallery {
             columns {
-                1  {
+                1 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.1.class}
                 }
-                2  {
+                2 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.2.class}
                 }
-                3  {
+                3 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.3.class}
                 }
-                4  {
+                4 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.4.class}
                 }
-                5  {
+                5 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.5.class}
                 }
-                6  {
+                6 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.6.class}
                 }
             }
