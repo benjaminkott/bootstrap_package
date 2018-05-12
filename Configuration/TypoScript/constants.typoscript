@@ -6,16 +6,6 @@
 # customsubcategory=111=Favicon
 # customsubcategory=112=Preloader
 # customsubcategory=120=Meta Settings
-# customsubcategory=137=Content Elements Preloading
-# customsubcategory=138=Content Elements Header
-# customsubcategory=139=Content Elements Subheader
-# customsubcategory=140=Content Elements Templates
-# customsubcategory=143=Content Element Menu Thumbnail
-# customsubcategory=144=Content Element General
-# customsubcategory=145=Content Element Uploads
-# customsubcategory=146=Content Element Gallery
-# customsubcategory=147=Content Element Menu Card
-# customsubcategory=148=Content Element Timeline
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
 # customsubcategory=162=Breadcrumb
@@ -28,6 +18,11 @@
 # customsubcategory=200=Extension Overrides
 # customsubcategory=201=Blocks
 # customsubcategory=230=Cookie Consent
+
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/constants.typoscript">
 
 ############
 ### PAGE ###
@@ -316,118 +311,6 @@ plugin.bootstrap_package {
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
         # cat=bootstrap package: advanced/200/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
-    }
-}
-
-##########################################
-### BOOTSTRAP PACKAGE CONTENT ELEMENTS ###
-##########################################
-plugin.bootstrap_package_contentelements {
-    header {
-        # cat=bootstrap package: advanced/138/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
-        defaultHeaderType = 2
-        # cat=bootstrap package: advanced/138/class; type=string; label=Default Header class
-        class = element-header
-    }
-    subheader {
-        # cat=bootstrap package: advanced/139/class; type=string; label=Default Subheader class
-        class = element-subheader
-    }
-    view {
-        # cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
-        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        # cat=bootstrap package: advanced/140/partialRootPath; type=string; label=Partial Root Path: Path to partials
-        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        # cat=bootstrap package: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
-        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-    }
-    preload {
-        # cat=bootstrap package: advanced/137/100; type=boolean; label=Preload Images
-        images = 0
-    }
-    lightbox {
-        # cat=bootstrap package: advanced/144/100; type=string; label=Lightbox Css Class
-        cssClass = lightbox
-        # cat=bootstrap package: advanced/144/101; type=string; label=Lightbox Group Prefix
-        prefix = lightbox-group
-        image {
-            # cat=bootstrap package: advanced/144/102; type=int+; label=Lightbox Max Image Hight
-            maxHeight = 1200
-            # cat=bootstrap package: advanced/144/103; type=int+; label=Lightbox Max Image Width
-            maxWidth = 1200
-        }
-    }
-    gallery {
-        columnClass {
-            # cat=bootstrap package: advanced/146/100; type=string; label=Gallery Item CSS Class for 1 column
-            1 = gallery-item-size-1
-            # cat=bootstrap package: advanced/146/101; type=string; label=Gallery Item CSS Class for 2 columns
-            2 = gallery-item-size-2
-            # cat=bootstrap package: advanced/146/102; type=string; label=Gallery Item CSS Class for 3 columns
-            3 = gallery-item-size-3
-            # cat=bootstrap package: advanced/146/103; type=string; label=Gallery Item CSS Class for 4 Columns
-            4 = gallery-item-size-4
-            # cat=bootstrap package: advanced/146/104; type=string; label=Gallery Item CSS Class for 5 Columns
-            5 = gallery-item-size-5
-            # cat=bootstrap package: advanced/146/105; type=string; label=Gallery Item CSS Class for 6 Columns
-            6 = gallery-item-size-6
-        }
-    }
-    menu_thumbnail {
-        media {
-            # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media Height
-            height = 128m
-            # cat=bootstrap package: advanced/143/103; type=string; label=Thumbnail Menu Media Width
-            width = 250m
-        }
-        title {
-            # cat=bootstrap package: advanced/143/104; type=string; label=Thumbnail Menu Crop Title
-            crop = 100
-        }
-        abstract {
-            # cat=bootstrap package: advanced/143/105; type=string; label=Thumbnail Menu Crop Abstract
-            crop = 250
-        }
-    }
-    menu_card {
-        media {
-            # cat=bootstrap package: advanced/147/102; type=string; label=Card Menu Media Height
-            height = 250c
-            # cat=bootstrap package: advanced/147/103; type=string; label=Card Menu Media Width
-            width = 440c
-        }
-        title {
-            # cat=bootstrap package: advanced/147/104; type=string; label=Card Menu Crop Title
-            crop = 100
-        }
-        subtitle {
-            # cat=bootstrap package: advanced/147/106; type=string; label=Card Menu Crop Subtitle
-            crop = 100
-        }
-        abstract {
-            # cat=bootstrap package: advanced/147/107; type=string; label=Card Menu Crop Abstract
-            crop = 250
-        }
-    }
-    timeline {
-        date {
-            # cat=bootstrap package: advanced/148/101; type=string; label=Timeline Date Format
-            format = %B %e, %Y
-        }
-        media {
-            # cat=bootstrap package: advanced/148/102; type=string; label=Timeline Media Height
-            height = 200c
-            # cat=bootstrap package: advanced/148/103; type=string; label=Timeline Media Width
-            width = 525c
-        }
-    }
-    uploads {
-        preview {
-            # cat=bootstrap package: advanced/145/100; type=string; label=Uploads Preview Height
-            height = 100c
-            # cat=bootstrap package: advanced/145/101; type=string; label=Uploads Preview Width
-            width = 100c
-        }
     }
 }
 
