@@ -48,19 +48,31 @@ plugin.bootstrap_package_contentelements {
         }
     }
     gallery {
-        columnClass {
-            # cat=bootstrap package: content elements/140_contentelement/001_column_class_01; type=string; label=Item CSS Class for 1 column
-            1 = gallery-item-size-1
-            # cat=bootstrap package: content elements/140_contentelement/002_column_class_02; type=string; label=Item CSS Class for 2 columns
-            2 = gallery-item-size-2
-            # cat=bootstrap package: content elements/140_contentelement/003_column_class_03; type=string; label=Item CSS Class for 3 columns
-            3 = gallery-item-size-3
-            # cat=bootstrap package: content elements/140_contentelement/004_column_class_04; type=string; label=Item CSS Class for 4 Columns
-            4 = gallery-item-size-4
-            # cat=bootstrap package: content elements/140_contentelement/005_column_class_01; type=string; label=Item CSS Class for 5 Columns
-            5 = gallery-item-size-5
-            # cat=bootstrap package: content elements/140_contentelement/006_column_class_01; type=string; label=Item CSS Class for 6 Columns
-            6 = gallery-item-size-6
+        columns {
+            1 {
+                # cat=bootstrap package: content elements/140_contentelement/001_columns_1_class; type=string; label=Item CSS Class for 1 column
+                class = gallery-item-size-1
+            }
+            2 {
+                # cat=bootstrap package: content elements/140_contentelement/002_columns_2_class; type=string; label=Item CSS Class for 2 columns
+                class = gallery-item-size-2
+            }
+            3 {
+                # cat=bootstrap package: content elements/140_contentelement/003_columns_3_class; type=string; label=Item CSS Class for 3 columns
+                class = gallery-item-size-3
+            }
+            4 {
+                # cat=bootstrap package: content elements/140_contentelement/004_columns_4_class; type=string; label=Item CSS Class for 4 Columns
+                class = gallery-item-size-4
+            }
+            5 {
+                # cat=bootstrap package: content elements/140_contentelement/005_columns_5_class; type=string; label=Item CSS Class for 5 Columns
+                class = gallery-item-size-5
+            }
+            6 {
+                # cat=bootstrap package: content elements/140_contentelement/006_columns_6_class; type=string; label=Item CSS Class for 6 Columns
+                class = gallery-item-size-6
+            }
         }
     }
     menu_thumbnail {
