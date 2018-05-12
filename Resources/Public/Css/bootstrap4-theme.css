@@ -10236,6 +10236,7 @@ figure .caption {
   font-size: 0.85rem;
   word-break: break-all;
   opacity: 0.8;
+  text-align: center;
 }
 
 .carousel .item {
