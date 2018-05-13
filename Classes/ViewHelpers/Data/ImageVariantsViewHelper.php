@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
+use BK2K\BootstrapPackage\Utility\ImageVariantsUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
@@ -19,24 +20,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 class ImageVariantsViewHelper extends AbstractViewHelper
 {
     use CompileWithRenderStatic;
-
-    /**
-     * @var array
-     */
-    protected static $allowedVariantProperties = [
-        'breakpoint',
-        'width'
-    ];
-
-    /**
-     * @var array
-     */
-    protected static $defaultVariants = [
-        'default' => [
-            'breakpoint' => 1200,
-            'width' => 1200
-        ]
-    ];
 
     /**
      * @return void
@@ -60,25 +43,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $variants = self::$defaultVariants;
-        if (is_array($arguments['variants'])) {
-            foreach ($arguments['variants'] as $variant => $properties) {
-                if (is_array($properties)) {
-                    foreach ($properties as $key => $value) {
-                        if (in_array($key, self::$allowedVariantProperties) && ((is_numeric($value) && $value > 0) || $value === 'unset')) {
-                            $variants[$variant][$key] = (int) $value;
-                        }
-                    }
-                }
-            }
-        }
-        if (is_array($arguments['multiplier'])) {
-            foreach ($arguments['multiplier'] as $variant => $multiplier) {
-                if (is_numeric($multiplier) && $multiplier > 0 && isset($variants[$variant]['width'])) {
-                    $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] * $multiplier);
-                }
-            }
-        }
+        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'], $arguments['multiplier']);
         $renderingContext->getVariableProvider()->add($arguments['as'], $variants);
     }
 }
