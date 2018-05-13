@@ -1578,17 +1578,17 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 748px;
+    width: 708px;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 972px;
+    width: 932px;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1180px;
+    width: 1140px;
   }
 }
 .container-fluid {
@@ -8238,17 +8238,17 @@ body,
 }
 @media (min-width: 768px) {
   .carousel .carousel-item .valign {
-    width: 708px;
+    width: 668px;
   }
 }
 @media (min-width: 992px) {
   .carousel .carousel-item .valign {
-    width: 932px;
+    width: 892px;
   }
 }
 @media (min-width: 1200px) {
   .carousel .carousel-item .valign {
-    width: 1140px;
+    width: 1100px;
   }
 }
 .carousel {
@@ -8640,17 +8640,17 @@ body,
 }
 @media (min-width: 768px) {
   .frame-container {
-    max-width: 748px;
+    max-width: 708px;
   }
 }
 @media (min-width: 992px) {
   .frame-container {
-    max-width: 972px;
+    max-width: 932px;
   }
 }
 @media (min-width: 1200px) {
   .frame-container {
-    max-width: 1180px;
+    max-width: 1140px;
   }
 }
 .container .frame-container {
@@ -10125,17 +10125,17 @@ body .typo3-editPanel-btn:hover,
 }
 @media (min-width: 768px) {
   .cc-container {
-    max-width: 708px;
+    max-width: 668px;
   }
 }
 @media (min-width: 992px) {
   .cc-container {
-    max-width: 932px;
+    max-width: 892px;
   }
 }
 @media (min-width: 1200px) {
   .cc-container {
-    max-width: 1140px;
+    max-width: 1100px;
   }
 }
 .cc-window.cc-floating .cc-container {
