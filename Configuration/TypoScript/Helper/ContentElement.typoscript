@@ -186,7 +186,7 @@ lib.contentElement {
                 }
                 extrasmall {
                     breakpoint = unset
-                    width = 300
+                    width = 374
                 }
             }
             backendlayout {
