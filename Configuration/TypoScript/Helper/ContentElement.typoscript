@@ -88,6 +88,13 @@ lib.contentElement {
                         small = 0.5
                         extrasmall = 0.5
                     }
+                    corrections {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
                 }
                 3 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.3.class}
@@ -97,6 +104,13 @@ lib.contentElement {
                         medium = 0.3333
                         small = 0.3333
                         extrasmall = 0.3333
+                    }
+                    corrections {
+                        default = 32
+                        large = 32
+                        medium = 32
+                        small = 32
+                        extrasmall = 32
                     }
                 }
                 4 {
@@ -108,6 +122,13 @@ lib.contentElement {
                         small = 0.5
                         extrasmall = 0.5
                     }
+                    corrections {
+                        default = 48
+                        large = 48
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
                 }
                 5 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.5.class}
@@ -118,6 +139,13 @@ lib.contentElement {
                         small = 0.3333
                         extrasmall = 0.5
                     }
+                    corrections {
+                        default = 64
+                        large = 64
+                        medium = 32
+                        small = 32
+                        extrasmall = 16
+                    }
                 }
                 6 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.6.class}
@@ -127,6 +155,13 @@ lib.contentElement {
                         medium = 0.3333
                         small = 0.3333
                         extrasmall = 0.5
+                    }
+                    corrections {
+                        default = 80
+                        large = 80
+                        medium = 32
+                        small = 32
+                        extrasmall = 16
                     }
                 }
             }
@@ -380,28 +415,15 @@ lib.contentElement {
                         large = 0.5
                         medium = 0.5
                     }
-                }
-                textmedia_right {
-                    multiplier {
-                        default = 0.5
-                        large = 0.5
-                        medium = 0.5
+                    corrections {
+                        default = 40
+                        large = 40
+                        medium = 40
                     }
                 }
-                textpic_left {
-                    multiplier {
-                        default = 0.5
-                        large = 0.5
-                        medium = 0.5
-                    }
-                }
-                textpic_right {
-                    multiplier {
-                        default = 0.5
-                        large = 0.5
-                        medium = 0.5
-                    }
-                }
+                textmedia_right < .textmedia_left
+                textpic_left < .textmedia_left
+                textpic_right < .textmedia_left
             }
         }
         menuthumbnail {

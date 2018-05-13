@@ -52,11 +52,13 @@ class ImageVariantsUtility
     /**
      * @param array $variants
      * @param array $multiplier
+     * @param array $corrections
      * @return array
      */
-    public static function getImageVariants($variants, $multiplier): array
+    public static function getImageVariants($variants = [], $multiplier = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
+        $variants = self::processCorrections($variants, $corrections);
         $variants = self::processMultiplier($variants, $multiplier);
         return $variants;
     }
@@ -67,7 +69,7 @@ class ImageVariantsUtility
      */
     public static function processVariants($variants): array
     {
-        $variants = empty($variants) ? $variants : self::$defaultVariants;
+        $variants = !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
             if (is_array($properties)) {
                 foreach ($properties as $key => $value) {
@@ -95,8 +97,24 @@ class ImageVariantsUtility
     {
         $multiplier = is_array($multiplier) ? $multiplier : [];
         foreach ($multiplier as $variant => $value) {
-            if (is_numeric($value) && $multiplier > 0 && isset($variants[$variant]['width'])) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] * $value);
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param array $corrections
+     * @return array
+     */
+    public static function processCorrections($variants, $corrections): array
+    {
+        $corrections = is_array($corrections) ? $corrections : [];
+        foreach ($corrections as $variant => $value) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
+                $variants[$variant]['width'] = $variants[$variant]['width'] - $value;
             }
         }
         return $variants;

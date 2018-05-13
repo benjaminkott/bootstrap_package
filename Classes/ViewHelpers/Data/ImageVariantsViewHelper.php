@@ -30,6 +30,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
         $this->registerArgument('as', 'string', 'Name of variable to create', true);
         $this->registerArgument('variants', 'array', 'Variants for responsive images', false);
         $this->registerArgument('multiplier', 'array', 'Multiplier to calculate responsive image widths', false);
+        $this->registerArgument('corrections', 'array', 'Corrections to be applied after calculationof image widths', false);
     }
 
     /**
@@ -43,7 +44,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'], $arguments['multiplier']);
+        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'], $arguments['multiplier'], $arguments['corrections']);
         $renderingContext->getVariableProvider()->add($arguments['as'], $variants);
     }
 }

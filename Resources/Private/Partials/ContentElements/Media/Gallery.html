@@ -5,7 +5,7 @@
     <f:if condition="{files -> f:count()} > 1">
         <f:variable name="imagecols">{data.imagecols as integer}</f:variable>
     </f:if>
-    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.gallery.columns.{imagecols}.multiplier}" />
+    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.gallery.columns.{imagecols}.multiplier}" corrections="{settings.gallery.columns.{imagecols}.corrections}" />
 
     <div class="gallery-row">
         <f:for each="{files}" as="file" iteration="fileIteration">
