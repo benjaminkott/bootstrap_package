@@ -150,7 +150,7 @@ lib.contentElement {
                     width = 500
                 }
                 extrasmall {
-                    breakpoint = null
+                    breakpoint = unset
                     width = 300
                 }
             }
