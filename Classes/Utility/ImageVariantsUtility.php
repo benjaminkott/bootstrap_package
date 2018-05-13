@@ -50,27 +50,6 @@ class ImageVariantsUtility
     ];
 
     /**
-     * @param string $table
-     * @param string $field
-     * @param string $field
-     * @return array
-     */
-    public static function getCropVariantsFromTca($table = 'tt_content', $field = 'image', $type = 'image'): array
-    {
-        $tca = self::getTca();
-        $cropVariants = [];
-        // Get variants from direkt field configuration
-        if (isset($tca[$table]['columns'][$field]['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'])) {
-            $cropVariants = array_keys($tca[$table]['columns'][$field]['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']);
-        }
-        // Get variants from type configuration
-        if (isset($tca[$table]['types'][$type]['columnsOverrides'][$field]['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'])) {
-            $cropVariants = array_keys($tca[$table]['types'][$type]['columnsOverrides'][$field]['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']);
-        }
-        return $cropVariants;
-    }
-
-    /**
      * @param array $variants
      * @param array $multiplier
      * @return array
