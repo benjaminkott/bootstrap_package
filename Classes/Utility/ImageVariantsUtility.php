@@ -119,12 +119,4 @@ class ImageVariantsUtility
         }
         return $variants;
     }
-
-    /**
-     * @return array
-     */
-    public static function getTca(): array
-    {
-        return $GLOBALS['TCA'];
-    }
 }
