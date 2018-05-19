@@ -1,11 +1,21 @@
 //
 // Color system
 //
+$gray-100:                     #f8f9fa !default;
+$gray-600:                     #6c757d !default;
 $gray-800:                     #3b3b3b !default;
 $gray-900:                     #2b2b2b !default;
 
 $primary:                      #4faf98 !default;
+$secondary:                    $gray-600 !default;
+$light:                        $gray-100 !default;
 $dark:                         $gray-900 !default;
+
+
+$link-color:                   $primary !default;
+$link-hover-color:             darken($link-color, 15%) !default;
+$link-alternate-color:         #ffffff !default;
+$link-alternate-hover-color:   darken($link-alternate-color, 15%) !default;
 
 //
 // Fonts
@@ -42,6 +52,33 @@ $navbar-heights: (
   lg: 130px,
   xl: 130px
 ) !default;
+
+//
+// Frame Background
+//
+$frame-backgrounds: () !default;
+$frame-backgrounds: map-merge((
+  primary: (
+    background:                $primary,
+    link-color:                $link-alternate-color,
+    link-hover-color:          $link-alternate-hover-color
+  ),
+  secondary: (
+    background:                $secondary,
+    link-color:                $link-alternate-color,
+    link-hover-color:          $link-alternate-hover-color
+  ),
+  light: (
+    background:                $light,
+    link-color:                $link-color,
+    link-hover-color:          $link-hover-color
+  ),
+  dark: (
+    background:                $dark,
+    link-color:                $link-color,
+    link-hover-color:          $link-hover-color
+  )
+), $frame-backgrounds);
 
 //
 // Footer
