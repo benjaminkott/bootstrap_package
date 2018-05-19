@@ -105,6 +105,7 @@ lib.parseFunc_RTE {
             }
         }
         pre {
+            stripNL = 1
             stdWrap.parseFunc < lib.parseFunc
         }
         div {
