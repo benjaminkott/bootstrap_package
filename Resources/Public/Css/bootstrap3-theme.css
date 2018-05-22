@@ -8743,6 +8743,7 @@ body,
 }
 .frame-has-backgroundimage,
 .frame-background-primary,
+.frame-background-secondary,
 .frame-background-light,
 .frame-background-dark {
   background-position: center;
@@ -8750,6 +8751,7 @@ body,
 }
 .container .frame-has-backgroundimage,
 .container .frame-background-primary,
+.container .frame-background-secondary,
 .container .frame-background-light,
 .container .frame-background-dark {
   padding-left: 1.5em;
@@ -8758,6 +8760,7 @@ body,
 @media (min-width: 768px) {
   .container .frame-has-backgroundimage,
   .container .frame-background-primary,
+  .container .frame-background-secondary,
   .container .frame-background-light,
   .container .frame-background-dark {
     padding-left: 2em;
@@ -8767,6 +8770,7 @@ body,
 @media (min-width: 992px) {
   .container .frame-has-backgroundimage,
   .container .frame-background-primary,
+  .container .frame-background-secondary,
   .container .frame-background-light,
   .container .frame-background-dark {
     padding-left: 3em;
@@ -8776,6 +8780,7 @@ body,
 @media (min-width: 1200px) {
   .container .frame-has-backgroundimage,
   .container .frame-background-primary,
+  .container .frame-background-secondary,
   .container .frame-background-light,
   .container .frame-background-dark {
     padding-left: 3.5em;
@@ -8785,6 +8790,7 @@ body,
 .frame-collapsible,
 .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
 .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+.frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
 .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
 .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
   margin-top: -1.5em;
@@ -8793,6 +8799,7 @@ body,
   .frame-collapsible,
   .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -2em;
@@ -8802,6 +8809,7 @@ body,
   .frame-collapsible,
   .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -3em;
@@ -8811,6 +8819,7 @@ body,
   .frame-collapsible,
   .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -3.5em;
@@ -8825,6 +8834,17 @@ body,
 }
 .frame-background-primary a:not(.btn):focus,
 .frame-background-primary a:not(.btn):hover {
+  color: #d9d9d9;
+}
+.frame-background-secondary {
+  color: #fff;
+  background-color: #777777;
+}
+.frame-background-secondary a:not(.btn) {
+  color: #fff;
+}
+.frame-background-secondary a:not(.btn):focus,
+.frame-background-secondary a:not(.btn):hover {
   color: #d9d9d9;
 }
 .frame-background-light {

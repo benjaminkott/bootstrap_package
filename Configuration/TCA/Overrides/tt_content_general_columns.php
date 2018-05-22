@@ -82,6 +82,7 @@ $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
         'items' => [
             ['none', 'none'],
             ['primary', 'primary'],
+            ['secondary', 'secondary'],
             ['light', 'light'],
             ['dark', 'dark']
         ]

@@ -134,17 +134,27 @@
     }
 }
 @include make-frame-spacing('none');
-@mixin make-frame-background($name, $background) {
+@mixin make-frame-background($name, $settings) {
+    $background: map-get($settings, 'background');
     $color: color-yiq($background);
+    $link-color: map-get($settings, 'link-color');
+    $link-hover-color: map-get($settings, 'link-hover-color');
     .frame-background-#{$name} {
         @extend .frame-has-backgroundimage;
         color: $color;
         background-color: $background;
+        a:not(.btn) {
+            color: $link-color;
+            &:focus,
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
     }
     @include make-frame-spacing($name);
 }
-@each $name, $background in $theme-colors {
-    @include make-frame-background($name, $background);
+@each $name, $settings in $frame-backgrounds {
+    @include make-frame-background($name, $settings);
 }
 
 //
