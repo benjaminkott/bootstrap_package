@@ -26,9 +26,14 @@ class TextIconUtility
         } else {
             $directory = 'EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/';
         }
-        $icons = self::getIcons($directory);
-        if ($icons) {
-            $parameters['items'] = array_merge($parameters['items'], $icons);
+
+        $directories = explode(';', $directory);
+
+        foreach ($directories AS $directory) {
+            $icons = self::getIcons($directory);
+            if ($icons) {
+                $parameters['items'] = array_merge($parameters['items'], $icons);
+            }
         }
     }
 
