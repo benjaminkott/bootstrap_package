@@ -86,7 +86,7 @@ class ExternalMediaUtility
             if (preg_match($patternForAdditionalParams, $url, $matches)) {
                 $toEmbed .= '?' . substr($matches[1], 1);
             }
-            return 'https://www.youtube.com/embed/' . $toEmbed;
+            return 'https://www.youtube-nocookie.com/embed/' . $toEmbed;
         }
         return null;
     }
