@@ -5,7 +5,7 @@ Bootstrap Package
 .. image:: Documentation/Images/Screens/typo3-frontend.png?raw=true
    :alt: Bootstrap Package
 
-Bootstrap Package delivers a full configured frontend
+Bootstrap Package delivers a fully configured frontend
 theme for TYPO3, based on the Bootstrap CSS Framework.
 
 The goal of this package is to give an advanced example of how modern templating
@@ -25,9 +25,9 @@ Disable default content rendering extensions
 --------------------------------------------
 
 You do not need to have Fluid Styled Content or CSS Styled Content installed, we
-have currently marked both extensions as conflicting to avoid missconfiguration.
+have currently marked both extensions as conflicting to avoid misconfiguration.
 
-If you really know what you are doing, it is save to use core content rendering
+If you really know what you are doing, it is safe to use core content rendering
 definitions alongside with the Bootstrap Package. But please be aware that we are
 adding more content elements that are not supported from those extensions.
 
@@ -108,7 +108,7 @@ __ https://github.com/benjaminkott/bootstrap_package/issues
 License
 -------
 
-This project is released under the terms of the `MIT license <http://en.wikipedia.org/wiki/MIT_License>`_.
+This project is released under the terms of the `MIT license <https://en.wikipedia.org/wiki/MIT_License>`_.
 
 Test the Bootstrap Package
 ==========================
