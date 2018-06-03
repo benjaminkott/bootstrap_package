@@ -105,6 +105,11 @@
                 window.dispatchEvent(event);
             }
         };
+        cookieConsentOptions.onPopupClose = function () {
+            var event = document.createEvent('Event');
+            event.initEvent('bk2k.cookie.popupclose', true, true);
+            window.dispatchEvent(event);
+        };
         cookieConsentOptions.onInitialise = function (status) {
             var didConsent = this.hasConsented();
             var event = document.createEvent('Event');
