@@ -98,6 +98,9 @@
 
         // Events
         cookieConsentOptions.onPopupOpen = function() {
+            var eventOpen = document.createEvent('Event');
+            eventOpen.initEvent('bk2k.cookie.popupopen', true, true);
+            window.dispatchEvent(eventOpen);
             var type = this.options.type;
             if (type == "info" || type == "opt-out") {
                 var event = document.createEvent('Event');
