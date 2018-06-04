@@ -15,6 +15,7 @@ CREATE TABLE tt_content (
     quote_source varchar(255) DEFAULT '' NOT NULL,
     quote_link varchar(1024) DEFAULT '' NOT NULL,
     panel_class varchar(60) DEFAULT 'default' NOT NULL,
+    file_folder text,
     icon varchar(255) DEFAULT '' NOT NULL,
     icon_position varchar(255) DEFAULT '' NOT NULL,
     icon_size int(11) unsigned DEFAULT '0',
