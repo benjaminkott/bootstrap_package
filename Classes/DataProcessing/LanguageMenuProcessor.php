@@ -281,8 +281,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
 
     /**
      * Process languages and filter the configuration
+     * @return void
      */
-    protected function prepareConfiguration(): void
+    protected function prepareConfiguration()
     {
         $this->menuConfig += $this->processorConfiguration;
 
@@ -311,8 +312,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
 
     /**
      * Build the menu configuration so it can be treated by HMENU cObject
+     * @return void
      */
-    protected function buildConfiguration(): void
+    protected function buildConfiguration()
     {
         $this->menuConfig['1'] = 'TMENU';
         $this->menuConfig['1.']['IProcFunc'] = self::class . '->replacePlaceholderInRenderedMenuItem';
@@ -334,8 +336,9 @@ class LanguageMenuProcessor implements DataProcessorInterface
 
     /**
      * Validate and Build the menu configuration so it can be treated by HMENU cObject
+     * @return void
      */
-    protected function validateAndBuildConfiguration(): void
+    protected function validateAndBuildConfiguration()
     {
         // Validate Configuration
         $this->validateConfiguration();

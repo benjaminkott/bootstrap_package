@@ -45,7 +45,7 @@ if (!$bootstrapPackageConfiguration['disablePageTsTtContentPreviews']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt">');
 }
 
-// Add BackendLayouts BackendLayouts for the BackendLayout DataProvider
+// Add BackendLayouts for the BackendLayout DataProvider
 if (!$bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt">');
 }
