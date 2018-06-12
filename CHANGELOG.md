@@ -1,3 +1,15 @@
+# 9.1.1
+
+## FEATURE
+- [FEATURE] Add typoscript condition to check typo3 core version b8c94c0
+
+## TASK
+- [TASK] Use youtube-nocookie url in external media utility bf54c97
+
+## BUGFIX
+- [BUGFIX] Use .typoscript fileeindng for configuratio files in TYPO3 >= 9.3 for external includes fef134f
+- [BUGFIX] Use correct accordion_item language label in Backend.xlf (#490) 344cc19
+
 # 9.1.0
 
 ## BREAKING

@@ -20,6 +20,11 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 9.1.1      | - [FEATURE] Add typoscript condition to check typo3 core version                                                                                                           |
+|            | - [TASK] Use youtube-nocookie url in external media utility                                                                                                                |
+|            | - [BUGFIX] Use .typoscript fileeindng for configuratio files in TYPO3 >= 9.3 for external includes                                                                         |
+|            | - [BUGFIX] Use correct accordion_item language label in Backend.xlf (#490)                                                                                                 |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 9.1.0      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
 |            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
 |            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
