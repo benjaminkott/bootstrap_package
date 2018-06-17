@@ -99,7 +99,7 @@ class FontLoaderHook
         $inlineJavaScript = [];
         $inlineJavaScript[] = 'WebFontConfig=' . json_encode($config) . ';';
         $inlineJavaScript[] = '(function(d){var wf=d.createElement(\'script\'),s=d.scripts[0];';
-        $inlineJavaScript[] = 'wf.src=\'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js\';';
+        $inlineJavaScript[] = 'wf.src=\'' . $this->getUriForFileName('EXT:bootstrap_package/Resources/Public/Contrib/webfontloader/webfontloader.js') . '\';';
         $inlineJavaScript[] = 'wf.async=false;';
         $inlineJavaScript[] = 's.parentNode.insertBefore(wf,s);';
         $inlineJavaScript[] = '})(document);';
