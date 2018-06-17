@@ -120,18 +120,18 @@ if (TYPO3_MODE === 'BE') {
 }
 
 /***************
+ * Register google font hook
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+    = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\GoogleFontHook->execute';
+
+/***************
  * Register css processing parser
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
     \BK2K\BootstrapPackage\Parser\ScssParser::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
     \BK2K\BootstrapPackage\Parser\LessParser::class;
-
-/***************
- * Register google font hook
- */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\GoogleFontHook->execute';
 
 /***************
  * Register css processing hooks
