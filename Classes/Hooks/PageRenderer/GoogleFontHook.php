@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -9,8 +10,8 @@
 
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use BK2K\BootstrapPackage\Service\GoogleFontService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * GoogleFontHook
@@ -36,28 +37,48 @@ class GoogleFontHook
      */
     public function execute(&$params, &$pagerenderer)
     {
-        if (TYPO3_MODE !== 'FE') {
+        if (TYPO3_MODE !== 'FE' ||
+            (!is_array($params['cssFiles']) && !is_array($params['cssLibs']))
+        ) {
             return;
         }
-        foreach (['cssLibs', 'cssFiles'] as $key) {
-            $files = [];
-            if (is_array($params[$key])) {
-                foreach ($params[$key] as $file => $settings) {
+
+        foreach ($this->includeMapping as $include => $section) {
+            if (is_array($params[$section])) {
+                $files = [];
+                foreach ($params[$section] as $file => $settings) {
                     $cachedFile = $this->getGoogleFontService()->getCachedFile($file);
                     if ($cachedFile !== false) {
+                        $this->adjustTypoScriptCssConfiguration($include, $file, $cachedFile);
                         $settings['file'] = $cachedFile;
                         $files[$cachedFile] = $settings;
                     } else {
                         $files[$file] = $settings;
                     }
-                    $params[$key] = $files;
+                    $params[$section] = $files;
                 }
             }
         }
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump([
-            'cssLibs' => $params['cssLibs'],
-            'cssFiles' => $params['cssFiles']
-        ]);
+    }
+
+    /**
+     * @param string $include
+     * @param string $file
+     * @param string $cachedFilename
+     */
+    protected function adjustTypoScriptCssConfiguration($include, $file, $cachedFile)
+    {
+        if (isset($this->getTemplateService()->setup['page.'][$include . '.'])) {
+            foreach ($this->getTemplateService()->setup['page.'][$include . '.'] as $includeKey => $includeFilename) {
+                if (substr($includeKey, -1) === '.') {
+                    continue;
+                }
+                if ($file === $includeFilename) {
+                    $this->getTemplateService()->setup['page.'][$include . '.'][$includeKey] = $cachedFile;
+                    break;
+                }
+            }
+        }
     }
 
     /**
