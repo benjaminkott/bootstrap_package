@@ -5,6 +5,11 @@ build:
     dependencies:
         before:
             - 'composer require typo3/cms="^8.7"'
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
 
 checks:
     php:
