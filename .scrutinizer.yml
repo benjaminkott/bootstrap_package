@@ -64,3 +64,4 @@ filter:
         - Contrib/
     excluded_paths:
         - ".build/"
+        - "Build/deploy.php"
