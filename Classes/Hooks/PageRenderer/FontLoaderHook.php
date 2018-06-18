@@ -54,6 +54,7 @@ class FontLoaderHook
             }
         }
 
+        $config = [];
         if (count($urls) > 0 || count($families) > 0) {
             $config['custom']['urls'] = $urls;
             $config['custom']['families'] = $families;
