@@ -69,7 +69,7 @@ class ConstantsProcessor implements DataProcessorInterface
 
     /**
      * @param string $key
-     * @return array
+     * @return string
      */
     public function getFlatConstants($key)
     {
