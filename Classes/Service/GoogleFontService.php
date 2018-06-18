@@ -37,10 +37,11 @@ class GoogleFontService
         if (!$this->supports($file)) {
             return false;
         }
-        if (!$this->isCached($file)) {
-            $this->cacheFile($file);
+        if (!$this->isCached($file) && $this->cacheFile($file)) {
+            return $this->getCssFileCacheName($file);
         }
-        return $this->getCssFileCacheName($file);
+
+        return false;
     }
 
     /**
@@ -54,6 +55,10 @@ class GoogleFontService
             0,
             ['User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134']
         );
+
+        if (!$content) {
+            return false;
+        }
 
         // Ensure cache directory exists
         GeneralUtility::mkdir_deep($this->tempDirectory . '/' . $this->getCacheIdentifier($file));
@@ -77,6 +82,8 @@ class GoogleFontService
         $cacheFile = $this->getCacheDirectory($file) . '/' . 'webfont.css';
         file_put_contents(GeneralUtility::getFileAbsFileName($cacheFile), $content);
         GeneralUtility::fixPermissions($cacheFile);
+
+        return true;
     }
 
     /**
