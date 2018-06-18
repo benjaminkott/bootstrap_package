@@ -37,7 +37,7 @@ class GoogleFontService
         if (!$this->supports($file)) {
             return false;
         }
-        if ($this->isCached($file))  {
+        if ($this->isCached($file)) {
             return $this->getCssFileCacheName($file);
         } else {
             return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : false;
