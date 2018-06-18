@@ -150,6 +150,7 @@ class FontLoaderHook
 
             $duration = (float) $this->getTypoScriptConstant('page.preloader.fadeDuration');
             $transition = 'opacity ' . $duration . 's ease-out';
+            $activeStyles = [];
             $activeStyles[] = 'opacity:0!important;';
             $activeStyles[] = 'user-select:none;';
             $activeStyles[] = 'pointer-events:none;';
