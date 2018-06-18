@@ -64,7 +64,7 @@ class GoogleFontHook
     /**
      * @param string $include
      * @param string $file
-     * @param string $cachedFilename
+     * @param string $cachedFile
      */
     protected function adjustTypoScriptCssConfiguration($include, $file, $cachedFile)
     {

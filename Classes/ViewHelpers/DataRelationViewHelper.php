@@ -72,6 +72,7 @@ class DataRelationViewHelper extends AbstractViewHelper
                 )
                 ->addOrderBy($arguments['sortby']);
             $data = $queryBuilder->execute()->fetchAll();
+            $items = [];
             foreach ($data as $record) {
                 $frontendController->sys_page->versionOL($arguments['table'], $record);
                 if (is_array($record)) {
