@@ -102,7 +102,7 @@ class GoogleFontService
         }
 
         // Discard cache after 24 hours
-        if ((time() - filemtime($absoluteFile)) < 86400) {
+        if ((time() - filemtime($absoluteFile)) > 86400) {
             GeneralUtility::rmdir($this->getCacheDirectory($file));
             return false;
         }
