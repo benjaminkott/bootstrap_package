@@ -12,6 +12,8 @@ checks:
         remove_extra_empty_lines: true
         remove_php_closing_tag: true
         remove_trailing_whitespace: true
+        verify_property_names: true
+        verify_argument_usable_as_reference: true
 
 tools:
     external_code_coverage:
