@@ -70,7 +70,6 @@ class FileFilterProcessor implements DataProcessorInterface
      */
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
-        $allowedFileExtensions = '';
         $confVars = $GLOBALS['TYPO3_CONF_VARS'];
         $predefinedLists = [
             'image' => isset($confVars['GFX']['imagefile_ext']) ? $confVars['GFX']['imagefile_ext'] : 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
