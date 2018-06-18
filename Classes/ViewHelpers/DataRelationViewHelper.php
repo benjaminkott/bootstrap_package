@@ -13,7 +13,6 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
@@ -58,7 +57,6 @@ class DataRelationViewHelper extends AbstractViewHelper
         $variableProvider = $renderingContext->getVariableProvider();
         if ($arguments['uid'] !== null && $arguments['table'] !== null) {
             $frontendController = self::getFrontendController();
-            $contentObjectRenderer = self::createContentObjectRenderer();
 
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($arguments['table']);
             $queryBuilder
@@ -96,16 +94,6 @@ class DataRelationViewHelper extends AbstractViewHelper
         $content = $renderChildrenClosure();
         $variableProvider->remove($arguments['as']);
         return $content;
-    }
-
-    /**
-     * @return ContentObjectRenderer
-     */
-    private static function createContentObjectRenderer()
-    {
-        return GeneralUtility::makeInstance(
-            ContentObjectRenderer::class
-        );
     }
 
     /**
