@@ -120,6 +120,14 @@ if (TYPO3_MODE === 'BE') {
 }
 
 /***************
+ * Register google font hook
+ */
+if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\GoogleFontHook->execute';
+}
+
+/***************
  * Register css processing parser
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =

@@ -26,6 +26,9 @@
             <trans-unit id="feature.disableCssProcessing">
                 <source>Disable Processing of LESS/Scss files: WARNING: If this option is set there no more automatic processing of LESS/Scss files in the frontend. You will need to provide CSS files instead or handle the processing of the LESS/Scss files yourself.</source>
             </trans-unit>
+            <trans-unit id="feature.disableGoogleFontCaching">
+                <source>Disable local Google-Font cache: If this option is set, Google Fonts will not be cached on the server.</source>
+            </trans-unit>
 
         </body>
     </file>
