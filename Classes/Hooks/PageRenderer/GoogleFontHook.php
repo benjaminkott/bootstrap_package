@@ -84,7 +84,7 @@ class GoogleFontHook
     /**
      * Get the google font service
      *
-     * @return Dispatcher
+     * @return GoogleFontService
      */
     protected function getGoogleFontService()
     {
