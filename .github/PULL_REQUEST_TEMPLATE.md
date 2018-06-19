@@ -3,6 +3,10 @@ Fixes # .
 ### Prerequisites
 
 * [ ] Changes have been tested on TYPO3 8.7 LTS
+* [ ] Changes have been tested on TYPO3 dev-master
+* [ ] Changes have been tested on PHP 7.0.x
+* [ ] Changes have been tested on PHP 7.1.x
+* [ ] Changes have been tested on PHP 7.2.x
 * [ ] Changes have been checked for CGL compliance `php-cs-fixer fix`
 
 ### Description

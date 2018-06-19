@@ -51,7 +51,7 @@ class PreProcessHook
     /**
      * Get the compile service
      *
-     * @return Dispatcher
+     * @return CompileService
      */
     protected function getCompileService()
     {

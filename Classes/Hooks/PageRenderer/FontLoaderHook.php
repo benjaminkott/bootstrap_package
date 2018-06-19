@@ -54,6 +54,7 @@ class FontLoaderHook
             }
         }
 
+        $config = [];
         if (count($urls) > 0 || count($families) > 0) {
             $config['custom']['urls'] = $urls;
             $config['custom']['families'] = $families;
@@ -99,7 +100,7 @@ class FontLoaderHook
         $inlineJavaScript = [];
         $inlineJavaScript[] = 'WebFontConfig=' . json_encode($config) . ';';
         $inlineJavaScript[] = '(function(d){var wf=d.createElement(\'script\'),s=d.scripts[0];';
-        $inlineJavaScript[] = 'wf.src=\'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js\';';
+        $inlineJavaScript[] = 'wf.src=\'' . $this->getUriForFileName('EXT:bootstrap_package/Resources/Public/Contrib/webfontloader/webfontloader.js') . '\';';
         $inlineJavaScript[] = 'wf.async=false;';
         $inlineJavaScript[] = 's.parentNode.insertBefore(wf,s);';
         $inlineJavaScript[] = '})(document);';
@@ -149,6 +150,7 @@ class FontLoaderHook
 
             $duration = (float) $this->getTypoScriptConstant('page.preloader.fadeDuration');
             $transition = 'opacity ' . $duration . 's ease-out';
+            $activeStyles = [];
             $activeStyles[] = 'opacity:0!important;';
             $activeStyles[] = 'user-select:none;';
             $activeStyles[] = 'pointer-events:none;';

@@ -45,7 +45,7 @@ if (!$bootstrapPackageConfiguration['disablePageTsTtContentPreviews']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt">');
 }
 
-// Add BackendLayouts BackendLayouts for the BackendLayout DataProvider
+// Add BackendLayouts for the BackendLayout DataProvider
 if (!$bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt">');
 }
@@ -117,6 +117,14 @@ if (TYPO3_MODE === 'BE') {
         \BK2K\BootstrapPackage\Backend\ToolbarItem\VersionToolbarItem::class,
         'addVersionInformation'
     );
+}
+
+/***************
+ * Register google font hook
+ */
+if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\GoogleFontHook->execute';
 }
 
 /***************

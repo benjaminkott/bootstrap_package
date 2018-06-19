@@ -121,6 +121,14 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = 
         ]
     ]
 ];
+$GLOBALS['TCA']['tt_content']['columns']['file_folder'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.file_folder',
+    'config' => [
+        'type' => 'group',
+        'internal_type' => 'folder',
+    ]
+];
 
 /***************
  * Adjust default fields

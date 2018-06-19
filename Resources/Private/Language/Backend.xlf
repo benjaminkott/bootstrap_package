@@ -565,6 +565,9 @@
             <trans-unit id="field.teaser">
                 <source>Teaser</source>
             </trans-unit>
+            <trans-unit id="field.file_folder">
+                <source>File Folder</source>
+            </trans-unit>
 
             <trans-unit id="option.default">
                 <source>Default</source>

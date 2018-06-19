@@ -98,12 +98,20 @@
 
         // Events
         cookieConsentOptions.onPopupOpen = function() {
+            var eventOpen = document.createEvent('Event');
+            eventOpen.initEvent('bk2k.cookie.popupopen', true, true);
+            window.dispatchEvent(eventOpen);
             var type = this.options.type;
             if (type == "info" || type == "opt-out") {
                 var event = document.createEvent('Event');
                 event.initEvent('bk2k.cookie.enable', true, true);
                 window.dispatchEvent(event);
             }
+        };
+        cookieConsentOptions.onPopupClose = function () {
+            var event = document.createEvent('Event');
+            event.initEvent('bk2k.cookie.popupclose', true, true);
+            window.dispatchEvent(event);
         };
         cookieConsentOptions.onInitialise = function (status) {
             var didConsent = this.hasConsented();
