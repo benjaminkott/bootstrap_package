@@ -4,15 +4,8 @@ php:
   - 7.0
   - 7.1
   - 7.2
-matrix:
-  fast_finish: true
-  include:
-    - php: 7.0
-      env: TYPO3_VERSION=^8.7
-    - php: 7.1
-      env: TYPO3_VERSION=^8.7
-    - php: 7.2
-      env: TYPO3_VERSION=^8.7
+env:
+  - TYPO3_VERSION=^8.7
 
 stages:
   - test
@@ -37,14 +30,13 @@ before_install:
   - composer self-update
   - composer --version
 
+install:
+   - composer require typo3/cms:${TYPO3_VERSION}
+
 jobs:
   include:
     - stage: test
       script:
-        - >
-          echo "Require TYPO3";
-          composer require typo3/cms:${TYPO3_VERSION}
-          export TYPO3_PATH_WEB="$PWD/.build/web"
         - >
           echo "Running php lint";
           find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
