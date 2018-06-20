@@ -46,6 +46,9 @@ task('typo3:finish', function () {
 ])->desc('Deploy your project');
 after('deploy', 'success');
 
+// If deploy fails automatically unlock.
+after('deploy:failed', 'deploy:unlock');
+
 // Shared Directories and Files
 set('shared_dirs', [
     'web/fileadmin',
