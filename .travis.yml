@@ -46,13 +46,11 @@ jobs:
           yarn install;
         - >
           echo "Install grunt cli";
-          pushd Build;
-          npm install grunt-cli;
+          npm install -g grunt-cli;
         - >
           echo "Executing grunt";
           pushd Build;
-          node_modules/.bin/grunt --base ./Build;
-          popd
+          grunt build;
 
     - stage: deploy
       if: branch = master
