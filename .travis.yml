@@ -10,6 +10,11 @@ php:
 env:
   - TYPO3_VERSION=^8
 
+addons:
+  apt:
+    packages:
+      - parallel
+
 before_install:
   - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
   - composer self-update
@@ -19,26 +24,15 @@ install:
   - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
-script: echo "Skip Defaults";
+script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
 jobs:
   include:
-    - stage: test
-      php:
-        - 7.0
-        - 7.1
-        - 7.2
-      addons:
-        apt:
-          packages:
-            - parallel
-      script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
-
     - stage: quality
       php: 7.2
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
-    - stage: Dependencies
+    - stage: dependencies
       php: 7.2
       script:
         - >
