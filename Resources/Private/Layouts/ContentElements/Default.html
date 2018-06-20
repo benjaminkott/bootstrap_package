@@ -1,6 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:spaceless>
 
+    <bk2k:data.imageVariants as="variants" variants="{settings.responsiveimages.variants}" />
+    <f:variable name="backendlayoutConfig">{settings.responsiveimages.backendlayout.{backendlayout}}</f:variable>
+    <f:variable name="columnConfig">{backendlayoutConfig.{data.colPos}.multiplier}</f:variable>
+    <f:if condition="{columnConfig}">
+        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig}" />
+    </f:if>
+
     <f:variable name="frameClass">frame-{data.frame_class}</f:variable>
     <f:variable name="typeClass">frame-type-{data.CType}</f:variable>
     <f:variable name="layoutClass">frame-layout-{data.layout}</f:variable>

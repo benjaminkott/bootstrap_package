@@ -10,7 +10,6 @@
 # customsubcategory=160_contentelement=Menu Card
 # customsubcategory=170_contentelement=Timeline
 # customsubcategory=180_contentelement=Uploads
-# customsubcategory=190_contentelement=Preloading
 
 
 ########################
@@ -130,9 +129,5 @@ plugin.bootstrap_package_contentelements {
             # cat=bootstrap package: content elements/180_contentelement/001_preview_width; type=string; label=Preview Width
             width = 100c
         }
-    }
-    preload {
-        # cat=bootstrap package: content elements/190_contentelement/001_images; type=boolean; label=Preload Images
-        images = 0
     }
 }

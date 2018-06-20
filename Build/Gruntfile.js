@@ -149,10 +149,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/jquery.cookieconsent.js',
                 dest: '<%= paths.js %>Dist/jquery.cookieconsent.min.js'
             },
-            responsiveimages: {
-                src: '<%= paths.js %>Src/jquery.responsiveimages.js',
-                dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
-            },
             ckeditor_address: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.min.js'
@@ -237,10 +233,6 @@ module.exports = function(grunt) {
             cookieconsent: {
                 files: '<%= paths.js %>Src/jquery.cookieconsent.js',
                 tasks: 'uglify:cookieconsent'
-            },
-            responsiveimages: {
-                files: '<%= paths.js %>Src/jquery.responsiveimages.js',
-                tasks: 'uglify:responsiveimages'
             },
             ckeditor_address: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
