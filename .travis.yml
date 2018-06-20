@@ -10,23 +10,32 @@ php:
 env:
   - TYPO3_VERSION=^8
 
-addons:
-  apt:
-    packages:
-      - parallel
-
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
   - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
+script: echo "Skip Defaults";
+
 jobs:
   include:
     - stage: Test
+    addons:
+      apt:
+        packages:
+          - parallel
       script:
         - >
           echo "Running php lint";
           find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+
+    - stage: Quality
+      php: 7.2
+      script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
+
+    - stage: Dependencies
+      php: 7.2
+      script:
         - >
           echo "Installing node_modules";
           pushd Build;
@@ -34,10 +43,6 @@ jobs:
           echo "Executing grunt";
           node_modules/.bin/grunt;
           popd
-
-    - stage: Code Quality
-      php: 7.2
-      script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
     - stage: Deploy
       if: branch = master
