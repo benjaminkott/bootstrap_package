@@ -38,11 +38,13 @@ jobs:
 
     - stage: dependencies
       php: 7.2
+      sudo: true
       script:
         - >
           echo "Installing node_modules";
           pushd Build;
           yarn install && npm install grunt-cli;
+        - >
           echo "Executing grunt";
           pwd;
           node_modules/.bin/grunt --base ./Build;
