@@ -1,18 +1,15 @@
 # .travis.yml
+sudo: false
 language: php
+
 php:
   - 7.0
   - 7.1
   - 7.2
+
 env:
-  - TYPO3_VERSION=^8.7
-
-stages:
-  - test
-  - name: deploy
-    if: branch = master
-
-sudo: false
+  - TYPO3_VERSION=^8
+  - TYPO3_VERSION=^9
 
 addons:
   ssh_known_hosts:
@@ -21,17 +18,10 @@ addons:
     packages:
       - parallel
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-before_install:
-  - phpenv config-rm xdebug.ini
-  - composer self-update
-  - composer --version
-
 install:
-   - composer require typo3/cms:${TYPO3_VERSION}
+  - composer require typo3/minimal:${TYPO3_VERSION}
+  - git checkout composer.json
+  - export TYPO3_PATH_WEB="$PWD/.build/web"
 
 jobs:
   include:
@@ -62,6 +52,10 @@ jobs:
           sudo chmod +x /usr/local/bin/dep;
           dep self-update;
           dep --file="./Build/deploy.php" deploy;
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 notifications:
   slack:
