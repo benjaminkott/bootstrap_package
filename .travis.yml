@@ -20,10 +20,10 @@ script: echo "Skip Defaults";
 jobs:
   include:
     - stage: Test
-    addons:
-      apt:
-        packages:
-          - parallel
+      addons:
+        apt:
+          packages:
+            - parallel
       script:
         - >
           echo "Running php lint";
