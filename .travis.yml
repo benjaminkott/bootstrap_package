@@ -9,7 +9,6 @@ php:
 
 env:
   - TYPO3_VERSION=^8
-  - TYPO3_VERSION=^9
 
 addons:
   ssh_known_hosts:
