@@ -252,9 +252,9 @@ config {
     # cat=bootstrap package: advanced/150/140; type=boolean; label=Compress Css
     compressCss = 0
     # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate JavaScript
-    concatenateJs = 0
+    concatenateJs = 1
     # cat=bootstrap package: advanced/150/160; type=boolean; label=Concatenate Css
-    concatenateCss = 0
+    concatenateCss = 1
     # cat=bootstrap package: advanced/150/170; type=boolean; label=Admin Panel
     admPanel = 1
     # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
