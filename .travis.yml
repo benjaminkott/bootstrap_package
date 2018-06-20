@@ -22,14 +22,11 @@ install:
 
 jobs:
   include:
-    - stage: test
+    - stage: Test
       script:
         - >
           echo "Running php lint";
           find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
-        - >
-          echo "Running php-cs-fixer";
-          .build/bin/php-cs-fixer --diff --dry-run -v fix
         - >
           echo "Installing node_modules";
           pushd Build;
@@ -37,7 +34,12 @@ jobs:
           echo "Executing grunt";
           node_modules/.bin/grunt;
           popd
-    - stage: deploy
+
+    - stage: Code Quality
+      php: 7.2
+      script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
+
+    - stage: Deploy
       if: branch = master
       addons:
         ssh_known_hosts:
