@@ -37,20 +37,18 @@ before_install:
   - composer self-update
   - composer --version
 
-before_script:
-  - composer require typo3/cms:${TYPO3_VERSION}
-  - export TYPO3_PATH_WEB="$PWD/.build/web"
-
 jobs:
   include:
     - stage: test
       script:
         - >
-          echo;
+          echo "Require TYPO3";
+          composer require typo3/cms:${TYPO3_VERSION}
+          export TYPO3_PATH_WEB="$PWD/.build/web"
+        - >
           echo "Running php lint";
           find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
         - >
-          echo;
           echo "Running php-cs-fixer";
           .build/bin/php-cs-fixer --diff --dry-run -v fix
         - >
