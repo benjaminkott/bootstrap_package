@@ -10,6 +10,17 @@ php:
 env:
   - TYPO3_VERSION=^8
 
+matrix:
+  include:
+    - php: 7.0
+      env: TYPO3_VERSION=^8
+    - php: 7.1
+      env: TYPO3_VERSION=^8
+    - php: 7.2
+      env: TYPO3_VERSION=^8
+    - php: 7.2
+      env: TYPO3_VERSION=^9
+
 addons:
   apt:
     packages:
