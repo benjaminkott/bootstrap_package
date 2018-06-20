@@ -43,10 +43,14 @@ jobs:
         - >
           echo "Installing node_modules";
           pushd Build;
-          yarn install && npm install grunt-cli;
+          yarn install;
+        - >
+          echo "Install grunt cli";
+          pushd Build;
+          npm install grunt-cli;
         - >
           echo "Executing grunt";
-          pwd;
+          pushd Build;
           node_modules/.bin/grunt --base ./Build;
           popd
 
