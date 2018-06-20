@@ -9,6 +9,7 @@ php:
 
 env:
   - TYPO3_VERSION=^8
+  - TYPO3_VERSION=^9
 
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
@@ -19,17 +20,14 @@ script: echo "Skip Defaults";
 
 jobs:
   include:
-    - stage: Test
+    - stage: test
       addons:
         apt:
           packages:
             - parallel
-      script:
-        - >
-          echo "Running php lint";
-          find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+      script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
-    - stage: Quality
+    - stage: quality
       php: 7.2
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
@@ -44,7 +42,7 @@ jobs:
           node_modules/.bin/grunt;
           popd
 
-    - stage: Deploy
+    - stage: deploy
       if: branch = master
       addons:
         ssh_known_hosts:
