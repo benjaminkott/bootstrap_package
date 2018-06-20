@@ -3,29 +3,25 @@ sudo: false
 language: php
 
 php:
-  - 7.0
-  - 7.1
+  # - 7.0
+  # - 7.1
   - 7.2
 
 env:
   - TYPO3_VERSION=^8
-  - TYPO3_VERSION=^9
+  # - TYPO3_VERSION=^9
 
-matrix:
-  exclude:
-    - php: 7.0
-      env: TYPO3_VERSION=^9
-    - php: 7.1
-      env: TYPO3_VERSION=^9
+# matrix:
+#   exclude:
+#     - php: 7.0
+#       env: TYPO3_VERSION=^9
+#     - php: 7.1
+#       env: TYPO3_VERSION=^9
 
 addons:
   apt:
     packages:
       - parallel
-
-before_install:
-  - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
-  - composer self-update
 
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
@@ -36,9 +32,9 @@ script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display
 
 jobs:
   include:
-    - stage: quality
-      php: 7.2
-      script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
+    # - stage: quality
+    #   php: 7.2
+    #   script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
     - stage: dependencies
       php: 7.2
