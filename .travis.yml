@@ -24,6 +24,10 @@ script: echo "Skip Defaults";
 jobs:
   include:
     - stage: test
+      php:
+        - 7.0
+        - 7.1
+        - 7.2
       addons:
         apt:
           packages:
