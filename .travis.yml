@@ -44,7 +44,8 @@ jobs:
           pushd Build;
           yarn install && npm install grunt-cli;
           echo "Executing grunt";
-          node_modules/.bin/grunt;
+          pwd;
+          node_modules/.bin/grunt --base ./Build;
           popd
 
     - stage: deploy
