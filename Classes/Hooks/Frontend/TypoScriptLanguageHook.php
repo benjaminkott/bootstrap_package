@@ -73,7 +73,7 @@ class TypoScriptLanguageHook
      */
     public function addLanguageSetup(&$params, &$templateService)
     {
-        if (TYPO3_MODE == 'BE') {
+        if (TYPO3_MODE === 'BE') {
             ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
         } else {
             $templateService->config = [$this->createLanguageConditions()] + $templateService->config;

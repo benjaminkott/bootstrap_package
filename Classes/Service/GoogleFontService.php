@@ -42,15 +42,13 @@ class GoogleFontService
         } else {
             return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : false;
         }
-
-        return false;
     }
 
     /**
      * @param string $file
      * @return bool
      */
-    public function cacheFile($file)
+    protected function cacheFile($file)
     {
         $content = GeneralUtility::getUrl(
             $file,
@@ -92,16 +90,16 @@ class GoogleFontService
      * @param string $file
      * @return bool
      */
-    public function supports($file)
+    protected function supports($file)
     {
-        return strpos($file, $this->googleFontApiUrl) ? true : false;
+        return strpos($file, $this->googleFontApiUrl);
     }
 
     /**
      * @param string $file
      * @return bool
      */
-    public function isCached($file)
+    protected function isCached($file)
     {
         $cacheFile = $this->getCssFileCacheName($file);
         $absoluteFile = GeneralUtility::getFileAbsFileName($cacheFile);
@@ -123,7 +121,7 @@ class GoogleFontService
      * @param string $file
      * @return string
      */
-    public function getCssFileCacheName($file)
+    protected function getCssFileCacheName($file)
     {
         return $this->getCacheDirectory($file) . '/' . 'webfont.css';
     }
@@ -132,7 +130,7 @@ class GoogleFontService
      * @param string $file
      * @return string
      */
-    public function getCacheDirectory($file)
+    protected function getCacheDirectory($file)
     {
         return $this->tempDirectory . '/' . $this->getCacheIdentifier($file);
     }

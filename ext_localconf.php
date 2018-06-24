@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappac
 /***************
  * Make the extension configuration accessible
  */
-if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+if (class_exists(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)) {
     $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
         \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
     );
@@ -124,7 +124,7 @@ if (TYPO3_MODE === 'BE') {
  */
 if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\GoogleFontHook->execute';
+        = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
 }
 
 /***************
@@ -140,20 +140,20 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser']
  */
 if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing'])) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\PreProcessHook->execute';
+        = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
 /***************
  * Register font loader
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\FontLoaderHook->execute';
+    = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
 
 /***************
  * Register cache hooks to clear bootstrap cache files
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\TceMain\\ClearCacheHook->clearCache';
+    = \BK2K\BootstrapPackage\Hooks\TceMain\ClearCacheHook::class . '->clearCache';
 
 /***************
  * Add default RTE configuration for bootstrap package
@@ -323,7 +323,7 @@ $iconRegistry->registerIcon(
  * Backend Styling for CMS8
  * Please see \BK2K\BootstrapPackage\Service\BrandingService for CMS9
  */
-if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+if (TYPO3_MODE === 'BE' && !class_exists(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)) {
     // @extensionScannerIgnoreLine
     $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
     if (!is_array($backendConfiguration)) {
@@ -348,7 +348,7 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
  * Automatic Language Menus
  * Compatibility for CMS 8.7
  */
-if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
+if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class)) {
     // SignalSlot dispatcher
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
     // Register slot to build nessesary sql
@@ -368,7 +368,7 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
     // Set alias for language menu processor as polyfill functionality for older TYPO3 versions
     class_alias(
         \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
-        'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor'
+        \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class
     );
     // Register hook to dynamically add language config conditions to the TypoScript Setup
     TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(implode(LF, [
@@ -391,5 +391,5 @@ if (!class_exists('TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor')) {
         '}'
     ]));
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
-        = 'BK2K\\BootstrapPackage\\Hooks\\Frontend\\TypoScriptLanguageHook->addLanguageSetup';
+        = \BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class . '->addLanguageSetup';
 }

@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
+use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -53,7 +54,7 @@ class FalViewHelper extends AbstractViewHelper
     ) {
         $variableProvider = $renderingContext->getVariableProvider();
         if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
-            $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $items = $fileRepository->findByRelation(
                 $arguments['table'],
                 $arguments['field'],

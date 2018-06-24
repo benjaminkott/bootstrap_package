@@ -71,7 +71,7 @@ class ConstantsProcessor implements DataProcessorInterface
      * @param string $key
      * @return string
      */
-    public function getFlatConstants($key)
+    protected function getFlatConstants($key)
     {
         $flatvariables = '';
         $prefix = $key . '.';

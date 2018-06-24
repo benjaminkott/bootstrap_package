@@ -16,6 +16,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+use TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor as CoreLanguageMenuProcessor;
 
 /**
  * This menu processor generates a json encoded menu string that will be
@@ -119,7 +120,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '11' => 'USER',
                 '11.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
@@ -130,7 +131,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '20' => 'USER',
                 '20.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
@@ -141,7 +142,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '21' => 'USER',
                 '21.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
@@ -152,7 +153,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '22' => 'USER',
                 '22.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
@@ -163,7 +164,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '23' => 'USER',
                 '23.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
@@ -174,7 +175,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
                 ],
                 '24' => 'USER',
                 '24.' => [
-                    'userFunc' => 'TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor->getFieldAsJson',
+                    'userFunc' => CoreLanguageMenuProcessor::class . '->getFieldAsJson',
                     'language.' => [
                         'data' => 'register:languageId'
                     ],
