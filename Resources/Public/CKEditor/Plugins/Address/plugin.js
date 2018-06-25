@@ -38,11 +38,11 @@
                     },
                     email: {
                         selector: '.address-email',
-                        allowedContent: 'br strong em; a'
+                        allowedContent: 'br strong em a[!href]'
                     },
                     www: {
                         selector: '.address-www',
-                        allowedContent: 'br strong em; a'
+                        allowedContent: 'br strong em a[!href]'
                     }
                 },
                 allowedContent:
