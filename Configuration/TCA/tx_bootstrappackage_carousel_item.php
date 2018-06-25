@@ -7,6 +7,12 @@
  * LICENSE file that was distributed with this source code.
  */
 
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
+    $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
+} else {
+    $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
+}
+
 return [
     'ctrl' => [
         'label' => 'header',
@@ -21,7 +27,7 @@ return [
         'origUid' => 't3_origuid',
         'hideTable' => true,
         'hideAtCopy' => true,
-        'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
+        'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
@@ -197,7 +203,7 @@ return [
             ],
         ],
         'item_type' => [
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.type',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -235,7 +241,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -247,7 +253,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -259,7 +265,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -274,7 +280,7 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -282,11 +288,11 @@ return [
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
                         -1
                     ],
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value',
+                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
                         0
                     ]
                 ],
@@ -296,7 +302,7 @@ return [
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
