@@ -92,7 +92,7 @@ class GoogleFontService
      */
     protected function supports($file)
     {
-        return strpos($file, $this->googleFontApiUrl);
+        return strpos($file, $this->googleFontApiUrl) ? true : false;
     }
 
     /**
