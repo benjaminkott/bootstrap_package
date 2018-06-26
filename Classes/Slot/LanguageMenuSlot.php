@@ -65,7 +65,7 @@ class LanguageMenuSlot
                 ],
                 'locale' => [
                     'label' => 'Language locale',
-                    'desciption' => 'should be something like de_DE or en_US.UTF-8',
+                    'description' => 'should be something like de_DE or en_US.UTF-8',
                     'config' => [
                         'type' => 'input',
                         'placeholder' => 'en_US.UTF-8',
