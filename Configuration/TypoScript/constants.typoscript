@@ -83,7 +83,7 @@ page {
             # cat=bootstrap package: basic/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
             enable = 1
             # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids
-            languageValue = 0,1,2
+            languageValue = 0
         }
 
         copyright {
