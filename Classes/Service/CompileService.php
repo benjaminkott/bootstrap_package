@@ -112,7 +112,7 @@ class CompileService
      * @param string $extension
      * @return array
      */
-    public function getVariablesFromConstants($extension)
+    protected function getVariablesFromConstants($extension)
     {
         $extension = strtolower($extension);
         $variables = [];

@@ -26,7 +26,7 @@ class TextIconUtility
         } else {
             $directory = 'EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/';
         }
-        $icons = self::getIcons($directory);
+        $icons = $this->getIcons($directory);
         if ($icons) {
             $parameters['items'] = array_merge($parameters['items'], $icons);
         }
@@ -36,7 +36,7 @@ class TextIconUtility
      * @param string $directory
      * @return array|bool
      */
-    public function getIcons($directory)
+    protected function getIcons($directory)
     {
         $icons = [];
         if (strpos($directory, 'EXT:') !== 0 || !strpos($directory, 'Resources/Public')) {

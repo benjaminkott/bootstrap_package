@@ -67,7 +67,7 @@ class ImageVariantsUtility
      * @param array $variants
      * @return array
      */
-    public static function processVariants($variants): array
+    protected static function processVariants($variants): array
     {
         $variants = !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
@@ -93,7 +93,7 @@ class ImageVariantsUtility
      * @param array $multiplier
      * @return array
      */
-    public static function processMultiplier($variants, $multiplier): array
+    protected static function processMultiplier($variants, $multiplier): array
     {
         $multiplier = is_array($multiplier) ? $multiplier : [];
         foreach ($multiplier as $variant => $value) {
@@ -109,7 +109,7 @@ class ImageVariantsUtility
      * @param array $corrections
      * @return array
      */
-    public static function processCorrections($variants, $corrections): array
+    protected static function processCorrections($variants, $corrections): array
     {
         $corrections = is_array($corrections) ? $corrections : [];
         foreach ($corrections as $variant => $value) {
