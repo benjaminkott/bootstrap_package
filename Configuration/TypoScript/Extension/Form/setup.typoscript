@@ -1,0 +1,6 @@
+########################
+#### FORM FRAMEWORK ####
+########################
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt" condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition < 9.3">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.typoscript"  condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition >= 9.3">
