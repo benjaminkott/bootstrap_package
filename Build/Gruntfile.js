@@ -26,6 +26,26 @@ module.exports = function(grunt) {
     });
 
     /**
+     * Grunt task to remove source map comment
+     */
+    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemp comment from files', function() {
+        var done = this.async(),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath).replace(/\/\/# sourceMappingURL=\S+/, '');
+                grunt.file.write(file.dest, content);
+                grunt.log.success('Source file "' + filepath + '" was processed.');
+                counter++;
+                if (counter >= files.length) done(true);
+            });
+        });
+    });
+
+    /**
      * Grunt task for modernizr
      */
     grunt.registerMultiTask("modernizr", "Respond to your user’s browser features.", function () {
@@ -114,7 +134,7 @@ module.exports = function(grunt) {
                 options: {
                     banner: ''
                 },
-                src: '<%= paths.contrib %>modernizr/modernizr.js',
+                src: '<%= paths.contrib %>modernizr/modernizr.min.js',
                 dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
             },
             bootstrapForm: {
@@ -160,6 +180,15 @@ module.exports = function(grunt) {
             ckeditor_table: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
+            }
+        },
+        removesourcemap: {
+            contrib: {
+                files: {
+                    '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js',
+                    '<%= paths.contrib %>hammerjs/hammer.min.js': '<%= paths.contrib %>hammerjs/hammer.min.js',
+                    '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js'
+                }
             }
         },
         sass: {
@@ -301,9 +330,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>hammerjs/',
                         src: [
-                            'hammer.js',
-                            'hammer.min.js',
-                            'hammer.min.js.map',
+                            'hammer.min.js'
                         ],
                         dest: '<%= paths.contrib %>hammerjs/',
                         expand: true
@@ -338,8 +365,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>popper.js/dist/umd/',
                         src: [
-                            'popper.min.js',
-                            'popper.min.js.map',
+                            'popper.min.js'
                         ],
                         dest: '<%= paths.contrib %>popper/',
                         expand: true
@@ -373,8 +399,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>bootstrap/dist/js/',
                         src: [
-                            'bootstrap.min.js',
-                            'bootstrap.min.js.map',
+                            'bootstrap.min.js'
                         ],
                         dest: '<%= paths.contrib %>bootstrap4/js/',
                         expand: true
@@ -402,7 +427,7 @@ module.exports = function(grunt) {
         },
         modernizr: {
             main: {
-                'dest': '<%= paths.contrib %>modernizr/modernizr.js',
+                'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
                 'options': {
                     'options': [
                         'domPrefixes',
@@ -502,7 +527,7 @@ module.exports = function(grunt) {
     grunt.registerTask('update', ['copy', 'modernizr']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
-    grunt.registerTask('js', ['uglify', 'cssmin']);
+    grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('build', ['webfont', 'update', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);
