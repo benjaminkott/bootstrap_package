@@ -26,8 +26,8 @@ class AdditionalFieldInformation extends AbstractNode
     public function render()
     {
         $resultArray = $this->initializeResultArray();
-        if (isset($this->data['parameterArray']['fieldConf']['desciption'])) {
-            $fieldInformationText = $this->getLanguageService()->sL($this->data['parameterArray']['fieldConf']['desciption']);
+        if (isset($this->data['parameterArray']['fieldConf']['description'])) {
+            $fieldInformationText = $this->getLanguageService()->sL($this->data['parameterArray']['fieldConf']['description']);
             if (trim($fieldInformationText) !== '') {
                 $resultArray['html'] = '<p>' . $fieldInformationText . '</p>';
             }
