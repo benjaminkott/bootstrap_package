@@ -66,10 +66,18 @@ class InlineSvgViewHelper extends AbstractViewHelper
 
         // Override width and height
         if ($arguments['width']) {
-            $svgElement->addAttribute('width', (int)$arguments['width']);
+            if (isset($svgElement->attributes()->width)) {
+                $svgElement->attributes()->width = (int)$arguments['width'];
+            } else {
+                $svgElement->addAttribute('width', (int)$arguments['width']);
+            }
         }
         if ($arguments['height']) {
-            $svgElement->addAttribute('height', (int)$arguments['height']);
+            if (isset($svgElement->attributes()->height)) {
+                $svgElement->attributes()->height = (int)$arguments['height'];
+            } else {
+                $svgElement->addAttribute('height', (int)$arguments['height']);
+            }
         }
 
         // remove xml version tag
