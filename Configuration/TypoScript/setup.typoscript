@@ -209,14 +209,6 @@ page {
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
             }
-            navigation {
-                style = {$page.theme.navigationstyle}
-                type = {$page.theme.navigationtype}
-                icon {
-                    width = {$page.theme.navigationicon.width}
-                    height = {$page.theme.navigationicon.height}
-                }
-            }
         }
 
         #################

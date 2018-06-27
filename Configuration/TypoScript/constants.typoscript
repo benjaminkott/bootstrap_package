@@ -66,15 +66,17 @@ page {
     }
 
     theme {
-        # cat=bootstrap package: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
-        navigationstyle = default
-        # cat=bootstrap package: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
-        navigationtype =
-        navigationicon {
-            # cat=bootstrap package: basic/160/102; type=int+; label=Navigation Icon Width
-            width = 20
-            # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
-            height = 20
+        navigation {
+            # cat=bootstrap package: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
+            style = default
+            # cat=bootstrap package: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
+            type =
+            icon {
+                # cat=bootstrap package: basic/160/102; type=int+; label=Navigation Icon Width
+                width = 20
+                # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
+                height = 20
+            }
         }
 
         cookieconsent {
