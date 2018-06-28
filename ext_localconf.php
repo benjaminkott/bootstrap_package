@@ -208,116 +208,36 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\Boo
  * Register Icons
  */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-timeline',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/timeline.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-timeline-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/timeline-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-tab',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-tab-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-texticon',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/texticon.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-accordion',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-accordion-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-header',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-header.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-calltoaction',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-calltoaction.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-image',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-image.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-textandimage',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-textandimage.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-backgroundimage',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-backgroundimage.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-html',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-html.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-externalmedia',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/externalmedia.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-icon-group',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-icon-group-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-listgroup',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']
-);
-$iconRegistry->registerIcon(
-    'content-menu-card',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-card.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-social-links',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/social-links.svg']
-);
-$iconRegistry->registerIcon(
-    'systeminformation-bootstrappackage',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']
-);
+$icons = [
+    'accordion',
+    'accordion-item',
+    'carousel',
+    'carousel-item',
+    'carousel-item-backgroundimage',
+    'carousel-item-calltoaction',
+    'carousel-item-header',
+    'carousel-item-html',
+    'carousel-item-image',
+    'carousel-item-textandimage',
+    'externalmedia',
+    'icon-group',
+    'icon-group-item',
+    'listgroup',
+    'menu-card',
+    'social-links',
+    'tab',
+    'tab-item',
+    'texticon',
+    'timeline',
+    'timeline-item'
+];
+foreach ($icons as $icon) {
+    $iconRegistry->registerIcon(
+        'content-bootstrappackage-' . $icon,
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/' . $icon . '.svg']
+    );
+}
 
 /***************
  * Backend Styling for CMS8
