@@ -48,9 +48,11 @@ class FontLoaderHook
         $families = [];
         if (count($webFonts) > 0) {
             foreach ($webFonts as $font) {
-                unset($params[$font['section']][$font['filename']]);
-                $urls = array_merge($urls, [$font['url']]);
-                $families = array_merge($families, $font['families']);
+                if (isset($params[$font['section']][$font['filename']])) {
+                    unset($params[$font['section']][$font['filename']]);
+                    $urls = array_merge($urls, [$font['url']]);
+                    $families = array_merge($families, $font['families']);
+                }
             }
         }
 
