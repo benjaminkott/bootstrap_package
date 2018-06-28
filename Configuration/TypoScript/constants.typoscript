@@ -8,6 +8,7 @@
 # customsubcategory=120=Meta Settings
 # customsubcategory=150=Config
 # customsubcategory=160=Theme
+# customsubcategory=161=Font
 # customsubcategory=162=Breadcrumb
 # customsubcategory=165=Social Media
 # customsubcategory=167=Section Meta
@@ -66,6 +67,15 @@ page {
     }
 
     theme {
+        googleFont {
+            # cat=bootstrap package: google font/161/1_enable; type=boolean; label=Enable
+            enable = 1
+            # cat=bootstrap package: google font/161/2_font; type=options[Lora=Lora, Merriweather=Merriweather, Nunito=Nunito, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Quattrocento=Quattrocento, Ubuntu=Ubuntu]; label=Font
+            font = Source Sans Pro
+            # cat=bootstrap package: google font/161/3_weight; type=string; label=Font Weights: Comma separated list of font weights
+            weight = 300,400,700
+        }
+
         navigation {
             # cat=bootstrap package: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
             style = default

@@ -114,19 +114,38 @@ class CompileService
      */
     protected function getVariablesFromConstants($extension)
     {
+        $constants = $this->getConstants();
         $extension = strtolower($extension);
         $variables = [];
-        $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
-            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
+
+        // Fetch Google Font
+        $variables['google-webfont'] = 'sans-serif';
+        if (!empty($constants['page.theme.googleFont.enable'])
+            && !empty($constants['page.theme.googleFont.font'])) {
+            $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
         }
-        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+
+        // Fetch SCSS / Less settings
+        $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
+        foreach ($constants as $constant => $value) {
             if (strpos($constant, $prefix) === 0) {
                 $variables[substr($constant, strlen($prefix))] = $value;
             }
         }
+
         return $variables;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getConstants()
+    {
+        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+        || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
+        || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+            $GLOBALS['TSFE']->tmpl->generateConfig();
+        }
+        return $GLOBALS['TSFE']->tmpl->flatSetup;
     }
 }

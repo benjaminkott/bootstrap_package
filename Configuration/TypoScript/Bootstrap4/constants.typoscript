@@ -1,0 +1,11 @@
+#####################
+### BOOTSTRAP 4.x ###
+#####################
+
+plugin.bootstrap_package {
+    settings {
+        scss {
+            font-family-base = "#{$google-webfont}", sans-serif
+        }
+    }
+}
