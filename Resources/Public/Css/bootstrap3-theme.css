@@ -8923,6 +8923,12 @@ body,
 .frame-space-after-extra-large {
   margin-bottom: 3em;
 }
+.frame-header *:last-child {
+  margin-bottom: 16px;
+}
+.frame-type-header .frame-header *:last-child {
+  margin-bottom: 0;
+}
 .footer-section-content-column-left,
 .footer-section-content-column-middle,
 .footer-section-content-column-right {

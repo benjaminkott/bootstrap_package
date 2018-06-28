@@ -9265,6 +9265,14 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 3rem;
 }
 
+.frame-header *:last-child {
+  margin-bottom: 1rem;
+}
+
+.frame-type-header .frame-header *:last-child {
+  margin-bottom: 0;
+}
+
 .card-deck-menu .card {
   margin-bottom: 40px;
 }

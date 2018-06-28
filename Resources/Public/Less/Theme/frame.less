@@ -209,3 +209,19 @@
 .frame-space-after-extra-large {
     margin-bottom: 3em;
 }
+
+//
+// Frame Header
+// --------------------------------------------------
+.frame-header {
+    *:last-child {
+        margin-bottom: @font-size-base;
+    }
+}
+.frame-type-header {
+    .frame-header {
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

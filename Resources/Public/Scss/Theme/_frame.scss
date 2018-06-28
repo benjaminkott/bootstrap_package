@@ -200,3 +200,19 @@
 .frame-space-after-extra-large {
     margin-bottom: ($spacer * 3);
 }
+
+//
+// Frame Header
+//
+.frame-header {
+    *:last-child {
+        margin-bottom: $spacer;
+    }
+}
+.frame-type-header {
+    .frame-header {
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
