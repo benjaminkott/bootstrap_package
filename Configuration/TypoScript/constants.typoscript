@@ -77,13 +77,21 @@ page {
                 # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
                 height = 20
             }
+            dropdown {
+                icon {
+                    # cat=bootstrap package: basic/160/104; type=int+; label=Dropdown Icon Width
+                    width = 16
+                    # cat=bootstrap package: basic/160/105; type=int+; label=Dropdown Icon Height
+                    height = 16
+                }
+            }
         }
 
         subnavigation {
             icon {
-                # cat=bootstrap package: basic/160/104; type=int+; label=SubNavigation Icon Width
+                # cat=bootstrap package: basic/160/106; type=int+; label=SubNavigation Icon Width
                 width = 16
-                # cat=bootstrap package: basic/160/104; type=int+; label=SubNavigation Icon Width
+                # cat=bootstrap package: basic/160/107; type=int+; label=SubNavigation Icon Width
                 height = 16
             }
         }

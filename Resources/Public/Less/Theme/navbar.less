@@ -240,6 +240,18 @@
             outline: 0;
             background-color: @dropdown-link-active-bg;
         }
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-icon {
+        svg,
+        img {
+            display: block;
+            margin: 0;
+        }
+        & + .dropdown-text {
+            margin-left: 0.5em;
+        }
     }
     .dropdown-divider {
         height: 0;

@@ -10189,6 +10189,18 @@ blockquote footer::before {
 .navbar-mainnavigation .dropdown-item {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-mainnavigation .dropdown-icon svg,
+.navbar-mainnavigation .dropdown-icon img {
+  display: block;
+  margin: 0;
+}
+
+.navbar-mainnavigation .dropdown-icon + .dropdown-text {
+  margin-left: 0.5em;
 }
 
 @media (max-width: 991px) {
