@@ -79,6 +79,15 @@ page {
             }
         }
 
+        subnavigation {
+            icon {
+                # cat=bootstrap package: basic/160/104; type=int+; label=SubNavigation Icon Width
+                width = 16
+                # cat=bootstrap package: basic/160/104; type=int+; label=SubNavigation Icon Width
+                height = 16
+            }
+        }
+
         cookieconsent {
             # cat=bootstrap package: cookie consent/230/01_enable; type=boolean; label=Enable Cookie Consent: For more information about this solution please head over to https://cookieconsent.insites.com/
             enable = 1

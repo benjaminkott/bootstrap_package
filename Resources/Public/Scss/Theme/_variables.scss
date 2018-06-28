@@ -5,6 +5,7 @@ $gray-100:                     #f8f9fa !default;
 $gray-600:                     #6c757d !default;
 $gray-800:                     #3b3b3b !default;
 $gray-900:                     #2b2b2b !default;
+$black:                        #000000 !default;
 
 $primary:                      #4faf98 !default;
 $secondary:                    $gray-600 !default;
@@ -75,6 +76,20 @@ $navbar-heights: (
   lg: 130px,
   xl: 130px
 ) !default;
+
+//
+// Subnav
+//
+$subnav-font-size:            $font-size-base * 0.875 !default;
+$subnav-line-height:          1.25;
+$subnav-link-padding-x:       1rem !default;
+$subnav-link-padding-y:       .5rem !default;
+$subnav-border-color:         #e6e6e6;
+$subnav-color:                rgba($black, .5) !default;
+$subnav-hover-color:          rgba($black, .7) !default;
+$subnav-hover-bg:             #f2f2f2;
+$subnav-active-color:         $link-color !default;
+$subnav-active-bg:            transparent;
 
 //
 // Frame Background

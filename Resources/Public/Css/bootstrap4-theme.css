@@ -5018,13 +5018,13 @@ input[type="button"].btn-block {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #000;
+  color: #000000;
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
 }
 
 .close:hover, .close:focus {
-  color: #000;
+  color: #000000;
   text-decoration: none;
   opacity: .75;
 }
@@ -5109,7 +5109,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000;
+  background-color: #000000;
 }
 
 .modal-backdrop.fade {
@@ -5242,7 +5242,7 @@ button.close {
 .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
   top: 0;
   border-width: 0.4rem 0.4rem 0;
-  border-top-color: #000;
+  border-top-color: #000000;
 }
 
 .bs-tooltip-right, .bs-tooltip-auto[x-placement^="right"] {
@@ -5258,7 +5258,7 @@ button.close {
 .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
   right: 0;
   border-width: 0.4rem 0.4rem 0.4rem 0;
-  border-right-color: #000;
+  border-right-color: #000000;
 }
 
 .bs-tooltip-bottom, .bs-tooltip-auto[x-placement^="bottom"] {
@@ -5272,7 +5272,7 @@ button.close {
 .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
   bottom: 0;
   border-width: 0 0.4rem 0.4rem;
-  border-bottom-color: #000;
+  border-bottom-color: #000000;
 }
 
 .bs-tooltip-left, .bs-tooltip-auto[x-placement^="left"] {
@@ -5288,7 +5288,7 @@ button.close {
 .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
-  border-left-color: #000;
+  border-left-color: #000000;
 }
 
 .tooltip-inner {
@@ -5296,7 +5296,7 @@ button.close {
   padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
-  background-color: #000;
+  background-color: #000000;
   border-radius: 0px;
 }
 
@@ -8495,7 +8495,7 @@ a.text-dark:hover, a.text-dark:focus {
     display: none;
   }
   .badge {
-    border: 1px solid #000;
+    border: 1px solid #000000;
   }
   .table {
     border-collapse: collapse !important;
@@ -8573,9 +8573,15 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.backendlayout-subnavigation_right .subnav-wrap,
+.backendlayout-subnavigation_left .subnav-wrap {
+  display: none;
+}
+
 @media (min-width: 992px) {
   .backendlayout-subnavigation_right .subnav-wrap,
   .backendlayout-subnavigation_left .subnav-wrap {
+    display: block;
     width: calc(100% / 12 * 3);
   }
   .backendlayout-subnavigation_right .maincontent-wrap,
@@ -8590,9 +8596,15 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.backendlayout-subnavigation_right_2_columns .subnav-wrap,
+.backendlayout-subnavigation_left_2_columns .subnav-wrap {
+  display: none;
+}
+
 @media (min-width: 992px) {
   .backendlayout-subnavigation_right_2_columns .subnav-wrap,
   .backendlayout-subnavigation_left_2_columns .subnav-wrap {
+    display: block;
     width: calc(100% / 12 * 3);
   }
   .backendlayout-subnavigation_right_2_columns .maincontent-wrap,
@@ -10372,6 +10384,82 @@ blockquote footer::before {
 .navbar-mainnavigation.navbar-bottom .dropdown-menu {
   top: auto;
   bottom: 100%;
+}
+
+.subnav-nav {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.subnav-nav .subnav-nav {
+  margin-top: -1px;
+  border-left: 1rem solid #f8f8f8;
+}
+
+.subnav-nav .subnav-nav:before {
+  position: absolute;
+  content: '';
+  width: 1px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+
+.subnav-divider {
+  height: 0.5rem;
+}
+
+.subnav-item .subnav-divider {
+  background-color: #f8f8f8;
+  border-right: 1px solid #e6e6e6;
+}
+
+.subnav-item {
+  position: relative;
+}
+
+.subnav-item + .subnav-item {
+  margin-top: -1px;
+}
+
+.subnav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: inherit;
+  border: 1px solid #e6e6e6;
+  transition: all .15s ease-in-out;
+}
+
+.active > .subnav-link {
+  color: #4faf98 !important;
+  background-color: transparent;
+}
+
+.subnav-link:hover, .subnav-link:focus {
+  z-index: 1;
+  position: relative;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #f2f2f2;
+  border-color: #d9d9d9;
+}
+
+.subnav-link-icon svg,
+.subnav-link-icon img {
+  display: block;
+  margin: 0;
+}
+
+.subnav-link-icon + .subnav-link-text {
+  margin-left: 0.5em;
 }
 
 .breadcrumb-section {
