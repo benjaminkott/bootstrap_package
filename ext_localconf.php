@@ -224,6 +224,7 @@ $icons = [
     'carousel-item-html',
     'carousel-item-image',
     'carousel-item-textandimage',
+    'csv',
     'externalmedia',
     'icon-group',
     'icon-group-item',

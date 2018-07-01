@@ -157,11 +157,21 @@
             <trans-unit id="content_group.media">
                 <source>Media</source>
             </trans-unit>
+            <trans-unit id="content_group.data">
+                <source>Data</source>
+            </trans-unit>
             <trans-unit id="content_group.text">
                 <source>Text</source>
             </trans-unit>
             <trans-unit id="content_group.social_media">
                 <source>Social Media</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.csv">
+                <source>CSV</source>
+            </trans-unit>
+            <trans-unit id="content_element.csv.description">
+                <source>Render a table from a CSV file.</source>
             </trans-unit>
 
             <trans-unit id="content_element.media">
