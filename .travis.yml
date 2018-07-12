@@ -63,6 +63,7 @@ jobs:
           eval "$(ssh-agent -s)";
           chmod 600 /tmp/deploy_rsa;
           ssh-add /tmp/deploy_rsa;
+        - >
           curl -LO https://deployer.org/deployer.phar;
           sudo mv deployer.phar /usr/local/bin/dep;
           sudo chmod +x /usr/local/bin/dep;
