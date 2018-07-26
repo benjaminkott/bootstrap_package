@@ -270,7 +270,8 @@ return [
                 'default' => 'header',
                 'authMode' => $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'],
                 'authMode_enforce' => 'strict'
-            ]
+            ],
+            'l10n_mode' => 'exclude',
         ],
         'hidden' => [
             'exclude' => true,
@@ -409,6 +410,7 @@ return [
                 ],
                 'default' => '1'
             ],
+            'l10n_mode' => 'exclude',
         ],
         'header_class' => [
             'exclude' => true,
@@ -425,6 +427,7 @@ return [
                     ['h5', 'h5']
                 ]
             ],
+            'l10n_mode' => 'exclude',
         ],
         'subheader' => [
             'exclude' => true,
@@ -457,6 +460,7 @@ return [
                 ],
                 'default' => '2'
             ],
+            'l10n_mode' => 'exclude',
         ],
         'subheader_class' => [
             'exclude' => true,
@@ -473,6 +477,7 @@ return [
                     ['h5', 'h5']
                 ]
             ],
+            'l10n_mode' => 'exclude',
         ],
         'nav_title' => [
             'exclude' => true,
@@ -562,6 +567,7 @@ return [
                 'renderType' => 'colorpicker',
                 'default' => '#FFFFFF',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'background_color' => [
             'exclude' => true,
@@ -571,6 +577,7 @@ return [
                 'renderType' => 'colorpicker',
                 'default' => '#333333',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'background_image' => [
             'exclude' => true,
@@ -621,6 +628,7 @@ return [
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
+            'l10n_mode' => 'exclude',
         ],
         'background_image_options' => [
             'exclude' => true,

@@ -248,6 +248,7 @@ return [
                 ],
                 'svg'
             ),
+            'l10n_mode' => 'exclude',
         ],
     ],
 ];

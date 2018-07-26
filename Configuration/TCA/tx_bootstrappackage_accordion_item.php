@@ -273,7 +273,8 @@ return [
                     ],
                 ],
                 'default' => 0,
-            ]
+            ],
+            'l10n_mode' => 'exclude',
         ],
     ],
 ];
