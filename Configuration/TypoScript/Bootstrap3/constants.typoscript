@@ -166,7 +166,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/300/gray-lighter; type=string; label=@gray-lighter:
             gray-lighter = lighten(@gray-base, 93.5%)
             # cat=bootstrap 3.x: styling/300/brand-primary; type=string; label=@brand-primary:
-            brand-primary = #ff8700
+            brand-primary = #4faf98
             # cat=bootstrap 3.x: styling/300/brand-success; type=string; label=@brand-success:
             brand-success = #5cb85c
             # cat=bootstrap 3.x: styling/300/brand-info; type=string; label=@brand-info:
