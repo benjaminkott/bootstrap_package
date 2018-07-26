@@ -2,6 +2,7 @@
 ### CATEGORIES ###
 ##################
 # customsubcategory=100_contentelement=Templates
+# customsubcategory=105_contentelement=Background Image
 # customsubcategory=110_contentelement=Header
 # customsubcategory=120_contentelement=Subheader
 # customsubcategory=130_contentelement=Lightbox
@@ -24,10 +25,14 @@ plugin.bootstrap_package_contentelements {
         # cat=bootstrap package: content elements/100_contentelement/003_templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
     }
+    backgroundImage {
+        # cat=bootstrap package: content elements/105_contentelement/001_image_maxwidth; type=int+; label=Max Image Width
+        maxWidth = 1200
+    }
     header {
-        # cat=bootstrap package: content elements/110_ContentElement/001_defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
+        # cat=bootstrap package: content elements/110_contentelement/001_defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
         defaultHeaderType = 2
-        # cat=bootstrap package: content elements/110_ContentElement/002_class; type=string; label=Default Header class
+        # cat=bootstrap package: content elements/110_contentelement/002_class; type=string; label=Default Header class
         class = element-header
     }
     subheader {

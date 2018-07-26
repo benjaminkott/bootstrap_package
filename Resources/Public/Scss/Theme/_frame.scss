@@ -2,6 +2,7 @@
 // Frame Container
 //
 .frame-container {
+    position: relative;
     @include make-container();
     @include make-container-max-widths();
 }
@@ -16,6 +17,8 @@
 // Frame
 //
 .frame {
+    position: relative;
+    overflow: hidden;
     @each $breakpoint in map-keys($grid-breakpoints) {
         $i: index(map-keys($grid-breakpoints), $breakpoint);
         $i: $i - 1;
@@ -103,10 +106,6 @@
 //
 // Background
 //
-.frame-has-backgroundimage {
-    background-position: center;
-    background-size: cover;
-}
 .container {
     .frame-has-backgroundimage {
         @each $breakpoint in map-keys($grid-breakpoints) {
@@ -155,6 +154,39 @@
 }
 @each $name, $settings in $frame-backgrounds {
     @include make-frame-background($name, $settings);
+}
+
+//
+// Background Image
+// --------------------------------------------------
+.frame-backgroundimage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.frame-backgroundimage-fade {
+    opacity: 0.125;
+}
+.frame-backgroundimage-parallax {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.frame-backgroundimage-blur {
+    filter: blur(10px);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    top: -10px;
+    left: -10px;
+}
+.frame-backgroundimage-grayscale {
+    filter: grayscale(1);
+}
+.frame-backgroundimage-sepia {
+    filter: sepia(1);
 }
 
 //

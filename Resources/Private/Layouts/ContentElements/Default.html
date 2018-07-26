@@ -18,11 +18,16 @@
     <f:if condition="{data.frame_class} != none">
         <f:then>
 
-            <f:variable name="itemStyleImage"><f:if condition="{backgroundImage.0}">background-image: url('{f:uri.image(image: backgroundImage.0)}');</f:if></f:variable>
-            <f:variable name="itemStyle">{itemStyleImage}</f:variable>
-            <f:variable name="backgroundImageClass">{f:if(condition: itemStyleImage, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
-
-            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}"{f:if(condition: itemStyle, then: ' style="{itemStyle}"')}>
+            <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
+            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+                <f:if condition="{backgroundImage.0}">
+                    <f:variable name="frameBackgroundImage">{f:uri.image(image: backgroundImage.0, maxWidth: settings.backgroundImage.maxWidth)}</f:variable>
+                    <f:variable name="frameBackgroundImageClasses">frame-backgroundimage</f:variable>
+                    <f:if condition="{data.background_image_options.parallax}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-parallax</f:variable></f:if>
+                    <f:if condition="{data.background_image_options.fade}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-fade</f:variable></f:if>
+                    <f:if condition="{data.background_image_options.filter}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-{data.background_image_options.filter}</f:variable></f:if>
+                    <div class="{frameBackgroundImageClasses}" style="background-image: url('{frameBackgroundImage}');"></div>
+                </f:if>
                 <div class="frame-container">
                     <div class="frame-inner">
                         <f:if condition="{data._LOCALIZED_UID}">

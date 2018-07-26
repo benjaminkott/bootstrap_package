@@ -30,7 +30,7 @@
                             <config>
                                 <type>input</type>
                                 <size>8</size>
-                                <default>1920</default>
+                                <default>1200</default>
                                 <eval>required,int</eval>
                             </config>
                         </TCEforms>

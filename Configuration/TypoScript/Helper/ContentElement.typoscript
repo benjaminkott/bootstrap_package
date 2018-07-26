@@ -31,6 +31,10 @@ lib.contentElement {
             references.fieldName = background_image
             as = backgroundImage
         }
+        1532626753 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        1532626753 {
+            fieldName = background_image_options
+        }
     }
 
     #################
@@ -52,6 +56,9 @@ lib.contentElement {
     ### SETTINGS ###
     ################
     settings {
+        backgroundImage {
+            maxWidth = {$plugin.bootstrap_package_contentelements.backgroundImage.maxWidth}
+        }
         header {
             defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
             class = {$plugin.bootstrap_package_contentelements.header.class}

@@ -31,6 +31,7 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_timeline_item int(11) unsigned DEFAULT '0',
     background_color_class varchar(255) DEFAULT '' NOT NULL,
     background_image int(11) unsigned DEFAULT '0',
+    background_image_options mediumtext,
 );
 
 
@@ -57,6 +58,7 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     text_color varchar(255) DEFAULT '' NOT NULL,
     background_color varchar(255) DEFAULT '' NOT NULL,
     background_image int(11) unsigned DEFAULT '0',
+    background_image_options mediumtext,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,

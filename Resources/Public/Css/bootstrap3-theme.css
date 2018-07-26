@@ -8229,9 +8229,6 @@ body,
   height: 100vh;
 }
 .carousel .carousel-item {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -8268,6 +8265,39 @@ body,
   .carousel .carousel-item .valign {
     width: 1100px;
   }
+}
+.carousel .carousel-backgroundimage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.carousel .carousel-backgroundimage-fade {
+  opacity: 0.125;
+}
+.carousel .carousel-backgroundimage-parallax {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.carousel .carousel-backgroundimage-blur {
+  filter: blur(10px);
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  top: -10px;
+  left: -10px;
+}
+.carousel .carousel-backgroundimage-grayscale {
+  filter: grayscale(1);
+}
+.carousel .carousel-backgroundimage-sepia {
+  filter: sepia(1);
+}
+.carousel .carousel-content {
+  position: relative;
+  height: 100%;
 }
 .carousel {
   overflow: hidden;
@@ -8651,6 +8681,7 @@ body,
   margin-bottom: 0px;
 }
 .frame-container {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
   padding-left: 20px;
@@ -8676,6 +8707,8 @@ body,
   padding-right: 0;
 }
 .frame {
+  position: relative;
+  overflow: hidden;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
 }
@@ -8758,14 +8791,6 @@ body,
   .frame-indent-right .frame-inner {
     margin-right: 33%;
   }
-}
-.frame-has-backgroundimage,
-.frame-background-primary,
-.frame-background-secondary,
-.frame-background-light,
-.frame-background-dark {
-  background-position: center;
-  background-size: cover;
 }
 .container .frame-has-backgroundimage,
 .container .frame-background-primary,
@@ -8886,6 +8911,35 @@ body,
 .frame-background-dark a:not(.btn):focus,
 .frame-background-dark a:not(.btn):hover {
   color: #b35f00;
+}
+.frame-backgroundimage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.frame-backgroundimage-fade {
+  opacity: 0.125;
+}
+.frame-backgroundimage-parallax {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.frame-backgroundimage-blur {
+  filter: blur(10px);
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  top: -10px;
+  left: -10px;
+}
+.frame-backgroundimage-grayscale {
+  filter: grayscale(1);
+}
+.frame-backgroundimage-sepia {
+  filter: sepia(1);
 }
 .frame-space-before-none {
   margin-top: 0;
