@@ -25,7 +25,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {
     'Bootstrap Package Content Element: Text in Columns'
 );
 
-
 /***************
  * Add content element to selector list
  */

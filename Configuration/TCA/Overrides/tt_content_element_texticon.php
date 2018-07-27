@@ -25,7 +25,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
     'Bootstrap Package Content Element: Text and Icon'
 );
 
-
 /***************
  * Add content element to selector list
  */

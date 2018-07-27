@@ -25,7 +25,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
     'Bootstrap Package Content Element: Quote'
 );
 
-
 /***************
  * Add content element to selector list
  */
