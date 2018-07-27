@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Texticon.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Texticon.tsconfig',
     'Bootstrap Package Content Element: Text and Icon'
 );
 

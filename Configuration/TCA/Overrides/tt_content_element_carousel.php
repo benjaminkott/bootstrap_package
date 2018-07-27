@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Carousel.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Carousel.tsconfig',
     'Bootstrap Package Content Element: Carousel'
 );
 

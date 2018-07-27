@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Textteaser.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Textteaser.tsconfig',
     'Bootstrap Package Content Element: Text with Teaser'
 );
 

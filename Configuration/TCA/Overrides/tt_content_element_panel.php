@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Panel.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Panel.tsconfig',
     'Bootstrap Package Content Element: Panel'
 );
 

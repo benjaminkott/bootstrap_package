@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Csv.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Csv.tsconfig',
     'Bootstrap Package Content Element: CSV'
 );
 

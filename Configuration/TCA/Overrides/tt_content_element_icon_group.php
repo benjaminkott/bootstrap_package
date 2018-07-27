@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/IconGroup.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/IconGroup.tsconfig',
     'Bootstrap Package Content Element: Icon Group'
 );
 

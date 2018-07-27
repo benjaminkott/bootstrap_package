@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['accordion'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Accordion.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Accordion.tsconfig',
     'Bootstrap Package Content Element: Accordion'
 );
 

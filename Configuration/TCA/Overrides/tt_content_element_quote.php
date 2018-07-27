@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Quote.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Quote.tsconfig',
     'Bootstrap Package Content Element: Quote'
 );
 

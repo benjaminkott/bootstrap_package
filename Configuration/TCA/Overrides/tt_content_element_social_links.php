@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['social_links'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/SocialLinks.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/SocialLinks.tsconfig',
     'Bootstrap Package Content Element: Social Links'
 );
 

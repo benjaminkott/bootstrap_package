@@ -21,40 +21,40 @@ $extensionKey = 'bootstrap_package';
 // Ionicons
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/Feature/Ionicons.tsconfig',
+    'Configuration/TsConfig/Page/Feature/Ionicons.tsconfig',
     'Bootstrap Package: Use Ionicons as Iconset'
 );
 
 // BackendLayouts
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/Mod/WebLayout/BackendLayouts.tsconfig',
+    'Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig',
     'Bootstrap Package: Backend Layouts'
 );
 
 // TCEMAIN
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/TCEMAIN.tsconfig',
+    'Configuration/TsConfig/Page/TCEMAIN.tsconfig',
     'Bootstrap Package: TCEMAIN'
 );
 
 // TCEFORM
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/TCEFORM.tsconfig',
+    'Configuration/TsConfig/Page/TCEFORM.tsconfig',
     'Bootstrap Package: TCEFORM'
 );
 
 // Content Elements
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/All.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
     'Bootstrap Package: All Content Elements'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Categories.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Categories.tsconfig',
     'Bootstrap Package: Categories for Content Elements'
 );
 

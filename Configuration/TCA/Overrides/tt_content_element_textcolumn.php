@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Textcolumn.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Textcolumn.tsconfig',
     'Bootstrap Package Content Element: Text in Columns'
 );
 

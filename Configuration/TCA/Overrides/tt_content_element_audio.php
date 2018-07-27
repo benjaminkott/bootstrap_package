@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/Audio.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/Audio.tsconfig',
     'Bootstrap Package Content Element: Audio'
 );
 

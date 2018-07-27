@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TSconfig/Page/ContentElement/Element/CarouselFullscreen.tsconfig',
+    'Configuration/TsConfig/Page/ContentElement/Element/CarouselFullscreen.tsconfig',
     'Bootstrap Package Content Element: Carousel Fullscreen'
 );
 
