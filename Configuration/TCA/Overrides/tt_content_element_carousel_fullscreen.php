@@ -17,6 +17,15 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'])) {
 }
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/CarouselFullscreen.tsconfig',
+    'Bootstrap Package Content Element: Carousel Fullscreen'
+);
+
+/***************
  * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

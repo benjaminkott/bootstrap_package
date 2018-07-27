@@ -10,11 +10,21 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Default TypoScript
+ * TypoScript: Full Package
+ * This includes the full setup including all configurations
  */
-// @extensionScannerIgnoreLine
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'bootstrap_package',
     'Configuration/TypoScript',
-    'Bootstrap Package'
+    'Bootstrap Package: Full Package'
+);
+
+/***************
+ * TypoScript: Content Elements
+ * Include only the configuration for content elements
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    'bootstrap_package',
+    'Configuration/TypoScript/ContentElement',
+    'Bootstrap Package: Content Elements'
 );

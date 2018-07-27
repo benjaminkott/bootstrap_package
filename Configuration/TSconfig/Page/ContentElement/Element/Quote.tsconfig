@@ -1,0 +1,25 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        quote {
+            iconIdentifier = content-quote
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote.description
+            tt_content_defValues {
+                CType = quote
+            }
+        }
+    }
+    show := addToList(quote)
+}
+
+#################
+#### PREVIEW ####
+#################
+mod.web_layout.tt_content {
+    preview {
+        quote = EXT:bootstrap_package/Resources/Private/Templates/Preview/Quote.html
+    }
+}

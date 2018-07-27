@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.social {
+    elements {
+        social_links {
+            iconIdentifier = content-bootstrappackage-social-links
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links.description
+            tt_content_defValues {
+                CType = social_links
+            }
+        }
+    }
+    show := addToList(social_links)
+}

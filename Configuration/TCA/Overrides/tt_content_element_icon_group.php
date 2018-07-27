@@ -17,6 +17,15 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
 }
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/IconGroup.tsconfig',
+    'Bootstrap Package Content Element: Icon Group'
+);
+
+/***************
  * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

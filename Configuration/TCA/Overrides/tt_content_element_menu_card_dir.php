@@ -17,6 +17,15 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
 }
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
+    'Bootstrap Package Content Element: Menu Cards of subpages'
+);
+
+/***************
  * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

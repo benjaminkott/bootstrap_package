@@ -46,18 +46,16 @@ $extensionKey = 'bootstrap_package';
     'Bootstrap Package: TCEFORM'
 );
 
-// TtContent Previews
+// Content Elements
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt',
-    'Bootstrap Package: Content Previews'
+    'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
+    'Bootstrap Package: All Content Elements'
 );
-
-// New Content element wizards
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/PageTS/Mod/Wizards/newContentElement.txt',
-    'Bootstrap Package: New Content Element Wizards'
+    'Configuration/TsConfig/Page/ContentElement/Categories.tsconfig',
+    'Bootstrap Package: Categories for Content Elements'
 );
 
 /***************

@@ -1,0 +1,25 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.data {
+    elements {
+        csv {
+            iconIdentifier = content-bootstrappackage-csv
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.csv
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.csv.description
+            tt_content_defValues {
+                CType = csv
+            }
+        }
+    }
+    show := addToList(csv)
+}
+
+#################
+#### PREVIEW ####
+#################
+mod.web_layout.tt_content {
+    preview {
+        csv = EXT:bootstrap_package/Resources/Private/Templates/Preview/Csv.html
+    }
+}

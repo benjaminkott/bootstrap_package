@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.menu {
+    elements {
+        menu_card_list {
+            iconIdentifier = content-bootstrappackage-menu-card
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list.description
+            tt_content_defValues {
+                CType = menu_card_list
+            }
+        }
+    }
+    show := addToList(menu_card_list)
+}

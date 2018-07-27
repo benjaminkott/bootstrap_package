@@ -35,14 +35,9 @@ if (class_exists(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)) {
  * PageTS
  */
 
-// Add Bootstrap Content Elements to newContentElement Wizard
-if (!$bootstrapPackageConfiguration['disablePageTsNewContentElementWizard']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/Wizards/newContentElement.txt">');
-}
-
-// Add Previews for Bootstrap Content Elements
-if (!$bootstrapPackageConfiguration['disablePageTsTtContentPreviews']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt">');
+// Add Content Elements
+if (!$bootstrapPackageConfiguration['disablePageTsContentElements']) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
 }
 
 // Add BackendLayouts for the BackendLayout DataProvider

@@ -10,6 +10,15 @@
 defined('TYPO3_MODE') || die();
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/Image.tsconfig',
+    'Bootstrap Package Content Element: Image'
+);
+
+/***************
  * Add additional fields to image content element
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(

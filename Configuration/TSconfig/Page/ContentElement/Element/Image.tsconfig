@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        image {
+            iconIdentifier = content-image
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_description
+            tt_content_defValues {
+                CType = image
+            }
+        }
+    }
+    show := addToList(image)
+}

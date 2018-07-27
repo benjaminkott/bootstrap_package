@@ -17,6 +17,15 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
 }
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/Tab.tsconfig',
+    'Bootstrap Package Content Element: Tab'
+);
+
+/***************
  * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(

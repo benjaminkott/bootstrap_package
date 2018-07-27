@@ -1,3 +1,9 @@
+################
+#### HELPER ####
+################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Helper/ContentElement.typoscript">
+
+
 #############################################################
 #### CONTENT ELEMENT RENDERING                           ####
 #### Manual inclusion to keep control over loading order ####

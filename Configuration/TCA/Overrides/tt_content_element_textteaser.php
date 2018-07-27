@@ -12,7 +12,22 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'content-text-teaser';
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
+    $GLOBALS['TCA']['tt_content']['types']['textteaser'] = [];
+}
+
+/***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/Textteaser.tsconfig',
+    'Bootstrap Package Content Element: Text with Teaser'
+);
+
+/***************
+ * Add content element to selector list
+ */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -24,9 +39,15 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'conte
     'texticon',
     'after'
 );
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
-    $GLOBALS['TCA']['tt_content']['types']['textteaser'] = [];
-}
+
+/***************
+ * Assign Icon
+ */
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textteaser'] = 'content-text-teaser';
+
+/***************
+ * Configure element type
+ */
 $GLOBALS['TCA']['tt_content']['types']['textteaser'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['textteaser'],
     [

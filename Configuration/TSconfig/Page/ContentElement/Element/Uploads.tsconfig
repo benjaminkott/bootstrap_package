@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        uploads {
+            iconIdentifier = content-special-uploads
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:special_filelinks_description
+            tt_content_defValues {
+                CType = uploads
+            }
+        }
+    }
+    show := addToList(uploads)
+}

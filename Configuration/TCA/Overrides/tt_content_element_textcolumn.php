@@ -12,7 +12,23 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textcolumn'] = 'content-text-columns';
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {
+    $GLOBALS['TCA']['tt_content']['types']['textcolumn'] = [];
+}
+
+/***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/Textcolumn.tsconfig',
+    'Bootstrap Package Content Element: Text in Columns'
+);
+
+
+/***************
+ * Add content element to selector list
+ */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -24,9 +40,15 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textcolumn'] = 'conte
     'tab',
     'after'
 );
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {
-    $GLOBALS['TCA']['tt_content']['types']['textcolumn'] = [];
-}
+
+/***************
+ * Assign Icon
+ */
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['textcolumn'] = 'content-text-columns';
+
+/***************
+ * Configure element type
+ */
 $GLOBALS['TCA']['tt_content']['types']['textcolumn'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['textcolumn'],
     [

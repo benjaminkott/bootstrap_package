@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        textcolumn {
+            iconIdentifier = content-text-columns
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn.description
+            tt_content_defValues {
+                CType = textcolumn
+            }
+        }
+    }
+    show := addToList(textcolumn)
+}
