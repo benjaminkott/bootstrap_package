@@ -14,6 +14,6 @@ defined('TYPO3_MODE') || die();
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Textmedia.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/Textmedia.tsconfig',
     'Bootstrap Package Content Element: Text and Media'
 );

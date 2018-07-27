@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
     'Bootstrap Package Content Element: Menu Cards of subpages'
 );
 

@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/ExternalMedia.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/ExternalMedia.tsconfig',
     'Bootstrap Package Content Element: External Media'
 );
 

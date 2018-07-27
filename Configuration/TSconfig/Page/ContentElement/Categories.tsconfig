@@ -12,4 +12,4 @@ mod.wizards.newContentElement.wizardItems {
 ##########################
 #### CONTENT ELEMENTS ####
 ##########################
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Element" extensions="tsconfig">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/TSconfig/Page/ContentElement/Element" extensions="tsconfig">

@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Tab.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/Tab.tsconfig',
     'Bootstrap Package Content Element: Tab'
 );
 

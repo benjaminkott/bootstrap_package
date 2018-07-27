@@ -14,6 +14,6 @@ defined('TYPO3_MODE') || die();
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Textpic.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/Textpic.tsconfig',
     'Bootstrap Package Content Element: Text and Images'
 );

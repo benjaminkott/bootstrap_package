@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Timeline.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/Timeline.tsconfig',
     'Bootstrap Package Content Element: Timeline'
 );
 

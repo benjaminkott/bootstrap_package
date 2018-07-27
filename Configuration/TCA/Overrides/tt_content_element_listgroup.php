@@ -21,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/ListGroup.tsconfig',
+    'Configuration/TSconfig/Page/ContentElement/Element/ListGroup.tsconfig',
     'Bootstrap Package Content Element: List Group'
 );
 
