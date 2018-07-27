@@ -124,6 +124,8 @@ class FontLoaderHook
             $bodyStyles[] = 'background-repeat:no-repeat;';
             $bodyStyles[] = 'content:\'\';';
             $bodyStyles[] = 'position:fixed;';
+            $bodyStyles[] = 'top:0;';
+            $bodyStyles[] = 'left:0;';
             $bodyStyles[] = 'z-index:10000;';
             $bodyStyles[] = 'opacity:0;';
             $bodyStyles[] = 'height:100%;';
