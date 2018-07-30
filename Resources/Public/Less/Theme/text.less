@@ -91,12 +91,16 @@ h4 + h5 {
 // Columns
 //
 .text-column {
+    .well & {
+        margin-bottom: 0;
+    }
     > *:first-child {
         margin-top: 0;
     }
     > *:last-child {
         margin-bottom: 0;
     }
+    margin-bottom: (@line-height-computed / 2);
     @media (min-width: @screen-sm) {
         -webkit-column-count: 2;
         -moz-column-count: 2;

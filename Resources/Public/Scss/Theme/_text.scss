@@ -29,12 +29,16 @@
 // Columns
 //
 .text-column {
+    .well & {
+        margin-bottom: 0;
+    }
     > *:first-child {
         margin-top: 0;
     }
     > *:last-child {
         margin-bottom: 0;
     }
+    margin-bottom: $paragraph-margin-bottom;
     @include media-breakpoint-up('sm') {
         -webkit-column-count: 2;
         -moz-column-count: 2;

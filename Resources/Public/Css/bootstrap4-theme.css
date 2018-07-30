@@ -9601,6 +9601,14 @@ h6.awesome, .h6.awesome {
   }
 }
 
+.text-column {
+  margin-bottom: 1rem;
+}
+
+.well .text-column {
+  margin-bottom: 0;
+}
+
 .text-column > *:first-child {
   margin-top: 0;
 }

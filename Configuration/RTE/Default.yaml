@@ -9,6 +9,8 @@ editor:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
         bootstrappackage_box:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+        bootstrappackage_columns:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
         bootstrappackage_table:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
 
@@ -69,6 +71,7 @@ editor:
             - justify
             - bootstrappackage_address
             - bootstrappackage_box
+            - bootstrappackage_columns
             - bootstrappackage_table
 
         removePlugins:

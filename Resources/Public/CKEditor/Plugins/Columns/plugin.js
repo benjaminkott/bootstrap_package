@@ -2,38 +2,38 @@
 
 (function() {
 
-    CKEDITOR.plugins.add('bootstrappackage_box', {
+    CKEDITOR.plugins.add('bootstrappackage_columns', {
         lang: 'en,de',
-        icons: 'box',
+        icons: 'columns',
         hidpi: true,
         init: function (editor) {
             if (editor.blockless)
                 return;
 
             // Add command
-            editor.addCommand('bootstrappackage_box', {
-                exec: toggleBox,
+            editor.addCommand('bootstrappackage_columns', {
+                exec: toggleColumns,
                 refresh: setButtonState,
-                context: 'div(well)',
-                allowedContent: 'div(!well)',
-                requiredContent: 'div(!well)'
+                context: 'div(text-column)',
+                allowedContent: 'div(!text-column)',
+                requiredContent: 'div(!text-column)'
             });
 
             // Add Button
-            editor.ui.addButton && editor.ui.addButton('Box', {
-                label: editor.lang.bootstrappackage_box.toolbar,
-                command: 'bootstrappackage_box',
+            editor.ui.addButton && editor.ui.addButton('Columns', {
+                label: editor.lang.bootstrappackage_columns.toolbar,
+                command: 'bootstrappackage_columns',
                 toolbar: 'blocks'
             });
         }
     });
 
     /**
-     * Toggle box
+     * Toggle columns
      *
      * @param {Object} editor
      */
-    function toggleBox(editor) {
+    function toggleColumns(editor) {
         var selection = editor.getSelection(),
             range = selection && selection.getRanges()[0];
 
@@ -53,7 +53,7 @@
             blocks.push(block);
 
         // Add or remove the wrap
-        if (editor.getCommand('bootstrappackage_box').state == CKEDITOR.TRISTATE_OFF) {
+        if (editor.getCommand('bootstrappackage_columns').state == CKEDITOR.TRISTATE_OFF) {
             addWrap(editor, blocks);
         } else {
             removeWrap(editor, blocks);
@@ -75,7 +75,7 @@
     function wrapBlocks(editor, blocks) {
         var wrapper = editor.document.createElement('div'),
             block = null;
-        wrapper.addClass("well");
+        wrapper.addClass("text-column");
         wrapper.insertBefore(blocks[0]);
         while (blocks.length > 0) {
             block = blocks.shift();
@@ -139,7 +139,7 @@
             cleanedBlocks = [];
         while (blocks.length > 0) {
             block = blocks.shift();
-            if (block.getName() == 'div' && block.hasClass('well')) {
+            if (block.getName() == 'div' && block.hasClass('text-column')) {
                 var fragment = new CKEDITOR.dom.documentFragment(editor.document);
                 while (block.getFirst()) {
                     fragment.append(block.getFirst().remove());
@@ -183,12 +183,11 @@
             block = blocks[i];
             var parent = null,
                 child = null;
-            if (block.getName() == 'div' && block.hasClass('well') && isEmptyBlock(block)) {
-                console.log(block);
+            if (block.getName() == 'div' && block.hasClass('text-column') && isEmptyBlock(block)) {
                 processedBlocks.push(block);
             } else {
                 while (block.getParent()) {
-                    if (block.getParent().getName() == 'div' && block.getParent().hasClass('well')) {
+                    if (block.getParent().getName() == 'div' && block.getParent().hasClass('text-column')) {
                         parent = block.getParent();
                         child = block;
                         break;
@@ -244,7 +243,7 @@
         var firstBlock = path.block || path.blockLimit;
         var element = editor.elementPath(firstBlock).contains(
             function(element) {
-                if (element.is('div') && element.hasClass('well')) return true;
+                if (element.is('div') && element.hasClass('text-column')) return true;
             }, 1);
         this.setState(element ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF);
     };

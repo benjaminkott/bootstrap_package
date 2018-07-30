@@ -7286,6 +7286,12 @@ h4 + h5 {
     font-size: 20.8px;
   }
 }
+.text-column {
+  margin-bottom: 12px;
+}
+.well .text-column {
+  margin-bottom: 0;
+}
 .text-column > *:first-child {
   margin-top: 0;
 }

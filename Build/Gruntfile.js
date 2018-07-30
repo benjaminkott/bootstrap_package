@@ -167,6 +167,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
             },
+            ckeditor_box: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.min.js'
+            },
             ckeditor_table: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'

@@ -1,16 +1,16 @@
-/*
- * Import needed Bootstrap Files
- */
-@import "../../Contrib/bootstrap3/less/bootstrap.less";
+//
+// Import needed Bootstrap Files
+//
+@import "../Theme/theme.less";
 
-/*
- * Import nessesary additional stylings
- */
-@import "../Theme/link.less";
+//
+// Variables
+//
+@font-size-base: 14px;
 
-/*
- * RTE Stylings
- */
+//
+// RTE Stylings
+//
 body {
     margin: 20px;
 }
@@ -18,6 +18,21 @@ body {
     min-width: 200px;
 }
 
+//
+// Text Column
+//
+.text-column {
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        border-left: 1px dashed rgba(0,0,0,.25);
+    }
+    position: relative;
+    border: 1px dashed rgba(0,0,0,.25);
+}
 
 //
 // Minimalistic Address styling
