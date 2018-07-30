@@ -184,7 +184,6 @@
             var parent = null,
                 child = null;
             if (block.getName() == 'div' && block.hasClass('well') && isEmptyBlock(block)) {
-                console.log(block);
                 processedBlocks.push(block);
             } else {
                 while (block.getParent()) {
