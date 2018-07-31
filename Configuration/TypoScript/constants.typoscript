@@ -105,7 +105,7 @@ page {
 
         subnavigation {
             icon {
-                # cat=bootstrap package: navigation/151/108; type=boolean; label=SubNavigation Icon Enable
+                # cat=bootstrap package: navigation/152/108; type=boolean; label=SubNavigation Icon Enable
                 enable = 1
                 # cat=bootstrap package: navigation/152/109; type=int+; label=SubNavigation Icon Width
                 width = 16
