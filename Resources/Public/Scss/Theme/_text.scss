@@ -48,3 +48,23 @@
         column-gap: $grid-gutter-width;
     }
 }
+
+
+//
+// Indent
+//
+.text-indent {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+    margin-bottom: $paragraph-margin-bottom;
+    @include media-breakpoint-up('sm') {
+        margin-left: 10%;
+    }
+    @include media-breakpoint-up('md') {
+        margin-left: 20%;
+    }
+}

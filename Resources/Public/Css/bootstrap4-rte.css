@@ -9690,6 +9690,30 @@ h6.awesome, .h6.awesome {
   }
 }
 
+.text-indent {
+  margin-bottom: 1rem;
+}
+
+.text-indent > *:first-child {
+  margin-top: 0;
+}
+
+.text-indent > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .text-indent {
+    margin-left: 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-indent {
+    margin-left: 20%;
+  }
+}
+
 .media-list {
   padding-left: 0;
   list-style: none;
@@ -12249,6 +12273,14 @@ figure .caption {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 2rem;
   margin-bottom: 1rem;
+}
+
+.well > *:first-child {
+  margin-top: 0;
+}
+
+.well > *:last-child {
+  margin-bottom: 0;
 }
 
 .scroll-top {

@@ -167,9 +167,13 @@ module.exports = function(grunt) {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
             },
-            ckeditor_box: {
+            ckeditor_columns: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.min.js'
+            },
+            ckeditor_indent: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.min.js'
             },
             ckeditor_table: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
@@ -264,6 +268,14 @@ module.exports = function(grunt) {
             ckeditor_box: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 tasks: 'uglify:ckeditor_box'
+            },
+            ckeditor_columns: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
+                tasks: 'uglify:ckeditor_columns'
+            },
+            ckeditor_indent: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
+                tasks: 'uglify:ckeditor_indent'
             },
             ckeditor_table: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',

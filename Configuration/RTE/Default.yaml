@@ -11,6 +11,8 @@ editor:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
         bootstrappackage_columns:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
+        bootstrappackage_indent:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
         bootstrappackage_table:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
 
@@ -72,6 +74,7 @@ editor:
             - bootstrappackage_address
             - bootstrappackage_box
             - bootstrappackage_columns
+            - bootstrappackage_indent
             - bootstrappackage_table
 
         removePlugins:
