@@ -144,6 +144,17 @@ page {
                     10 {
                         references.fieldName = nav_icon
                         as = icon
+                        if {
+                            isTrue.stdWrap.cObject = COA
+                            isTrue.stdWrap.cObject {
+                                10 = TEXT
+                                10.value = 1
+                                10.if.isTrue = {$page.theme.navigation.icon.enable}
+                                20 = TEXT
+                                20.value = 1
+                                20.if.isTrue = {$page.theme.navigation.dropdown.icon.enable}
+                            }
+                        }
                     }
                 }
             }
@@ -159,6 +170,9 @@ page {
                     10 {
                         references.fieldName = nav_icon
                         as = icon
+                        if {
+                            isTrue = {$page.theme.subnavigation.icon.enable}
+                        }
                     }
                 }
             }

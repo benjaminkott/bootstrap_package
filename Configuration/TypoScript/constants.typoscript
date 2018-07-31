@@ -84,16 +84,20 @@ page {
             # cat=bootstrap package: navigation/151/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
             type =
             icon {
-                # cat=bootstrap package: navigation/151/102; type=int+; label=Navigation Icon Width
+                # cat=bootstrap package: navigation/151/102; type=boolean; label=Navigation Icon Enable
+                enable = 1
+                # cat=bootstrap package: navigation/151/103; type=int+; label=Navigation Icon Width
                 width = 20
-                # cat=bootstrap package: navigation/151/103; type=int+; label=Navigation Icon Height
+                # cat=bootstrap package: navigation/151/104; type=int+; label=Navigation Icon Height
                 height = 20
             }
             dropdown {
                 icon {
-                    # cat=bootstrap package: navigation/151/104; type=int+; label=Dropdown Icon Width
+                    # cat=bootstrap package: navigation/151/105; type=boolean; label=Dropdown Icon Enable
+                    enable = 1
+                    # cat=bootstrap package: navigation/151/106; type=int+; label=Dropdown Icon Width
                     width = 16
-                    # cat=bootstrap package: navigation/151/105; type=int+; label=Dropdown Icon Height
+                    # cat=bootstrap package: navigation/151/107; type=int+; label=Dropdown Icon Height
                     height = 16
                 }
             }
@@ -101,9 +105,11 @@ page {
 
         subnavigation {
             icon {
-                # cat=bootstrap package: navigation/152/106; type=int+; label=SubNavigation Icon Width
+                # cat=bootstrap package: navigation/151/108; type=boolean; label=SubNavigation Icon Enable
+                enable = 1
+                # cat=bootstrap package: navigation/152/109; type=int+; label=SubNavigation Icon Width
                 width = 16
-                # cat=bootstrap package: navigation/152/107; type=int+; label=SubNavigation Icon Width
+                # cat=bootstrap package: navigation/152/110; type=int+; label=SubNavigation Icon Width
                 height = 16
             }
         }
