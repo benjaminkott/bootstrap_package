@@ -10584,7 +10584,7 @@ blockquote footer::before {
   }
   .navbar-default-transition:not(.navbar-transition),
   .navbar-inverse-transition:not(.navbar-transition) {
-    background-color: transparent !important;
+    background: transparent !important;
     box-shadow: none;
   }
   .navbar-default-transition:not(.navbar-transition) .navbar-nav > li > .nav-link,
