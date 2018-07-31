@@ -7663,6 +7663,86 @@ body,
   }
 }
 @media (min-width: 992px) {
+  .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+    padding-top: 35px;
+  }
+}
+@media (min-width: 992px) and (min-width: 768px) {
+  .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+    padding-top: 35px;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+    padding-top: 52.5px;
+  }
+}
+@media (min-width: 992px) and (min-width: 1200px) {
+  .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+    padding-top: 70px;
+  }
+}
+@media (min-width: 992px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel-fullscreen,

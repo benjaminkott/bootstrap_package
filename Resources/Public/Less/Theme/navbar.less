@@ -100,6 +100,20 @@
             @media (min-width: @grid-float-breakpoint) and (min-width: @screen-lg) {
                 margin-top: -@navbar-height-lg
             }
+            .carousel-item {
+                @media (min-width: @grid-float-breakpoint) {
+                    padding-top: @navbar-height / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-sm) {
+                    padding-top: @navbar-height-sm / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-md) {
+                    padding-top: @navbar-height-md / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-lg) {
+                    padding-top: @navbar-height-lg / 2;
+                }
+            }
         }
         + .carousel-fullscreen,
         + .carousel-fullscreen .carousel-item {

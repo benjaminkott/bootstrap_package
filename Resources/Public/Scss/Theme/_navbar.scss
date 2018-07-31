@@ -77,6 +77,13 @@
                     margin-top: -#{map-get($navbar-heights, $breakpoint)};
                 }
             }
+            .carousel-item {
+                @each $breakpoint in map-keys($navbar-heights) {
+                    @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
+                        padding-top: calc(#{map-get($navbar-heights, $breakpoint)} / 2);
+                    }
+                }
+            }
         }
         + .carousel-fullscreen,
         + .carousel-fullscreen .carousel-item {
