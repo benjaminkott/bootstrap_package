@@ -9380,7 +9380,16 @@ a.text-dark:hover, a.text-dark:focus {
   height: auto;
 }
 
+.card-deck-menu .card-icon {
+  margin-bottom: 0.5rem;
+}
+
+.card-deck-menu .card-title {
+  font-size: 1.25rem;
+}
+
 .card-deck-menu .card-subtitle {
+  font-size: 1.15rem;
   margin-bottom: 0.75rem;
 }
 

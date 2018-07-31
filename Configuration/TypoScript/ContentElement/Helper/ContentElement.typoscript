@@ -446,7 +446,13 @@ lib.contentElement {
             }
         }
         menucard {
+            icon {
+                enable = {$plugin.bootstrap_package_contentelements.menu_card.icon.enable}
+                height = {$plugin.bootstrap_package_contentelements.menu_card.icon.height}
+                width = {$plugin.bootstrap_package_contentelements.menu_card.icon.width}
+            }
             media {
+                enable = {$plugin.bootstrap_package_contentelements.menu_card.media.enable}
                 height = {$plugin.bootstrap_package_contentelements.menu_card.media.height}
                 width = {$plugin.bootstrap_package_contentelements.menu_card.media.width}
             }

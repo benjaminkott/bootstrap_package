@@ -15,7 +15,14 @@
     .card-img {
         height: auto;
     }
+    .card-icon {
+        margin-bottom: 0.5rem;
+    }
+    .card-title {
+        font-size: 1.25rem;
+    }
     .card-subtitle {
+        font-size: 1.15rem;
         margin-bottom: $card-spacer-y;
     }
     .card-link {

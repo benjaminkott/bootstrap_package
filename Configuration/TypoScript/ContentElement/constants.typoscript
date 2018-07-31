@@ -96,22 +96,32 @@ plugin.bootstrap_package_contentelements {
         }
     }
     menu_card {
+        icon {
+            # cat=bootstrap package: content elements/160_contentelement/001_icon_enable; type=boolean; label=Enable Icon
+            enable = 0
+            # cat=bootstrap package: content elements/160_contentelement/002_icon_height; type=string; label=Icon Height
+            height = 32
+            # cat=bootstrap package: content elements/160_contentelement/003_icon_width; type=string; label=Icon Width
+            width = 32c
+        }
         media {
-            # cat=bootstrap package: content elements/160_contentelement/001_media_height; type=string; label=Media Height
+            # cat=bootstrap package: content elements/160_contentelement/004_media_enable; type=boolean; label=Enable Media
+            enable = 1
+            # cat=bootstrap package: content elements/160_contentelement/005_media_height; type=string; label=Media Height
             height = 250c
-            # cat=bootstrap package: content elements/160_contentelement/002_media_width; type=string; label=Media Width
+            # cat=bootstrap package: content elements/160_contentelement/006_media_width; type=string; label=Media Width
             width = 440c
         }
         title {
-            # cat=bootstrap package: content elements/160_contentelement/003_title_crop; type=string; label=Crop Title
+            # cat=bootstrap package: content elements/160_contentelement/007_title_crop; type=string; label=Crop Title
             crop = 100
         }
         subtitle {
-            # cat=bootstrap package: content elements/160_contentelement/004_subtitle_crop; type=string; label=Crop Subtitle
+            # cat=bootstrap package: content elements/160_contentelement/008_subtitle_crop; type=string; label=Crop Subtitle
             crop = 100
         }
         abstract {
-            # cat=bootstrap package: content elements/160_contentelement/005_abstract_crop; type=string; label=Crop Abstract
+            # cat=bootstrap package: content elements/160_contentelement/009_abstract_crop; type=string; label=Crop Abstract
             crop = 250
         }
     }

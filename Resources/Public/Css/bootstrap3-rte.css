@@ -9845,7 +9845,14 @@ body .typo3-editPanel-btn:hover,
 .card-deck-menu .card-img {
   height: auto;
 }
+.card-deck-menu .card-icon {
+  margin-bottom: 0.5em;
+}
+.card-deck-menu .card-title {
+  font-size: 1.25em;
+}
 .card-deck-menu .card-subtitle {
+  font-size: 1.15em;
   margin-bottom: 0.75em;
 }
 .card-deck-menu .card-link {
