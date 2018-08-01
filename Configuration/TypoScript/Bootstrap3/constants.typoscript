@@ -42,6 +42,8 @@
 # customsubcategory=334=Close
 # customsubcategory=335=Code
 # customsubcategory=336=Type
+# customsubcategory=371=Frame Inner Spacing
+# customsubcategory=372=Frame Outer Spacing
 # customsubcategory=380=Frame Primary
 # customsubcategory=381=Frame Light
 # customsubcategory=382=Frame Dark
@@ -58,6 +60,26 @@ plugin.bootstrap_package {
             ###
             ### CUSTOM VARIABLES START
             ###
+
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing; type=string; label=frame-inner-spacing:
+            frame-inner-spacing = 2em
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-sm; type=string; label=frame-inner-spacing-scaling-sm:
+            frame-inner-spacing-scaling-sm = 1.25
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-md; type=string; label=frame-inner-spacing-scaling-md:
+            frame-inner-spacing-scaling-md = 1.5
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-lg; type=string; label=frame-inner-spacing-scaling-lg:
+            frame-inner-spacing-scaling-lg = 1.75
+
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing; type=string; label=frame-outer-spacing:
+            frame-outer-spacing = 1em
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-small; type=string; label=frame-outer-spacing-scaling-small:
+            frame-outer-spacing-scaling-small = 1.5
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-medium; type=string; label=frame-outer-spacing-scaling-medium:
+            frame-outer-spacing-scaling-medium = 2
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-large; type=string; label=frame-outer-spacing-scaling-large:
+            frame-outer-spacing-scaling-large = 2.5
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-xlarge; type=string; label=frame-outer-spacing-scaling-xlarge:
+            frame-outer-spacing-scaling-xlarge = 3
 
             # cat=bootstrap 3.x: styling/380/frame-primary-bg; type=string; label=@frame-primary-bg:
             frame-primary-bg = @brand-primary

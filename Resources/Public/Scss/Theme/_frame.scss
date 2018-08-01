@@ -19,12 +19,11 @@
 .frame {
     position: relative;
     overflow: hidden;
-    @each $breakpoint in map-keys($grid-breakpoints) {
-        $i: index(map-keys($grid-breakpoints), $breakpoint);
-        $i: $i - 1;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {
-            padding-top: ($spacer * 1.5) + (($spacer / 2) * $i);
-            padding-bottom: ($spacer * 1.5) + (($spacer / 2) * $i);
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            padding-top: ($frame-inner-spacing * $scaling);
+            padding-bottom: ($frame-inner-spacing * $scaling);
         }
     }
     > *:last-child {
@@ -42,21 +41,19 @@
 //
 .frame-ruler-before {
     border-top: 1px solid rgba(0, 0, 0, .125);
-    @each $breakpoint in map-keys($grid-breakpoints) {
-        $i: index(map-keys($grid-breakpoints), $breakpoint);
-        $i: $i - 1;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {
-            margin-top: ($spacer * 1.5) + (($spacer / 2) * $i);
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-top: ($frame-inner-spacing * $scaling);
         }
     }
 }
 .frame-ruler-after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    @each $breakpoint in map-keys($grid-breakpoints) {
-        $i: index(map-keys($grid-breakpoints), $breakpoint);
-        $i: $i - 1;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {
-            margin-bottom: ($spacer * 1.5) + (($spacer / 2) * $i);
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-bottom: ($frame-inner-spacing * $scaling);
         }
     }
 }
@@ -108,22 +105,20 @@
 //
 .container {
     .frame-has-backgroundimage {
-        @each $breakpoint in map-keys($grid-breakpoints) {
-            $i: index(map-keys($grid-breakpoints), $breakpoint);
-            $i: $i - 1;
+        @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
             @include media-breakpoint-up($breakpoint) {
-                padding-left: ($spacer * 1.5) + (($spacer / 2) * $i);
-                padding-right: ($spacer * 1.5) + (($spacer / 2) * $i);
+                $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+                padding-left: ($frame-inner-spacing * $scaling);
+                padding-right: ($frame-inner-spacing * $scaling);
             }
         }
     }
 }
 .frame-collapsible {
-    @each $breakpoint in map-keys($grid-breakpoints) {
-        $i: index(map-keys($grid-breakpoints), $breakpoint);
-        $i: $i - 1;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {
-            margin-top: -(($spacer * 1.5) + (($spacer / 2) * $i));
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-top: -($frame-inner-spacing * $scaling);
         }
     }
 }
@@ -190,47 +185,15 @@
 }
 
 //
-// Space Before
+// Space
 //
-.frame-space-before-none {
-    margin-top: ($spacer * 0);
-}
-.frame-space-before-extra-small {
-    margin-top: ($spacer * 1);
-}
-.frame-space-before-small {
-    margin-top: ($spacer * 1.5);
-}
-.frame-space-before-medium {
-    margin-top: ($spacer * 2);
-}
-.frame-space-before-large {
-    margin-top: ($spacer * 2.5);
-}
-.frame-space-before-extra-large {
-    margin-top: ($spacer * 3);
-}
-
-//
-// Space After
-//
-.frame-space-after-none {
-    margin-bottom: ($spacer * 0);
-}
-.frame-space-after-extra-small {
-    margin-bottom: ($spacer * 1);
-}
-.frame-space-after-small {
-    margin-bottom: ($spacer * 1.5);
-}
-.frame-space-after-medium {
-    margin-bottom: ($spacer * 2);
-}
-.frame-space-after-large {
-    margin-bottom: ($spacer * 2.5);
-}
-.frame-space-after-extra-large {
-    margin-bottom: ($spacer * 3);
+@each $name, $scaling in $frame-outer-spacing-scaling {
+    .frame-space-before-#{$name} {
+        margin-top: ($frame-outer-spacing * $scaling);
+    }
+    .frame-space-after-#{$name} {
+        margin-bottom: ($frame-outer-spacing * $scaling);
+    }
 }
 
 //

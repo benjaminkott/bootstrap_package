@@ -27,19 +27,19 @@
 .frame {
     position: relative;
     overflow: hidden;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+    padding-top: @frame-inner-spacing;
+    padding-bottom: @frame-inner-spacing;
     @media (min-width: @screen-sm) {
-        padding-top: 2em;
-        padding-bottom: 2em;
+        padding-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
+        padding-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
     }
     @media (min-width: @screen-md) {
-        padding-top: 3em;
-        padding-bottom: 3em;
+        padding-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
+        padding-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
     }
     @media (min-width: @screen-lg) {
-        padding-top: 3.5em;
-        padding-bottom: 3.5em;
+        padding-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
+        padding-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
     }
     > *:last-child {
         margin-bottom: 0;
@@ -56,11 +56,29 @@
 //
 .frame-ruler-before {
     border-top: 1px solid rgba(0, 0, 0, .125);
-    margin-top: 2em;
+    margin-top: @frame-inner-spacing;
+    @media (min-width: @screen-sm) {
+        margin-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
+    }
+    @media (min-width: @screen-md) {
+        margin-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
+    }
+    @media (min-width: @screen-lg) {
+        margin-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
+    }
 }
 .frame-ruler-after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    margin-bottom: 2em;
+    margin-bottom: @frame-inner-spacing;
+    @media (min-width: @screen-sm) {
+        margin-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
+    }
+    @media (min-width: @screen-md) {
+        margin-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
+    }
+    @media (min-width: @screen-lg) {
+        margin-bottom: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
+    }
 }
 .frame-indent {
     .frame-inner {
@@ -110,32 +128,32 @@
 // --------------------------------------------------
 .container {
     .frame-has-backgroundimage {
-        padding-left: 1.5em;
-        padding-right: 1.5em;
+        padding-left: @frame-inner-spacing;
+        padding-right: @frame-inner-spacing;
         @media (min-width: @screen-sm) {
-            padding-left: 2em;
-            padding-right: 2em;
+            padding-left: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
+            padding-right: (@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
         }
         @media (min-width: @screen-md) {
-            padding-left: 3em;
-            padding-right: 3em;
+            padding-left: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
+            padding-right: (@frame-inner-spacing * @frame-inner-spacing-scaling-md);
         }
         @media (min-width: @screen-lg) {
-            padding-left: 3.5em;
-            padding-right: 3.5em;
+            padding-left: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
+            padding-right: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
         }
     }
 }
 .frame-collapsible {
-    margin-top: -1.5em;
+    margin-top: -@frame-inner-spacing;
     @media (min-width: @screen-sm) {
-        margin-top: -2em;
+        margin-top: -(@frame-inner-spacing * @frame-inner-spacing-scaling-sm);
     }
     @media (min-width: @screen-md) {
-        margin-top: -3em;
+        margin-top: -(@frame-inner-spacing * @frame-inner-spacing-scaling-md);
     }
     @media (min-width: @screen-lg) {
-        margin-top: -3.5em;
+        margin-top: -(@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
     }
 }
 .make-frame-spacing(@name) {
@@ -204,19 +222,19 @@
     margin-top: 0;
 }
 .frame-space-before-extra-small {
-    margin-top: 1em;
+    margin-top: @frame-outer-spacing;
 }
 .frame-space-before-small {
-    margin-top: 1.5em;
+    margin-top: (@frame-outer-spacing * @frame-outer-spacing-scaling-small);
 }
 .frame-space-before-medium {
-    margin-top: 2em;
+    margin-top: (@frame-outer-spacing * @frame-outer-spacing-scaling-medium);
 }
 .frame-space-before-large {
-    margin-top: 2.5em;
+    margin-top: (@frame-outer-spacing * @frame-outer-spacing-scaling-large);
 }
 .frame-space-before-extra-large {
-    margin-top: 3em;
+    margin-top: (@frame-outer-spacing * @frame-outer-spacing-scaling-xlarge);
 }
 
 //
@@ -226,19 +244,19 @@
     margin-bottom: 0;
 }
 .frame-space-after-extra-small {
-    margin-bottom: 1em;
+    margin-bottom: @frame-outer-spacing;
 }
 .frame-space-after-small {
-    margin-bottom: 1.5em;
+    margin-bottom: (@frame-outer-spacing * @frame-outer-spacing-scaling-small);
 }
 .frame-space-after-medium {
-    margin-bottom: 2em;
+    margin-bottom: (@frame-outer-spacing * @frame-outer-spacing-scaling-medium);
 }
 .frame-space-after-large {
-    margin-bottom: 2.5em;
+    margin-bottom: (@frame-outer-spacing * @frame-outer-spacing-scaling-large);
 }
 .frame-space-after-extra-large {
-    margin-bottom: 3em;
+    margin-bottom: (@frame-outer-spacing * @frame-outer-spacing-scaling-xlarge);
 }
 
 //

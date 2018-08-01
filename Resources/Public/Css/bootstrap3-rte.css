@@ -9297,13 +9297,13 @@ body,
 .frame {
   position: relative;
   overflow: hidden;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 @media (min-width: 768px) {
   .frame {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
   }
 }
 @media (min-width: 992px) {
@@ -9328,9 +9328,39 @@ body,
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   margin-top: 2em;
 }
+@media (min-width: 768px) {
+  .frame-ruler-before {
+    margin-top: 2.5em;
+  }
+}
+@media (min-width: 992px) {
+  .frame-ruler-before {
+    margin-top: 3em;
+  }
+}
+@media (min-width: 1200px) {
+  .frame-ruler-before {
+    margin-top: 3.5em;
+  }
+}
 .frame-ruler-after {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   margin-bottom: 2em;
+}
+@media (min-width: 768px) {
+  .frame-ruler-after {
+    margin-bottom: 2.5em;
+  }
+}
+@media (min-width: 992px) {
+  .frame-ruler-after {
+    margin-bottom: 3em;
+  }
+}
+@media (min-width: 1200px) {
+  .frame-ruler-after {
+    margin-bottom: 3.5em;
+  }
 }
 @media (min-width: 768px) {
   .frame-indent .frame-inner {
@@ -9385,8 +9415,8 @@ body,
 .container .frame-background-secondary,
 .container .frame-background-light,
 .container .frame-background-dark {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 @media (min-width: 768px) {
   .container .frame-has-backgroundimage,
@@ -9394,8 +9424,8 @@ body,
   .container .frame-background-secondary,
   .container .frame-background-light,
   .container .frame-background-dark {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
   }
 }
 @media (min-width: 992px) {
@@ -9424,7 +9454,7 @@ body,
 .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
 .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
 .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-  margin-top: -1.5em;
+  margin-top: -2em;
 }
 @media (min-width: 768px) {
   .frame-collapsible,
@@ -9433,7 +9463,7 @@ body,
   .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
   .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-    margin-top: -2em;
+    margin-top: -2.5em;
   }
 }
 @media (min-width: 992px) {
