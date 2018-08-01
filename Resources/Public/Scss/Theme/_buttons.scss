@@ -2,5 +2,8 @@
 // Buttons
 //
 .btn-default {
-    @extend .btn-secondary;
+    @include button-variant($default, $default);
+}
+.btn-outline-default {
+    @include button-outline-variant($default);
 }
