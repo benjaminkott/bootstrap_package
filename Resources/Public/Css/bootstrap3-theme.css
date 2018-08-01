@@ -8671,17 +8671,17 @@ body,
 .textpic-gallery {
   margin-bottom: 24px;
 }
-.textmedia-above .textmedia-text,
-.textpic-above .textmedia-text,
-.textmedia-above .textpic-text,
-.textpic-above .textpic-text {
+.textmedia-below .textmedia-text,
+.textpic-below .textmedia-text,
+.textmedia-below .textpic-text,
+.textpic-below .textpic-text {
   order: 0;
   margin-bottom: 24px;
 }
-.textmedia-above .textmedia-gallery,
-.textpic-above .textmedia-gallery,
-.textmedia-above .textpic-gallery,
-.textpic-above .textpic-gallery {
+.textmedia-below .textmedia-gallery,
+.textpic-below .textmedia-gallery,
+.textmedia-below .textpic-gallery,
+.textpic-below .textpic-gallery {
   margin-bottom: 0;
 }
 @media (min-width: 992px) {

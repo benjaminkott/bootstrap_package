@@ -11295,18 +11295,18 @@ figure .caption {
   margin-bottom: 1rem;
 }
 
-.textmedia-above .textmedia-text,
-.textmedia-above .textpic-text,
-.textpic-above .textmedia-text,
-.textpic-above .textpic-text {
+.textmedia-below .textmedia-text,
+.textmedia-below .textpic-text,
+.textpic-below .textmedia-text,
+.textpic-below .textpic-text {
   order: 0;
   margin-bottom: 1rem;
 }
 
-.textmedia-above .textmedia-gallery,
-.textmedia-above .textpic-gallery,
-.textpic-above .textmedia-gallery,
-.textpic-above .textpic-gallery {
+.textmedia-below .textmedia-gallery,
+.textmedia-below .textpic-gallery,
+.textpic-below .textmedia-gallery,
+.textpic-below .textpic-gallery {
   margin-bottom: 0;
 }
 
