@@ -8657,17 +8657,14 @@ body,
   transform: rotate(0);
   top: 6px;
 }
-.navbar-default-transition.navbar-transition .navbar-brand,
-.navbar-inverse-transition.navbar-transition .navbar-brand {
+.navbar-transition .navbar-brand {
   height: 70px;
 }
-.navbar-default-transition.navbar-transition .navbar-brand-image img,
-.navbar-inverse-transition.navbar-transition .navbar-brand-image img {
+.navbar-transition .navbar-brand-image img {
   max-height: 40px;
 }
 @media (min-width: 992px) {
-  .navbar-default-transition,
-  .navbar-inverse-transition {
+  .navbar {
     transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
   }
   .navbar-default-transition:not(.navbar-transition),

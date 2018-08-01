@@ -539,8 +539,7 @@
 .navbar-inverse-transition.navbar-transition {
     &:extend(.navbar-inverse all);
 }
-.navbar-default-transition.navbar-transition,
-.navbar-inverse-transition.navbar-transition {
+.navbar-transition {
     .navbar-brand {
         height: @navbar-height;
     }
@@ -549,8 +548,7 @@
     }
 }
 @media (min-width: @grid-float-breakpoint) {
-    .navbar-default-transition,
-    .navbar-inverse-transition {
+    .navbar {
         transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
     }
     .navbar-default-transition:not(.navbar-transition),
