@@ -8657,6 +8657,16 @@ body,
   transform: rotate(0);
   top: 6px;
 }
+.navbar-default .navbar-toggler,
+.navbar-default-transition .navbar-toggler,
+.navbar-default-transition.navbar-transition .navbar-toggler {
+  color: #333;
+}
+.navbar-inverse .navbar-toggler,
+.navbar-inverse-transition .navbar-toggler,
+.navbar-inverse-transition.navbar-transition .navbar-toggler {
+  color: #ccc;
+}
 .navbar-transition .navbar-brand {
   height: 70px;
 }
