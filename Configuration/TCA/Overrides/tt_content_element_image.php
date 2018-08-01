@@ -19,7 +19,7 @@ defined('TYPO3_MODE') || die();
 );
 
 /***************
- * Add additional fields to image content element
+ * Add additional fields
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',

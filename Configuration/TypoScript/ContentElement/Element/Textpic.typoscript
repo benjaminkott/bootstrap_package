@@ -30,6 +30,12 @@ tt_content.textpic {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
             references.fieldName = image
+            folders.field = file_folder
+            sorting.field = filelink_sorting
+        }
+        20 = BK2K\BootstrapPackage\DataProcessing\FileFilterProcessor
+        20 {
+            predefinedList = image
         }
     }
 

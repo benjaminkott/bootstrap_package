@@ -17,3 +17,13 @@ defined('TYPO3_MODE') || die();
     'Configuration/TsConfig/Page/ContentElement/Element/Textpic.tsconfig',
     'Bootstrap Package Content Element: Text and Images'
 );
+
+/***************
+ * Add additional fields
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    'file_folder, filelink_sorting',
+    'textpic',
+    'after:image'
+);
