@@ -11393,6 +11393,36 @@ figure .caption {
   }
 }
 
+.textteaser {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.textteaser-item {
+  order: 1;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.textteaser-text > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .textteaser-teaser {
+    width: calc(100% / 12  * 4);
+  }
+  .textteaser-teaser > *:last-child {
+    margin-bottom: 0;
+  }
+  .textteaser-text {
+    width: calc(100% / 12  * 8);
+  }
+}
+
 .texticon::after {
   display: block;
   clear: both;

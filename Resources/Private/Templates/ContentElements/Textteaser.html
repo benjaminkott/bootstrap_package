@@ -3,12 +3,12 @@
 <f:section name="Header" />
 <f:section name="Main">
 
-    <div class="row">
-        <div class="col-md-4">
+    <div class="textteaser">
+        <div class="textteaser-item textteaser-teaser">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.teaser}</f:format.html>
         </div>
-        <div class="col-md-8">
+        <div class="textteaser-item textteaser-text">
             <f:format.html>{data.bodytext}</f:format.html>
         </div>
     </div>

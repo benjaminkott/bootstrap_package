@@ -1,0 +1,31 @@
+//
+// Textteaser
+//
+.textteaser {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($grid-gutter-width / 2);
+    margin-right: -($grid-gutter-width / 2);
+}
+.textteaser-item {
+    order: 1;
+    width: 100%;
+    padding-left: ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
+}
+.textteaser-text {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+@include media-breakpoint-up('md') {
+    .textteaser-teaser {
+        width: calc(100% / 12  * 4);
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .textteaser-text {
+        width: calc(100% / 12  * 8);
+    }
+}
