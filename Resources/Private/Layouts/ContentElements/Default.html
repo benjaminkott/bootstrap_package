@@ -19,7 +19,7 @@
         <f:then>
 
             <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
-            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
                 <f:if condition="{backgroundImage.0}">
                     <f:variable name="frameBackgroundImage">{f:uri.image(image: backgroundImage.0, maxWidth: settings.backgroundImage.maxWidth)}</f:variable>
                     <f:variable name="frameBackgroundImageClasses">frame-backgroundimage</f:variable>
