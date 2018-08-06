@@ -6,7 +6,7 @@
     <div class="texticon texticon-{data.icon_position}">
         <f:if condition="{icon}">
             <f:link.typolink parameter="{data.header_link}">
-            <div class="texticon-icon texticon-size-{f:if(condition: '{data.icon_size} == 0', then: 'default')}{f:if(condition: '{data.icon_size} == 1', then: 'medium')}{f:if(condition: '{data.icon_size} == 2', then: 'large')}{f:if(condition: '{data.icon_size} == 3', then: 'awesome')} texticon-type-{f:if(condition: '{data.icon_type} == 0', then: 'default')}{f:if(condition: '{data.icon_type} == 1', then: 'square')}{f:if(condition: '{data.icon_type} == 2', then: 'circle')}">
+            <div class="texticon-icon texticon-size-{data.icon_size} texticon-type-{f:if(condition: '{data.icon_type} == 0', then: 'default')}{f:if(condition: '{data.icon_type} == 1', then: 'square')}{f:if(condition: '{data.icon_type} == 2', then: 'circle')}">
                 <f:render partial="TextIcon/{identifier}" arguments="{_all}" />
             </div>
             </f:link.typolink>
