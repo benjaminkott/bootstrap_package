@@ -19,7 +19,7 @@ CREATE TABLE tt_content (
     icon varchar(255) DEFAULT '' NOT NULL,
     icon_position varchar(255) DEFAULT '' NOT NULL,
     icon_size varchar(60) DEFAULT 'default' NOT NULL,
-    icon_type int(11) unsigned DEFAULT '0',
+    icon_type varchar(60) DEFAULT 'default' NOT NULL,
     icon_color varchar(255) DEFAULT '' NOT NULL,
     icon_background varchar(255) DEFAULT '' NOT NULL,
     external_media_source varchar(1024) DEFAULT '' NOT NULL,

@@ -137,9 +137,9 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 'renderType' => 'selectSingle',
                 'default' => '0',
                 'items' => [
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 0],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.square', 1],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.circle', 2],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.square', 'square'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.circle', 'circle'],
                 ],
             ],
         ],
