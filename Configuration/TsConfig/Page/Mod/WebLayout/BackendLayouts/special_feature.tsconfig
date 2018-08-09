@@ -9,7 +9,7 @@ mod {
                 config {
                     backend_layout {
                         colCount = 12
-                        rowCount = 8
+                        rowCount = 10
                         rows {
                             1 {
                                 columns {
@@ -23,13 +23,22 @@ mod {
                             2 {
                                 columns {
                                     1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentbefore
+                                        colPos = 8
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
                                         colPos = 0
                                         colspan = 12
                                     }
                                 }
                             }
-                            3 {
+                            4 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special1
@@ -43,7 +52,7 @@ mod {
                                     }
                                 }
                             }
-                            4 {
+                            5 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special3
@@ -57,7 +66,7 @@ mod {
                                     }
                                 }
                             }
-                            5 {
+                            6 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.main2
@@ -66,7 +75,7 @@ mod {
                                     }
                                 }
                             }
-                            6 {
+                            7 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special5
@@ -80,7 +89,7 @@ mod {
                                     }
                                 }
                             }
-                            7 {
+                            8 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.special7
@@ -94,7 +103,16 @@ mod {
                                     }
                                 }
                             }
-                            8 {
+                            9 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentafter
+                                        colPos = 9
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            10 {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1

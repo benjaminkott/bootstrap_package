@@ -84,6 +84,13 @@
                 <source>Normal 2</source>
             </trans-unit>
 
+            <trans-unit id="backend_layout.column.contentbefore">
+                <source>Before Content</source>
+            </trans-unit>
+            <trans-unit id="backend_layout.column.contentafter">
+                <source>After Content</source>
+            </trans-unit>
+
             <trans-unit id="backend_layout.column.special1">
                 <source>Special 1</source>
             </trans-unit>
