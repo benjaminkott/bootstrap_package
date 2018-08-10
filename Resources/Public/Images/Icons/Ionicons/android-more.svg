@@ -1,1 +1,1 @@
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><style>.st0{fill:#010101}</style><path class="st0" d="M192 192h128v128H192zM192 0h128v128H192zM192 384h128v128H192z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M192 192h128v128H192zm0-192h128v128H192zm0 384h128v128H192z" fill="#010101"/></svg>
