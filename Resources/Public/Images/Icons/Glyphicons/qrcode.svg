@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="32px" height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-<path d="M13.5,8.5H16V11h-2.5v2.5h-10V16H1V1h12.5L13.5,8.5L13.5,8.5z M31,13.5h-5V16h5v5h-7.5v-7.5h-5V6H16V1h15
-	C31,1,31,13.5,31,13.5z M3.5,3.5V11H11V3.5C11,3.5,3.5,3.5,3.5,3.5z M21,3.5V11h7.5V3.5C28.5,3.5,21,3.5,21,3.5z M8.5,8.5H6V6h2.5
-	V8.5z M26,8.5h-2.5V6H26V8.5z M8.5,18.5h5V31H1V18.5h5V16h2.5V18.5z M21,23.5h5V26h-2.5v2.5h-5V26H16v-2.5h2.5v-5h-5V16H21V23.5z
-	 M3.5,21v7.5H11V21C11,21,3.5,21,3.5,21z M8.5,26H6v-2.5h2.5V26z M31,26h-2.5v-2.5H31V26z M18.5,31H16v-2.5h2.5V31z M31,31h-7.5
-	v-2.5H31V31z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M13.5 8.5H16V11h-2.5v2.5h-10V16H1V1h12.5v7.5zm17.5 5h-5V16h5v5h-7.5v-7.5h-5V6H16V1h15v12.5zM3.5 3.5V11H11V3.5H3.5zm17.5 0V11h7.5V3.5H21zm-12.5 5H6V6h2.5v2.5zm17.5 0h-2.5V6H26v2.5zm-17.5 10h5V31H1V18.5h5V16h2.5v2.5zm12.5 5h5V26h-2.5v2.5h-5V26H16v-2.5h2.5v-5h-5V16H21v7.5zM3.5 21v7.5H11V21H3.5zm5 5H6v-2.5h2.5V26zM31 26h-2.5v-2.5H31V26zm-12.5 5H16v-2.5h2.5V31zM31 31h-7.5v-2.5H31V31z"/></svg>
