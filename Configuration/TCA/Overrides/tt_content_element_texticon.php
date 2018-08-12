@@ -52,7 +52,8 @@ $GLOBALS['TCA']['tt_content']['palettes']['bootstrap_package_icons'] = [
     'showitem' => '
         icon_position, icon_type, icon_size, --linebreak--,
         icon_color, icon_background, --linebreak--,
-        icon
+        icon_set, --linebreak--,
+        icon, icon_file
     '
 ];
 
@@ -101,8 +102,22 @@ $GLOBALS['TCA']['tt_content']['types']['texticon'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
+        'icon_set' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_set',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.none', ''],
+                    ['Ionicons', 'EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/'],
+                    ['Glyphicons', 'EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/'],
+                ],
+            ],
+        ],
         'icon' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon',
+            'displayCond' => 'FIELD:icon_set:REQ:true',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -116,6 +131,55 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     ],
                 ],
             ],
+        ],
+        'icon_file' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_file',
+            'displayCond' => 'FIELD:icon_set:REQ:false',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'icon_file',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'overrideChildTca' => [
+                        'types' => [
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                        ],
+                    ],
+                    'minitems' => 1,
+                    'maxitems' => 1,
+                ],
+                'gif,png,svg'
+            ),
         ],
         'icon_position' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_position',

@@ -11,24 +11,26 @@ tt_content.texticon {
     ################
     templateName = Texticon
 
-    #################
-    ### VARIABLES ###
-    #################
-    variables {
-        identifier = TEXT
-        identifier {
-            field = icon
-            split {
-                token = __
-                returnKey = 0
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = icon_file
+            as = icon
+            if {
+                isFalse.field = icon_set
             }
         }
-        icon = TEXT
-        icon {
-            field = icon
-            split {
-                token = __
-                returnKey = 1
+        20 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+        20 {
+            files {
+                0.field = icon
+            }
+            as = icon
+            if {
+                isTrue.field = icon_set
             }
         }
     }

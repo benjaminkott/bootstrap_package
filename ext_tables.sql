@@ -17,6 +17,8 @@ CREATE TABLE tt_content (
     panel_class varchar(60) DEFAULT 'default' NOT NULL,
     file_folder text,
     icon varchar(255) DEFAULT '' NOT NULL,
+    icon_set varchar(255) DEFAULT '' NOT NULL,
+    icon_file int(11) unsigned DEFAULT '0',
     icon_position varchar(255) DEFAULT '' NOT NULL,
     icon_size varchar(60) DEFAULT 'default' NOT NULL,
     icon_type varchar(60) DEFAULT 'default' NOT NULL,

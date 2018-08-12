@@ -466,6 +466,26 @@ lib.contentElement {
                 crop = {$plugin.bootstrap_package_contentelements.menu_card.abstract.crop}
             }
         }
+        texticon {
+            icon {
+                default {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
+                }
+                medium {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
+                }
+                large {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
+                }
+                awesome {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
+                }
+            }
+        }
         timeline {
             date {
                 format = {$plugin.bootstrap_package_contentelements.timeline.date.format}

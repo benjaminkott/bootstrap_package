@@ -557,6 +557,12 @@
             <trans-unit id="field.icon">
                 <source>Icon</source>
             </trans-unit>
+            <trans-unit id="field.icon_set">
+                <source>Icon Set</source>
+            </trans-unit>
+            <trans-unit id="field.icon_file">
+                <source>Icon File</source>
+            </trans-unit>
             <trans-unit id="field.icon_position">
                 <source>Position</source>
             </trans-unit>

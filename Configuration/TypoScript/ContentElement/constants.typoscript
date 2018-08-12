@@ -9,8 +9,9 @@
 # customsubcategory=140_contentelement=Gallery
 # customsubcategory=150_contentelement=Menu Thumbnail
 # customsubcategory=160_contentelement=Menu Card
-# customsubcategory=170_contentelement=Timeline
-# customsubcategory=180_contentelement=Uploads
+# customsubcategory=170_contentelement=Text and Icon
+# customsubcategory=180_contentelement=Timeline
+# customsubcategory=190_contentelement=Uploads
 
 
 ########################
@@ -125,23 +126,51 @@ plugin.bootstrap_package_contentelements {
             crop = 250
         }
     }
+    texticon {
+        icon {
+            default {
+                # cat=bootstrap package: content elements/190_contentelement/001_default_icon_height; type=string; label=Default Icon Height
+                height = 32
+                # cat=bootstrap package: content elements/190_contentelement/002_default_icon_width; type=string; label=Default Icon Width
+                width = 32
+            }
+            medium {
+                # cat=bootstrap package: content elements/190_contentelement/003_medium_icon_height; type=string; label=Medium Icon Height
+                height = 48
+                # cat=bootstrap package: content elements/190_contentelement/004_medium_icon_width; type=string; label=Medium Icon Width
+                width = 48
+            }
+            large {
+                # cat=bootstrap package: content elements/190_contentelement/005_large_icon_height; type=string; label=Large Icon Height
+                height = 64
+                # cat=bootstrap package: content elements/190_contentelement/006_large_icon_width; type=string; label=Large Icon Width
+                width = 64
+            }
+            awesome {
+                # cat=bootstrap package: content elements/190_contentelement/007_awesome_icon_height; type=string; label=Awesome Icon Height
+                height = 80
+                # cat=bootstrap package: content elements/190_contentelement/008_awesome_icon_width; type=string; label=Awesome Icon Width
+                width = 80
+            }
+        }
+    }
     timeline {
         date {
-            # cat=bootstrap package: content elements/170_contentelement/001_date_format; type=string; label=Date Format
+            # cat=bootstrap package: content elements/180_contentelement/001_date_format; type=string; label=Date Format
             format = %B %e, %Y
         }
         media {
-            # cat=bootstrap package: content elements/170_contentelement/002_media_height; type=string; label=Media Height
+            # cat=bootstrap package: content elements/180_contentelement/002_media_height; type=string; label=Media Height
             height = 200c
-            # cat=bootstrap package: content elements/170_contentelement/003_media_width; type=string; label=Media Width
+            # cat=bootstrap package: content elements/180_contentelement/003_media_width; type=string; label=Media Width
             width = 525c
         }
     }
     uploads {
         preview {
-            # cat=bootstrap package: content elements/180_contentelement/001_preview_height; type=string; label=Preview Height
+            # cat=bootstrap package: content elements/190_contentelement/001_preview_height; type=string; label=Preview Height
             height = 100c
-            # cat=bootstrap package: content elements/180_contentelement/001_preview_width; type=string; label=Preview Width
+            # cat=bootstrap package: content elements/190_contentelement/001_preview_width; type=string; label=Preview Width
             width = 100c
         }
     }

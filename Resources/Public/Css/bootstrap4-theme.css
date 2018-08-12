@@ -11433,12 +11433,19 @@ figure .caption {
   font-size: 2em;
 }
 
-.texticon-icon .texticon-inner-icon {
+.texticon-icon .texticon-inner-icon,
+.texticon-icon .texticon-inner-icon svg,
+.texticon-icon .texticon-inner-icon img {
   text-align: center;
   margin: 0 auto;
   display: block;
   height: 1em;
   width: 1em;
+}
+
+.texticon-icon .texticon-inner-icon {
+  display: flex;
+  align-items: center;
 }
 
 .texticon-size-awesome {

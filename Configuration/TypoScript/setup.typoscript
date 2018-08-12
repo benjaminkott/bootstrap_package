@@ -381,15 +381,6 @@ page {
                 isTrue = {$page.theme.googleFont.enable}
             }
         }
-        ionicons = EXT:bootstrap_package/Resources/Public/Contrib/ionicons/css/ionicons.min.css
-        ionicons {
-            fontLoader {
-                families {
-                    0 = Ionicons
-                }
-                enabled = 1
-            }
-        }
         bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
         bootstrappackageicon {
             fontLoader {
