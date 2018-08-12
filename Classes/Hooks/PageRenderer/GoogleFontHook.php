@@ -11,6 +11,7 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
 use BK2K\BootstrapPackage\Service\GoogleFontService;
+use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
