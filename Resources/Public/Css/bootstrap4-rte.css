@@ -8574,6 +8574,14 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.list-inline > li {
+  display: inline-block;
+}
+
+.list-inline > li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
 @media (min-width: 992px) {
   .backendlayout-2_columns .maincontent-wrap,
   .backendlayout-2_columns_25_75 .maincontent-wrap {
