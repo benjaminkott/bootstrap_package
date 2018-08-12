@@ -77,9 +77,7 @@ class InstallService
     {
         $absFilename = GeneralUtility::getFileAbsFileName($filename);
         if (file_exists($absFilename)) {
-            /**
-             * Add Flashmessage that there is already an configuration file and we are not going to override this.
-             */
+            // Add Flashmessage that there is already an configuration file and we are not going to override this.
             $flashMessage = GeneralUtility::makeInstance(
                 FlashMessage::class,
                 'There is already an ' . $filename . ' configuration file in the root directory, '
@@ -92,20 +90,20 @@ class InstallService
             $this->addFlashMessage($flashMessage);
             return;
         }
-        $filecontent = GeneralUtility::getUrl(ExtensionManagementUtility::extPath(self::EXT_KEY) . '/Configuration/Server/_' . $filename);
-        GeneralUtility::writeFile($absFilename, $filecontent, true);
 
-        /**
-         * Add Flashmessage that the example configuration file was placed in the root directory
-         */
-        $flashMessage = GeneralUtility::makeInstance(
-            FlashMessage::class,
-            'For securing configuration files and optimization purposes an example ' . $filename . ' file was placed in your root directory.',
-            'Webserver coniguration file "' . $filename . '" was placed in the root directory.',
-            FlashMessage::OK,
-            true
-        );
-        $this->addFlashMessage($flashMessage);
+        $filecontent = GeneralUtility::getUrl(ExtensionManagementUtility::extPath(self::EXT_KEY) . '/Configuration/Server/_' . $filename);
+        if ($filecontent && is_string($filecontent)) {
+            GeneralUtility::writeFile($absFilename, $filecontent, true);
+            // Add Flashmessage that the example configuration file was placed in the root directory
+            $flashMessage = GeneralUtility::makeInstance(
+                FlashMessage::class,
+                'For securing configuration files and optimization purposes an example ' . $filename . ' file was placed in your root directory.',
+                'Webserver coniguration file "' . $filename . '" was placed in the root directory.',
+                FlashMessage::OK,
+                true
+            );
+            $this->addFlashMessage($flashMessage);
+        }
     }
 
     /**
@@ -115,10 +113,8 @@ class InstallService
      */
     public function addFlashMessage(FlashMessage $flashMessage)
     {
-        if ($flashMessage) {
-            $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-            $flashMessageQueue = $flashMessageService->getMessageQueueByIdentifier($this->messageQueueByIdentifier);
-            $flashMessageQueue->enqueue($flashMessage);
-        }
+        $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+        $flashMessageQueue = $flashMessageService->getMessageQueueByIdentifier($this->messageQueueByIdentifier);
+        $flashMessageQueue->enqueue($flashMessage);
     }
 }
