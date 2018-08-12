@@ -44,7 +44,6 @@ class TextIconUtility
         if (!is_dir($path)) {
             return false;
         }
-        $identifier = pathinfo($path)['basename'];
         $files = iterator_to_array(
             new \FilesystemIterator(
                 $path,
