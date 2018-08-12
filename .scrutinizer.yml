@@ -1,10 +1,10 @@
 # .scrutinizer.yml
 build:
     environment:
-        php: 7.0
+        php: 7.2
     dependencies:
         before:
-            - 'composer require typo3/cms="^8.7"'
+            - 'composer require typo3/minimal="^9"'
     nodes:
         analysis:
             tests:
