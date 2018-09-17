@@ -11638,36 +11638,27 @@ figure .caption {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  flex-grow: 1;
   align-items: center;
   margin: 20px;
-  width: calc(100% - 20px * 2);
+  width: calc(50% - 20px * 2);
+  min-width: 230px;
+  max-width: 100%;
 }
 
-@media (min-width: 576px) {
-  .icongroup-item {
-    width: calc(50% - 20px * 2);
-  }
-}
-
-@media (min-width: 768px) {
-  .icongroup-item {
-    width: calc(25% - 20px * 2);
-  }
-}
-
-.icongroup-item-icon-container {
+.icongroup-item-icon {
   flex-shrink: 0;
   width: 40px;
   margin-right: 20px;
 }
 
-.icongroup-item-icon-container svg {
+.icongroup-item-icon svg {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.icongroup-item-text-container {
+.icongroup-item-text {
   flex-grow: 1;
 }
 
