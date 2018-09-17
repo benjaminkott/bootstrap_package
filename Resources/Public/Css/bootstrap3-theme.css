@@ -9932,6 +9932,11 @@ body,
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
+.gallery-item:not(.gallery-item-size-1) img,
+.gallery-item:not(.gallery-item-size-1) picture {
+  width: 100%;
+  height: auto;
+}
 .gallery-item-size-1 {
   width: 100%;
 }
