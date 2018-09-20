@@ -415,23 +415,6 @@ lib.contentElement {
                     }
                 }
             }
-            contentelements {
-                textmedia_left {
-                    multiplier {
-                        default = 0.5
-                        large = 0.5
-                        medium = 0.5
-                    }
-                    corrections {
-                        default = 40
-                        large = 40
-                        medium = 40
-                    }
-                }
-                textmedia_right < .textmedia_left
-                textpic_left < .textmedia_left
-                textpic_right < .textmedia_left
-            }
         }
         menuthumbnail {
             media {
