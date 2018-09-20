@@ -366,10 +366,20 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
+                    ['default', 'default'],
                     ['primary', 'primary'],
                     ['secondary', 'secondary'],
-                    ['light', 'light'],
-                    ['dark', 'dark']
+                    ['success', 'success'],
+                    ['info', 'info'],
+                    ['warning', 'warning'],
+                    ['danger', 'danger'],
+                    ['outline-default', 'outline-default'],
+                    ['outline-primary', 'outline-primary'],
+                    ['outline-secondary', 'outline-secondary'],
+                    ['outline-success', 'outline-success'],
+                    ['outline-info', 'outline-info'],
+                    ['outline-warning', 'outline-warning'],
+                    ['outline-danger', 'outline-danger'],
                 ]
             ]
         ],
