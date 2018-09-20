@@ -31,8 +31,6 @@ class LowercaseDashedViewHelper extends AbstractViewHelper
     }
 
     /**
-     * Formats a float to currency formatting
-     *
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
