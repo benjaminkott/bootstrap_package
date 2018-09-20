@@ -10,7 +10,7 @@
 @card-cap-bg:                       rgba(0, 0, 0, .03);
 @card-bg:                           #ffffff;
 @card-img-overlay-padding:          1.25em;
-@card-group-margin:                 (@grid-gutter-width / 2);
+@card-group-margin:                 10px;
 @card-deck-margin:                  @card-group-margin;
 @card-columns-count:                3;
 @card-columns-gap:                  1.25em;
@@ -209,6 +209,27 @@
 
 
 //
+// Card
+//
+.card-img-top {
+    overflow: hidden;
+    picture,
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.card-body {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+//
 // Card Deck Menu
 //
 .card-deck-menu {
@@ -237,6 +258,68 @@
     }
     .card-link {
         color: @link-color;
+    }
+}
+
+
+//
+// Card Group Element
+//
+.card-group-element {
+    margin: -@card-deck-margin;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-group-element-item {
+    width: 100%;
+    padding: @card-deck-margin;
+    .card {
+        height: 100%;
+    }
+    .card-title {
+        font-size: 1.35rem;
+    }
+    .card-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: @card-spacer-y;
+    }
+    .card-footer {
+        border-top: 0;
+        padding: @card-spacer-x;
+        background-color: transparent;
+    }
+}
+.card-group-element-align-left {
+    justify-content: flex-start;
+}
+.card-group-element-align-center {
+    justify-content: center;
+}
+.card-group-element-align-right {
+    justify-content: flex-end;
+}
+.card-group-element-columns-2 {
+    .card-group-element-item {
+        @media (min-width: @screen-sm) {
+            width: calc(100% / 2);
+        }
+    }
+}
+.card-group-element-columns-3 {
+    .card-group-element-item {
+        @media (min-width: @screen-sm) {
+            width: calc(100% / 3);
+        }
+    }
+}
+.card-group-element-columns-4 {
+    .card-group-element-item {
+        @media (min-width: @screen-sm) {
+            width: calc(100% / 2);
+        }
+        @media (min-width: @screen-lg) {
+            width: calc(100% / 4);
+        }
     }
 }
 

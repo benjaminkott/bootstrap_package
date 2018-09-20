@@ -258,6 +258,62 @@
                 <source>Insert several Tabelement(s) with headline and text</source>
             </trans-unit>
 
+            <trans-unit id="content_element.card_group">
+                <source>Card Group</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.description">
+                <source>Insert a element with several content cards</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.right">
+                <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="card_group_item">
+                <source>Card</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.tt_content">
+                <source>Card Group</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_icon">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_class">
+                <source>Color</source>
+            </trans-unit>
+
             <trans-unit id="content_element.icon_group">
                 <source>Icon Group</source>
             </trans-unit>

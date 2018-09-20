@@ -217,6 +217,8 @@ $iconRegistry->registerIcon(
 $icons = [
     'accordion',
     'accordion-item',
+    'card-group',
+    'card-group-item',
     'carousel',
     'carousel-item',
     'carousel-item-backgroundimage',

@@ -1,0 +1,29 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        card_group {
+            iconIdentifier = content-bootstrappackage-card-group
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.description
+            tt_content_defValues {
+                CType = card_group
+            }
+        }
+    }
+    show := addToList(card_group)
+}
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        card_group {
+            iconIdentifier = content-bootstrappackage-card-group
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.description
+            tt_content_defValues {
+                CType = card_group
+            }
+        }
+    }
+    show := addToList(card_group)
+}
