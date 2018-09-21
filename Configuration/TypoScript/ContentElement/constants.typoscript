@@ -81,19 +81,13 @@ plugin.bootstrap_package_contentelements {
         }
     }
     menu_thumbnail {
-        media {
-            # cat=bootstrap package: content elements/150_contentelement/001_media_height; type=string; label=Media Height
-            height = 128m
-            # cat=bootstrap package: content elements/150_contentelement/002_media_width; type=string; label=Media Width
-            width = 250m
-        }
         title {
-            # cat=bootstrap package: content elements/150_contentelement/003_title_crop; type=string; label=Crop Title
+            # cat=bootstrap package: content elements/150_contentelement/001_title_crop; type=string; label=Crop Title
             crop = 100
         }
-        abstract {
-            # cat=bootstrap package: content elements/150_contentelement/004_abstract_crop; type=string; label=Crop Abstract
-            crop = 250
+        subtitle {
+            # cat=bootstrap package: content elements/150_contentelement/002_subtitle_crop; type=string; label=Crop Subtitle
+            crop = 80
         }
     }
     menu_card {

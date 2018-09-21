@@ -161,6 +161,25 @@
                 <source>Insert menu to display selected pages as thumbnail</source>
             </trans-unit>
 
+            <trans-unit id="menu.thumbnail.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.right">
+                <source>Right</source>
+            </trans-unit>
+
             <trans-unit id="content_group.interactive">
                 <source>Interactive</source>
             </trans-unit>

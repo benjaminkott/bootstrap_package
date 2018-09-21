@@ -1,31 +1,29 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
 
     <f:if condition="{menu}">
         <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
-        <div class="thumbnail-menu">
+        <div class="thumbnail-menu thumbnail-menu-align-{data.pi_flexform.align} thumbnail-menu-columns-{data.pi_flexform.columns}">
             <f:for each="{menu}" as="page">
                 <f:if condition="{page.files.0}">
-                    <f:if condition="{page.files.0.type} == 2">
+                    <div class="thumbnail-menu-item">
 
-                        <f:variable name="imageWidth" value="{settings.menuthumbnail.media.width as integer}" />
-                        <f:variable name="imageHeight" value="{settings.menuthumbnail.media.height as integer}" />
-                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} style="width: {settings.menuthumbnail.media.width as integer}px" title="{page.title}" class="thumbnail-menu-item" data-toggle="tooltip">
-                            <div class="thumbnail-menu-image" style="padding-bottom: {imageHeight / imageWidth * 100}%;">
-                                <f:media file="{page.files.0}" width="{settings.menuthumbnail.media.width}" height="{settings.menuthumbnail.media.height}" />
+                        <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" class="thumbnail-menu-link" data-toggle="tooltip">
+                            <div class="thumbnail-menu-image">
+                                <f:render partial="Media/Rendering/Image" arguments="{file: page.files.0, data: page.data, settings: settings, variants: variants}" />
                             </div>
                             <div class="thumbnail-menu-caption">
-                                <f:if condition="{page.data.title}">
+                                <div class="thumbnail-menu-caption-inner">
                                     <h3 class="thumbnail-menu-caption-title"><f:format.crop maxCharacters="{settings.menuthumbnail.title.crop}">{page.data.title}</f:format.crop></h3>
-                                </f:if>
-                                <f:if condition="{page.data.abstract} && {settings.menuthumbnail.media.width as integer} >= 300">
-                                    <p class="thumbnail-menu-caption-abstract"><f:format.crop maxCharacters="{settings.menuthumbnail.abstract.crop}">{page.data.abstract}</f:format.crop></p>
-                                </f:if>
+                                    <f:if condition="{page.data.subtitle}">
+                                        <p class="thumbnail-menu-caption-subtitle"><f:format.crop maxCharacters="{settings.menuthumbnail.subtitle.crop}">{page.data.subtitle}</f:format.crop></p>
+                                    </f:if>
+                                </div>
                             </div>
                         </a>
 
-                    </f:if>
+                    </div>
                 </f:if>
             </f:for>
         </div>
