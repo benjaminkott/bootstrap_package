@@ -106,6 +106,59 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'gif,png,svg'
             ),
         ],
+        'thumbnail' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:pages.thumbnail',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'thumbnail',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'overrideChildTca' => [
+                        'types' => [
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    title,
+                                    alternative,
+                                    crop,
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;;filePalette
+                                '
+                            ],
+                        ],
+                    ],
+                    'minitems' => 0,
+                    'maxitems' => 1,
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
+            'l10n_mode' => 'exclude',
+        ],
     ]
 );
 
@@ -113,3 +166,4 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
  * Assign position to fields
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'nav_icon', '1,3,4', 'after:nav_title');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'thumbnail', '1,3,4', 'after:backend_layout_next_level');

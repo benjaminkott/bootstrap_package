@@ -3,6 +3,7 @@
 #
 CREATE TABLE pages (
     nav_icon int(11) unsigned DEFAULT '0',
+    thumbnail int(11) unsigned DEFAULT '0',
 );
 
 
