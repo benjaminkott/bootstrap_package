@@ -9,8 +9,8 @@
 
 namespace BK2K\BootstrapPackage\Tests\Unit\Utility;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use BK2K\BootstrapPackage\Utility\ImageVariantsUtility;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Testcase for class \BK2K\BootstrapPackage\Utility\ImageVariantsUtility
