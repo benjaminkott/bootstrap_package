@@ -22,7 +22,7 @@ tt_content.menu_thumbnail_dir {
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
-                    references.fieldName = media
+                    references.fieldName = thumbnail
                 }
             }
         }
