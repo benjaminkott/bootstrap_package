@@ -44,3 +44,53 @@ tt_content.menu_thumbnail_dir {
     }
 
 }
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    menu_thumbnail_dir {
+        2 {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            corrections {
+                default = 10
+                large = 10
+                medium = 10
+                small = 10
+            }
+        }
+        3 {
+            multiplier {
+                default = 0.3333
+                large = 0.3333
+                medium = 0.3333
+                small = 0.3333
+            }
+            corrections {
+                default = 20
+                large = 20
+                medium = 20
+            }
+        }
+        4 {
+            multiplier {
+                default = 0.25
+                large = 0.25
+                medium = 0.5
+                small = 0.5
+            }
+            corrections {
+                default = 30
+                large = 30
+                medium = 10
+                small = 10
+            }
+        }
+    }
+}
