@@ -45,7 +45,7 @@ class ImageVariantsUtility
             'width' => 500
         ],
         'extrasmall' => [
-            'width' => 300
+            'width' => 374
         ]
     ];
 

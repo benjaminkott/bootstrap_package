@@ -28,7 +28,16 @@ install:
   - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
-script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+script:
+  - >
+    echo;
+    echo "Unit tests";
+    .build/vendor/phpunit/phpunit/phpunit -c Build/PhpUnit.xml
+
+  - >
+    echo;
+    echo "PHP lint";
+    find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
 jobs:
   include:
