@@ -417,15 +417,11 @@ lib.contentElement {
             }
         }
         menuthumbnail {
-            media {
-                height = {$plugin.bootstrap_package_contentelements.menu_thumbnail.media.height}
-                width = {$plugin.bootstrap_package_contentelements.menu_thumbnail.media.width}
-            }
             title {
                 crop = {$plugin.bootstrap_package_contentelements.menu_thumbnail.title.crop}
             }
-            abstract {
-                crop = {$plugin.bootstrap_package_contentelements.menu_thumbnail.abstract.crop}
+            subtitle {
+                crop = {$plugin.bootstrap_package_contentelements.menu_thumbnail.subtitle.crop}
             }
         }
         menucard {
