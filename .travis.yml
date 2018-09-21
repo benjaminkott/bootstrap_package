@@ -32,7 +32,7 @@ script:
   - >
     echo;
     echo "Unit tests";
-    composer test:php:unit
+    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
 
   - >
     echo;
