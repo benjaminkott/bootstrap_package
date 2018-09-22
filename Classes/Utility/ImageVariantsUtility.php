@@ -19,7 +19,6 @@ class ImageVariantsUtility
      * @var array
      */
     protected static $allowedVariantProperties = [
-        'enabled',
         'breakpoint',
         'width'
     ];
@@ -69,7 +68,7 @@ class ImageVariantsUtility
      */
     protected static function processVariants($variants): array
     {
-        $variants = !empty($variants) ? $variants : self::$defaultVariants;
+        $variants = is_array($variants) && !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
             if (is_array($properties)) {
                 foreach ($properties as $key => $value) {
@@ -83,6 +82,11 @@ class ImageVariantsUtility
                         unset($variants[$variant][$key]);
                     }
                 }
+                if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
+                    unset($variants[$variant]);
+                }
+            } else {
+                unset($variants[$variant]);
             }
         }
         return $variants;
