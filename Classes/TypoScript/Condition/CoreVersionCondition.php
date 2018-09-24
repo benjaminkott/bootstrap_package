@@ -62,15 +62,12 @@ class CoreVersionCondition extends AbstractCondition
     protected function compareNumber($test, $leftValue)
     {
         if (preg_match('/^(!?=+|<=?|>=?)\\s*([^\\s]*)\\s*$/', $test, $matches)) {
-            $operator = $matches[1];
-            $rightValue = $matches[2];
+            list($operator, $rightValue) = $matches;
             switch ($operator) {
                 case '>=':
                     return $leftValue >= VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '<=':
                     return $leftValue <= VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '!=':
                     // multiple values may be split with '|'
                     // see if none matches ("not in list")
@@ -83,13 +80,10 @@ class CoreVersionCondition extends AbstractCondition
                         }
                     }
                     return $found === false;
-                    break;
                 case '<':
                     return $leftValue < VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '>':
                     return $leftValue > VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 default:
                     // nothing valid found except '=', use '='
                     // multiple values may be split with '|'

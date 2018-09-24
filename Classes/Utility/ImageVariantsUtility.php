@@ -75,7 +75,7 @@ class ImageVariantsUtility
         foreach ($variants as $variant => $properties) {
             if (is_array($properties)) {
                 foreach ($properties as $key => $value) {
-                    if (!in_array($key, self::$allowedVariantProperties) || $value === 'unset') {
+                    if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
                         unset($variants[$variant][$key]);
                         continue;
                     }
@@ -153,7 +153,7 @@ class ImageVariantsUtility
         $corrections = is_array($corrections) ? $corrections : [];
         foreach ($corrections as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
-                $variants[$variant]['width'] = $variants[$variant]['width'] - $value;
+                $variants[$variant]['width'] -= $value;
             }
         }
         return $variants;

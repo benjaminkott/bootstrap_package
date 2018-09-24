@@ -89,10 +89,11 @@ class FileFilterProcessor implements DataProcessorInterface
         }
 
         foreach ($processedData[$variableName] as $key => $value) {
-            if (is_object($value) && in_array(get_class($value), [FileReference::class, File::class])) {
-                if (!in_array($value->getExtension(), $allowedFileExtensions)) {
-                    unset($processedData[$variableName][$key]);
-                }
+            if (is_object($value)
+                && in_array(get_class($value), [FileReference::class, File::class], true)
+                && !in_array($value->getExtension(), $allowedFileExtensions, true)
+            ) {
+                unset($processedData[$variableName][$key]);
             }
         }
 
