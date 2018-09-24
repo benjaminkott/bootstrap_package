@@ -28,8 +28,8 @@ class ImageVariantsUtilityTest extends UnitTestCase
         $variants = isset($data['variants']) ? $data['variants'] : null;
         $multiplier = isset($data['multiplier']) ? $data['multiplier'] : null;
         $corrections = isset($data['corrections']) ? $data['corrections'] : null;
-        $gutter = isset($data['gutter']) ? $data['gutter'] : null;
-        $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutter, $corrections);
+        $gutters = isset($data['gutters']) ? $data['gutters'] : null;
+        $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutters, $corrections);
         $this->assertSame($expectedResult, $result);
     }
 
@@ -245,7 +245,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     'variants' => [
                         'default' => [ 'width' => 1100 ]
                     ],
-                    'gutter' => [
+                    'gutters' => [
                         'default' => 40
                     ]
                 ],
@@ -258,7 +258,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     'variants' => [
                         'default' => [ 'width' => 1100 ]
                     ],
-                    'gutter' => [
+                    'gutters' => [
                         'doesnotexist' => 40
                     ],
                 ],
@@ -276,7 +276,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'null' => [ 'width' => 1100 ],
                         'array' => [ 'width' => 1100 ]
                     ],
-                    'gutter' => [
+                    'gutters' => [
                         'numeric-string' => '40',
                         'string' => 'foo',
                         'px' => '0.5px',
@@ -297,17 +297,21 @@ class ImageVariantsUtilityTest extends UnitTestCase
             'multiplier and gutter' => [
                 [
                     'variants' => [
-                        'default' => [ 'width' => 1100 ]
+                        'default' => [ 'width' => 1100 ],
+                        'large' => [ 'width' => 920 ]
                     ],
                     'multiplier' => [
-                        'default' => 0.5
+                        'default' => 0.5,
+                        'large' => 0.75
                     ],
-                    'gutter' => [
-                        'default' => 40
+                    'gutters' => [
+                        'default' => 40,
+                        'large' => 40
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 530 ]
+                    'default' => [ 'width' => 530 ],
+                    'large' => [ 'width' => 680 ]
                 ]
             ],
             'multiplier and corrections' => [
@@ -334,7 +338,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     'multiplier' => [
                         'default' => 0.5
                     ],
-                    'gutter' => [
+                    'gutters' => [
                         'default' => 40
                     ],
                     'corrections' => [

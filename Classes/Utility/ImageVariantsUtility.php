@@ -51,16 +51,16 @@ class ImageVariantsUtility
     /**
      * @param array $variants
      * @param array $multiplier
-     * @param array $gutter
+     * @param array $gutters
      * @param array $corrections
      * @return array
      */
-    public static function getImageVariants($variants = [], $multiplier = [], $gutter = [], $corrections = []): array
+    public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
-        $variants = self::addGutter($variants, $gutter);
+        $variants = self::addGutters($variants, $gutters);
         $variants = self::processMultiplier($variants, $multiplier);
-        $variants = self::removeGutter($variants, $gutter);
+        $variants = self::removeGutters($variants, $gutters);
         $variants = self::processCorrections($variants, $corrections);
         return $variants;
     }
@@ -97,13 +97,13 @@ class ImageVariantsUtility
 
     /**
      * @param array $variants
-     * @param array $gutter
+     * @param array $gutters
      * @return array
      */
-    protected static function addGutter($variants, $gutter): array
+    protected static function addGutters($variants, $gutters): array
     {
-        $gutter = is_array($gutter) ? $gutter : [];
-        foreach ($gutter as $variant => $value) {
+        $gutters = is_array($gutters) ? $gutters : [];
+        foreach ($gutters as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + $value);
             }
@@ -113,13 +113,13 @@ class ImageVariantsUtility
 
     /**
      * @param array $variants
-     * @param array $gutter
+     * @param array $gutters
      * @return array
      */
-    protected static function removeGutter($variants, $gutter): array
+    protected static function removeGutters($variants, $gutters): array
     {
-        $gutter = is_array($gutter) ? $gutter : [];
-        foreach ($gutter as $variant => $value) {
+        $gutters = is_array($gutters) ? $gutters : [];
+        foreach ($gutters as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - $value);
             }
