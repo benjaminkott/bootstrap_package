@@ -28,7 +28,8 @@ class ImageVariantsUtilityTest extends UnitTestCase
         $variants = isset($data['variants']) ? $data['variants'] : null;
         $multiplier = isset($data['multiplier']) ? $data['multiplier'] : null;
         $corrections = isset($data['corrections']) ? $data['corrections'] : null;
-        $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $corrections);
+        $gutter = isset($data['gutter']) ? $data['gutter'] : null;
+        $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutter, $corrections);
         $this->assertSame($expectedResult, $result);
     }
 
@@ -221,7 +222,6 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'null' => [ 'width' => 1100 ],
                         'array' => [ 'width' => 1100 ]
                     ],
-                    'multiplier' => null,
                     'corrections' => [
                         'numeric-string' => '100',
                         'string' => 'foo',
@@ -240,6 +240,76 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     'array' => [ 'width' => 1100 ]
                 ]
             ],
+            'gutter' => [
+                [
+                    'variants' => [
+                        'default' => [ 'width' => 1100 ]
+                    ],
+                    'gutter' => [
+                        'default' => 40
+                    ]
+                ],
+                [
+                    'default' => [ 'width' => 1100 ]
+                ]
+            ],
+            'gutter on no existent variants' => [
+                [
+                    'variants' => [
+                        'default' => [ 'width' => 1100 ]
+                    ],
+                    'gutter' => [
+                        'doesnotexist' => 40
+                    ],
+                ],
+                [
+                    'default' => [ 'width' => 1100 ]
+                ]
+            ],
+            'gutter input types' => [
+                [
+                    'variants' => [
+                        'numeric-string' => [ 'width' => 1100 ],
+                        'string' => [ 'width' => 1100 ],
+                        'px' => [ 'width' => 1100 ],
+                        'percent' => [ 'width' => 1100 ],
+                        'null' => [ 'width' => 1100 ],
+                        'array' => [ 'width' => 1100 ]
+                    ],
+                    'gutter' => [
+                        'numeric-string' => '40',
+                        'string' => 'foo',
+                        'px' => '0.5px',
+                        'percent' => '50%',
+                        'null' => null,
+                        'array' => []
+                    ]
+                ],
+                [
+                    'numeric-string' => [ 'width' => 1100 ],
+                    'string' => [ 'width' => 1100 ],
+                    'px' => [ 'width' => 1100 ],
+                    'percent' => [ 'width' => 1100 ],
+                    'null' => [ 'width' => 1100 ],
+                    'array' => [ 'width' => 1100 ]
+                ]
+            ],
+            'multiplier and gutter' => [
+                [
+                    'variants' => [
+                        'default' => [ 'width' => 1100 ]
+                    ],
+                    'multiplier' => [
+                        'default' => 0.5
+                    ],
+                    'gutter' => [
+                        'default' => 40
+                    ]
+                ],
+                [
+                    'default' => [ 'width' => 530 ]
+                ]
+            ],
             'multiplier and corrections' => [
                 [
                     'variants' => [
@@ -249,11 +319,30 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'default' => 0.5
                     ],
                     'corrections' => [
-                        'default' => 100
+                        'default' => 10
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 500 ]
+                    'default' => [ 'width' => 540 ]
+                ]
+            ],
+            'multiplier, gutter and corrections' => [
+                [
+                    'variants' => [
+                        'default' => [ 'width' => 1100 ]
+                    ],
+                    'multiplier' => [
+                        'default' => 0.5
+                    ],
+                    'gutter' => [
+                        'default' => 40
+                    ],
+                    'corrections' => [
+                        'default' => 10
+                    ]
+                ],
+                [
+                    'default' => [ 'width' => 520 ]
                 ]
             ]
         ];

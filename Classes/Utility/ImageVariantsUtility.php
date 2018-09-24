@@ -51,14 +51,17 @@ class ImageVariantsUtility
     /**
      * @param array $variants
      * @param array $multiplier
+     * @param array $gutter
      * @param array $corrections
      * @return array
      */
-    public static function getImageVariants($variants = [], $multiplier = [], $corrections = []): array
+    public static function getImageVariants($variants = [], $multiplier = [], $gutter = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
-        $variants = self::processCorrections($variants, $corrections);
+        $variants = self::addGutter($variants, $gutter);
         $variants = self::processMultiplier($variants, $multiplier);
+        $variants = self::removeGutter($variants, $gutter);
+        $variants = self::processCorrections($variants, $corrections);
         return $variants;
     }
 
@@ -87,6 +90,38 @@ class ImageVariantsUtility
                 }
             } else {
                 unset($variants[$variant]);
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param array $gutter
+     * @return array
+     */
+    protected static function addGutter($variants, $gutter): array
+    {
+        $gutter = is_array($gutter) ? $gutter : [];
+        foreach ($gutter as $variant => $value) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
+                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + $value);
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param array $gutter
+     * @return array
+     */
+    protected static function removeGutter($variants, $gutter): array
+    {
+        $gutter = is_array($gutter) ? $gutter : [];
+        foreach ($gutter as $variant => $value) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
+                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - $value);
             }
         }
         return $variants;
