@@ -13,34 +13,7 @@ use BK2K\BootstrapPackage\Parser\ParserInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * This service handles the parsing of less files for the frontend. You can extend
- * the compile service with a signal, that is triggered just before rendering.
- *
- * To fulfill that signal, you can create a slot in your custom extension.
- * All what it needs is an entry in your ext_localconf.php file:
- *
- * $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
- * $signalSlotDispatcher->connect(
- *   'BK2K\\BootstrapPackage\\Service\\CompileService',
- *   'beforeLessCompiling',
- *   'YourVendor\\YourExtension\\Slots\\CompileServiceSlot',
- *   'beforeLessCompiling'
- * );
- *
- * Example call:
- *
- * $file -> array
- * $options -> array
- * $variables -> array
- *
- * public function beforeLessCompiling($file, $options, $variables)
- * {
- *   return [
- *     'file' => $file,
- *     'options' => $options,
- *     'variables' => $variables,
- *   ];
- * }
+ * This service handles the parsing of less files for the frontend.
  */
 class CompileService
 {

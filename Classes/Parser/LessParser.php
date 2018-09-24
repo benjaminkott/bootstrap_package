@@ -13,19 +13,12 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\SignalSlot\Dispatcher;
 
 /**
  * LessParser
  */
 class LessParser extends AbstractParser
 {
-    /**
-     * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
-     */
-    protected $signalSlotDispatcher;
-
     /**
      * Constructor
      */
@@ -80,9 +73,6 @@ class LessParser extends AbstractParser
             $pageRenderer->disableCompressCss();
         }
 
-        // Emit signal before less compiling to allow overriding of arguments
-        $arguments = $this->emitBeforeLessCompilingSignal($arguments);
-
         // Process file
         $files = [];
         $files[$arguments['file']['absolute']] = $settings['cache']['tempDirectoryRelativeToRoot'] . str_replace(PATH_site, '', dirname($arguments['file']['absolute'])) . '/';
@@ -96,31 +86,6 @@ class LessParser extends AbstractParser
         $compiledFile = \Less_Cache::Get($files, $arguments['options'], $arguments['variables']);
         $this->clearPageCaches();
         return $settings['cache']['tempDirectory'] . $compiledFile;
-    }
-
-    /**
-     * @param array $arguments
-     * @return array
-     */
-    protected function emitBeforeLessCompilingSignal($arguments)
-    {
-        return $this->getSignalSlotDispatcher()->dispatch(
-            __CLASS__,
-            'beforeLessCompiling',
-            $arguments
-        );
-    }
-
-    /**
-     * @return Dispatcher
-     */
-    protected function getSignalSlotDispatcher()
-    {
-        if ($this->signalSlotDispatcher === null) {
-            $this->signalSlotDispatcher = GeneralUtility::makeInstance(ObjectManager::class)
-                ->get(Dispatcher::class);
-        }
-        return $this->signalSlotDispatcher;
     }
 
     /**
