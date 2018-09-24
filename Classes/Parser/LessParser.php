@@ -9,8 +9,6 @@
 
 namespace BK2K\BootstrapPackage\Parser;
 
-use TYPO3\CMS\Core\Exception;
-use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -24,7 +22,6 @@ class LessParser extends AbstractParser
      */
     public function __construct()
     {
-        // @TODO: Think about composer dependency and phar file bundling for TER
         if (!class_exists('Less_Cache', false)) {
             require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php';
         }
@@ -46,95 +43,71 @@ class LessParser extends AbstractParser
      */
     public function compile($file, $settings)
     {
-        // Initialize Arguments
-        $arguments = [
-            'file' => [
-                'absolute' => $settings['file']['absolute'],
-            ],
-            'options' => [
-                'compress' => true,
-                'cache_dir' => GeneralUtility::getFileAbsFileName($settings['cache']['tempDirectory'])
-            ],
-            'variables' => $settings['variables'],
-        ];
-        if ($settings['options']['sourceMap']) {
-            // Enable source mapping
-            $optionsForSourceMap = [
-                'sourceMap' => true,
-                'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($settings['cache']['tempDirectory']) . basename($file) . '.map',
-                'sourceMapURL' => '/' . $settings['cache']['tempDirectory'] . basename($file) . '.map',
-                'sourceMapBasepath' => realpath(PATH_site),
-                'sourceMapRootpath' => '/'
-            ];
-            $arguments['options'] += $optionsForSourceMap;
-            // Disable CSS compression
-            /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
-            $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-            $pageRenderer->disableCompressCss();
+        $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
+        $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
+        $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
+        $compile = false;
+
+        if (!$this->isCached($file, $settings)
+            || $this->needsCompile($cacheFile, $cacheFileMeta, $settings)) {
+            $compile = true;
         }
 
-        // Process file
-        $files = [];
-        $files[$arguments['file']['absolute']] = $settings['cache']['tempDirectoryRelativeToRoot'] . str_replace(PATH_site, '', dirname($arguments['file']['absolute'])) . '/';
-        $cacheFile = $this->getPathToCacheFileIfExists($files, $arguments['options'], $arguments['variables']);
-        if ($cacheFile !== '') {
-            return $settings['cache']['tempDirectory'] . $cacheFile;
+        if ($compile) {
+            $result = $this->parseFile($file, $settings);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMeta), serialize($result['cache']));
+            $this->clearPageCaches();
         }
 
-        // If the code reach this place, a cache not exist and the CSS must be compiled
-        // After the files are created, we clear the page cache.
-        $compiledFile = \Less_Cache::Get($files, $arguments['options'], $arguments['variables']);
-        $this->clearPageCaches();
-        return $settings['cache']['tempDirectory'] . $compiledFile;
+        return $cacheFile;
     }
 
     /**
-     * This method is an ugly hack to fix the stupid less parser code. The method is private and should be
-     * removed as fast as possible with the less parser self.
-     * The method implement a missing hasCache method to prevent compile and write files for each request.
-     *
-     * @param array $lessFiles
-     * @param array $options
-     * @param array $variables
-     * @return bool
+     * @param string $file
+     * @param array $settings
+     * @return array
      */
-    private function getPathToCacheFileIfExists($lessFiles, $options, $variables)
+    protected function parseFile($file, $settings)
     {
-        $lessFiles = (array)$lessFiles;
-
-        //create a file for variables
-        if (!empty($variables)) {
-            $lessVariables = \Less_Parser::serializeVars($variables);
-            $vars_file = $options['cache_dir'] . \Less_Cache::$prefix_vars . sha1($lessVariables) . '.less';
-
-            if (!file_exists($vars_file)) {
-                file_put_contents($vars_file, $lessVariables);
-            }
-
-            $lessFiles += [$vars_file => '/'];
+        $options = [];
+        $options['compress'] = true;
+        if ($settings['options']['sourceMap']) {
+            $options['compress'] = false;
+            $options['sourceMap'] = true;
+            $options['sourceMapBasepath'] = realpath($this->getPathSite());
+            $options['sourceMapRootpath'] = $settings['cache']['tempDirectoryRelativeToRoot'];
         }
 
-        // generate name for compiled css file
-        $hash = md5(json_encode($lessFiles));
-        //save the file list
-        $temp = [\Less_Version::cache_version];
-        foreach ($lessFiles as $file) {
-            if (file_exists($file)) {
-                $temp[] = filemtime($file) . "\t" . filesize($file) . "\t" . $file;
-            }
-        }
-        $list_file = $options['cache_dir'] . \Less_Cache::$prefix . $hash . '.list';
+        $parser = new \Less_Parser($options);
+        $parser->parseFile(GeneralUtility::getFileAbsFileName($file));
+        $parser->ModifyVars($settings['variables']);
+        $css = $parser->getCss();
 
-        $list = '';
-        $cached_name = '';
-        try {
-            \Less_Cache::ListFiles($list_file, $list, $cached_name);
-        } catch (Exception $e) {
-            // this happens mainly if no caches exists.
-            return '';
+        // Correct relative urls
+        $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
+        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen($this->getPathSite()))) . '/';
+        $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
+        $replace = 'url("' . $relativePath . '$3")';
+        $css = preg_replace($search, $replace, $css);
+
+        $parsedFiles = [];
+        foreach ($parser::AllParsedFiles() as $file) {
+            $parsedFiles[$file] = filemtime($file);
         }
 
-        $compiled_name = $cached_name;
-        return file_exists($options['cache_dir'] . $compiled_name) ? $compiled_name : '';
+        return [
+            'filename' => $file,
+            'css' => $css,
+            'cache' => [
+                'version' => \Less_Version::version,
+                'date' => date('r'),
+                'css' => $css,
+                'etag' => md5($css),
+                'files' => $parsedFiles,
+                'variables' => $settings['variables'],
+                'sourceMap' => $settings['options']['sourceMap']
+            ]
+        ];
     }
 }

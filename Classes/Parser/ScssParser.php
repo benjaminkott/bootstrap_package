@@ -25,7 +25,6 @@ class ScssParser extends AbstractParser
      */
     public function __construct()
     {
-        // @TODO: Think about composer dependency and phar file bundling for TER
         if (!class_exists('Leafo\ScssPhp\Version', false)) {
             require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/scssphp/scss.inc.php';
         }
@@ -86,15 +85,13 @@ class ScssParser extends AbstractParser
         }
         $css = $scss->compile('@import "' . $file . '"');
 
-        // Correct relative urls
         $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
-        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen(PATH_site))) . '/';
+        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen($this->getPathSite()))) . '/';
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativePath . '$3")';
         $css = preg_replace($search, $replace, $css);
 
         return [
-            'filename' => $file,
             'css' => $css,
             'cache' => [
                 'version' => Version::VERSION,
@@ -106,82 +103,5 @@ class ScssParser extends AbstractParser
                 'sourceMap' => $settings['options']['sourceMap']
             ]
         ];
-    }
-
-    /**
-     * @param string $cacheFile
-     * @param string $cacheFileMeta
-     * @param array $settings
-     * @return bool
-     */
-    protected function needsCompile($cacheFile, $cacheFileMeta, $settings)
-    {
-        $needCompilation = false;
-        $fileModificationTime = filemtime($cacheFile);
-        $metadata = unserialize(file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
-
-        foreach ($metadata['files'] as $file => $cacheTime) {
-            $currentTime = filemtime($file);
-            if ($currentTime !== $cacheTime || $currentTime > $fileModificationTime) {
-                $needCompilation = true;
-                break;
-            }
-        }
-
-        if (!$needCompilation && $settings['variables'] !== $metadata['variables']) {
-            $needCompilation = true;
-        }
-
-        if (!$needCompilation && $settings['options']['sourceMap'] !== $metadata['sourceMap']) {
-            $needCompilation = true;
-        }
-
-        return $needCompilation;
-    }
-
-    /**
-     * @param string $file
-     * @param array $settings
-     * @return bool
-     */
-    protected function isCached($file, $settings)
-    {
-        $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
-        $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
-        $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
-
-        return file_exists($cacheFile) && file_exists($cacheFileMeta);
-    }
-
-    /**
-     * @param string $cacheIdentifier
-     * @param string $tempDirectory
-     * @return string
-     */
-    protected function getCacheFile($cacheIdentifier, $tempDirectory)
-    {
-        return $tempDirectory . $cacheIdentifier . '.css';
-    }
-
-    /**
-     * @param string $filename
-     * @return string
-     */
-    protected function getCacheFileMeta($filename)
-    {
-        return $filename . '.meta';
-    }
-
-    /**
-     * @param string $file
-     * @param array $settings
-     * @return string
-     */
-    protected function getCacheIdentifier($file, $settings)
-    {
-        $filehash = md5($file);
-        $hash = hash('sha256', $filehash . serialize($settings));
-
-        return basename($file, '.scss') . '-' . $hash;
     }
 }
