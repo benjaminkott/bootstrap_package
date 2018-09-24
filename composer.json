@@ -55,7 +55,7 @@
   },
   "scripts": {
     "test:php:unit": [
-      "@php .build/vendor/phpunit/phpunit/phpunit -c Build/PhpUnit.xml"
+      "@php .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml"
     ],
     "test": [
       "@test:php:unit"
