@@ -25,7 +25,7 @@ class CompileService
     /**
      * @var string
      */
-    protected $tempDirectoryRelativeToRoot = '../../../';
+    protected $tempDirectoryRelativeToRoot = '../../../../';
 
     /**
      * @param string $file
