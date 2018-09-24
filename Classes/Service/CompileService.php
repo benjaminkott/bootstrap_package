@@ -156,6 +156,6 @@ class CompileService
      */
     protected function clearCompilerCaches()
     {
-        GeneralUtility::rmdir(PATH_site . $this->tempDirectory,true);
+        GeneralUtility::rmdir(PATH_site . $this->tempDirectory, true);
     }
 }

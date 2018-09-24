@@ -118,7 +118,7 @@ class ScssParser extends AbstractParser
     {
         $needCompilation = false;
         $fileModificationTime = filemtime($cacheFile);
-        $metadata = unserialize(file_get_contents($cacheFileMeta),  ['allowed_classes' => false]);
+        $metadata = unserialize(file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
 
         foreach ($metadata['files'] as $file => $cacheTime) {
             $currentTime = filemtime($file);

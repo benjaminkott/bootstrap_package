@@ -138,22 +138,22 @@ class LessParser extends AbstractParser
         $lessFiles = (array)$lessFiles;
 
         //create a file for variables
-        if( !empty($variables) ){
+        if (!empty($variables)) {
             $lessVariables = \Less_Parser::serializeVars($variables);
             $vars_file = $options['cache_dir'] . \Less_Cache::$prefix_vars . sha1($lessVariables) . '.less';
 
-            if( !file_exists($vars_file) ){
+            if (!file_exists($vars_file)) {
                 file_put_contents($vars_file, $lessVariables);
             }
 
-            $lessFiles += array($vars_file => '/');
+            $lessFiles += [$vars_file => '/'];
         }
 
         // generate name for compiled css file
         $hash = md5(json_encode($lessFiles));
         //save the file list
-        $temp = array(\Less_Version::cache_version);
-        foreach($lessFiles as $file) {
+        $temp = [\Less_Version::cache_version];
+        foreach ($lessFiles as $file) {
             if (file_exists($file)) {
                 $temp[] = filemtime($file) . "\t" . filesize($file) . "\t" . $file;
             }
