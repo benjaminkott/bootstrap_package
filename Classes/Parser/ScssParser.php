@@ -25,8 +25,9 @@ class ScssParser extends AbstractParser
      */
     public function __construct()
     {
+        // @TODO: Think about composer dependency and phar file bundling for TER
         if (!class_exists('Leafo\ScssPhp\Version', false)) {
-            require_once(ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/scssphp/scss.inc.php');
+            require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/scssphp/scss.inc.php';
         }
     }
 
@@ -51,18 +52,16 @@ class ScssParser extends AbstractParser
         $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
         $compile = false;
 
-        if (!$this->isCached($file, $settings)) {
-            $compile = true;
-        } elseif ($this->needsCompile($cacheFile, $cacheFileMeta, $settings)) {
+        if (!$this->isCached($file, $settings)
+            || $this->needsCompile($cacheFile, $cacheFileMeta, $settings)) {
             $compile = true;
         }
 
         if ($compile) {
             $result = $this->parseFile($file, $settings);
-            file_put_contents(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
-            GeneralUtility::fixPermissions($cacheFile);
-            file_put_contents(GeneralUtility::getFileAbsFileName($cacheFileMeta), serialize($result['cache']));
-            GeneralUtility::fixPermissions($cacheFileMeta);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMeta), serialize($result['cache']));
+            $this->clearPageCaches();
         }
 
         return $cacheFile;
@@ -117,25 +116,27 @@ class ScssParser extends AbstractParser
      */
     protected function needsCompile($cacheFile, $cacheFileMeta, $settings)
     {
-        $filetime = filemtime($cacheFile);
-        $metadata = unserialize(file_get_contents($cacheFileMeta));
+        $needCompilation = false;
+        $fileModificationTime = filemtime($cacheFile);
+        $metadata = unserialize(file_get_contents($cacheFileMeta),  ['allowed_classes' => false]);
 
         foreach ($metadata['files'] as $file => $cacheTime) {
             $currentTime = filemtime($file);
-            if ($currentTime !== $cacheTime || $currentTime > $filetime) {
-                return true;
+            if ($currentTime !== $cacheTime || $currentTime > $fileModificationTime) {
+                $needCompilation = true;
+                break;
             }
         }
 
-        if ($settings['variables'] !== $metadata['variables']) {
-            return true;
+        if (!$needCompilation && $settings['variables'] !== $metadata['variables']) {
+            $needCompilation = true;
         }
 
-        if ($settings['options']['sourceMap'] !== $metadata['sourceMap']) {
-            return true;
+        if (!$needCompilation && $settings['options']['sourceMap'] !== $metadata['sourceMap']) {
+            $needCompilation = true;
         }
 
-        return false;
+        return $needCompilation;
     }
 
     /**

@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Service;
 
+use BK2K\BootstrapPackage\Parser\ParserInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -46,7 +47,7 @@ class CompileService
     /**
      * @var string
      */
-    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/';
+    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/css/';
 
     /**
      * @var string
@@ -80,8 +81,8 @@ class CompileService
                 'tempDirectoryRelativeToRoot' => $this->tempDirectoryRelativeToRoot,
             ],
             'options' => [
-                'override' => ($configuration['overrideParserVariables'] ? true: false),
-                'sourceMap' => ($configuration['cssSourceMapping'] ? true : false),
+                'override' => $configuration['overrideParserVariables'] ? true: false,
+                'sourceMap' => $configuration['cssSourceMapping'] ? true : false,
                 'compress' => true
             ],
             'variables' => []
@@ -90,16 +91,17 @@ class CompileService
         // Parser
         if (!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
+                /** @var ParserInterface $parser */
                 $parser = GeneralUtility::makeInstance($className);
                 if ($parser->supports($settings['file']['info']['extension'])) {
                     if ($configuration['overrideParserVariables']) {
                         $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
                     }
                     try {
-                        $compiledFile = $parser->compile($file, $settings);
-                        return $compiledFile;
+                        return $parser->compile($file, $settings);
                     } catch (\Exception $e) {
-                        throw new \Exception($e->getMessage());
+                        $this->clearCompilerCaches();
+                        throw $e;
                     }
                 }
             }
@@ -147,5 +149,13 @@ class CompileService
             $GLOBALS['TSFE']->tmpl->generateConfig();
         }
         return $GLOBALS['TSFE']->tmpl->flatSetup;
+    }
+
+    /**
+     * Clear all caches for the compiler.
+     */
+    protected function clearCompilerCaches()
+    {
+        GeneralUtility::rmdir(PATH_site . $this->tempDirectory,true);
     }
 }

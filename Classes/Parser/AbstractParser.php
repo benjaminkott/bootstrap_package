@@ -9,6 +9,9 @@
 
 namespace BK2K\BootstrapPackage\Parser;
 
+use TYPO3\CMS\Core\Cache\CacheManager;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * BrandingService
  */
@@ -31,5 +34,14 @@ abstract class AbstractParser implements ParserInterface
     public function compile($file, $settings)
     {
         return $file;
+    }
+
+    /**
+     * Clear all page caches
+     * @throws \TYPO3\CMS\Core\Cache\Exception\NoSuchCacheGroupException
+     */
+    protected function clearPageCaches()
+    {
+        GeneralUtility::makeInstance(CacheManager::class)->flushCachesInGroup('pages');
     }
 }
