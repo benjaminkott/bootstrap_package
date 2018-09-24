@@ -78,13 +78,6 @@ lib.contentElement {
             columns {
                 1 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.1.class}
-                    multiplier {
-                        default = 1
-                        large = 1
-                        medium = 1
-                        small = 1
-                        extrasmall = 1
-                    }
                 }
                 2 {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.2.class}
@@ -95,7 +88,7 @@ lib.contentElement {
                         small = 0.5
                         extrasmall = 0.5
                     }
-                    corrections {
+                    gutters {
                         default = 16
                         large = 16
                         medium = 16
@@ -112,12 +105,12 @@ lib.contentElement {
                         small = 0.3333
                         extrasmall = 0.3333
                     }
-                    corrections {
-                        default = 32
-                        large = 32
-                        medium = 32
-                        small = 32
-                        extrasmall = 32
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
                     }
                 }
                 4 {
@@ -129,9 +122,9 @@ lib.contentElement {
                         small = 0.5
                         extrasmall = 0.5
                     }
-                    corrections {
-                        default = 48
-                        large = 48
+                    gutters {
+                        default = 16
+                        large = 16
                         medium = 16
                         small = 16
                         extrasmall = 16
@@ -146,11 +139,11 @@ lib.contentElement {
                         small = 0.3333
                         extrasmall = 0.5
                     }
-                    corrections {
-                        default = 64
-                        large = 64
-                        medium = 32
-                        small = 32
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
                         extrasmall = 16
                     }
                 }
@@ -163,11 +156,11 @@ lib.contentElement {
                         small = 0.3333
                         extrasmall = 0.5
                     }
-                    corrections {
-                        default = 80
-                        large = 80
-                        medium = 32
-                        small = 32
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
                         extrasmall = 16
                     }
                 }
@@ -203,11 +196,19 @@ lib.contentElement {
                             default = 0.75
                             large = 0.75
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     2 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -217,11 +218,19 @@ lib.contentElement {
                             default = 0.75
                             large = 0.75
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     1 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -231,11 +240,19 @@ lib.contentElement {
                             default = 0.5
                             large = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     2 {
                         multiplier {
                             default = 0.5
                             large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -245,6 +262,10 @@ lib.contentElement {
                             default = 0.75
                             large = 0.75
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                 }
                 2_columns_offset_right {
@@ -253,11 +274,19 @@ lib.contentElement {
                             default = 0.6666
                             large = 0.6666
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     2 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -267,17 +296,29 @@ lib.contentElement {
                             default = 0.5
                             large = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     1 {
                         multiplier {
                             default = 0.25
                             large = 0.25
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     2 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -289,6 +330,12 @@ lib.contentElement {
                             medium = 0.5
                             small = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
                     }
                     31 {
                         multiplier {
@@ -296,6 +343,12 @@ lib.contentElement {
                             large = 0.5
                             medium = 0.5
                             small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
                         }
                     }
                     32 {
@@ -305,6 +358,12 @@ lib.contentElement {
                             medium = 0.5
                             small = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
                     }
                     33 {
                         multiplier {
@@ -312,6 +371,12 @@ lib.contentElement {
                             large = 0.5
                             medium = 0.5
                             small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
                         }
                     }
                     34 {
@@ -321,6 +386,12 @@ lib.contentElement {
                             medium = 0.5
                             small = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
                     }
                     35 {
                         multiplier {
@@ -328,6 +399,12 @@ lib.contentElement {
                             large = 0.5
                             medium = 0.5
                             small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
                         }
                     }
                     36 {
@@ -337,6 +414,12 @@ lib.contentElement {
                             medium = 0.5
                             small = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
                     }
                     37 {
                         multiplier {
@@ -344,6 +427,12 @@ lib.contentElement {
                             large = 0.5
                             medium = 0.5
                             small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
                         }
                     }
                 }
@@ -354,6 +443,11 @@ lib.contentElement {
                             large = 0.3333
                             medium = 0.3333
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                        }
                     }
                     21 {
                         multiplier {
@@ -361,12 +455,22 @@ lib.contentElement {
                             large = 0.3333
                             medium = 0.3333
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                        }
                     }
                     22 {
                         multiplier {
                             default = 0.3333
                             large = 0.3333
                             medium = 0.3333
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
                         }
                     }
                 }
@@ -376,6 +480,10 @@ lib.contentElement {
                             default = 0.75
                             large = 0.75
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                 }
                 subnavigation_left_2_columns {
@@ -384,11 +492,19 @@ lib.contentElement {
                             default = 0.5
                             large = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     1 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }
@@ -398,6 +514,10 @@ lib.contentElement {
                             default = 0.75
                             large = 0.75
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                 }
                 subnavigation_right_2_columns {
@@ -406,11 +526,19 @@ lib.contentElement {
                             default = 0.5
                             large = 0.5
                         }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
                     }
                     2 {
                         multiplier {
                             default = 0.25
                             large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
                         }
                     }
                 }

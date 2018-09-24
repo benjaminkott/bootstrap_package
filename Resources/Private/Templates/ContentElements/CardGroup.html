@@ -3,7 +3,8 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.responsiveimages.contentelements.card_group.{data.pi_flexform.columns}.multiplier}" corrections="{settings.responsiveimages.contentelements.card_group.{data.pi_flexform.columns}.corrections}" />
+        <f:variable name="imageConfig">{settings.responsiveimages.contentelements.card_group.{data.pi_flexform.columns}}</f:variable>
+        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
         <div class="card-group-element card-group-element-align-{data.pi_flexform.align} card-group-element-columns-{data.pi_flexform.columns}">
             <f:for each="{records}" as="item" iteration="iteration">
 

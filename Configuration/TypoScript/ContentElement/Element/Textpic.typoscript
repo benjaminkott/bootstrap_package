@@ -53,7 +53,7 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 large = 0.5
                 medium = 0.5
             }
-            corrections {
+            gutters {
                 default = 40
                 large = 40
                 medium = 40
@@ -65,7 +65,7 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 large = 0.5
                 medium = 0.5
             }
-            corrections {
+            gutters {
                 default = 40
                 large = 40
                 medium = 40
