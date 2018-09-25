@@ -239,7 +239,7 @@ CREATE TABLE tx_bootstrappackage_tab_item (
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text,
     media int(11) unsigned DEFAULT '0',
-    mediaorient tinyint(4) unsigned DEFAULT '0' NOT NULL,
+    mediaorient varchar(60) DEFAULT 'left' NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,

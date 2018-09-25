@@ -566,17 +566,23 @@
             <trans-unit id="tab_item.media">
                 <source>Media</source>
             </trans-unit>
-            <trans-unit id="tab_item.mediaorient">
+            <trans-unit id="tab_item.mediaposition">
                 <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient">
+                <source>Orientation</source>
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.left">
                 <source>Left</source>
             </trans-unit>
-            <trans-unit id="tab_item.mediaorient.center">
-                <source>Center</source>
+            <trans-unit id="tab_item.mediaorient.top">
+                <source>Top</source>
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.right">
                 <source>Right</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient.bottom">
+                <source>Bottom</source>
             </trans-unit>
 
             <trans-unit id="timeline.options">

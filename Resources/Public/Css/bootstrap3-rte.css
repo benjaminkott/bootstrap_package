@@ -8776,12 +8776,6 @@ body,
 .subnav-link-icon + .subnav-link-text {
   margin-left: 0.5em;
 }
-.nav-tabs {
-  margin-bottom: 1.5em;
-}
-.nav-tabs > li > a {
-  color: #555555;
-}
 .breadcrumb-section {
   background-color: #f5f5f5;
   border-bottom: 1px solid #eeeeee;
@@ -10708,6 +10702,60 @@ body .typo3-editPanel-btn:hover,
 }
 @media (min-width: 992px) {
   .accordion-content-right .accordion-content-media {
+    margin-top: 0;
+  }
+}
+.tab-navigation {
+  margin-bottom: 40px;
+}
+.tab-pane.show {
+  display: none!important;
+}
+.tab-pane.show.in {
+  display: block!important;
+}
+.tab-pane-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.tab-pane-content-item {
+  flex-grow: 1;
+  order: 1;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+.tab-pane-content-text *:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .tab-pane-content-right .tab-pane-content-item,
+  .tab-pane-content-left .tab-pane-content-item {
+    width: 50%;
+  }
+  .tab-pane-content-right .tab-pane-content-item *:last-child,
+  .tab-pane-content-left .tab-pane-content-item *:last-child {
+    margin-bottom: 0;
+  }
+}
+.tab-pane-content-top .tab-pane-content-media,
+.tab-pane-content-left .tab-pane-content-media {
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .tab-pane-content-left .tab-pane-content-media {
+    margin-bottom: 0;
+  }
+}
+.tab-pane-content-bottom .tab-pane-content-media,
+.tab-pane-content-right .tab-pane-content-media {
+  order: 2;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .tab-pane-content-right .tab-pane-content-media {
     margin-top: 0;
   }
 }
