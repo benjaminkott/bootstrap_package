@@ -10840,14 +10840,14 @@ body .typo3-editPanel-btn:hover,
   position: relative;
 }
 .timeline-item:not(:first-child) {
-  margin-top: 0.625em;
+  margin-top: 0.75em;
 }
 .timeline-item-inner {
-  margin-left: 1.25em;
+  margin-left: 1.5em;
   background-color: #ffffff;
   border: 1px solid currentColor;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
-  padding: 1.25em;
+  padding: 1.5em;
 }
 .timeline-item-marker,
 .timeline-item-icon {
@@ -10909,14 +10909,20 @@ body .typo3-editPanel-btn:hover,
   height: auto;
 }
 .timeline-item-image {
-  margin-top: -1.25em;
-  margin-left: -1.25em;
-  margin-right: -1.25em;
-  margin-bottom: 1.25em;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  margin-bottom: 1.5em;
 }
 .timeline-item-image img {
   width: 100%;
   height: auto;
+}
+.timeline-item-image .caption {
+  font-size: 0.8em;
+  padding: 0.5rem 1.5em;
+  color: black;
+  background-color: #f2f2f2;
 }
 .timeline-item-header-headline {
   font-size: 1.5em;
@@ -10945,7 +10951,7 @@ body .typo3-editPanel-btn:hover,
     width: 50%;
   }
   .timeline-item:not(:first-child) {
-    margin-top: -1.25em;
+    margin-top: -1.5em;
   }
   .timeline-item-marker {
     left: auto;
@@ -10954,13 +10960,13 @@ body .typo3-editPanel-btn:hover,
   }
   .timeline-item-inner {
     margin-left: 0;
-    margin-right: calc(1.25em + 46px / 2);
+    margin-right: calc(1.5em + 46px / 2);
   }
   .timeline-item:nth-child(even) {
     margin-left: 50%;
   }
   .timeline-item:nth-child(even) .timeline-item-inner {
-    margin-left: calc(1.25em + 46px / 2);
+    margin-left: calc(1.5em + 46px / 2);
     margin-right: 0;
   }
   .timeline-item:nth-child(even) .timeline-item-marker {

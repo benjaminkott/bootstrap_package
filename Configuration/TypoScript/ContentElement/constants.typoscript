@@ -145,12 +145,6 @@ plugin.bootstrap_package_contentelements {
             # cat=bootstrap package: content elements/180_contentelement/001_date_format; type=string; label=Date Format
             format = %B %e, %Y
         }
-        media {
-            # cat=bootstrap package: content elements/180_contentelement/002_media_height; type=string; label=Media Height
-            height = 200c
-            # cat=bootstrap package: content elements/180_contentelement/003_media_width; type=string; label=Media Width
-            width = 525c
-        }
     }
     uploads {
         preview {

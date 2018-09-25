@@ -6,12 +6,13 @@
 //
 // Variables
 //
-@timline-spacing: 1.25em;
-@timline-padding: 1.25em;
+@timline-spacing: 1.5em;
+@timline-padding: 1.5em;
 @timeline-marker-size: 16px;
 @timeline-icon-size: 46px;
 @timeline-color: @text-color;
 @timeline-bg: #ffffff;
+@timeline-caption-bg: #f2f2f2;
 
 
 //
@@ -108,6 +109,12 @@
     img {
         width: 100%;
         height: auto;
+    }
+    .caption {
+        font-size: 0.8em;
+        padding: 0.5rem @timline-padding;
+        color: contrast(@timeline-caption-bg, black, white, 43%);
+        background-color: @timeline-caption-bg;
     }
 }
 .timeline-item-header-headline {

@@ -12101,15 +12101,15 @@ figure .caption {
 }
 
 .timeline-item:not(:first-child) {
-  margin-top: 0.625rem;
+  margin-top: 0.75rem;
 }
 
 .timeline-item-inner {
-  margin-left: 1.25rem;
+  margin-left: 1.5rem;
   background-color: #ffffff;
   border: 1px solid currentColor;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 .timeline-item-marker,
@@ -12178,10 +12178,10 @@ figure .caption {
 }
 
 .timeline-item-image {
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: -1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .timeline-item-image img {
@@ -12189,8 +12189,15 @@ figure .caption {
   height: auto;
 }
 
+.timeline-item-image .caption {
+  font-size: 0.8em;
+  padding: 0.5rem 1.5rem;
+  color: #2b2b2b;
+  background-color: #f2f2f2;
+}
+
 .timeline-item-header-headline {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: #4faf98;
 }
 
@@ -12220,7 +12227,7 @@ figure .caption {
     width: 50%;
   }
   .timeline-item:not(:first-child) {
-    margin-top: -1.25rem;
+    margin-top: -1.5rem;
   }
   .timeline-item-marker {
     left: auto;
@@ -12229,13 +12236,13 @@ figure .caption {
   }
   .timeline-item-inner {
     margin-left: 0;
-    margin-right: calc(1.25rem + 46px / 2);
+    margin-right: calc(1.5rem + 46px / 2);
   }
   .timeline-item:nth-child(even) {
     margin-left: 50%;
   }
   .timeline-item:nth-child(even) .timeline-item-inner {
-    margin-left: calc(1.25rem + 46px / 2);
+    margin-left: calc(1.5rem + 46px / 2);
     margin-right: 0;
   }
   .timeline-item:nth-child(even) .timeline-item-marker {

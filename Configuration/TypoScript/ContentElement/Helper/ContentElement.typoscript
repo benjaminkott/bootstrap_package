@@ -592,10 +592,6 @@ lib.contentElement {
             date {
                 format = {$plugin.bootstrap_package_contentelements.timeline.date.format}
             }
-            media {
-                height = {$plugin.bootstrap_package_contentelements.timeline.media.height}
-                width = {$plugin.bootstrap_package_contentelements.timeline.media.width}
-            }
         }
         uploads {
             preview {
