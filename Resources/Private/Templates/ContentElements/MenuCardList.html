@@ -3,16 +3,18 @@
 <f:section name="Main">
 
     <f:if condition="{menu}">
+        <f:variable name="imageConfig">{settings.responsiveimages.contentelements.menu_card_list.{data.pi_flexform.columns}}</f:variable>
+        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
         <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
         <div class="card-menu card-menu card-menu-align-{data.pi_flexform.align} card-menu-columns-{data.pi_flexform.columns}">
             <f:for each="{menu}" as="page">
                 <div class="card-menu-item">
 
                     <div class="card">
-                        <f:if condition="{page.files.0} && {page.files.0.type} == 2">
+                        <f:if condition="{page.files.0}">
                             <div class="card-img-top">
                                 <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
-                                    <f:media file="{page.files.0}" width="{settings.menucard.media.width}" height="{settings.menucard.media.height}" />
+                                    <f:render partial="Media/Rendering/Image" arguments="{file: page.files.0, data: page.data, settings: settings, variants: variants}" />
                                 </a>
                             </div>
                         </f:if>

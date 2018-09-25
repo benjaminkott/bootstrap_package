@@ -55,3 +55,82 @@ tt_content.menu_card_dir {
     }
 
 }
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    menu_card_dir {
+        1 {
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        2 {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        3 {
+            multiplier {
+                default = 0.3333
+                large = 0.3333
+                medium = 0.3333
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        4 {
+            multiplier {
+                default = 0.25
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+    }
+}

@@ -99,24 +99,16 @@ plugin.bootstrap_package_contentelements {
             # cat=bootstrap package: content elements/160_contentelement/003_icon_width; type=string; label=Icon Width
             width = 32c
         }
-        thumbnail {
-            # cat=bootstrap package: content elements/160_contentelement/004_thumbnail_enable; type=boolean; label=Enable Thumbnail
-            enable = 1
-            # cat=bootstrap package: content elements/160_contentelement/005_thumbnail_height; type=string; label=Thumbnail Height
-            height = 250c
-            # cat=bootstrap package: content elements/160_contentelement/006_thumbnail_width; type=string; label=Thumbnail Width
-            width = 440c
-        }
         title {
-            # cat=bootstrap package: content elements/160_contentelement/007_title_crop; type=string; label=Crop Title
+            # cat=bootstrap package: content elements/160_contentelement/004_title_crop; type=string; label=Crop Title
             crop = 100
         }
         subtitle {
-            # cat=bootstrap package: content elements/160_contentelement/008_subtitle_crop; type=string; label=Crop Subtitle
+            # cat=bootstrap package: content elements/160_contentelement/005_subtitle_crop; type=string; label=Crop Subtitle
             crop = 100
         }
         abstract {
-            # cat=bootstrap package: content elements/160_contentelement/009_abstract_crop; type=string; label=Crop Abstract
+            # cat=bootstrap package: content elements/160_contentelement/006_abstract_crop; type=string; label=Crop Abstract
             crop = 250
         }
     }
