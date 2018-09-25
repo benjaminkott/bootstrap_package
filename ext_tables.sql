@@ -240,6 +240,8 @@ CREATE TABLE tx_bootstrappackage_tab_item (
     bodytext text,
     media int(11) unsigned DEFAULT '0',
     mediaorient varchar(60) DEFAULT 'left' NOT NULL,
+    imagecols tinyint(4) unsigned DEFAULT '1' NOT NULL,
+    image_zoom tinyint(3) unsigned DEFAULT '0' NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,

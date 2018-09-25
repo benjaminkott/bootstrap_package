@@ -81,6 +81,8 @@ return [
         'mediaposition' => [
             'showitem' => '
                 mediaorient,
+                imagecols,
+                image_zoom,
             '
         ],
         'visibility' => [
@@ -287,5 +289,54 @@ return [
             ],
             'l10n_mode' => 'exclude'
         ],
+        'imagecols' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imagecols',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        '1',
+                        1
+                    ],
+                    [
+                        '2',
+                        2
+                    ],
+                    [
+                        '3',
+                        3
+                    ],
+                    [
+                        '4',
+                        4
+                    ],
+                    [
+                        '5',
+                        5
+                    ],
+                    [
+                        '6',
+                        6
+                    ]
+                ],
+                'default' => 2
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'image_zoom' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.image_zoom',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+        ]
     ],
 ];
