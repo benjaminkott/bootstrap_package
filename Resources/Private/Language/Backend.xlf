@@ -148,6 +148,25 @@
                 <source>Insert menu to display selected pages as cards</source>
             </trans-unit>
 
+            <trans-unit id="menu.card.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="menu.card.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.right">
+                <source>Right</source>
+            </trans-unit>
+
             <trans-unit id="menu.thumbnail_dir">
                 <source>Thumbnails of subpages</source>
             </trans-unit>

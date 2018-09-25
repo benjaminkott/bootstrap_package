@@ -9383,42 +9383,72 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 0;
 }
 
-.card-deck-menu .card {
-  margin-bottom: 20px;
+.card-menu {
+  margin: -10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@media (min-width: 576px) {
-  .card-deck-menu .card {
-    flex-grow: 0;
-    min-width: calc(50% - 10px * 2);
-  }
+.card-menu .card {
+  height: 100%;
 }
 
-@media (min-width: 992px) {
-  .card-deck-menu .card {
-    min-width: calc(33.33% - 10px * 2);
-  }
-}
-
-.card-deck-menu .card-img {
-  height: auto;
-}
-
-.card-deck-menu .card-icon {
+.card-menu .card-icon {
   margin-bottom: 0.5rem;
 }
 
-.card-deck-menu .card-title {
+.card-menu .card-title {
   font-size: 1.35rem;
 }
 
-.card-deck-menu .card-subtitle {
+.card-menu .card-subtitle {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.card-deck-menu .card-link {
+.card-menu .card-link {
   color: #4faf98;
+}
+
+.card-menu-item {
+  width: 100%;
+  padding: 10px;
+}
+
+.card-menu-align-left {
+  justify-content: flex-start;
+}
+
+.card-menu-align-center {
+  justify-content: center;
+}
+
+.card-menu-align-right {
+  justify-content: flex-end;
+}
+
+@media (min-width: 576px) {
+  .card-menu-columns-2 .card-menu-item {
+    width: calc(100% / 2);
+  }
+}
+
+@media (min-width: 768px) {
+  .card-menu-columns-3 .card-menu-item {
+    width: calc(100% / 3);
+  }
+}
+
+@media (min-width: 576px) {
+  .card-menu-columns-4 .card-menu-item {
+    width: calc(100% / 2);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-menu-columns-4 .card-menu-item {
+    width: calc(100% / 4);
+  }
 }
 
 .card-group-element {

@@ -22,19 +22,12 @@
 //
 // Card Deck Menu
 //
-.card-deck-menu {
+.card-menu {
+    margin: -$card-deck-margin;
+    display: flex;
+    flex-wrap: wrap;
     .card {
-        margin-bottom: $card-deck-margin * 2;
-        @include media-breakpoint-up('sm') {
-            flex-grow: 0;
-            min-width: calc(50% - #{$card-deck-margin} * 2);
-        }
-        @include media-breakpoint-up('lg') {
-            min-width: calc(33.33% - #{$card-deck-margin} * 2);
-        }
-    }
-    .card-img {
-        height: auto;
+        height: 100%;
     }
     .card-icon {
         margin-bottom: 0.5rem;
@@ -48,6 +41,43 @@
     }
     .card-link {
         color: $link-color;
+    }
+}
+.card-menu-item {
+    width: 100%;
+    padding: $card-deck-margin;
+}
+.card-menu-align-left {
+    justify-content: flex-start;
+}
+.card-menu-align-center {
+    justify-content: center;
+}
+.card-menu-align-right {
+    justify-content: flex-end;
+}
+.card-menu-columns-2 {
+    .card-menu-item  {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+    }
+}
+.card-menu-columns-3 {
+    .card-menu-item  {
+        @include media-breakpoint-up('md') {
+            width: calc(100% / 3);
+        }
+    }
+}
+.card-menu-columns-4 {
+    .card-menu-item  {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+        @include media-breakpoint-up('xl') {
+            width: calc(100% / 4);
+        }
     }
 }
 
