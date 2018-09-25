@@ -80,13 +80,14 @@ class ExternalMediaUtility
      */
     protected function processYoutube($url)
     {
-        $matches = [];
+        $firstMatches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
-        if (preg_match($pattern, $url, $matches)) {
-            $toEmbed = $matches[1];
+        if (preg_match($pattern, $url, $firstMatches)) {
+            $toEmbed = $firstMatches[1];
             $patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
-            if (preg_match($patternForAdditionalParams, $url, $matches)) {
-                $toEmbed .= '?' . substr($matches[1], 1);
+            $secondMatches = [];
+            if (preg_match($patternForAdditionalParams, $url, $secondMatches) > 1) {
+                $toEmbed .= '?' . substr($secondMatches[1], 1);
             }
             return 'https://www.youtube-nocookie.com/embed/' . $toEmbed;
         }
