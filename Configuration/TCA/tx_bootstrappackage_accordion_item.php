@@ -330,7 +330,6 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.image_zoom',
             'config' => [
                 'type' => 'check',
-                'renderType' => 'checkboxToggle',
                 'items' => [
                     [
                         0 => '',
