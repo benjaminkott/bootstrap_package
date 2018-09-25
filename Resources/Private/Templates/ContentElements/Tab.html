@@ -11,6 +11,7 @@
                 </f:if>
             </f:for>
         </f:if>
+        <f:variable name="currentVariants" value="{variants}" />
 
         <ul class="nav nav-tabs tab-navigation" id="tab-{data.uid}" role="tablist">
             <f:for each="{records}" as="record" iteration="iteration">
@@ -27,6 +28,8 @@
                     <div class="tab-pane-content tab-pane-content-{record.data.mediaorient}">
                         <f:if condition="{record.files}">
                             <div class="tab-pane-content-item tab-pane-content-media">
+                                <f:variable name="imageConfig">{settings.responsiveimages.contentelements.tab.{record.data.mediaorient}}</f:variable>
+                                <bk2k:data.imageVariants as="variants" variants="{currentVariants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
                                 <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
                             </div>
                         </f:if>
