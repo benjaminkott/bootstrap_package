@@ -253,10 +253,8 @@ return [
                                     --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     --palette--;;filePalette'
                             ]
-                        ],
-                    ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
+                        ]
+                    ]
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
