@@ -17,9 +17,9 @@
                     </div>
                     <div id="accordion-{data.uid}-{record.data.uid}" class="accordion-collapse collapse{f:if(condition: '{activeElement} == {record.data.uid}', then: ' show')}" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}" data-parent="#accordion-{data.uid}">
                         <div class="accordion-body card-body">
-                            <div class="accordion-content">
+                            <div class="accordion-content accordion-content-{record.data.mediaorient}">
                                 <f:if condition="{record.files}">
-                                    <div class="accordion-content-item accordion-content-media{f:if(condition: '{record.data.mediaorient} == 0', else: ' accordion-content-media-last')}">
+                                    <div class="accordion-content-item accordion-content-media">
                                         <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
                                     </div>
                                 </f:if>

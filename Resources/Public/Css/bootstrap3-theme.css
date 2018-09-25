@@ -10679,19 +10679,37 @@ body .typo3-editPanel-btn:hover,
   padding-right: 0.75em;
   width: 100%;
 }
-@media (min-width: 992px) {
-  .accordion-content-item {
-    width: 50%;
-  }
-  .accordion-content-item *:last-child {
-    margin-bottom: 0;
-  }
-}
 .accordion-content-text *:last-child {
   margin-bottom: 0;
 }
-.accordion-content-media-last {
+@media (min-width: 992px) {
+  .accordion-content-right .accordion-content-item,
+  .accordion-content-left .accordion-content-item {
+    width: 50%;
+  }
+  .accordion-content-right .accordion-content-item *:last-child,
+  .accordion-content-left .accordion-content-item *:last-child {
+    margin-bottom: 0;
+  }
+}
+.accordion-content-top .accordion-content-media,
+.accordion-content-left .accordion-content-media {
+  margin-bottom: 1.5em;
+}
+@media (min-width: 992px) {
+  .accordion-content-left .accordion-content-media {
+    margin-bottom: 0;
+  }
+}
+.accordion-content-bottom .accordion-content-media,
+.accordion-content-right .accordion-content-media {
   order: 2;
+  margin-top: 1.5em;
+}
+@media (min-width: 992px) {
+  .accordion-content-right .accordion-content-media {
+    margin-top: 0;
+  }
 }
 .icongroup {
   display: flex;

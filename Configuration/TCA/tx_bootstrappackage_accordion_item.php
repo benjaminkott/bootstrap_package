@@ -55,7 +55,7 @@ return [
                 header,
                 bodytext,
                 media,
-                mediaorient,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition;mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -76,6 +76,11 @@ return [
         'general' => [
             'showitem' => '
                 tt_content
+            '
+        ],
+        'mediaposition' => [
+            'showitem' => '
+                mediaorient,
             '
         ],
         'visibility' => [
@@ -265,16 +270,24 @@ return [
                 'items' => [
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.left',
-                        0
+                        'left'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.top',
+                        'top'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.right',
-                        1
+                        'right'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.bottom',
+                        'bottom'
                     ],
                 ],
                 'default' => 0,
             ],
-            'l10n_mode' => 'exclude',
+            'l10n_mode' => 'exclude'
         ],
-    ],
+    ]
 ];
