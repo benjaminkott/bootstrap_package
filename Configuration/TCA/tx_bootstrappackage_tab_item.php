@@ -255,8 +255,6 @@ return [
                             ]
                         ],
                     ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
