@@ -81,6 +81,8 @@ return [
         'mediaposition' => [
             'showitem' => '
                 mediaorient,
+                imagecols,
+                image_zoom,
             '
         ],
         'visibility' => [
@@ -287,5 +289,55 @@ return [
             ],
             'l10n_mode' => 'exclude'
         ],
+        'imagecols' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.imagecols',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        '1',
+                        1
+                    ],
+                    [
+                        '2',
+                        2
+                    ],
+                    [
+                        '3',
+                        3
+                    ],
+                    [
+                        '4',
+                        4
+                    ],
+                    [
+                        '5',
+                        5
+                    ],
+                    [
+                        '6',
+                        6
+                    ]
+                ],
+                'default' => 1
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'image_zoom' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.image_zoom',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+        ]
     ]
 ];

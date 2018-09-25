@@ -519,6 +519,12 @@
             <trans-unit id="accordion_item.mediaposition">
                 <source>Media position</source>
             </trans-unit>
+            <trans-unit id="accordion_item.imagecols">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.image_zoom">
+                <source>Enlarge on Click</source>
+            </trans-unit>
             <trans-unit id="accordion_item.mediaorient">
                 <source>Orientation</source>
             </trans-unit>
