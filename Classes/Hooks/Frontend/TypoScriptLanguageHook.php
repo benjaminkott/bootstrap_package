@@ -52,7 +52,7 @@ class TypoScriptLanguageHook
             if ($uid === 0) {
                 $template = array_slice($template, 1, -1);
             }
-            $template .= implode(LF, $template) . LF;
+            $template = implode(LF, $template) . LF;
             $template = str_replace([
                 self::SYS_LANGUAGE_UID_PLACEHOLDER,
                 self::LANGUAGE_PLACEHOLDER,
