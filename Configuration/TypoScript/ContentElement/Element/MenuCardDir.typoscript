@@ -22,9 +22,9 @@ tt_content.menu_card_dir {
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
-                    references.fieldName = media
+                    references.fieldName = thumbnail
                     if {
-                        isTrue = {$plugin.bootstrap_package_contentelements.menu_card.media.enable}
+                        isTrue = {$plugin.bootstrap_package_contentelements.menu_card.thumbnail.enable}
                     }
                 }
                 20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
