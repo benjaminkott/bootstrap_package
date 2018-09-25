@@ -92,12 +92,11 @@ class LessParser extends AbstractParser
         $css = preg_replace($search, $replace, $css);
 
         $parsedFiles = [];
-        foreach ($parser::AllParsedFiles() as $file) {
-            $parsedFiles[$file] = filemtime($file);
+        foreach ($parser::AllParsedFiles() as $parsedfile) {
+            $parsedFiles[$parsedfile] = filemtime($parsedfile);
         }
 
         return [
-            'filename' => $file,
             'css' => $css,
             'cache' => [
                 'version' => \Less_Version::version,
