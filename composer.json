@@ -30,7 +30,6 @@
     "ext-dom": "*",
     "ext-libxml": "*",
     "ext-simplexml": "*",
-    "leafo/scssphp": "^0.7.4",
     "typo3/cms-backend": "^8.7.0 || ^9.0",
     "typo3/cms-core": "^8.7.0 || ^9.0",
     "typo3/cms-extbase": "^8.7.0 || ^9.0",
