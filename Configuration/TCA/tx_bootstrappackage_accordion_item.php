@@ -285,7 +285,7 @@ return [
                         'bottom'
                     ],
                 ],
-                'default' => 0,
+                'default' => 'left',
             ],
             'l10n_mode' => 'exclude'
         ],
@@ -321,7 +321,7 @@ return [
                         6
                     ]
                 ],
-                'default' => 1
+                'default' => 2
             ],
             'l10n_mode' => 'exclude'
         ],
