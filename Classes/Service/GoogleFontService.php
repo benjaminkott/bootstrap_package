@@ -39,9 +39,8 @@ class GoogleFontService
         }
         if ($this->isCached($file)) {
             return $this->getCssFileCacheName($file);
-        } else {
-            return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : false;
         }
+        return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : false;
     }
 
     /**

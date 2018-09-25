@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
+use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Service\ImageService;
@@ -47,7 +48,8 @@ class InlineSvgViewHelper extends AbstractViewHelper
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      * @return string
-     * @throws Exception
+     * @throws \Exception
+     * @TODO: Think about a new excepetion concept / handling
      */
     public static function renderStatic(
         array $arguments,
@@ -58,7 +60,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
         $image = $arguments['image'];
 
         if (($src === null && $image === null) || ($src !== null && $image !== null)) {
-            throw new Exception('You must either specify a string src or a File object.', 1530601100);
+            throw new \Exception('You must either specify a string src or a File object.', 1530601100);
         }
 
         try {
@@ -94,23 +96,20 @@ class InlineSvgViewHelper extends AbstractViewHelper
 
             // remove xml version tag
             $domXml = dom_import_simplexml($svgElement);
-            $content = $domXml->ownerDocument->saveXML($domXml->ownerDocument->documentElement);
-
-            return $content;
+            return $domXml->ownerDocument->saveXML($domXml->ownerDocument->documentElement);
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist
-            throw new Exception($e->getMessage(), 1530601100, $e);
+            throw new \Exception($e->getMessage(), 1530601100, $e);
         } catch (\UnexpectedValueException $e) {
             // thrown if a file has been replaced with a folder
-            throw new Exception($e->getMessage(), 1530601101, $e);
+            throw new \Exception($e->getMessage(), 1530601101, $e);
         } catch (\RuntimeException $e) {
             // RuntimeException thrown if a file is outside of a storage
-            throw new Exception($e->getMessage(), 1530601102, $e);
+            throw new \Exception($e->getMessage(), 1530601102, $e);
         } catch (\InvalidArgumentException $e) {
             // thrown if file storage does not exist
-            throw new Exception($e->getMessage(), 1530601103, $e);
+            throw new \Exception($e->getMessage(), 1530601103, $e);
         }
-        return '';
     }
 
     /**

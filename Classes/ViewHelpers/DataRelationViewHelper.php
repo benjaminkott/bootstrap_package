@@ -47,7 +47,7 @@ class DataRelationViewHelper extends AbstractViewHelper
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return void
+     * @return mixed
      */
     public static function renderStatic(
         array $arguments,

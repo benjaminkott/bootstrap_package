@@ -11,6 +11,7 @@ namespace BK2K\BootstrapPackage\DataProcessing;
 
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\ProcessedFile;
 use TYPO3\CMS\Core\Utility\CsvUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\DataProcessing\FilesProcessor;
@@ -45,7 +46,8 @@ class CsvFileProcessor extends FilesProcessor
         unset($processedData[$targetVariableName]);
 
         foreach ($files as $key => $value) {
-            if (is_object($value) && in_array(get_class($value), [FileReference::class, File::class])) {
+            if (is_object($value) && in_array(get_class($value), [FileReference::class, File::class], true)) {
+                /** @var ProcessedFile $value */
                 if ($value->getExtension() !== 'csv') {
                     unset($files[$key]);
                 } else {

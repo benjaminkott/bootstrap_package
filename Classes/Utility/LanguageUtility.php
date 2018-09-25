@@ -41,10 +41,10 @@ class LanguageUtility
     {
         $result = '';
 
-        if (TYPO3_MODE == 'BE') {
+        if (TYPO3_MODE === 'BE') {
             $result = '{$' . $key . '}';
         } else {
-            if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+            if ($GLOBALS['TSFE']->tmpl->flatSetup === null
                 || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
                 || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
                 $GLOBALS['TSFE']->tmpl->generateConfig();
@@ -71,7 +71,7 @@ class LanguageUtility
     {
         $result = [];
 
-        if (isset($row) && is_array($row) && !empty($row)) {
+        if (!empty($row)) {
             // Load language from row
             $result = $row;
         } else {
@@ -88,9 +88,7 @@ class LanguageUtility
             $result['navigationTitle'] = $result['title'];
         }
         // Sanitize array
-        $result = array_replace_recursive(self::$languageDefaults, $result);
-
-        return $result;
+        return array_replace_recursive(self::$languageDefaults, $result);
     }
 
     /**
@@ -104,13 +102,13 @@ class LanguageUtility
         // Cache languages data for later calls
         static $languageCache = null;
 
-        if (!isset($languageCache) || !isset($languageCache[$languageUid])) {
+        if ($languageCache === null || !isset($languageCache[$languageUid])) {
             $languageRow = null;
-            if (!isset($languageRow) && ($languageUid > 0)) {
+            if ($languageRow === null && ($languageUid > 0)) {
                 // Prepare and fetch from database
                 static $queryBuilder = null;
 
-                if (!isset($queryBuilder)) {
+                if ($queryBuilder === null) {
                     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
                 }
                 $languageRow = $queryBuilder->select('uid AS languageId', 'locale', 'title', 'nav_title AS navigationTitle', 'language_isocode AS twoLetterIsoCode', 'hreflang', 'direction')
@@ -135,7 +133,7 @@ class LanguageUtility
         // Cache languages data for later calls
         static $languagesCache = null;
 
-        if (!isset($languagesCache)) {
+        if ($languagesCache === null) {
             // Set default language
             $languagesCache[0] = self::extractLanguageData([]);
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
@@ -160,7 +158,7 @@ class LanguageUtility
         // Cache languages for later calls
         static $languageListCache = null;
 
-        if (!isset($languageListCache)) {
+        if ($languageListCache === null) {
             // Set default language if enabled
             $languageListCache = self::getConstantValue('config.language.default.enable') ? '0' : '';
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');

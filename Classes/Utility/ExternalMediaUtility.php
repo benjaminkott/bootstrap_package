@@ -43,10 +43,11 @@ class ExternalMediaUtility
         if ($method !== null) {
             $embedUrl = $this->{$method}($url);
             if ($embedUrl) {
-                $content = '
-                    <iframe class="' . $class . '" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
-                ';
-                return $content;
+                return '<iframe ' . GeneralUtility::implodeAttributes([
+                        'class' => $class,
+                        'src' => $embedUrl,
+                        'frameborder' => 0
+                    ], true) . ' allowfullscreen></iframe>';
             }
         }
         return null;
@@ -127,11 +128,11 @@ class ExternalMediaUtility
     protected function setProtocolToHttps($url)
     {
         $processUrl = trim($url);
-        if (substr($url, 0, 7) === 'http://') {
+        if (strpos($url, 'http://') === 0) {
             $processUrl = substr($processUrl, 7);
-        } elseif (substr($processUrl, 0, 8) === 'https://') {
+        } elseif (strpos($processUrl, 'https://') === 0) {
             $processUrl = substr($processUrl, 8);
-        } elseif (substr($processUrl, 0, 2) === '//') {
+        } elseif (strpos($processUrl, '//') === 0) {
             $processUrl = substr($processUrl, 2);
         }
         return 'https://' . $processUrl;

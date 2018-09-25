@@ -43,9 +43,9 @@ class InstallService
     public function generateApacheHtaccess($extension = null)
     {
         if ($extension === self::EXT_KEY) {
-            if (substr($_SERVER['SERVER_SOFTWARE'], 0, 6) === 'Apache') {
+            if (strpos($_SERVER['SERVER_SOFTWARE'], 'Apache') === 0) {
                 $this->createConfigurationFile('.htaccess');
-            } elseif (substr($_SERVER['SERVER_SOFTWARE'], 0, 13) === 'Microsoft-IIS') {
+            } elseif (strpos($_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS') === 0) {
                 $this->createConfigurationFile('web.config');
             } else {
                 /**
@@ -71,7 +71,7 @@ class InstallService
     /**
      * Creates webserver configuration file inside the root directory
      *
-     * @return void
+     * @param $filename
      */
     private function createConfigurationFile($filename)
     {

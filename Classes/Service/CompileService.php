@@ -116,7 +116,7 @@ class CompileService
      */
     protected function getConstants()
     {
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+        if ($GLOBALS['TSFE']->tmpl->flatSetup === null
         || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
         || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
             $GLOBALS['TSFE']->tmpl->generateConfig();

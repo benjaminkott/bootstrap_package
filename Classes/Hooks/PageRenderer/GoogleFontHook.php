@@ -69,13 +69,14 @@ class GoogleFontHook
      */
     protected function adjustTypoScriptCssConfiguration($include, $file, $cachedFile)
     {
-        if (isset($this->getTemplateService()->setup['page.'][$include . '.'])) {
-            foreach ($this->getTemplateService()->setup['page.'][$include . '.'] as $includeKey => $includeFilename) {
+        $includeFilesConfiguration = $this->getTemplateService()->setup['page.'][$include . '.'];
+        if (!empty($includeFilesConfiguration)) {
+            foreach ($includeFilesConfiguration as $includeKey => $includeFilename) {
                 if (substr($includeKey, -1) === '.') {
                     continue;
                 }
                 if ($file === $includeFilename) {
-                    $this->getTemplateService()->setup['page.'][$include . '.'][$includeKey] = $cachedFile;
+                    $includeFilesConfiguration[$includeKey] = $cachedFile;
                     break;
                 }
             }
@@ -89,7 +90,7 @@ class GoogleFontHook
      */
     protected function getGoogleFontService()
     {
-        if (!isset($this->googleFontService)) {
+        if ($this->googleFontService === null) {
             $this->googleFontService = GeneralUtility::makeInstance(GoogleFontService::class);
         }
         return $this->googleFontService;

@@ -55,7 +55,7 @@ class PreProcessHook
      */
     protected function getCompileService()
     {
-        if (!isset($this->compileService)) {
+        if ($this->compileService === null) {
             $this->compileService = GeneralUtility::makeInstance(CompileService::class);
         }
         return $this->compileService;
