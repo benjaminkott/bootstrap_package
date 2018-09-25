@@ -112,7 +112,6 @@ $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides'
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-
 /***************
  * Pages
  */
