@@ -1,5 +1,5 @@
 #####################
-### BOOTSTRAP 4.0 ###
+### BOOTSTRAP 4.x ###
 #####################
 
 ############################
@@ -193,7 +193,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/font-family-monospace; type=string; label=$font-family-monospace:
             font-family-monospace =       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
             # cat=bootstrap 4.x: styling/312/font-family-base; type=string; label=$font-family-base:
-            font-family-base =            $font-family-sans-serif
+            font-family-base =            "#{$google-webfont}", sans-serif
             # cat=bootstrap 4.x: styling/312/font-size-base; type=string; label=$font-size-base:
             font-size-base =              1rem
             # cat=bootstrap 4.x: styling/312/font-weight-light; type=string; label=$font-weight-light:
@@ -1083,17 +1083,6 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/339/print-body-min-width; type=string; label=$print-body-min-width:
             print-body-min-width =              map-get($grid-breakpoints, "lg")
 
-        }
-    }
-}
-#####################
-### BOOTSTRAP 4.x ###
-#####################
-
-plugin.bootstrap_package {
-    settings {
-        scss {
-            font-family-base = "#{$google-webfont}", sans-serif
         }
     }
 }
