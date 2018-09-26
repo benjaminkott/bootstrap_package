@@ -51,27 +51,27 @@ plugin.bootstrap_package {
         scss {
 
             # cat=bootstrap 4.x: styling/300/blue; type=string; label=$blue:
-            blue   = #007bff
+            blue = #007bff
             # cat=bootstrap 4.x: styling/300/indigo; type=string; label=$indigo:
             indigo = #6610f2
             # cat=bootstrap 4.x: styling/300/purple; type=string; label=$purple:
             purple = #6f42c1
             # cat=bootstrap 4.x: styling/300/pink; type=string; label=$pink:
-            pink   = #e83e8c
+            pink = #e83e8c
             # cat=bootstrap 4.x: styling/300/red; type=string; label=$red:
-            red    = #dc3545
+            red = #dc3545
             # cat=bootstrap 4.x: styling/300/orange; type=string; label=$orange:
             orange = #fd7e14
             # cat=bootstrap 4.x: styling/300/yellow; type=string; label=$yellow:
             yellow = #ffc107
             # cat=bootstrap 4.x: styling/300/green; type=string; label=$green:
-            green  = #28a745
+            green = #28a745
             # cat=bootstrap 4.x: styling/300/teal; type=string; label=$teal:
-            teal   = #20c997
+            teal = #20c997
             # cat=bootstrap 4.x: styling/300/cyan; type=string; label=$cyan:
-            cyan   = #17a2b8
+            cyan = #17a2b8
             # cat=bootstrap 4.x: styling/300/white; type=string; label=$white:
-            white =    #fff
+            white = #fff
             # cat=bootstrap 4.x: styling/300/gray-100; type=string; label=$gray-100:
             gray-100 = #f8f9fa
             # cat=bootstrap 4.x: styling/300/gray-200; type=string; label=$gray-200:
@@ -91,24 +91,24 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/300/gray-900; type=string; label=$gray-900:
             gray-900 = #212529
             # cat=bootstrap 4.x: styling/300/black; type=string; label=$black:
-            black =    #000
+            black = #000
 
             # cat=bootstrap 4.x: styling/301/primary; type=string; label=$primary:
-            primary =   $blue
+            primary = $blue
             # cat=bootstrap 4.x: styling/301/secondary; type=string; label=$secondary:
             secondary = $gray-600
             # cat=bootstrap 4.x: styling/301/success; type=string; label=$success:
-            success =   $green
+            success = $green
             # cat=bootstrap 4.x: styling/301/info; type=string; label=$info:
-            info =      $cyan
+            info = $cyan
             # cat=bootstrap 4.x: styling/301/warning; type=string; label=$warning:
-            warning =   $yellow
+            warning = $yellow
             # cat=bootstrap 4.x: styling/301/danger; type=string; label=$danger:
-            danger =    $red
+            danger = $red
             # cat=bootstrap 4.x: styling/301/light; type=string; label=$light:
-            light =     $gray-100
+            light = $gray-100
             # cat=bootstrap 4.x: styling/301/dark; type=string; label=$dark:
-            dark =      $gray-800
+            dark = $gray-800
 
             # cat=bootstrap 4.x: styling/302/theme-color-interval; type=string; label=$theme-color-interval:
             theme-color-interval = 8%
@@ -122,966 +122,966 @@ plugin.bootstrap_package {
             yiq-text-light = $white
 
             # cat=bootstrap 4.x: styling/305/enable-caret; type=string; label=$enable-caret:
-            enable-caret =              true
+            enable-caret = true
             # cat=bootstrap 4.x: styling/305/enable-rounded; type=string; label=$enable-rounded:
-            enable-rounded =            true
+            enable-rounded = true
             # cat=bootstrap 4.x: styling/305/enable-shadows; type=string; label=$enable-shadows:
-            enable-shadows =            false
+            enable-shadows = false
             # cat=bootstrap 4.x: styling/305/enable-gradients; type=string; label=$enable-gradients:
-            enable-gradients =          false
+            enable-gradients = false
             # cat=bootstrap 4.x: styling/305/enable-transitions; type=string; label=$enable-transitions:
-            enable-transitions =        true
+            enable-transitions = true
             # cat=bootstrap 4.x: styling/305/enable-grid-classes; type=string; label=$enable-grid-classes:
-            enable-grid-classes =       true
+            enable-grid-classes = true
             # cat=bootstrap 4.x: styling/305/enable-print-styles; type=string; label=$enable-print-styles:
-            enable-print-styles =       true
+            enable-print-styles = true
 
             # cat=bootstrap 4.x: styling/306/spacer; type=string; label=$spacer:
             spacer = 1rem
 
             # cat=bootstrap 4.x: styling/307/body-bg; type=string; label=$body-bg:
-            body-bg =                   $white
+            body-bg = $white
             # cat=bootstrap 4.x: styling/307/body-color; type=string; label=$body-color:
-            body-color =                $gray-900
+            body-color = $gray-900
 
             # cat=bootstrap 4.x: styling/308/link-color; type=string; label=$link-color:
-            link-color =                theme-color("primary")
+            link-color = theme-color("primary")
             # cat=bootstrap 4.x: styling/308/link-decoration; type=string; label=$link-decoration:
-            link-decoration =           none
+            link-decoration = none
             # cat=bootstrap 4.x: styling/308/link-hover-color; type=string; label=$link-hover-color:
-            link-hover-color =          darken($link-color, 15%)
+            link-hover-color = darken($link-color, 15%)
             # cat=bootstrap 4.x: styling/308/link-hover-decoration; type=string; label=$link-hover-decoration:
-            link-hover-decoration =     underline
+            link-hover-decoration = underline
 
             # cat=bootstrap 4.x: styling/309/paragraph-margin-bottom; type=string; label=$paragraph-margin-bottom:
-            paragraph-margin-bottom =   1rem
+            paragraph-margin-bottom = 1rem
 
             # cat=bootstrap 4.x: styling/310/grid-columns; type=string; label=$grid-columns:
-            grid-columns =                12
+            grid-columns = 12
             # cat=bootstrap 4.x: styling/310/grid-gutter-width; type=string; label=$grid-gutter-width:
-            grid-gutter-width =           30px
+            grid-gutter-width = 30px
 
             # cat=bootstrap 4.x: styling/311/line-height-lg; type=string; label=$line-height-lg:
-            line-height-lg =              1.5
+            line-height-lg = 1.5
             # cat=bootstrap 4.x: styling/311/line-height-sm; type=string; label=$line-height-sm:
-            line-height-sm =              1.5
+            line-height-sm = 1.5
             # cat=bootstrap 4.x: styling/311/border-width; type=string; label=$border-width:
-            border-width =                1px
+            border-width = 1px
             # cat=bootstrap 4.x: styling/311/border-color; type=string; label=$border-color:
-            border-color =                $gray-300
+            border-color = $gray-300
             # cat=bootstrap 4.x: styling/311/border-radius; type=string; label=$border-radius:
-            border-radius =               .25rem
+            border-radius = .25rem
             # cat=bootstrap 4.x: styling/311/border-radius-lg; type=string; label=$border-radius-lg:
-            border-radius-lg =            .3rem
+            border-radius-lg = .3rem
             # cat=bootstrap 4.x: styling/311/border-radius-sm; type=string; label=$border-radius-sm:
-            border-radius-sm =            .2rem
+            border-radius-sm = .2rem
             # cat=bootstrap 4.x: styling/311/component-active-color; type=string; label=$component-active-color:
-            component-active-color =      $white
+            component-active-color = $white
             # cat=bootstrap 4.x: styling/311/component-active-bg; type=string; label=$component-active-bg:
-            component-active-bg =         theme-color("primary")
+            component-active-bg = theme-color("primary")
             # cat=bootstrap 4.x: styling/311/caret-width; type=string; label=$caret-width:
-            caret-width =                 .3em
+            caret-width = .3em
             # cat=bootstrap 4.x: styling/311/transition-base; type=string; label=$transition-base:
-            transition-base =             all .2s ease-in-out
+            transition-base = all .2s ease-in-out
             # cat=bootstrap 4.x: styling/311/transition-fade; type=string; label=$transition-fade:
-            transition-fade =             opacity .15s linear
+            transition-fade = opacity .15s linear
             # cat=bootstrap 4.x: styling/311/transition-collapse; type=string; label=$transition-collapse:
-            transition-collapse =         height .35s ease
+            transition-collapse = height .35s ease
 
             # cat=bootstrap 4.x: styling/312/font-family-sans-serif; type=string; label=$font-family-sans-serif:
-            font-family-sans-serif =      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+            font-family-sans-serif = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
             # cat=bootstrap 4.x: styling/312/font-family-monospace; type=string; label=$font-family-monospace:
-            font-family-monospace =       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+            font-family-monospace = SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
             # cat=bootstrap 4.x: styling/312/font-family-base; type=string; label=$font-family-base:
-            font-family-base =            "#{$google-webfont}", sans-serif
+            font-family-base = "#{$google-webfont}", sans-serif
             # cat=bootstrap 4.x: styling/312/font-size-base; type=string; label=$font-size-base:
-            font-size-base =              1rem
+            font-size-base = 1rem
             # cat=bootstrap 4.x: styling/312/font-weight-light; type=string; label=$font-weight-light:
-            font-weight-light =           300
+            font-weight-light = 300
             # cat=bootstrap 4.x: styling/312/font-weight-normal; type=string; label=$font-weight-normal:
-            font-weight-normal =          400
+            font-weight-normal = 400
             # cat=bootstrap 4.x: styling/312/font-weight-bold; type=string; label=$font-weight-bold:
-            font-weight-bold =            700
+            font-weight-bold = 700
             # cat=bootstrap 4.x: styling/312/font-weight-base; type=string; label=$font-weight-base:
-            font-weight-base =            $font-weight-normal
+            font-weight-base = $font-weight-normal
             # cat=bootstrap 4.x: styling/312/line-height-base; type=string; label=$line-height-base:
-            line-height-base =            1.5
+            line-height-base = 1.5
             # cat=bootstrap 4.x: styling/312/h1-font-size; type=string; label=$h1-font-size:
-            h1-font-size =                $font-size-base * 2.5
+            h1-font-size = $font-size-base * 2.5
             # cat=bootstrap 4.x: styling/312/h2-font-size; type=string; label=$h2-font-size:
-            h2-font-size =                $font-size-base * 2
+            h2-font-size = $font-size-base * 2
             # cat=bootstrap 4.x: styling/312/h3-font-size; type=string; label=$h3-font-size:
-            h3-font-size =                $font-size-base * 1.75
+            h3-font-size = $font-size-base * 1.75
             # cat=bootstrap 4.x: styling/312/h4-font-size; type=string; label=$h4-font-size:
-            h4-font-size =                $font-size-base * 1.5
+            h4-font-size = $font-size-base * 1.5
             # cat=bootstrap 4.x: styling/312/h5-font-size; type=string; label=$h5-font-size:
-            h5-font-size =                $font-size-base * 1.25
+            h5-font-size = $font-size-base * 1.25
             # cat=bootstrap 4.x: styling/312/h6-font-size; type=string; label=$h6-font-size:
-            h6-font-size =                $font-size-base
+            h6-font-size = $font-size-base
             # cat=bootstrap 4.x: styling/312/headings-margin-bottom; type=string; label=$headings-margin-bottom:
-            headings-margin-bottom =      ($spacer / 2)
+            headings-margin-bottom = ($spacer / 2)
             # cat=bootstrap 4.x: styling/312/headings-font-family; type=string; label=$headings-font-family:
-            headings-font-family =        inherit
+            headings-font-family = inherit
             # cat=bootstrap 4.x: styling/312/headings-font-weight; type=string; label=$headings-font-weight:
-            headings-font-weight =        500
+            headings-font-weight = 500
             # cat=bootstrap 4.x: styling/312/headings-line-height; type=string; label=$headings-line-height:
-            headings-line-height =        1.2
+            headings-line-height = 1.2
             # cat=bootstrap 4.x: styling/312/headings-color; type=string; label=$headings-color:
-            headings-color =              inherit
+            headings-color = inherit
             # cat=bootstrap 4.x: styling/312/display1-size; type=string; label=$display1-size:
-            display1-size =               6rem
+            display1-size = 6rem
             # cat=bootstrap 4.x: styling/312/display2-size; type=string; label=$display2-size:
-            display2-size =               5.5rem
+            display2-size = 5.5rem
             # cat=bootstrap 4.x: styling/312/display3-size; type=string; label=$display3-size:
-            display3-size =               4.5rem
+            display3-size = 4.5rem
             # cat=bootstrap 4.x: styling/312/display4-size; type=string; label=$display4-size:
-            display4-size =               3.5rem
+            display4-size = 3.5rem
             # cat=bootstrap 4.x: styling/312/display1-weight; type=string; label=$display1-weight:
-            display1-weight =             300
+            display1-weight = 300
             # cat=bootstrap 4.x: styling/312/display2-weight; type=string; label=$display2-weight:
-            display2-weight =             300
+            display2-weight = 300
             # cat=bootstrap 4.x: styling/312/display3-weight; type=string; label=$display3-weight:
-            display3-weight =             300
+            display3-weight = 300
             # cat=bootstrap 4.x: styling/312/display4-weight; type=string; label=$display4-weight:
-            display4-weight =             300
+            display4-weight = 300
             # cat=bootstrap 4.x: styling/312/display-line-height; type=string; label=$display-line-height:
-            display-line-height =         $headings-line-height
+            display-line-height = $headings-line-height
             # cat=bootstrap 4.x: styling/312/lead-font-size; type=string; label=$lead-font-size:
-            lead-font-size =              ($font-size-base * 1.25)
+            lead-font-size = ($font-size-base * 1.25)
             # cat=bootstrap 4.x: styling/312/lead-font-weight; type=string; label=$lead-font-weight:
-            lead-font-weight =            300
+            lead-font-weight = 300
             # cat=bootstrap 4.x: styling/312/small-font-size; type=string; label=$small-font-size:
-            small-font-size =             80%
+            small-font-size = 80%
             # cat=bootstrap 4.x: styling/312/text-muted; type=string; label=$text-muted:
-            text-muted =                  $gray-600
+            text-muted = $gray-600
             # cat=bootstrap 4.x: styling/312/blockquote-small-color; type=string; label=$blockquote-small-color:
-            blockquote-small-color =      $gray-600
+            blockquote-small-color = $gray-600
             # cat=bootstrap 4.x: styling/312/blockquote-font-size; type=string; label=$blockquote-font-size:
-            blockquote-font-size =        ($font-size-base * 1.25)
+            blockquote-font-size = ($font-size-base * 1.25)
             # cat=bootstrap 4.x: styling/312/hr-border-color; type=string; label=$hr-border-color:
-            hr-border-color =             rgba($black, .1)
+            hr-border-color = rgba($black, .1)
             # cat=bootstrap 4.x: styling/312/hr-border-width; type=string; label=$hr-border-width:
-            hr-border-width =             $border-width
+            hr-border-width = $border-width
             # cat=bootstrap 4.x: styling/312/mark-padding; type=string; label=$mark-padding:
-            mark-padding =                .2em
+            mark-padding = .2em
             # cat=bootstrap 4.x: styling/312/dt-font-weight; type=string; label=$dt-font-weight:
-            dt-font-weight =              $font-weight-bold
+            dt-font-weight = $font-weight-bold
             # cat=bootstrap 4.x: styling/312/kbd-box-shadow; type=string; label=$kbd-box-shadow:
-            kbd-box-shadow =              inset 0 -.1rem 0 rgba($black, .25)
+            kbd-box-shadow = inset 0 -.1rem 0 rgba($black, .25)
             # cat=bootstrap 4.x: styling/312/nested-kbd-font-weight; type=string; label=$nested-kbd-font-weight:
-            nested-kbd-font-weight =      $font-weight-bold
+            nested-kbd-font-weight = $font-weight-bold
             # cat=bootstrap 4.x: styling/312/list-inline-padding; type=string; label=$list-inline-padding:
-            list-inline-padding =         .5rem
+            list-inline-padding = .5rem
             # cat=bootstrap 4.x: styling/312/mark-bg; type=string; label=$mark-bg:
-            mark-bg =                     #fcf8e3
+            mark-bg = #fcf8e3
             # cat=bootstrap 4.x: styling/312/hr-margin-y; type=string; label=$hr-margin-y:
-            hr-margin-y =                 $spacer
+            hr-margin-y = $spacer
 
             # cat=bootstrap 4.x: styling/313/table-cell-padding; type=string; label=$table-cell-padding:
-            table-cell-padding =          .75rem
+            table-cell-padding = .75rem
             # cat=bootstrap 4.x: styling/313/table-cell-padding-sm; type=string; label=$table-cell-padding-sm:
-            table-cell-padding-sm =       .3rem
+            table-cell-padding-sm = .3rem
             # cat=bootstrap 4.x: styling/313/table-bg; type=string; label=$table-bg:
-            table-bg =                    transparent
+            table-bg = transparent
             # cat=bootstrap 4.x: styling/313/table-accent-bg; type=string; label=$table-accent-bg:
-            table-accent-bg =             rgba($black, .05)
+            table-accent-bg = rgba($black, .05)
             # cat=bootstrap 4.x: styling/313/table-hover-bg; type=string; label=$table-hover-bg:
-            table-hover-bg =              rgba($black, .075)
+            table-hover-bg = rgba($black, .075)
             # cat=bootstrap 4.x: styling/313/table-active-bg; type=string; label=$table-active-bg:
-            table-active-bg =             $table-hover-bg
+            table-active-bg = $table-hover-bg
             # cat=bootstrap 4.x: styling/313/table-border-width; type=string; label=$table-border-width:
-            table-border-width =          $border-width
+            table-border-width = $border-width
             # cat=bootstrap 4.x: styling/313/table-border-color; type=string; label=$table-border-color:
-            table-border-color =          $gray-300
+            table-border-color = $gray-300
             # cat=bootstrap 4.x: styling/313/table-head-bg; type=string; label=$table-head-bg:
-            table-head-bg =               $gray-200
+            table-head-bg = $gray-200
             # cat=bootstrap 4.x: styling/313/table-head-color; type=string; label=$table-head-color:
-            table-head-color =            $gray-700
+            table-head-color = $gray-700
             # cat=bootstrap 4.x: styling/313/table-dark-bg; type=string; label=$table-dark-bg:
-            table-dark-bg =               $gray-900
+            table-dark-bg = $gray-900
             # cat=bootstrap 4.x: styling/313/table-dark-accent-bg; type=string; label=$table-dark-accent-bg:
-            table-dark-accent-bg =        rgba($white, .05)
+            table-dark-accent-bg = rgba($white, .05)
             # cat=bootstrap 4.x: styling/313/table-dark-hover-bg; type=string; label=$table-dark-hover-bg:
-            table-dark-hover-bg =         rgba($white, .075)
+            table-dark-hover-bg = rgba($white, .075)
             # cat=bootstrap 4.x: styling/313/table-dark-border-color; type=string; label=$table-dark-border-color:
-            table-dark-border-color =     lighten($gray-900, 7.5%)
+            table-dark-border-color = lighten($gray-900, 7.5%)
             # cat=bootstrap 4.x: styling/313/table-dark-color; type=string; label=$table-dark-color:
-            table-dark-color =            $body-bg
+            table-dark-color = $body-bg
 
             # cat=bootstrap 4.x: styling/314/input-btn-padding-y; type=string; label=$input-btn-padding-y:
-            input-btn-padding-y =         .375rem
+            input-btn-padding-y = .375rem
             # cat=bootstrap 4.x: styling/314/input-btn-padding-x; type=string; label=$input-btn-padding-x:
-            input-btn-padding-x =         .75rem
+            input-btn-padding-x = .75rem
             # cat=bootstrap 4.x: styling/314/input-btn-line-height; type=string; label=$input-btn-line-height:
-            input-btn-line-height =       $line-height-base
+            input-btn-line-height = $line-height-base
             # cat=bootstrap 4.x: styling/314/input-btn-focus-width; type=string; label=$input-btn-focus-width:
-            input-btn-focus-width =       .2rem
+            input-btn-focus-width = .2rem
             # cat=bootstrap 4.x: styling/314/input-btn-focus-color; type=string; label=$input-btn-focus-color:
-            input-btn-focus-color =       rgba($component-active-bg, .25)
+            input-btn-focus-color = rgba($component-active-bg, .25)
             # cat=bootstrap 4.x: styling/314/input-btn-focus-box-shadow; type=string; label=$input-btn-focus-box-shadow:
-            input-btn-focus-box-shadow =  0 0 0 $input-btn-focus-width $input-btn-focus-color
+            input-btn-focus-box-shadow = 0 0 0 $input-btn-focus-width $input-btn-focus-color
             # cat=bootstrap 4.x: styling/314/input-btn-padding-y-sm; type=string; label=$input-btn-padding-y-sm:
-            input-btn-padding-y-sm =      .25rem
+            input-btn-padding-y-sm = .25rem
             # cat=bootstrap 4.x: styling/314/input-btn-padding-x-sm; type=string; label=$input-btn-padding-x-sm:
-            input-btn-padding-x-sm =      .5rem
+            input-btn-padding-x-sm = .5rem
             # cat=bootstrap 4.x: styling/314/input-btn-line-height-sm; type=string; label=$input-btn-line-height-sm:
-            input-btn-line-height-sm =    $line-height-sm
+            input-btn-line-height-sm = $line-height-sm
             # cat=bootstrap 4.x: styling/314/input-btn-padding-y-lg; type=string; label=$input-btn-padding-y-lg:
-            input-btn-padding-y-lg =      .5rem
+            input-btn-padding-y-lg = .5rem
             # cat=bootstrap 4.x: styling/314/input-btn-padding-x-lg; type=string; label=$input-btn-padding-x-lg:
-            input-btn-padding-x-lg =      1rem
+            input-btn-padding-x-lg = 1rem
             # cat=bootstrap 4.x: styling/314/input-btn-line-height-lg; type=string; label=$input-btn-line-height-lg:
-            input-btn-line-height-lg =    $line-height-lg
+            input-btn-line-height-lg = $line-height-lg
             # cat=bootstrap 4.x: styling/314/input-btn-border-width; type=string; label=$input-btn-border-width:
-            input-btn-border-width =      $border-width
+            input-btn-border-width = $border-width
 
             # cat=bootstrap 4.x: styling/315/btn-padding-y; type=string; label=$btn-padding-y:
-            btn-padding-y =               $input-btn-padding-y
+            btn-padding-y = $input-btn-padding-y
             # cat=bootstrap 4.x: styling/315/btn-padding-x; type=string; label=$btn-padding-x:
-            btn-padding-x =               $input-btn-padding-x
+            btn-padding-x = $input-btn-padding-x
             # cat=bootstrap 4.x: styling/315/btn-line-height; type=string; label=$btn-line-height:
-            btn-line-height =             $input-btn-line-height
+            btn-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/315/btn-padding-y-sm; type=string; label=$btn-padding-y-sm:
-            btn-padding-y-sm =            $input-btn-padding-y-sm
+            btn-padding-y-sm = $input-btn-padding-y-sm
             # cat=bootstrap 4.x: styling/315/btn-padding-x-sm; type=string; label=$btn-padding-x-sm:
-            btn-padding-x-sm =            $input-btn-padding-x-sm
+            btn-padding-x-sm = $input-btn-padding-x-sm
             # cat=bootstrap 4.x: styling/315/btn-line-height-sm; type=string; label=$btn-line-height-sm:
-            btn-line-height-sm =          $input-btn-line-height-sm
+            btn-line-height-sm = $input-btn-line-height-sm
             # cat=bootstrap 4.x: styling/315/btn-padding-y-lg; type=string; label=$btn-padding-y-lg:
-            btn-padding-y-lg =            $input-btn-padding-y-lg
+            btn-padding-y-lg = $input-btn-padding-y-lg
             # cat=bootstrap 4.x: styling/315/btn-padding-x-lg; type=string; label=$btn-padding-x-lg:
-            btn-padding-x-lg =            $input-btn-padding-x-lg
+            btn-padding-x-lg = $input-btn-padding-x-lg
             # cat=bootstrap 4.x: styling/315/btn-line-height-lg; type=string; label=$btn-line-height-lg:
-            btn-line-height-lg =          $input-btn-line-height-lg
+            btn-line-height-lg = $input-btn-line-height-lg
             # cat=bootstrap 4.x: styling/315/btn-border-width; type=string; label=$btn-border-width:
-            btn-border-width =            $input-btn-border-width
+            btn-border-width = $input-btn-border-width
             # cat=bootstrap 4.x: styling/315/btn-font-weight; type=string; label=$btn-font-weight:
-            btn-font-weight =             $font-weight-normal
+            btn-font-weight = $font-weight-normal
             # cat=bootstrap 4.x: styling/315/btn-box-shadow; type=string; label=$btn-box-shadow:
-            btn-box-shadow =              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075)
+            btn-box-shadow = inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075)
             # cat=bootstrap 4.x: styling/315/btn-focus-width; type=string; label=$btn-focus-width:
-            btn-focus-width =             $input-btn-focus-width
+            btn-focus-width = $input-btn-focus-width
             # cat=bootstrap 4.x: styling/315/btn-focus-box-shadow; type=string; label=$btn-focus-box-shadow:
-            btn-focus-box-shadow =        $input-btn-focus-box-shadow
+            btn-focus-box-shadow = $input-btn-focus-box-shadow
             # cat=bootstrap 4.x: styling/315/btn-disabled-opacity; type=string; label=$btn-disabled-opacity:
-            btn-disabled-opacity =        .65
+            btn-disabled-opacity = .65
             # cat=bootstrap 4.x: styling/315/btn-active-box-shadow; type=string; label=$btn-active-box-shadow:
-            btn-active-box-shadow =       inset 0 3px 5px rgba($black, .125)
+            btn-active-box-shadow = inset 0 3px 5px rgba($black, .125)
             # cat=bootstrap 4.x: styling/315/btn-link-disabled-color; type=string; label=$btn-link-disabled-color:
-            btn-link-disabled-color =     $gray-600
+            btn-link-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/315/btn-block-spacing-y; type=string; label=$btn-block-spacing-y:
-            btn-block-spacing-y =         .5rem
+            btn-block-spacing-y = .5rem
 
             # cat=bootstrap 4.x: styling/316/btn-border-radius; type=string; label=$btn-border-radius:
-            btn-border-radius =           $border-radius
+            btn-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/316/btn-border-radius-lg; type=string; label=$btn-border-radius-lg:
-            btn-border-radius-lg =        $border-radius-lg
+            btn-border-radius-lg = $border-radius-lg
             # cat=bootstrap 4.x: styling/316/btn-border-radius-sm; type=string; label=$btn-border-radius-sm:
-            btn-border-radius-sm =        $border-radius-sm
+            btn-border-radius-sm = $border-radius-sm
             # cat=bootstrap 4.x: styling/316/btn-transition; type=string; label=$btn-transition:
-            btn-transition =              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+            btn-transition = color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 
             # cat=bootstrap 4.x: styling/317/input-padding-y; type=string; label=$input-padding-y:
-            input-padding-y =                       $input-btn-padding-y
+            input-padding-y = $input-btn-padding-y
             # cat=bootstrap 4.x: styling/317/input-padding-x; type=string; label=$input-padding-x:
-            input-padding-x =                       $input-btn-padding-x
+            input-padding-x = $input-btn-padding-x
             # cat=bootstrap 4.x: styling/317/input-line-height; type=string; label=$input-line-height:
-            input-line-height =                     $input-btn-line-height
+            input-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/317/input-padding-y-sm; type=string; label=$input-padding-y-sm:
-            input-padding-y-sm =                    $input-btn-padding-y-sm
+            input-padding-y-sm = $input-btn-padding-y-sm
             # cat=bootstrap 4.x: styling/317/input-padding-x-sm; type=string; label=$input-padding-x-sm:
-            input-padding-x-sm =                    $input-btn-padding-x-sm
+            input-padding-x-sm = $input-btn-padding-x-sm
             # cat=bootstrap 4.x: styling/317/input-line-height-sm; type=string; label=$input-line-height-sm:
-            input-line-height-sm =                  $input-btn-line-height-sm
+            input-line-height-sm = $input-btn-line-height-sm
             # cat=bootstrap 4.x: styling/317/input-padding-y-lg; type=string; label=$input-padding-y-lg:
-            input-padding-y-lg =                    $input-btn-padding-y-lg
+            input-padding-y-lg = $input-btn-padding-y-lg
             # cat=bootstrap 4.x: styling/317/input-padding-x-lg; type=string; label=$input-padding-x-lg:
-            input-padding-x-lg =                    $input-btn-padding-x-lg
+            input-padding-x-lg = $input-btn-padding-x-lg
             # cat=bootstrap 4.x: styling/317/input-line-height-lg; type=string; label=$input-line-height-lg:
-            input-line-height-lg =                  $input-btn-line-height-lg
+            input-line-height-lg = $input-btn-line-height-lg
             # cat=bootstrap 4.x: styling/317/input-bg; type=string; label=$input-bg:
-            input-bg =                              $white
+            input-bg = $white
             # cat=bootstrap 4.x: styling/317/input-disabled-bg; type=string; label=$input-disabled-bg:
-            input-disabled-bg =                     $gray-200
+            input-disabled-bg = $gray-200
             # cat=bootstrap 4.x: styling/317/input-color; type=string; label=$input-color:
-            input-color =                           $gray-700
+            input-color = $gray-700
             # cat=bootstrap 4.x: styling/317/input-border-color; type=string; label=$input-border-color:
-            input-border-color =                    $gray-400
+            input-border-color = $gray-400
             # cat=bootstrap 4.x: styling/317/input-border-width; type=string; label=$input-border-width:
-            input-border-width =                    $input-btn-border-width
+            input-border-width = $input-btn-border-width
             # cat=bootstrap 4.x: styling/317/input-box-shadow; type=string; label=$input-box-shadow:
-            input-box-shadow =                      inset 0 1px 1px rgba($black, .075)
+            input-box-shadow = inset 0 1px 1px rgba($black, .075)
             # cat=bootstrap 4.x: styling/317/input-border-radius; type=string; label=$input-border-radius:
-            input-border-radius =                   $border-radius
+            input-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/317/input-border-radius-lg; type=string; label=$input-border-radius-lg:
-            input-border-radius-lg =                $border-radius-lg
+            input-border-radius-lg = $border-radius-lg
             # cat=bootstrap 4.x: styling/317/input-border-radius-sm; type=string; label=$input-border-radius-sm:
-            input-border-radius-sm =                $border-radius-sm
+            input-border-radius-sm = $border-radius-sm
             # cat=bootstrap 4.x: styling/317/input-focus-bg; type=string; label=$input-focus-bg:
-            input-focus-bg =                        $input-bg
+            input-focus-bg = $input-bg
             # cat=bootstrap 4.x: styling/317/input-focus-border-color; type=string; label=$input-focus-border-color:
-            input-focus-border-color =              lighten($component-active-bg, 25%)
+            input-focus-border-color = lighten($component-active-bg, 25%)
             # cat=bootstrap 4.x: styling/317/input-focus-color; type=string; label=$input-focus-color:
-            input-focus-color =                     $input-color
+            input-focus-color = $input-color
             # cat=bootstrap 4.x: styling/317/input-focus-width; type=string; label=$input-focus-width:
-            input-focus-width =                     $input-btn-focus-width
+            input-focus-width = $input-btn-focus-width
             # cat=bootstrap 4.x: styling/317/input-focus-box-shadow; type=string; label=$input-focus-box-shadow:
-            input-focus-box-shadow =                $input-btn-focus-box-shadow
+            input-focus-box-shadow = $input-btn-focus-box-shadow
             # cat=bootstrap 4.x: styling/317/input-placeholder-color; type=string; label=$input-placeholder-color:
-            input-placeholder-color =               $gray-600
+            input-placeholder-color = $gray-600
             # cat=bootstrap 4.x: styling/317/input-height-border; type=string; label=$input-height-border:
-            input-height-border =                   $input-border-width * 2
+            input-height-border = $input-border-width * 2
             # cat=bootstrap 4.x: styling/317/input-height-inner; type=string; label=$input-height-inner:
-            input-height-inner =                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2)
+            input-height-inner = ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2)
             # cat=bootstrap 4.x: styling/317/input-height; type=string; label=$input-height:
-            input-height =                          calc(#{$input-height-inner} + #{$input-height-border})
+            input-height = calc(#{$input-height-inner} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/317/input-height-inner-sm; type=string; label=$input-height-inner-sm:
-            input-height-inner-sm =                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2)
+            input-height-inner-sm = ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2)
             # cat=bootstrap 4.x: styling/317/input-height-sm; type=string; label=$input-height-sm:
-            input-height-sm =                       calc(#{$input-height-inner-sm} + #{$input-height-border})
+            input-height-sm = calc(#{$input-height-inner-sm} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/317/input-height-inner-lg; type=string; label=$input-height-inner-lg:
-            input-height-inner-lg =                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2)
+            input-height-inner-lg = ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2)
             # cat=bootstrap 4.x: styling/317/input-height-lg; type=string; label=$input-height-lg:
-            input-height-lg =                       calc(#{$input-height-inner-lg} + #{$input-height-border})
+            input-height-lg = calc(#{$input-height-inner-lg} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/317/input-transition; type=string; label=$input-transition:
-            input-transition =                      border-color .15s ease-in-out, box-shadow .15s ease-in-out
+            input-transition = border-color .15s ease-in-out, box-shadow .15s ease-in-out
             # cat=bootstrap 4.x: styling/317/form-text-margin-top; type=string; label=$form-text-margin-top:
-            form-text-margin-top =                  .25rem
+            form-text-margin-top = .25rem
             # cat=bootstrap 4.x: styling/317/form-check-input-gutter; type=string; label=$form-check-input-gutter:
-            form-check-input-gutter =               1.25rem
+            form-check-input-gutter = 1.25rem
             # cat=bootstrap 4.x: styling/317/form-check-input-margin-y; type=string; label=$form-check-input-margin-y:
-            form-check-input-margin-y =             .3rem
+            form-check-input-margin-y = .3rem
             # cat=bootstrap 4.x: styling/317/form-check-input-margin-x; type=string; label=$form-check-input-margin-x:
-            form-check-input-margin-x =             .25rem
+            form-check-input-margin-x = .25rem
             # cat=bootstrap 4.x: styling/317/form-check-inline-margin-x; type=string; label=$form-check-inline-margin-x:
-            form-check-inline-margin-x =            .75rem
+            form-check-inline-margin-x = .75rem
             # cat=bootstrap 4.x: styling/317/form-check-inline-input-margin-x; type=string; label=$form-check-inline-input-margin-x:
-            form-check-inline-input-margin-x =      .3125rem
+            form-check-inline-input-margin-x = .3125rem
             # cat=bootstrap 4.x: styling/317/form-group-margin-bottom; type=string; label=$form-group-margin-bottom:
-            form-group-margin-bottom =              1rem
+            form-group-margin-bottom = 1rem
             # cat=bootstrap 4.x: styling/317/input-group-addon-color; type=string; label=$input-group-addon-color:
-            input-group-addon-color =               $input-color
+            input-group-addon-color = $input-color
             # cat=bootstrap 4.x: styling/317/input-group-addon-bg; type=string; label=$input-group-addon-bg:
-            input-group-addon-bg =                  $gray-200
+            input-group-addon-bg = $gray-200
             # cat=bootstrap 4.x: styling/317/input-group-addon-border-color; type=string; label=$input-group-addon-border-color:
-            input-group-addon-border-color =        $input-border-color
+            input-group-addon-border-color = $input-border-color
             # cat=bootstrap 4.x: styling/317/custom-control-gutter; type=string; label=$custom-control-gutter:
-            custom-control-gutter =                 1.5rem
+            custom-control-gutter = 1.5rem
             # cat=bootstrap 4.x: styling/317/custom-control-spacer-x; type=string; label=$custom-control-spacer-x:
-            custom-control-spacer-x =               1rem
+            custom-control-spacer-x = 1rem
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-size; type=string; label=$custom-control-indicator-size:
-            custom-control-indicator-size =         1rem
+            custom-control-indicator-size = 1rem
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-bg; type=string; label=$custom-control-indicator-bg:
-            custom-control-indicator-bg =           $gray-300
+            custom-control-indicator-bg = $gray-300
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-bg-size; type=string; label=$custom-control-indicator-bg-size:
-            custom-control-indicator-bg-size =      50% 50%
+            custom-control-indicator-bg-size = 50% 50%
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-box-shadow; type=string; label=$custom-control-indicator-box-shadow:
-            custom-control-indicator-box-shadow =   inset 0 .25rem .25rem rgba($black, .1)
+            custom-control-indicator-box-shadow = inset 0 .25rem .25rem rgba($black, .1)
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-disabled-bg; type=string; label=$custom-control-indicator-disabled-bg:
-            custom-control-indicator-disabled-bg =          $gray-200
+            custom-control-indicator-disabled-bg = $gray-200
             # cat=bootstrap 4.x: styling/317/custom-control-label-disabled-color; type=string; label=$custom-control-label-disabled-color:
-            custom-control-label-disabled-color =           $gray-600
+            custom-control-label-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-checked-color; type=string; label=$custom-control-indicator-checked-color:
-            custom-control-indicator-checked-color =        $component-active-color
+            custom-control-indicator-checked-color = $component-active-color
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-checked-bg; type=string; label=$custom-control-indicator-checked-bg:
-            custom-control-indicator-checked-bg =           $component-active-bg
+            custom-control-indicator-checked-bg = $component-active-bg
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-checked-disabled-bg; type=string; label=$custom-control-indicator-checked-disabled-bg:
-            custom-control-indicator-checked-disabled-bg =  rgba(theme-color("primary"), .5)
+            custom-control-indicator-checked-disabled-bg = rgba(theme-color("primary"), .5)
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-checked-box-shadow; type=string; label=$custom-control-indicator-checked-box-shadow:
-            custom-control-indicator-checked-box-shadow =   none
+            custom-control-indicator-checked-box-shadow = none
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-focus-box-shadow; type=string; label=$custom-control-indicator-focus-box-shadow:
-            custom-control-indicator-focus-box-shadow =     0 0 0 1px $body-bg, $input-btn-focus-box-shadow
+            custom-control-indicator-focus-box-shadow = 0 0 0 1px $body-bg, $input-btn-focus-box-shadow
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-active-color; type=string; label=$custom-control-indicator-active-color:
-            custom-control-indicator-active-color =         $component-active-color
+            custom-control-indicator-active-color = $component-active-color
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-active-bg; type=string; label=$custom-control-indicator-active-bg:
-            custom-control-indicator-active-bg =            lighten($component-active-bg, 35%)
+            custom-control-indicator-active-bg = lighten($component-active-bg, 35%)
             # cat=bootstrap 4.x: styling/317/custom-control-indicator-active-box-shadow; type=string; label=$custom-control-indicator-active-box-shadow:
-            custom-control-indicator-active-box-shadow =    none
+            custom-control-indicator-active-box-shadow = none
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-border-radius; type=string; label=$custom-checkbox-indicator-border-radius:
-            custom-checkbox-indicator-border-radius =       $border-radius
+            custom-checkbox-indicator-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-icon-checked; type=string; label=$custom-checkbox-indicator-icon-checked:
-            custom-checkbox-indicator-icon-checked =        str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23")
+            custom-checkbox-indicator-icon-checked = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-indeterminate-bg; type=string; label=$custom-checkbox-indicator-indeterminate-bg:
-            custom-checkbox-indicator-indeterminate-bg =    $component-active-bg
+            custom-checkbox-indicator-indeterminate-bg = $component-active-bg
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-indeterminate-color; type=string; label=$custom-checkbox-indicator-indeterminate-color:
             custom-checkbox-indicator-indeterminate-color = $custom-control-indicator-checked-color
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-icon-indeterminate; type=string; label=$custom-checkbox-indicator-icon-indeterminate:
-            custom-checkbox-indicator-icon-indeterminate =  str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E"), "#", "%23")
+            custom-checkbox-indicator-icon-indeterminate = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/317/custom-checkbox-indicator-indeterminate-box-shadow; type=string; label=$custom-checkbox-indicator-indeterminate-box-shadow:
             custom-checkbox-indicator-indeterminate-box-shadow = none
 
             # cat=bootstrap 4.x: styling/317/custom-radio-indicator-border-radius; type=string; label=$custom-radio-indicator-border-radius:
-            custom-radio-indicator-border-radius =          50%
+            custom-radio-indicator-border-radius = 50%
             # cat=bootstrap 4.x: styling/317/custom-radio-indicator-icon-checked; type=string; label=$custom-radio-indicator-icon-checked:
-            custom-radio-indicator-icon-checked =           str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-control-indicator-checked-color}'/%3E%3C/svg%3E"), "#", "%23")
+            custom-radio-indicator-icon-checked = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-control-indicator-checked-color}'/%3E%3C/svg%3E"), "#", "%23")
 
             # cat=bootstrap 4.x: styling/317/custom-select-padding-y; type=string; label=$custom-select-padding-y:
-            custom-select-padding-y =           .375rem
+            custom-select-padding-y = .375rem
             # cat=bootstrap 4.x: styling/317/custom-select-padding-x; type=string; label=$custom-select-padding-x:
-            custom-select-padding-x =           .75rem
+            custom-select-padding-x = .75rem
             # cat=bootstrap 4.x: styling/317/custom-select-height; type=string; label=$custom-select-height:
-            custom-select-height =              $input-height
+            custom-select-height = $input-height
             # cat=bootstrap 4.x: styling/317/custom-select-indicator-padding; type=string; label=$custom-select-indicator-padding:
-            custom-select-indicator-padding =   1rem
+            custom-select-indicator-padding = 1rem
             # cat=bootstrap 4.x: styling/317/custom-select-line-height; type=string; label=$custom-select-line-height:
-            custom-select-line-height =         $input-btn-line-height
+            custom-select-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/317/custom-select-color; type=string; label=$custom-select-color:
-            custom-select-color =               $input-color
+            custom-select-color = $input-color
             # cat=bootstrap 4.x: styling/317/custom-select-disabled-color; type=string; label=$custom-select-disabled-color:
-            custom-select-disabled-color =      $gray-600
+            custom-select-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/317/custom-select-bg; type=string; label=$custom-select-bg:
-            custom-select-bg =                  $white
+            custom-select-bg = $white
             # cat=bootstrap 4.x: styling/317/custom-select-disabled-bg; type=string; label=$custom-select-disabled-bg:
-            custom-select-disabled-bg =         $gray-200
+            custom-select-disabled-bg = $gray-200
             # cat=bootstrap 4.x: styling/317/custom-select-bg-size; type=string; label=$custom-select-bg-size:
-            custom-select-bg-size =             8px 10px
+            custom-select-bg-size = 8px 10px
             # cat=bootstrap 4.x: styling/317/custom-select-indicator-color; type=string; label=$custom-select-indicator-color:
-            custom-select-indicator-color =     $gray-800
+            custom-select-indicator-color = $gray-800
             # cat=bootstrap 4.x: styling/317/custom-select-indicator; type=string; label=$custom-select-indicator:
-            custom-select-indicator =           str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23")
+            custom-select-indicator = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/317/custom-select-border-width; type=string; label=$custom-select-border-width:
-            custom-select-border-width =        $input-btn-border-width
+            custom-select-border-width = $input-btn-border-width
             # cat=bootstrap 4.x: styling/317/custom-select-border-color; type=string; label=$custom-select-border-color:
-            custom-select-border-color =        $input-border-color
+            custom-select-border-color = $input-border-color
             # cat=bootstrap 4.x: styling/317/custom-select-border-radius; type=string; label=$custom-select-border-radius:
-            custom-select-border-radius =       $border-radius
+            custom-select-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/317/custom-select-focus-border-color; type=string; label=$custom-select-focus-border-color:
-            custom-select-focus-border-color =  $input-focus-border-color
+            custom-select-focus-border-color = $input-focus-border-color
             # cat=bootstrap 4.x: styling/317/custom-select-focus-box-shadow; type=string; label=$custom-select-focus-box-shadow:
-            custom-select-focus-box-shadow =    inset 0 1px 2px rgba($black, .075), 0 0 5px rgba($custom-select-focus-border-color, .5)
+            custom-select-focus-box-shadow = inset 0 1px 2px rgba($black, .075), 0 0 5px rgba($custom-select-focus-border-color, .5)
             # cat=bootstrap 4.x: styling/317/custom-select-font-size-sm; type=string; label=$custom-select-font-size-sm:
-            custom-select-font-size-sm =        75%
+            custom-select-font-size-sm = 75%
             # cat=bootstrap 4.x: styling/317/custom-select-height-sm; type=string; label=$custom-select-height-sm:
-            custom-select-height-sm =           $input-height-sm
+            custom-select-height-sm = $input-height-sm
             # cat=bootstrap 4.x: styling/317/custom-select-font-size-lg; type=string; label=$custom-select-font-size-lg:
-            custom-select-font-size-lg =        125%
+            custom-select-font-size-lg = 125%
             # cat=bootstrap 4.x: styling/317/custom-select-height-lg; type=string; label=$custom-select-height-lg:
-            custom-select-height-lg =           $input-height-lg
+            custom-select-height-lg = $input-height-lg
 
             # cat=bootstrap 4.x: styling/317/custom-file-height; type=string; label=$custom-file-height:
-            custom-file-height =                $input-height
+            custom-file-height = $input-height
             # cat=bootstrap 4.x: styling/317/custom-file-focus-border-color; type=string; label=$custom-file-focus-border-color:
-            custom-file-focus-border-color =    $input-focus-border-color
+            custom-file-focus-border-color = $input-focus-border-color
             # cat=bootstrap 4.x: styling/317/custom-file-focus-box-shadow; type=string; label=$custom-file-focus-box-shadow:
-            custom-file-focus-box-shadow =      $input-btn-focus-box-shadow
+            custom-file-focus-box-shadow = $input-btn-focus-box-shadow
             # cat=bootstrap 4.x: styling/317/custom-file-padding-y; type=string; label=$custom-file-padding-y:
-            custom-file-padding-y =             $input-btn-padding-y
+            custom-file-padding-y = $input-btn-padding-y
             # cat=bootstrap 4.x: styling/317/custom-file-padding-x; type=string; label=$custom-file-padding-x:
-            custom-file-padding-x =             $input-btn-padding-x
+            custom-file-padding-x = $input-btn-padding-x
             # cat=bootstrap 4.x: styling/317/custom-file-line-height; type=string; label=$custom-file-line-height:
-            custom-file-line-height =           $input-btn-line-height
+            custom-file-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/317/custom-file-color; type=string; label=$custom-file-color:
-            custom-file-color =                 $input-color
+            custom-file-color = $input-color
             # cat=bootstrap 4.x: styling/317/custom-file-bg; type=string; label=$custom-file-bg:
-            custom-file-bg =                    $input-bg
+            custom-file-bg = $input-bg
             # cat=bootstrap 4.x: styling/317/custom-file-border-width; type=string; label=$custom-file-border-width:
-            custom-file-border-width =          $input-btn-border-width
+            custom-file-border-width = $input-btn-border-width
             # cat=bootstrap 4.x: styling/317/custom-file-border-color; type=string; label=$custom-file-border-color:
-            custom-file-border-color =          $input-border-color
+            custom-file-border-color = $input-border-color
             # cat=bootstrap 4.x: styling/317/custom-file-border-radius; type=string; label=$custom-file-border-radius:
-            custom-file-border-radius =         $input-border-radius
+            custom-file-border-radius = $input-border-radius
             # cat=bootstrap 4.x: styling/317/custom-file-box-shadow; type=string; label=$custom-file-box-shadow:
-            custom-file-box-shadow =            $input-box-shadow
+            custom-file-box-shadow = $input-box-shadow
             # cat=bootstrap 4.x: styling/317/custom-file-button-color; type=string; label=$custom-file-button-color:
-            custom-file-button-color =          $custom-file-color
+            custom-file-button-color = $custom-file-color
             # cat=bootstrap 4.x: styling/317/custom-file-button-bg; type=string; label=$custom-file-button-bg:
-            custom-file-button-bg =             $input-group-addon-bg
+            custom-file-button-bg = $input-group-addon-bg
 
             # cat=bootstrap 4.x: styling/318/form-feedback-margin-top; type=string; label=$form-feedback-margin-top:
-            form-feedback-margin-top =          $form-text-margin-top
+            form-feedback-margin-top = $form-text-margin-top
             # cat=bootstrap 4.x: styling/318/form-feedback-font-size; type=string; label=$form-feedback-font-size:
-            form-feedback-font-size =           $small-font-size
+            form-feedback-font-size = $small-font-size
             # cat=bootstrap 4.x: styling/318/form-feedback-valid-color; type=string; label=$form-feedback-valid-color:
-            form-feedback-valid-color =         theme-color("success")
+            form-feedback-valid-color = theme-color("success")
             # cat=bootstrap 4.x: styling/318/form-feedback-invalid-color; type=string; label=$form-feedback-invalid-color:
-            form-feedback-invalid-color =       theme-color("danger")
+            form-feedback-invalid-color = theme-color("danger")
 
             # cat=bootstrap 4.x: styling/319/dropdown-min-width; type=string; label=$dropdown-min-width:
-            dropdown-min-width =                10rem
+            dropdown-min-width = 10rem
             # cat=bootstrap 4.x: styling/319/dropdown-padding-y; type=string; label=$dropdown-padding-y:
-            dropdown-padding-y =                .5rem
+            dropdown-padding-y = .5rem
             # cat=bootstrap 4.x: styling/319/dropdown-spacer; type=string; label=$dropdown-spacer:
-            dropdown-spacer =                   .125rem
+            dropdown-spacer = .125rem
             # cat=bootstrap 4.x: styling/319/dropdown-bg; type=string; label=$dropdown-bg:
-            dropdown-bg =                       $white
+            dropdown-bg = $white
             # cat=bootstrap 4.x: styling/319/dropdown-border-color; type=string; label=$dropdown-border-color:
-            dropdown-border-color =             rgba($black, .15)
+            dropdown-border-color = rgba($black, .15)
             # cat=bootstrap 4.x: styling/319/dropdown-border-radius; type=string; label=$dropdown-border-radius:
-            dropdown-border-radius =            $border-radius
+            dropdown-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/319/dropdown-border-width; type=string; label=$dropdown-border-width:
-            dropdown-border-width =             $border-width
+            dropdown-border-width = $border-width
             # cat=bootstrap 4.x: styling/319/dropdown-divider-bg; type=string; label=$dropdown-divider-bg:
-            dropdown-divider-bg =               $gray-200
+            dropdown-divider-bg = $gray-200
             # cat=bootstrap 4.x: styling/319/dropdown-box-shadow; type=string; label=$dropdown-box-shadow:
-            dropdown-box-shadow =               0 .5rem 1rem rgba($black, .175)
+            dropdown-box-shadow = 0 .5rem 1rem rgba($black, .175)
             # cat=bootstrap 4.x: styling/319/dropdown-link-color; type=string; label=$dropdown-link-color:
-            dropdown-link-color =               $gray-900
+            dropdown-link-color = $gray-900
             # cat=bootstrap 4.x: styling/319/dropdown-link-hover-color; type=string; label=$dropdown-link-hover-color:
-            dropdown-link-hover-color =         darken($gray-900, 5%)
+            dropdown-link-hover-color = darken($gray-900, 5%)
             # cat=bootstrap 4.x: styling/319/dropdown-link-hover-bg; type=string; label=$dropdown-link-hover-bg:
-            dropdown-link-hover-bg =            $gray-100
+            dropdown-link-hover-bg = $gray-100
             # cat=bootstrap 4.x: styling/319/dropdown-link-active-color; type=string; label=$dropdown-link-active-color:
-            dropdown-link-active-color =        $component-active-color
+            dropdown-link-active-color = $component-active-color
             # cat=bootstrap 4.x: styling/319/dropdown-link-active-bg; type=string; label=$dropdown-link-active-bg:
-            dropdown-link-active-bg =           $component-active-bg
+            dropdown-link-active-bg = $component-active-bg
             # cat=bootstrap 4.x: styling/319/dropdown-link-disabled-color; type=string; label=$dropdown-link-disabled-color:
-            dropdown-link-disabled-color =      $gray-600
+            dropdown-link-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/319/dropdown-item-padding-y; type=string; label=$dropdown-item-padding-y:
-            dropdown-item-padding-y =           .25rem
+            dropdown-item-padding-y = .25rem
             # cat=bootstrap 4.x: styling/319/dropdown-item-padding-x; type=string; label=$dropdown-item-padding-x:
-            dropdown-item-padding-x =           1.5rem
+            dropdown-item-padding-x = 1.5rem
             # cat=bootstrap 4.x: styling/319/dropdown-header-color; type=string; label=$dropdown-header-color:
-            dropdown-header-color =             $gray-600
+            dropdown-header-color = $gray-600
 
             # cat=bootstrap 4.x: styling/320/zindex-dropdown; type=string; label=$zindex-dropdown:
-            zindex-dropdown =                   1000
+            zindex-dropdown = 1000
             # cat=bootstrap 4.x: styling/320/zindex-sticky; type=string; label=$zindex-sticky:
-            zindex-sticky =                     1020
+            zindex-sticky = 1020
             # cat=bootstrap 4.x: styling/320/zindex-fixed; type=string; label=$zindex-fixed:
-            zindex-fixed =                      1030
+            zindex-fixed = 1030
             # cat=bootstrap 4.x: styling/320/zindex-modal-backdrop; type=string; label=$zindex-modal-backdrop:
-            zindex-modal-backdrop =             1040
+            zindex-modal-backdrop = 1040
             # cat=bootstrap 4.x: styling/320/zindex-modal; type=string; label=$zindex-modal:
-            zindex-modal =                      1050
+            zindex-modal = 1050
             # cat=bootstrap 4.x: styling/320/zindex-popover; type=string; label=$zindex-popover:
-            zindex-popover =                    1060
+            zindex-popover = 1060
             # cat=bootstrap 4.x: styling/320/zindex-tooltip; type=string; label=$zindex-tooltip:
-            zindex-tooltip =                    1070
+            zindex-tooltip = 1070
 
             # cat=bootstrap 4.x: styling/321/nav-link-padding-y; type=string; label=$nav-link-padding-y:
-            nav-link-padding-y =                .5rem
+            nav-link-padding-y = .5rem
             # cat=bootstrap 4.x: styling/321/nav-link-padding-x; type=string; label=$nav-link-padding-x:
-            nav-link-padding-x =                1rem
+            nav-link-padding-x = 1rem
             # cat=bootstrap 4.x: styling/321/nav-link-disabled-color; type=string; label=$nav-link-disabled-color:
-            nav-link-disabled-color =           $gray-600
+            nav-link-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/321/nav-tabs-border-color; type=string; label=$nav-tabs-border-color:
-            nav-tabs-border-color =             $gray-300
+            nav-tabs-border-color = $gray-300
             # cat=bootstrap 4.x: styling/321/nav-tabs-border-width; type=string; label=$nav-tabs-border-width:
-            nav-tabs-border-width =             $border-width
+            nav-tabs-border-width = $border-width
             # cat=bootstrap 4.x: styling/321/nav-tabs-border-radius; type=string; label=$nav-tabs-border-radius:
-            nav-tabs-border-radius =            $border-radius
+            nav-tabs-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/321/nav-tabs-link-hover-border-color; type=string; label=$nav-tabs-link-hover-border-color:
-            nav-tabs-link-hover-border-color =  $gray-200 $gray-200 $nav-tabs-border-color
+            nav-tabs-link-hover-border-color = $gray-200 $gray-200 $nav-tabs-border-color
             # cat=bootstrap 4.x: styling/321/nav-tabs-link-active-color; type=string; label=$nav-tabs-link-active-color:
-            nav-tabs-link-active-color =        $gray-700
+            nav-tabs-link-active-color = $gray-700
             # cat=bootstrap 4.x: styling/321/nav-tabs-link-active-bg; type=string; label=$nav-tabs-link-active-bg:
-            nav-tabs-link-active-bg =           $body-bg
+            nav-tabs-link-active-bg = $body-bg
             # cat=bootstrap 4.x: styling/321/nav-tabs-link-active-border-color; type=string; label=$nav-tabs-link-active-border-color:
             nav-tabs-link-active-border-color = $gray-300 $gray-300 $nav-tabs-link-active-bg
             # cat=bootstrap 4.x: styling/321/nav-pills-border-radius; type=string; label=$nav-pills-border-radius:
-            nav-pills-border-radius =           $border-radius
+            nav-pills-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/321/nav-pills-link-active-color; type=string; label=$nav-pills-link-active-color:
-            nav-pills-link-active-color =       $component-active-color
+            nav-pills-link-active-color = $component-active-color
             # cat=bootstrap 4.x: styling/321/nav-pills-link-active-bg; type=string; label=$nav-pills-link-active-bg:
-            nav-pills-link-active-bg =          $component-active-bg
+            nav-pills-link-active-bg = $component-active-bg
 
             # cat=bootstrap 4.x: styling/322/navbar-padding-y; type=string; label=$navbar-padding-y:
-            navbar-padding-y =                  ($spacer / 2)
+            navbar-padding-y = ($spacer / 2)
             # cat=bootstrap 4.x: styling/322/navbar-padding-x; type=string; label=$navbar-padding-x:
-            navbar-padding-x =                  $spacer
+            navbar-padding-x = $spacer
             # cat=bootstrap 4.x: styling/322/navbar-nav-link-padding-x; type=string; label=$navbar-nav-link-padding-x:
-            navbar-nav-link-padding-x =         .5rem
+            navbar-nav-link-padding-x = .5rem
             # cat=bootstrap 4.x: styling/322/navbar-brand-font-size; type=string; label=$navbar-brand-font-size:
-            navbar-brand-font-size =            $font-size-lg
+            navbar-brand-font-size = $font-size-lg
             # cat=bootstrap 4.x: styling/322/nav-link-height; type=string; label=$nav-link-height:
-            nav-link-height =                   ($font-size-base * $line-height-base + $nav-link-padding-y * 2)
+            nav-link-height = ($font-size-base * $line-height-base + $nav-link-padding-y * 2)
             # cat=bootstrap 4.x: styling/322/navbar-brand-height; type=string; label=$navbar-brand-height:
-            navbar-brand-height =               $navbar-brand-font-size * $line-height-base
+            navbar-brand-height = $navbar-brand-font-size * $line-height-base
             # cat=bootstrap 4.x: styling/322/navbar-brand-padding-y; type=string; label=$navbar-brand-padding-y:
-            navbar-brand-padding-y =            ($nav-link-height - $navbar-brand-height) / 2
+            navbar-brand-padding-y = ($nav-link-height - $navbar-brand-height) / 2
             # cat=bootstrap 4.x: styling/322/navbar-toggler-padding-y; type=string; label=$navbar-toggler-padding-y:
-            navbar-toggler-padding-y =          .25rem
+            navbar-toggler-padding-y = .25rem
             # cat=bootstrap 4.x: styling/322/navbar-toggler-padding-x; type=string; label=$navbar-toggler-padding-x:
-            navbar-toggler-padding-x =          .75rem
+            navbar-toggler-padding-x = .75rem
             # cat=bootstrap 4.x: styling/322/navbar-toggler-font-size; type=string; label=$navbar-toggler-font-size:
-            navbar-toggler-font-size =          $font-size-lg
+            navbar-toggler-font-size = $font-size-lg
             # cat=bootstrap 4.x: styling/322/navbar-toggler-border-radius; type=string; label=$navbar-toggler-border-radius:
-            navbar-toggler-border-radius =      $btn-border-radius
+            navbar-toggler-border-radius = $btn-border-radius
             # cat=bootstrap 4.x: styling/322/navbar-dark-color; type=string; label=$navbar-dark-color:
-            navbar-dark-color =                 rgba($white, .5)
+            navbar-dark-color = rgba($white, .5)
             # cat=bootstrap 4.x: styling/322/navbar-dark-hover-color; type=string; label=$navbar-dark-hover-color:
-            navbar-dark-hover-color =           rgba($white, .75)
+            navbar-dark-hover-color = rgba($white, .75)
             # cat=bootstrap 4.x: styling/322/navbar-dark-active-color; type=string; label=$navbar-dark-active-color:
-            navbar-dark-active-color =          $white
+            navbar-dark-active-color = $white
             # cat=bootstrap 4.x: styling/322/navbar-dark-disabled-color; type=string; label=$navbar-dark-disabled-color:
-            navbar-dark-disabled-color =        rgba($white, .25)
+            navbar-dark-disabled-color = rgba($white, .25)
             # cat=bootstrap 4.x: styling/322/navbar-dark-toggler-icon-bg; type=string; label=$navbar-dark-toggler-icon-bg:
-            navbar-dark-toggler-icon-bg =       str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http =//www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
+            navbar-dark-toggler-icon-bg = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http =//www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/322/navbar-dark-toggler-border-color; type=string; label=$navbar-dark-toggler-border-color:
-            navbar-dark-toggler-border-color =  rgba($white, .1)
+            navbar-dark-toggler-border-color = rgba($white, .1)
             # cat=bootstrap 4.x: styling/322/navbar-light-color; type=string; label=$navbar-light-color:
-            navbar-light-color =                rgba($black, .5)
+            navbar-light-color = rgba($black, .5)
             # cat=bootstrap 4.x: styling/322/navbar-light-hover-color; type=string; label=$navbar-light-hover-color:
-            navbar-light-hover-color =          rgba($black, .7)
+            navbar-light-hover-color = rgba($black, .7)
             # cat=bootstrap 4.x: styling/322/navbar-light-active-color; type=string; label=$navbar-light-active-color:
-            navbar-light-active-color =         rgba($black, .9)
+            navbar-light-active-color = rgba($black, .9)
             # cat=bootstrap 4.x: styling/322/navbar-light-disabled-color; type=string; label=$navbar-light-disabled-color:
-            navbar-light-disabled-color =       rgba($black, .3)
+            navbar-light-disabled-color = rgba($black, .3)
             # cat=bootstrap 4.x: styling/322/navbar-light-toggler-icon-bg; type=string; label=$navbar-light-toggler-icon-bg:
-            navbar-light-toggler-icon-bg =      str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http =//www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
+            navbar-light-toggler-icon-bg = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http =//www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/322/navbar-light-toggler-border-color; type=string; label=$navbar-light-toggler-border-color:
             navbar-light-toggler-border-color = rgba($black, .1)
 
             # cat=bootstrap 4.x: styling/323/pagination-padding-y; type=string; label=$pagination-padding-y:
-            pagination-padding-y =              .5rem
+            pagination-padding-y = .5rem
             # cat=bootstrap 4.x: styling/323/pagination-padding-x; type=string; label=$pagination-padding-x:
-            pagination-padding-x =              .75rem
+            pagination-padding-x = .75rem
             # cat=bootstrap 4.x: styling/323/pagination-padding-y-sm; type=string; label=$pagination-padding-y-sm:
-            pagination-padding-y-sm =           .25rem
+            pagination-padding-y-sm = .25rem
             # cat=bootstrap 4.x: styling/323/pagination-padding-x-sm; type=string; label=$pagination-padding-x-sm:
-            pagination-padding-x-sm =           .5rem
+            pagination-padding-x-sm = .5rem
             # cat=bootstrap 4.x: styling/323/pagination-padding-y-lg; type=string; label=$pagination-padding-y-lg:
-            pagination-padding-y-lg =           .75rem
+            pagination-padding-y-lg = .75rem
             # cat=bootstrap 4.x: styling/323/pagination-padding-x-lg; type=string; label=$pagination-padding-x-lg:
-            pagination-padding-x-lg =           1.5rem
+            pagination-padding-x-lg = 1.5rem
             # cat=bootstrap 4.x: styling/323/pagination-line-height; type=string; label=$pagination-line-height:
-            pagination-line-height =            1.25
+            pagination-line-height = 1.25
             # cat=bootstrap 4.x: styling/323/pagination-color; type=string; label=$pagination-color:
-            pagination-color =                  $link-color
+            pagination-color = $link-color
             # cat=bootstrap 4.x: styling/323/pagination-bg; type=string; label=$pagination-bg:
-            pagination-bg =                     $white
+            pagination-bg = $white
             # cat=bootstrap 4.x: styling/323/pagination-border-width; type=string; label=$pagination-border-width:
-            pagination-border-width =           $border-width
+            pagination-border-width = $border-width
             # cat=bootstrap 4.x: styling/323/pagination-border-color; type=string; label=$pagination-border-color:
-            pagination-border-color =           $gray-300
+            pagination-border-color = $gray-300
             # cat=bootstrap 4.x: styling/323/pagination-focus-box-shadow; type=string; label=$pagination-focus-box-shadow:
-            pagination-focus-box-shadow =       $input-btn-focus-box-shadow
+            pagination-focus-box-shadow = $input-btn-focus-box-shadow
             # cat=bootstrap 4.x: styling/323/pagination-hover-color; type=string; label=$pagination-hover-color:
-            pagination-hover-color =            $link-hover-color
+            pagination-hover-color = $link-hover-color
             # cat=bootstrap 4.x: styling/323/pagination-hover-bg; type=string; label=$pagination-hover-bg:
-            pagination-hover-bg =               $gray-200
+            pagination-hover-bg = $gray-200
             # cat=bootstrap 4.x: styling/323/pagination-hover-border-color; type=string; label=$pagination-hover-border-color:
-            pagination-hover-border-color =     $gray-300
+            pagination-hover-border-color = $gray-300
             # cat=bootstrap 4.x: styling/323/pagination-active-color; type=string; label=$pagination-active-color:
-            pagination-active-color =           $component-active-color
+            pagination-active-color = $component-active-color
             # cat=bootstrap 4.x: styling/323/pagination-active-bg; type=string; label=$pagination-active-bg:
-            pagination-active-bg =              $component-active-bg
+            pagination-active-bg = $component-active-bg
             # cat=bootstrap 4.x: styling/323/pagination-active-border-color; type=string; label=$pagination-active-border-color:
-            pagination-active-border-color =    $pagination-active-bg
+            pagination-active-border-color = $pagination-active-bg
             # cat=bootstrap 4.x: styling/323/pagination-disabled-color; type=string; label=$pagination-disabled-color:
-            pagination-disabled-color =         $gray-600
+            pagination-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/323/pagination-disabled-bg; type=string; label=$pagination-disabled-bg:
-            pagination-disabled-bg =            $white
+            pagination-disabled-bg = $white
             # cat=bootstrap 4.x: styling/323/pagination-disabled-border-color; type=string; label=$pagination-disabled-border-color:
-            pagination-disabled-border-color =  $gray-300
+            pagination-disabled-border-color = $gray-300
 
             # cat=bootstrap 4.x: styling/324/jumbotron-padding; type=string; label=$jumbotron-padding:
-            jumbotron-padding =                 2rem
+            jumbotron-padding = 2rem
             # cat=bootstrap 4.x: styling/324/jumbotron-bg; type=string; label=$jumbotron-bg:
-            jumbotron-bg =                      $gray-200
+            jumbotron-bg = $gray-200
 
             # cat=bootstrap 4.x: styling/325/card-spacer-y; type=string; label=$card-spacer-y:
-            card-spacer-y =                     .75rem
+            card-spacer-y = .75rem
             # cat=bootstrap 4.x: styling/325/card-spacer-x; type=string; label=$card-spacer-x:
-            card-spacer-x =                     1.25rem
+            card-spacer-x = 1.25rem
             # cat=bootstrap 4.x: styling/325/card-border-width; type=string; label=$card-border-width:
-            card-border-width =                 $border-width
+            card-border-width = $border-width
             # cat=bootstrap 4.x: styling/325/card-border-radius; type=string; label=$card-border-radius:
-            card-border-radius =                $border-radius
+            card-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/325/card-border-color; type=string; label=$card-border-color:
-            card-border-color =                 rgba($black, .125)
+            card-border-color = rgba($black, .125)
             # cat=bootstrap 4.x: styling/325/card-inner-border-radius; type=string; label=$card-inner-border-radius:
-            card-inner-border-radius =          calc(#{$card-border-radius} - #{$card-border-width})
+            card-inner-border-radius = calc(#{$card-border-radius} - #{$card-border-width})
             # cat=bootstrap 4.x: styling/325/card-cap-bg; type=string; label=$card-cap-bg:
-            card-cap-bg =                       rgba($black, .03)
+            card-cap-bg = rgba($black, .03)
             # cat=bootstrap 4.x: styling/325/card-bg; type=string; label=$card-bg:
-            card-bg =                           $white
+            card-bg = $white
             # cat=bootstrap 4.x: styling/325/card-img-overlay-padding; type=string; label=$card-img-overlay-padding:
-            card-img-overlay-padding =          1.25rem
+            card-img-overlay-padding = 1.25rem
             # cat=bootstrap 4.x: styling/325/card-group-margin; type=string; label=$card-group-margin:
-            card-group-margin =                 ($grid-gutter-width / 2)
+            card-group-margin = ($grid-gutter-width / 2)
             # cat=bootstrap 4.x: styling/325/card-deck-margin; type=string; label=$card-deck-margin:
-            card-deck-margin =                  $card-group-margin
+            card-deck-margin = $card-group-margin
             # cat=bootstrap 4.x: styling/325/card-columns-count; type=string; label=$card-columns-count:
-            card-columns-count =                3
+            card-columns-count = 3
             # cat=bootstrap 4.x: styling/325/card-columns-gap; type=string; label=$card-columns-gap:
-            card-columns-gap =                  1.25rem
+            card-columns-gap = 1.25rem
             # cat=bootstrap 4.x: styling/325/card-columns-margin; type=string; label=$card-columns-margin:
-            card-columns-margin =               $card-spacer-y
+            card-columns-margin = $card-spacer-y
 
             # cat=bootstrap 4.x: styling/326/tooltip-font-size; type=string; label=$tooltip-font-size:
-            tooltip-font-size =           $font-size-sm
+            tooltip-font-size = $font-size-sm
             # cat=bootstrap 4.x: styling/326/tooltip-max-width; type=string; label=$tooltip-max-width:
-            tooltip-max-width =           200px
+            tooltip-max-width = 200px
             # cat=bootstrap 4.x: styling/326/tooltip-color; type=string; label=$tooltip-color:
-            tooltip-color =               $white
+            tooltip-color = $white
             # cat=bootstrap 4.x: styling/326/tooltip-bg; type=string; label=$tooltip-bg:
-            tooltip-bg =                  $black
+            tooltip-bg = $black
             # cat=bootstrap 4.x: styling/326/tooltip-border-radius; type=string; label=$tooltip-border-radius:
-            tooltip-border-radius =        $border-radius
+            tooltip-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/326/tooltip-opacity; type=string; label=$tooltip-opacity:
-            tooltip-opacity =             .9
+            tooltip-opacity = .9
             # cat=bootstrap 4.x: styling/326/tooltip-padding-y; type=string; label=$tooltip-padding-y:
-            tooltip-padding-y =           .25rem
+            tooltip-padding-y = .25rem
             # cat=bootstrap 4.x: styling/326/tooltip-padding-x; type=string; label=$tooltip-padding-x:
-            tooltip-padding-x =           .5rem
+            tooltip-padding-x = .5rem
             # cat=bootstrap 4.x: styling/326/tooltip-margin; type=string; label=$tooltip-margin:
-            tooltip-margin =              0
+            tooltip-margin = 0
             # cat=bootstrap 4.x: styling/326/tooltip-arrow-width; type=string; label=$tooltip-arrow-width:
-            tooltip-arrow-width =         .8rem
+            tooltip-arrow-width = .8rem
             # cat=bootstrap 4.x: styling/326/tooltip-arrow-height; type=string; label=$tooltip-arrow-height:
-            tooltip-arrow-height =        .4rem
+            tooltip-arrow-height = .4rem
             # cat=bootstrap 4.x: styling/326/tooltip-arrow-color; type=string; label=$tooltip-arrow-color:
-            tooltip-arrow-color =         $tooltip-bg
+            tooltip-arrow-color = $tooltip-bg
 
             # cat=bootstrap 4.x: styling/327/popover-font-size; type=string; label=$popover-font-size:
-            popover-font-size =                 $font-size-sm
+            popover-font-size = $font-size-sm
             # cat=bootstrap 4.x: styling/327/popover-bg; type=string; label=$popover-bg:
-            popover-bg =                        $white
+            popover-bg = $white
             # cat=bootstrap 4.x: styling/327/popover-max-width; type=string; label=$popover-max-width:
-            popover-max-width =                 276px
+            popover-max-width = 276px
             # cat=bootstrap 4.x: styling/327/popover-border-width; type=string; label=$popover-border-width:
-            popover-border-width =              $border-width
+            popover-border-width = $border-width
             # cat=bootstrap 4.x: styling/327/popover-border-color; type=string; label=$popover-border-color:
-            popover-border-color =              rgba($black, .2)
+            popover-border-color = rgba($black, .2)
             # cat=bootstrap 4.x: styling/327/popover-border-radius; type=string; label=$popover-border-radius:
-            popover-border-radius =             $border-radius-lg
+            popover-border-radius = $border-radius-lg
             # cat=bootstrap 4.x: styling/327/popover-box-shadow; type=string; label=$popover-box-shadow:
-            popover-box-shadow =                0 .25rem .5rem rgba($black, .2)
+            popover-box-shadow = 0 .25rem .5rem rgba($black, .2)
             # cat=bootstrap 4.x: styling/327/popover-header-bg; type=string; label=$popover-header-bg:
-            popover-header-bg =                 darken($popover-bg, 3%)
+            popover-header-bg = darken($popover-bg, 3%)
             # cat=bootstrap 4.x: styling/327/popover-header-color; type=string; label=$popover-header-color:
-            popover-header-color =              $headings-color
+            popover-header-color = $headings-color
             # cat=bootstrap 4.x: styling/327/popover-header-padding-y; type=string; label=$popover-header-padding-y:
-            popover-header-padding-y =          .5rem
+            popover-header-padding-y = .5rem
             # cat=bootstrap 4.x: styling/327/popover-header-padding-x; type=string; label=$popover-header-padding-x:
-            popover-header-padding-x =          .75rem
+            popover-header-padding-x = .75rem
             # cat=bootstrap 4.x: styling/327/popover-body-color; type=string; label=$popover-body-color:
-            popover-body-color =                $body-color
+            popover-body-color = $body-color
             # cat=bootstrap 4.x: styling/327/popover-body-padding-y; type=string; label=$popover-body-padding-y:
-            popover-body-padding-y =            $popover-header-padding-y
+            popover-body-padding-y = $popover-header-padding-y
             # cat=bootstrap 4.x: styling/327/popover-body-padding-x; type=string; label=$popover-body-padding-x:
-            popover-body-padding-x =            $popover-header-padding-x
+            popover-body-padding-x = $popover-header-padding-x
             # cat=bootstrap 4.x: styling/327/popover-arrow-width; type=string; label=$popover-arrow-width:
-            popover-arrow-width =               1rem
+            popover-arrow-width = 1rem
             # cat=bootstrap 4.x: styling/327/popover-arrow-height; type=string; label=$popover-arrow-height:
-            popover-arrow-height =              .5rem
+            popover-arrow-height = .5rem
             # cat=bootstrap 4.x: styling/327/popover-arrow-color; type=string; label=$popover-arrow-color:
-            popover-arrow-color =               $popover-bg
+            popover-arrow-color = $popover-bg
             # cat=bootstrap 4.x: styling/327/popover-arrow-outer-color; type=string; label=$popover-arrow-outer-color:
-            popover-arrow-outer-color =         fade-in($popover-border-color, .05)
+            popover-arrow-outer-color = fade-in($popover-border-color, .05)
 
             # cat=bootstrap 4.x: styling/328/badge-font-size; type=string; label=$badge-font-size:
-            badge-font-size =                   75%
+            badge-font-size = 75%
             # cat=bootstrap 4.x: styling/328/badge-font-weight; type=string; label=$badge-font-weight:
-            badge-font-weight =                 $font-weight-bold
+            badge-font-weight = $font-weight-bold
             # cat=bootstrap 4.x: styling/328/badge-padding-y; type=string; label=$badge-padding-y:
-            badge-padding-y =                   .25em
+            badge-padding-y = .25em
             # cat=bootstrap 4.x: styling/328/badge-padding-x; type=string; label=$badge-padding-x:
-            badge-padding-x =                   .4em
+            badge-padding-x = .4em
             # cat=bootstrap 4.x: styling/328/badge-border-radius; type=string; label=$badge-border-radius:
-            badge-border-radius =               $border-radius
+            badge-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/328/badge-pill-padding-x; type=string; label=$badge-pill-padding-x:
-            badge-pill-padding-x =              .6em
+            badge-pill-padding-x = .6em
             # cat=bootstrap 4.x: styling/328/badge-pill-border-radius; type=string; label=$badge-pill-border-radius:
-            badge-pill-border-radius =          10rem
+            badge-pill-border-radius = 10rem
 
             # cat=bootstrap 4.x: styling/329/modal-inner-padding; type=string; label=$modal-inner-padding:
-            modal-inner-padding =         1rem
+            modal-inner-padding = 1rem
             # cat=bootstrap 4.x: styling/329/modal-dialog-margin; type=string; label=$modal-dialog-margin:
-            modal-dialog-margin =         .5rem
+            modal-dialog-margin = .5rem
             # cat=bootstrap 4.x: styling/329/modal-dialog-margin-y-sm-up; type=string; label=$modal-dialog-margin-y-sm-up:
             modal-dialog-margin-y-sm-up = 1.75rem
             # cat=bootstrap 4.x: styling/329/modal-title-line-height; type=string; label=$modal-title-line-height:
-            modal-title-line-height =           $line-height-base
+            modal-title-line-height = $line-height-base
             # cat=bootstrap 4.x: styling/329/modal-content-bg; type=string; label=$modal-content-bg:
-            modal-content-bg =               $white
+            modal-content-bg = $white
             # cat=bootstrap 4.x: styling/329/modal-content-border-color; type=string; label=$modal-content-border-color:
-            modal-content-border-color =     rgba($black, .2)
+            modal-content-border-color = rgba($black, .2)
             # cat=bootstrap 4.x: styling/329/modal-content-border-width; type=string; label=$modal-content-border-width:
-            modal-content-border-width =     $border-width
+            modal-content-border-width = $border-width
             # cat=bootstrap 4.x: styling/329/modal-content-box-shadow-xs; type=string; label=$modal-content-box-shadow-xs:
-            modal-content-box-shadow-xs =    0 .25rem .5rem rgba($black, .5)
+            modal-content-box-shadow-xs = 0 .25rem .5rem rgba($black, .5)
             # cat=bootstrap 4.x: styling/329/modal-content-box-shadow-sm-up; type=string; label=$modal-content-box-shadow-sm-up:
             modal-content-box-shadow-sm-up = 0 .5rem 1rem rgba($black, .5)
             # cat=bootstrap 4.x: styling/329/modal-backdrop-bg; type=string; label=$modal-backdrop-bg:
-            modal-backdrop-bg =           $black
+            modal-backdrop-bg = $black
             # cat=bootstrap 4.x: styling/329/modal-backdrop-opacity; type=string; label=$modal-backdrop-opacity:
-            modal-backdrop-opacity =      .5
+            modal-backdrop-opacity = .5
             # cat=bootstrap 4.x: styling/329/modal-header-border-color; type=string; label=$modal-header-border-color:
-            modal-header-border-color =   $gray-200
+            modal-header-border-color = $gray-200
             # cat=bootstrap 4.x: styling/329/modal-footer-border-color; type=string; label=$modal-footer-border-color:
-            modal-footer-border-color =   $modal-header-border-color
+            modal-footer-border-color = $modal-header-border-color
             # cat=bootstrap 4.x: styling/329/modal-header-border-width; type=string; label=$modal-header-border-width:
-            modal-header-border-width =   $modal-content-border-width
+            modal-header-border-width = $modal-content-border-width
             # cat=bootstrap 4.x: styling/329/modal-footer-border-width; type=string; label=$modal-footer-border-width:
-            modal-footer-border-width =   $modal-header-border-width
+            modal-footer-border-width = $modal-header-border-width
             # cat=bootstrap 4.x: styling/329/modal-header-padding; type=string; label=$modal-header-padding:
-            modal-header-padding =        1rem
+            modal-header-padding = 1rem
             # cat=bootstrap 4.x: styling/329/modal-lg; type=string; label=$modal-lg:
-            modal-lg =                          800px
+            modal-lg = 800px
             # cat=bootstrap 4.x: styling/329/modal-md; type=string; label=$modal-md:
-            modal-md =                          500px
+            modal-md = 500px
             # cat=bootstrap 4.x: styling/329/modal-sm; type=string; label=$modal-sm:
-            modal-sm =                          300px
+            modal-sm = 300px
             # cat=bootstrap 4.x: styling/329/modal-transition; type=string; label=$modal-transition:
-            modal-transition =                  transform .3s ease-out
+            modal-transition = transform .3s ease-out
 
             # cat=bootstrap 4.x: styling/330/alert-padding-y; type=string; label=$alert-padding-y:
-            alert-padding-y =                   .75rem
+            alert-padding-y = .75rem
             # cat=bootstrap 4.x: styling/330/alert-padding-x; type=string; label=$alert-padding-x:
-            alert-padding-x =                   1.25rem
+            alert-padding-x = 1.25rem
             # cat=bootstrap 4.x: styling/330/alert-margin-bottom; type=string; label=$alert-margin-bottom:
-            alert-margin-bottom =               1rem
+            alert-margin-bottom = 1rem
             # cat=bootstrap 4.x: styling/330/alert-border-radius; type=string; label=$alert-border-radius:
-            alert-border-radius =               $border-radius
+            alert-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/330/alert-link-font-weight; type=string; label=$alert-link-font-weight:
-            alert-link-font-weight =            $font-weight-bold
+            alert-link-font-weight = $font-weight-bold
             # cat=bootstrap 4.x: styling/330/alert-border-width; type=string; label=$alert-border-width:
-            alert-border-width =                $border-width
+            alert-border-width = $border-width
             # cat=bootstrap 4.x: styling/330/alert-bg-level; type=string; label=$alert-bg-level:
-            alert-bg-level =                    -10
+            alert-bg-level = -10
             # cat=bootstrap 4.x: styling/330/alert-border-level; type=string; label=$alert-border-level:
-            alert-border-level =                -9
+            alert-border-level = -9
             # cat=bootstrap 4.x: styling/330/alert-color-level; type=string; label=$alert-color-level:
-            alert-color-level =                 6
+            alert-color-level = 6
 
             # cat=bootstrap 4.x: styling/331/progress-height; type=string; label=$progress-height:
-            progress-height =                   1rem
+            progress-height = 1rem
             # cat=bootstrap 4.x: styling/331/progress-font-size; type=string; label=$progress-font-size:
-            progress-font-size =                ($font-size-base * .75)
+            progress-font-size = ($font-size-base * .75)
             # cat=bootstrap 4.x: styling/331/progress-bg; type=string; label=$progress-bg:
-            progress-bg =                       $gray-200
+            progress-bg = $gray-200
             # cat=bootstrap 4.x: styling/331/progress-border-radius; type=string; label=$progress-border-radius:
-            progress-border-radius =            $border-radius
+            progress-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/331/progress-box-shadow; type=string; label=$progress-box-shadow:
-            progress-box-shadow =               inset 0 .1rem .1rem rgba($black, .1)
+            progress-box-shadow = inset 0 .1rem .1rem rgba($black, .1)
             # cat=bootstrap 4.x: styling/331/progress-bar-color; type=string; label=$progress-bar-color:
-            progress-bar-color =                $white
+            progress-bar-color = $white
             # cat=bootstrap 4.x: styling/331/progress-bar-bg; type=string; label=$progress-bar-bg:
-            progress-bar-bg =                   theme-color("primary")
+            progress-bar-bg = theme-color("primary")
             # cat=bootstrap 4.x: styling/331/progress-bar-animation-timing; type=string; label=$progress-bar-animation-timing:
-            progress-bar-animation-timing =     1s linear infinite
+            progress-bar-animation-timing = 1s linear infinite
             # cat=bootstrap 4.x: styling/331/progress-bar-transition; type=string; label=$progress-bar-transition:
-            progress-bar-transition =           width .6s ease
+            progress-bar-transition = width .6s ease
 
             # cat=bootstrap 4.x: styling/332/list-group-bg; type=string; label=$list-group-bg:
-            list-group-bg =                     $white
+            list-group-bg = $white
             # cat=bootstrap 4.x: styling/332/list-group-border-color; type=string; label=$list-group-border-color:
-            list-group-border-color =           rgba($black, .125)
+            list-group-border-color = rgba($black, .125)
             # cat=bootstrap 4.x: styling/332/list-group-border-width; type=string; label=$list-group-border-width:
-            list-group-border-width =           $border-width
+            list-group-border-width = $border-width
             # cat=bootstrap 4.x: styling/332/list-group-border-radius; type=string; label=$list-group-border-radius:
-            list-group-border-radius =          $border-radius
+            list-group-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/332/list-group-item-padding-y; type=string; label=$list-group-item-padding-y:
-            list-group-item-padding-y =         .75rem
+            list-group-item-padding-y = .75rem
             # cat=bootstrap 4.x: styling/332/list-group-item-padding-x; type=string; label=$list-group-item-padding-x:
-            list-group-item-padding-x =         1.25rem
+            list-group-item-padding-x = 1.25rem
             # cat=bootstrap 4.x: styling/332/list-group-hover-bg; type=string; label=$list-group-hover-bg:
-            list-group-hover-bg =               $gray-100
+            list-group-hover-bg = $gray-100
             # cat=bootstrap 4.x: styling/332/list-group-active-color; type=string; label=$list-group-active-color:
-            list-group-active-color =           $component-active-color
+            list-group-active-color = $component-active-color
             # cat=bootstrap 4.x: styling/332/list-group-active-bg; type=string; label=$list-group-active-bg:
-            list-group-active-bg =              $component-active-bg
+            list-group-active-bg = $component-active-bg
             # cat=bootstrap 4.x: styling/332/list-group-active-border-color; type=string; label=$list-group-active-border-color:
-            list-group-active-border-color =    $list-group-active-bg
+            list-group-active-border-color = $list-group-active-bg
             # cat=bootstrap 4.x: styling/332/list-group-disabled-color; type=string; label=$list-group-disabled-color:
-            list-group-disabled-color =         $gray-600
+            list-group-disabled-color = $gray-600
             # cat=bootstrap 4.x: styling/332/list-group-disabled-bg; type=string; label=$list-group-disabled-bg:
-            list-group-disabled-bg =            $list-group-bg
+            list-group-disabled-bg = $list-group-bg
             # cat=bootstrap 4.x: styling/332/list-group-action-color; type=string; label=$list-group-action-color:
-            list-group-action-color =           $gray-700
+            list-group-action-color = $gray-700
             # cat=bootstrap 4.x: styling/332/list-group-action-hover-color; type=string; label=$list-group-action-hover-color:
-            list-group-action-hover-color =     $list-group-action-color
+            list-group-action-hover-color = $list-group-action-color
             # cat=bootstrap 4.x: styling/332/list-group-action-active-color; type=string; label=$list-group-action-active-color:
-            list-group-action-active-color =    $body-color
+            list-group-action-active-color = $body-color
             # cat=bootstrap 4.x: styling/332/list-group-action-active-bg; type=string; label=$list-group-action-active-bg:
-            list-group-action-active-bg =       $gray-200
+            list-group-action-active-bg = $gray-200
 
             # cat=bootstrap 4.x: styling/333/thumbnail-padding; type=string; label=$thumbnail-padding:
-            thumbnail-padding =                 .25rem
+            thumbnail-padding = .25rem
             # cat=bootstrap 4.x: styling/333/thumbnail-bg; type=string; label=$thumbnail-bg:
-            thumbnail-bg =                      $body-bg
+            thumbnail-bg = $body-bg
             # cat=bootstrap 4.x: styling/333/thumbnail-border-width; type=string; label=$thumbnail-border-width:
-            thumbnail-border-width =            $border-width
+            thumbnail-border-width = $border-width
             # cat=bootstrap 4.x: styling/333/thumbnail-border-color; type=string; label=$thumbnail-border-color:
-            thumbnail-border-color =            $gray-300
+            thumbnail-border-color = $gray-300
             # cat=bootstrap 4.x: styling/333/thumbnail-border-radius; type=string; label=$thumbnail-border-radius:
-            thumbnail-border-radius =           $border-radius
+            thumbnail-border-radius = $border-radius
             # cat=bootstrap 4.x: styling/333/thumbnail-box-shadow; type=string; label=$thumbnail-box-shadow:
-            thumbnail-box-shadow =              0 1px 2px rgba($black, .075)
+            thumbnail-box-shadow = 0 1px 2px rgba($black, .075)
 
             # cat=bootstrap 4.x: styling/334/figure-caption-font-size; type=string; label=$figure-caption-font-size:
-            figure-caption-font-size =          90%
+            figure-caption-font-size = 90%
             # cat=bootstrap 4.x: styling/334/figure-caption-color; type=string; label=$figure-caption-color:
-            figure-caption-color =              $gray-600
+            figure-caption-color = $gray-600
 
             # cat=bootstrap 4.x: styling/335/breadcrumb-padding-y; type=string; label=$breadcrumb-padding-y:
-            breadcrumb-padding-y =              .75rem
+            breadcrumb-padding-y = .75rem
             # cat=bootstrap 4.x: styling/335/breadcrumb-padding-x; type=string; label=$breadcrumb-padding-x:
-            breadcrumb-padding-x =              1rem
+            breadcrumb-padding-x = 1rem
             # cat=bootstrap 4.x: styling/335/breadcrumb-item-padding; type=string; label=$breadcrumb-item-padding:
-            breadcrumb-item-padding =           .5rem
+            breadcrumb-item-padding = .5rem
             # cat=bootstrap 4.x: styling/335/breadcrumb-margin-bottom; type=string; label=$breadcrumb-margin-bottom:
-            breadcrumb-margin-bottom =          1rem
+            breadcrumb-margin-bottom = 1rem
             # cat=bootstrap 4.x: styling/335/breadcrumb-bg; type=string; label=$breadcrumb-bg:
-            breadcrumb-bg =                     $gray-200
+            breadcrumb-bg = $gray-200
             # cat=bootstrap 4.x: styling/335/breadcrumb-divider-color; type=string; label=$breadcrumb-divider-color:
-            breadcrumb-divider-color =          $gray-600
+            breadcrumb-divider-color = $gray-600
             # cat=bootstrap 4.x: styling/335/breadcrumb-active-color; type=string; label=$breadcrumb-active-color:
-            breadcrumb-active-color =           $gray-600
+            breadcrumb-active-color = $gray-600
             # cat=bootstrap 4.x: styling/335/breadcrumb-divider; type=string; label=$breadcrumb-divider:
-            breadcrumb-divider =                "/"
+            breadcrumb-divider = "/"
 
             # cat=bootstrap 4.x: styling/336/carousel-control-color; type=string; label=$carousel-control-color:
-            carousel-control-color =            $white
+            carousel-control-color = $white
             # cat=bootstrap 4.x: styling/336/carousel-control-width; type=string; label=$carousel-control-width:
-            carousel-control-width =            15%
+            carousel-control-width = 15%
             # cat=bootstrap 4.x: styling/336/carousel-control-opacity; type=string; label=$carousel-control-opacity:
-            carousel-control-opacity =          .5
+            carousel-control-opacity = .5
             # cat=bootstrap 4.x: styling/336/carousel-indicator-width; type=string; label=$carousel-indicator-width:
-            carousel-indicator-width =          30px
+            carousel-indicator-width = 30px
             # cat=bootstrap 4.x: styling/336/carousel-indicator-height; type=string; label=$carousel-indicator-height:
-            carousel-indicator-height =         3px
+            carousel-indicator-height = 3px
             # cat=bootstrap 4.x: styling/336/carousel-indicator-spacer; type=string; label=$carousel-indicator-spacer:
-            carousel-indicator-spacer =         3px
+            carousel-indicator-spacer = 3px
             # cat=bootstrap 4.x: styling/336/carousel-indicator-active-bg; type=string; label=$carousel-indicator-active-bg:
-            carousel-indicator-active-bg =      $white
+            carousel-indicator-active-bg = $white
             # cat=bootstrap 4.x: styling/336/carousel-caption-width; type=string; label=$carousel-caption-width:
-            carousel-caption-width =            70%
+            carousel-caption-width = 70%
             # cat=bootstrap 4.x: styling/336/carousel-caption-color; type=string; label=$carousel-caption-color:
-            carousel-caption-color =            $white
+            carousel-caption-color = $white
             # cat=bootstrap 4.x: styling/336/carousel-control-icon-width; type=string; label=$carousel-control-icon-width:
-            carousel-control-icon-width =       20px
+            carousel-control-icon-width = 20px
             # cat=bootstrap 4.x: styling/336/carousel-control-prev-icon-bg; type=string; label=$carousel-control-prev-icon-bg:
-            carousel-control-prev-icon-bg =     str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23")
+            carousel-control-prev-icon-bg = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/336/carousel-control-next-icon-bg; type=string; label=$carousel-control-next-icon-bg:
-            carousel-control-next-icon-bg =     str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23")
+            carousel-control-next-icon-bg = str-replace(url("data =image/svg+xml;charset=utf8,%3Csvg xmlns='http =//www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23")
             # cat=bootstrap 4.x: styling/336/carousel-transition; type=string; label=$carousel-transition:
-            carousel-transition =               transform .6s ease
+            carousel-transition = transform .6s ease
 
             # cat=bootstrap 4.x: styling/337/close-font-size; type=string; label=$close-font-size:
-            close-font-size =                   $font-size-base * 1.5
+            close-font-size = $font-size-base * 1.5
             # cat=bootstrap 4.x: styling/337/close-font-weight; type=string; label=$close-font-weight:
-            close-font-weight =                 $font-weight-bold
+            close-font-weight = $font-weight-bold
             # cat=bootstrap 4.x: styling/337/close-color; type=string; label=$close-color:
-            close-color =                       $black
+            close-color = $black
             # cat=bootstrap 4.x: styling/337/close-text-shadow; type=string; label=$close-text-shadow:
-            close-text-shadow =                 0 1px 0 $white
+            close-text-shadow = 0 1px 0 $white
 
             # cat=bootstrap 4.x: styling/338/code-font-size; type=string; label=$code-font-size:
-            code-font-size =                    87.5%
+            code-font-size = 87.5%
             # cat=bootstrap 4.x: styling/338/code-color; type=string; label=$code-color:
-            code-color =                        $pink
+            code-color = $pink
             # cat=bootstrap 4.x: styling/338/kbd-padding-y; type=string; label=$kbd-padding-y:
-            kbd-padding-y =                     .2rem
+            kbd-padding-y = .2rem
             # cat=bootstrap 4.x: styling/338/kbd-padding-x; type=string; label=$kbd-padding-x:
-            kbd-padding-x =                     .4rem
+            kbd-padding-x = .4rem
             # cat=bootstrap 4.x: styling/338/kbd-font-size; type=string; label=$kbd-font-size:
-            kbd-font-size =                     $code-font-size
+            kbd-font-size = $code-font-size
             # cat=bootstrap 4.x: styling/338/kbd-color; type=string; label=$kbd-color:
-            kbd-color =                         $white
+            kbd-color = $white
             # cat=bootstrap 4.x: styling/338/kbd-bg; type=string; label=$kbd-bg:
-            kbd-bg =                            $gray-900
+            kbd-bg = $gray-900
             # cat=bootstrap 4.x: styling/338/pre-color; type=string; label=$pre-color:
-            pre-color =                         $gray-900
+            pre-color = $gray-900
             # cat=bootstrap 4.x: styling/338/pre-scrollable-max-height; type=string; label=$pre-scrollable-max-height:
-            pre-scrollable-max-height =         340px
+            pre-scrollable-max-height = 340px
 
             # cat=bootstrap 4.x: styling/339/print-page-size; type=string; label=$print-page-size:
-            print-page-size =                   a3
+            print-page-size = a3
             # cat=bootstrap 4.x: styling/339/print-body-min-width; type=string; label=$print-body-min-width:
-            print-body-min-width =              map-get($grid-breakpoints, "lg")
+            print-body-min-width = map-get($grid-breakpoints, "lg")
 
         }
     }
