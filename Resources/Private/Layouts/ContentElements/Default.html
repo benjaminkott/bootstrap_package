@@ -20,7 +20,7 @@
 
             <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
             <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
-                <f:render partial="Frame/BackgroundImage" arguments="{_all}" />
+                <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />
                 <div class="frame-container">
                     <div class="frame-inner">
                         <f:if condition="{data._LOCALIZED_UID}">
