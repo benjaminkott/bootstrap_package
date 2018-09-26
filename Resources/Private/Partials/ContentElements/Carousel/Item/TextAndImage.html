@@ -10,12 +10,10 @@
         </div>
         <div class="carousel-image vcontainer">
             <f:if condition="{item.images.0}">
-                <f:image
-                    image="{item.images.0}"
-                    title="{item.images.0.title}"
-                    alt="{item.images.0.alternative}"
-                    width="600"
-                    height="600m" />
+                <f:variable name="imageConfig">{settings.responsiveimages.contentelements.{data.CType}}</f:variable>
+                <f:variable name="imageConfig">{imageConfig.{item.data.item_type}}</f:variable>
+                <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+                <f:render partial="Media/Rendering/Image" arguments="{file: item.images.0, data: item.data, settings: settings, variants: variants}" />
             </f:if>
         </div>
     </div>
