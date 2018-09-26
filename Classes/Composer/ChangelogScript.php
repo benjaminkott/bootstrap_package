@@ -299,7 +299,7 @@ class ChangelogScript
         $previous = null;
         $revisionRanges = [];
         foreach ($tags as $key => $value) {
-            if (strpos($value, 'v') === 0) {
+            if (strpos($value, 'v') !== 0) {
                 if ($previous !== null) {
                     $revisionRanges[$previous]['start'] = $value;
                 }
@@ -318,6 +318,6 @@ class ChangelogScript
      */
     public static function shellOutputToArray($output)
     {
-        return array_filter(explode(LF, $output));
+        return array_filter(explode(chr(10), $output));
     }
 }
