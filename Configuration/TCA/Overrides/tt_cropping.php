@@ -50,6 +50,15 @@ $extrasmallCropSettings = $defaultCropSettings;
 $extrasmallCropSettings['title'] = 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.extrasmall';
 
 /***************
+ * Content Element Background Image
+ */
+$GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
+$GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
+$GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
+$GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
+$GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
+
+/***************
  * Image content element
  */
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
