@@ -62,9 +62,9 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/300/gray-700; type=string; label=$gray-700:
             gray-700 = #495057
             # cat=bootstrap 4.x: styling/300/gray-800; type=string; label=$gray-800:
-            gray-800 = #343a40
+            gray-800 = #3b3b3b
             # cat=bootstrap 4.x: styling/300/gray-900; type=string; label=$gray-900:
-            gray-900 = #212529
+            gray-900 = #2b2b2b
             # cat=bootstrap 4.x: styling/300/black; type=string; label=$black:
             black = #000
             # cat=bootstrap 4.x: styling/300/blue; type=string; label=$blue:
@@ -87,10 +87,12 @@ plugin.bootstrap_package {
             teal = #20c997
             # cat=bootstrap 4.x: styling/300/cyan; type=string; label=$cyan:
             cyan = #17a2b8
-            # cat=bootstrap 4.x: styling/300/primary; type=string; label=$primary:
-            primary = $blue
+            # cat=bootstrap 4.x: styling/300/default; type=string; label=$default:
+            default = #eaebec
             # cat=bootstrap 4.x: styling/300/secondary; type=string; label=$secondary:
-            secondary = $gray-600
+            primary = #4faf98
+            # cat=bootstrap 4.x: styling/300/secondary; type=string; label=$secondary:
+            secondary = #ff3f00
             # cat=bootstrap 4.x: styling/300/success; type=string; label=$success:
             success = $green
             # cat=bootstrap 4.x: styling/300/info; type=string; label=$info:
@@ -102,7 +104,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/300/light; type=string; label=$light:
             light = $gray-100
             # cat=bootstrap 4.x: styling/300/dark; type=string; label=$dark:
-            dark = $gray-800
+            dark = $gray-900
             # cat=bootstrap 4.x: styling/300/theme-color-interval; type=string; label=$theme-color-interval:
             theme-color-interval = 8%
             # cat=bootstrap 4.x: styling/300/yiq-contrasted-threshold; type=string; label=$yiq-contrasted-threshold:
@@ -112,19 +114,19 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/300/yiq-text-light; type=string; label=$yiq-text-light:
             yiq-text-light = $white
 
-            # cat=bootstrap 4.x: styling/301/enable-caret; type=string; label=$enable-caret:
+            # cat=bootstrap 4.x: styling/301/enable-caret; type=options[Enabled=true, Disabled=false]; label=$enable-caret:
             enable-caret = true
-            # cat=bootstrap 4.x: styling/301/enable-rounded; type=string; label=$enable-rounded:
-            enable-rounded = true
-            # cat=bootstrap 4.x: styling/301/enable-shadows; type=string; label=$enable-shadows:
+            # cat=bootstrap 4.x: styling/301/enable-rounded; type=options[Enabled=true, Disabled=false]; label=$enable-rounded:
+            enable-rounded = false
+            # cat=bootstrap 4.x: styling/301/enable-shadows; type=options[Enabled=true, Disabled=false]; label=$enable-shadows:
             enable-shadows = false
-            # cat=bootstrap 4.x: styling/301/enable-gradients; type=string; label=$enable-gradients:
+            # cat=bootstrap 4.x: styling/301/enable-gradients; type=options[Enabled=true, Disabled=false]; label=$enable-gradients:
             enable-gradients = false
-            # cat=bootstrap 4.x: styling/301/enable-transitions; type=string; label=$enable-transitions:
+            # cat=bootstrap 4.x: styling/301/enable-transitions; type=options[Enabled=true, Disabled=false]; label=$enable-transitions:
             enable-transitions = true
-            # cat=bootstrap 4.x: styling/301/enable-grid-classes; type=string; label=$enable-grid-classes:
+            # cat=bootstrap 4.x: styling/301/enable-grid-classes; type=options[Enabled=true, Disabled=false]; label=$enable-grid-classes:
             enable-grid-classes = true
-            # cat=bootstrap 4.x: styling/301/enable-print-styles; type=string; label=$enable-print-styles:
+            # cat=bootstrap 4.x: styling/301/enable-print-styles; type=options[Enabled=true, Disabled=false]; label=$enable-print-styles:
             enable-print-styles = true
 
             # cat=bootstrap 4.x: styling/302/spacer; type=string; label=$spacer:
@@ -143,6 +145,10 @@ plugin.bootstrap_package {
             link-hover-color = darken($link-color, 15%)
             # cat=bootstrap 4.x: styling/304/link-hover-decoration; type=string; label=$link-hover-decoration:
             link-hover-decoration = underline
+            # cat=bootstrap 4.x: styling/304/link-alternate-color; type=string; label=$link-alternate-color:
+            link-alternate-color = #ffffff
+            # cat=bootstrap 4.x: styling/304/link-alternate-hover-color; type=string; label=$link-alternate-hover-color:
+            link-alternate-hover-color = darken($link-alternate-color, 15%)
 
             # cat=bootstrap 4.x: styling/305/paragraph-margin-bottom; type=string; label=$paragraph-margin-bottom:
             paragraph-margin-bottom = 1rem
@@ -150,7 +156,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/306/grid-columns; type=string; label=$grid-columns:
             grid-columns = 12
             # cat=bootstrap 4.x: styling/306/grid-gutter-width; type=string; label=$grid-gutter-width:
-            grid-gutter-width = 30px
+            grid-gutter-width = 40px
 
             # cat=bootstrap 4.x: styling/307/line-height-lg; type=string; label=$line-height-lg:
             line-height-lg = 1.5
@@ -198,23 +204,23 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/line-height-base; type=string; label=$line-height-base:
             line-height-base = 1.5
             # cat=bootstrap 4.x: styling/308/h1-font-size; type=string; label=$h1-font-size:
-            h1-font-size = $font-size-base * 2.5
+            h1-font-size = $font-size-base * 2
             # cat=bootstrap 4.x: styling/308/h2-font-size; type=string; label=$h2-font-size:
-            h2-font-size = $font-size-base * 2
+            h2-font-size = $font-size-base * 1.75
             # cat=bootstrap 4.x: styling/308/h3-font-size; type=string; label=$h3-font-size:
-            h3-font-size = $font-size-base * 1.75
+            h3-font-size = $font-size-base * 1.5
             # cat=bootstrap 4.x: styling/308/h4-font-size; type=string; label=$h4-font-size:
-            h4-font-size = $font-size-base * 1.5
+            h4-font-size = $font-size-base * 1.25
             # cat=bootstrap 4.x: styling/308/h5-font-size; type=string; label=$h5-font-size:
-            h5-font-size = $font-size-base * 1.25
+            h5-font-size = $font-size-base * 1
             # cat=bootstrap 4.x: styling/308/h6-font-size; type=string; label=$h6-font-size:
-            h6-font-size = $font-size-base
+            h6-font-size = $font-size-base * 0.85
             # cat=bootstrap 4.x: styling/308/headings-margin-bottom; type=string; label=$headings-margin-bottom:
             headings-margin-bottom = ($spacer / 2)
             # cat=bootstrap 4.x: styling/308/headings-font-family; type=string; label=$headings-font-family:
             headings-font-family = inherit
             # cat=bootstrap 4.x: styling/308/headings-font-weight; type=string; label=$headings-font-weight:
-            headings-font-weight = 500
+            headings-font-weight = 300
             # cat=bootstrap 4.x: styling/308/headings-line-height; type=string; label=$headings-line-height:
             headings-line-height = 1.2
             # cat=bootstrap 4.x: styling/308/headings-color; type=string; label=$headings-color:
@@ -248,7 +254,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/blockquote-small-color; type=string; label=$blockquote-small-color:
             blockquote-small-color = $gray-600
             # cat=bootstrap 4.x: styling/308/blockquote-font-size; type=string; label=$blockquote-font-size:
-            blockquote-font-size = ($font-size-base * 1.25)
+            blockquote-font-size = ($font-size-base * 1.15)
             # cat=bootstrap 4.x: styling/308/hr-border-color; type=string; label=$hr-border-color:
             hr-border-color = rgba($black, .1)
             # cat=bootstrap 4.x: styling/308/hr-border-width; type=string; label=$hr-border-width:
@@ -667,7 +673,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/317/navbar-padding-x; type=string; label=$navbar-padding-x:
             navbar-padding-x = $spacer
             # cat=bootstrap 4.x: styling/317/navbar-nav-link-padding-x; type=string; label=$navbar-nav-link-padding-x:
-            navbar-nav-link-padding-x = .5rem
+            navbar-nav-link-padding-x = 1rem
             # cat=bootstrap 4.x: styling/317/navbar-brand-font-size; type=string; label=$navbar-brand-font-size:
             navbar-brand-font-size = $font-size-lg
             # cat=bootstrap 4.x: styling/317/nav-link-height; type=string; label=$nav-link-height:
@@ -758,9 +764,9 @@ plugin.bootstrap_package {
             jumbotron-bg = $gray-200
 
             # cat=bootstrap 4.x: styling/320/card-spacer-y; type=string; label=$card-spacer-y:
-            card-spacer-y = .75rem
+            card-spacer-y = 1rem
             # cat=bootstrap 4.x: styling/320/card-spacer-x; type=string; label=$card-spacer-x:
-            card-spacer-x = 1.25rem
+            card-spacer-x = 1.5rem
             # cat=bootstrap 4.x: styling/320/card-border-width; type=string; label=$card-border-width:
             card-border-width = $border-width
             # cat=bootstrap 4.x: styling/320/card-border-radius; type=string; label=$card-border-radius:
@@ -776,7 +782,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/320/card-img-overlay-padding; type=string; label=$card-img-overlay-padding:
             card-img-overlay-padding = 1.25rem
             # cat=bootstrap 4.x: styling/320/card-group-margin; type=string; label=$card-group-margin:
-            card-group-margin = ($grid-gutter-width / 2)
+            card-group-margin = 10px
             # cat=bootstrap 4.x: styling/320/card-deck-margin; type=string; label=$card-deck-margin:
             card-deck-margin = $card-group-margin
             # cat=bootstrap 4.x: styling/320/card-columns-count; type=string; label=$card-columns-count:
@@ -1002,7 +1008,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/330/breadcrumb-margin-bottom; type=string; label=$breadcrumb-margin-bottom:
             breadcrumb-margin-bottom = 1rem
             # cat=bootstrap 4.x: styling/330/breadcrumb-bg; type=string; label=$breadcrumb-bg:
-            breadcrumb-bg = $gray-200
+            breadcrumb-bg = #f2f2f2
             # cat=bootstrap 4.x: styling/330/breadcrumb-divider-color; type=string; label=$breadcrumb-divider-color:
             breadcrumb-divider-color = $gray-600
             # cat=bootstrap 4.x: styling/330/breadcrumb-active-color; type=string; label=$breadcrumb-active-color:
