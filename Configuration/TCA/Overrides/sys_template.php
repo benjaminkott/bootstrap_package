@@ -28,3 +28,23 @@ defined('TYPO3_MODE') || die();
     'Configuration/TypoScript/ContentElement',
     'Bootstrap Package: Content Elements'
 );
+
+/***************
+ * TypoScript: Framework
+ * Include Bootstrap 3.x (LESS) Assets
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    'bootstrap_package',
+    'Configuration/TypoScript/Bootstrap3',
+    'Bootstrap Package: Bootstrap 3.x (LESS)'
+);
+
+/***************
+ * TypoScript: Framework
+ * Include Bootstrap 4.x (SCSS) Assets
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    'bootstrap_package',
+    'Configuration/TypoScript/Bootstrap4',
+    'Bootstrap Package: Bootstrap 4.x (SCSS)'
+);

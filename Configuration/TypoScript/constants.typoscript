@@ -355,4 +355,4 @@ plugin.bootstrap_package {
 ###################
 #### FRAMEWORK ####
 ###################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap3/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap4/constants.typoscript">

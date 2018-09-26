@@ -10,5 +10,6 @@ page {
     }
     includeJSFooterlibs {
         bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/js/bootstrap.min.js
+        popper >
     }
 }
