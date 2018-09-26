@@ -417,9 +417,6 @@
             <trans-unit id="carousel.interval">
                 <source>Interval in ms</source>
             </trans-unit>
-            <trans-unit id="carousel.background_image_maxwidth">
-                <source>Max width of background images in px</source>
-            </trans-unit>
             <trans-unit id="carousel.transition">
                 <source>Transition</source>
             </trans-unit>
