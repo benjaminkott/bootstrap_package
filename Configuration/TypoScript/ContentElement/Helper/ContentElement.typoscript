@@ -56,9 +56,6 @@ lib.contentElement {
     ### SETTINGS ###
     ################
     settings {
-        backgroundImage {
-            maxWidth = {$plugin.bootstrap_package_contentelements.backgroundImage.maxWidth}
-        }
         header {
             defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
             class = {$plugin.bootstrap_package_contentelements.header.class}
