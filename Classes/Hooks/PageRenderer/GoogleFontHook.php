@@ -76,7 +76,7 @@ class GoogleFontHook
                     continue;
                 }
                 if ($file === $includeFilename) {
-                    $includeFilesConfiguration[$includeKey] = $cachedFile;
+                    $this->getTemplateService()->setup['page.'][$include . '.'][$includeKey] = $cachedFile;
                     break;
                 }
             }
