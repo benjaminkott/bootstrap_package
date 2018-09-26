@@ -43,10 +43,11 @@ class ExternalMediaUtility
         if ($method !== null) {
             $embedUrl = $this->{$method}($url);
             if ($embedUrl) {
-                $content = '
-                    <iframe class="' . $class . '" src="' . $embedUrl . '" frameborder="0" allowfullscreen></iframe>
-                ';
-                return $content;
+                return '<iframe ' . GeneralUtility::implodeAttributes([
+                        'class' => $class,
+                        'src' => $embedUrl,
+                        'frameborder' => 0
+                    ], true) . ' allowfullscreen></iframe>';
             }
         }
         return null;
@@ -79,15 +80,16 @@ class ExternalMediaUtility
      */
     protected function processYoutube($url)
     {
-        $matches = [];
+        $firstMatches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
-        if (preg_match($pattern, $url, $matches)) {
-            $toEmbed = $matches[1];
+        if (preg_match($pattern, $url, $firstMatches)) {
+            $toEmbed = $firstMatches[1];
             $patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
-            if (preg_match($patternForAdditionalParams, $url, $matches)) {
-                $toEmbed .= '?' . substr($matches[1], 1);
+            $secondMatches = [];
+            if (preg_match($patternForAdditionalParams, $url, $secondMatches) > 1) {
+                $toEmbed .= '?' . substr($secondMatches[1], 1);
             }
-            return 'https://www.youtube.com/embed/' . $toEmbed;
+            return 'https://www.youtube-nocookie.com/embed/' . $toEmbed;
         }
         return null;
     }
@@ -127,11 +129,11 @@ class ExternalMediaUtility
     protected function setProtocolToHttps($url)
     {
         $processUrl = trim($url);
-        if (substr($url, 0, 7) === 'http://') {
+        if (strpos($url, 'http://') === 0) {
             $processUrl = substr($processUrl, 7);
-        } elseif (substr($processUrl, 0, 8) === 'https://') {
+        } elseif (strpos($processUrl, 'https://') === 0) {
             $processUrl = substr($processUrl, 8);
-        } elseif (substr($processUrl, 0, 2) === '//') {
+        } elseif (strpos($processUrl, '//') === 0) {
             $processUrl = substr($processUrl, 2);
         }
         return 'https://' . $processUrl;

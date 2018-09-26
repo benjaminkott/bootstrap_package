@@ -7,6 +7,12 @@
  * LICENSE file that was distributed with this source code.
  */
 
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
+    $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
+} else {
+    $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
+}
+
 return [
     'ctrl' => [
         'label' => 'header',
@@ -21,7 +27,7 @@ return [
         'origUid' => 't3_origuid',
         'hideTable' => true,
         'hideAtCopy' => true,
-        'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
+        'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
@@ -34,6 +40,7 @@ return [
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-carousel-item',
             'header' => 'content-bootstrappackage-carousel-item-header',
+            'call_to_action' => 'content-bootstrappackage-carousel-item-calltoaction',
             'image' => 'content-bootstrappackage-carousel-item-image',
             'text_and_image' => 'content-bootstrappackage-carousel-item-textandimage',
             'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
@@ -46,8 +53,10 @@ return [
             tt_content,
             header,
             header_layout,
+            header_class,
             subheader,
             subheader_layout,
+            subheader_class
             bodytext,
             image,
             text_color,
@@ -77,6 +86,25 @@ return [
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
+                background_image_options,
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;;hiddenLanguagePalette,
+            '
+        ],
+        'call_to_action' => [
+            'showitem' => '
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
+                nav_title,
+                bodytext,
+                button_text,
+                link,
+                --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+                background_color,
+                background_image,
+                background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -93,6 +121,7 @@ return [
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
+                background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -111,6 +140,7 @@ return [
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
+                background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -122,8 +152,9 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
                 nav_title,
-                background_image,
                 background_color,
+                background_image,
+                background_image_options,
                 link,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
@@ -140,6 +171,7 @@ return [
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
+                background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -161,9 +193,11 @@ return [
             'showitem' => '
                 header,
                 header_layout,
+                header_class,
                 --linebreak--,
                 subheader,
                 subheader_layout,
+                subheader_class,
             '
         ],
         'general' => [
@@ -197,7 +231,7 @@ return [
             ],
         ],
         'item_type' => [
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.type',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -206,6 +240,11 @@ return [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
                         'header',
                         'content-bootstrappackage-carousel-item-header'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction',
+                        'call_to_action',
+                        'content-bootstrappackage-carousel-item-calltoaction'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.image',
@@ -231,11 +270,12 @@ return [
                 'default' => 'header',
                 'authMode' => $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'],
                 'authMode_enforce' => 'strict'
-            ]
+            ],
+            'l10n_mode' => 'exclude',
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -247,7 +287,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -259,7 +299,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -274,7 +314,7 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -282,11 +322,11 @@ return [
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
                         -1
                     ],
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value',
+                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
                         0
                     ]
                 ],
@@ -296,7 +336,7 @@ return [
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -345,7 +385,7 @@ return [
             ],
         ],
         'header_layout' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_layout',
             'config' => [
                 'type' => 'select',
@@ -370,6 +410,24 @@ return [
                 ],
                 'default' => '1'
             ],
+            'l10n_mode' => 'exclude',
+        ],
+        'header_class' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_class',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['', 'none'],
+                    ['h1', 'h1'],
+                    ['h2', 'h2'],
+                    ['h3', 'h3'],
+                    ['h4', 'h4'],
+                    ['h5', 'h5']
+                ]
+            ],
+            'l10n_mode' => 'exclude',
         ],
         'subheader' => [
             'exclude' => true,
@@ -402,6 +460,24 @@ return [
                 ],
                 'default' => '2'
             ],
+            'l10n_mode' => 'exclude',
+        ],
+        'subheader_class' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_class',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['', 'none'],
+                    ['h1', 'h1'],
+                    ['h2', 'h2'],
+                    ['h3', 'h3'],
+                    ['h4', 'h4'],
+                    ['h5', 'h5']
+                ]
+            ],
+            'l10n_mode' => 'exclude',
         ],
         'nav_title' => [
             'exclude' => true,
@@ -419,9 +495,17 @@ return [
             'config' => [
                 'type' => 'text',
                 'cols' => '80',
-                'rows' => '15',
+                'rows' => '5',
                 'softref' => 'typolink_tag,images,email[subst],url',
             ],
+        ],
+        'button_text' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.button_text',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'max' => 255
+            ]
         ],
         'image' => [
             'exclude' => true,
@@ -483,6 +567,7 @@ return [
                 'renderType' => 'colorpicker',
                 'default' => '#FFFFFF',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'background_color' => [
             'exclude' => true,
@@ -492,6 +577,7 @@ return [
                 'renderType' => 'colorpicker',
                 'default' => '#333333',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'background_image' => [
             'exclude' => true,
@@ -542,6 +628,18 @@ return [
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
+            'l10n_mode' => 'exclude',
         ],
+        'background_image_options' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image_options',
+            'config' => [
+                'type' => 'flex',
+                'ds' => [
+                    'default' => 'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml',
+                ],
+            ],
+            'l10n_mode' => 'exclude',
+        ]
     ],
 ];

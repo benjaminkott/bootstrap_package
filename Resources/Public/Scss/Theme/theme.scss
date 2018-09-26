@@ -9,14 +9,44 @@
 @import "../../Contrib/bootstrap4/scss/bootstrap";
 
 //
-// Bootstrap Package Theme
+// Components
 //
+@import "list";
+@import "backendlayouts";
+@import "section";
+@import "footer";
+@import "frame";
+@import "card";
+@import "address";
+@import "buttons";
 @import "body";
+@import "text";
+@import "media";
+@import "blockquote";
 @import "navbar";
+@import "subnav";
 @import "breadcrumb";
-@import "carousel";
+@import "lazyload";
+@import "gallery";
 @import "figure";
-@import "misc";
+@import "carousel";
+@import "form";
+@import "textpic";
+@import "textteaser";
 @import "texticon";
+@import "accordion";
+@import "tab";
 @import "icongroup";
+@import "uploads";
+@import "thumbnail-menu";
 @import "link";
+@import "socialmedia";
+@import "timeline";
+@import "cookieconsent";
+@import "well";
+@import "misc";
+
+//
+// Plugins
+//
+@import "photoswipe";

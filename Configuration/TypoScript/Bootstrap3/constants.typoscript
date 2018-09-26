@@ -42,6 +42,8 @@
 # customsubcategory=334=Close
 # customsubcategory=335=Code
 # customsubcategory=336=Type
+# customsubcategory=371=Frame Inner Spacing
+# customsubcategory=372=Frame Outer Spacing
 # customsubcategory=380=Frame Primary
 # customsubcategory=381=Frame Light
 # customsubcategory=382=Frame Dark
@@ -50,7 +52,6 @@
 # customsubcategory=392=Section Dark
 # customsubcategory=400=Footer
 # customsubcategory=401=Footer Meta
-# customsubcategory=402=Webfont
 
 plugin.bootstrap_package {
     settings {
@@ -60,10 +61,25 @@ plugin.bootstrap_package {
             ### CUSTOM VARIABLES START
             ###
 
-            # cat=bootstrap 3.x: basic/402/100; type=options[Lora=Lora, Merriweather=Merriweather, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Ubuntu=Ubuntu]; label=Google Webfont
-            google-webfont = Source Sans Pro
-            # cat=bootstrap 3.x: basic/402/101; type=string; label=Google Webfont Weights: Comma separated list of font weights
-            google-webfont-weight = 300,400,700
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing; type=string; label=frame-inner-spacing:
+            frame-inner-spacing = 2em
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-sm; type=string; label=frame-inner-spacing-scaling-sm:
+            frame-inner-spacing-scaling-sm = 1.25
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-md; type=string; label=frame-inner-spacing-scaling-md:
+            frame-inner-spacing-scaling-md = 1.5
+            # cat=bootstrap 3.x: styling/371/frame-inner-spacing-scaling-lg; type=string; label=frame-inner-spacing-scaling-lg:
+            frame-inner-spacing-scaling-lg = 1.75
+
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing; type=string; label=frame-outer-spacing:
+            frame-outer-spacing = 1em
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-small; type=string; label=frame-outer-spacing-scaling-small:
+            frame-outer-spacing-scaling-small = 1.5
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-medium; type=string; label=frame-outer-spacing-scaling-medium:
+            frame-outer-spacing-scaling-medium = 2
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-large; type=string; label=frame-outer-spacing-scaling-large:
+            frame-outer-spacing-scaling-large = 2.5
+            # cat=bootstrap 3.x: styling/372/frame-outer-spacing-scaling-xlarge; type=string; label=frame-outer-spacing-scaling-xlarge:
+            frame-outer-spacing-scaling-xlarge = 3
 
             # cat=bootstrap 3.x: styling/380/frame-primary-bg; type=string; label=@frame-primary-bg:
             frame-primary-bg = @brand-primary
@@ -172,7 +188,9 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/300/gray-lighter; type=string; label=@gray-lighter:
             gray-lighter = lighten(@gray-base, 93.5%)
             # cat=bootstrap 3.x: styling/300/brand-primary; type=string; label=@brand-primary:
-            brand-primary = #ff8700
+            brand-primary = #4faf98
+            # cat=bootstrap 3.x: styling/300/brand-secondary; type=string; label=@brand-secondary:
+            brand-secondary = #ff3f00
             # cat=bootstrap 3.x: styling/300/brand-success; type=string; label=@brand-success:
             brand-success = #5cb85c
             # cat=bootstrap 3.x: styling/300/brand-info; type=string; label=@brand-info:
@@ -207,7 +225,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/302/font-size-large; type=string; label=@font-size-large:
             font-size-large = 1.25em
             # cat=bootstrap 3.x: styling/302/font-size-small; type=string; label=@font-size-small:
-            font-size-small = 0.85em
+            font-size-small = 12px
 
             # cat=bootstrap 3.x: styling/302/font-size-h1; type=string; label=@font-size-h1:
             font-size-h1 = 2em;
@@ -297,15 +315,21 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/306/btn-default-color; type=string; label=@btn-default-color:
             btn-default-color = #333
             # cat=bootstrap 3.x: styling/306/btn-default-bg; type=string; label=@btn-default-bg:
-            btn-default-bg = #fff
+            btn-default-bg = #eaebec
             # cat=bootstrap 3.x: styling/306/btn-default-border; type=string; label=@btn-default-border:
-            btn-default-border = #ccc
+            btn-default-border = #ddd
             # cat=bootstrap 3.x: styling/306/btn-primary-color; type=string; label=@btn-primary-color:
             btn-primary-color = #fff
             # cat=bootstrap 3.x: styling/306/btn-primary-bg; type=string; label=@btn-primary-bg:
             btn-primary-bg = @brand-primary
             # cat=bootstrap 3.x: styling/306/btn-primary-border; type=string; label=@btn-primary-border:
             btn-primary-border = darken(@btn-primary-bg, 5%)
+            # cat=bootstrap 3.x: styling/306/btn-secondary-color; type=string; label=@btn-secondary-color:
+            btn-secondary-color = #fff
+            # cat=bootstrap 3.x: styling/306/btn-secondary-bg; type=string; label=@btn-secondary-bg:
+            btn-secondary-bg = @brand-secondary
+            # cat=bootstrap 3.x: styling/306/btn-secondary-border; type=string; label=@btn-secondary-border:
+            btn-secondary-border = darken(@btn-secondary-bg, 5%)
             # cat=bootstrap 3.x: styling/306/btn-success-color; type=string; label=@btn-success-color:
             btn-success-color = #fff
             # cat=bootstrap 3.x: styling/306/btn-success-bg; type=string; label=@btn-success-bg:
@@ -457,15 +481,15 @@ plugin.bootstrap_package {
             grid-float-breakpoint-max = (@grid-float-breakpoint - 1)
 
             # cat=bootstrap 3.x: styling/312/container-tablet; type=string; label=@container-tablet:
-            container-tablet = (@screen-sm-min - (@grid-gutter-width / 2))
+            container-tablet = (@screen-sm-min - (@grid-gutter-width / 2) - 40px)
             # cat=bootstrap 3.x: styling/312/container-sm; type=string; label=@container-sm: For `@screen-sm-min` and up.
             container-sm = @container-tablet
             # cat=bootstrap 3.x: styling/312/container-desktop; type=string; label=@container-desktop:
-            container-desktop = (@screen-md-min - (@grid-gutter-width / 2))
+            container-desktop = (@screen-md-min - (@grid-gutter-width / 2) - 40px)
             # cat=bootstrap 3.x: styling/312/container-md; type=string; label=@container-md: For `@screen-md-min` and up.
             container-md = @container-desktop
             # cat=bootstrap 3.x: styling/312/container-large-desktop; type=string; label=@container-large-desktop:
-            container-large-desktop = (@screen-lg-min - (@grid-gutter-width / 2))
+            container-large-desktop = (@screen-lg-min - (@grid-gutter-width / 2) - 40px)
             # cat=bootstrap 3.x: styling/312/container-lg; type=string; label=@container-lg: For `@screen-lg-min` and up.
             container-lg = @container-large-desktop
 

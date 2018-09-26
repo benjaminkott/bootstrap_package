@@ -12,6 +12,23 @@ defined('TYPO3_MODE') || die();
 /***************
  * Adjust columns for generic usage
  */
+$GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
+    'exclude' => true,
+    'displayCond' => 'FIELD:frame_class:!=:none',
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_color_class',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['none', 'none'],
+            ['primary', 'primary'],
+            ['secondary', 'secondary'],
+            ['light', 'light'],
+            ['dark', 'dark']
+        ]
+    ],
+    'l10n_mode' => 'exclude',
+];
 $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
@@ -36,6 +53,7 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
                     ],
                     \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                         'showitem' => '
+                            crop,
                             --palette--;;filePalette
                         '
                     ],
@@ -61,6 +79,19 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
         ],
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
     ),
+    'l10n_mode' => 'exclude',
+];
+$GLOBALS['TCA']['tt_content']['columns']['background_image_options'] = [
+    'exclude' => true,
+    'displayCond' => 'FIELD:frame_class:!=:none',
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image_options',
+    'config' => [
+        'type' => 'flex',
+        'ds' => [
+            'default' => 'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml',
+        ],
+    ],
+    'l10n_mode' => 'exclude',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['readmore_label'] = [
     'exclude' => true,
@@ -71,21 +102,6 @@ $GLOBALS['TCA']['tt_content']['columns']['readmore_label'] = [
         'size' => 50,
         'max' => 255
     ]
-];
-$GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
-    'exclude' => true,
-    'displayCond' => 'FIELD:frame_class:!=:none',
-    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_color_class',
-    'config' => [
-        'type' => 'select',
-        'renderType' => 'selectSingle',
-        'items' => [
-            ['none', 'none'],
-            ['primary', 'primary'],
-            ['light', 'light'],
-            ['dark', 'dark']
-        ]
-    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.teaser',
@@ -120,6 +136,14 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = 
         ]
     ]
 ];
+$GLOBALS['TCA']['tt_content']['columns']['file_folder'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.file_folder',
+    'config' => [
+        'type' => 'group',
+        'internal_type' => 'folder',
+    ]
+];
 
 /***************
  * Adjust default fields
@@ -131,31 +155,8 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
  */
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
     --linebreak--,
-    background_image,
+    background_color_class,
     --linebreak--,
-    background_color_class
+    background_image,
+    background_image_options,
 ';
-
-/***************
- * Add additional frame class items
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'frame_class',
-    [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_class.well',
-        'well'
-    ],
-    'indent-right',
-    'after'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'frame_class',
-    [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_class.jumbotron',
-        'jumbotron'
-    ],
-    'well',
-    'after'
-);

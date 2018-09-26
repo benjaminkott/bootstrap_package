@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappac
 /***************
  * Make the extension configuration accessible
  */
-if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+if (class_exists(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)) {
     $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
         \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
     );
@@ -35,35 +35,50 @@ if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
  * PageTS
  */
 
-// Add Bootstrap Content Elements to newContentElement Wizard
-if (!$bootstrapPackageConfiguration['disablePageTsNewContentElementWizard']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/Wizards/newContentElement.txt">');
+// Add Content Elements
+if (!$bootstrapPackageConfiguration['disablePageTsContentElements']) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
 }
 
-// Add Previews for Bootstrap Content Elements
-if (!$bootstrapPackageConfiguration['disablePageTsTtContentPreviews']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt">');
-}
-
-// Add BackendLayouts BackendLayouts for the BackendLayout DataProvider
+// Add BackendLayouts for the BackendLayout DataProvider
 if (!$bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt">');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
 }
 
 // RTE
 if (!$bootstrapPackageConfiguration['disablePageTsRTE']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/RTE.txt">');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/RTE.tsconfig">');
 }
 
 // TCEMAIN
 if (!$bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEMAIN.txt">');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/TCEMAIN.tsconfig">');
 }
 
 // TCEFORM
 if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/TCEFORM.txt">');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/TCEFORM.tsconfig">');
 }
+
+/***************
+ * Register custom EXT:form configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
+    module.tx_form {
+        settings {
+            yamlConfigurations {
+                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+            }
+        }
+    }
+    plugin.tx_form {
+        settings {
+            yamlConfigurations {
+                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+            }
+        }
+    }
+'));
 
 if (TYPO3_MODE === 'BE') {
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
@@ -100,6 +115,14 @@ if (TYPO3_MODE === 'BE') {
 }
 
 /***************
+ * Register google font hook
+ */
+if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+        = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
+}
+
+/***************
  * Register css processing parser
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
@@ -112,20 +135,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser']
  */
 if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing'])) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-        = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\PreProcessHook->execute';
+        = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
 /***************
  * Register font loader
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\PageRenderer\\FontLoaderHook->execute';
-
-/***************
- * Register cache hooks to clear bootstrap cache files
- */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][]
-    = 'BK2K\\BootstrapPackage\\Hooks\\TceMain\\ClearCacheHook->clearCache';
+    = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
 
 /***************
  * Add default RTE configuration for bootstrap package
@@ -143,6 +160,12 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\PanelContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonContentElement::class]
     = \BK2K\BootstrapPackage\Updates\TexticonContentElement::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonSizeUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\TexticonSizeUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonTypeUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\TexticonTypeUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonIconUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\TexticonIconUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\ListGroupContentElement::class]
     = \BK2K\BootstrapPackage\Updates\ListGroupContentElement::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\ExternalMediaContentElement::class]
@@ -153,12 +176,27 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\TabContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class]
     = \BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class]
     = \BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class]
     = \BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class]
     = \BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class;
+
+/***************
+ * Register formEngine nodes
+ */
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
+    'nodeName' => 'AdditionalFieldInformation',
+    'priority' => '70',
+    'class' => \BK2K\BootstrapPackage\Form\FieldInformation\AdditionalFieldInformation::class
+];
 
 /***************
  * Register "bk2k" as global fluid namespace
@@ -170,101 +208,49 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\Boo
  */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $iconRegistry->registerIcon(
-    'content-bootstrappackage-tab',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-tab-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/tab-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-texticon',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/texticon.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-accordion',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-accordion-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/accordion-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-header',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-header.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-image',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-image.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-textandimage',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-textandimage.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-backgroundimage',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-backgroundimage.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-carousel-item-html',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/carousel-item-html.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-externalmedia',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/externalmedia.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-icon-group',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-icon-group-item',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/icon-group-item.svg']
-);
-$iconRegistry->registerIcon(
-    'content-bootstrappackage-listgroup',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/listgroup.svg']
-);
-$iconRegistry->registerIcon(
-    'content-menu-card',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/menu-card.svg']
-);
-$iconRegistry->registerIcon(
     'systeminformation-bootstrappackage',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/SystemInformation/bootstrappackage.svg']
 );
+$icons = [
+    'accordion',
+    'accordion-item',
+    'card-group',
+    'card-group-item',
+    'carousel',
+    'carousel-item',
+    'carousel-item-backgroundimage',
+    'carousel-item-calltoaction',
+    'carousel-item-header',
+    'carousel-item-html',
+    'carousel-item-image',
+    'carousel-item-textandimage',
+    'csv',
+    'externalmedia',
+    'icon-group',
+    'icon-group-item',
+    'listgroup',
+    'menu-card',
+    'social-links',
+    'tab',
+    'tab-item',
+    'texticon',
+    'timeline',
+    'timeline-item'
+];
+foreach ($icons as $icon) {
+    $iconRegistry->registerIcon(
+        'content-bootstrappackage-' . $icon,
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/' . $icon . '.svg']
+    );
+}
 
 /***************
  * Backend Styling for CMS8
  * Please see \BK2K\BootstrapPackage\Service\BrandingService for CMS9
  */
-if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+if (TYPO3_MODE === 'BE' && !class_exists(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)) {
     // @extensionScannerIgnoreLine
     $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
     if (!is_array($backendConfiguration)) {
@@ -283,4 +269,54 @@ if (TYPO3_MODE == 'BE' && !class_exists('TYPO3\CMS\Core\Configuration\ExtensionC
         $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
     }
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
+}
+
+/***
+ * Automatic Language Menus
+ * Compatibility for CMS 8.7
+ */
+if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class)) {
+    // SignalSlot dispatcher
+    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+    // Register slot to build nessesary sql
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
+        'tablesDefinitionIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addSqlFields'
+    );
+    // Register slot to build TCA for content elements
+    $signalSlotDispatcher->connect(
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::class,
+        'tcaIsBeingBuilt',
+        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
+        'addTcaFields'
+    );
+    // Set alias for language menu processor as polyfill functionality for older TYPO3 versions
+    class_alias(
+        \BK2K\BootstrapPackage\DataProcessing\LanguageMenuProcessor::class,
+        \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class
+    );
+    // Register hook to dynamically add language config conditions to the TypoScript Setup
+    TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(implode(LF, [
+        '# customsubcategory=99=Language',
+        'config.language.default {',
+        '    # cat=bootstrap package: language/99/10; type=boolean; label=Enable Default Language: If not checked the default language will not be rendered',
+        '    enable = 1',
+        '    # cat=bootstrap package: language/99/20; type=string; label=Default Title: Title of the default language',
+        '    title = English',
+        '    # cat=bootstrap package: language/99/30; type=string; label=Default Navigation Title: Navigation title (e.g. "English", "Deutsch", "Français")',
+        '    nav_title = English',
+        '    # cat=bootstrap package: language/99/40; type=string; label=Default Locale: Language locale should be something like de_DE or en_US.UTF-8',
+        '    locale = en_US.UTF-8',
+        '    # cat=bootstrap package: language/99/50; type=string; label=Default two letter ISO code: Two letter ISO code of the default language (e.g. en)',
+        '    language_isocode = en',
+        '    # cat=bootstrap package: language/99/60; type=string; label=Default Language tag: Language tag defined by RFC 1766 / 3066 for "lang" and "hreflang" attributes (e.g. en-US)',
+        '    hreflang = en-US',
+        '    # cat=bootstrap package: language/99/70; type=options[Left to Right=ltr, Right to Left=rtl]; label=Default Language Direction: Language direction for "dir" attribute',
+        '    direction = ltr',
+        '}'
+    ]));
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+        = \BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class . '->addLanguageSetup';
 }

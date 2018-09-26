@@ -1,68 +1,26 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript">
+
+
 ################
 #### HELPER ####
 ################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/ParseFunc.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/ContentElement.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/DynamicContent.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/FrontendEditing.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript">
 
 
 #############################################################
-#### CONTENT ELEMENT RENDERING                           ####
+#### EXTENSIONS                                          ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
-
-#### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Audio.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Bullets.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Div.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Header.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Html.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Image.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/List.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Media.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuAbstract.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCategorizedContent.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCategorizedPages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuPages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSubpages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuRecentlyUpdated.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuRelatedPages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSection.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSectionPages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSitemap.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuSitemapPages.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Quote.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Shortcut.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Table.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Text.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textcolumn.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textteaser.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textpic.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Textmedia.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Uploads.typoscript">
-
-#### EXTENSIONS
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/FrontendLogin.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch.typoscript">
-
-#### BOOTSTRAP PACKAGE CONTENT ELEMENT RENDERING
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Accordion.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Carousel.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/CarouselSmall.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/CarouselFullscreen.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/ExternalMedia.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/IconGroup.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/ListGroup.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Panel.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Tab.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Texticon.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCardDir.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuCardList.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuThumbnailDir.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/MenuThumbnailList.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/setup.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('form')">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/FrontendLogin/setup.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('felogin')">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('indexed_search')">
 
 
 ###################
@@ -186,6 +144,17 @@ page {
                     10 {
                         references.fieldName = nav_icon
                         as = icon
+                        if {
+                            isTrue.stdWrap.cObject = COA
+                            isTrue.stdWrap.cObject {
+                                10 = TEXT
+                                10.value = 1
+                                10.if.isTrue = {$page.theme.navigation.icon.enable}
+                                20 = TEXT
+                                20.value = 1
+                                20.if.isTrue = {$page.theme.navigation.dropdown.icon.enable}
+                            }
+                        }
                     }
                 }
             }
@@ -196,6 +165,16 @@ page {
                 expandAll = 0
                 includeSpacer = 1
                 as = subnavigation
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
+                        if {
+                            isTrue = {$page.theme.subnavigation.icon.enable}
+                        }
+                    }
+                }
             }
             30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             30 {
@@ -204,7 +183,7 @@ page {
                 includeNotInMenu = 1
                 as = breadcrumb
                 if {
-                    value = {$page.theme.breadcrumbEnableLevel}
+                    value = {$page.theme.breadcrumb.enableLevel}
                     value {
                         insertData = 1
                         prioriCalc = 1
@@ -214,15 +193,18 @@ page {
                         data = level
                     }
                 }
-            }
-            40 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            40 {
-                special = language
-                special.value = {$page.theme.language.languageValue}
-                as = languagenavigation
-                if {
-                    isTrue = {$page.theme.language.languageValue}
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
+                    }
                 }
+            }
+            40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            40 {
+                languages = {$page.theme.language.languageValue}
+                as = languagenavigation
             }
             50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             50 {
@@ -246,17 +228,6 @@ page {
                 height = {$page.logo.height}
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
-            }
-            breadcrumb {
-                enable = {$page.theme.breadcrumb}
-            }
-            navigation {
-                style = {$page.theme.navigationstyle}
-                type = {$page.theme.navigationtype}
-                icon {
-                    width = {$page.theme.navigationicon.width}
-                    height = {$page.theme.navigationicon.height}
-                }
             }
         }
 
@@ -395,32 +366,26 @@ page {
     }
 
     includeCSSLibs {
-        googlewebfont = https://fonts.googleapis.com/css?family={$plugin.bootstrap_package.settings.less.google-webfont}:{$plugin.bootstrap_package.settings.less.google-webfont-weight}
+        googlewebfont = https://fonts.googleapis.com/css?family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
         googlewebfont {
             external = 1
             disableCompression = 1
             excludeFromConcatenation = 1
             fontLoader {
                 families {
-                    0 = {$plugin.bootstrap_package.settings.less.google-webfont}:{$plugin.bootstrap_package.settings.less.google-webfont-weight}
+                    0 = {$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
                 }
                 enabled = 1
             }
-        }
-        ionicons = EXT:bootstrap_package/Resources/Public/Contrib/ionicons/css/ionicons.min.css
-        ionicons {
-            fontLoader {
-                families {
-                    0 = Ionicons
-                }
-                enabled = 1
+            if {
+                isTrue = {$page.theme.googleFont.enable}
             }
         }
-        socialmediaicons = EXT:bootstrap_package/Resources/Public/Fonts/socialmedia.min.css
-        socialmediaicons {
+        bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
+        bootstrappackageicon {
             fontLoader {
                 families {
-                    0 = BootstrapPackageSocialMedia
+                    0 = BootstrapPackageIcon
                 }
                 enabled = 1
             }
@@ -442,7 +407,7 @@ page {
         photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-ui-default.min.js
 
         #### Custom Modules
-        responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
+        bootstrap_form = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.form.min.js
         bootstrap_swipe = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.swipe.min.js
         bootstrap_popover = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.popover.min.js
         bootstrap_stickyheader = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.stickyheader.min.js
@@ -450,34 +415,74 @@ page {
         bootstrap_lightbox = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.lightbox.min.js
         bootstrap_navbar = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.navbar.min.js
     }
+}
 
-    jsFooterInline {
-        # Google Analytics
-        10 = COA
-        10 {
+
+##########################
+#### GOOGLE ANALYTICS ####
+##########################
+page {
+    10.stdWrap.replacement {
+        99 {
+            search = ###GoogleAnalyticsStatus###
+            replace {
+                cObject < lib.block
+                cObject.templateName = GoogleAnalyticsStatus
+            }
+        }
+    }
+    jsInline {
+        99 = COA
+        99 {
             if {
                 isTrue = {$page.tracking.google.trackingID}
             }
             10 = TEXT
             10.value (
+    var gaProperty = '{$page.tracking.google.trackingID}';
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+        window[disableStr] = true;
+    }
+    function googleAnalyticsToggle(event) {
+        if (document.cookie.indexOf(disableStr + '=true') > -1) {
+            event.target.innerHTML = event.target.getAttribute('data-label-disable');
+            googleAnalyticsOptIn();
+        } else {
+            event.target.innerHTML = event.target.getAttribute('data-label-enable');
+            googleAnalyticsOptOut();
+        }
+    }
+    function googleAnalyticsOptOut() {
+        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+        window[disableStr] = true;
+    }
+    function googleAnalyticsOptIn() {
+        document.cookie = disableStr + '=; expires=Thu, 01 Jan 1970 00:00:01 UTC; path=/';
+        window[disableStr] = false;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var matches = document.querySelectorAll('[data-action="googleAnalyticsToggle"]');
+        for (i=0; i<matches.length; i++) {
+            if (document.cookie.indexOf(disableStr + '=true') > -1) {
+                matches[i].innerHTML = matches[i].getAttribute('data-label-enable');
+            } else {
+                matches[i].innerHTML = matches[i].getAttribute('data-label-disable');
+            }
+            matches[i].onclick = function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                googleAnalyticsToggle(event);
+            }
+        }
+    });
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', '{$page.tracking.google.trackingID}', 'auto');
-            )
-            20 = TEXT
-            20 {
-                if {
-                    isTrue = {$page.tracking.google.anonymizeIp}
-                }
-
-                value (
-
     ga('set', 'anonymizeIp', true);
-                )
-            }
-
+            )
             90 = TEXT
             90.value (
 
@@ -486,6 +491,19 @@ page {
         }
     }
 }
+
+
+########################
+#### COOKIE CONSENT ####
+########################
+[globalVar = LIT:1 = {$page.theme.cookieconsent.enable}]
+    page {
+        includeJSFooterlibs {
+            contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
+            bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsent.min.js
+        }
+    }
+[end]
 
 
 ###################################################
@@ -523,12 +541,8 @@ config {
     tx_realurl_enable = 1
 
     // Language Settings
-    sys_language_uid = 0
     sys_language_overlay = 1
     sys_language_mode = content_fallback
-    language = en
-    locale_all = en_US.UTF-8
-    htmlTag_setParams = lang="en" dir="ltr" class="no-js"
 
     // Compression and Concatenation of CSS and JS Files
     compressJs = {$config.compressJs}
@@ -536,24 +550,3 @@ config {
     concatenateJs = {$config.concatenateJs}
     concatenateCss = {$config.concatenateCss}
 }
-
-
-#############################
-#### LANGUAGE CONDITIONS ####
-#############################
-[globalVar = GP:L = 1]
-    config {
-        sys_language_uid = 1
-        language = da
-        locale_all = da_DK.UTF-8
-        htmlTag_setParams = lang="da" dir="ltr" class="no-js"
-    }
-[global]
-[globalVar = GP:L = 2]
-    config {
-        sys_language_uid = 2
-        language = de
-        locale_all = de_DE.UTF-8
-        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
-    }
-[global]

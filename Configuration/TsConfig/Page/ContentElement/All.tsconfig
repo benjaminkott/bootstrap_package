@@ -1,0 +1,5 @@
+##########################
+#### CONTENT ELEMENTS ####
+##########################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Categories.tsconfig">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Element" extensions="tsconfig">

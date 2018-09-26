@@ -1,0 +1,25 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        external_media {
+            iconIdentifier = content-bootstrappackage-externalmedia
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description
+            tt_content_defValues {
+                CType = external_media
+            }
+        }
+    }
+    show := addToList(external_media)
+}
+
+#################
+#### PREVIEW ####
+#################
+mod.web_layout.tt_content {
+    preview {
+        external_media = EXT:bootstrap_package/Resources/Private/Templates/Preview/ExternalMedia.html
+    }
+}

@@ -3,13 +3,15 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div id="carousel-{data.uid}" class="carousel carousel-transition-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
+        <div id="carousel-{data.uid}" class="carousel carousel-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
+            <div class="carousel-inner">
                 <f:for each="{records}" as="item" iteration="iteration">
-                    <f:variable name="itemStyleImage"><f:if condition="{item.backgroundImage.0}">background-image: url('{f:uri.image(image:'{item.backgroundImage.0}',maxWidth:'{data.pi_flexform.background_image_maxwidth}')}');</f:if></f:variable>
                     <f:variable name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></f:variable>
-                    <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item carousel-item-type carousel-item-type-{item.data.item_type}" data-itemno="{iteration.index}" style="{itemStyleImage} {itemStyleColor}">
-                        <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
+                    <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item carousel-item-type carousel-item-type-{item.data.item_type}" data-itemno="{iteration.index}" style="{itemStyleColor}">
+                        <f:render partial="Carousel/General/BackgroundImage" arguments="{_all}" />
+                        <div class="carousel-content">
+                            <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
+                        </div>
                     </div>
                 </f:for>
             </div>

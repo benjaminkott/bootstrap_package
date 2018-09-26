@@ -1,18 +1,71 @@
 module.exports = function(grunt) {
 
     /**
+     * Grunt correct scss urls
+     */
+    grunt.registerMultiTask('rebase', 'Grunt task zo rebase urls after sass processing', function () {
+        var options = this.options(),
+            done = this.async(),
+            postcss = require('postcss'),
+            url = require('postcss-url'),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath);
+                postcss().use(url(options)).process(content, { from: undefined }).then(function (result) {
+                    grunt.file.write(file.dest, result.css);
+                    grunt.log.success('Source file "' + filepath + '" was processed.');
+                    counter++;
+                    if (counter >= files.length) done(true);
+                });
+            });
+        });
+    });
+
+    /**
+     * Grunt task to remove source map comment
+     */
+    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemp comment from files', function() {
+        var done = this.async(),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath).replace(/\/\/# sourceMappingURL=\S+/, '');
+                grunt.file.write(file.dest, content);
+                grunt.log.success('Source file "' + filepath + '" was processed.');
+                counter++;
+                if (counter >= files.length) done(true);
+            });
+        });
+    });
+
+    /**
+     * Grunt task for modernizr
+     */
+    grunt.registerMultiTask("modernizr", "Respond to your user’s browser features.", function () {
+        var options = this.options(),
+            done = this.async(),
+            modernizr = require("modernizr"),
+            dest = this.data.dest;
+        modernizr.build(options, function(output) {
+            grunt.file.write(dest, output);
+            done();
+        });
+	});
+
+    /**
      * Project configuration.
      */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*!\n' +
-            ' * Bootstrap Package v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under the <%= pkg.license %> license\n' +
-            ' */',
         paths: {
             root: '../',
-            bower: 'bower_components/',
             node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
             icons: '<%= paths.resources %>Public/Icons/',
@@ -23,6 +76,17 @@ module.exports = function(grunt) {
             css: '<%= paths.resources %>Public/Css/',
             js: '<%= paths.resources %>Public/JavaScript/',
             contrib: '<%= paths.resources %>Public/Contrib/'
+        },
+        rebase: {
+            bootstrap4: {
+                options: {
+                    url: "rebase",
+                    assetsPath: '../'
+                },
+                files: {
+                    '<%= paths.css %>bootstrap4-theme.css': '<%= paths.css %>bootstrap4-theme.css'
+                }
+            },
         },
         cssmin: {
             options: {
@@ -45,18 +109,27 @@ module.exports = function(grunt) {
                 src: '<%= paths.css %>bootstrap3-rte.css',
                 dest: '<%= paths.css %>bootstrap3-rte.min.css'
             },
-            socialmedia: {
-                src: '<%= paths.fonts %>socialmedia.css',
-                dest: '<%= paths.fonts %>socialmedia.min.css'
+            bootstrappackageicon: {
+                src: '<%= paths.fonts %>bootstrappackageicon.css',
+                dest: '<%= paths.fonts %>bootstrappackageicon.min.css'
             }
         },
         uglify: {
             options: {
-                banner: '<%= banner %>',
                 compress: {
                     warnings: false
                 },
-                preserveComments: false
+                output: {
+                    comments: false
+                }
+            },
+            modernizr: {
+                src: '<%= paths.contrib %>modernizr/modernizr.min.js',
+                dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
+            },
+            bootstrapForm: {
+                src: '<%= paths.js %>Src/bootstrap.form.js',
+                dest: '<%= paths.js %>Dist/bootstrap.form.min.js'
             },
             bootstrapLightbox: {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
@@ -82,24 +155,45 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 dest: '<%= paths.js %>Dist/bootstrap.stickyheader.min.js'
             },
-            responsiveimages: {
-                src: '<%= paths.js %>Src/jquery.responsiveimages.js',
-                dest: '<%= paths.js %>Dist/jquery.responsiveimages.min.js'
+            cookieconsent: {
+                src: '<%= paths.js %>Src/jquery.cookieconsent.js',
+                dest: '<%= paths.js %>Dist/jquery.cookieconsent.min.js'
+            },
+            ckeditor_address: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.min.js'
             },
             ckeditor_box: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
+            },
+            ckeditor_columns: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.min.js'
+            },
+            ckeditor_indent: {
+                src: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
+                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.min.js'
             },
             ckeditor_table: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
             }
         },
+        removesourcemap: {
+            contrib: {
+                files: {
+                    '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js',
+                    '<%= paths.contrib %>hammerjs/hammer.min.js': '<%= paths.contrib %>hammerjs/hammer.min.js',
+                    '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js'
+                }
+            }
+        },
         sass: {
             options: {
                 outputStyle: 'expanded',
                 precision: 8,
-                sourceMap: true
+                sourceMap: false
             },
             bootstrap4_theme: {
                 files: {
@@ -115,11 +209,9 @@ module.exports = function(grunt) {
         less: {
             bootstrap3_theme: {
                 options: {
-                    sourceMap: true,
+                    sourceMap: false,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'bootstrap3-theme.css.map',
-                    sourceMapFilename: '<%= paths.css %>bootstrap3-theme.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>Theme/theme.less',
@@ -127,11 +219,9 @@ module.exports = function(grunt) {
             },
             bootstrap3_rte: {
                 options: {
-                    sourceMap: true,
+                    sourceMap: false,
                     outputSourceFiles: true,
                     relativeUrls: true,
-                    sourceMapURL: 'bootstrap3-rte.css.map',
-                    sourceMapFilename: '<%= paths.css %>bootstrap3-rte.css.map',
                     rootpath: 'Public/'
                 },
                 src: '<%= paths.less %>RTE/rte.less',
@@ -139,6 +229,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            bootstrapForm: {
+                files: '<%= paths.js %>Src/bootstrap.form.js',
+                tasks: 'uglify:bootstrapForm'
+            },
             bootstrapLightbox: {
                 files: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 tasks: 'uglify:bootstrapLightbox'
@@ -163,13 +257,25 @@ module.exports = function(grunt) {
                 files: '<%= paths.js %>Src/bootstrap.stickyheader.js',
                 tasks: 'uglify:bootstrapStickyheader'
             },
-            responsiveimages: {
-                files: '<%= paths.js %>Src/jquery.responsiveimages.js',
-                tasks: 'uglify:responsiveimages'
+            cookieconsent: {
+                files: '<%= paths.js %>Src/jquery.cookieconsent.js',
+                tasks: 'uglify:cookieconsent'
+            },
+            ckeditor_address: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
+                tasks: 'uglify:ckeditor_address'
             },
             ckeditor_box: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
                 tasks: 'uglify:ckeditor_box'
+            },
+            ckeditor_columns: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
+                tasks: 'uglify:ckeditor_columns'
+            },
+            ckeditor_indent: {
+                files: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
+                tasks: 'uglify:ckeditor_indent'
             },
             ckeditor_table: {
                 files: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
@@ -212,14 +318,25 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+            cookieconsent: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>cookieconsent/build/',
+                        src: [
+                            'cookieconsent.min.css',
+                            'cookieconsent.min.js',
+                        ],
+                        dest: '<%= paths.contrib %>cookieconsent/',
+                        expand: true
+                    }
+                ]
+            },
             hammerjs: {
                 files: [
                     {
                         cwd: '<%= paths.node %>hammerjs/',
                         src: [
-                            'hammer.js',
-                            'hammer.min.js',
-                            'hammer.min.js.map',
+                            'hammer.min.js'
                         ],
                         dest: '<%= paths.contrib %>hammerjs/',
                         expand: true
@@ -254,8 +371,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>popper.js/dist/umd/',
                         src: [
-                            'popper.min.js',
-                            'popper.min.js.map',
+                            'popper.min.js'
                         ],
                         dest: '<%= paths.contrib %>popper/',
                         expand: true
@@ -289,8 +405,7 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>bootstrap/dist/js/',
                         src: [
-                            'bootstrap.min.js',
-                            'bootstrap.min.js.map',
+                            'bootstrap.min.js'
                         ],
                         dest: '<%= paths.contrib %>bootstrap4/js/',
                         expand: true
@@ -302,85 +417,98 @@ module.exports = function(grunt) {
                         expand: true
                     }
                 ]
+            },
+            webfontloader: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>webfontloader/',
+                        src: [
+                            'webfontloader.js',
+                        ],
+                        dest: '<%= paths.contrib %>webfontloader/',
+                        expand: true
+                    }
+                ]
             }
         },
         modernizr: {
-            dist: {
-                'crawl': false,
-                'customTests': [],
+            main: {
                 'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
-                'tests': [
-                    'applicationcache',
-                    'audio',
-                    'canvas',
-                    'canvastext',
-                    'geolocation',
-                    'hashchange',
-                    'history',
-                    'indexeddb',
-                    'input',
-                    'inputtypes',
-                    'postmessage',
-                    'svg',
-                    'video',
-                    'webgl',
-                    'websockets',
-                    'cssanimations',
-                    'backgroundsize',
-                    'borderimage',
-                    'borderradius',
-                    'boxshadow',
-                    'csscolumns',
-                    'flexbox',
-                    'flexboxlegacy',
-                    'fontface',
-                    'generatedcontent',
-                    'cssgradients',
-                    'hsla',
-                    'multiplebgs',
-                    'opacity',
-                    'cssreflections',
-                    'rgba',
-                    'textshadow',
-                    'csstransforms',
-                    'csstransforms3d',
-                    'csstransitions',
-                    'cssvhunit',
-                    'cssvwunit',
-                    'localstorage',
-                    'sessionstorage',
-                    'websqldatabase',
-                    'svgclippaths',
-                    'inlinesvg',
-                    'smil',
-                    'webworkers'
-                ],
-                'options': [
-                    'domPrefixes',
-                    'prefixes',
-                    'hasEvent',
-                    'testAllProps',
-                    'testProp',
-                    'testStyles',
-                    'html5shiv',
-                    'setClasses'
-                ],
-                'uglify': true
+                'options': {
+                    'options': [
+                        'domPrefixes',
+                        'prefixes',
+                        'hasEvent',
+                        'testAllProps',
+                        'testProp',
+                        'testStyles',
+                        'html5shiv',
+                        'setClasses'
+                    ],
+                    'feature-detects': [
+                        'applicationcache',
+                        'audio',
+                        'canvas',
+                        'canvastext',
+                        'geolocation',
+                        'hashchange',
+                        'history',
+                        'indexeddb',
+                        'input',
+                        'inputtypes',
+                        'postmessage',
+                        'svg',
+                        'video',
+                        'webgl',
+                        'websockets',
+                        'css/animations',
+                        'css/backgroundsize',
+                        'css/borderimage',
+                        'css/borderradius',
+                        'css/boxshadow',
+                        'css/columns',
+                        'css/flexbox',
+                        'css/focuswithin',
+                        'css/flexboxlegacy',
+                        'css/fontface',
+                        'css/generatedcontent',
+                        'css/gradients',
+                        'css/hsla',
+                        'css/multiplebgs',
+                        'css/opacity',
+                        'css/reflections',
+                        'css/rgba',
+                        'css/textshadow',
+                        'css/transforms',
+                        'css/transforms3d',
+                        'css/transitions',
+                        'css/vhunit',
+                        'css/vwunit',
+                        'storage/localstorage',
+                        'storage/sessionstorage',
+                        'storage/websqldatabase',
+                        'svg/clippaths',
+                        'svg/inline',
+                        'svg/smil',
+                        'workers/webworkers'
+                    ]
+                }
             }
         },
         webfont: {
-            brands: {
-                src: '<%= paths.icons %>SocialMedia/*.svg',
+            bootstrappackageicon: {
+                src: '<%= paths.icons %>BootstrapPackageIcon/*.svg',
                 dest: '<%= paths.fonts %>',
                 options: {
-                    font: 'socialmedia',
-                    fontFamilyName: 'BootstrapPackageSocialMedia',
+                    font: 'bootstrappackageicon',
+                    template: 'templates/font.css',
+                    fontFamilyName: 'BootstrapPackageIcon',
                     engine: 'node',
                     autoHint: false,
                     htmlDemo: false,
                     templateOptions: {
-                        baseClass: 'socialmedia-icon',
-                        classPrefix: 'socialmedia-icon-'
+                        baseClass: 'bootstrappackageicon',
+                        classPrefix: 'bootstrappackageicon-'
                     }
                 }
             }
@@ -396,7 +524,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-webfont');
 
@@ -404,8 +531,9 @@ module.exports = function(grunt) {
      * Grunt update task
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
-    grunt.registerTask('css', ['sass', 'less', 'cssmin']);
-    grunt.registerTask('js', ['uglify', 'cssmin']);
+    grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
+    grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
+    grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('build', ['webfont', 'update', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);

@@ -49,7 +49,7 @@
 plugin.bootstrap_package {
     settings {
         scss {
-        
+
             # cat=bootstrap 4.x: styling/300/blue; type=string; label=$blue:
             blue   = #007bff
             # cat=bootstrap 4.x: styling/300/indigo; type=string; label=$indigo:
@@ -1083,6 +1083,17 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/339/print-body-min-width; type=string; label=$print-body-min-width:
             print-body-min-width =              map-get($grid-breakpoints, "lg")
 
+        }
+    }
+}
+#####################
+### BOOTSTRAP 4.x ###
+#####################
+
+plugin.bootstrap_package {
+    settings {
+        scss {
+            font-family-base = "#{$google-webfont}", sans-serif
         }
     }
 }

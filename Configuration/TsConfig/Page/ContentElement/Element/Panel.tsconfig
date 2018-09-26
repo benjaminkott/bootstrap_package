@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        panel {
+            iconIdentifier = content-panel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description
+            tt_content_defValues {
+                CType = panel
+            }
+        }
+    }
+    show := addToList(panel)
+}

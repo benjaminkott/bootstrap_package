@@ -1,0 +1,22 @@
+########################
+#### INDEXED SEARCH ####
+########################
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.txt" condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition < 9.3">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.typoscript"  condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition >= 9.3">
+plugin.tx_indexedsearch {
+    view {
+        templateRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Templates/IndexedSearch/
+            21 = {$plugin.bootstrap_package.view.templateRootPath}IndexedSearch/
+        }
+        partialRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Partials/IndexedSearch/
+            21 = {$plugin.bootstrap_package.view.partialRootPath}IndexedSearch/
+        }
+        layoutRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Layouts/IndexedSearch/
+            21 = {$plugin.bootstrap_package.view.layoutRootPath}IndexedSearch/
+        }
+    }
+}

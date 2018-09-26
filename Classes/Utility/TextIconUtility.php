@@ -21,14 +21,12 @@ class TextIconUtility
      */
     public function addIconItems(array $parameters)
     {
-        if (is_array($parameters['TSconfig']) && isset($parameters['TSconfig']['directory'])) {
-            $directory = $parameters['TSconfig']['directory'];
-        } else {
-            $directory = 'EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/';
-        }
-        $icons = self::getIcons($directory);
-        if ($icons) {
-            $parameters['items'] = array_merge($parameters['items'], $icons);
+        $directory = $parameters['row']['icon_set'][0];
+        if ($directory !== '') {
+            $icons = $this->getIcons($directory);
+            if ($icons) {
+                $parameters['items'] = array_merge($parameters['items'], $icons);
+            }
         }
     }
 
@@ -36,7 +34,7 @@ class TextIconUtility
      * @param string $directory
      * @return array|bool
      */
-    public function getIcons($directory)
+    protected function getIcons($directory)
     {
         $icons = [];
         if (strpos($directory, 'EXT:') !== 0 || !strpos($directory, 'Resources/Public')) {
@@ -46,7 +44,6 @@ class TextIconUtility
         if (!is_dir($path)) {
             return false;
         }
-        $identifier = pathinfo($path)['basename'];
         $files = iterator_to_array(
             new \FilesystemIterator(
                 $path,
@@ -55,14 +52,11 @@ class TextIconUtility
         );
         ksort($files);
         foreach ($files as $key => $fileinfo) {
-            if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'jpg', 'gif'])) {
-                $pathinfo = pathinfo($fileinfo->getPathname());
-                $iconPath = str_replace(PATH_site . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
-                $iconPath = str_replace('\\', '/', $iconPath);
+            if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'gif'])) {
                 $icons[] = [
-                    $pathinfo['filename'],
-                    $identifier . '__' . $pathinfo['filename'],
-                    $iconPath
+                    $fileinfo->getBasename('.' . $fileinfo->getExtension()),
+                    $directory . $fileinfo->getFilename(),
+                    $directory . $fileinfo->getFilename()
                 ];
             }
         }

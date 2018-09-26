@@ -1,0 +1,81 @@
+########################################
+#### BACKENDLAYOUT: 2 COLUMNS 25/75 ####
+########################################
+mod {
+    web_layout {
+        BackendLayouts {
+            2_columns_25_75 {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns_25_75
+                config {
+                    backend_layout {
+                        colCount = 12
+                        rowCount = 5
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
+                                        colPos = 3
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentbefore
+                                        colPos = 8
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.left
+                                        colPos = 1
+                                        colspan = 4
+                                    }
+                                    2 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
+                                        colPos = 0
+                                        colspan = 8
+                                    }
+                                }
+                            }
+                            4 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentafter
+                                        colPos = 9
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            5 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
+                                        colPos = 10
+                                        colspan = 4
+                                    }
+                                    2 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
+                                        colPos = 11
+                                        colspan = 4
+                                    }
+                                    3 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
+                                        colPos = 12
+                                        colspan = 4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/2_columns_25_75.svg
+            }
+        }
+    }
+}

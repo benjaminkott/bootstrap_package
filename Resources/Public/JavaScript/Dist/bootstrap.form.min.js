@@ -1,0 +1,1 @@
+$(function(){$(".custom-file-input").on("change",function(){var t=$(this).val().split("\\").slice(-1)[0];$(this).next(".custom-file-label").text(t)})});

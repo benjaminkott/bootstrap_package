@@ -1,34 +1,6 @@
 //
 // Section
-// --------------------------------------------------
-.section {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: @screen-sm) {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-    @media (min-width: @screen-md) {
-        padding-top: 4em;
-        padding-bottom: 4em;
-    }
-    @media (min-width: @screen-lg) {
-        padding-top: 5em;
-        padding-bottom: 5em;
-    }
-}
-.section-mini {
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-.section-small {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: @screen-sm) {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-}
+//
 .make-section(@name, @background, @color, @link-color, @link-color-hover) {
     .@{name} {
         color: @color;
@@ -52,14 +24,30 @@
 
 //
 // Section Columns
-// --------------------------------------------------
+//
 .section-row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -(@grid-gutter-width / 4);
-    margin-right: -(@grid-gutter-width / 4);
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
 }
 .section-column {
-    padding-left: (@grid-gutter-width / 4);
-    padding-right: (@grid-gutter-width / 4);
+    width: 100%;
+    padding-left: (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+}
+
+
+//
+// Section Column Sizes
+//
+.section-column-half {
+    @media (min-width: @screen-sm) {
+        width: 50%;
+    }
+}
+.section-column-third {
+    @media (min-width: @screen-sm) {
+        width: calc(100% / 3);
+    }
 }

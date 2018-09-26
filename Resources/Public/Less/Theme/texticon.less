@@ -6,12 +6,18 @@
 }
 .texticon-icon {
     font-size: 2em;
-    .texticon-inner-icon {
+    .texticon-inner-icon,
+    .texticon-inner-icon svg,
+    .texticon-inner-icon img, {
         text-align: center;
         margin: 0 auto;
         display: block;
         height: 1em;
         width: 1em;
+    }
+    .texticon-inner-icon {
+        display: flex;
+        align-items: center;
     }
 }
 .texticon-size-awesome {

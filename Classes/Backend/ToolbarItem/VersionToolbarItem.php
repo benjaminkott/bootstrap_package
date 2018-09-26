@@ -53,8 +53,8 @@ class VersionToolbarItem
 
         // Set system information entry
         $systemInformation->addSystemInformation(
-            htmlspecialchars('Bootstrap Package'),
-            htmlspecialchars($value),
+            'Bootstrap Package',
+            htmlspecialchars($value, ENT_QUOTES | ENT_HTML5),
             'systeminformation-bootstrappackage'
         );
     }

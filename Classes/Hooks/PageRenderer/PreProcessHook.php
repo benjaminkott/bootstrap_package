@@ -51,11 +51,11 @@ class PreProcessHook
     /**
      * Get the compile service
      *
-     * @return Dispatcher
+     * @return CompileService
      */
     protected function getCompileService()
     {
-        if (!isset($this->compileService)) {
+        if ($this->compileService === null) {
             $this->compileService = GeneralUtility::makeInstance(CompileService::class);
         }
         return $this->compileService;

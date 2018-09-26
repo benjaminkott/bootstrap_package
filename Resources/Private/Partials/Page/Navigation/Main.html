@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<header class="navbar navbar-mainnavigation navbar-{settings.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:settings.navigation.type, else:' navbar-top', then:' navbar-{settings.navigation.type} navbar-fixed-{settings.navigation.type}')}">
+<header id="page-header" class="bp-page-header navbar navbar-mainnavigation navbar-{theme.navigation.style}{f:if(condition:settings.logo.file,then:' navbar-has-image')}{f:if(condition:theme.navigation.type, else:' navbar-top', then:' navbar-{theme.navigation.type} navbar-fixed-{theme.navigation.type}')}">
     <div class="container">
         <f:if condition="{settings.logo.file}">
             <f:then>
@@ -18,7 +18,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav id="mainnavigation" class="collapse navbar-collapse">
-                <f:render section="MainNavigation" arguments="{menu: mainnavigation, settings: settings}" />
+                <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
+                <f:render section="MainNavigation" arguments="{menu: mainnavigation, theme: theme}" />
+                <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
             </nav>
         </f:if>
     </div>
@@ -36,14 +38,14 @@
                     <f:else>
                         <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
                             <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
-                                <f:if condition="{item.icon}">
+                                <f:if condition="{theme.navigation.icon.enable} && {item.icon}">
                                     <span class="nav-link-icon">
                                         <f:if condition="{item.icon.0.extension} === svg">
                                             <f:then>
-                                                <bk2k:inlineSvg image="{item.icon.0}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                                <bk2k:inlineSvg image="{item.icon.0}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
                                             </f:then>
                                             <f:else>
-                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{settings.navigation.icon.width}" height="{settings.navigation.icon.height}" />
+                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
                                             </f:else>
                                         </f:if>
                                     </span>
@@ -59,7 +61,21 @@
                                             </f:then>
                                             <f:else>
                                                 <li>
-                                                    <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">{child.title}<f:if condition="{child.current}"> <span class="sr-only">(current)</span></f:if></a>
+                                                    <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
+                                                        <f:if condition="{theme.navigation.dropdown.icon.enable} && {child.icon}">
+                                                            <span class="dropdown-icon">
+                                                                <f:if condition="{child.icon.0.extension} === svg">
+                                                                    <f:then>
+                                                                        <bk2k:inlineSvg image="{child.icon.0}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
+                                                                    </f:then>
+                                                                    <f:else>
+                                                                        <f:image image="{child.icon.0}" alt="{child.icon.0.alternative}" title="{child.icon.0.title}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
+                                                                    </f:else>
+                                                                </f:if>
+                                                            </span>
+                                                        </f:if>
+                                                        <span class="dropdown-text">{child.title}<f:if condition="{child.current}"> <span class="sr-only">(current)</span></f:if></span>
+                                                    </a>
                                                 </li>
                                             </f:else>
                                         </f:if>

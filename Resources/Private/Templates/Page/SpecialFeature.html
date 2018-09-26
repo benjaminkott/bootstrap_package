@@ -1,30 +1,37 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
-<f:section name="Main">
+<f:section name="Border">
 
     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '3'}" />
 
+</f:section>
+<f:section name="Main">
+
+    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '8'}" />
+
     <div class="section section-default">
-        <div class="container">
-            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
-        </div>
+        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
     </div>
 
     <div class="section section-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="section-row">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '30'}" />
                 </div>
-                <div class="col-sm-6">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '31'}" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
+        </div>
+    </div>
+    <div class="section section-primary">
+        <div class="container">
+            <div class="section-row">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '32'}" />
                 </div>
-                <div class="col-sm-6">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '33'}" />
                 </div>
             </div>
@@ -32,31 +39,40 @@
     </div>
 
     <div class="section section-default">
-        <div class="container">
-            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '4'}" />
-        </div>
+        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '4'}" />
     </div>
 
     <div class="section section-light">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="section-row">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '34'}" />
                 </div>
-                <div class="col-sm-6">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '35'}" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
+        </div>
+    </div>
+    <div class="section section-light">
+        <div class="container">
+            <div class="section-row">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '36'}" />
                 </div>
-                <div class="col-sm-6">
+                <div class="section-column section-column-half">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '37'}" />
                 </div>
             </div>
         </div>
     </div>
+
+    <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '9'}" />
+
+</f:section>
+<f:section name="Footer">
+
+    <f:render partial="Structure/FooterContent" arguments="{_all}" />
 
 </f:section>
 </html>

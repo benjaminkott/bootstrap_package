@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -56,10 +57,11 @@ class FlexFormProcessor implements DataProcessorInterface
     {
         // The field name to process
         $fieldName = $cObj->stdWrapValue('fieldName', $processorConfiguration);
-        if (empty($fieldName) && !$processedData['data']['pi_flexform']) {
-            return $processedData;
-        } else {
+        if (empty($fieldName)) {
             $fieldName = 'pi_flexform';
+        }
+        if (!$processedData['data'][$fieldName]) {
+            return $processedData;
         }
 
         // Process Flexform

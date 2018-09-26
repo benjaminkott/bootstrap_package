@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Service;
 
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -21,7 +22,7 @@ class InstallService
     /**
      * @var string
      */
-    protected $extKey = 'bootstrap_package';
+    const EXT_KEY = 'bootstrap_package';
 
     /**
      * @var string
@@ -41,17 +42,17 @@ class InstallService
      */
     public function generateApacheHtaccess($extension = null)
     {
-        if ($extension == $this->extKey) {
-            if (substr($_SERVER['SERVER_SOFTWARE'], 0, 6) === 'Apache') {
+        if ($extension === self::EXT_KEY) {
+            if (strpos($_SERVER['SERVER_SOFTWARE'], 'Apache') === 0) {
                 $this->createConfigurationFile('.htaccess');
-            } elseif (substr($_SERVER['SERVER_SOFTWARE'], 0, 13) === 'Microsoft-IIS') {
+            } elseif (strpos($_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS') === 0) {
                 $this->createConfigurationFile('web.config');
             } else {
                 /**
                  * Add Flashmessage that the system is not running on a supported webserver and the url rewritings must be handled manually
                  */
                 $flashMessage = GeneralUtility::makeInstance(
-                    'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+                    FlashMessage::class,
                     'The Bootstrap Package suggests to use RealUrl to generate SEO friendly URLs, please take care of '
                     . 'the URLs rewriting settings for your environment yourself. You can also deactivate RealUrl by '
                     . 'changing your TypoScript setup to "config.tx_realurl_enable = 0". You also need to take care of '
@@ -70,17 +71,15 @@ class InstallService
     /**
      * Creates webserver configuration file inside the root directory
      *
-     * @return void
+     * @param $filename
      */
     private function createConfigurationFile($filename)
     {
         $absFilename = GeneralUtility::getFileAbsFileName($filename);
         if (file_exists($absFilename)) {
-            /**
-             * Add Flashmessage that there is already an configuration file and we are not going to override this.
-             */
+            // Add Flashmessage that there is already an configuration file and we are not going to override this.
             $flashMessage = GeneralUtility::makeInstance(
-                'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+                FlashMessage::class,
                 'There is already an ' . $filename . ' configuration file in the root directory, '
                 . 'please make sure that configuration files are protected and the url rewritings are set properly. '
                 . 'An example configuration is located at: "typo3conf/ext/bootstrap_package/Configuration/Server/_' . $filename . '"',
@@ -91,20 +90,20 @@ class InstallService
             $this->addFlashMessage($flashMessage);
             return;
         }
-        $filecontent = GeneralUtility::getUrl(ExtensionManagementUtility::extPath($this->extKey) . '/Configuration/Server/_' . $filename);
-        GeneralUtility::writeFile($absFilename, $filecontent, true);
 
-        /**
-         * Add Flashmessage that the example configuration file was placed in the root directory
-         */
-        $flashMessage = GeneralUtility::makeInstance(
-            'TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
-            'For securing configuration files and optimization purposes an example ' . $filename . ' file was placed in your root directory.',
-            'Webserver coniguration file "' . $filename . '" was placed in the root directory.',
-            FlashMessage::OK,
-            true
-        );
-        $this->addFlashMessage($flashMessage);
+        $filecontent = GeneralUtility::getUrl(ExtensionManagementUtility::extPath(self::EXT_KEY) . '/Configuration/Server/_' . $filename);
+        if ($filecontent && is_string($filecontent)) {
+            GeneralUtility::writeFile($absFilename, $filecontent, true);
+            // Add Flashmessage that the example configuration file was placed in the root directory
+            $flashMessage = GeneralUtility::makeInstance(
+                FlashMessage::class,
+                'For securing configuration files and optimization purposes an example ' . $filename . ' file was placed in your root directory.',
+                'Webserver coniguration file "' . $filename . '" was placed in the root directory.',
+                FlashMessage::OK,
+                true
+            );
+            $this->addFlashMessage($flashMessage);
+        }
     }
 
     /**
@@ -114,12 +113,8 @@ class InstallService
      */
     public function addFlashMessage(FlashMessage $flashMessage)
     {
-        if ($flashMessage) {
-            /** @var $flashMessageService \TYPO3\CMS\Core\Messaging\FlashMessageService */
-            $flashMessageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessageService');
-            /** @var $flashMessageQueue \TYPO3\CMS\Core\Messaging\FlashMessageQueue */
-            $flashMessageQueue = $flashMessageService->getMessageQueueByIdentifier($this->messageQueueByIdentifier);
-            $flashMessageQueue->enqueue($flashMessage);
-        }
+        $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+        $flashMessageQueue = $flashMessageService->getMessageQueueByIdentifier($this->messageQueueByIdentifier);
+        $flashMessageQueue->enqueue($flashMessage);
     }
 }

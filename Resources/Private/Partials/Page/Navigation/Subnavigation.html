@@ -1,30 +1,46 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{subnavigation}">
-    <nav class="hidden-print hidden-xs hidden-sm" role="navigation">
-        <ul class="nav nav-sidebar">
-            <f:render section="SubnavigationItem" arguments="{menu: subnavigation}" />
-        </ul>
+    <nav class="frame frame-type-subnavigation frame-background-none frame-no-backgroundimage frame-space-before-none frame-space-after-none" role="navigation">
+        <div class="frame-container">
+            <div class="frame-inner">
+                <f:render section="SubnavigationItem" arguments="{menu: subnavigation, theme: theme}" />
+            </div>
+        </div>
     </nav>
 </f:if>
 <f:section name="SubnavigationItem">
-    <f:for each="{menu}" as="item">
-        <f:if condition="{item.spacer}">
-            <f:then>
-                <li class="nav-header">{item.title}</li>
-            </f:then>
-            <f:else>
-                <li class="{f:if(condition: item.active, then:'active')}">
-                    <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
-                        <span>{item.title}</span>
-                    </a>
-                    <f:if condition="{item.children}">
-                        <ul>
-                            <f:render section="SubnavigationItem" arguments="{menu: item.children}" />
-                        </ul>
-                    </f:if>
-                </li>
-            </f:else>
-        </f:if>
-    </f:for>
+    <f:if condition="{menu}">
+        <ul class="subnav-nav">
+            <f:for each="{menu}" as="item">
+                <f:if condition="{item.spacer}">
+                    <f:then>
+                        <li class="subnav-divider"></li>
+                    </f:then>
+                    <f:else>
+                        <li class="subnav-item{f:if(condition: item.active, then:' active')}">
+                            <a href="{item.link}" id="subnav-item-{item.data.uid}" class="subnav-link"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
+                                <f:if condition="{item.icon}">
+                                    <span class="subnav-link-icon">
+                                        <f:if condition="{item.icon.0.extension} === svg">
+                                            <f:then>
+                                                <bk2k:inlineSvg image="{item.icon.0}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
+                                            </f:then>
+                                            <f:else>
+                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
+                                            </f:else>
+                                        </f:if>
+                                    </span>
+                                </f:if>
+                                <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if></span>
+                            </a>
+                            <f:if condition="{item.children}">
+                                <f:render section="SubnavigationItem" arguments="{menu: item.children, theme: theme}" />
+                            </f:if>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:if>
 </f:section>
 </html>

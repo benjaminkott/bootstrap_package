@@ -6,10 +6,9 @@
 .footer-section-content-column-right {
     width: 100%;
     @media (min-width: @screen-sm-min) {
-        width: 33.33333333%;
+        width: calc(~"100% / 3");
     }
 }
-
 
 //
 // Footer Section
@@ -34,7 +33,6 @@
     }
 }
 
-
 //
 // Footer Section Meta
 // --------------------------------------------------
@@ -48,11 +46,30 @@
             color: @footer-meta-link-hover-color;
         }
     }
+}
+
+//
+// Footer Section Meta
+//
+.footer-section-meta {
+    @media (min-width: @screen-sm-min) {
+        text-align: center;
+    }
+    .frame-inner > *:not(:first-child) {
+        margin-top: 1em;
+    }
+}
+
+//
+// Footer Meta
+//
+.footer-meta {
+    overflow: hidden;
     .meta-menu {
+        margin: 0;
         list-style: none;
         padding-left: 0;
         @media (min-width: @screen-sm-min) {
-            .list-unstyled();
             margin-left: -0.5em;
             margin-right: -0.5em;
             > li {
@@ -62,11 +79,18 @@
             }
         }
     }
+}
+
+//
+// Footer Language
+//
+.footer-language {
+    overflow: hidden;
     .language-menu {
+        margin: 0;
         list-style: none;
         padding-left: 0;
         @media (min-width: @screen-sm-min) {
-            .list-unstyled();
             margin-left: -0.5em;
             margin-right: -0.5em;
             > li {
@@ -77,30 +101,37 @@
         }
         .active a {
             font-weight: bold;
-            color: @footer-meta-link-color;
         }
-    }
-    @media (min-width: @screen-md) {
-        text-align: center;
     }
 }
 
+//
+// Footer Social
+//
+.footer-sociallinks {
+    .sociallinks {
+        overflow: hidden;
+    }
+    .sociallinks-list {
+        margin: -0.5em;
+    }
+    .sociallinks-item {
+        display: inline-block;
+        margin: 0.5em;
+        height: 1.5em;
+        width: 1.5em;
+    }
+    .sociallinks-link {
+        height: 1.5em;
+        width: 1.5em;
+    }
+}
 
 //
 // Footer Copyright
-// --------------------------------------------------
+//
 .footer-copyright {
     p {
         margin-bottom: 0;
-    }
-}
-
-
-//
-// Footer Social Links
-// --------------------------------------------------
-.footer-sociallinks {
-    .sociallinks {
-        margin-top: 0.5em;
     }
 }

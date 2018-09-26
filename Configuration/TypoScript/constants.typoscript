@@ -6,235 +6,302 @@
 # customsubcategory=111=Favicon
 # customsubcategory=112=Preloader
 # customsubcategory=120=Meta Settings
-# customsubcategory=137=Content Elements Preloading
-# customsubcategory=138=Content Elements Header
-# customsubcategory=139=Content Elements Subheader
-# customsubcategory=140=Content Elements Templates
-# customsubcategory=143=Content Element Menu Thumbnail
-# customsubcategory=144=Content Element General
-# customsubcategory=145=Content Element Uploads
-# customsubcategory=146=Content Element Gallery
-# customsubcategory=147=Content Element Menu Card
 # customsubcategory=150=Config
+# customsubcategory=151=Navigation
+# customsubcategory=152=Subnavigation
 # customsubcategory=160=Theme
+# customsubcategory=161=Font
+# customsubcategory=162=Breadcrumb
 # customsubcategory=165=Social Media
-# customsubcategory=167=Section Meta
-# customsubcategory=168=Section Language
-# customsubcategory=169=Section Copyright
+# customsubcategory=167=Meta
+# customsubcategory=168=Language
+# customsubcategory=169=Copyright
 # customsubcategory=180=Tracking
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=200=Extension Overrides
+# customsubcategory=201=Blocks
+# customsubcategory=230=Cookie Consent
+
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/constants.typoscript">
 
 ############
 ### PAGE ###
 ############
 page {
     logo {
-        # cat=bootstrap package: basic/110/100; type=string; label=Logo: Leave blank to use website title from template instead
+        # cat=bootstrap package: logo/110/100; type=string; label=Logo: Leave blank to use website title from template instead
         file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.svg
-        # cat=bootstrap package: basic/110/110; type=string; label=Logo Inverted: Leave blank to use website title from template instead
+        # cat=bootstrap package: logo/110/110; type=string; label=Logo Inverted: Leave blank to use website title from template instead
         fileInverted = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg
-        # cat=bootstrap package: basic/110/120; type=int+; label=Height: The image will not be resized!
+        # cat=bootstrap package: logo/110/120; type=int+; label=Height: The image will not be resized!
         height = 52
-        # cat=bootstrap package: basic/110/130; type=int+; label=Width: The image will not be resized!
+        # cat=bootstrap package: logo/110/130; type=int+; label=Width: The image will not be resized!
         width = 180
-        # cat=bootstrap package: basic/110/140; type=string; label=Alternative text: Text of the alt attribute of the logo image (default: "<website title> logo")
+        # cat=bootstrap package: logo/110/140; type=string; label=Alternative text: Text of the alt attribute of the logo image (default: "<website title> logo")
         alt =
-        # cat=bootstrap package: basic/110/150; type=string; label=Link title: Title of the link attribute of the logo image
+        # cat=bootstrap package: logo/110/150; type=string; label=Link title: Title of the link attribute of the logo image
         linktitle =
     }
 
     preloader {
-        # cat=bootstrap package: basic/112/1_enable; type=boolean; label=Preloader: Enable to display the preloader
+        # cat=bootstrap package: preloader/112/1_enable; type=boolean; label=Preloader: Enable to display the preloader
         enable = 1
         logo {
-            # cat=bootstrap package: basic/112/2_logo_file; type=string; label=Logo: Leave blank to don´t show a logo
+            # cat=bootstrap package: preloader/112/2_logo_file; type=string; label=Logo: Leave blank to don´t show a logo
             file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg
-            # cat=bootstrap package: basic/112/3_logo_height; type=int+; label=Height: The image will not be resized!
+            # cat=bootstrap package: preloader/112/3_logo_height; type=int+; label=Height: The image will not be resized!
             height = 52
-            # cat=bootstrap package: basic/112/4_logo_width; type=int+; label=Width: The image will not be resized!
+            # cat=bootstrap package: preloader/112/4_logo_width; type=int+; label=Width: The image will not be resized!
             width = 180
         }
-        # cat=bootstrap package: basic/112/5_background_color; type=color; label=Background Color
+        # cat=bootstrap package: preloader/112/5_background_color; type=color; label=Background Color
         backgroundColor = #333333
-        # cat=bootstrap package: basic/112/6_fade_duration; type=string; label=Fade duration
+        # cat=bootstrap package: preloader/112/6_fade_duration; type=string; label=Fade duration
         fadeDuration = 0.25
     }
 
     favicon {
-        # cat=bootstrap package: basic/111/100; type=string; label=Favicon
+        # cat=bootstrap package: logo/111/100; type=string; label=Favicon
         file = EXT:bootstrap_package/Resources/Public/Icons/favicon.ico
     }
 
     theme {
-        # cat=bootstrap package: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
-        navigationstyle = default
-        # cat=bootstrap package: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
-        navigationtype =
-        navigationicon {
-            # cat=bootstrap package: basic/160/102; type=int+; label=Navigation Icon Width
-            width = 20
-            # cat=bootstrap package: basic/160/103; type=int+; label=Navigation Icon Height
-            height = 20
+        googleFont {
+            # cat=bootstrap package: google font/161/1_enable; type=boolean; label=Enable
+            enable = 1
+            # cat=bootstrap package: google font/161/2_font; type=options[Lora=Lora, Merriweather=Merriweather, Nunito=Nunito, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Quattrocento=Quattrocento, Ubuntu=Ubuntu]; label=Font
+            font = Source Sans Pro
+            # cat=bootstrap package: google font/161/3_weight; type=string; label=Font Weights: Comma separated list of font weights
+            weight = 300,400,700
         }
-        # cat=bootstrap package: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
-        breadcrumb = 1
-        # cat=bootstrap package: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
-        breadcrumbEnableLevel = 2
+
+        navigation {
+            # cat=bootstrap package: navigation/151/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
+            style = default
+            # cat=bootstrap package: navigation/151/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
+            type =
+            icon {
+                # cat=bootstrap package: navigation/151/102; type=boolean; label=Navigation Icon Enable
+                enable = 1
+                # cat=bootstrap package: navigation/151/103; type=int+; label=Navigation Icon Width
+                width = 20
+                # cat=bootstrap package: navigation/151/104; type=int+; label=Navigation Icon Height
+                height = 20
+            }
+            dropdown {
+                icon {
+                    # cat=bootstrap package: navigation/151/105; type=boolean; label=Dropdown Icon Enable
+                    enable = 1
+                    # cat=bootstrap package: navigation/151/106; type=int+; label=Dropdown Icon Width
+                    width = 16
+                    # cat=bootstrap package: navigation/151/107; type=int+; label=Dropdown Icon Height
+                    height = 16
+                }
+            }
+        }
+
+        subnavigation {
+            icon {
+                # cat=bootstrap package: navigation/152/108; type=boolean; label=SubNavigation Icon Enable
+                enable = 1
+                # cat=bootstrap package: navigation/152/109; type=int+; label=SubNavigation Icon Width
+                width = 16
+                # cat=bootstrap package: navigation/152/110; type=int+; label=SubNavigation Icon Width
+                height = 16
+            }
+        }
+
+        cookieconsent {
+            # cat=bootstrap package: cookie consent/230/01_enable; type=boolean; label=Enable Cookie Consent: For more information about this solution please head over to https://cookieconsent.insites.com/
+            enable = 1
+            # cat=bootstrap package: cookie consent/230/02_layout; type=options[Basic=basic, Basic Close=basic-close, Basic Header=basic-header]; label=Layout
+            layout = basic
+            # cat=bootstrap package: cookie consent/230/03_position; type=options[Banner Top=top, Banner Bottom=bottom, Floating Top Left=top-left, Floating Top Right=top-right, Floating Bottom Left=bottom-left, Floating Bottom Right=bottom-right]; label=Position: Position is used to describe where on the screen your popup should display. We also use 'position' to assume the shape of your popup. If you specify 'top' or 'bottom', we assume that a full width 'banner' is required. If however you specify a horizontal direction, we assume that a corner popup is required (which we call 'floating').
+            position = bottom
+            # cat=bootstrap package: cookie consent/230/04_static; type=boolean; label=Static Position: The popup uses position fixed to stay in one place on the screen despite any scroll bars. This option makes the popup position static so it displays at the top of the page. A height animation has also been added by default so the popup doesn’t make the page jump, but gradually grows and fades in.
+            static = 0
+            content {
+                # cat=bootstrap package: cookie consent/230/05_content_href; type=string; label=Privacy Police: Insert a full Link to the privacy police page or a page uid from your current TYPO3 System.
+                href =
+            }
+            # cat=bootstrap package: cookie consent/230/06_revokable; type=boolean; label=Revokable: If set true, revoke button is displayed every time. If false, revoke button is only displayed for advanced compliance options (opt-in and opt-out) and in countries that require revokable consent. The latter can be disabled by regionalLaw.
+            revokable = 0
+            # cat=bootstrap package: cookie consent/230/07_location; type=boolean; label=Location Detection: Location is simply a tool for getting the two letter country code that the user is in.
+            location = 0
+            law {
+                # cat=bootstrap package: cookie consent/230/08_law_countryCode; type=string; label=Country Code: Rather than getting the country code from the location services, you can hard code a particular country into the tool.
+                countryCode =
+                # cat=bootstrap package: cookie consent/230/09_law_regionalLaw; type=boolean; label=Regional Law: If false, then we only enable the popup if the country has the cookie law. We ignore all other country specific rules.
+                regionalLaw = 1
+            }
+            # cat=bootstrap package: cookie consent/230/10_type; type=options[Informal=info, Opt-In=opt-in, Opt-Out=opt-out]; label=Compliance: The informal confirmation does not require any further adjustments to your JavaScript. The Opt-In and Opt-Out options are not out-of-the-box solutions, manual adjustments to your software are necessary. For your support we provide the events bk2k.cookie.enable, bk2k.cookie.disable and bk2k.cookie.revoke. These events allow you to let your application react to them and to set or remove cookies accordingly. The cookie that contains the current status is called cookieconsent_status.
+            type = info
+            cookie {
+                # cat=bootstrap package: cookie consent/230/11_expiryDays; type=int; label=Expiry Days: The cookies expire date, specified in days (specify -1 for no expiry)
+                expiryDays = 365
+            }
+        }
+
+        breadcrumb {
+            # cat=bootstrap package: navigation/162/breadcrumb_enable; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
+            enable = 1
+            # cat=bootstrap package: navigation/162/breadcrumb_enableLevel; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
+            enableLevel = 2
+            icon {
+                # cat=bootstrap package: navigation/162/breadcrumb_icon_enable; type=boolean; label=Breadcrumb Icon: Enable navigation icons in the breadcrumb
+                enable = 0
+                # cat=bootstrap package: navigation/162/breadcrumb_icon_width; type=int+; label=Breadcrumb Icon Width
+                width = 16
+                # cat=bootstrap package: navigation/162/breadcrumb_icon_height; type=int+; label=Breadcrumb Icon Height
+                height = 16
+            }
+        }
 
         meta {
-            # cat=bootstrap package: basic/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+            # cat=bootstrap package: navigation/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
             enable = 1
-            # cat=bootstrap package: basic/167/meta_navigationValue; type=string; label=Meta Navigation Values: Comma separated list of page uids
+            # cat=bootstrap package: navigation/167/meta_navigationValue; type=string; label=Meta Navigation Values: Comma separated list of page uids
             navigationValue =
-            # cat=bootstrap package: basic/167/meta_navigationType; type=options[List=list, Directory=directory]; label=Meta Navigation Type
+            # cat=bootstrap package: navigation/167/meta_navigationType; type=options[List=list, Directory=directory]; label=Meta Navigation Type
             navigationType = list
-            # cat=bootstrap package: basic/167/meta_includeNotInMenu; type=boolean; label=Meta Navigation include items not in menu
+            # cat=bootstrap package: navigation/167/meta_includeNotInMenu; type=boolean; label=Meta Navigation include items not in menu
             includeNotInMenu = 1
         }
 
         language {
-            # cat=bootstrap package: basic/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
+            # cat=bootstrap package: language/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
             enable = 1
-            # cat=bootstrap package: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids
-            languageValue = 0,1,2
+            # cat=bootstrap package: language/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids or set to 'auto' to load all enabled system languages
+            languageValue = auto
         }
 
         socialmedia {
-            # cat=bootstrap package: basic/165/00_enable; type=boolean; label=Social Media: Enable to display the social media links
+            # cat=bootstrap package: social media/165/00_enable; type=boolean; label=Social Media: Enable to display the social media links
             enable = 1
             channels {
                 facebook {
                     label = Facebook
-                    # cat=bootstrap package: basic/165/01_facebook_url; type=string; label=Facebook: Insert the full account url
+                    # cat=bootstrap package: social media/165/01_facebook_url; type=string; label=Facebook: Insert the full account url
                     url =
                 }
                 twitter {
                     label = Twitter
-                    # cat=bootstrap package: basic/165/02_twitter_url; type=string; label=Twitter: Insert the full account url
+                    # cat=bootstrap package: social media/165/02_twitter_url; type=string; label=Twitter: Insert the full account url
                     url =
                 }
                 instagram {
                     label = Instagram
-                    # cat=bootstrap package: basic/165/03_instagram_url; type=string; label=Instagram: Insert the full account url
+                    # cat=bootstrap package: social media/165/03_instagram_url; type=string; label=Instagram: Insert the full account url
                     url =
                 }
                 github {
                     label = GitHub
-                    # cat=bootstrap package: basic/165/04_googleplus_url; type=string; label=GitHub: Insert the full account url
+                    # cat=bootstrap package: social media/165/04_googleplus_url; type=string; label=GitHub: Insert the full account url
                     url =
                 }
                 googleplus {
                     label = Google+
-                    # cat=bootstrap package: basic/165/04_googleplus_url; type=string; label=Google+: Insert the full account url
+                    # cat=bootstrap package: social media/165/04_googleplus_url; type=string; label=Google+: Insert the full account url
                     url =
                 }
                 linkedin {
                     label = LinkedIn
-                    # cat=bootstrap package: basic/165/05_linkedin_url; type=string; label=LinkedIn: Insert the full account url
+                    # cat=bootstrap package: social media/165/05_linkedin_url; type=string; label=LinkedIn: Insert the full account url
                     url =
                 }
                 xing {
                     label = Xing
-                    # cat=bootstrap package: basic/165/06_xing_url; type=string; label=Xing: Insert the full account url
+                    # cat=bootstrap package: social media/165/06_xing_url; type=string; label=Xing: Insert the full account url
                     url =
                 }
                 youtube {
                     label = YouTube
-                    # cat=bootstrap package: basic/165/07_youtube_url; type=string; label=YouTube: Insert the full account url
+                    # cat=bootstrap package: social media/165/07_youtube_url; type=string; label=YouTube: Insert the full account url
                     url =
                 }
                 vimeo {
                     label = Vimeo
-                    # cat=bootstrap package: basic/165/08_vimeo_url; type=string; label=Vimeo: Insert the full account url
+                    # cat=bootstrap package: social media/165/08_vimeo_url; type=string; label=Vimeo: Insert the full account url
                     url =
                 }
             }
         }
 
         copyright {
-            # cat=bootstrap package: basic/169/120; type=boolean; label=Copyright: Enable to display the copyright
+            # cat=bootstrap package: copyright/169/120; type=boolean; label=Copyright: Enable to display the copyright
             enable = 1
-            # cat=bootstrap package: basic/169/121; type=string; label=Copyright Text
-            text = Built on a Windows 10 Surface Book. Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a>.<br> Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://www.bk2k.info" target="_blank">Benjamin Kott</a>
+            # cat=bootstrap package: copyright/169/121; type=string; label=Copyright Text
+            text = Running with <a href="http://www.typo3.org" target="_blank">TYPO3</a> and <a href="https://www.bootstrap-package.com" target="_blank">Bootstrap Package</a>.
         }
     }
 
     fluidtemplate {
-        # cat=bootstrap package: advanced/100/100; type=string; label=Layout Root Path: Path to layouts
+        # cat=bootstrap package: templates/100/100; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-        # cat=bootstrap package: advanced/100/110; type=string; label=Partial Root Path: Path to partials
+        # cat=bootstrap package: templates/100/110; type=string; label=Partial Root Path: Path to partials
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Page/
-        # cat=bootstrap package: advanced/100/120; type=string; label=Template Root Path: Path to templates
+        # cat=bootstrap package: templates/100/120; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Page/
     }
 
     meta {
-        # cat=bootstrap package: basic/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
+        # cat=bootstrap package: meta data/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
         description =
-        # cat=bootstrap package: basic/120/110; type=string; label=Author: Enter the page author's name.
+        # cat=bootstrap package: meta data/120/110; type=string; label=Author: Enter the page author's name.
         author =
-        # cat=bootstrap package: basic/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
+        # cat=bootstrap package: meta data/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
         keywords =
-        # cat=bootstrap package: advanced/120/100; type=string; label=viewport
+        # cat=bootstrap package: meta data/120/100; type=string; label=viewport
         viewport = width=device-width, initial-scale=1
-        # cat=bootstrap package: advanced/120/110; type=string; label=robots
+        # cat=bootstrap package: meta data/120/110; type=string; label=robots
         robots = index,follow
-        # cat=bootstrap package: advanced/120/120; type=string; label=apple-mobile-web-app-capable
+        # cat=bootstrap package: meta data/120/120; type=string; label=apple-mobile-web-app-capable
         apple-mobile-web-app-capable = no
-        # cat=bootstrap package: advanced/120/130; type=string; label=compatible
+        # cat=bootstrap package: meta data/120/130; type=string; label=compatible
         compatible = IE=edge
-        # cat=bootstrap package: advanced/120/140; type=string; label=google
+        # cat=bootstrap package: meta data/120/140; type=string; label=google
         google = notranslate
-        # cat=bootstrap package: advanced/120/150; type=string; label=google-site-verfification
+        # cat=bootstrap package: meta data/120/150; type=string; label=google-site-verfification
         google-site-verification =
     }
 
     tracking {
         google {
-            # cat=bootstrap package: basic/180/100; type=string; label=Google: Tracking-ID
+            # cat=bootstrap package: tracking/180/100; type=string; label=Google Analytics: Tracking-ID
             trackingID =
-            # cat=bootstrap package: basic/180/110; type=boolean; label=Google: IP-anonymisation
-            anonymizeIp = 1
         }
     }
 }
 
-// ##############
-// ### CONFIG ###
-// ##############
+##############
+### CONFIG ###
+##############
 config {
-    # cat=bootstrap package: advanced/150/110; type=boolean; label=No Cache
+    # cat=bootstrap package: config/150/110; type=boolean; label=No Cache
     no_cache = 0
-    # cat=bootstrap package: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
+    # cat=bootstrap package: config/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
     removeDefaultJS = 0
-    # cat=bootstrap package: advanced/150/130; type=boolean; label=Compress JavaScript
+    # cat=bootstrap package: config/150/130; type=boolean; label=Compress JavaScript
     compressJs = 0
-    # cat=bootstrap package: advanced/150/140; type=boolean; label=Compress Css
+    # cat=bootstrap package: config/150/140; type=boolean; label=Compress Css
     compressCss = 0
-    # cat=bootstrap package: advanced/150/150; type=boolean; label=Concatenate JavaScript
-    concatenateJs = 0
-    # cat=bootstrap package: advanced/150/160; type=boolean; label=Concatenate Css
-    concatenateCss = 0
-    # cat=bootstrap package: advanced/150/170; type=boolean; label=Admin Panel
+    # cat=bootstrap package: config/150/150; type=boolean; label=Concatenate JavaScript
+    concatenateJs = 1
+    # cat=bootstrap package: config/150/160; type=boolean; label=Concatenate Css
+    concatenateCss = 1
+    # cat=bootstrap package: config/150/170; type=boolean; label=Admin Panel
     admPanel = 1
-    # cat=bootstrap package: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
+    # cat=bootstrap package: config/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
     prefixLocalAnchors = all
-    # cat=bootstrap package: advanced/150/190; type=string; label=Header Comment
-    headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - http://www.bk2k.info
-    # cat=bootstrap package: advanced/150/200; type=boolean; label=Force images preload: Preload images even when not visible on page to allow print
-    preloadImages = 0
-    # cat=bootstrap package: advanced/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
+    # cat=bootstrap package: config/150/190; type=string; label=Header Comment
+    headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/
+    # cat=bootstrap package: config/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
     sendCacheHeaders = 1
-    # cat=bootstrap package: advanced/150/220; type=boolean; label=Enable links accross domains: This option enables to create links across domains using current domain's linking scheme.
+    # cat=bootstrap package: config/150/220; type=boolean; label=Enable links accross domains: This option enables to create links across domains using current domain's linking scheme.
     typolinkEnableLinksAcrossDomains = 0
-}
-
-###############
-### FELOGIN ###
-###############
-styles.content.loginform {
-    templateFile = EXT:bootstrap_package/Resources/Private/Templates/FrontendLogin/FrontendLogin.html
 }
 
 #########################
@@ -242,10 +309,24 @@ styles.content.loginform {
 #########################
 plugin.bootstrap_package {
     settings {
-        # cat=bootstrap package: advanced/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your LESS/Scss files will be overridden with the ones defined as TypoScript Constants.
+        # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your LESS/Scss files will be overridden with the ones defined as TypoScript Constants.
         overrideParserVariables = 1
-        # cat=bootstrap package: advanced/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
+        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
         cssSourceMapping = 0
+    }
+}
+
+#################################
+### BOOTSTRAP PACKAGE BLOCKS ####
+#################################
+plugin.bootstrap_package_blocks {
+    view {
+        # cat=bootstrap package: blocks/201/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
+        # cat=bootstrap package: blocks/201/partialRootPath; type=string; label=Partial Root Path: Path to partials
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Blocks/
+        # cat=bootstrap package: blocks/201/templateRootPath; type=string; label=Template Root Path: Path to templates
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
     }
 }
 
@@ -254,113 +335,22 @@ plugin.bootstrap_package {
 ####################################
 plugin.bootstrap_package {
     view {
-        # cat=bootstrap package: advanced/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        # cat=bootstrap package: templates/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
-        # cat=bootstrap package: advanced/200/partialRootPath; type=string; label=Partial Root Path: Path to partials
+        # cat=bootstrap package: templates/200/partialRootPath; type=string; label=Partial Root Path: Path to partials
         partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
-        # cat=bootstrap package: advanced/200/templateRootPath; type=string; label=Template Root Path: Path to templates
+        # cat=bootstrap package: templates/200/templateRootPath; type=string; label=Template Root Path: Path to templates
         templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
     }
 }
 
-##########################################
-### BOOTSTRAP PACKAGE CONTENT ELEMENTS ###
-##########################################
-plugin.bootstrap_package_contentelements {
-    header {
-        # cat=bootstrap package: advanced/138/defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
-        defaultHeaderType = 2
-        # cat=bootstrap package: advanced/138/class; type=string; label=Default Header class
-        class = element-header
-    }
-    subheader {
-        # cat=bootstrap package: advanced/139/class; type=string; label=Default Subheader class
-        class = element-subheader
-    }
-    view {
-        # cat=bootstrap package: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
-        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
-        # cat=bootstrap package: advanced/140/partialRootPath; type=string; label=Partial Root Path: Path to partials
-        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
-        # cat=bootstrap package: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
-        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
-    }
-    preload {
-        # cat=bootstrap package: advanced/137/100; type=boolean; label=Preload Images
-        images = 0
-    }
-    lightbox {
-        # cat=bootstrap package: advanced/144/100; type=string; label=Lightbox Css Class
-        cssClass = lightbox
-        # cat=bootstrap package: advanced/144/101; type=string; label=Lightbox Group Prefix
-        prefix = lightbox-group
-    }
-    gallery {
-        columnClass {
-            # cat=bootstrap package: advanced/146/100; type=string; label=Gallery Item CSS Class for 1 column
-            1 = col-xs-12
-            # cat=bootstrap package: advanced/146/101; type=string; label=Gallery Item CSS Class for 2 columns
-            2 = col-sm-6 col-xs-12
-            # cat=bootstrap package: advanced/146/102; type=string; label=Gallery Item CSS Class for 3 columns
-            3 = col-xs-4
-            # cat=bootstrap package: advanced/146/103; type=string; label=Gallery Item CSS Class for 4 Columns
-            4 = col-sm-3 col-xs-6
-            # cat=bootstrap package: advanced/146/104; type=string; label=Gallery Item CSS Class for 6 Columns
-            6 = col-md-2 col-sm-3 col-xs-4
-        }
-    }
-    menu_thumbnail {
-        media {
-            # cat=bootstrap package: advanced/143/102; type=string; label=Thumbnail Menu Media Height
-            height = 250c
-            # cat=bootstrap package: advanced/143/103; type=string; label=Thumbnail Menu Media Width
-            width = 440c
-        }
-        title {
-            # cat=bootstrap package: advanced/143/104; type=string; label=Thumbnail Menu Crop Title
-            crop = 100
-        }
-        abstract {
-            # cat=bootstrap package: advanced/143/105; type=string; label=Thumbnail Menu Crop Abstract
-            crop = 250
-        }
-    }
-    menu_card {
-        media {
-            # cat=bootstrap package: advanced/147/102; type=string; label=Card Menu Media Height
-            height = 250c
-            # cat=bootstrap package: advanced/147/103; type=string; label=Card Menu Media Width
-            width = 440c
-        }
-        title {
-            # cat=bootstrap package: advanced/147/104; type=string; label=Card Menu Crop Title
-            crop = 100
-        }
-        subtitle {
-            # cat=bootstrap package: advanced/147/106; type=string; label=Card Menu Crop Subtitle
-            crop = 100
-        }
-        abstract {
-            # cat=bootstrap package: advanced/147/107; type=string; label=Card Menu Crop Abstract
-            crop = 250
-        }
-    }
-    uploads {
-        preview {
-            # cat=bootstrap package: advanced/145/100; type=string; label=Uploads Preview Height
-            height = 100c
-            # cat=bootstrap package: advanced/145/101; type=string; label=Uploads Preview Width
-            width = 100c
-        }
-    }
-}
-
-####################
-#### EXTENSIONS ####
-####################
-[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
-    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt">
-[global]
+#############################################################
+#### EXTENSIONS                                          ####
+#### Manual inclusion to keep control over loading order ####
+#############################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/constants.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('form')">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/FrontendLogin/constants.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('felogin')">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/constants.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('indexed_search')">
 
 ###################
 #### FRAMEWORK ####

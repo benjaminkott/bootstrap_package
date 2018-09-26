@@ -14,11 +14,8 @@ disablePageTsTCEMAIN = 0
 # cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTCEFORM
 disablePageTsTCEFORM = 0
 
-# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsTtContentPreviews
-disablePageTsTtContentPreviews = 0
-
-# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsNewContentElementWizard
-disablePageTsNewContentElementWizard = 0
+# cat=PageTS; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:pageTs.disablePageTsContentElements
+disablePageTsContentElements = 0
 
 
 ################
@@ -27,3 +24,6 @@ disablePageTsNewContentElementWizard = 0
 
 # cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableCssProcessing
 disableCssProcessing = 0
+
+# cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableGoogleFontCaching
+disableGoogleFontCaching = 0

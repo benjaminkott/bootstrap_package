@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<section class="section footer-section footer-section-content">
+    <div class="container">
+        <div class="section-row">
+            <div class="section-column footer-section-content-column footer-section-content-column-left">
+                <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '10'}" />
+            </div>
+            <div class="section-column footer-section-content-column footer-section-content-column-middle">
+                <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '11'}" />
+            </div>
+            <div class="section-column footer-section-content-column footer-section-content-column-right">
+                <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '12'}" />
+            </div>
+        </div>
+    </div>
+</section>
+</html>

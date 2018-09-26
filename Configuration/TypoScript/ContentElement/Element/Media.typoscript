@@ -1,0 +1,30 @@
+######################
+#### CTYPE: MEDIA ####
+######################
+
+tt_content.media >
+tt_content.media =< lib.contentElement
+tt_content.media {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Media
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+            folders.field = file_folder
+            sorting.field = filelink_sorting
+        }
+        20 = BK2K\BootstrapPackage\DataProcessing\FileFilterProcessor
+        20 {
+            allowedFileExtensions = youtube, vimeo
+        }
+    }
+
+}

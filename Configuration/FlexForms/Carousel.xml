@@ -23,18 +23,6 @@
                             </config>
                         </TCEforms>
                     </interval>
-                    <background_image_maxwidth>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.background_image_maxwidth
-                            </label>
-                            <config>
-                                <type>input</type>
-                                <size>8</size>
-                                <default>1920</default>
-                                <eval>required,int</eval>
-                            </config>
-                        </TCEforms>
-                    </background_image_maxwidth>
                     <transition>
                         <TCEforms>
                             <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition

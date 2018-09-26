@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        carousel_fullscreen {
+            iconIdentifier = content-bootstrappackage-carousel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen.description
+            tt_content_defValues {
+                CType = carousel_fullscreen
+            }
+        }
+    }
+    show := addToList(carousel_fullscreen)
+}

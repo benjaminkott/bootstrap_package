@@ -86,21 +86,25 @@ audio {
 
 
 //
-// Panel
+// Well
 // --------------------------------------------------
-.panel-body {
-    *:last-child {
+.well {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
         margin-bottom: 0;
     }
 }
 
 
 //
-// Lazyload Images
+// Panel
 // --------------------------------------------------
-img.lazyload {
-    opacity: 0.3;
-    .transition(opacity .3s ease-in 0s);
+.panel-body {
+    *:last-child {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -113,7 +117,6 @@ img.lazyload {
 .caret {
     margin-left: 5px;
 }
-.caption {
-    word-break: break-all;
-    color: @gray-light;
+iframe {
+    border: 0;
 }

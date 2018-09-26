@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{element}">
+    <f:render partial="Field/Field" arguments="{element: element}" contentAs="elementContent">
+
+        <div class="custom-file">
+            <formvh:form.uploadedResource
+                property="{element.identifier}"
+                as="resource"
+                id="{element.uniqueIdentifier}"
+                class="{element.properties.elementClassAttribute}"
+                errorClass="{element.properties.elementErrorClassAttribute}"
+                additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
+                accept="{element.properties.allowedMimeTypes}"
+            >
+                <f:variable name="image" value="{resource}" />
+            </formvh:form.uploadedResource>
+            <label class="custom-file-label" for="{element.uniqueIdentifier}" data-browse-label="{f:translate(key: 'form.browse', extensionName: 'bootstrap_package')}">
+                <f:if condition="{image}">
+                    <f:then>
+                        {image.originalResource.originalFile.name}
+                    </f:then>
+                    <f:else>
+                        {f:translate(key: 'form.selectfile', extensionName: 'bootstrap_package')}
+                    </f:else>
+                </f:if>
+            </label>
+        </div>
+
+        <f:if condition="{image}">
+            <div class="form-image" id="{element.uniqueIdentifier}-preview">
+                <a href="{f:uri.image(image: image, maxWidth: element.properties.imageLinkMaxWidth)}" title="{image.originalResource.originalFile.name}" class="{bk2k:typoScript.constant(constant: 'plugin.bootstrap_package_contentelements.lightbox.cssClass')}" data-lightbox-width="{bk2k:lastImageInfo(property: 'width')}" data-lightbox-height="{bk2k:lastImageInfo(property: 'height')}" rel="{element.uniqueIdentifier}-preview">
+                    <f:image image="{image}" maxWidth="{element.properties.imageMaxWidth}" maxHeight="{element.properties.imageMaxHeight}" alt="{formvh:translateElementProperty(element: element, property: 'altText')}" class="img-fluid img-thumbnail" />
+                </a>
+            </div>
+        </f:if>
+
+    </f:render>
+</formvh:renderRenderable>
+</html>

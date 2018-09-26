@@ -38,7 +38,8 @@ class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
      * @var array
      */
     protected $mapping = [
-        'pagets__default_clean' => 'pagets__clean',
+        'pagets__clean' => 'pagets__simple',
+        'pagets__default_clean' => 'pagets__simple',
         'pagets__default_2_columns' => 'pagets__2_columns',
         'pagets__default_2_columns_25_75' => 'pagets__2_columns_25_75',
         'pagets__default_2_columns_50_50' => 'pagets__2_columns_50_50',

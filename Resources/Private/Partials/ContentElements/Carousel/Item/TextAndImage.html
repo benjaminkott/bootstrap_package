@@ -2,20 +2,18 @@
 <f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
     <div class="valign">
         <div class="carousel-text vcontainer" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
-            <h{item.data.header_layout}><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
+            <h{item.data.header_layout} class="carousel-header{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
             <f:if condition="{item.data.subheader}">
-                <h{item.data.subheader_layout}><f:format.htmlentitiesDecode>{item.data.subheader}</f:format.htmlentitiesDecode></h{item.data.subheader_layout}>
+                <h{item.data.subheader_layout} class="carousel-subheader{f:if(condition: item.data.subheader_class, then: ' {item.data.subheader_class}')}"><f:format.htmlentitiesDecode>{item.data.subheader}</f:format.htmlentitiesDecode></h{item.data.subheader_layout}>
             </f:if>
             <f:format.html>{item.data.bodytext}</f:format.html>
         </div>
         <div class="carousel-image vcontainer">
             <f:if condition="{item.images.0}">
-                <f:image
-                    image="{item.images.0}"
-                    title="{item.images.0.title}"
-                    alt="{item.images.0.alternative}"
-                    width="600"
-                    height="600m" />
+                <f:variable name="imageConfig">{settings.responsiveimages.contentelements.{data.CType}}</f:variable>
+                <f:variable name="imageConfig">{imageConfig.{item.data.item_type}}</f:variable>
+                <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+                <f:render partial="Media/Rendering/Image" arguments="{file: item.images.0, data: item.data, settings: settings, variants: variants}" />
             </f:if>
         </div>
     </div>

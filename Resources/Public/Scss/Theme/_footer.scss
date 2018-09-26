@@ -1,0 +1,123 @@
+//
+// Footer Columns
+//
+.footer-section-content-column-left,
+.footer-section-content-column-middle,
+.footer-section-content-column-right {
+    width: 100%;
+    @include media-breakpoint-up('sm') {
+        width: calc(100% / 3);
+    }
+}
+
+//
+// Footer Sections
+//
+@each $name, $settings in $footer-sections {
+    $footer-background: map-get($settings, 'background');
+    $footer-color: map-get($settings, 'color');
+    $footer-link-color: map-get($settings, 'link-color');
+    $footer-link-color-hover: darken($footer-link-color, 3%);
+    .footer-section-#{$name} {
+        color: $footer-color;
+        background-color: $footer-background;
+        a {
+            color: $footer-link-color;
+            &:hover,
+            &:focus {
+              color: $footer-link-color-hover;
+            }
+        }
+    }
+}
+
+//
+// Footer Section Meta
+//
+.footer-section-meta {
+    @include media-breakpoint-up('sm') {
+        text-align: center;
+    }
+    .frame-inner > *:not(:first-child) {
+        margin-top: 1rem;
+    }
+}
+
+//
+// Footer Meta
+//
+.footer-meta {
+    overflow: hidden;
+    .meta-menu {
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+        @include media-breakpoint-up('sm') {
+            margin-left: -0.5em;
+            margin-right: -0.5em;
+            > li {
+                display: inline-block;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+        .active a {
+            font-weight: bold;
+        }
+    }
+}
+
+//
+// Footer Language
+//
+.footer-language {
+    overflow: hidden;
+    .language-menu {
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+        @include media-breakpoint-up('sm') {
+            margin-left: -0.5em;
+            margin-right: -0.5em;
+            > li {
+                display: inline-block;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+        .active a {
+            font-weight: bold;
+        }
+    }
+}
+
+//
+// Footer Social
+//
+.footer-sociallinks {
+    .sociallinks {
+        overflow: hidden;
+    }
+    .sociallinks-list {
+        margin: -0.5rem;
+    }
+    .sociallinks-item {
+        display: inline-block;
+        margin: 0.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    .sociallinks-link {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+//
+// Footer Copyright
+//
+.footer-copyright {
+    p {
+        margin-bottom: 0;
+    }
+}

@@ -1,21 +1,26 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:spaceless>
+
+    <bk2k:data.imageVariants as="variants" variants="{settings.responsiveimages.variants}" />
+    <f:variable name="backendlayoutConfig">{settings.responsiveimages.backendlayout.{backendlayout}}</f:variable>
+    <f:variable name="columnConfig">{backendlayoutConfig.{data.colPos}}</f:variable>
+    <f:if condition="{columnConfig}">
+        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
+    </f:if>
 
     <f:variable name="frameClass">frame-{data.frame_class}</f:variable>
     <f:variable name="typeClass">frame-type-{data.CType}</f:variable>
     <f:variable name="layoutClass">frame-layout-{data.layout}</f:variable>
-    <f:variable name="backgroundClass">frame-background-{data.background_color_class}</f:variable>
+    <f:variable name="backgroundClass">frame-background-{f:if(condition: data.background_color_class, else: 'none', then: data.background_color_class)}</f:variable>
     <f:variable name="spaceBeforeClass">frame-space-before-{f:if(condition: data.space_before_class, else: 'none', then: data.space_before_class)}</f:variable>
     <f:variable name="spaceAfterClass">frame-space-after-{f:if(condition: data.space_after_class, else: 'none', then: data.space_after_class)}</f:variable>
 
     <f:if condition="{data.frame_class} != none">
         <f:then>
 
-            <f:variable name="itemStyleImage"><f:if condition="{backgroundImage.0}">background-image: url('{f:uri.image(image: backgroundImage.0)}');</f:if></f:variable>
-            <f:variable name="itemStyle">{itemStyleImage}</f:variable>
-            <f:variable name="backgroundImageClass">{f:if(condition: itemStyleImage, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
-
-            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}"{f:if(condition: itemStyle, then: ' style="{itemStyle}"')}>
+            <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
+            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+                <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />
                 <div class="frame-container">
                     <div class="frame-inner">
                         <f:if condition="{data._LOCALIZED_UID}">

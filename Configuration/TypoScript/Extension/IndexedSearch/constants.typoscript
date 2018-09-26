@@ -1,0 +1,6 @@
+########################
+#### INDEXED SEARCH ####
+########################
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt" condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition < 9.3">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.typoscript"  condition="BK2K\\BootstrapPackage\\TypoScript\\Condition\\CoreVersionCondition >= 9.3">

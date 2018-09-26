@@ -5,26 +5,26 @@
         <body>
 
             <trans-unit id="pageTs.disablePageTsRTE">
-                <source>Disable RTE: If this option is set the config for RTE will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/RTE.txt" in your PageTsConfig to load the config manually.</source>
+                <source>Disable RTE: If this option is set the config for RTE will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
             <trans-unit id="pageTs.disablePageTsTCEFORM">
-                <source>Disable TCEFORM: If this option is set the config for TCEFORM will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/TCEFORM.txt" in your PageTsConfig to load the config manually.</source>
+                <source>Disable TCEFORM: If this option is set the config for TCEFORM will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
             <trans-unit id="pageTs.disablePageTsTCEMAIN">
-                <source>Disable TCEMAIN: If this option is set the config for TCEMAIN will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/TCEMAIN.txt" in your PageTsConfig to load the config manually.</source>
+                <source>Disable TCEMAIN: If this option is set the config for TCEMAIN will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
             <trans-unit id="pageTs.disablePageTsBackendLayouts">
-                <source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt" in your PageTsConfig to load the config manually.</source>
+                <source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
-            <trans-unit id="pageTs.disablePageTsTtContentPreviews">
-                <source>Disable tt_content types preview: If this option is set, the included content previews for the page module will not be used. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/TtContent/preview.txt" in your PageTsConfig to load the config manually.</source>
-            </trans-unit>
-            <trans-unit id="pageTs.disablePageTsNewContentElementWizard">
-                <source>Disable New Content Element Wizard items: If this option is set, the included configuration for the new content element wizard will not be loaded automatically. Include "FILE:EXT:bootstrap_package/Configuration/PageTS/Mod/Wizards/newContentElement.txt" in your PageTsConfig to load the config manually.</source>
+            <trans-unit id="pageTs.disablePageTsContentElements">
+                <source>Disable Content Element PageTS Configuration: If this option is set, the included configuration for content elements will not be loaded automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
 
             <trans-unit id="feature.disableCssProcessing">
                 <source>Disable Processing of LESS/Scss files: WARNING: If this option is set there no more automatic processing of LESS/Scss files in the frontend. You will need to provide CSS files instead or handle the processing of the LESS/Scss files yourself.</source>
+            </trans-unit>
+            <trans-unit id="feature.disableGoogleFontCaching">
+                <source>Disable local Google-Font cache: If this option is set, Google Fonts will not be cached on the server.</source>
             </trans-unit>
 
         </body>

@@ -7,6 +7,12 @@
  * LICENSE file that was distributed with this source code.
  */
 
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
+    $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
+} else {
+    $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
+}
+
 return [
     'ctrl' => [
         'label' => 'header',
@@ -21,7 +27,7 @@ return [
         'origUid' => 't3_origuid',
         'hideTable' => true,
         'hideAtCopy' => true,
-        'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
+        'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
@@ -49,7 +55,7 @@ return [
                 header,
                 bodytext,
                 media,
-                mediaorient,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaposition;mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -70,6 +76,13 @@ return [
         'general' => [
             'showitem' => '
                 tt_content
+            '
+        ],
+        'mediaposition' => [
+            'showitem' => '
+                mediaorient,
+                imagecols,
+                image_zoom,
             '
         ],
         'visibility' => [
@@ -98,7 +111,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -110,7 +123,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -122,7 +135,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -137,7 +150,7 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -145,11 +158,11 @@ return [
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
                         -1
                     ],
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value',
+                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
                         0
                     ]
                 ],
@@ -159,7 +172,7 @@ return [
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -244,8 +257,6 @@ return [
                             ]
                         ],
                     ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
@@ -259,15 +270,73 @@ return [
                 'items' => [
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
-                        0
+                        'left'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.top',
+                        'top'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
-                        1
+                        'right'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.bottom',
+                        'bottom'
                     ],
                 ],
-                'default' => 0,
-            ]
+                'default' => 'left',
+            ],
+            'l10n_mode' => 'exclude'
         ],
+        'imagecols' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imagecols',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        '1',
+                        1
+                    ],
+                    [
+                        '2',
+                        2
+                    ],
+                    [
+                        '3',
+                        3
+                    ],
+                    [
+                        '4',
+                        4
+                    ],
+                    [
+                        '5',
+                        5
+                    ],
+                    [
+                        '6',
+                        6
+                    ]
+                ],
+                'default' => 2
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'image_zoom' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.image_zoom',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+        ]
     ],
 ];

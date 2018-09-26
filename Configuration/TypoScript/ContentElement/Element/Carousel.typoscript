@@ -1,0 +1,65 @@
+###########################################
+#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL ####
+###########################################
+
+tt_content.carousel >
+tt_content.carousel =< lib.contentElement
+tt_content.carousel {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Carousel
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tx_bootstrappackage_carousel_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = sorting
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = background_image
+                    as = backgroundImage
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = image
+                    as = images
+                }
+                1532633187 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+                1532633187 {
+                    fieldName = background_image_options
+                }
+            }
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    carousel {
+        text_and_image {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+        }
+    }
+}

@@ -1,10 +1,15 @@
 # .scrutinizer.yml
 build:
     environment:
-        php: 7.0
+        php: 7.2
     dependencies:
         before:
-            - 'composer require typo3/cms="^8.7"'
+            - 'composer require typo3/minimal="^9"'
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
 
 checks:
     php:
@@ -12,6 +17,8 @@ checks:
         remove_extra_empty_lines: true
         remove_php_closing_tag: true
         remove_trailing_whitespace: true
+        verify_property_names: true
+        verify_argument_usable_as_reference: true
 
 tools:
     external_code_coverage:
@@ -57,3 +64,4 @@ filter:
         - Contrib/
     excluded_paths:
         - ".build/"
+        - "Build/deploy.php"

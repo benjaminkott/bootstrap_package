@@ -1,9 +1,17 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
+<f:section name="Header" />
 <f:section name="Main">
 
-    <f:render partial="Media/Gallery" arguments="{_all}" />
-    <f:format.html>{data.bodytext}</f:format.html>
+    <div class="textmedia textmedia-above">
+        <div class="textmedia-item textmedia-gallery">
+            <f:render partial="Media/Gallery" arguments="{_all}" />
+        </div>
+        <div class="textmedia-item textmedia-text">
+            <f:render partial="Header/All" arguments="{_all}" />
+            <f:format.html>{data.bodytext}</f:format.html>
+        </div>
+    </div>
 
 </f:section>
 </html>

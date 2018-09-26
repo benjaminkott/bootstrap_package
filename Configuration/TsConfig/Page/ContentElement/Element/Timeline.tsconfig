@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        timeline {
+            iconIdentifier = content-bootstrappackage-timeline
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline.description
+            tt_content_defValues {
+                CType = timeline
+            }
+        }
+    }
+    show := addToList(timeline)
+}

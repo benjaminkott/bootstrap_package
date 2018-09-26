@@ -1,0 +1,152 @@
+##################
+### CATEGORIES ###
+##################
+# customsubcategory=100_contentelement=Templates
+# customsubcategory=110_contentelement=Header
+# customsubcategory=120_contentelement=Subheader
+# customsubcategory=130_contentelement=Lightbox
+# customsubcategory=140_contentelement=Gallery
+# customsubcategory=150_contentelement=Menu Thumbnail
+# customsubcategory=160_contentelement=Menu Card
+# customsubcategory=170_contentelement=Text and Icon
+# customsubcategory=180_contentelement=Timeline
+# customsubcategory=190_contentelement=Uploads
+
+
+########################
+### CONTENT ELEMENTS ###
+########################
+plugin.bootstrap_package_contentelements {
+    view {
+        # cat=bootstrap package: content elements/100_contentelement/001_layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
+        # cat=bootstrap package: content elements/100_contentelement/002_partialRootPath; type=string; label=Partial Root Path: Path to partials
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
+        # cat=bootstrap package: content elements/100_contentelement/003_templateRootPath; type=string; label=Template Root Path: Path to templates
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+    }
+    header {
+        # cat=bootstrap package: content elements/110_contentelement/001_defaultHeaderType; type=int[1-5]; label=Default Header type: Enter the number of the header layout to be used by default
+        defaultHeaderType = 2
+        # cat=bootstrap package: content elements/110_contentelement/002_class; type=string; label=Default Header class
+        class = element-header
+    }
+    subheader {
+        # cat=bootstrap package: content elements/120_contentelement/001_class; type=string; label=Default Subheader class
+        class = element-subheader
+    }
+    lightbox {
+        # cat=bootstrap package: content elements/130_contentelement/001_cssclass; type=string; label=Css Class
+        cssClass = lightbox
+        # cat=bootstrap package: content elements/130_contentelement/002_prefix; type=string; label=Group Prefix
+        prefix = lightbox-group
+        image {
+            # cat=bootstrap package: content elements/130_contentelement/003_image_maxheight; type=int+; label=Max Image Hight
+            maxHeight = 1200
+            # cat=bootstrap package: content elements/130_contentelement/003_image_maxwidth; type=int+; label=Max Image Width
+            maxWidth = 1200
+        }
+    }
+    gallery {
+        columns {
+            1 {
+                # cat=bootstrap package: content elements/140_contentelement/001_columns_1_class; type=string; label=Item CSS Class for 1 column
+                class = gallery-item-size-1
+            }
+            2 {
+                # cat=bootstrap package: content elements/140_contentelement/002_columns_2_class; type=string; label=Item CSS Class for 2 columns
+                class = gallery-item-size-2
+            }
+            3 {
+                # cat=bootstrap package: content elements/140_contentelement/003_columns_3_class; type=string; label=Item CSS Class for 3 columns
+                class = gallery-item-size-3
+            }
+            4 {
+                # cat=bootstrap package: content elements/140_contentelement/004_columns_4_class; type=string; label=Item CSS Class for 4 Columns
+                class = gallery-item-size-4
+            }
+            5 {
+                # cat=bootstrap package: content elements/140_contentelement/005_columns_5_class; type=string; label=Item CSS Class for 5 Columns
+                class = gallery-item-size-5
+            }
+            6 {
+                # cat=bootstrap package: content elements/140_contentelement/006_columns_6_class; type=string; label=Item CSS Class for 6 Columns
+                class = gallery-item-size-6
+            }
+        }
+    }
+    menu_thumbnail {
+        title {
+            # cat=bootstrap package: content elements/150_contentelement/001_title_crop; type=string; label=Crop Title
+            crop = 100
+        }
+        subtitle {
+            # cat=bootstrap package: content elements/150_contentelement/002_subtitle_crop; type=string; label=Crop Subtitle
+            crop = 80
+        }
+    }
+    menu_card {
+        icon {
+            # cat=bootstrap package: content elements/160_contentelement/001_icon_enable; type=boolean; label=Enable Icon
+            enable = 0
+            # cat=bootstrap package: content elements/160_contentelement/002_icon_height; type=string; label=Icon Height
+            height = 32
+            # cat=bootstrap package: content elements/160_contentelement/003_icon_width; type=string; label=Icon Width
+            width = 32c
+        }
+        title {
+            # cat=bootstrap package: content elements/160_contentelement/004_title_crop; type=string; label=Crop Title
+            crop = 100
+        }
+        subtitle {
+            # cat=bootstrap package: content elements/160_contentelement/005_subtitle_crop; type=string; label=Crop Subtitle
+            crop = 100
+        }
+        abstract {
+            # cat=bootstrap package: content elements/160_contentelement/006_abstract_crop; type=string; label=Crop Abstract
+            crop = 250
+        }
+    }
+    texticon {
+        icon {
+            default {
+                # cat=bootstrap package: content elements/190_contentelement/001_default_icon_height; type=string; label=Default Icon Height
+                height = 32
+                # cat=bootstrap package: content elements/190_contentelement/002_default_icon_width; type=string; label=Default Icon Width
+                width = 32
+            }
+            medium {
+                # cat=bootstrap package: content elements/190_contentelement/003_medium_icon_height; type=string; label=Medium Icon Height
+                height = 48
+                # cat=bootstrap package: content elements/190_contentelement/004_medium_icon_width; type=string; label=Medium Icon Width
+                width = 48
+            }
+            large {
+                # cat=bootstrap package: content elements/190_contentelement/005_large_icon_height; type=string; label=Large Icon Height
+                height = 64
+                # cat=bootstrap package: content elements/190_contentelement/006_large_icon_width; type=string; label=Large Icon Width
+                width = 64
+            }
+            awesome {
+                # cat=bootstrap package: content elements/190_contentelement/007_awesome_icon_height; type=string; label=Awesome Icon Height
+                height = 80
+                # cat=bootstrap package: content elements/190_contentelement/008_awesome_icon_width; type=string; label=Awesome Icon Width
+                width = 80
+            }
+        }
+    }
+    timeline {
+        date {
+            # cat=bootstrap package: content elements/180_contentelement/001_date_format; type=string; label=Date Format
+            format = %B %e, %Y
+        }
+    }
+    uploads {
+        preview {
+            # cat=bootstrap package: content elements/190_contentelement/001_preview_height; type=string; label=Preview Height
+            height = 100c
+            # cat=bootstrap package: content elements/190_contentelement/001_preview_width; type=string; label=Preview Width
+            width = 100c
+        }
+    }
+}

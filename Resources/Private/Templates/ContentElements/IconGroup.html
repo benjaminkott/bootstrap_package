@@ -7,11 +7,11 @@
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="icongroup-item">
                     <f:if condition="{item.iconFile.0}">
-                        <div class="icongroup-item-icon-container">
+                        <div class="icongroup-item-icon">
                             <bk2k:inlineSvg image="{item.iconFile.0}" />
                         </div>
                     </f:if>
-                    <div class="icongroup-item-text-container">
+                    <div class="icongroup-item-text">
                         <h4 class="icongroup-item-text-header">{item.data.header}</h4>
                         <f:if condition="{item.data.subheader}">
                             <p class="icongroup-item-text-subheader">{item.data.subheader}</p>

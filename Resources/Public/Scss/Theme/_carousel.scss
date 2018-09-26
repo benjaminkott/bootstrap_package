@@ -28,11 +28,8 @@
 //
 .carousel {
     .carousel-item {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        padding-left: $grid-gutter-width;
-        padding-right: $grid-gutter-width;
+        padding-left: ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
         @include media-breakpoint-up(sm) {
             padding-left: 0;
             padding-right: 0;
@@ -58,6 +55,51 @@
                 }
             }
         }
+    }
+}
+
+//
+// Carousel Backgroundimage
+//
+.carousel {
+    .carousel-backgroundimage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    .carousel-backgroundimage-fade {
+        opacity: 0.125;
+    }
+    .carousel-backgroundimage-parallax {
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    .carousel-backgroundimage-blur {
+        filter: blur(10px);
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        top: -10px;
+        left: -10px;
+    }
+    .carousel-backgroundimage-grayscale {
+        filter: grayscale(1);
+    }
+    .carousel-backgroundimage-sepia {
+        filter: sepia(1);
+    }
+}
+
+//
+// Carousel Content
+//
+.carousel {
+    .carousel-content {
+        position: relative;
+        height: 100%;
     }
 }
 
@@ -182,50 +224,6 @@
 }
 
 //
-// Carousel Transition
-//
-.carousel-transition-fade {
-    @include transition(opacity .6s ease-in-out 0s);
-    .carousel-item {
-        opacity: 0;
-        @media all and (transform-3d), (-webkit-transform-3d) {
-            transition: opacity .6s ease-in-out 0s;
-            backface-visibility: visible;
-            perspective: none;
-            &.carousel-item-next,
-            &.carousel-item-next.carousel-item-left,
-            &.carousel-item-prev,
-            &.carousel-item-prev.carousel-item-right,
-            &.active.carousel-item-right,
-            &.active.carousel-item-left,
-            &.active {
-                transform: none;
-            }
-        }
-    }
-    .carousel-inner {
-        > .active {
-            z-index: 1;
-            opacity: 1;
-        }
-        > .carousel-item-next,
-        > .carousel-item-prev {
-            opacity: 1;
-        }
-        > .carousel-item-next,
-        > .carousel-item-prev,
-        > .active.carousel-item-left,
-        > .active.carousel-item-right {
-            left: 0;
-        }
-        > .active.carousel-item-left,
-        > .active.carousel-item-right {
-            opacity: 0;
-        }
-    }
-}
-
-//
 // Type: Header
 //
 .carousel-item-type-header {
@@ -269,6 +267,19 @@
         left: 0;
         height: 100%;
         width: 100%;
+    }
+}
+
+//
+// Type: Call to Action
+//
+.carousel-item-type-call_to_action {
+    .carousel-box {
+        background-color: $body-bg;
+        padding: 2rem;
+        @include media-breakpoint-up(sm) {
+            max-width: 50%;
+        }
     }
 }
 

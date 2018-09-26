@@ -77,6 +77,13 @@
                     margin-top: -#{map-get($navbar-heights, $breakpoint)};
                 }
             }
+            .carousel-item {
+                @each $breakpoint in map-keys($navbar-heights) {
+                    @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
+                        padding-top: calc(#{map-get($navbar-heights, $breakpoint)} / 2);
+                    }
+                }
+            }
         }
         + .carousel-fullscreen,
         + .carousel-fullscreen .carousel-item {
@@ -252,6 +259,18 @@
     .dropdown-item {
         padding-left: $navbar-nav-link-padding-x;
         padding-right: $navbar-nav-link-padding-x;
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-icon {
+        svg,
+        img {
+            display: block;
+            margin: 0;
+        }
+        & + .dropdown-text {
+            margin-left: 0.5em;
+        }
     }
     @media (max-width: ($grid-float-breakpoint - 1)) {
         .dropdown-toggle::after {
@@ -440,8 +459,7 @@
 .navbar-inverse-transition.navbar-transition {
     @extend .navbar-inverse;
 }
-.navbar-default-transition.navbar-transition,
-.navbar-inverse-transition.navbar-transition {
+.navbar-transition {
     .navbar-brand {
         height: map-get($navbar-heights, xs);
     }
@@ -450,13 +468,12 @@
     }
 }
 @media (min-width: $grid-float-breakpoint) {
-    .navbar-default-transition,
-    .navbar-inverse-transition {
+    .navbar {
         transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
     }
     .navbar-default-transition:not(.navbar-transition),
     .navbar-inverse-transition:not(.navbar-transition) {
-        background-color: transparent !important;
+        background: transparent !important;
         box-shadow: none;
         .navbar-nav > li {
             > .nav-link,

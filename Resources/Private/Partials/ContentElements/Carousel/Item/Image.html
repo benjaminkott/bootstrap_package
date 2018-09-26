@@ -3,10 +3,7 @@
     <div class="valign">
         <div class="carousel-image vcontainer">
             <f:if condition="{item.images.0}">
-                <f:image
-                    image="{item.images.0}"
-                    title="{item.images.0.title}"
-                    alt="{item.images.0.alternative}" />
+                <f:render partial="Media/Rendering/Image" arguments="{file: item.images.0, data: item.data, settings: settings, variants: variants}" />
             </f:if>
         </div>
     </div>

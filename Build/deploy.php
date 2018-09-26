@@ -46,6 +46,9 @@ task('typo3:finish', function () {
 ])->desc('Deploy your project');
 after('deploy', 'success');
 
+// If deploy fails automatically unlock.
+after('deploy:failed', 'deploy:unlock');
+
 // Shared Directories and Files
 set('shared_dirs', [
     'web/fileadmin',
@@ -55,6 +58,8 @@ set('shared_dirs', [
 set('shared_files', [
     'composer.json',
     'web/.htaccess',
+    'web/robots.txt',
+    'web/typo3conf/AdditionalConfiguration.php',
     'web/typo3conf/LocalConfiguration.php',
     'web/typo3conf/PackageStates.php'
 ]);

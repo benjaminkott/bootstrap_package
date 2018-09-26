@@ -27,3 +27,5 @@
 *.sql text eol=lf
 *.t3s text eol=lf
 *.txt text eol=lf
+*.typoscript text eol=lf
+*.tsconfig text eol=lf

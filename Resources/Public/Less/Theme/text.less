@@ -91,12 +91,16 @@ h4 + h5 {
 // Columns
 //
 .text-column {
+    .well & {
+        margin-bottom: 0;
+    }
     > *:first-child {
         margin-top: 0;
     }
     > *:last-child {
         margin-bottom: 0;
     }
+    margin-bottom: (@line-height-computed / 2);
     @media (min-width: @screen-sm) {
         -webkit-column-count: 2;
         -moz-column-count: 2;
@@ -104,5 +108,25 @@ h4 + h5 {
         -webkit-column-gap: @grid-gutter-width;
         -moz-column-gap: @grid-gutter-width;
         column-gap: @grid-gutter-width;
+    }
+}
+
+
+//
+// Indent
+//
+.text-indent {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+    margin-bottom: (@line-height-computed / 2);
+    @media (min-width: @screen-sm) {
+        margin-left: 10%;
+    }
+    @media (min-width: @screen-md) {
+        margin-left: 20%;
     }
 }

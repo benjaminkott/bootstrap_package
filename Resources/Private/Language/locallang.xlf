@@ -41,6 +41,88 @@
                 <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
             </trans-unit>
 
+            <trans-unit id="form.browse">
+                <source>Browse</source>
+            </trans-unit>
+            <trans-unit id="form.selectfile">
+                <source>Select File</source>
+            </trans-unit>
+
+            <trans-unit id="element.contactform.renderingOptions.submitButtonLabel">
+                <source>Submit</source>
+            </trans-unit>
+             <trans-unit id="contactform.element.mandatory.properties.label">
+                <source>Your personal data</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.mandatory.properties.text">
+                <source>* Mandatory fields</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.fullname.properties.label">
+                <source>Full name and surname</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.fullname.properties.placeholder">
+                <source>Full name and surname</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.company.properties.label">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.company.properties.placeholder">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.email.properties.label">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.email.properties.placeholder">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.subject.properties.label">
+                <source>Subject</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.subject.properties.placeholder">
+                <source>Subject</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.message.properties.label">
+                <source>Message</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.message.properties.placeholder">
+                <source>Message</source>
+            </trans-unit>
+            <trans-unit id="contactform.element.summary.properties.label">
+                <source>Summary</source>
+            </trans-unit>
+
+            <trans-unit id="cookieconsent.common.header">
+                <source>Cookies used on the website!</source>
+            </trans-unit>
+            <trans-unit id="cookieconsent.common.message">
+                <source>This website uses cookies to ensure you get the best experience on our website.</source>
+            </trans-unit>
+            <trans-unit id="cookieconsent.common.dismiss">
+                <source>Got it!</source>
+            </trans-unit>
+            <trans-unit id="cookieconsent.common.allow">
+                <source>Allow cookies</source>
+            </trans-unit>
+            <trans-unit id="cookieconsent.common.deny">
+                <source>Decline</source>
+            </trans-unit>
+            <trans-unit id="cookieconsent.common.link">
+                <source>Learn more</source>
+            </trans-unit>
+
+            <trans-unit id="googleanalyticsstatus.title">
+                <source>Google Analytics Status</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.description">
+                <source>Here you can object to the anonymous collection by Google Analytics on this website for your browser by using an "Opt-Out-Cookie". Please note that if you delete the exclusion cookie or use a different computer or web browser, you will need to re-set the exclusion.</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.link.enable">
+                <source>Enable Google Analytics (Opt-In)</source>
+            </trans-unit>
+            <trans-unit id="googleanalyticsstatus.link.disable">
+                <source>Deactivate Google Analytics (Opt-Out)</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

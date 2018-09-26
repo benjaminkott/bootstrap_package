@@ -1,0 +1,601 @@
+##################################################
+### CONTENT ELEMENT SETTINGS                   ###
+### Shared settings for TYPO3 content elements ###
+##################################################
+lib.contentElement = FLUIDTEMPLATE
+lib.contentElement {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Default
+    templateRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        1509614342 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        1509614342 {
+            references.fieldName = background_image
+            as = backgroundImage
+        }
+        1532626753 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        1532626753 {
+            fieldName = background_image_options
+        }
+    }
+
+    #################
+    ### VARIABLES ###
+    #################
+    variables {
+        backendlayout = TEXT
+        backendlayout {
+            data = pagelayout
+            replacement.10 {
+                search = pagets__
+                replace =
+            }
+            ifEmpty = default
+        }
+    }
+
+    ################
+    ### SETTINGS ###
+    ################
+    settings {
+        header {
+            defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
+            class = {$plugin.bootstrap_package_contentelements.header.class}
+        }
+        subheader {
+            class = {$plugin.bootstrap_package_contentelements.subheader.class}
+        }
+        lightbox {
+            cssClass = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
+            prefix = {$plugin.bootstrap_package_contentelements.lightbox.prefix}
+            image {
+                maxHeight = {$plugin.bootstrap_package_contentelements.lightbox.image.maxHeight}
+                maxWidth = {$plugin.bootstrap_package_contentelements.lightbox.image.maxWidth}
+            }
+        }
+        gallery {
+            columns {
+                1 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.1.class}
+                }
+                2 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.2.class}
+                    multiplier {
+                        default = 0.5
+                        large = 0.5
+                        medium = 0.5
+                        small = 0.5
+                        extrasmall = 0.5
+                    }
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
+                }
+                3 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.3.class}
+                    multiplier {
+                        default = 0.3333
+                        large = 0.3333
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.3333
+                    }
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
+                }
+                4 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.4.class}
+                    multiplier {
+                        default = 0.25
+                        large = 0.25
+                        medium = 0.5
+                        small = 0.5
+                        extrasmall = 0.5
+                    }
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
+                }
+                5 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.5.class}
+                    multiplier {
+                        default = 0.2
+                        large = 0.2
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.5
+                    }
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
+                }
+                6 {
+                    class = {$plugin.bootstrap_package_contentelements.gallery.columns.6.class}
+                    multiplier {
+                        default = 0.1666
+                        large = 0.16666
+                        medium = 0.3333
+                        small = 0.3333
+                        extrasmall = 0.5
+                    }
+                    gutters {
+                        default = 16
+                        large = 16
+                        medium = 16
+                        small = 16
+                        extrasmall = 16
+                    }
+                }
+            }
+        }
+        responsiveimages {
+            variants {
+                default {
+                    breakpoint = 1200
+                    width = 1100
+                }
+                large {
+                    breakpoint = 992
+                    width = 920
+                }
+                medium {
+                    breakpoint = 768
+                    width = 680
+                }
+                small {
+                    breakpoint = 576
+                    width = 500
+                }
+                extrasmall {
+                    breakpoint = unset
+                    width = 374
+                }
+            }
+            backendlayout {
+                2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                2_columns_25_75 {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                2_columns_50_50 {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                subnavigation_left {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                2_columns_offset_right {
+                    0 {
+                        multiplier {
+                            default = 0.6666
+                            large = 0.6666
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                3_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                special_feature {
+                    30 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    31 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    32 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    33 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    34 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    35 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    36 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                    37 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                            medium = 0.5
+                            small = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                            small = 40
+                        }
+                    }
+                }
+                special_start {
+                    20 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    21 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    22 {
+                        multiplier {
+                            default = 0.3333
+                            large = 0.3333
+                            medium = 0.3333
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+                subnavigation_left {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                subnavigation_left_2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    1 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                subnavigation_right {
+                    0 {
+                        multiplier {
+                            default = 0.75
+                            large = 0.75
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+                subnavigation_right_2_columns {
+                    0 {
+                        multiplier {
+                            default = 0.5
+                            large = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                    2 {
+                        multiplier {
+                            default = 0.25
+                            large = 0.25
+                        }
+                        gutters {
+                            default = 40
+                            large = 40
+                        }
+                    }
+                }
+            }
+        }
+        menuthumbnail {
+            title {
+                crop = {$plugin.bootstrap_package_contentelements.menu_thumbnail.title.crop}
+            }
+            subtitle {
+                crop = {$plugin.bootstrap_package_contentelements.menu_thumbnail.subtitle.crop}
+            }
+        }
+        menucard {
+            icon {
+                enable = {$plugin.bootstrap_package_contentelements.menu_card.icon.enable}
+                height = {$plugin.bootstrap_package_contentelements.menu_card.icon.height}
+                width = {$plugin.bootstrap_package_contentelements.menu_card.icon.width}
+            }
+            title {
+                crop = {$plugin.bootstrap_package_contentelements.menu_card.title.crop}
+            }
+            subtitle {
+                crop = {$plugin.bootstrap_package_contentelements.menu_card.subtitle.crop}
+            }
+            abstract {
+                crop = {$plugin.bootstrap_package_contentelements.menu_card.abstract.crop}
+            }
+        }
+        texticon {
+            icon {
+                default {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
+                }
+                medium {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
+                }
+                large {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
+                }
+                awesome {
+                    height = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
+                }
+            }
+        }
+        timeline {
+            date {
+                format = {$plugin.bootstrap_package_contentelements.timeline.date.format}
+            }
+        }
+        uploads {
+            preview {
+                height = {$plugin.bootstrap_package_contentelements.uploads.preview.height}
+                width = {$plugin.bootstrap_package_contentelements.uploads.preview.width}
+            }
+        }
+    }
+
+}

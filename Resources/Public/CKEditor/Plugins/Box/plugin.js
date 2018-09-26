@@ -14,9 +14,9 @@
             editor.addCommand('bootstrappackage_box', {
                 exec: toggleBox,
                 refresh: setButtonState,
-                context: 'div',
-                allowedContent: 'div',
-                requiredContent: 'div'
+                context: 'div(well)',
+                allowedContent: 'div(!well)',
+                requiredContent: 'div(!well)'
             });
 
             // Add Button
@@ -139,7 +139,7 @@
             cleanedBlocks = [];
         while (blocks.length > 0) {
             block = blocks.shift();
-            if (block.getName() == 'div') {
+            if (block.getName() == 'div' && block.hasClass('well')) {
                 var fragment = new CKEDITOR.dom.documentFragment(editor.document);
                 while (block.getFirst()) {
                     fragment.append(block.getFirst().remove());
@@ -183,11 +183,11 @@
             block = blocks[i];
             var parent = null,
                 child = null;
-            if (block.getName() == 'div' && isEmptyBlock(block)) {
+            if (block.getName() == 'div' && block.hasClass('well') && isEmptyBlock(block)) {
                 processedBlocks.push(block);
             } else {
                 while (block.getParent()) {
-                    if (block.getParent().getName() == 'div') {
+                    if (block.getParent().getName() == 'div' && block.getParent().hasClass('well')) {
                         parent = block.getParent();
                         child = block;
                         break;
@@ -241,7 +241,11 @@
      */
     function setButtonState(editor, path) {
         var firstBlock = path.block || path.blockLimit;
-        this.setState(editor.elementPath(firstBlock).contains('div', 1) ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF);
+        var element = editor.elementPath(firstBlock).contains(
+            function(element) {
+                if (element.is('div') && element.hasClass('well')) return true;
+            }, 1);
+        this.setState(element ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF);
     };
 
     /**

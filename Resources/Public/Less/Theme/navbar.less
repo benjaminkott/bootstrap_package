@@ -100,6 +100,20 @@
             @media (min-width: @grid-float-breakpoint) and (min-width: @screen-lg) {
                 margin-top: -@navbar-height-lg
             }
+            .carousel-item {
+                @media (min-width: @grid-float-breakpoint) {
+                    padding-top: @navbar-height / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-sm) {
+                    padding-top: @navbar-height-sm / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-md) {
+                    padding-top: @navbar-height-md / 2;
+                }
+                @media (min-width: @grid-float-breakpoint) and (min-width: @screen-lg) {
+                    padding-top: @navbar-height-lg / 2;
+                }
+            }
         }
         + .carousel-fullscreen,
         + .carousel-fullscreen .carousel-item {
@@ -239,6 +253,18 @@
             text-decoration: none;
             outline: 0;
             background-color: @dropdown-link-active-bg;
+        }
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-icon {
+        svg,
+        img {
+            display: block;
+            margin: 0;
+        }
+        & + .dropdown-text {
+            margin-left: 0.5em;
         }
     }
     .dropdown-divider {
@@ -500,6 +526,16 @@
         top: 6px;
     }
 }
+.navbar-default {
+    .navbar-toggler {
+        color: @navbar-default-color;
+    }
+}
+.navbar-inverse {
+    .navbar-toggler {
+        color: @navbar-inverse-color;
+    }
+}
 
 
 //
@@ -513,8 +549,7 @@
 .navbar-inverse-transition.navbar-transition {
     &:extend(.navbar-inverse all);
 }
-.navbar-default-transition.navbar-transition,
-.navbar-inverse-transition.navbar-transition {
+.navbar-transition {
     .navbar-brand {
         height: @navbar-height;
     }
@@ -523,13 +558,12 @@
     }
 }
 @media (min-width: @grid-float-breakpoint) {
-    .navbar-default-transition,
-    .navbar-inverse-transition {
+    .navbar {
         transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
     }
     .navbar-default-transition:not(.navbar-transition),
     .navbar-inverse-transition:not(.navbar-transition) {
-        background-color: transparent !important;
+        background: transparent !important;
         box-shadow: none;
         .navbar-nav > li {
             > .nav-link,

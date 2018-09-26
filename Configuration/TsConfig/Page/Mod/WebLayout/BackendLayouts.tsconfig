@@ -1,0 +1,4 @@
+########################
+#### BACKENDLAYOUTS ####
+########################
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts" extensions="tsconfig">

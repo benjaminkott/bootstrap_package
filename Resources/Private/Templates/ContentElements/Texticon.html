@@ -6,8 +6,25 @@
     <div class="texticon texticon-{data.icon_position}">
         <f:if condition="{icon}">
             <f:link.typolink parameter="{data.header_link}">
-            <div class="texticon-icon texticon-size-{f:if(condition: '{data.icon_size} == 0', then: 'default')}{f:if(condition: '{data.icon_size} == 1', then: 'medium')}{f:if(condition: '{data.icon_size} == 2', then: 'large')}{f:if(condition: '{data.icon_size} == 3', then: 'awesome')} texticon-type-{f:if(condition: '{data.icon_type} == 0', then: 'default')}{f:if(condition: '{data.icon_type} == 1', then: 'square')}{f:if(condition: '{data.icon_type} == 2', then: 'circle')}">
-                <f:render partial="TextIcon/{identifier}" arguments="{_all}" />
+            <div class="texticon-icon texticon-size-{data.icon_size} texticon-type-{data.icon_type}">
+
+                <f:if condition="{data.icon_type} !== default">
+                    <f:if condition="{data.icon_color}"><f:variable name="iconStyle" value="{iconStyle}color: {data.icon_color};" /></f:if>
+                    <f:if condition="{data.icon_background}"><f:variable name="iconStyle" value="{iconStyle}background-color: {data.icon_background};" /></f:if>
+                </f:if>
+                <f:variable name="iconHeight" value="{settings.texticon.icon.{data.icon_size}.height}" />
+                <f:variable name="iconWidth" value="{settings.texticon.icon.{data.icon_size}.width}" />
+                <span class="texticon-inner-icon"{f:if(condition: iconStyle, then: ' style="{iconStyle}"')}>
+                    <f:if condition="{icon.0.extension} === svg">
+                        <f:then>
+                            <bk2k:inlineSvg image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
+                        </f:then>
+                        <f:else>
+                            <f:image image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
+                        </f:else>
+                    </f:if>
+                </span>
+
             </div>
             </f:link.typolink>
         </f:if>

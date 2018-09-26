@@ -1,0 +1,86 @@
+##################################
+#### BACKENDLAYOUT: 3 COLUMNS ####
+##################################
+mod {
+    web_layout {
+        BackendLayouts {
+            3_columns {
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.3_columns
+                config {
+                    backend_layout {
+                        colCount = 12
+                        rowCount = 5
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
+                                        colPos = 3
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentbefore
+                                        colPos = 8
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.left
+                                        colPos = 1
+                                        colspan = 3
+                                    }
+                                    2 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
+                                        colPos = 0
+                                        colspan = 6
+                                    }
+                                    3 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.right
+                                        colPos = 2
+                                        colspan = 3
+                                    }
+                                }
+                            }
+                            4 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentafter
+                                        colPos = 9
+                                        colspan = 12
+                                    }
+                                }
+                            }
+                            5 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
+                                        colPos = 10
+                                        colspan = 4
+                                    }
+                                    2 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
+                                        colPos = 11
+                                        colspan = 4
+                                    }
+                                    3 {
+                                        name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
+                                        colPos = 12
+                                        colspan = 4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:bootstrap_package/Resources/Public/Icons/BackendLayouts/3_columns.svg
+            }
+        }
+    }
+}

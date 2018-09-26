@@ -1,0 +1,72 @@
+#########################
+#### CTYPE: TIMELINE ####
+#########################
+
+tt_content.timeline >
+tt_content.timeline =< lib.contentElement
+tt_content.timeline {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Timeline
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = tx_bootstrappackage_timeline_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy.stdWrap.cObject = TEXT
+            orderBy.stdWrap.cObject {
+                data = flexform:pi_flexform:sorting
+                ifEmpty.cObject = TEXT
+                ifEmpty.cObject {
+                    value.current = 1
+                    ifEmpty = date desc
+                }
+            }
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = icon_file
+                    as = iconFile
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = image
+                    as = image
+                }
+            }
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    timeline {
+        multiplier {
+            default = 0.5
+            large = 0.5
+            medium = 0.5
+        }
+        corrections {
+            default = 49
+            large = 49
+            medium = 49
+            small = 72
+            extrasmall = 72
+        }
+    }
+}

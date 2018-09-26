@@ -9,11 +9,8 @@
 
 namespace BK2K\BootstrapPackage\Parser;
 
-use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\SignalSlot\Dispatcher;
 
 /**
  * LessParser
@@ -21,17 +18,12 @@ use TYPO3\CMS\Extbase\SignalSlot\Dispatcher;
 class LessParser extends AbstractParser
 {
     /**
-     * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
-     */
-    protected $signalSlotDispatcher;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         if (!class_exists('Less_Cache', false)) {
-            require_once(ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php');
+            require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php';
         }
     }
 
@@ -51,67 +43,70 @@ class LessParser extends AbstractParser
      */
     public function compile($file, $settings)
     {
-        // Initialize Arguments
-        $arguments = [
-            'file' => [
-                'absolute' => $settings['file']['absolute'],
-            ],
-            'options' => [
-                'compress' => true,
-                'cache_dir' => GeneralUtility::getFileAbsFileName($settings['cache']['tempDirectory'])
-            ],
-            'variables' => $settings['variables'],
-        ];
-        if ($settings['options']['sourceMap']) {
-            // Enable source mapping
-            $optionsForSourceMap = [
-                'sourceMap' => true,
-                'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($settings['cache']['tempDirectory']) . basename($file) . '.map',
-                'sourceMapURL' => '/' . $settings['cache']['tempDirectory'] . basename($file) . '.map',
-                'sourceMapBasepath' => realpath(PATH_site),
-                'sourceMapRootpath' => '/'
-            ];
-            $arguments['options'] += $optionsForSourceMap;
-            // Disable CSS compression
-            /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
-            $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-            $pageRenderer->disableCompressCss();
+        $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
+        $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
+        $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
+        $compile = false;
+
+        if (!$this->isCached($file, $settings)
+            || $this->needsCompile($cacheFile, $cacheFileMeta, $settings)) {
+            $compile = true;
         }
 
-        // Emit signal before less compiling to allow overriding of arguments
-        $arguments = $this->emitBeforeLessCompilingSignal($arguments);
+        if ($compile) {
+            $result = $this->parseFile($file, $settings);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMeta), serialize($result['cache']));
+            $this->clearPageCaches();
+        }
 
-        // Process file
-        $files = [];
-        $files[$arguments['file']['absolute']] = $settings['cache']['tempDirectoryRelativeToRoot'] . str_replace(PATH_site, '', dirname($arguments['file']['absolute'])) . '/';
-        $compiledFile = \Less_Cache::Get($files, $arguments['options'], $arguments['variables']);
-        $file = $settings['cache']['tempDirectory'] . $compiledFile;
-
-        return $file;
+        return $cacheFile;
     }
 
     /**
-     * @param array $arguments
+     * @param string $file
+     * @param array $settings
      * @return array
      */
-    protected function emitBeforeLessCompilingSignal($arguments)
+    protected function parseFile($file, $settings)
     {
-        return $this->getSignalSlotDispatcher()->dispatch(
-            __CLASS__,
-            'beforeLessCompiling',
-            $arguments
-        );
-    }
-
-    /**
-     * @return Dispatcher
-     */
-    protected function getSignalSlotDispatcher()
-    {
-        if (!isset($this->signalSlotDispatcher)) {
-            $this->signalSlotDispatcher = GeneralUtility::makeInstance(ObjectManager::class)
-                ->get(Dispatcher::class);
+        $options = [];
+        $options['compress'] = true;
+        if ($settings['options']['sourceMap']) {
+            $options['compress'] = false;
+            $options['sourceMap'] = true;
+            $options['sourceMapBasepath'] = realpath($this->getPathSite());
+            $options['sourceMapRootpath'] = $settings['cache']['tempDirectoryRelativeToRoot'];
         }
-        return $this->signalSlotDispatcher;
+
+        $parser = new \Less_Parser($options);
+        $parser->parseFile(GeneralUtility::getFileAbsFileName($file));
+        $parser->ModifyVars($settings['variables']);
+        $css = $parser->getCss();
+
+        // Correct relative urls
+        $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
+        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen($this->getPathSite()))) . '/';
+        $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
+        $replace = 'url("' . $relativePath . '$3")';
+        $css = preg_replace($search, $replace, $css);
+
+        $parsedFiles = [];
+        foreach ($parser::AllParsedFiles() as $parsedfile) {
+            $parsedFiles[$parsedfile] = filemtime($parsedfile);
+        }
+
+        return [
+            'css' => $css,
+            'cache' => [
+                'version' => \Less_Version::version,
+                'date' => date('r'),
+                'css' => $css,
+                'etag' => md5($css),
+                'files' => $parsedFiles,
+                'variables' => $settings['variables'],
+                'sourceMap' => $settings['options']['sourceMap']
+            ]
+        ];
     }
 }

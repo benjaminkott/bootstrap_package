@@ -7,6 +7,7 @@
 //
 @icongroup-margin: (@grid-gutter-width / 2);
 @icongroup-icon-size: 40px;
+@icongroup-item-width: 50%;
 
 //
 // Component
@@ -22,17 +23,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    flex-grow: 1;
     align-items: center;
     margin: @icongroup-margin;
-    width: calc(~'100% - @{icongroup-margin} * 2');
-    @media (min-width: @screen-sm) {
-        width: calc(~'50% - @{icongroup-margin} * 2');
-    }
-    @media (min-width: @screen-md) {
-        width: calc(~'25% - @{icongroup-margin} * 2');
-    }
+    width: calc(~'@{icongroup-item-width} - @{icongroup-margin} * 2');
+    min-width: 230px;
+    max-width: 100%;
 }
-.icongroup-item-icon-container {
+.icongroup-item-icon {
     flex-shrink: 0;
     width: @icongroup-icon-size;
     margin-right: @icongroup-margin;
@@ -42,7 +40,7 @@
         height: auto;
     }
 }
-.icongroup-item-text-container {
+.icongroup-item-text {
     flex-grow: 1;
 }
 .icongroup-item-text-header {

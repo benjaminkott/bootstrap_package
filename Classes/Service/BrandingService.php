@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Service;
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -19,16 +20,16 @@ class BrandingService
     /**
      * @var string
      */
-    protected $extKey = 'bootstrap_package';
+    const EXT_KEY = 'bootstrap_package';
 
     /**
      * @param string $extension
      */
     public function setBackendStyling($extension = null)
     {
-        if ($extension == $this->extKey && class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+        if ($extension === self::EXT_KEY && class_exists(ExtensionConfiguration::class)) {
             $extensionConfiguration = GeneralUtility::makeInstance(
-                \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+                ExtensionConfiguration::class
             );
             $backendConfiguration = $extensionConfiguration->get('backend');
 

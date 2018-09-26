@@ -5,8 +5,14 @@ imports:
 
 editor:
     externalPlugins:
+        bootstrappackage_address:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
         bootstrappackage_box:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+        bootstrappackage_columns:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
+        bootstrappackage_indent:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
         bootstrappackage_table:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
 
@@ -27,10 +33,18 @@ editor:
             - { name: "Row Danger", element: "tr", attributes: { 'class': 'danger' } }
             - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
             - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
+            - { name: "Button Secondary", element: "a", attributes: { 'class': 'btn btn-secondary' } }
             - { name: "Button Success", element: "a", attributes: { 'class': 'btn btn-success' } }
             - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
             - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
             - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
+            - { name: "Button Outline Default", element: "a", attributes: { 'class': 'btn btn-outline-default' } }
+            - { name: "Button Outline Primary", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
+            - { name: "Button Outline Secondary", element: "a", attributes: { 'class': 'btn btn-outline-secondary' } }
+            - { name: "Button Outline Success", element: "a", attributes: { 'class': 'btn btn-outline-success' } }
+            - { name: "Button Outline Info", element: "a", attributes: { 'class': 'btn btn-outline-info' } }
+            - { name: "Button Outline Warning", element: "a", attributes: { 'class': 'btn btn-outline-warning' } }
+            - { name: "Button Outline Danger", element: "a", attributes: { 'class': 'btn btn-outline-danger' } }
             - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
             - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
             - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
@@ -38,6 +52,7 @@ editor:
             - { name: "Capitalized text", element: "span", attributes: { 'class': 'text-capitalize' } }
             - { name: "Muted", element: "span", attributes: { 'class': 'text-muted' } }
             - { name: "Primary", element: "span", attributes: { 'class': 'text-primary' } }
+            - { name: "Secondary", element: "span", attributes: { 'class': 'text-secondary' } }
             - { name: "Success", element: "span", attributes: { 'class': 'text-success' } }
             - { name: "Info", element: "span", attributes: { 'class': 'text-info' } }
             - { name: "Warning", element: "span", attributes: { 'class': 'text-warning' } }
@@ -65,7 +80,10 @@ editor:
 
         extraPlugins:
             - justify
+            - bootstrappackage_address
             - bootstrappackage_box
+            - bootstrappackage_columns
+            - bootstrappackage_indent
             - bootstrappackage_table
 
         removePlugins:

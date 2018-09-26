@@ -48,22 +48,27 @@ class FontLoaderHook
         $families = [];
         if (count($webFonts) > 0) {
             foreach ($webFonts as $font) {
-                unset($params[$font['section']][$font['filename']]);
-                $urls = array_merge($urls, [$font['url']]);
-                $families = array_merge($families, $font['families']);
+                if (isset($params[$font['section']][$font['filename']])) {
+                    unset($params[$font['section']][$font['filename']]);
+                    $urls[] = $font['url'];
+                    $families = array_merge($families, $font['families']);
+                }
             }
         }
 
+        $config = [];
         if (count($urls) > 0 || count($families) > 0) {
             $config['custom']['urls'] = $urls;
             $config['custom']['families'] = $families;
-            $config['timeout'] = 2000;
+            $config['timeout'] = 1000;
             $params['headerData'][] = '<style>' . $this->generateCss() . '</style>';
             $params['headerData'][] = '<script>' . $this->generateJavaScript($config) . '</script>';
         }
     }
 
     /**
+     * @param $include
+     * @param $section
      * @return array
      */
     private function collectWebFonts($include, $section)
@@ -99,7 +104,7 @@ class FontLoaderHook
         $inlineJavaScript = [];
         $inlineJavaScript[] = 'WebFontConfig=' . json_encode($config) . ';';
         $inlineJavaScript[] = '(function(d){var wf=d.createElement(\'script\'),s=d.scripts[0];';
-        $inlineJavaScript[] = 'wf.src=\'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js\';';
+        $inlineJavaScript[] = 'wf.src=\'' . $this->getUriForFileName('EXT:bootstrap_package/Resources/Public/Contrib/webfontloader/webfontloader.js') . '\';';
         $inlineJavaScript[] = 'wf.async=false;';
         $inlineJavaScript[] = 's.parentNode.insertBefore(wf,s);';
         $inlineJavaScript[] = '})(document);';
@@ -121,6 +126,8 @@ class FontLoaderHook
             $bodyStyles[] = 'background-repeat:no-repeat;';
             $bodyStyles[] = 'content:\'\';';
             $bodyStyles[] = 'position:fixed;';
+            $bodyStyles[] = 'top:0;';
+            $bodyStyles[] = 'left:0;';
             $bodyStyles[] = 'z-index:10000;';
             $bodyStyles[] = 'opacity:0;';
             $bodyStyles[] = 'height:100%;';
@@ -149,6 +156,7 @@ class FontLoaderHook
 
             $duration = (float) $this->getTypoScriptConstant('page.preloader.fadeDuration');
             $transition = 'opacity ' . $duration . 's ease-out';
+            $activeStyles = [];
             $activeStyles[] = 'opacity:0!important;';
             $activeStyles[] = 'user-select:none;';
             $activeStyles[] = 'pointer-events:none;';

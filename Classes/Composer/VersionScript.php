@@ -38,25 +38,25 @@ class VersionScript
         $file = realpath($rootFolder . 'Build/package.json');
         $content = file_get_contents($file);
         $content = preg_replace('/(\"version\": )\"\d+\.\d+\.\d+/', '$1"' . $version, $content);
-        file_put_contents($file, $content);
+        file_put_contents($file, $content, LOCK_EX);
         echo "- $file was set to version $version" . PHP_EOL;
 
         // Documentation/Settings.yml
         $file = realpath($rootFolder . 'Documentation/Settings.yml');
         $content = file_get_contents($file);
         $content = preg_replace('/(version|release): \d+\.\d+\.\d+/', '$1: ' . $version, $content);
-        file_put_contents($file, $content);
+        file_put_contents($file, $content, LOCK_EX);
         echo "- $file was set to version $version" . PHP_EOL;
 
         // JavaScript Files
         $folder = realpath($rootFolder . 'Resources/Public/JavaScript/Dist/');
         if ($handle = opendir($folder)) {
             while (false !== ($entry = readdir($handle))) {
-                if ($entry != '.' && $entry != '..' && pathinfo($entry, PATHINFO_EXTENSION) === 'js') {
+                if ($entry !== '.' && $entry !== '..' && pathinfo($entry, PATHINFO_EXTENSION) === 'js') {
                     $file = realpath($folder . '/' . $entry);
                     $content = file_get_contents($file);
                     $content = preg_replace('/(Bootstrap Package )v\d+\.\d+\.\d+/', '$1v' . $version, $content);
-                    file_put_contents($file, $content);
+                    file_put_contents($file, $content, LOCK_EX);
                     echo "- $file was set to version $version" . PHP_EOL;
                 }
             }
@@ -67,7 +67,7 @@ class VersionScript
         $file = realpath($rootFolder . 'ext_emconf.php');
         $content = file_get_contents($file);
         $content = preg_replace('/(\'version\' => )\'\d+\.\d+\.\d+/', '$1\'' . $version, $content);
-        file_put_contents($file, $content);
+        file_put_contents($file, $content, LOCK_EX);
         echo "- $file was set to version $version" . PHP_EOL;
     }
 }

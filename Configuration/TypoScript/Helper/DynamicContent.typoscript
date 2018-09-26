@@ -16,6 +16,9 @@
 #  3  = border
 #  4  = main2
 #
+#  8  = content before
+#  9  = content after
+#
 #  10 = footer1
 #  11 = footer2
 #  12 = footer3

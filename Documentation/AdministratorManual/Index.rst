@@ -22,4 +22,3 @@ Administrator manual
 	Migration/6-2-14
 	Migration/6-2-11
 	ChangeLog/Index
-	ResponsiveImages/Index

@@ -9,49 +9,23 @@
 
 namespace BK2K\BootstrapPackage\Service;
 
+use BK2K\BootstrapPackage\Parser\ParserInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * This service handles the parsing of less files for the frontend. You can extend
- * the compile service with a signal, that is triggered just before rendering.
- *
- * To fulfill that signal, you can create a slot in your custom extension.
- * All what it needs is an entry in your ext_localconf.php file:
- *
- * $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
- * $signalSlotDispatcher->connect(
- *   'BK2K\\BootstrapPackage\\Service\\CompileService',
- *   'beforeLessCompiling',
- *   'YourVendor\\YourExtension\\Slots\\CompileServiceSlot',
- *   'beforeLessCompiling'
- * );
- *
- * Example call:
- *
- * $file -> array
- * $options -> array
- * $variables -> array
- *
- * public function beforeLessCompiling($file, $options, $variables)
- * {
- *   return [
- *     'file' => $file,
- *     'options' => $options,
- *     'variables' => $variables,
- *   ];
- * }
+ * This service handles the parsing of less files for the frontend.
  */
 class CompileService
 {
     /**
      * @var string
      */
-    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/';
+    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/css/';
 
     /**
      * @var string
      */
-    protected $tempDirectoryRelativeToRoot = '../../../';
+    protected $tempDirectoryRelativeToRoot = '../../../../';
 
     /**
      * @param string $file
@@ -80,8 +54,8 @@ class CompileService
                 'tempDirectoryRelativeToRoot' => $this->tempDirectoryRelativeToRoot,
             ],
             'options' => [
-                'override' => ($configuration['overrideParserVariables'] ? true: false),
-                'sourceMap' => ($configuration['cssSourceMapping'] ? true : false),
+                'override' => $configuration['overrideParserVariables'] ? true: false,
+                'sourceMap' => $configuration['cssSourceMapping'] ? true : false,
                 'compress' => true
             ],
             'variables' => []
@@ -90,16 +64,17 @@ class CompileService
         // Parser
         if (!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
+                /** @var ParserInterface $parser */
                 $parser = GeneralUtility::makeInstance($className);
                 if ($parser->supports($settings['file']['info']['extension'])) {
                     if ($configuration['overrideParserVariables']) {
                         $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
                     }
                     try {
-                        $compiledFile = $parser->compile($file, $settings);
-                        return $compiledFile;
+                        return $parser->compile($file, $settings);
                     } catch (\Exception $e) {
-                        throw new \Exception($e->getMessage());
+                        $this->clearCompilerCaches();
+                        throw $e;
                     }
                 }
             }
@@ -112,21 +87,48 @@ class CompileService
      * @param string $extension
      * @return array
      */
-    public function getVariablesFromConstants($extension)
+    protected function getVariablesFromConstants($extension)
     {
+        $constants = $this->getConstants();
         $extension = strtolower($extension);
         $variables = [];
-        $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
-            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
+
+        // Fetch Google Font
+        $variables['google-webfont'] = 'sans-serif';
+        if (!empty($constants['page.theme.googleFont.enable'])
+            && !empty($constants['page.theme.googleFont.font'])) {
+            $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
         }
-        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
+
+        // Fetch SCSS / Less settings
+        $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
+        foreach ($constants as $constant => $value) {
             if (strpos($constant, $prefix) === 0) {
                 $variables[substr($constant, strlen($prefix))] = $value;
             }
         }
+
         return $variables;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getConstants()
+    {
+        if ($GLOBALS['TSFE']->tmpl->flatSetup === null
+        || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
+        || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
+            $GLOBALS['TSFE']->tmpl->generateConfig();
+        }
+        return $GLOBALS['TSFE']->tmpl->flatSetup;
+    }
+
+    /**
+     * Clear all caches for the compiler.
+     */
+    protected function clearCompilerCaches()
+    {
+        GeneralUtility::rmdir(PATH_site . $this->tempDirectory, true);
     }
 }

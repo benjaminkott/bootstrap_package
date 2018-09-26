@@ -1,0 +1,22 @@
+//
+// Blockquote
+//
+blockquote {
+    position: relative;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid rgba(0,0,0,.125);
+    margin-bottom: $spacer;
+    font-size: $blockquote-font-size;
+    > *:last-child {
+        margin-bottom: 0;
+    }
+    footer {
+        display: block;
+        font-size: 80%;
+        color: $blockquote-small-color;
+        margin-top: -0.5rem;
+        &::before {
+            content: "\2014 \00A0";
+        }
+    }
+}

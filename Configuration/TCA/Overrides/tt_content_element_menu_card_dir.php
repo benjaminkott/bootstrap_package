@@ -17,6 +17,15 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
 }
 
 /***************
+ * Add content element PageTSConfig
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    $extensionKey,
+    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
+    'Bootstrap Package Content Element: Menu Cards of subpages'
+);
+
+/***************
  * Add content element to selector list
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -25,7 +34,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_dir',
         'menu_card_dir',
-        'content-menu-card'
+        'content-bootstrappackage-menu-card'
     ],
     'media',
     'after'
@@ -34,7 +43,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_dir'] = 'content-menu-card';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_dir'] = 'content-bootstrappackage-menu-card';
 
 /***************
  * Configure element type
@@ -48,6 +57,8 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursiv
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
                 pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.menu_formlabel,
                 readmore_label,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.options,
+                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -65,4 +76,13 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursiv
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
         '
     ]
+);
+
+/***************
+ * Add flexForms for content element configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
+    'menu_card_dir'
 );

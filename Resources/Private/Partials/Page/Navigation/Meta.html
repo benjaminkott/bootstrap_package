@@ -2,7 +2,7 @@
 <f:if condition="{metanavigation}">
     <ul id="meta_menu" class="meta-menu">
         <f:for each="{metanavigation}" as="item" iteration="metaiteration">
-            <li>
+            <li{f:if(condition: item.active, then:' class="active"')}>
                 <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
                     <span>{item.title}</span>
                 </a>

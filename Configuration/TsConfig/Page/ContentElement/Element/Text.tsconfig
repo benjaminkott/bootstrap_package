@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        text {
+            iconIdentifier = content-text
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_regularText_description
+            tt_content_defValues {
+                CType = text
+            }
+        }
+    }
+    show := addToList(text)
+}

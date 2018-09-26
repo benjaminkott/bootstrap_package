@@ -69,13 +69,13 @@ class ConstantsProcessor implements DataProcessorInterface
 
     /**
      * @param string $key
-     * @return array
+     * @return string
      */
-    public function getFlatConstants($key)
+    protected function getFlatConstants($key)
     {
         $flatvariables = '';
         $prefix = $key . '.';
-        if (!isset($GLOBALS['TSFE']->tmpl->flatSetup)
+        if ($GLOBALS['TSFE']->tmpl->flatSetup === null
             || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
             || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
             $GLOBALS['TSFE']->tmpl->generateConfig();
