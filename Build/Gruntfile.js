@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
     /**
@@ -191,6 +193,7 @@ module.exports = function(grunt) {
         },
         sass: {
             options: {
+                implementation: sass,
                 outputStyle: 'expanded',
                 precision: 8,
                 sourceMap: false
