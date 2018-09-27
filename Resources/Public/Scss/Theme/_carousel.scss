@@ -62,6 +62,10 @@
 // Carousel Backgroundimage
 //
 .carousel {
+    .carousel-backgroundimage-container {
+        overflow: hidden;
+    }
+    .carousel-backgroundimage-container,
     .carousel-backgroundimage {
         position: absolute;
         top: 0;
@@ -80,10 +84,10 @@
     }
     .carousel-backgroundimage-blur {
         filter: blur(10px);
-        width: calc(100% + 20px);
-        height: calc(100% + 20px);
-        top: -10px;
-        left: -10px;
+        width: calc(100% + 40px);
+        height: calc(100% + 40px);
+        top: -20px;
+        left: -20px;
     }
     .carousel-backgroundimage-grayscale {
         filter: grayscale(1);

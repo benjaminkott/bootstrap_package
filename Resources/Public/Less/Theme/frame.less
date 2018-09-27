@@ -26,7 +26,6 @@
 //
 .frame {
     position: relative;
-    overflow: hidden;
     padding-top: @frame-inner-spacing;
     padding-bottom: @frame-inner-spacing;
     @media (min-width: @screen-sm) {
@@ -185,6 +184,10 @@
 //
 // Background Image
 // --------------------------------------------------
+.frame-backgroundimage-container {
+    overflow: hidden;
+}
+.frame-backgroundimage-container,
 .frame-backgroundimage {
     position: absolute;
     top: 0;
@@ -203,10 +206,10 @@
 }
 .frame-backgroundimage-blur {
     filter: blur(10px);
-    width: calc(~'100% + 20px');
-    height: calc(~'100% + 20px');
-    top: -10px;
-    left: -10px;
+    width: calc(~'100% + 40px');
+    height: calc(~'100% + 40px');
+    top: -20px;
+    left: -20px;
 }
 .frame-backgroundimage-grayscale {
     filter: grayscale(1);
