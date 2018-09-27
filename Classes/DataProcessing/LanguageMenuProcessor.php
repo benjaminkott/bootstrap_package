@@ -271,7 +271,7 @@ class LanguageMenuProcessor implements DataProcessorInterface
     {
         $invalidArguments = [];
         foreach ($this->processorConfiguration as $key => $value) {
-            if (!in_array($key, $this->allowedConfigurationKeys)) {
+            if (!in_array($key, $this->allowedConfigurationKeys, true)) {
                 $invalidArguments[str_replace('.', '', $key)] = $key;
             }
         }
@@ -369,17 +369,19 @@ class LanguageMenuProcessor implements DataProcessorInterface
 
         // Process Configuration
         $menuContentObject = $cObj->getContentObject('HMENU');
-        $renderedMenu = $menuContentObject->render($this->menuConfig);
-        if ($renderedMenu) {
-            // Process menu
-            $menu = json_decode($renderedMenu, true);
-            $processedMenu = [];
+        if ($menuContentObject !== null) {
+            $renderedMenu = $menuContentObject->render($this->menuConfig);
+            if ($renderedMenu) {
+                // Process menu
+                $menu = json_decode($renderedMenu, true);
+                $processedMenu = [];
 
-            foreach ($menu as $key => $language) {
-                $processedMenu[$key] = $language;
+                foreach ($menu as $key => $language) {
+                    $processedMenu[$key] = $language;
+                }
+
+                $processedData[$this->menuTargetVariableName] = $processedMenu;
             }
-
-            $processedData[$this->menuTargetVariableName] = $processedMenu;
         }
 
         return $processedData;

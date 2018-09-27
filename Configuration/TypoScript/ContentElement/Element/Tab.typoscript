@@ -36,3 +36,36 @@ tt_content.tab {
     }
 
 }
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    tab {
+        left {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+    }
+}

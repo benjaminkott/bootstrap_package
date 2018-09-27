@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
-    $GLOBALS['TCA']['tt_content']['types']['csv'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
+    $GLOBALS['TCA']['tt_content']['types']['carousel_small'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Csv.tsconfig',
-    'Bootstrap Package Content Element: CSV'
+    'Configuration/TsConfig/Page/ContentElement/Element/CarouselSmall.tsconfig',
+    'Bootstrap Package Content Element: Carousel Small'
 );
 
 /***************
@@ -32,32 +32,32 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.csv',
-        'csv',
-        'content-bootstrappackage-csv'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small',
+        'carousel_fullscreen',
+        'content-bootstrappackage-carousel'
     ],
-    'table',
+    'carousel',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['csv'] = 'content-bootstrappackage-csv';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['carousel_small'] = 'content-bootstrappackage-carousel';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['csv'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['csv'],
+$GLOBALS['TCA']['tt_content']['types']['carousel_small'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['carousel_small'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                media;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.ALT.uploads_formlabel,
-                --palette--;;tableconfiguration,
-                --palette--;;tablelayout,
+                tx_bootstrappackage_carousel_item,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
+                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -71,32 +71,15 @@ $GLOBALS['TCA']['tt_content']['types']['csv'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        ',
-        'columnsOverrides' => [
-            'media' => [
-                'config' => [
-                    'filter' => [
-                        0 => [
-                            'parameters' => [
-                                'allowedFileExtensions' => 'csv'
-                            ]
-                        ]
-                    ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
-                    'overrideChildTca' => [
-                        'columns' => [
-                            'uid_local' => [
-                                'config' => [
-                                    'appearance' => [
-                                        'elementBrowserAllowed' => 'csv'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
+        '
     ]
+);
+
+/***************
+ * Add flexForms for content element configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
+    'carousel_small'
 );

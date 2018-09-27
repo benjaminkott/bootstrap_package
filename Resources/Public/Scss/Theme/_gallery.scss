@@ -13,6 +13,12 @@
 .gallery-item {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+
+    img,
+    picture {
+        width: 100%;
+        height: auto;
+    }
 }
 
 //

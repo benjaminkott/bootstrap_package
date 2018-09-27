@@ -19,6 +19,11 @@ $link-alternate-color:         #ffffff !default;
 $link-alternate-hover-color:   darken($link-alternate-color, 15%) !default;
 
 //
+// Options
+//
+$enable-rounded:              false;
+
+//
 // Fonts
 //
 $font-size-base:               1rem !default;
@@ -55,13 +60,6 @@ $headline-awesome-scaling: map-merge((
 $grid-float-breakpoint:        992px !default;
 
 //
-// Components
-//
-$border-radius:                0px !default;
-$border-radius-lg:             0px !default;
-$border-radius-sm:             0px !default;
-
-//
 // Grid
 //
 $grid-gutter-width:            40px !default;
@@ -69,7 +67,7 @@ $grid-gutter-width:            40px !default;
 //
 // Navbar
 //
-$navbar-nav-link-padding-x:    0.75rem !default;
+$navbar-nav-link-padding-x:    1rem !default;
 $navbar-heights: (
   xs: 70px,
   sm: 70px,
@@ -82,15 +80,22 @@ $navbar-heights: (
 // Subnav
 //
 $subnav-font-size:            $font-size-base * 0.875 !default;
-$subnav-line-height:          1.25;
+$subnav-line-height:          1.25 !default;
 $subnav-link-padding-x:       1rem !default;
 $subnav-link-padding-y:       .5rem !default;
-$subnav-border-color:         #e6e6e6;
+$subnav-border-color:         #e6e6e6 !default;
 $subnav-color:                rgba($black, .5) !default;
 $subnav-hover-color:          rgba($black, .7) !default;
-$subnav-hover-bg:             #f2f2f2;
+$subnav-hover-bg:             #f2f2f2 !default;
 $subnav-active-color:         $link-color !default;
-$subnav-active-bg:            transparent;
+$subnav-active-bg:            transparent !default;
+
+//
+// Cards
+//
+$card-spacer-y:               1rem !default;
+$card-spacer-x:               1.5rem !default;
+$card-group-margin:           10px !default;
 
 //
 // Frame Inner Spacing

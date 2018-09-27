@@ -10,10 +10,10 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Enable Content Element
+ * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
-    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
+    $GLOBALS['TCA']['tt_content']['types']['csv'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuThumbnailDir.tsconfig',
-    'Bootstrap Package Content Element: Menu Thumbnails of subpages'
+    'Configuration/TsConfig/Page/ContentElement/Element/Csv.tsconfig',
+    'Bootstrap Package Content Element: CSV'
 );
 
 /***************
@@ -32,35 +32,35 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir',
-        'menu_thumbnail_dir',
-        'content-menu-thumbnail'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.csv',
+        'csv',
+        'content-bootstrappackage-csv'
     ],
-    'media',
+    'carousel_fullscreen',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_thumbnail_dir'] = 'content-menu-thumbnail';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['csv'] = 'content-bootstrappackage-csv';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'],
+$GLOBALS['TCA']['tt_content']['types']['csv'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['csv'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.menu_formlabel,
+                media;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.ALT.uploads_formlabel,
+                --palette--;;tableconfiguration,
+                --palette--;;tablelayout,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.accessibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                 --palette--;;language,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -71,6 +71,32 @@ $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_rec
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
+        'columnsOverrides' => [
+            'media' => [
+                'config' => [
+                    'filter' => [
+                        0 => [
+                            'parameters' => [
+                                'allowedFileExtensions' => 'csv'
+                            ]
+                        ]
+                    ],
+                    'minitems' => 0,
+                    'maxitems' => 1,
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'uid_local' => [
+                                'config' => [
+                                    'appearance' => [
+                                        'elementBrowserAllowed' => 'csv'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
     ]
 );

@@ -8,14 +8,7 @@
                 <f:for each="{records}" as="item" iteration="iteration">
                     <f:variable name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></f:variable>
                     <div class="item{f:if(condition: iteration.isFirst,then:' active')} carousel-item carousel-item-type carousel-item-type-{item.data.item_type}" data-itemno="{iteration.index}" style="{itemStyleColor}">
-                        <f:if condition="{item.backgroundImage.0}">
-                            <f:variable name="backgroundImage">{f:uri.image(image: item.backgroundImage.0, maxWidth: data.pi_flexform.background_image_maxwidth)}</f:variable>
-                            <f:variable name="backgroundImageClasses">carousel-backgroundimage</f:variable>
-                            <f:if condition="{item.data.background_image_options.parallax}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} carousel-backgroundimage-parallax</f:variable></f:if>
-                            <f:if condition="{item.data.background_image_options.fade}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} carousel-backgroundimage-fade</f:variable></f:if>
-                            <f:if condition="{item.data.background_image_options.filter}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} carousel-backgroundimage-{item.data.background_image_options.filter}</f:variable></f:if>
-                            <div class="{backgroundImageClasses}" style="background-image: url('{backgroundImage}');"></div>
-                        </f:if>
+                        <f:render partial="Carousel/General/BackgroundImage" arguments="{_all}" />
                         <div class="carousel-content">
                             <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
                         </div>

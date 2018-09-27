@@ -36,7 +36,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
         'panel',
         'content-panel'
     ],
-    'listgroup',
+    'menu_thumbnail_dir',
     'after'
 );
 

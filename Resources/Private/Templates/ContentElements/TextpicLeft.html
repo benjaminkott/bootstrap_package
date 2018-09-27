@@ -3,7 +3,8 @@
 <f:section name="Header" />
 <f:section name="Main">
 
-    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{settings.responsiveimages.contentelements.textpic_left.multiplier}" corrections="{settings.responsiveimages.contentelements.textpic_left.corrections}" />
+    <f:variable name="imageConfig">{settings.responsiveimages.contentelements.textpic.left}</f:variable>
+    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
     <div class="textpic textpic-left">
         <div class="textpic-item textpic-gallery">
             <f:render partial="Media/Gallery" arguments="{_all}" />

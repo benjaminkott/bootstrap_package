@@ -11,40 +11,36 @@
                 </f:if>
             </f:for>
         </f:if>
-        <div role="tabpanel" id="tab-{data.uid}">
-            <ul class="nav nav-tabs" role="tablist">
-                <f:for each="{records}" as="record" iteration="iteration">
-                    <li role="presentation" {f:if(condition: '{activeTab} == {record.data.uid}',then: 'class="active"')}>
-                        <f:link.page additionalAttributes="{data-toggle: 'tab', role: 'tab', aria-controls: 'tab-{data.uid}-{record.data.uid}'}" section="tab-{data.uid}-{record.data.uid}">
-                            <span>{record.data.header}</span>
-                        </f:link.page>
-                    </li>
-                </f:for>
-            </ul>
-            <div class="tab-content">
-                <f:for each="{records}" as="record" iteration="iteration">
-                    <div role="tabpanel" class="tab-pane {f:if(condition: '{activeTab} == {record.data.uid}',then: 'active')}" id="tab-{data.uid}-{record.data.uid}">
+        <f:variable name="currentVariants" value="{variants}" />
 
+        <ul class="nav nav-tabs tab-navigation" id="tab-{data.uid}" role="tablist">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <li class="nav-item{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}">
+                    <a href="#tabcontent-{data.uid}-{record.data.uid}" id="tab-{data.uid}-{record.data.uid}" class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" data-toggle="tab" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
+                        <span>{record.data.header}</span>
+                    </a>
+                </li>
+            </f:for>
+        </ul>
+        <div class="tab-content" id="tabcontent-{data.uid}">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <div role="tabpanel" class="tab-pane fade{f:if(condition: '{activeTab} == {record.data.uid}',then: ' show in active')}" id="tabcontent-{data.uid}-{record.data.uid}">
+                    <div class="tab-pane-content tab-pane-content-{record.data.mediaorient}">
                         <f:if condition="{record.files}">
-                            <f:then>
-                                <div class="row">
-                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-push-6 ')}col-md-6">
-                                        <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
-                                    </div>
-                                    <div class="{f:if(condition: '{record.data.mediaorient} == 0', else: 'col-md-pull-6 ')}col-md-6">
-                                        <f:format.html>{record.data.bodytext}</f:format.html>
-                                    </div>
-                                </div>
-                            </f:then>
-                            <f:else>
-                                <f:format.html>{record.data.bodytext}</f:format.html>
-                            </f:else>
+                            <div class="tab-pane-content-item tab-pane-content-media">
+                                <f:variable name="imageConfig">{settings.responsiveimages.contentelements.tab.{record.data.mediaorient}}</f:variable>
+                                <bk2k:data.imageVariants as="variants" variants="{currentVariants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+                                <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
+                            </div>
                         </f:if>
-
+                        <div class="tab-pane-content-item tab-pane-content-text">
+                            <f:format.html>{record.data.bodytext}</f:format.html>
+                        </div>
                     </div>
-                </f:for>
-            </div>
+                </div>
+            </f:for>
         </div>
+
     </f:if>
 
 </f:section>

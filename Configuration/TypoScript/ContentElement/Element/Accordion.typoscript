@@ -36,3 +36,68 @@ tt_content.accordion {
     }
 
 }
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    accordion {
+        left {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 24
+                large = 24
+                medium = 24
+            }
+            corrections {
+                default = 25
+                large = 25
+                medium = 25
+                small = 50
+                extrasmall = 50
+            }
+        }
+        top {
+            corrections {
+                default = 50
+                large = 50
+                medium = 50
+                small = 50
+                extrasmall = 50
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 24
+                large = 24
+                medium = 24
+            }
+            corrections {
+                default = 25
+                large = 25
+                medium = 25
+                small = 50
+                extrasmall = 50
+            }
+        }
+        bottom {
+            corrections {
+                default = 50
+                large = 50
+                medium = 50
+                small = 50
+                extrasmall = 50
+            }
+        }
+    }
+}

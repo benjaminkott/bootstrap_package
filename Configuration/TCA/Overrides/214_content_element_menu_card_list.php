@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Enable Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
-    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
+    $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuThumbnailList.tsconfig',
-    'Bootstrap Package Content Element: Menu Thumbnails'
+    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardList.tsconfig',
+    'Bootstrap Package Content Element: Menu Cards'
 );
 
 /***************
@@ -32,30 +32,33 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list',
-        'menu_thumbnail_list',
-        'content-menu-thumbnail'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list',
+        'menu_card_list',
+        'content-bootstrappackage-menu-card'
     ],
-    'menu_thumbnail_dir',
-    'before'
+    'media',
+    'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_thumbnail_list'] = 'content-menu-thumbnail';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_list'] = 'content-bootstrappackage-menu-card';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'],
+$GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['menu_card_list'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
                 pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.menu_formlabel,
+                readmore_label,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.options,
+                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -73,4 +76,13 @@ $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'] = array_replace_re
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
         '
     ]
+);
+
+/***************
+ * Add flexForms for content element configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
+    'menu_card_list'
 );

@@ -55,7 +55,7 @@ return [
                 header,
                 bodytext,
                 media,
-                mediaorient,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaposition;mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -76,6 +76,13 @@ return [
         'general' => [
             'showitem' => '
                 tt_content
+            '
+        ],
+        'mediaposition' => [
+            'showitem' => '
+                mediaorient,
+                imagecols,
+                image_zoom,
             '
         ],
         'visibility' => [
@@ -250,8 +257,6 @@ return [
                             ]
                         ],
                     ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
@@ -265,16 +270,73 @@ return [
                 'items' => [
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
-                        0
+                        'left'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.top',
+                        'top'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
-                        1
+                        'right'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.bottom',
+                        'bottom'
                     ],
                 ],
-                'default' => 0,
+                'default' => 'left',
             ],
-            'l10n_mode' => 'exclude',
+            'l10n_mode' => 'exclude'
         ],
+        'imagecols' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.imagecols',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        '1',
+                        1
+                    ],
+                    [
+                        '2',
+                        2
+                    ],
+                    [
+                        '3',
+                        3
+                    ],
+                    [
+                        '4',
+                        4
+                    ],
+                    [
+                        '5',
+                        5
+                    ],
+                    [
+                        '6',
+                        6
+                    ]
+                ],
+                'default' => 2
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'image_zoom' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.image_zoom',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+        ]
     ],
 ];

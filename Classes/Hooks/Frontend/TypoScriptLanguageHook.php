@@ -47,18 +47,26 @@ class TypoScriptLanguageHook
     protected function createLanguageConditions(): string
     {
         $setup = '';
-        $languages = LanguageUtility::getLanguageRows();
-        foreach ($languages as $uid => $row) {
+        foreach (LanguageUtility::getLanguageRows() as $uid => $row) {
             $template = $this->setupTemplate;
             if ($uid === 0) {
                 $template = array_slice($template, 1, -1);
             }
-            $setup .= implode(LF, $template) . LF;
-            $setup = str_replace(self::SYS_LANGUAGE_UID_PLACEHOLDER, $uid, $setup);
-            $setup = str_replace(self::LANGUAGE_PLACEHOLDER, $row['twoLetterIsoCode'], $setup);
-            $setup = str_replace(self::LOCALE_PLACEHOLDER, $row['locale'], $setup);
-            $setup = str_replace(self::HREF_LANG_PLACEHOLDER, $row['hreflang'], $setup);
-            $setup = str_replace(self::DIRECTION_PLACEHOLDER, $row['direction'], $setup);
+            $template = implode(LF, $template) . LF;
+            $template = str_replace([
+                self::SYS_LANGUAGE_UID_PLACEHOLDER,
+                self::LANGUAGE_PLACEHOLDER,
+                self::LOCALE_PLACEHOLDER,
+                self::HREF_LANG_PLACEHOLDER,
+                self::DIRECTION_PLACEHOLDER
+            ], [
+                $uid,
+                $row['twoLetterIsoCode'],
+                $row['locale'],
+                $row['hreflang'],
+                $row['direction']
+            ], $template);
+            $setup .= $template;
         }
 
         return $setup;

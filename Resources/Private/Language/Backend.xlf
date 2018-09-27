@@ -12,6 +12,9 @@
             <trans-unit id="pages.nav_icon">
                 <source>Navigation Icon</source>
             </trans-unit>
+            <trans-unit id="pages.thumbnail">
+                <source>Thumbnail</source>
+            </trans-unit>
 
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
@@ -145,6 +148,25 @@
                 <source>Insert menu to display selected pages as cards</source>
             </trans-unit>
 
+            <trans-unit id="menu.card.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="menu.card.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="menu.card.align.right">
+                <source>Right</source>
+            </trans-unit>
+
             <trans-unit id="menu.thumbnail_dir">
                 <source>Thumbnails of subpages</source>
             </trans-unit>
@@ -156,6 +178,25 @@
             </trans-unit>
             <trans-unit id="menu.thumbnail_list.description">
                 <source>Insert menu to display selected pages as thumbnail</source>
+            </trans-unit>
+
+            <trans-unit id="menu.thumbnail.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.align.right">
+                <source>Right</source>
             </trans-unit>
 
             <trans-unit id="content_group.interactive">
@@ -258,6 +299,62 @@
                 <source>Insert several Tabelement(s) with headline and text</source>
             </trans-unit>
 
+            <trans-unit id="content_element.card_group">
+                <source>Card Group</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.description">
+                <source>Insert a element with several content cards</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="content_element.card_group.align.right">
+                <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="card_group_item">
+                <source>Card</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.tt_content">
+                <source>Card Group</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_icon">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_class">
+                <source>Color</source>
+            </trans-unit>
+
             <trans-unit id="content_element.icon_group">
                 <source>Icon Group</source>
             </trans-unit>
@@ -319,9 +416,6 @@
             </trans-unit>
             <trans-unit id="carousel.interval">
                 <source>Interval in ms</source>
-            </trans-unit>
-            <trans-unit id="carousel.background_image_maxwidth">
-                <source>Max width of background images in px</source>
             </trans-unit>
             <trans-unit id="carousel.transition">
                 <source>Transition</source>
@@ -438,17 +532,29 @@
             <trans-unit id="accordion_item.media">
                 <source>Media</source>
             </trans-unit>
-            <trans-unit id="accordion_item.mediaorient">
+            <trans-unit id="accordion_item.mediaposition">
                 <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.imagecols">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.image_zoom">
+                <source>Enlarge on Click</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient">
+                <source>Orientation</source>
             </trans-unit>
             <trans-unit id="accordion_item.mediaorient.left">
                 <source>Left</source>
             </trans-unit>
-            <trans-unit id="accordion_item.mediaorient.center">
-                <source>Center</source>
+            <trans-unit id="accordion_item.mediaorient.top">
+                <source>Top</source>
             </trans-unit>
             <trans-unit id="accordion_item.mediaorient.right">
                 <source>Right</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.bottom">
+                <source>Bottom</source>
             </trans-unit>
 
             <trans-unit id="tab.options">
@@ -476,17 +582,29 @@
             <trans-unit id="tab_item.media">
                 <source>Media</source>
             </trans-unit>
-            <trans-unit id="tab_item.mediaorient">
+            <trans-unit id="tab_item.mediaposition">
                 <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="tab_item.imagecols">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="tab_item.image_zoom">
+                <source>Enlarge on Click</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient">
+                <source>Orientation</source>
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.left">
                 <source>Left</source>
             </trans-unit>
-            <trans-unit id="tab_item.mediaorient.center">
-                <source>Center</source>
+            <trans-unit id="tab_item.mediaorient.top">
+                <source>Top</source>
             </trans-unit>
             <trans-unit id="tab_item.mediaorient.right">
                 <source>Right</source>
+            </trans-unit>
+            <trans-unit id="tab_item.mediaorient.bottom">
+                <source>Bottom</source>
             </trans-unit>
 
             <trans-unit id="timeline.options">

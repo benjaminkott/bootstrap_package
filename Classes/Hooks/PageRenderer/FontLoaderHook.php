@@ -67,6 +67,8 @@ class FontLoaderHook
     }
 
     /**
+     * @param $include
+     * @param $section
      * @return array
      */
     private function collectWebFonts($include, $section)

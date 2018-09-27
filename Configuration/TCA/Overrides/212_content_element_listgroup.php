@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
-    $GLOBALS['TCA']['tt_content']['types']['icon_group'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/IconGroup.tsconfig',
-    'Bootstrap Package Content Element: Icon Group'
+    'Configuration/TsConfig/Page/ContentElement/Element/ListGroup.tsconfig',
+    'Bootstrap Package Content Element: List Group'
 );
 
 /***************
@@ -32,30 +32,30 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group',
-        'icon_group',
-        'content-bootstrappackage-icon-group'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
+        'listgroup',
+        'content-bootstrappackage-listgroup'
     ],
-    'quote',
+    'icon_group',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['icon_group'] = 'content-bootstrappackage-icon-group';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['listgroup'] = 'content-bootstrappackage-listgroup';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['icon_group'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['icon_group'],
+$GLOBALS['TCA']['tt_content']['types']['listgroup'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_icon_group_item,
+                bodytext,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -69,36 +69,12 @@ $GLOBALS['TCA']['tt_content']['types']['icon_group'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
-    ]
-);
-
-/***************
- * Register fields
- */
-$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['columns'],
-    [
-        'tx_bootstrappackage_icon_group_item' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_bootstrappackage_icon_group_item',
-                'foreign_field' => 'tt_content',
-                'appearance' => [
-                    'useSortable' => true,
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => false,
-                    'expandSingle' => true,
-                    'enabledControls' => [
-                        'localize' => true,
-                    ]
-                ],
-                'behaviour' => [
-                    'mode' => 'select',
-                    'localizeChildrenAtParentLocalization' => true,
+        ',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel',
+                'config' => [
+                    'wrap' => 'off',
                 ]
             ]
         ]

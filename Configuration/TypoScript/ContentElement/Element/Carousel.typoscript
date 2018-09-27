@@ -46,3 +46,20 @@ tt_content.carousel {
     }
 
 }
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    carousel {
+        text_and_image {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+        }
+    }
+}

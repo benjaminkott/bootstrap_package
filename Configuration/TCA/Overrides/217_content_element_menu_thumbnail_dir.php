@@ -10,10 +10,10 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add Content Element
+ * Enable Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
-    $GLOBALS['TCA']['tt_content']['types']['carousel_small'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
+    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/CarouselSmall.tsconfig',
-    'Bootstrap Package Content Element: Carousel Small'
+    'Configuration/TsConfig/Page/ContentElement/Element/MenuThumbnailDir.tsconfig',
+    'Bootstrap Package Content Element: Menu Thumbnails of subpages'
 );
 
 /***************
@@ -32,35 +32,37 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small',
-        'carousel_small',
-        'content-bootstrappackage-carousel'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir',
+        'menu_thumbnail_dir',
+        'content-menu-thumbnail'
     ],
-    'carousel_fullscreen',
+    'menu_thumbnail_list',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['carousel_small'] = 'content-bootstrappackage-carousel';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_thumbnail_dir'] = 'content-menu-thumbnail';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['carousel_small'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['carousel_small'],
+$GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_carousel_item,
-            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
+                pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.menu_formlabel,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail.options,
                 pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.accessibility,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                 --palette--;;language,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -80,6 +82,6 @@ $GLOBALS['TCA']['tt_content']['types']['carousel_small'] = array_replace_recursi
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
-    'carousel_small'
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuThumbnail.xml',
+    'menu_thumbnail_dir'
 );

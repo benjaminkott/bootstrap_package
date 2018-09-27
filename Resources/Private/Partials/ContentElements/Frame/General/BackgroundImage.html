@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{backgroundImage.0}">
+    <f:variable name="frameBackgroundImageClasses">frame-backgroundimage</f:variable>
+    <f:if condition="{data.background_image_options.parallax}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-parallax</f:variable></f:if>
+    <f:if condition="{data.background_image_options.fade}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-fade</f:variable></f:if>
+    <f:if condition="{data.background_image_options.filter}"><f:variable name="frameBackgroundImageClasses">{frameBackgroundImageClasses} frame-backgroundimage-{data.background_image_options.filter}</f:variable></f:if>
+    <div class="frame-backgroundimage-container">
+        <div id="frame-backgroundimage-{data.uid}" class="{frameBackgroundImageClasses}">
+            <f:variable name="styles" value=""/>
+            <f:for each="{variants}" key="name" as="variant">
+                <f:variable name="variantStyle">
+                    <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
+                    <f:variable name="width">{variant.width as integer}</f:variable>
+                    <f:if condition="{width}">
+                        <f:if condition="{breakpoint}">
+                            <f:then>
+                                @media (min-width: {breakpoint}px) { #frame-backgroundimage-{data.uid} { background-image: url('{f:uri.image(image: backgroundImage.0, cropVariant: name, maxWidth: width)}'); }}
+                            </f:then>
+                            <f:else>
+                                #frame-backgroundimage-{data.uid} { background-image: url('{f:uri.image(image: backgroundImage.0, cropVariant: name, maxWidth: width)}'); }
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                </f:variable>
+                <f:variable name="styles" value="{variantStyle -> bk2k:format.trim()} {styles}"/>
+            </f:for>
+            <style>{styles -> f:format.raw()}</style>
+        </div>
+    </div>
+</f:if>
+</html>

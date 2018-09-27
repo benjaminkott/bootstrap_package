@@ -36,7 +36,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
         'tab',
         'content-bootstrappackage-tab'
     ],
-    'quote',
+    'social_links',
     'after'
 );
 

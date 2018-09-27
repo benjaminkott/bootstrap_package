@@ -67,10 +67,8 @@ class CoreVersionCondition extends AbstractCondition
             switch ($operator) {
                 case '>=':
                     return $leftValue >= VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '<=':
                     return $leftValue <= VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '!=':
                     // multiple values may be split with '|'
                     // see if none matches ("not in list")
@@ -83,13 +81,10 @@ class CoreVersionCondition extends AbstractCondition
                         }
                     }
                     return $found === false;
-                    break;
                 case '<':
                     return $leftValue < VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 case '>':
                     return $leftValue > VersionNumberUtility::convertVersionNumberToInteger($rightValue);
-                    break;
                 default:
                     // nothing valid found except '=', use '='
                     // multiple values may be split with '|'

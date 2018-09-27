@@ -6,12 +6,13 @@
 //
 // Variables
 //
-$timline-spacing: 1.25rem;
-$timline-padding: 1.25rem;
+$timline-spacing: 1.5rem;
+$timline-padding: 1.5rem;
 $timeline-marker-size: 16px;
 $timeline-icon-size: 46px;
 $timeline-color: $body-color;
 $timeline-bg: #ffffff;
+$timeline-caption-bg: #f2f2f2;
 
 
 //
@@ -109,9 +110,15 @@ $timeline-bg: #ffffff;
         width: 100%;
         height: auto;
     }
+    .caption {
+        font-size: 0.8em;
+        padding: 0.5rem $timline-padding;
+        color: color-yiq($timeline-caption-bg);
+        background-color: $timeline-caption-bg;
+    }
 }
 .timeline-item-header-headline {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: $primary;
 }
 .timeline-item-header:last-child,

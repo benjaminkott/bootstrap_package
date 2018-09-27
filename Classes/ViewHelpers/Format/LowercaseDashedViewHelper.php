@@ -21,18 +21,6 @@ class LowercaseDashedViewHelper extends AbstractViewHelper
     use CompileWithRenderStatic;
 
     /**
-     * Initialize arguments.
-     *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     */
-    public function initializeArguments()
-    {
-        parent::initializeArguments();
-    }
-
-    /**
-     * Formats a float to currency formatting
-     *
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
@@ -48,7 +36,7 @@ class LowercaseDashedViewHelper extends AbstractViewHelper
         );
         $ret = $matches[0];
         foreach ($ret as &$match) {
-            $match = $match == strtoupper($match) ? strtolower($match) : lcfirst($match);
+            $match = $match === strtoupper($match) ? strtolower($match) : lcfirst($match);
         }
         return implode('-', $ret);
     }

@@ -19,7 +19,6 @@ class ImageVariantsUtility
      * @var array
      */
     protected static $allowedVariantProperties = [
-        'enabled',
         'breakpoint',
         'width'
     ];
@@ -45,21 +44,24 @@ class ImageVariantsUtility
             'width' => 500
         ],
         'extrasmall' => [
-            'width' => 300
+            'width' => 374
         ]
     ];
 
     /**
      * @param array $variants
      * @param array $multiplier
+     * @param array $gutters
      * @param array $corrections
      * @return array
      */
-    public static function getImageVariants($variants = [], $multiplier = [], $corrections = []): array
+    public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
-        $variants = self::processCorrections($variants, $corrections);
+        $variants = self::addGutters($variants, $gutters);
         $variants = self::processMultiplier($variants, $multiplier);
+        $variants = self::removeGutters($variants, $gutters);
+        $variants = self::processCorrections($variants, $corrections);
         return $variants;
     }
 
@@ -69,11 +71,11 @@ class ImageVariantsUtility
      */
     protected static function processVariants($variants): array
     {
-        $variants = !empty($variants) ? $variants : self::$defaultVariants;
+        $variants = is_array($variants) && !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
             if (is_array($properties)) {
                 foreach ($properties as $key => $value) {
-                    if (!in_array($key, self::$allowedVariantProperties) || $value === 'unset') {
+                    if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
                         unset($variants[$variant][$key]);
                         continue;
                     }
@@ -83,6 +85,43 @@ class ImageVariantsUtility
                         unset($variants[$variant][$key]);
                     }
                 }
+                if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
+                    unset($variants[$variant]);
+                }
+            } else {
+                unset($variants[$variant]);
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param array $gutters
+     * @return array
+     */
+    protected static function addGutters($variants, $gutters): array
+    {
+        $gutters = is_array($gutters) ? $gutters : [];
+        foreach ($gutters as $variant => $value) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
+                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + $value);
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param array $gutters
+     * @return array
+     */
+    protected static function removeGutters($variants, $gutters): array
+    {
+        $gutters = is_array($gutters) ? $gutters : [];
+        foreach ($gutters as $variant => $value) {
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
+                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - $value);
             }
         }
         return $variants;
@@ -114,7 +153,7 @@ class ImageVariantsUtility
         $corrections = is_array($corrections) ? $corrections : [];
         foreach ($corrections as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
-                $variants[$variant]['width'] = $variants[$variant]['width'] - $value;
+                $variants[$variant]['width'] -= $value;
             }
         }
         return $variants;

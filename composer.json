@@ -27,15 +27,30 @@
   },
   "require": {
     "php": ">=7.0.0",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*",
+    "typo3/cms-backend": "^8.7.0 || ^9.0",
     "typo3/cms-core": "^8.7.0 || ^9.0",
+    "typo3/cms-extbase": "^8.7.0 || ^9.0",
+    "typo3/cms-extensionmanager": "^8.7.0 || ^9.0",
+    "typo3/cms-fluid": "^8.7.0 || ^9.0",
+    "typo3/cms-frontend": "^8.7.0 || ^9.0",
+    "typo3/cms-install": "^8.7.0 || ^9.0",
     "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.3.1"
+    "friendsofphp/php-cs-fixer": "^2.3.1",
+    "typo3/testing-framework": "^1.2 || ^4.9"
   },
   "autoload": {
     "psr-4": {
       "BK2K\\BootstrapPackage\\": "Classes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BK2K\\BootstrapPackage\\Tests\\": "Tests"
     }
   },
   "replace": {
@@ -45,12 +60,15 @@
   "config": {
     "optimize-autoloader": true,
     "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin",
-    "preferred-install": {
-      "typo3/cms": "source"
-    }
+    "bin-dir": ".build/bin"
   },
   "scripts": {
+    "test:php:unit": [
+      "@php .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml"
+    ],
+    "test": [
+      "@test:php:unit"
+    ],
     "set-version": [
       "BK2K\\BootstrapPackage\\Composer\\VersionScript::setVersion"
     ],

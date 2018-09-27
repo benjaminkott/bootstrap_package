@@ -145,12 +145,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php'][
     = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
 
 /***************
- * Register cache hooks to clear bootstrap cache files
- */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][]
-    = \BK2K\BootstrapPackage\Hooks\TceMain\ClearCacheHook::class . '->clearCache';
-
-/***************
  * Add default RTE configuration for bootstrap package
  */
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
@@ -182,6 +176,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\TabContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class]
     = \BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class]
+    = \BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class]
     = \BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class]
@@ -217,6 +215,8 @@ $iconRegistry->registerIcon(
 $icons = [
     'accordion',
     'accordion-item',
+    'card-group',
+    'card-group-item',
     'carousel',
     'carousel-item',
     'carousel-item-backgroundimage',

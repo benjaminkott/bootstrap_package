@@ -53,6 +53,7 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
                     ],
                     \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                         'showitem' => '
+                            crop,
                             --palette--;;filePalette
                         '
                     ],
