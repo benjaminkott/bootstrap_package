@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * BrandingService
+ * AbstractParser
  */
 abstract class AbstractParser implements ParserInterface
 {
