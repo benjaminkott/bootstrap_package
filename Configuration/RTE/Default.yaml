@@ -80,6 +80,7 @@ editor:
 
         extraPlugins:
             - justify
+            - autolink
             - bootstrappackage_address
             - bootstrappackage_box
             - bootstrappackage_columns
