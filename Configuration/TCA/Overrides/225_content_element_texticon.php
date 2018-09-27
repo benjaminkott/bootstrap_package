@@ -221,7 +221,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             ],
         ],
         'icon_color' => [
-            'displayCond' => 'FIELD:icon_type:!=:0',
+            'displayCond' => 'FIELD:icon_type:!=:default',
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_color',
             'config' => [
                 'type' => 'input',
@@ -230,7 +230,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             ],
         ],
         'icon_background' => [
-            'displayCond' => 'FIELD:icon_type:!=:0',
+            'displayCond' => 'FIELD:icon_type:!=:default',
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_background',
             'config' => [
                 'type' => 'input',

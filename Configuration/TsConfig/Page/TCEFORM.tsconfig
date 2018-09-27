@@ -61,11 +61,6 @@ TCEFORM {
                 }
             }
         }
-        icon {
-            itemsProcFunc {
-                directory = EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/
-            }
-        }
         accessibility_title {
             disabled = 1
         }
