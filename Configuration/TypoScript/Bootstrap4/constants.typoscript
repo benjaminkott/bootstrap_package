@@ -89,7 +89,7 @@ plugin.bootstrap_package {
             cyan = #17a2b8
             # cat=bootstrap 4.x: styling/300/default; type=string; label=$default:
             default = #eaebec
-            # cat=bootstrap 4.x: styling/300/secondary; type=string; label=$secondary:
+            # cat=bootstrap 4.x: styling/300/secondary; type=string; label=$primary:
             primary = #4faf98
             # cat=bootstrap 4.x: styling/300/secondary; type=string; label=$secondary:
             secondary = #ff3f00
