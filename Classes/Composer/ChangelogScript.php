@@ -189,9 +189,13 @@ class ChangelogScript
             'Merge branch',
             'Scrutinizer Auto-Fixer',
             '[FOLLOWUP]',
-            '[RELEASE]',
+            '[RELEASE]'
         ];
-        $categories = ['BUGFIX', 'TASK', 'FEATURE'];
+        $categories = [
+            'BUGFIX',
+            'TASK',
+            'FEATURE'
+        ];
 
         foreach ($logs as $version => $entries) {
             foreach ($entries['MISC'] as $logKey => $log) {

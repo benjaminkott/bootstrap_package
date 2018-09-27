@@ -49,7 +49,6 @@ class InlineSvgViewHelper extends AbstractViewHelper
      * @param RenderingContextInterface $renderingContext
      * @return string
      * @throws \Exception
-     * @TODO: Think about a new excepetion concept / handling
      */
     public static function renderStatic(
         array $arguments,
