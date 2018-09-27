@@ -1539,15 +1539,15 @@ grunt-sass@^2.1.0:
     node-sass "^4.7.2"
     object-assign "^4.0.1"
 
-grunt-webfont@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/grunt-webfont/-/grunt-webfont-1.6.0.tgz#a0d790f39056d94f340f50b3dc24c9ab4bcabcae"
-  integrity sha1-oNeQ85BW2U80D1Cz3CTJq0vKvK4=
+grunt-webfont@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/grunt-webfont/-/grunt-webfont-1.7.2.tgz#6e7dcde8f24ea6392c26ace3701b9fc2e92ea3a7"
+  integrity sha512-7SNdxCgQY4ADrG2uFTmBS1XneNtoxQSIRwTjkkSIlYv+NlrxFghrlY7jsLGZjkM5ZEXwc6SIlf6DsO+5Yc7wHQ==
   dependencies:
     async "~1.5.2"
     chalk "~1.1.1"
     glob "~7.0.0"
-    lodash "~4.3.0"
+    lodash "~4.17.10"
     memorystream "~0.3.1"
     mkdirp "~0.5.1"
     svg2ttf "~2.1.1"
@@ -2400,11 +2400,6 @@ lodash@^4.17.10, lodash@~4.17.10, lodash@~4.17.5:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
   integrity sha512-UejweD1pDoXu+AD825lWwp4ZGtSwgnpZxb3JDViD7StjQz+Nb/6l093lx4OQ0foGWNRoc19mWy7BzL+UAK2iVg==
-
-lodash@~4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.3.0.tgz#efd9c4a6ec53f3b05412429915c3e4824e4d25a4"
-  integrity sha1-79nEpuxT87BUEkKZFcPkgk5NJaQ=
 
 logalot@^2.0.0:
   version "2.1.0"
