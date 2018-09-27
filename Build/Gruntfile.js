@@ -303,11 +303,6 @@ module.exports = function(grunt) {
                         expand: true
                     }
                 ]
-            },
-            extensionicon: {
-                files: {
-                    '<%= paths.root %>ext_icon.png': '<%= paths.root %>ext_icon.png'
-                }
             }
         },
         copy: {
