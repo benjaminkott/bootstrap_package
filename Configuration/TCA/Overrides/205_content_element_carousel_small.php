@@ -33,10 +33,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_small'])) {
     'CType',
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small',
-        'carousel_small',
+        'carousel_fullscreen',
         'content-bootstrappackage-carousel'
     ],
-    'carousel_fullscreen',
+    'carousel',
     'after'
 );
 

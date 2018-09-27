@@ -36,7 +36,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['card_group'])) {
         'card_group',
         'content-bootstrappackage-card-group'
     ],
-    'quote',
+    'audio',
     'after'
 );
 

@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Enable Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
-    $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
+    $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardList.tsconfig',
-    'Bootstrap Package Content Element: Menu Cards'
+    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
+    'Bootstrap Package Content Element: Menu Cards of subpages'
 );
 
 /***************
@@ -32,24 +32,24 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list',
-        'menu_card_list',
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_dir',
+        'menu_card_dir',
         'content-bootstrappackage-menu-card'
     ],
-    'menu_card_dir',
-    'before'
+    'menu_card_list',
+    'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_list'] = 'content-bootstrappackage-menu-card';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_dir'] = 'content-bootstrappackage-menu-card';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['menu_card_list'],
+$GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -84,5 +84,5 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = array_replace_recursi
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
-    'menu_card_list'
+    'menu_card_dir'
 );

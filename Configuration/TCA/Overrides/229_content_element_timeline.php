@@ -10,10 +10,10 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Enable Content Element
+ * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
-    $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
+    $GLOBALS['TCA']['tt_content']['types']['timeline'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
-    'Bootstrap Package Content Element: Menu Cards of subpages'
+    'Configuration/TsConfig/Page/ContentElement/Element/Timeline.tsconfig',
+    'Bootstrap Package Content Element: Timeline'
 );
 
 /***************
@@ -32,38 +32,35 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_dir',
-        'menu_card_dir',
-        'content-bootstrappackage-menu-card'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline',
+        'timeline',
+        'content-bootstrappackage-timeline'
     ],
-    'media',
+    'textteaser',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_dir'] = 'content-bootstrappackage-menu-card';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['timeline'] = 'content-bootstrappackage-timeline';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'],
+$GLOBALS['TCA']['tt_content']['types']['timeline'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['timeline'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.menu_formlabel,
-                readmore_label,
-            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.options,
+                tx_bootstrappackage_timeline_item,
+            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.options,
                 pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.accessibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                 --palette--;;language,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
@@ -79,10 +76,42 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursiv
 );
 
 /***************
+ * Register fields
+ */
+$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['columns'],
+    [
+        'tx_bootstrappackage_timeline_item' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_bootstrappackage_timeline_item',
+                'foreign_field' => 'tt_content',
+                'appearance' => [
+                    'useSortable' => true,
+                    'showSynchronizationLink' => true,
+                    'showAllLocalizationLink' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => false,
+                    'expandSingle' => true,
+                    'enabledControls' => [
+                        'localize' => true,
+                    ]
+                ],
+                'behaviour' => [
+                    'mode' => 'select',
+                    'localizeChildrenAtParentLocalization' => true,
+                ]
+            ]
+        ]
+    ]
+);
+
+/***************
  * Add flexForms for content element configuration
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
-    'menu_card_dir'
+    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Timeline.xml',
+    'timeline'
 );

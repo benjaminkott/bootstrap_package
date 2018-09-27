@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
-    $GLOBALS['TCA']['tt_content']['types']['carousel'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Carousel.tsconfig',
-    'Bootstrap Package Content Element: Carousel'
+    'Configuration/TsConfig/Page/ContentElement/Element/ListGroup.tsconfig',
+    'Bootstrap Package Content Element: List Group'
 );
 
 /***************
@@ -32,32 +32,30 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
-        'carousel',
-        'content-bootstrappackage-carousel'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
+        'listgroup',
+        'content-bootstrappackage-listgroup'
     ],
-    'audio',
+    'icon_group',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['carousel'] = 'content-bootstrappackage-carousel';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['listgroup'] = 'content-bootstrappackage-listgroup';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['carousel'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['carousel'],
+$GLOBALS['TCA']['tt_content']['types']['listgroup'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['listgroup'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_carousel_item,
-            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.options,
-                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                bodytext,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -71,15 +69,14 @@ $GLOBALS['TCA']['tt_content']['types']['carousel'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel',
+                'config' => [
+                    'wrap' => 'off',
+                ]
+            ]
+        ]
     ]
-);
-
-/***************
- * Add flexForms for content element configuration
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
-    'carousel'
 );

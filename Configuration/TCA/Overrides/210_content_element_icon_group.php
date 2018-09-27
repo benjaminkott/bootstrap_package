@@ -12,8 +12,8 @@ defined('TYPO3_MODE') || die();
 /***************
  * Add Content Element
  */
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
-    $GLOBALS['TCA']['tt_content']['types']['timeline'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
+    $GLOBALS['TCA']['tt_content']['types']['icon_group'] = [];
 }
 
 /***************
@@ -21,8 +21,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
-    'Configuration/TsConfig/Page/ContentElement/Element/Timeline.tsconfig',
-    'Bootstrap Package Content Element: Timeline'
+    'Configuration/TsConfig/Page/ContentElement/Element/IconGroup.tsconfig',
+    'Bootstrap Package Content Element: Icon Group'
 );
 
 /***************
@@ -32,32 +32,30 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline',
-        'timeline',
-        'content-bootstrappackage-timeline'
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group',
+        'icon_group',
+        'content-bootstrappackage-icon-group'
     ],
-    'carousel',
+    'external_media',
     'after'
 );
 
 /***************
  * Assign Icon
  */
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['timeline'] = 'content-bootstrappackage-timeline';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['icon_group'] = 'content-bootstrappackage-icon-group';
 
 /***************
  * Configure element type
  */
-$GLOBALS['TCA']['tt_content']['types']['timeline'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['timeline'],
+$GLOBALS['TCA']['tt_content']['types']['icon_group'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['icon_group'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_timeline_item,
-            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.options,
-                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                tx_bootstrappackage_icon_group_item,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -81,11 +79,11 @@ $GLOBALS['TCA']['tt_content']['types']['timeline'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'tx_bootstrappackage_timeline_item' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item',
+        'tx_bootstrappackage_icon_group_item' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_bootstrappackage_timeline_item',
+                'foreign_table' => 'tx_bootstrappackage_icon_group_item',
                 'foreign_field' => 'tt_content',
                 'appearance' => [
                     'useSortable' => true,
@@ -105,13 +103,4 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             ]
         ]
     ]
-);
-
-/***************
- * Add flexForms for content element configuration
- */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Timeline.xml',
-    'timeline'
 );
