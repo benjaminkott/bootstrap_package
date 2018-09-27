@@ -48,21 +48,6 @@ class VersionScript
         file_put_contents($file, $content, LOCK_EX);
         echo "- $file was set to version $version" . PHP_EOL;
 
-        // JavaScript Files
-        $folder = realpath($rootFolder . 'Resources/Public/JavaScript/Dist/');
-        if ($handle = opendir($folder)) {
-            while (false !== ($entry = readdir($handle))) {
-                if ($entry !== '.' && $entry !== '..' && pathinfo($entry, PATHINFO_EXTENSION) === 'js') {
-                    $file = realpath($folder . '/' . $entry);
-                    $content = file_get_contents($file);
-                    $content = preg_replace('/(Bootstrap Package )v\d+\.\d+\.\d+/', '$1v' . $version, $content);
-                    file_put_contents($file, $content, LOCK_EX);
-                    echo "- $file was set to version $version" . PHP_EOL;
-                }
-            }
-            closedir($handle);
-        }
-
         // ext_emconf.php
         $file = realpath($rootFolder . 'ext_emconf.php');
         $content = file_get_contents($file);

@@ -20,6 +20,366 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10.0.0     | - [!!!][FEATURE] Use bootstrap 4 the default frontend framework                                                                                                            |
+|            | - [!!!][TASK] Use dedicated thumbnail field for card menu thumbnails                                                                                                       |
+|            | - [!!!][TASK] Drop signal to modify less settings                                                                                                                          |
+|            | - [!!!][FEATURE] Provide new design for thumbnail menu content element                                                                                                     |
+|            | - [!!!][TASK] Use dedicated thumbnail field for thumbnail menu content element                                                                                             |
+|            | - [!!!][FEATURE] Allow multiple icon sources for text and icon - fixes #504                                                                                                |
+|            | - [!!!][TASK] Ensure classes and ids on template areas are unique                                                                                                          |
+|            | - [!!!][TASK] Use .form.yaml instead of .yaml                                                                                                                              |
+|            | - [!!!][TASK] Add google webfont support for bs4 and add option to disable them                                                                                            |
+|            | - [!!!][TASK] Move navigation constants to dedicated namespace                                                                                                             |
+|            | - [!!!][TASK] Enable css und js concatenation by default                                                                                                                   |
+|            | - [!!!][FEATURE] Improve responsive image rendering (#517)                                                                                                                 |
+|            | - [!!!][TASK] Move footer column rendering to page templates                                                                                                               |
+|            | - [!!!][TASK] Drop clean backendlayout in favor of simple                                                                                                                  |
+|            | - [!!!][TASK] Move border column rendering to new section above breadcrumb                                                                                                 |
+|            | - [!!!][TASK] Migrate frame classes well and jumbotron to background color classes                                                                                         |
+|            | - [!!!][TASK] Make mainnavigation compatible with bs3 and bs4                                                                                                              |
+|            | - [!!!][TASK] Use theme constants instead of settings                                                                                                                      |
+|            | - [!!!][TASK] Drop show footer option                                                                                                                                      |
+|            | - [!!!][FEATURE] Use bootstrap 4 the default frontend framework                                                                                                            |
+|            | - [FEATURE] Enable responsive images for carousel item text and image - #552                                                                                               |
+|            | - [FEATURE] Enable responsive images for carousel item image - #552                                                                                                        |
+|            | - [FEATURE] Enable responsive images for carousel backgrounds - #552                                                                                                       |
+|            | - [FEATURE] Enable responsive images for content element background images - #552                                                                                          |
+|            | - [FEATURE] Enable responsive images for timeline - #552                                                                                                                   |
+|            | - [FEATURE] Enable responsive images for card menu                                                                                                                         |
+|            | - [FEATURE] Make columns and alignment of card menu configurable                                                                                                           |
+|            | - [FEATURE] Enable responsive images for tab items                                                                                                                         |
+|            | - [FEATURE] Enable crop variants for tab items                                                                                                                             |
+|            | - [FEATURE] Enable columns and image zoom for tab items                                                                                                                    |
+|            | - [FEATURE] Allow multiple assets rendered in tab item                                                                                                                     |
+|            | - [FEATURE] Add additional media positions to tab content element                                                                                                          |
+|            | - [FEATURE] Enable crop variants for carousel items                                                                                                                        |
+|            | - [FEATURE] Enable responsive images for accordion items #552                                                                                                              |
+|            | - [FEATURE] Enable columns and image zoom for accordion items                                                                                                              |
+|            | - [FEATURE] Allow multiple assets rendered in accordion item                                                                                                               |
+|            | - [FEATURE] Enable more image positions for accordion content element                                                                                                      |
+|            | - [FEATURE] Add gutter support for image variants utility                                                                                                                  |
+|            | - [!!!][FEATURE] Provide new design for thumbnail menu content element                                                                                                     |
+|            | - [FEATURE] Add dedicated thumbnail fied to pages                                                                                                                          |
+|            | - [FEATURE] Add card group content element                                                                                                                                 |
+|            | - [FEATURE] Add trim viewhelper                                                                                                                                            |
+|            | - [!!!][FEATURE] Allow multiple icon sources for text and icon - fixes #504                                                                                                |
+|            | - [FEATURE] Add more content positions to existing layouts                                                                                                                 |
+|            | - [FEATURE] Add static file processor                                                                                                                                      |
+|            | - [FEATURE] Add DropIn locations to page footer                                                                                                                            |
+|            | - [FEATURE] Make frame inner and outer spacing configurable                                                                                                                |
+|            | - [FEATURE] Add secondary colors and introduce outline buttons                                                                                                             |
+|            | - [FEATURE] Add folder support for textpic content element                                                                                                                 |
+|            | - [FEATURE] Add text indention plugin to ckeditor                                                                                                                          |
+|            | - [FEATURE] Add options to disable icon rendering in main and subnavigation                                                                                                |
+|            | - [FEATURE] Add optional nav icon rendering to card menu                                                                                                                   |
+|            | - [FEATURE] Add css columns to ckeditor - fixes #386 #387                                                                                                                  |
+|            | - [FEATURE] Add background image effects to content elements and carousel                                                                                                  |
+|            | - [FEATURE] Add src support for inline svg viewhelper                                                                                                                      |
+|            | - [FEATURE] Add content element to render csv files                                                                                                                        |
+|            | - [FEATURE] Add navigation icon support in dropdown                                                                                                                        |
+|            | - [!!!][FEATURE] Improve responsive image rendering (#517)                                                                                                                 |
+|            | - [FEATURE] Add automatic local google font cache (#522)                                                                                                                   |
+|            | - [FEATURE] Add typoscript condition to check typo3 core version                                                                                                           |
+|            | - [FEATURE] Add popup close and open events to cookieconsent - fixes (#526)                                                                                                |
+|            | - [FEATURE] Add support for folders in image and media element                                                                                                             |
+|            | - [FEATURE] Add data processor to filter files by extension                                                                                                                |
+|            | - [FEATURE] Make lightbox max image dimensions configurable                                                                                                                |
+|            | - [FEATURE] Automatic language menus and configuration for TYPO3 8.7 and >= 9.3 (#511)                                                                                     |
+|            | - [FEATURE] Add placeholder for google analytics opt-out / opt-in                                                                                                          |
+|            | - [FEATURE] Introduce template blocks                                                                                                                                      |
+|            | - [FEATURE] Add cookieconsent                                                                                                                                              |
+|            | - [FEATURE] Add additional header and subheader classes for carousel items                                                                                                 |
+|            | - [FEATURE] Make timeline sorting direction adjustable                                                                                                                     |
+|            | - [FEATURE] Add timeline content element                                                                                                                                   |
+|            | - [FEATURE] Add drop-in support for main navigation                                                                                                                        |
+|            | - [FEATURE] Add border column to all simple layouts - fixes #235                                                                                                           |
+|            | - [FEATURE] Allow navigation icons in breadcrumb                                                                                                                           |
+|            | - [FEATURE] Add call to action carousel item                                                                                                                               |
+|            | - [FEATURE] Add ckeditor plugin to insert address                                                                                                                          |
+|            | - [FEATURE] Add social links content element                                                                                                                               |
+|            | - [FEATURE] Add simple backendlayout without container                                                                                                                     |
+|            | - [FEATURE] Provide form styling for bs3 and bs4 and add basic contact form                                                                                                |
+|            | - [FEATURE] Add typoscript constant viewhelper                                                                                                                             |
+|            | - [FEATURE] Add lowercase dashed formatting viewhelper                                                                                                                     |
+|            | - [FEATURE] Allow to set width and height to inline svgs                                                                                                                   |
+|            | - [FEATURE] Add anchor classes to linkbrowser                                                                                                                              |
+|            | - [FEATURE] Add icon group content element                                                                                                                                 |
+|            | - [FEATURE] Add viewhelper to render inline svgs                                                                                                                           |
+|            | - [FEATURE] Add card menu                                                                                                                                                  |
+|            | - [FEATURE] Add social media channels to page footer                                                                                                                       |
+|            | - [FEATURE] Add processor to make typoscript constants available in templates                                                                                              |
+|            | - [FEATURE] Add bootstrap 4 sources                                                                                                                                        |
+|            | - [FEATURE] Load webfonts via fontloader to avoid blocking rendering - fixes #491                                                                                          |
+|            | - [FEATURE] Enable scss and less processing for includeCSSLibs                                                                                                             |
+|            | - [FEATURE] Introduce new parser for scss css files                                                                                                                        |
+|            | - [TASK] Enable ckeditor autolink plugin per default                                                                                                                       |
+|            | - [TASK] Add rel noopener to links in default copyright text                                                                                                               |
+|            | - [TASK] Update webserver configs to mach typo3 v9 defaults                                                                                                                |
+|            | - [TASK] Optimize modernizr footprint                                                                                                                                      |
+|            | - [TASK] Update frontend build chain to latest versions                                                                                                                    |
+|            | - [TASK] Update grunt-webfont to 1.7.2 and rebuild assets                                                                                                                  |
+|            | - [TASK] Update popper.js to 1.14.4                                                                                                                                        |
+|            | - [TASK] Update cookieconsent to 3.1.0                                                                                                                                     |
+|            | - [TASK] Optimize backgroundimages to avoid frame overflows                                                                                                                |
+|            | - [TASK] Add TypoScript variables for Bootstrap 4 (#500)                                                                                                                   |
+|            | - [TASK] Streamline database definition with TYPO3 v9                                                                                                                      |
+|            | - [TASK] Use rel noopener for social links                                                                                                                                 |
+|            | - [TASK] Streamline placement of background image templates                                                                                                                |
+|            | - [TASK] Add tests for ExternalMediaUtility                                                                                                                                |
+|            | - [!!!][TASK] Use dedicated thumbnail field for card menu thumbnails                                                                                                       |
+|            | - [TASK] Code cleanups                                                                                                                                                     |
+|            | - [TASK] Streamline less and scss caching                                                                                                                                  |
+|            | - [!!!][TASK] Drop signal to modify less settings                                                                                                                          |
+|            | - [TASK] Prefer wording gutters over gutter to show that this are multiple                                                                                                 |
+|            | - [TASK] Optimize CSS compiler code and caches (#550)                                                                                                                      |
+|            | - [TASK] Harden image variants utility                                                                                                                                     |
+|            | - [TASK] Add first unit tests for image variants utility                                                                                                                   |
+|            | - [TASK] Optimize responsive image rendering of thumbnail menu                                                                                                             |
+|            | - [!!!][TASK] Use dedicated thumbnail field for thumbnail menu content element                                                                                             |
+|            | - [TASK] Improve config scoping of textpic and textmedia responsive image settings                                                                                         |
+|            | - [TASK] Streamline card link classes with rte buttons                                                                                                                     |
+|            | - [TASK] Remove misleading doccomments in viewhelpers                                                                                                                      |
+|            | - [TASK] Slightly improve gallery image handling                                                                                                                           |
+|            | - [TASK] Simplify Icon Group handling                                                                                                                                      |
+|            | - [TASK] Cleanup install service                                                                                                                                           |
+|            | - [TASK] Make list-inline compatible                                                                                                                                       |
+|            | - [TASK] Use typo3 v9 minimal distribution for scrutinizer                                                                                                                 |
+|            | - [TASK] Correct CGL                                                                                                                                                       |
+|            | - [TASK] Add svgo config                                                                                                                                                   |
+|            | - [TASK] Cleanup glyphicons and ensure all icons are correctly rendered                                                                                                    |
+|            | - [TASK] Cleanup ionicons and ensure all icons are correctly rendered                                                                                                      |
+|            | - [TASK] Add fill currentColor to all svg icons                                                                                                                            |
+|            | - [TASK] Optimize svg images                                                                                                                                               |
+|            | - [TASK] Use svgs as backend icons for ionicons                                                                                                                            |
+|            | - [TASK] Use svgs as backend icons for glyphicons                                                                                                                          |
+|            | - [TASK] Migrate text and icon types to string classes                                                                                                                     |
+|            | - [TASK] Migrate text and icon sizes to string classes                                                                                                                     |
+|            | - [TASK] Migrate textteaser                                                                                                                                                |
+|            | - [TASK] Prefix region classes to avoid conflics with bootstrap 3                                                                                                          |
+|            | - [!!!][TASK] Ensure classes and ids on template areas are unique                                                                                                          |
+|            | - [TASK] Add missing html tags to page layout                                                                                                                              |
+|            | - [TASK] Make page footer more easy to identify                                                                                                                            |
+|            | - [TASK] Streamline navbar fixed behaviour                                                                                                                                 |
+|            | - [TASK] Enhance placement of carousel content for overlays                                                                                                                |
+|            | - [TASK] Add border column to simple layout                                                                                                                                |
+|            | - [TASK] Migrate well styling to bs4                                                                                                                                       |
+|            | - [TASK] Update bootstrap 4 to 4.1.3                                                                                                                                       |
+|            | - [TASK] Use .tsconfig fileending and official structure for page tsconfig                                                                                                 |
+|            | - [TASK] Seperate the configuration of content elements                                                                                                                    |
+|            | - [TASK] Change primary default color                                                                                                                                      |
+|            | - [TASK] Make translations more easy and hide layout fields in irre records                                                                                                |
+|            | - [TASK] Add NetBeans IDE configuration to gitignore - fixes #539 (#540)                                                                                                   |
+|            | - [TASK] Sort typoscript constants to make them more accessible                                                                                                            |
+|            | - [TASK] Add sudo command again                                                                                                                                            |
+|            | - [TASK] Use sudo for deployment stage                                                                                                                                     |
+|            | - [TASK] Split deploy scripts                                                                                                                                              |
+|            | - [!!!][TASK] Use .form.yaml instead of .yaml                                                                                                                              |
+|            | - [TASK] Simplify icon registration                                                                                                                                        |
+|            | - [TASK] Optimize content element header spacing                                                                                                                           |
+|            | - [!!!][TASK] Add google webfont support for bs4 and add option to disable them                                                                                            |
+|            | - [TASK] Make subnavigation compatible with bs 4 and 3                                                                                                                     |
+|            | - [!!!][TASK] Move navigation constants to dedicated namespace                                                                                                             |
+|            | - [TASK] Remove copyright from custom js files                                                                                                                             |
+|            | - [TASK] Only keep minified contrib libs and remove sourcemaps                                                                                                             |
+|            | - [TASK] Update grunt-modules and recompile sources                                                                                                                        |
+|            | - [TASK] Update bootstrap to 4.1.1                                                                                                                                         |
+|            | - [TASK] Improve quality of PHP code (#534)                                                                                                                                |
+|            | - [TASK] Use travis build stages - fixes #531 (#533)                                                                                                                       |
+|            | - [TASK] Add AdditionalConfiguration.php as shared file to deployment script                                                                                               |
+|            | - [!!!][TASK] Enable css und js concatenation by default                                                                                                                   |
+|            | - [TASK] Remove deployer configuration from scrutinizer analysis                                                                                                           |
+|            | - [TASK] Remove unused code in DataRelationViewHelper                                                                                                                      |
+|            | - [TASK] Use local webfontloader library                                                                                                                                   |
+|            | - [TASK] Add php version and TYPO3 dev-master prerequisites to pull request template (#527)                                                                                |
+|            | - [TASK] Use youtube-nocookie url in external media utility                                                                                                                |
+|            | - [TASK] Migrate headline styling scaling to bs4                                                                                                                           |
+|            | - [TASK] Streamline container width between bootstrap 3 and 4                                                                                                              |
+|            | - [TASK] Simplify image gallery column rendering                                                                                                                           |
+|            | - [TASK] Extract setup and constants for content elements                                                                                                                  |
+|            | - [TASK] Drop obsolete constant                                                                                                                                            |
+|            | - [TASK] Add picture support for figures                                                                                                                                   |
+|            | - [TASK] Use local ratio labels for image croppings                                                                                                                        |
+|            | - [TASK] Remove unused $rootPage                                                                                                                                           |
+|            | - [TASK] Trigger plain js cookie consent events                                                                                                                            |
+|            | - [TASK] Optimize typoscript constants for cookie consent                                                                                                                  |
+|            | - [TASK] Update node dependencies                                                                                                                                          |
+|            | - [TASK] Reduce webfont loader timeout to one second                                                                                                                       |
+|            | - [TASK] Remove role from carousel-inner                                                                                                                                   |
+|            | - [TASK] Mention bootstrap-package.com in default header comment                                                                                                           |
+|            | - [TASK] Remove whitespace from header layouts                                                                                                                             |
+|            | - [TASK] Always anonymize ip if google analytics is used                                                                                                                   |
+|            | - [TASK] Update bootstrap 4 branch to 4.1.0                                                                                                                                |
+|            | - [TASK] Add date to timeline label                                                                                                                                        |
+|            | - [TASK] Make textpic and textmedia positions compatible with bs3 and bs4                                                                                                  |
+|            | - [TASK] Optimize space usage of frame indentions                                                                                                                          |
+|            | - [TASK] Add additional stylings for file and mail links                                                                                                                   |
+|            | - [TASK] Add card menu styling for bs4                                                                                                                                     |
+|            | - [TASK] Remove obsolete container wrappings for single columns                                                                                                            |
+|            | - [!!!][TASK] Move footer column rendering to page templates                                                                                                               |
+|            | - [TASK] Add robots.txt symlink in deployment                                                                                                                              |
+|            | - [TASK] Change default copyright text                                                                                                                                     |
+|            | - [!!!][TASK] Drop clean backendlayout in favor of simple                                                                                                                  |
+|            | - [!!!][TASK] Move border column rendering to new section above breadcrumb                                                                                                 |
+|            | - [TASK] Drop hardcoded template column sizes from templates - fixes #391                                                                                                  |
+|            | - [TASK] Migrate panel element to bs4                                                                                                                                      |
+|            | - [TASK] Add additional css classes to teaser elements                                                                                                                     |
+|            | - [TASK] Add additional css classes to footer columns                                                                                                                      |
+|            | - [TASK] Split footer sections into dedicated partials                                                                                                                     |
+|            | - [TASK] Migrate frames and sections to bs4                                                                                                                                |
+|            | - [TASK] Map button default to secondary in bs4                                                                                                                            |
+|            | - [TASK] Add migration wizard for frame classes                                                                                                                            |
+|            | - [!!!][TASK] Migrate frame classes well and jumbotron to background color classes                                                                                         |
+|            | - [TASK] Split sections in special feature template                                                                                                                        |
+|            | - [TASK] Migrate uploads to bs4                                                                                                                                            |
+|            | - [TASK] Rename socialmedia icons to bootstrappackageicon                                                                                                                  |
+|            | - [TASK] Migrate quote to bs4                                                                                                                                              |
+|            | - [TASK] Migrate text in columns to bs4                                                                                                                                    |
+|            | - [TASK] Adjust default variables in bs4                                                                                                                                   |
+|            | - [TASK] Adjust indentions of scss variables                                                                                                                               |
+|            | - [TASK] Migrate thumbnail menu to bs4                                                                                                                                     |
+|            | - [TASK] Update modernizr to 3.6.0 and add css/focuswithin test                                                                                                            |
+|            | - [TASK] Add more meaningful defaults for contactform                                                                                                                      |
+|            | - [TASK] Move form configuration file                                                                                                                                      |
+|            | - [TASK] Disable obsolete share element in lightbox                                                                                                                        |
+|            | - [TASK] Migrate photoswipe lightbox to bs4                                                                                                                                |
+|            | - [TASK] Make gallery compatible with bs3 and bs4                                                                                                                          |
+|            | - [TASK] Make accordion compatible with bs3 and bs4                                                                                                                        |
+|            | - [!!!][TASK] Make mainnavigation compatible with bs3 and bs4                                                                                                              |
+|            | - [TASK] Move active bar styling of mainnavigation to pseudo element                                                                                                       |
+|            | - [TASK] Streamline behaviour of icongroup                                                                                                                                 |
+|            | - [TASK] Finetune styling of icongroup content element                                                                                                                     |
+|            | - [TASK] Migrate navbar toggle to bs4                                                                                                                                      |
+|            | - [TASK] Reduce timeout for font loading                                                                                                                                   |
+|            | - [TASK] Migrate texticon styling to bs4                                                                                                                                   |
+|            | - [!!!][TASK] Use theme constants instead of settings                                                                                                                      |
+|            | - [!!!][TASK] Drop show footer option                                                                                                                                      |
+|            | - [TASK] Streamline usages of frames                                                                                                                                       |
+|            | - [TASK] Migrate figure styling to bs4                                                                                                                                     |
+|            | - [TASK] Migrate carousel base styling to bs4                                                                                                                              |
+|            | - [TASK] Adjust audio styling in bs4                                                                                                                                       |
+|            | - [TASK] Migrate scroll-top styling to bs4                                                                                                                                 |
+|            | - [TASK] Streamline rendering of breadcrump in bs3 and bs4                                                                                                                 |
+|            | - [TASK] Include framework name and version in generated css files                                                                                                         |
+|            | - [TASK] Load bootstrap 3 with a different package name to avoid later conflicts                                                                                           |
+|            | - [TASK] Move ionicons to contrib folder                                                                                                                                   |
+|            | - [TASK] Move all bootstrap 3 resources to contrib                                                                                                                         |
+|            | - [TASK] Move bootstrap 3 includes to dedicated folders                                                                                                                    |
+|            | - [TASK] Move bootstrap 3.x specific constants                                                                                                                             |
+|            | - [TASK] Drop empty line in minified js files                                                                                                                              |
+|            | - [TASK] Move javascript assets to contrib avoid naming conflicts                                                                                                          |
+|            | - [TASK] Update jquery to 3.3.1                                                                                                                                            |
+|            | - [TASK] Replace npm with yarn to ensure correct versions are always loaded                                                                                                |
+|            | - [TASK] Cleanup gitignore                                                                                                                                                 |
+|            | - [TASK] Remove TYPO3-9.x from testing until new testing setup available                                                                                                   |
+|            | - [BUGFIX] Ensure popper.js is loaded before bootstrap.js                                                                                                                  |
+|            | - [BUGFIX] Get rid of warning for count() thrown in less compiler with PHP 7.2                                                                                             |
+|            | - [BUGFIX] Ensure condition matching assigns correct matches                                                                                                               |
+|            | - [BUGFIX] Correct loading order of content elements in type select                                                                                                        |
+|            | - [BUGFIX] Google font hook must modify setup after caching font files                                                                                                     |
+|            | - [BUGFIX] Fix issue in ChangeLogScript after cleanup                                                                                                                      |
+|            | - [BUGFIX] Ensure ensure typoscript language hook is working correctly                                                                                                     |
+|            | - [BUGFIX] Do not override function param                                                                                                                                  |
+|            | - [BUGFIX] Correct CGL                                                                                                                                                     |
+|            | - [BUGFIX] Remove unsupported rendertype checkboxtoggle in accordion item                                                                                                  |
+|            | - [BUGFIX] Correct defaults for accordion item                                                                                                                             |
+|            | - [BUGFIX] Correct relative urls                                                                                                                                           |
+|            | - [BUGFIX] Respect backendlayout gutter in image generation                                                                                                                |
+|            | - [BUGFIX] Correct phpunit call in composer json                                                                                                                           |
+|            | - [BUGFIX] Correct cgl in unit test                                                                                                                                        |
+|            | - [BUGFIX] Use full command to run unit tests                                                                                                                              |
+|            | - [BUGFIX] Correct travis config                                                                                                                                           |
+|            | - [BUGFIX] Correct menu thumbnail constant assignments                                                                                                                     |
+|            | - [BUGFIX] Use correct storage for media assets crop configuration                                                                                                         |
+|            | - [BUGFIX] Use correct interface in data relation viewhelper                                                                                                               |
+|            | - [BUGFIX] Remove unused code in texticon utility                                                                                                                          |
+|            | - [BUGFIX] Add missing namespace declaration in google font service                                                                                                        |
+|            | - [BUGFIX] Adapt icon type checks in text icon partials                                                                                                                    |
+|            | - [BUGFIX] Add missing frame layout class                                                                                                                                  |
+|            | - [BUGFIX] Correct typo in docheader of file filter processor (#545)                                                                                                       |
+|            | - [BUGFIX] Add missing color information for navbar toggler in bs3                                                                                                         |
+|            | - [BUGFIX] Correct position of above and below rendering in textpic and textmedia                                                                                          |
+|            | - [BUGFIX] Correct grouping of icon enable toggle for subnavigation                                                                                                        |
+|            | - [BUGFIX] Make complete background transparent if navigation is in transition mode                                                                                        |
+|            | - [BUGFIX] Remove obsolete console.log from box plugin                                                                                                                     |
+|            | - [BUGFIX] Use TsConfig instead of TSconfig                                                                                                                                |
+|            | - [BUGFIX] Correct CGL                                                                                                                                                     |
+|            | - [BUGFIX] Ensure correct positioning of preloader                                                                                                                         |
+|            | - [BUGFIX] Process fieldName correctly in flexform data processor                                                                                                          |
+|            | - [BUGFIX] Enable translations of timeline content element                                                                                                                 |
+|            | - [BUGFIX] Add missing sorting field for timeline item                                                                                                                     |
+|            | - [BUGFIX] Add missing system information icon                                                                                                                             |
+|            | - [BUGFIX] Respect conditions in webfont includes                                                                                                                          |
+|            | - [BUGFIX] Use correct namespace for navigation constants in layout                                                                                                        |
+|            | - [BUGFIX] Override width and height attributes correctly in InlineSvgViewHelper                                                                                           |
+|            | - [BUGFIX] Correct docheader of CoreVersionCondition                                                                                                                       |
+|            | - [BUGFIX] Load extension configuration only when extensions are installed                                                                                                 |
+|            | - [BUGFIX] Correct return type in GoogleFontService                                                                                                                        |
+|            | - [BUGFIX] Correct typo in AdditionalFieldInformation                                                                                                                      |
+|            | - [BUGFIX] Correct parsefunc to allow address tags outside p tags                                                                                                          |
+|            | - [BUGFIX] Correct ckeditor address plugin to allow links for mail and www                                                                                                 |
+|            | - [BUGFIX] Resolve deprecation for EXT:lang in TYPO3 v9.x                                                                                                                  |
+|            | - [BUGFIX] Correct return types in GoogleFontHook and PreProcessHook                                                                                                       |
+|            | - [BUGFIX] Correct doc comments in LanguageMenuProcessor                                                                                                                   |
+|            | - [BUGFIX] Correct return type in ConstantsProcessor                                                                                                                       |
+|            | - [BUGFIX] Update scrutinizer configuration (#532)                                                                                                                         |
+|            | - [BUGFIX] Correct CGL                                                                                                                                                     |
+|            | - [BUGFIX] Use .typoscript fileeindng for configuratio files in TYPO3 >= 9.3 for external includes                                                                         |
+|            | - [BUGFIX] Remove double BackendLayouts in comment (#528)                                                                                                                  |
+|            | - [BUGFIX] Remove unavailable return type void to support php < 7.2.x                                                                                                      |
+|            | - [BUGFIX] Correct several typos - fixes #525                                                                                                                              |
+|            | - [BUGFIX] Add missing height and width attributes to backend layout icons                                                                                                 |
+|            | - [BUGFIX] Ensure links have adjustable colors for frame backgrounds                                                                                                       |
+|            | - [BUGFIX] Strip new lines before and after pre tag                                                                                                                        |
+|            | - [BUGFIX] Correct spacings                                                                                                                                                |
+|            | - [BUGFIX] Caption alignment should follow image alignment - fixes #515                                                                                                    |
+|            | - [BUGFIX] Rename folder to macht includes                                                                                                                                 |
+|            | - [BUGFIX] Ensure language typoscript is added correctly                                                                                                                   |
+|            | - [BUGFIX] Check if array is empty in language utility                                                                                                                     |
+|            | - [BUGFIX] Use twoLetterIsoCode instead of language field                                                                                                                  |
+|            | - [BUGFIX] Ensure language configuration is not overwritten                                                                                                                |
+|            | - [BUGFIX] Correct syntax error in php 7.0 in LanguageMenuProcessor                                                                                                        |
+|            | - [BUGFIX] Correct comment                                                                                                                                                 |
+|            | - [BUGFIX] Make datefield required again                                                                                                                                   |
+|            | - [BUGFIX] Use datefield to save date values in timeline                                                                                                                   |
+|            | - [BUGFIX] Correct php-cs-fixer command in github issue template - fixes #512                                                                                              |
+|            | - [BUGFIX] Properly close html tag in navigation partial                                                                                                                   |
+|            | - [BUGFIX] Add missing compiled css files                                                                                                                                  |
+|            | - [BUGFIX] Ensure that em is used instead of rem in bs3 card layouts                                                                                                       |
+|            | - [BUGFIX] Ensure section index menu is also available for hidden pages if directly assigned                                                                               |
+|            | - [BUGFIX] Correct calculations for border radius                                                                                                                          |
+|            | - [BUGFIX] Correct language label                                                                                                                                          |
+|            | - [BUGFIX] Correct identifier for button text in call to action item                                                                                                       |
+|            | - [BUGFIX] Properly close html tag in content element dropins                                                                                                              |
+|            | - [BUGFIX] Correct cgl violations                                                                                                                                          |
+|            | - [BUGFIX] Remove obsolete class from footer section meta frame                                                                                                            |
+|            | - [BUGFIX] Ensure that selected pages are shown in menu content elements                                                                                                   |
+|            | - [BUGFIX] Adjust form override key to avoid conflicts with introduction                                                                                                   |
+|            | - [BUGFIX] Add active state to meta menu                                                                                                                                   |
+|            | - [BUGFIX] Add default if background color class is not set                                                                                                                |
+|            | - [BUGFIX] Remove debug message                                                                                                                                            |
+|            | - [BUGFIX] Use english in contact form subject                                                                                                                             |
+|            | - [BUGFIX] Correct icongroup css                                                                                                                                           |
+|            | - [BUGFIX] Use href instead of data attribute to avoid messing of urls                                                                                                     |
+|            | - [BUGFIX] Remove testing console.log calls                                                                                                                                |
+|            | - [BUGFIX] Correct toggle selector for main navigation hover                                                                                                               |
+|            | - [BUGFIX] Use correct accordion_item language label in Backend.xlf (#490)                                                                                                 |
+|            | - [BUGFIX] Show navigation toggler only above grid float breakpoint                                                                                                        |
+|            | - [BUGFIX] Remove wrong placed closing html tag in copyright partial                                                                                                       |
+|            | - [BUGFIX] Remove wrong placed space                                                                                                                                       |
+|            | - [BUGFIX] Attributes on breadcrumb list item should be separated by whitespace                                                                                            |
+|            | - [BUGFIX] Remove false condition for abstracts in card menus                                                                                                              |
+|            | - [BUGFIX] Unset file array in css processing hook                                                                                                                         |
+|            | - [BUGFIX] Correct CGL                                                                                                                                                     |
+|            | - Revert "[BUGFIX] Set correct type for svg files in apache configuration"                                                                                                 |
+|            | - [BUGFIX] Set correct type for svg files in apache configuration                                                                                                          |
+|            | - [BUGFIX] Set correct type for javascript files in apache configuration                                                                                                   |
+|            | - [CLEANUP] Move additional field information node to language compat                                                                                                      |
+|            | - [CLEANUP] Move extension icon                                                                                                                                            |
+|            | - [CLEANUP] Correct text and icon migration leftovers                                                                                                                      |
+|            | - [CLEANUP] Correct class comment in abstract parser                                                                                                                       |
+|            | - [CLEANUP] Minor cleanups                                                                                                                                                 |
+|            | - [CLEANUP] Remove obsolete background image width settings                                                                                                                |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 9.1.0      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
 |            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
 |            | - [!!!][FEATURE] Add auto lookup for page templates                                                                                                                        |
@@ -450,6 +810,7 @@ Information.
 |            | - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself                                                                         |
 |            | - [TASK] Accessibility - correction of landmark                                                                                                                            |
 |            | - [TASK] Accessibility - Add link title attributes to logo constants, setup and html                                                                                       |
+|            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
 |            | - [BUGFIX] Add missing icon for text & media missing - fixes #417                                                                                                          |
 |            | - [BUGFIX] Adapt link tag parsing for RTE fields                                                                                                                           |
 |            | - [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading                                                                                      |
