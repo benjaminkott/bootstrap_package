@@ -190,15 +190,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
     = \BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class;
 
 /***************
- * Register formEngine nodes
- */
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
-    'nodeName' => 'AdditionalFieldInformation',
-    'priority' => '70',
-    'class' => \BK2K\BootstrapPackage\Form\FieldInformation\AdditionalFieldInformation::class
-];
-
-/***************
  * Register "bk2k" as global fluid namespace
  */
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
@@ -319,4 +310,10 @@ if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::clas
     ]));
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
         = \BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class . '->addLanguageSetup';
+    // Register formEngine nodes
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
+        'nodeName' => 'AdditionalFieldInformation',
+        'priority' => '70',
+        'class' => \BK2K\BootstrapPackage\Form\FieldInformation\AdditionalFieldInformation::class
+    ];
 }
