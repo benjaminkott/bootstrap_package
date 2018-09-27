@@ -62,7 +62,8 @@ class CoreVersionCondition extends AbstractCondition
     protected function compareNumber($test, $leftValue)
     {
         if (preg_match('/^(!?=+|<=?|>=?)\\s*([^\\s]*)\\s*$/', $test, $matches)) {
-            list($operator, $rightValue) = $matches;
+            $operator = $matches[1];
+            $rightValue = $matches[2];
             switch ($operator) {
                 case '>=':
                     return $leftValue >= VersionNumberUtility::convertVersionNumberToInteger($rightValue);
