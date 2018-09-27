@@ -25,7 +25,7 @@
     "jquery": "^3.3.1",
     "modernizr": "^3.6.0",
     "photoswipe": "^4.1.2",
-    "popper.js": "^1.14.3",
+    "popper.js": "^1.14.4",
     "postcss-url": "^7.3.2",
     "webfontloader": "^1.6.28"
   }
