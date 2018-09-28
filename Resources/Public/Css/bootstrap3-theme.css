@@ -10308,7 +10308,7 @@ body .typo3-editPanel-btn:hover,
   margin-left: 0.5em;
 }
 .card {
-  color: inherit;
+  color: black;
   position: relative;
   display: flex;
   flex-direction: column;
