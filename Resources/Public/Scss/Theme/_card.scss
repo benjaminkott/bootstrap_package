@@ -1,6 +1,9 @@
 //
 // Card
 //
+.card {
+    color: color-yiq($card-bg);
+}
 .card-img-top {
     overflow: hidden;
     picture,
