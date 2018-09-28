@@ -1,3 +1,13 @@
+# 10.0.1
+
+## TASK
+- [TASK] Add forgotten textpic and textmedia alignment 188f726a
+
+## BUGFIX
+- [BUGFIX] Correct link color bubbling for sections in bootstrap 4 96ef3923
+- [BUGFIX] Prevent color bubbling for cards 6600fa1b
+- [BUGFIX] Correct primary label in bs4 typoscript constants (#554) fe4a9139
+
 # 10.0.0
 
 ## BREAKING

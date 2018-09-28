@@ -20,6 +20,11 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10.0.1     | - [TASK] Add forgotten textpic and textmedia alignment                                                                                                                     |
+|            | - [BUGFIX] Correct link color bubbling for sections in bootstrap 4                                                                                                         |
+|            | - [BUGFIX] Prevent color bubbling for cards                                                                                                                                |
+|            | - [BUGFIX] Correct primary label in bs4 typoscript constants (#554)                                                                                                        |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10.0.0     | - [!!!][FEATURE] Use bootstrap 4 the default frontend framework                                                                                                            |
 |            | - [!!!][TASK] Use dedicated thumbnail field for card menu thumbnails                                                                                                       |
 |            | - [!!!][TASK] Drop signal to modify less settings                                                                                                                          |
