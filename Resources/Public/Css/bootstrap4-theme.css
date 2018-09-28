@@ -8476,6 +8476,14 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #4faf98;
 }
 
+.section-primary a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-primary a:not(.btn):not(.cc-btn):focus, .section-primary a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
+}
+
 .section-primary + .section-primary {
   border-top: 1px solid #479d89;
 }
@@ -8483,6 +8491,14 @@ a.text-dark:hover, a.text-dark:focus {
 .section-secondary {
   color: #fff;
   background-color: #ff3f00;
+}
+
+.section-secondary a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-secondary a:not(.btn):not(.cc-btn):focus, .section-secondary a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
 }
 
 .section-secondary + .section-secondary {
@@ -8494,6 +8510,14 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #28a745;
 }
 
+.section-success a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-success a:not(.btn):not(.cc-btn):focus, .section-success a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
+}
+
 .section-success + .section-success {
   border-top: 1px solid #23923d;
 }
@@ -8501,6 +8525,14 @@ a.text-dark:hover, a.text-dark:focus {
 .section-info {
   color: #fff;
   background-color: #17a2b8;
+}
+
+.section-info a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-info a:not(.btn):not(.cc-btn):focus, .section-info a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
 }
 
 .section-info + .section-info {
@@ -8512,6 +8544,14 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #ffc107;
 }
 
+.section-warning a:not(.btn):not(.cc-btn) {
+  color: #2b2b2b;
+}
+
+.section-warning a:not(.btn):not(.cc-btn):focus, .section-warning a:not(.btn):not(.cc-btn):hover {
+  color: #2b2b2b;
+}
+
 .section-warning + .section-warning {
   border-top: 1px solid #edb100;
 }
@@ -8519,6 +8559,14 @@ a.text-dark:hover, a.text-dark:focus {
 .section-danger {
   color: #fff;
   background-color: #dc3545;
+}
+
+.section-danger a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-danger a:not(.btn):not(.cc-btn):focus, .section-danger a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
 }
 
 .section-danger + .section-danger {
@@ -8530,6 +8578,14 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #f8f9fa;
 }
 
+.section-light a:not(.btn):not(.cc-btn) {
+  color: #2b2b2b;
+}
+
+.section-light a:not(.btn):not(.cc-btn):focus, .section-light a:not(.btn):not(.cc-btn):hover {
+  color: #2b2b2b;
+}
+
 .section-light + .section-light {
   border-top: 1px solid #e9ecef;
 }
@@ -8537,6 +8593,14 @@ a.text-dark:hover, a.text-dark:focus {
 .section-dark {
   color: #fff;
   background-color: #2b2b2b;
+}
+
+.section-dark a:not(.btn):not(.cc-btn) {
+  color: #fff;
+}
+
+.section-dark a:not(.btn):not(.cc-btn):focus, .section-dark a:not(.btn):not(.cc-btn):hover {
+  color: #fff;
 }
 
 .section-dark + .section-dark {
