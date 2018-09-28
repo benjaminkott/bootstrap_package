@@ -9,6 +9,13 @@
     .section-#{$name} {
         color: $color;
         background-color: $background;
+        a:not(.btn) {
+            color: $color;
+            &:focus,
+            &:hover {
+                color: $color;
+            }
+        }
     }
     .section-#{$name} + .section-#{$name} {
         border-top: 1px solid darken($background, 5%);
