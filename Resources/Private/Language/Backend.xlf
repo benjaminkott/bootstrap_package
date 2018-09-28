@@ -717,6 +717,13 @@
                 <source>File Folder</source>
             </trans-unit>
 
+            <trans-unit id="field.imageorient.125">
+                <source>Beside Text, Centered Right</source>
+           </trans-unit>
+            <trans-unit id="field.imageorient.126">
+                <source>Beside Text, Centered Left</source>
+            </trans-unit>
+
             <trans-unit id="option.background_image.parallax">
                 <source>Parallax</source>
             </trans-unit>

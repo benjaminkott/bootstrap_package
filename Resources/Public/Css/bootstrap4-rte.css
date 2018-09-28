@@ -11347,6 +11347,11 @@ figure .caption {
   margin-bottom: 1rem;
 }
 
+.textmedia-centered,
+.textpic-centered {
+  align-items: center;
+}
+
 .textmedia-below .textmedia-text,
 .textmedia-below .textpic-text,
 .textpic-below .textmedia-text,

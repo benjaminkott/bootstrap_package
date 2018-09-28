@@ -9155,6 +9155,10 @@ body,
 .textpic-gallery {
   margin-bottom: 21px;
 }
+.textmedia-centered,
+.textpic-centered {
+  align-items: center;
+}
 .textmedia-below .textmedia-text,
 .textpic-below .textmedia-text,
 .textmedia-below .textpic-text,
