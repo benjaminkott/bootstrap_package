@@ -148,6 +148,28 @@ $GLOBALS['TCA']['tt_content']['columns']['file_folder'] = [
 /***************
  * Adjust default fields
  */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'imageorient',
+    [
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.125',
+        (string) 125,
+        'content-bootstrappackage-beside-text-img-centered-right'
+    ],
+    (string) 125,
+    'after'
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'imageorient',
+    [
+        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.126',
+        (string) 126,
+        'content-bootstrappackage-beside-text-img-centered-left'
+    ],
+    (string) 126,
+    'after'
+);
 $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
 
 /***************
