@@ -1,3 +1,10 @@
+# 10.0.2
+
+## BUGFIX
+- [BUGFIX] Respect overrides for enable-rounded scss variable - #558 e8681d91
+- [BUGFIX] Correct TCA for carousel small (#557) 5b5512f5
+- [BUGFIX] use correct default value for texticon icon type (#559) 74d3ba76
+
 # 10.0.1
 
 ## TASK

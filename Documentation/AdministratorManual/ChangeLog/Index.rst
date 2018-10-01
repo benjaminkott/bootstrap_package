@@ -20,6 +20,10 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10.0.2     | - [BUGFIX] Respect overrides for enable-rounded scss variable - #558                                                                                                       |
+|            | - [BUGFIX] Correct TCA for carousel small (#557)                                                                                                                           |
+|            | - [BUGFIX] use correct default value for texticon icon type (#559)                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10.0.1     | - [TASK] Add forgotten textpic and textmedia alignment                                                                                                                     |
 |            | - [BUGFIX] Correct link color bubbling for sections in bootstrap 4                                                                                                         |
 |            | - [BUGFIX] Prevent color bubbling for cards                                                                                                                                |
