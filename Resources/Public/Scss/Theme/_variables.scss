@@ -21,7 +21,7 @@ $link-alternate-hover-color:   darken($link-alternate-color, 15%) !default;
 //
 // Options
 //
-$enable-rounded:              false;
+$enable-rounded:              false !default;
 
 //
 // Fonts
