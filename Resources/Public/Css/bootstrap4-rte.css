@@ -10492,7 +10492,7 @@ blockquote footer::before {
     display: inline-block;
   }
   .navbar-mainnavigation .dropdown-menu {
-    position: relative;
+    position: static;
     margin-left: -20px;
     margin-right: -20px;
     border: none;

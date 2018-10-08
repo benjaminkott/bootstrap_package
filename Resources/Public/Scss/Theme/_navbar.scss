@@ -277,7 +277,7 @@
             display: inline-block;
         }
         .dropdown-menu {
-            position: relative;
+            position: static;
             margin-left: -($grid-gutter-width / 2);
             margin-right: -($grid-gutter-width / 2);
             border: none;
