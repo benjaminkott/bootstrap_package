@@ -47,23 +47,6 @@ class InstallService
                 $this->createConfigurationFile('.htaccess');
             } elseif (strpos($_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS') === 0) {
                 $this->createConfigurationFile('web.config');
-            } else {
-                /**
-                 * Add Flashmessage that the system is not running on a supported webserver and the url rewritings must be handled manually
-                 */
-                $flashMessage = GeneralUtility::makeInstance(
-                    FlashMessage::class,
-                    'The Bootstrap Package suggests to use RealUrl to generate SEO friendly URLs, please take care of '
-                    . 'the URLs rewriting settings for your environment yourself. You can also deactivate RealUrl by '
-                    . 'changing your TypoScript setup to "config.tx_realurl_enable = 0". You also need to take care of '
-                    . 'securing configuration files. Example Configurations for Apache and Microsoft IIS can be found '
-                    . 'in "typo3conf/ext/bootstrap_package/Configuration/Server/".',
-                    'TYPO3 is not running on an Apache or Microsoft-IIS Webserver',
-                    FlashMessage::WARNING,
-                    true
-                );
-                $this->addFlashMessage($flashMessage);
-                return;
             }
         }
     }

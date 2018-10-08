@@ -537,7 +537,7 @@ config {
     index_metatags = 1
     headerComment = {$config.headerComment}
 
-    // Enable RealUrl
+    // Enable RealUrl (Compat vor TYPO3 8.7)
     tx_realurl_enable = 1
 
     // Language Settings
