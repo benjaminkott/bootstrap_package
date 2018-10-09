@@ -72,8 +72,10 @@ class CarouselContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUp
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', 0, false)
                 ->set('CType', $this->mapValues($record['layout']));
+            if (in_array($record['layout'], [100, 110, 120])) {
+                $queryBuilder->set('layout', 0, false);
+            }
             $databaseQueries[] = $queryBuilder->getSQL();
             $queryBuilder->execute();
         }
