@@ -10,7 +10,7 @@ $(function() {
         })
         .on('hide.bs.collapse', function () {
             $('.navbar-toggle').addClass('collapsed');
-    });
+        });
 
     /**
      * Solution to enable links on dropdowns, the link will only be triggered
@@ -45,5 +45,29 @@ $(function() {
             return false;
         }
     });
+    
+     /**
+     * Fix for pointerover/pointerleave Events in Safari
+     */
+    var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (is_safari) {
+        $( 'li.dropdown-hover' ).hover(
+            function(e) {
+                if (e.type === "mouseenter" && $('.navbar-toggler').is(':hidden') && !$(this).hasClass('open')) {
+                    $(this).parent().parent().find('li').removeClass('show');
+                    $(this).addClass('show');
+                    $(this).find('> .dropdown-toggle').attr("aria-expanded", "true");
+                    $(this).find('> .dropdown-menu').addClass('show');
+                }
+            },
+            function(e) {
+                if (e.type === "mouseleave" && $('.navbar-toggler').is(':hidden')) {
+                    $(this).removeClass('show');
+                    $(this).find('> .dropdown-toggle').attr("aria-expanded", "false");
+                    $(this).find('> .dropdown-menu').removeClass('show');
+                }
+            }
+        );
+    }
 
 });
