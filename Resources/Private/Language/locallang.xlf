@@ -91,25 +91,6 @@
                 <source>Summary</source>
             </trans-unit>
 
-            <trans-unit id="cookieconsent.common.header">
-                <source>Cookies used on the website!</source>
-            </trans-unit>
-            <trans-unit id="cookieconsent.common.message">
-                <source>This website uses cookies to ensure you get the best experience on our website.</source>
-            </trans-unit>
-            <trans-unit id="cookieconsent.common.dismiss">
-                <source>Got it!</source>
-            </trans-unit>
-            <trans-unit id="cookieconsent.common.allow">
-                <source>Allow cookies</source>
-            </trans-unit>
-            <trans-unit id="cookieconsent.common.deny">
-                <source>Decline</source>
-            </trans-unit>
-            <trans-unit id="cookieconsent.common.link">
-                <source>Learn more</source>
-            </trans-unit>
-
             <trans-unit id="googleanalyticsstatus.title">
                 <source>Google Analytics Status</source>
             </trans-unit>
