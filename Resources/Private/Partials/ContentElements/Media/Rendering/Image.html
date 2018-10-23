@@ -7,6 +7,6 @@
             <source data-variant="{name}" data-maxwidth="{width}" {f:if(condition: breakpoint, then: ' media="(min-width: {breakpoint}px)" ')}srcset="{f:uri.image(image: file, cropVariant: name, maxWidth: width)}">
         </f:if>
     </f:for>
-    <img src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.title}" alt="{file.alternative}">
+    <img src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.properties.title}" alt="{file.properties.alternative}">
 </picture>
 </html>
