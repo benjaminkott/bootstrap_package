@@ -20,6 +20,16 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10.0.3     | - [TASK] Remove install notification for unsupported webservers - fixes #562                                                                                               |
+|            | - [BUGFIX] Streamline file property access to also lead sys_file data - #578                                                                                               |
+|            | - [BUGFIX] Add fallback handling for unsupported pointer events in safari - #571                                                                                           |
+|            | - [BUGFIX] Correct styling of accordion - fixes #579                                                                                                                       |
+|            | - [BUGFIX] Ensure element browser links working in carousel - fixes #575                                                                                                   |
+|            | - [BUGFIX] Adjust comment in ext_tables.php                                                                                                                                |
+|            | - [BUGFIX] Fix typo in comment  (#580)                                                                                                                                     |
+|            | - [BUGFIX] Ensure photoswipe scss vars can be adjusted                                                                                                                     |
+|            | - [BUGFIX] Correct placement of main navigation dropdowns on small viewports - fixes #561, #565                                                                            |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10.0.2     | - [BUGFIX] Respect overrides for enable-rounded scss variable - #558                                                                                                       |
 |            | - [BUGFIX] Correct TCA for carousel small (#557)                                                                                                                           |
 |            | - [BUGFIX] use correct default value for texticon icon type (#559)                                                                                                         |

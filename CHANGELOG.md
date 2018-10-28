@@ -1,3 +1,18 @@
+# 10.0.3
+
+## TASK
+- [TASK] Remove install notification for unsupported webservers - fixes #562 917f14ad
+
+## BUGFIX
+- [BUGFIX] Streamline file property access to also lead sys_file data - #578 e3146295
+- [BUGFIX] Add fallback handling for unsupported pointer events in safari - #571 14817a54
+- [BUGFIX] Correct styling of accordion - fixes #579 eb0f0a7c
+- [BUGFIX] Ensure element browser links working in carousel - fixes #575 024e7f38
+- [BUGFIX] Adjust comment in ext_tables.php 75b90799
+- [BUGFIX] Fix typo in comment  (#580) 5c6924c7
+- [BUGFIX] Ensure photoswipe scss vars can be adjusted f6a47a7a
+- [BUGFIX] Correct placement of main navigation dropdowns on small viewports - fixes #561, #565 bc794704
+
 # 10.0.2
 
 ## BUGFIX
