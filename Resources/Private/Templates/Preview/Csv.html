@@ -5,7 +5,7 @@
         <ul class="list-unstyled">
             <f:for each="{csvFiles}" as="file">
                 <li>
-                    <strong>{f:if(condition: file.title, then: file.title, else: file.name)}</strong><br>
+                    <strong>{f:if(condition: file.properties.title, then: file.properties.title, else: file.properties.name)}</strong><br>
                     {file.publicUrl}
                 </li>
             </f:for>
