@@ -10,8 +10,8 @@
                         <f:if condition="{file.type} == 2 || {file.type} == 4">
                             <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                                 <div class="media-left">
-                                    <a href="{file.publicUrl}"{f:if(condition: file.title, then: ' title="{file.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
-                                        <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.alternative}" />
+                                    <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
+                                        <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
                                     </a>
                                 </div>
                             </f:if>
@@ -19,10 +19,10 @@
                     </f:if>
                     <div class="media-body">
                         <h4 class="media-heading">
-                            <a href="{file.publicUrl}"{f:if(condition: file.title, then: ' title="{file.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
+                            <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
                                 <f:if condition="{data.uploads_type} == 1">
                                     <span class="uploads-fileicon">
-                                        <f:switch expression="{f:format.case(value: file.extension, mode: 'lower')}">
+                                        <f:switch expression="{f:format.case(value: file.properties.extension, mode: 'lower')}">
                                             <f:case value="mp3"><span class="bootstrappackageicon bootstrappackageicon-file-audio"></span></f:case>
                                             <f:case value="avi"><span class="bootstrappackageicon bootstrappackageicon-file-video"></span></f:case>
                                             <f:case value="mov"><span class="bootstrappackageicon bootstrappackageicon-file-video"></span></f:case>
@@ -43,15 +43,15 @@
                                         </f:switch>
                                     </span>
                                 </f:if>
-                                <span class="uploads-filename">{f:if(condition: file.title, then: file.title, else: file.name)}</span>
+                                <span class="uploads-filename">{f:if(condition: file.properties.title, then: file.properties.title, else: file.properties.name)}</span>
                             </a>
                             <f:if condition="{data.filelink_size}">
-                                <span class="uploads-filesize"><f:format.bytes value="{file.size}" /></span>
+                                <span class="uploads-filesize"><f:format.bytes value="{file.properties.size}" /></span>
                             </f:if>
                         </h4>
                         <f:if condition="{data.uploads_description}">
-                            <f:if condition="{file.description}">
-                                <p class="uploads-filedescription">{file.description}</p>
+                            <f:if condition="{file.properties.description}">
+                                <p class="uploads-filedescription">{file.properties.description}</p>
                             </f:if>
                         </f:if>
                     </div>
