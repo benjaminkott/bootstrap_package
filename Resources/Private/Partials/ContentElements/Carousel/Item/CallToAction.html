@@ -14,7 +14,7 @@
                 </div>
             </f:if>
             <f:if condition="{item.data.link}">
-                <f:link.page pageUid="{item.data.link}" class="carousel-item-button btn btn-primary" additionalAttributes="{draggable:'false'}">
+                <f:link.typolink parameter="{item.data.link}" class="carousel-item-button btn btn-primary" additionalAttributes="{draggable:'false'}">
                     <f:if condition="{item.data.button_text}">
                         <f:then>
                             <span>{item.data.button_text}</span>
@@ -23,7 +23,7 @@
                             <span><f:translate key="readmore" extensionName="bootstrap_package" /></span>
                         </f:else>
                     </f:if>
-                </f:link.page>
+                </f:link.typolink>
             </f:if>
         </div>
     </div>
