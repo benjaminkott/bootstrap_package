@@ -10639,6 +10639,9 @@ body .typo3-editPanel-btn:hover,
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+.accordion-item {
+  overflow: hidden;
+}
 .accordion-item + .accordion-item {
   margin-top: 0.25em;
 }

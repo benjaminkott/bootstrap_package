@@ -10,7 +10,7 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Allow Carousel Item & Accordion Item on Standart Pages
+ * Allow Custom Records on Standard Pages
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_accordion_item');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_card_group_item');

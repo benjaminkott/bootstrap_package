@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:link.page pageUid="{item.data.link}" additionalAttributes="{draggable:'false'}">
+<f:link.typolink parameter="{item.data.link}" additionalAttributes="{draggable:'false'}">
     <div class="valign">
         <div class="carousel-text vcontainer" {f:if(condition: item.data.text_color,then: 'style="color: {item.data.text_color};"')}>
             <h{item.data.header_layout} class="carousel-header{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
@@ -17,5 +17,5 @@
             </f:if>
         </div>
     </div>
-</f:link.page>
+</f:link.typolink>
 </html>
