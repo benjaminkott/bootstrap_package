@@ -1,11 +1,15 @@
 //
 // Accordion
 //
+.accordion-item {
+    border-bottom: $card-border-width solid $card-border-color !important;
+}
 .accordion-item + .accordion-item {
     margin-top: 0.25em;
 }
 .accordion-header {
     padding: 0;
+    border-bottom: 0;
 }
 .accordion-title {
     font-size: ($font-size-base * 1.1);
@@ -80,6 +84,9 @@
     *:last-child {
         margin-bottom: 0;
     }
+}
+.accordion-body {
+    border-top: $card-border-width solid $card-border-color;
 }
 
 //

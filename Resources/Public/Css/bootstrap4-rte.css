@@ -11516,12 +11516,17 @@ figure .caption {
   margin-bottom: 0px;
 }
 
+.accordion-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+
 .accordion-item + .accordion-item {
   margin-top: 0.25em;
 }
 
 .accordion-header {
   padding: 0;
+  border-bottom: 0;
 }
 
 .accordion-title {
@@ -11597,6 +11602,10 @@ figure .caption {
 
 .accordion-content-text *:last-child {
   margin-bottom: 0;
+}
+
+.accordion-body {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 @media (min-width: 768px) {
