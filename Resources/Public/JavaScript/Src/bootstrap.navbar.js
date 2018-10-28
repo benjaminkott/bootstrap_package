@@ -10,26 +10,46 @@ $(function() {
         })
         .on('hide.bs.collapse', function () {
             $('.navbar-toggle').addClass('collapsed');
-    });
+        });
 
     /**
      * Solution to enable links on dropdowns, the link will only be triggered
      * if the dropdown is visible. On touch devices you will need to double
      * click on a dropdown, the first click will open the menu.
      */
+    function navbarPointerOver($element) {
+        if($('.navbar-toggler').is(':hidden') && !$element.hasClass('open')) {
+            $element.parent().parent().find('li').removeClass('show');
+            $element.addClass('show');
+            $element.find('> .dropdown-toggle').attr("aria-expanded", "true");
+            $element.find('> .dropdown-menu').addClass('show');
+        }
+    }
+    function navbarPointerLeave($element) {
+        if ($('.navbar-toggler').is(':hidden')) {
+            $element.removeClass('show');
+            $element.find('> .dropdown-toggle').attr("aria-expanded", "false");
+            $element.find('> .dropdown-menu').removeClass('show');
+        }
+    }
     $(document).on('pointerover', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden') && !$(this).hasClass('open')) {
-            $(this).parent().parent().find('li').removeClass('show');
-            $(this).addClass('show');
-            $(this).find('> .dropdown-toggle').attr("aria-expanded", "true");
-            $(this).find('> .dropdown-menu').addClass('show');
+        if (e.originalEvent.pointerType === "mouse") {
+            navbarPointerOver($(this));
+        }
+    });
+    $(document).on('mouseenter', 'li.dropdown-hover', function () {
+        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+            navbarPointerOver($(this));
         }
     });
     $(document).on('pointerleave', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse" && $('.navbar-toggler').is(':hidden')) {
-            $(this).removeClass('show');
-            $(this).find('> .dropdown-toggle').attr("aria-expanded", "false");
-            $(this).find('> .dropdown-menu').removeClass('show');
+        if (e.originalEvent.pointerType === "mouse") {
+            navbarPointerLeave($(this));
+        }
+    });
+    $(document).on('mouseleave', 'li.dropdown-hover', function () {
+        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+            navbarPointerLeave($(this));
         }
     });
     $(document).on('click', '.nav-link', function(e) {
@@ -45,5 +65,4 @@ $(function() {
             return false;
         }
     });
-
 });
