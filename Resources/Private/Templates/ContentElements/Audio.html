@@ -5,17 +5,17 @@
     <f:if condition="{files}">
         <ul class="media-list">
             <f:for each="{files}" as="file">
-                <f:if condition="{file.type} == 3">
+                <f:if condition="{file.properties.type} == 3">
                     <li class="media">
                         <div class="media-body">
                             <h4 class="media-heading">
-                                <f:if condition="{file.title}">
-                                    <f:then>{file.title}</f:then>
-                                    <f:else>{file.name}</f:else>
+                                <f:if condition="{file.properties.title}">
+                                    <f:then>{file.properties.title}</f:then>
+                                    <f:else>{file.properties.name}</f:else>
                                 </f:if>
                             </h4>
-                            <f:if condition="{file.description}">
-                                <p>{file.description}</p>
+                            <f:if condition="{file.properties.description}">
+                                <p>{file.properties.description}</p>
                             </f:if>
                             <f:media file="{file}" />
                         </div>

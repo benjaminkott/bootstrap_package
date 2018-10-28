@@ -1,8 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <figure class="image">
-    <f:if condition="{file.link}">
+    <f:if condition="{file.properties.link}">
         <f:then>
-            <f:link.typolink parameter="{file.link}" title="{file.properties.title}">
+            <f:link.typolink parameter="{file.properties.link}" title="{file.properties.title}">
                 <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
             </f:link.typolink>
         </f:then>

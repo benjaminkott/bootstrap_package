@@ -3,8 +3,8 @@
     <div class="embed">
         <f:render partial="Media/Rendering/Audio" arguments="{file: file, data: data, settings: settings}" />
     </div>
-    <f:if condition="{file.description}">
-        <figcaption class="caption"><f:format.nl2br>{file.description}</f:format.nl2br></figcaption>
+    <f:if condition="{file.properties.description}">
+        <figcaption class="caption"><f:format.nl2br>{file.properties.description}</f:format.nl2br></figcaption>
     </f:if>
 </figure>
 </html>
