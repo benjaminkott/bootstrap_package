@@ -255,7 +255,7 @@ page {
         # cat=bootstrap package: meta data/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
         keywords =
         # cat=bootstrap package: meta data/120/100; type=string; label=viewport
-        viewport = width=device-width, initial-scale=1
+        viewport = width=device-width, initial-scale=1, minimum-scale=1
         # cat=bootstrap package: meta data/120/110; type=string; label=robots
         robots = index,follow
         # cat=bootstrap package: meta data/120/120; type=string; label=apple-mobile-web-app-capable
