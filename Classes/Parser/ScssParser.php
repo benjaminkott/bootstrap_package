@@ -14,6 +14,7 @@ use Leafo\ScssPhp\Formatter\Crunched;
 use Leafo\ScssPhp\Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
  * ScssParser
@@ -83,13 +84,19 @@ class ScssParser extends AbstractParser
                 'sourceMapBasepath' => '<PATH DOES NOT EXIST BUT SUPRESSES WARNINGS>'
             ]);
         }
-        $css = $scss->compile('@import "' . $file . '"');
+
+        $css = $scss->compile($this->resolveCode($file));
 
         $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
         $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen($this->getPathSite()))) . '/';
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativePath . '$3")';
         $css = preg_replace($search, $replace, $css);
+
+        $parsedFiles = $scss->getParsedFiles();
+        if (!isset($parsedFiles[$absoluteFilename])) {
+            $parsedFiles[$absoluteFilename] = filemtime($absoluteFilename);
+        }
 
         return [
             'css' => $css,
@@ -98,10 +105,67 @@ class ScssParser extends AbstractParser
                 'date' => date('r'),
                 'css' => $css,
                 'etag' => md5($css),
-                'files' => $scss->getParsedFiles(),
+                'files' => $parsedFiles,
                 'variables' => $settings['variables'],
                 'sourceMap' => $settings['options']['sourceMap']
             ]
         ];
+    }
+
+    /**
+     * Substitutes relative @import paths with according matching visual paths.
+     * This scenarios happens, when e.g. developing packages using the `path`
+     * repository feature of Composer - having one package in `public/typo3conf/ext/`
+     * and the other one symlinked in e.g. `packages/`.
+     *
+     * Since the SCSS parser works on resolved real paths, the symlinked context
+     * is lost. This method tries to keep the meaning for resolving absolute
+     * references to their matching directories.
+     *
+     * @param string $file
+     * @return string
+     */
+    protected function resolveCode($file)
+    {
+        $visualFilePath = GeneralUtility::getFileAbsFileName($file);
+        $realFilePath = realpath($visualFilePath);
+        if ($visualFilePath === $realFilePath) {
+            return '@import "' . $file . '"';
+        }
+
+        $visualDirectory = dirname($visualFilePath);
+        $realDirectory = dirname($realFilePath);
+        $code = file_get_contents($visualFilePath);
+        if (preg_match_all('#@import\s+"([^"]+)"#', $code, $matches)) {
+            $substitutes = [];
+            foreach ($matches[1] as $index => $import) {
+                if (strpos($import, '/') === 0) {
+                    continue;
+                }
+                $realCandidate = PathUtility::getCanonicalPath(
+                    $realDirectory . '/' . $import
+                );
+                $visualCandidate = PathUtility::getCanonicalPath(
+                    $visualDirectory . '/' . $import
+                );
+                if (!file_exists(dirname($realCandidate))
+                    && file_exists(dirname($visualCandidate))) {
+                    $importLine = $matches[0][$index];
+                    $substitutes[$importLine] = str_replace(
+                        $import,
+                        $visualCandidate,
+                        $importLine
+                    );
+                }
+            }
+            if (!empty($substitutes)) {
+                $code = str_replace(
+                    array_keys($substitutes),
+                    array_values($substitutes),
+                    $code
+                );
+            }
+        }
+        return $code;
     }
 }
