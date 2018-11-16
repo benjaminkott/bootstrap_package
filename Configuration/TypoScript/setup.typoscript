@@ -334,6 +334,12 @@ page {
             attribute = property
             field = description
         }
+        og:url = TEXT
+        og:url {
+            typolink.parameter.data = TSFE:id
+            typolink.forceAbsoluteUrl = 1
+            typolink.returnLast = url
+        }
         og:image {
             attribute = property
             stdWrap.cObject = FILES
