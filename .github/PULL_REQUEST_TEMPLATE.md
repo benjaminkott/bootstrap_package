@@ -2,7 +2,8 @@ Fixes # .
 
 ### Prerequisites
 
-* [ ] Changes have been tested on TYPO3 8.7 LTS
+* [ ] Changes have been tested on TYPO3 v8.7 LTS
+* [ ] Changes have been tested on TYPO3 v9.5 LTS
 * [ ] Changes have been tested on TYPO3 dev-master
 * [ ] Changes have been tested on PHP 7.0.x
 * [ ] Changes have been tested on PHP 7.1.x
