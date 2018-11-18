@@ -114,7 +114,7 @@ Test the Bootstrap Package
 ==========================
 
 If you are interested in the Bootstrap Package you can test it in our
-`Vagrant Box <https://github.com/benjaminkott/bootstrap_package_box>`_.
+`Introduction <https://github.com/benjaminkott/site-introduction>`_ Demo Setup.
 
 Contact & Communication
 =======================
