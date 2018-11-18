@@ -1,3 +1,10 @@
+---
+name: Bug report
+about: Create a report to help us improve
+labels: 
+
+---
+
 ### Prerequisites
 
 * [ ] Can you reproduce the problem on TYPO3 v8.7 LTS
