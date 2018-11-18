@@ -31,10 +31,10 @@
                                     </f:if>
                                 </div>
                             </f:if>
-                            <f:if condition="{page.data.title}">
+                            <f:if condition="{page.title}">
                                 <h3 class="card-title">
                                     <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
-                                        <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.data.title}</f:format.crop>
+                                        <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.title}</f:format.crop>
                                     </a>
                                 </h3>
                             </f:if>
