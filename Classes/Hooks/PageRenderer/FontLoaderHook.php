@@ -233,7 +233,6 @@ class FontLoaderHook
         return $urlPrefix . $filename;
     }
 
-
     /**
      * @param $cssIncludes
      * @param $key
@@ -246,7 +245,7 @@ class FontLoaderHook
             foreach ($cssIncludes[$key . '.']['fontLoader.']['families.'] as $family) {
                 $families[] = GoogleFontUrlParser::parseSimple($family);
             }
-        } else if ($cssIncludes[$key . '.']['fontLoader.']['families.']) {
+        } elseif ($cssIncludes[$key . '.']['fontLoader.']['families.']) {
             $families = $cssIncludes[$key . '.']['fontLoader.']['families.'];
         }
 

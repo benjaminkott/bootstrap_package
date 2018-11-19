@@ -50,7 +50,8 @@ class GoogleFontUrlParser
      * @param $url
      * @return string
      */
-    public static function getFamilyParameter($url) {
+    public static function getFamilyParameter($url)
+    {
         $parts = parse_url($url);
         parse_str($parts['query'], $query);
 
