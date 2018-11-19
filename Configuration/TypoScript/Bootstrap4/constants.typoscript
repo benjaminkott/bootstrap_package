@@ -190,7 +190,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/font-family-monospace; type=string; label=$font-family-monospace:
             font-family-monospace = SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
             # cat=bootstrap 4.x: styling/308/font-family-base; type=string; label=$font-family-base:
-            font-family-base = "#{$google-webfont}", sans-serif
+            font-family-base = "#{$google-webfont-0}", sans-serif
             # cat=bootstrap 4.x: styling/308/font-size-base; type=string; label=$font-size-base:
             font-size-base = 1rem
             # cat=bootstrap 4.x: styling/308/font-weight-light; type=string; label=$font-weight-light:

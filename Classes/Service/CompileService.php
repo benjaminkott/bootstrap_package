@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Service;
 
+use BK2K\BootstrapPackage\Parser\GoogleFontUrlParser;
 use BK2K\BootstrapPackage\Parser\ParserInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -94,10 +95,12 @@ class CompileService
         $variables = [];
 
         // Fetch Google Font
-        $variables['google-webfont'] = 'sans-serif';
+        $variables['google-webfont-0'] = 'sans-serif';
         if (!empty($constants['page.theme.googleFont.enable'])
-            && !empty($constants['page.theme.googleFont.font'])) {
-            $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
+            && !empty($constants['page.theme.googleFont.url'])) {
+            foreach (GoogleFontUrlParser::parse($constants['page.theme.googleFont.url']) as $key => $googleFont) {
+                $variables['google-webfont-' . $key] = $googleFont[0];
+            }
         }
 
         // Fetch SCSS / Less settings

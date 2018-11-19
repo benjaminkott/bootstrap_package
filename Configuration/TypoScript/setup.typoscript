@@ -366,15 +366,16 @@ page {
     }
 
     includeCSSLibs {
-        googlewebfont = https://fonts.googleapis.com/css?family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
+        googlewebfont = {$page.theme.googleFont.url}
         googlewebfont {
             external = 1
             disableCompression = 1
             excludeFromConcatenation = 1
             fontLoader {
                 families {
-                    0 = {$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
+                    0 = {$page.theme.googleFont.url}
                 }
+                isGoogleFontUrl = 1
                 enabled = 1
             }
             if {

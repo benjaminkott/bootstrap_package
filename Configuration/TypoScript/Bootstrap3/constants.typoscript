@@ -218,7 +218,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 3.x: styling/302/font-family-monospace; type=string; label=@font-family-monospace: Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
             font-family-monospace = Menlo, Monaco, Consolas, "Courier New", monospace
             # cat=bootstrap 3.x: styling/302/font-family-base; type=string; label=@font-family-base:
-            font-family-base = "@{google-webfont}", sans-serif
+            font-family-base = "@{google-webfont-0}", sans-serif
 
             # cat=bootstrap 3.x: styling/302/font-size-base; type=string; label=@font-size-base:
             font-size-base = 16px

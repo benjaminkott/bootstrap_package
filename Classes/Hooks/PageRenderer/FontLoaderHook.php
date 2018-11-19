@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
+use BK2K\BootstrapPackage\Parser\GoogleFontUrlParser;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -88,7 +89,7 @@ class FontLoaderHook
                     'section' => $section,
                     'filename' => $filename,
                     'url' => $url,
-                    'families' => $cssIncludes[$key . '.']['fontLoader.']['families.'] ?: []
+                    'families' => $this->getFontFamilies($cssIncludes, $key)
                 ];
             }
         }
@@ -230,5 +231,25 @@ class FontLoaderHook
             $urlPrefix = GeneralUtility::getIndpEnv('TYPO3_SITE_PATH');
         }
         return $urlPrefix . $filename;
+    }
+
+
+    /**
+     * @param $cssIncludes
+     * @param $key
+     * @return array
+     */
+    private function getFontFamilies($cssIncludes, $key)
+    {
+        $families = [];
+        if ($cssIncludes[$key . '.']['fontLoader.']['isGoogleFontUrl']) {
+            foreach ($cssIncludes[$key . '.']['fontLoader.']['families.'] as $family) {
+                $families[] = GoogleFontUrlParser::parseSimple($family);
+            }
+        } else if ($cssIncludes[$key . '.']['fontLoader.']['families.']) {
+            $families = $cssIncludes[$key . '.']['fontLoader.']['families.'];
+        }
+
+        return $families;
     }
 }
