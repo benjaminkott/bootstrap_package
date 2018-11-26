@@ -13,6 +13,7 @@ defined('TYPO3_MODE') || die();
  * Define TypoScript as content rendering template
  */
 $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappackage/Configuration/TypoScript/';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappackage/Configuration/TypoScript/ContentElement/';
 
 /***************
  * Make the extension configuration accessible
