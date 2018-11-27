@@ -8423,7 +8423,7 @@ body,
 }
 .navbar-mainnavigation .dropdown-divider {
   height: 0;
-  margin: 0.5rem 0;
+  margin: 0.5em 0;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -10934,7 +10934,7 @@ body .typo3-editPanel-btn:hover,
 }
 .timeline-item-image .caption {
   font-size: 0.8em;
-  padding: 0.5rem 1.5em;
+  padding: 0.5em 1.5em;
   color: black;
   background-color: #f2f2f2;
 }
