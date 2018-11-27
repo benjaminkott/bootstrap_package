@@ -8722,7 +8722,7 @@ body,
 }
 .subnav-nav .subnav-nav {
   margin-top: -1px;
-  border-left: 1rem solid #f8f8f8;
+  border-left: 1em solid #f8f8f8;
 }
 .subnav-nav .subnav-nav:before {
   position: absolute;
@@ -8734,7 +8734,7 @@ body,
   background-color: #e6e6e6;
 }
 .subnav-divider {
-  height: 0.5rem;
+  height: 0.5em;
 }
 .subnav-item .subnav-divider {
   background-color: #f8f8f8;
@@ -8750,7 +8750,7 @@ body,
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   color: inherit;
   border: 1px solid #e6e6e6;
   transition: all 0.15s ease-in-out;
@@ -10487,13 +10487,13 @@ body .typo3-editPanel-btn:hover,
   height: 100%;
 }
 .card-menu .card-icon {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 .card-menu .card-title {
-  font-size: 1.35rem;
+  font-size: 1.35em;
 }
 .card-menu .card-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   margin-bottom: 0.75em;
 }
 .card-menu .card-link {
@@ -10545,10 +10545,10 @@ body .typo3-editPanel-btn:hover,
   height: 100%;
 }
 .card-group-element-item .card-title {
-  font-size: 1.35rem;
+  font-size: 1.35em;
 }
 .card-group-element-item .card-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   margin-bottom: 0.75em;
 }
 .card-group-element-item .card-footer {
