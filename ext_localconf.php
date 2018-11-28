@@ -272,13 +272,6 @@ if (TYPO3_MODE === 'BE' && !class_exists(\TYPO3\CMS\Core\Configuration\Extension
 if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class)) {
     // SignalSlot dispatcher
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-    // Register slot to build nessesary sql
-    $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
-        'tablesDefinitionIsBeingBuilt',
-        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
-        'addSqlFields'
-    );
     // Register slot to build TCA for content elements
     $signalSlotDispatcher->connect(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::class,
