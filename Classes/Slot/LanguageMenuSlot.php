@@ -16,28 +16,6 @@ namespace BK2K\BootstrapPackage\Slot;
 class LanguageMenuSlot
 {
     /**
-     * Adds additional SQL fields to sys_language
-     *
-     * @param array $sql
-     * @return array
-     */
-    public function addSqlFields(array $sql): array
-    {
-        $sql[] = '
-            CREATE TABLE sys_language (
-                nav_title varchar(255) DEFAULT \'\' NOT NULL,
-                locale varchar(20) DEFAULT \'\' NOT NULL,
-                hreflang varchar(20) DEFAULT \'\' NOT NULL,
-                direction varchar(3) DEFAULT \'\' NOT NULL,
-            );
-        ';
-
-        return [
-            $sql
-        ];
-    }
-
-    /**
      * Adds additional TCA fields to sys_language
      *
      * @param array $tca
