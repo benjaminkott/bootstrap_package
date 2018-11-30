@@ -264,7 +264,7 @@ page {
         compatible = IE=edge
         # cat=bootstrap package: meta data/120/140; type=string; label=google
         google = notranslate
-        # cat=bootstrap package: meta data/120/150; type=string; label=google-site-verfification
+        # cat=bootstrap package: meta data/120/150; type=string; label=google-site-verification
         google-site-verification =
     }
 
@@ -286,11 +286,11 @@ config {
     removeDefaultJS = 0
     # cat=bootstrap package: config/150/130; type=boolean; label=Compress JavaScript
     compressJs = 0
-    # cat=bootstrap package: config/150/140; type=boolean; label=Compress Css
+    # cat=bootstrap package: config/150/140; type=boolean; label=Compress CSS
     compressCss = 0
     # cat=bootstrap package: config/150/150; type=boolean; label=Concatenate JavaScript
     concatenateJs = 1
-    # cat=bootstrap package: config/150/160; type=boolean; label=Concatenate Css
+    # cat=bootstrap package: config/150/160; type=boolean; label=Concatenate CSS
     concatenateCss = 1
     # cat=bootstrap package: config/150/170; type=boolean; label=Admin Panel
     admPanel = 1
@@ -300,7 +300,7 @@ config {
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/
     # cat=bootstrap package: config/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
     sendCacheHeaders = 1
-    # cat=bootstrap package: config/150/220; type=boolean; label=Enable links accross domains: This option enables to create links across domains using current domain's linking scheme.
+    # cat=bootstrap package: config/150/220; type=boolean; label=Enable links across domains: This option enables to create links across domains using current domain's linking scheme.
     typolinkEnableLinksAcrossDomains = 0
 }
 
@@ -311,7 +311,7 @@ plugin.bootstrap_package {
     settings {
         # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your LESS/Scss files will be overridden with the ones defined as TypoScript Constants.
         overrideParserVariables = 1
-        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
+        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug LESS/Scss in browser developer tools. Note: CSS compression will be disabled.
         cssSourceMapping = 0
     }
 }

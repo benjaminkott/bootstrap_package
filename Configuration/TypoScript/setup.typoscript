@@ -82,8 +82,8 @@ page {
 
     10 = FLUIDTEMPLATE
     10 {
-        # Template names will be generated automaticly by converting the applied
-        # backend_layout, there is no explicit mapping nessesary anymore.
+        # Template names will be generated automatically by converting the applied
+        # backend_layout, there is no explicit mapping necessary anymore.
         #
         # BackendLayout Key
         # subnavigation_right_2_columns -> SubnavigationRight2Columns.html
