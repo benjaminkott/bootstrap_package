@@ -38,7 +38,7 @@
 //
 // Frame Styles
 //
-.frame-ruler-before {
+.frame-ruler-before:before {
     border-top: 1px solid rgba(0, 0, 0, .125);
     @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {
@@ -47,7 +47,7 @@
         }
     }
 }
-.frame-ruler-after {
+.frame-ruler-after:after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
     @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
         @include media-breakpoint-up($breakpoint) {

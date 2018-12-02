@@ -53,7 +53,7 @@
 //
 // Frame Styles
 //
-.frame-ruler-before {
+.frame-ruler-before:before {
     border-top: 1px solid rgba(0, 0, 0, .125);
     margin-top: @frame-inner-spacing;
     @media (min-width: @screen-sm) {
@@ -66,7 +66,7 @@
         margin-top: (@frame-inner-spacing * @frame-inner-spacing-scaling-lg);
     }
 }
-.frame-ruler-after {
+.frame-ruler-after:after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
     margin-bottom: @frame-inner-spacing;
     @media (min-width: @screen-sm) {
