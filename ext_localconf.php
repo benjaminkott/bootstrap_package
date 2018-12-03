@@ -118,24 +118,24 @@ if (TYPO3_MODE === 'BE') {
 /***************
  * Register google font hook
  */
-if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+if (!$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
 }
 
 /***************
  * Register css processing parser
  */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\ScssParser::class] =
     \BK2K\BootstrapPackage\Parser\ScssParser::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\LessParser::class] =
     \BK2K\BootstrapPackage\Parser\LessParser::class;
 
 /***************
  * Register css processing hooks
  */
-if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing'])) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+if (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
@@ -162,9 +162,7 @@ if (!$bootstrapPackageConfiguration['disableFontLoader']) {
         '    fadeDuration = 0.25',
         '}'
     ]));
-}
-if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableFontLoader'])) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
 }
 
@@ -327,7 +325,7 @@ if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::clas
         '    direction = ltr',
         '}'
     ]));
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][\BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class]
         = \BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class . '->addLanguageSetup';
     // Register formEngine nodes
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
