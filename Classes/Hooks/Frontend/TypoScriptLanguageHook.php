@@ -11,8 +11,12 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Hooks\Frontend;
 
 use BK2K\BootstrapPackage\Utility\LanguageUtility;
+use Doctrine\DBAL\DBALException;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Dynamically creates language config for TS Setup
@@ -82,7 +86,16 @@ class TypoScriptLanguageHook
     public function addLanguageSetup(&$params, &$templateService)
     {
         if (TYPO3_MODE === 'BE') {
-            ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
+            try {
+                ExtensionManagementUtility::addTypoScriptSetup($this->createLanguageConditions());
+            } catch (DBALException $exception) {
+                $message = 'The database schema is not up-to-date. Please go to the install tool and use "database compare" to fix this error.  ' . $exception->getMessage();
+                $flashMessage = GeneralUtility::makeInstance(FlashMessage::class, $message, '', FlashMessage::ERROR, true);
+                $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+                $defaultFlashMessageQueue = $flashMessageService->getMessageQueueByIdentifier();
+                $defaultFlashMessageQueue->enqueue($flashMessage);
+                GeneralUtility::sysLog($message, 'bootstrap_package', GeneralUtility::SYSLOG_SEVERITY_ERROR);
+            }
         } else {
             $templateService->config = [$this->createLanguageConditions()] + $templateService->config;
         }
