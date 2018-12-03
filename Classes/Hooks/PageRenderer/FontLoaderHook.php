@@ -126,7 +126,7 @@ class FontLoaderHook
             $bodyStyles[] = 'background-repeat:no-repeat;';
             $bodyStyles[] = 'content:\'\';';
             $bodyStyles[] = 'position:fixed;';
-            $bodyStyles[] = 'top:0;';
+            $bodyStyles[] = 'top:-100%;';
             $bodyStyles[] = 'left:0;';
             $bodyStyles[] = 'z-index:10000;';
             $bodyStyles[] = 'opacity:0;';
@@ -152,11 +152,13 @@ class FontLoaderHook
             $loadingStyles = [];
             $bodyStyles[] = 'user-select:initial;';
             $bodyStyles[] = 'pointer-events:initial;';
-            $loadingStyles[] = 'opacity: 1!important;';
+            $loadingStyles[] = 'top:0;';
+            $loadingStyles[] = 'opacity:1!important;';
 
             $duration = (float) $this->getTypoScriptConstant('page.preloader.fadeDuration');
             $transition = 'opacity ' . $duration . 's ease-out';
             $activeStyles = [];
+            $activeStyles[] = 'top: 0;';
             $activeStyles[] = 'opacity:0!important;';
             $activeStyles[] = 'user-select:none;';
             $activeStyles[] = 'pointer-events:none;';
