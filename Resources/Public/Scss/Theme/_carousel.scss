@@ -59,6 +59,16 @@
 }
 
 //
+// Carousel Fade
+//
+.carousel-fade {
+    .carousel-item {
+        perspective: initial !important;
+        transform: initial !important;
+    }
+}
+
+//
 // Carousel Backgroundimage
 //
 .carousel {
@@ -80,6 +90,9 @@
     }
     .carousel-backgroundimage-parallax {
         background-attachment: fixed;
+        @media (hover: none) {
+            background-attachment: initial;
+        }
         background-repeat: no-repeat;
     }
     .carousel-backgroundimage-blur {

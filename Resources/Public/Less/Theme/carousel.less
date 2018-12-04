@@ -83,6 +83,9 @@
     }
     .carousel-backgroundimage-parallax {
         background-attachment: fixed;
+        @media (hover: none) {
+            background-attachment: initial;
+        }
         background-repeat: no-repeat;
     }
     .carousel-backgroundimage-blur {
@@ -242,6 +245,8 @@
 .carousel-fade {
     .transition(opacity .6s ease-in-out 0s);
     .carousel-item {
+        perspective: initial !important;
+        transform: initial !important;
         opacity: 0;
         @media all and (transform-3d), (-webkit-transform-3d) {
             transition: opacity .6s ease-in-out 0s;
