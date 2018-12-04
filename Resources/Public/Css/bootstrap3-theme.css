@@ -8877,6 +8877,11 @@ body,
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+@media (hover: none) {
+  .carousel .carousel-backgroundimage-parallax {
+    background-attachment: initial;
+  }
+}
 .carousel .carousel-backgroundimage-blur {
   filter: blur(10px);
   width: calc(100% + 40px);
@@ -9030,6 +9035,8 @@ body,
   transition: opacity 0.6s ease-in-out 0s;
 }
 .carousel-fade .carousel-item {
+  perspective: initial !important;
+  transform: initial !important;
   opacity: 0;
 }
 @media all and (transform-3d), (-webkit-transform-3d) {
@@ -9591,6 +9598,11 @@ body,
 .frame-backgroundimage-parallax {
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+@media (hover: none) {
+  .frame-backgroundimage-parallax {
+    background-attachment: initial;
+  }
 }
 .frame-backgroundimage-blur {
   filter: blur(10px);

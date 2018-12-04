@@ -9134,6 +9134,12 @@ a.text-dark:hover, a.text-dark:focus {
   background-repeat: no-repeat;
 }
 
+@media (hover: none) {
+  .frame-backgroundimage-parallax {
+    background-attachment: initial;
+  }
+}
+
 .frame-backgroundimage-blur {
   filter: blur(10px);
   width: calc(100% + 40px);
@@ -10952,6 +10958,11 @@ figure .caption {
   }
 }
 
+.carousel-fade .carousel-item {
+  perspective: initial !important;
+  transform: initial !important;
+}
+
 .carousel .carousel-backgroundimage-container {
   overflow: hidden;
 }
@@ -10974,6 +10985,12 @@ figure .caption {
 .carousel .carousel-backgroundimage-parallax {
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+@media (hover: none) {
+  .carousel .carousel-backgroundimage-parallax {
+    background-attachment: initial;
+  }
 }
 
 .carousel .carousel-backgroundimage-blur {
