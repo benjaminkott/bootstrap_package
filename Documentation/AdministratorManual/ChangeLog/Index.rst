@@ -20,6 +20,24 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10.0.4     | - [FEATURE] Collapsible in accordion should scroll to the top of its contents (#589)                                                                                       |
+|            | - [TASK] Update leafo/scssphp to v0.7.7 - fixes #612                                                                                                                       |
+|            | - [TASK] Name hooks and always register them, regardless of context                                                                                                        |
+|            | - [TASK] Add option to disable the web font loader                                                                                                                         |
+|            | - [BUGFIX] Ensure parallax effect works across all desktop browsers - fixes #610                                                                                           |
+|            | - [BUGFIX] Keep page accessible on early javascript errors                                                                                                                 |
+|            | - [BUGFIX] Catch exception in TYPO3 8.7 backend on database configuration missmatch                                                                                        |
+|            | - [BUGFIX] Minor fixes to wording - fixes #606                                                                                                                             |
+|            | - [BUGFIX] Avoid update problems and always include sql adjustments for sys_language                                                                                       |
+|            | - [BUGFIX] Move parsefunc and dynamic content to content rendering definition                                                                                              |
+|            | - [BUGFIX] Use typolink instead of page viewhelper for wizard fields                                                                                                       |
+|            | - [BUGFIX] Do not use rem in bootstrap 3 context - part 2                                                                                                                  |
+|            | - [BUGFIX] Do not use rem in bootstrap 3 context                                                                                                                           |
+|            | - [BUGFIX] Make standalone element configuration availabe as rendering template                                                                                            |
+|            | - [BUGFIX] Remove obsolete unsetting of the list content element for plugins                                                                                               |
+|            | - [BUGFIX] Correct path in comment to bootstrap resource files - fixes #590                                                                                                |
+|            | - [BUGFIX] Respect title configuration in menu card and menu thumbnail elements - fixes #591                                                                               |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10.0.3     | - [TASK] Remove install notification for unsupported webservers - fixes #562                                                                                               |
 |            | - [BUGFIX] Streamline file property access to also lead sys_file data - #578                                                                                               |
 |            | - [BUGFIX] Add fallback handling for unsupported pointer events in safari - #571                                                                                           |

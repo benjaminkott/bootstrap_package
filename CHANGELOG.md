@@ -1,3 +1,28 @@
+# 10.0.4
+
+## FEATURE
+- [FEATURE] Collapsible in accordion should scroll to the top of its contents (#589) d5c4e490
+
+## TASK
+- [TASK] Update leafo/scssphp to v0.7.7 - fixes #612 76648180
+- [TASK] Name hooks and always register them, regardless of context 0b3b81e7
+- [TASK] Add option to disable the web font loader 4bbbaf7d
+
+## BUGFIX
+- [BUGFIX] Ensure parallax effect works across all desktop browsers - fixes #610 47e945c2
+- [BUGFIX] Keep page accessible on early javascript errors c5c476a1
+- [BUGFIX] Catch exception in TYPO3 8.7 backend on database configuration missmatch 1ce4f9e6
+- [BUGFIX] Minor fixes to wording - fixes #606 7f50159a
+- [BUGFIX] Avoid update problems and always include sql adjustments for sys_language c6ba9af2
+- [BUGFIX] Move parsefunc and dynamic content to content rendering definition 2ec0f6ff
+- [BUGFIX] Use typolink instead of page viewhelper for wizard fields e8ca20f4
+- [BUGFIX] Do not use rem in bootstrap 3 context - part 2 ff0ae0ef
+- [BUGFIX] Do not use rem in bootstrap 3 context 1f288976
+- [BUGFIX] Make standalone element configuration availabe as rendering template fb31bd7c
+- [BUGFIX] Remove obsolete unsetting of the list content element for plugins e6358ab0
+- [BUGFIX] Correct path in comment to bootstrap resource files - fixes #590 d4149cb5
+- [BUGFIX] Respect title configuration in menu card and menu thumbnail elements - fixes #591 d75f81fb
+
 # 10.0.3
 
 ## TASK
