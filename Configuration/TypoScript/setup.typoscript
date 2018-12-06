@@ -301,13 +301,21 @@ page {
         description {
             override.field = description
         }
-        author = {$page.meta.author}
-        author {
-            override.field = author
-        }
         keywords = {$page.meta.keywords}
         keywords {
-            override.field = keywords
+            stdWrap {
+                override {
+                    data = page:keywords
+                }
+            }
+        }
+        author = {$page.meta.author}
+        author {
+            stdWrap {
+                override {
+                    data = page:author
+                }
+            }
         }
         X-UA-Compatible = {$page.meta.compatible}
         X-UA-Compatible {
