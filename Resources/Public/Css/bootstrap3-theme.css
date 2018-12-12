@@ -7915,7 +7915,7 @@ figure picture {
 figure .caption {
   padding-top: 0.5em;
   font-size: 0.85em;
-  word-break: break-all;
+  word-wrap: break-word;
   opacity: 0.8;
   text-align: center;
 }
