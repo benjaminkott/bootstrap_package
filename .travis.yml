@@ -3,7 +3,6 @@ sudo: false
 language: php
 
 php:
-  - 5.3
   - 5.4
   - 5.5
   - 7.0
@@ -16,8 +15,6 @@ env:
 
 matrix:
   exclude:
-    - php: 5.3
-      env: TYPO3_VERSION=^7.6
     - php: 5.4
       env: TYPO3_VERSION=^7.6
     - php: 7.0
