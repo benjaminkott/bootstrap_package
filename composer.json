@@ -43,10 +43,7 @@
   "config": {
     "optimize-autoloader": true,
     "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin",
-    "preferred-install": {
-      "typo3/cms": "source"
-    }
+    "bin-dir": ".build/bin"
   },
   "scripts": {
     "post-autoload-dump": [
