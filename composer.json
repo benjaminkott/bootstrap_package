@@ -29,8 +29,7 @@
     "typo3/cms-core": "^7.6 || ^8.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*",
-    "namelesscoder/typo3-repository-client": "^1.2"
+    "friendsofphp/php-cs-fixer": "^2.2.20"
   },
   "autoload": {
     "psr-4": {
@@ -44,10 +43,7 @@
   "config": {
     "optimize-autoloader": true,
     "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin",
-    "preferred-install": {
-      "typo3/cms": "source"
-    }
+    "bin-dir": ".build/bin"
   },
   "scripts": {
     "post-autoload-dump": [

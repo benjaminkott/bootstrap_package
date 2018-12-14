@@ -1,29 +1,13 @@
 <?php
-namespace BK2K\BootstrapPackage\DataProcessing;
 
 /*
- *  The MIT License (MIT)
+ * This file is part of the package bk2k/bootstrap-package.
  *
- *  Copyright (c) 2015 Benjamin Kott, http://www.bk2k.info
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace BK2K\BootstrapPackage\DataProcessing;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
@@ -147,12 +131,12 @@ class MenuProcessor implements DataProcessorInterface
                 ],
                 '21' => 'TEXT',
                 '21.' => [
-                    'value' => MenuProcessor::LINK_PLACEHOLDER,
+                    'value' => self::LINK_PLACEHOLDER,
                     'wrap' => ',"link":|',
                 ],
                 '22' => 'TEXT',
                 '22.' => [
-                    'value' => MenuProcessor::TARGET_PLACEHOLDER,
+                    'value' => self::TARGET_PLACEHOLDER,
                     'wrap' => ',"target":|',
                 ],
                 '30' => 'TEXT',
@@ -375,7 +359,7 @@ class MenuProcessor implements DataProcessorInterface
 
         // Process menu
         $menu = json_decode($renderedMenu, true);
-        $processedMenu = array();
+        $processedMenu = [];
 
         foreach ($menu as $key => $page) {
             $processedMenu[$key] = $this->processAdditionalDataProcessors($page, $processorConfiguration);
@@ -452,8 +436,8 @@ class MenuProcessor implements DataProcessorInterface
         $link = $this->jsonEncode($menuItem['linkHREF']['HREF']);
         $target = $this->jsonEncode($menuItem['linkHREF']['TARGET']);
 
-        $menuItem['parts']['title'] = str_replace(MenuProcessor::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
-        $menuItem['parts']['title'] = str_replace(MenuProcessor::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(self::LINK_PLACEHOLDER, $link, $menuItem['parts']['title']);
+        $menuItem['parts']['title'] = str_replace(self::TARGET_PLACEHOLDER, $target, $menuItem['parts']['title']);
 
         return $menuItem;
     }

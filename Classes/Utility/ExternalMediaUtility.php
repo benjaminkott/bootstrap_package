@@ -1,34 +1,18 @@
 <?php
-namespace BK2K\BootstrapPackage\Utility;
 
 /*
- *  The MIT License (MIT)
+ * This file is part of the package bk2k/bootstrap-package.
  *
- *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace BK2K\BootstrapPackage\Utility;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * ExternalMediaUtility
  */
 class ExternalMediaUtility
 {
@@ -36,11 +20,11 @@ class ExternalMediaUtility
     /**
      * @var array Provider that can be handled, the provider is equal the hostname and needs a process function
      */
-    protected $mediaProvider = array(
+    protected $mediaProvider = [
         'youtube',
         'youtu',
         'vimeo'
-    );
+    ];
 
     /**
      * Get the embed code for the given url if possible
@@ -80,7 +64,7 @@ class ExternalMediaUtility
         $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
         foreach ($this->mediaProvider as $provider) {
             $functionName = 'process' . ucfirst($provider);
-            if (in_array($provider, $hostName) && is_callable(array($this, $functionName))) {
+            if (in_array($provider, $hostName) && is_callable([$this, $functionName])) {
                 return $functionName;
             }
         }
@@ -95,7 +79,7 @@ class ExternalMediaUtility
      */
     protected function processYoutube($url)
     {
-        $matches = array();
+        $matches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
         if (preg_match($pattern, $url, $matches)) {
             $toEmbed = $matches[1];
@@ -127,7 +111,7 @@ class ExternalMediaUtility
      */
     protected function processVimeo($url)
     {
-        $matches = array();
+        $matches = [];
         if (preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
             return 'https://player.vimeo.com/video/' . $matches[1];
         }

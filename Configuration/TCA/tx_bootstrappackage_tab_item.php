@@ -1,6 +1,14 @@
 <?php
-return array(
-    'ctrl' => array(
+
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+return [
+    'ctrl' => [
         'label' => 'header',
         'label_alt' => 'bodytext',
         'sortby' => 'sorting',
@@ -18,25 +26,25 @@ return array(
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
         'dividers2tabs' => true,
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
-        'typeicon_classes' => array(
+        ],
+        'typeicon_classes' => [
             'default' => 'content-bootstrappackage-tab-item'
-        )
-    ),
-    'interface' => array(
+        ]
+    ],
+    'interface' => [
         'showRecordFieldList' => '
             hidden,
             tt_content,
             header,
             bodytext
         ',
-    ),
-    'types' => array(
-        '1' => array(
+    ],
+    'types' => [
+        '1' => [
             'showitem' => '
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             header,
@@ -47,189 +55,189 @@ return array(
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
         '
-        ),
-    ),
-    'palettes' => array(
-        '1' => array(
+        ],
+    ],
+    'palettes' => [
+        '1' => [
             'showitem' => ''
-        ),
-        'access' => array(
+        ],
+        'access' => [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
             ',
             'canNotCollapse' => 1
-        ),
-        'general' => array(
+        ],
+        'general' => [
             'showitem' => '
                 tt_content
             ',
             'canNotCollapse' => 1
-        ),
-        'visibility' => array(
+        ],
+        'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item
             ',
             'canNotCollapse' => 1
-        ),
-    ),
-    'columns' => array(
-        'tt_content' => array(
+        ],
+    ],
+    'columns' => [
+        'tt_content' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.tt_content',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tt_content',
                 'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="bootstrap_package_tab"',
                 'maxitems' => 1,
-            ),
-        ),
-        'hidden' => array(
+            ],
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-                'items' => array(
-                    '1' => array(
+                'items' => [
+                    '1' => [
                         '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
-                    )
-                )
-            )
-        ),
-        'starttime' => array(
+                    ]
+                ]
+            ]
+        ],
+        'starttime' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '13',
                 'max' => '20',
                 'eval' => 'datetime',
                 'default' => '0'
-            ),
+            ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
-        ),
-        'endtime' => array(
+        ],
+        'endtime' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '13',
                 'max' => '20',
                 'eval' => 'datetime',
                 'default' => '0',
-                'range' => array(
+                'range' => [
                     'upper' => mktime(0, 0, 0, 12, 31, 2020)
-                )
-            ),
+                ]
+            ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
-        ),
-        'sys_language_uid' => array(
+        ],
+        'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => array(
-                    array(
+                'items' => [
+                    [
                         'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
                         -1
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
                         0
-                    )
-                )
-            )
-        ),
-        'l10n_parent' => array(
+                    ]
+                ]
+            ]
+        ],
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_bootstrappackage_tab_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_tab_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_tab_item.sys_language_uid IN (-1,0)',
-            )
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ]
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough'
-            )
-        ),
-        'header' => array(
+            ]
+        ],
+        'header' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.header',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 50,
                 'eval' => 'trim,required'
-            ),
-        ),
-        'bodytext' => array(
+            ],
+        ],
+        'bodytext' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.bodytext',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 3,
                 'softref' => 'rtehtmlarea_images,typolink_tag,email[subst],url',
-            ),
+            ],
             'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
-        ),
-        'media' => array(
+        ],
+        'media' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
-                array(
-                    'appearance' => array(
+                [
+                    'appearance' => [
                         'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ),
-                    'foreign_types' => array(
-                        '0' => array(
+                    ],
+                    'foreign_types' => [
+                        '0' => [
                             'showitem' => '
                                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
-                        ),
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
                                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
-                        ),
-                    ),
+                        ],
+                    ],
                     'minitems' => 0,
                     'maxitems' => 1,
-                ),
+                ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
-        ),
-        'mediaorient' => array(
+        ],
+        'mediaorient' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array(
+                'items' => [
+                    [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
                         0
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
                         1
-                    ),
-                ),
+                    ],
+                ],
                 'default' => 0,
-            )
-        ),
-    ),
-);
+            ]
+        ],
+    ],
+];
