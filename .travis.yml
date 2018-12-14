@@ -31,11 +31,6 @@ install:
 script:
   - >
     echo;
-    echo "Unit tests";
-    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
-
-  - >
-    echo;
     echo "PHP lint";
     find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
