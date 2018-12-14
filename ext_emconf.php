@@ -1,8 +1,12 @@
 <?php
 
-/************************************************************************
- * Extension Manager/Repository config file for ext "bootstrap_package".
- ************************************************************************/
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Bootstrap Package',
     'description' => 'Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.',
