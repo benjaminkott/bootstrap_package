@@ -1,51 +1,72 @@
 # .travis.yml
+sudo: false
 language: php
 
 php:
   - 5.3
   - 5.4
   - 5.5
-  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
 
 env:
-  global:
-    - EXTENSIONKEY=bootstrap_package
-  matrix:
-    - TYPO3_BRANCH=TYPO3_7-6
-    - TYPO3_BRANCH=TYPO3_6-2
+  - TYPO3_VERSION=^6.2
+  - TYPO3_VERSION=^7.6
+
 matrix:
   exclude:
     - php: 5.3
-      env: TYPO3_BRANCH=TYPO3_7-6
+      env: TYPO3_VERSION=^7.6
     - php: 5.4
-      env: TYPO3_BRANCH=TYPO3_7-6
-
-sudo: false
+      env: TYPO3_VERSION=^7.6
+    - php: 7.0
+      env: TYPO3_VERSION=^6.2
+    - php: 7.1
+      env: TYPO3_VERSION=^6.2
+    - php: 7.2
+      env: TYPO3_VERSION=^6.2
 
 addons:
   apt:
     packages:
       - parallel
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
 install:
-  - composer install --no-interaction
-
-before_script:
-  - cd ..
-  - git clone --single-branch --branch $TYPO3_BRANCH --depth 1 https://github.com/TYPO3/TYPO3.CMS.git typo3_core
-  - mv typo3_core/* .
-  - composer install
-  - mkdir -p typo3conf/ext
-  - mv $EXTENSIONKEY typo3conf/ext/
+  - composer require typo3/cms:${TYPO3_VERSION}
+  - git checkout composer.json
+  - export TYPO3_PATH_WEB="$PWD/.build/web"
 
 script:
   - >
     echo;
-    echo "Running php lint";
-    find typo3conf/ext/$EXTENSIONKEY/ -name \*.php ! -path "typo3conf/ext/$EXTENSIONKEY/vendor/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
-  - >
-    typo3conf/ext/$EXTENSIONKEY/vendor/bin/phpcs --standard=PSR2 -n typo3conf/ext/$EXTENSIONKEY/Classes/
+    echo "PHP lint";
+    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+
+jobs:
+  include:
+    - stage: dependencies
+      php: 5.5
+      sudo: true
+      script:
+        - >
+          echo "Installing node_modules";
+          pushd Build;
+          yarn install;
+        - >
+          echo "Install grunt cli";
+          npm install -g grunt-cli;
+        - >
+          echo "Executing grunt";
+          pushd Build;
+          grunt build;
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+notifications:
+  slack:
+    secure: fj3lIrSaDe0EzBu+Twng/3vz/Bn2bGtKhEA6hG2vBg1g+/n54l7uhzXjRWgMaI4gfwuBmDcJvPnG2EFweBuSJgQgxcXzCvScZ1Z4Xu+gAeCCCeuVJHsWE34erE86a5MeIAsDZhH2UG/MTOlpUqqdFCD59z5XA+E52LiyTp7QMi0=
+    on_success: change
+    on_failure: always
