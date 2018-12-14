@@ -1,55 +1,58 @@
 # .travis.yml
+sudo: false
 language: php
 
-branches:
-  only:
-    - master
+php:
+  - 7.0
+  - 7.1
+  - 7.2
 
-matrix:
-  fast_finish: true
-  include:
-    - php: 7.0
-      env: TYPO3_VERSION=^8.7
-    - php: 7.1
-      env: TYPO3_VERSION=^8.7
-    - php: 7.0
-      env: TYPO3_VERSION=dev-master
-    - php: 7.1
-      env: TYPO3_VERSION=dev-master
-
-sudo: false
+env:
+  - TYPO3_VERSION=^8
 
 addons:
   apt:
     packages:
       - parallel
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-before_install:
-  - phpenv config-rm xdebug.ini
-  - composer self-update
-  - composer --version
-
-before_script:
-  - composer require typo3/cms="$TYPO3_VERSION"
+install:
+  - composer require typo3/minimal:${TYPO3_VERSION}
+  - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
 script:
   - >
     echo;
-    echo "Running php lint";
+    echo "PHP lint";
     find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
-  - >
-    echo;
-    echo "Running php-cs-fixer";
-    .build/bin/php-cs-fixer --diff --dry-run -v fix
-  - >
-    echo "Installing npm modules";
-    pushd Build;
-    npm install && npm install grunt-cli;
-    echo "Executing grunt";
-    node_modules/.bin/grunt;
-    popd
+
+jobs:
+  include:
+    - stage: quality
+      php: 7.2
+      script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
+
+    - stage: dependencies
+      php: 7.2
+      sudo: true
+      script:
+        - >
+          echo "Installing node_modules";
+          pushd Build;
+          yarn install;
+        - >
+          echo "Install grunt cli";
+          npm install -g grunt-cli;
+        - >
+          echo "Executing grunt";
+          pushd Build;
+          grunt build;
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+notifications:
+  slack:
+    secure: fj3lIrSaDe0EzBu+Twng/3vz/Bn2bGtKhEA6hG2vBg1g+/n54l7uhzXjRWgMaI4gfwuBmDcJvPnG2EFweBuSJgQgxcXzCvScZ1Z4Xu+gAeCCCeuVJHsWE34erE86a5MeIAsDZhH2UG/MTOlpUqqdFCD59z5XA+E52LiyTp7QMi0=
+    on_success: change
