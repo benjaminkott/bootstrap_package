@@ -19,6 +19,19 @@ Information.
 
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 8.0.7      | - [TASK] Streamline changelog                                                                                                                                              |
+|            | - [TASK] Add vscode directory to gitignore                                                                                                                                 |
+|            | - [TASK] Remove preferred install for typo3/cms                                                                                                                            |
+|            | - [TASK] Update Bootstrap 3.x to 3.4.0                                                                                                                                     |
+|            | - [TASK] Update npm dependencies                                                                                                                                           |
+|            | - [TASK] Update travis configuration                                                                                                                                       |
+|            | - [TASK] Use youtube-nocookie url in external media utility                                                                                                                |
+|            | - [BUGFIX] Correct used less parser version                                                                                                                                |
+|            | - [BUGFIX] Correct paths to fonts                                                                                                                                          |
+|            | - [BUGFIX] Make Less Parser PHP 7.3 compatible (#617)                                                                                                                      |
+|            | - [BUGFIX] Process fieldName correctly in flexform data processor                                                                                                          |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 8.0.6      | - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine.                                                                                                      |
 |            | - [TASK] Move CMS9 backend branding to service that is only called on installation                                                                                         |
 |            | - [TASK] Move icon registration to localconf                                                                                                                               |

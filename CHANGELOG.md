@@ -1,3 +1,20 @@
+# 8.0.7
+
+## TASK
+- [TASK] Streamline changelog 2fa4d056
+- [TASK] Add vscode directory to gitignore ec221a36
+- [TASK] Remove preferred install for typo3/cms 25ec1161
+- [TASK] Update Bootstrap 3.x to 3.4.0 4949fdba
+- [TASK] Update npm dependencies 9d739e78
+- [TASK] Update travis configuration 6e5a9ee0
+- [TASK] Use youtube-nocookie url in external media utility e65aafea
+
+## BUGFIX
+- [BUGFIX] Correct used less parser version a9a1bee0
+- [BUGFIX] Correct paths to fonts b8000952
+- [BUGFIX] Make Less Parser PHP 7.3 compatible (#617) 641bdeef
+- [BUGFIX] Process fieldName correctly in flexform data processor e32ae9b1
+
 # 8.0.6
 
 ## BREAKING
