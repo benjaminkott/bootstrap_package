@@ -20,8 +20,7 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 7.1.0      | - [RELEASE] Release of 7.1.0                                                                                                                                               |
-|            | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
+| 7.1.0      | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
 |            | - [!!!][TASK] Reintroduce "no frame" option - fixes #319                                                                                                                   |
 |            | - [!!!][FEATURE] Add sections to visually group elements                                                                                                                   |
 |            | - [!!!][FEATURE] Adjust make footer color configurable                                                                                                                     |
@@ -128,6 +127,7 @@ Information.
 |            | - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself                                                                         |
 |            | - [TASK] Accessibility - correction of landmark                                                                                                                            |
 |            | - [TASK] Accessibility - Add link title attributes to logo constants, setup and html                                                                                       |
+|            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
 |            | - [BUGFIX] Add missing icon for text & media missing - fixes #417                                                                                                          |
 |            | - [BUGFIX] Adapt link tag parsing for RTE fields                                                                                                                           |
 |            | - [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading                                                                                      |
@@ -137,7 +137,7 @@ Information.
 |            | - [BUGFIX] Ensure that navbar-collapse has a maxheight if menu is fixed                                                                                                    |
 |            | - [BUGFIX] Enforce checkout with linux lf consistent over all plattforms                                                                                                   |
 |            | - [BUGFIX] Respect show in section menus option for pages in section index menu                                                                                            |
-|            | - [BUGFIX] Use smooth scroll only on elements that have an hash… (#398)                                                                                                    |
+|            | - [BUGFIX] Use smooth scroll only on elements that have an hash... (#398)                                                                                                  |
 |            | - [BUGFIX] Move temp folder back to root of typo3 temp                                                                                                                     |
 |            | - [BUGFIX] Remove double imagecols field in showitem configuration                                                                                                         |
 |            | - [BUGFIX] Workaround variable name cut off in CMS8 - fixes #388                                                                                                           |
@@ -178,8 +178,7 @@ Information.
 |            | - "usind" is wrong                                                                                                                                                         |
 |            | - Correct php-cs-fixer command                                                                                                                                             |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 7.0.0      | - [RELEASE] Release of 7.0.0                                                                                                                                               |
-|            | - [!!!][TASK] Send cache headers per default                                                                                                                               |
+| 7.0.0      | - [!!!][TASK] Send cache headers per default                                                                                                                               |
 |            | - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other                                                   |
 |            | - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor                                                                                                            |
 |            | - [!!!][TASK] Disable link to top                                                                                                                                          |
@@ -400,8 +399,7 @@ Information.
 |            | - Force preload images to allow print                                                                                                                                      |
 |            | - Add useful RTE buttons                                                                                                                                                   |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.15     | - [RELEASE] Release of 6.2.15                                                                                                                                              |
-|            | - [TASK] Add travis-ci build status image                                                                                                                                  |
+| 6.2.15     | - [TASK] Add travis-ci build status image                                                                                                                                  |
 |            | - [TASK] Remove unused coverage from travis                                                                                                                                |
 |            | - [TASK] Add phpcs as dev dependency to composer.json                                                                                                                      |
 |            | - [TASK] Remove TYPO3 dependencies and conflicts from composer.json                                                                                                        |
@@ -431,8 +429,7 @@ Information.
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.14     | - [RELEASE] Release of 6.2.14                                                                                                                                              |
-|            | - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4                                                                                             |
+| 6.2.14     | - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4                                                                                             |
 |            | - [TASK] Add migration information for backend layout prefix change                                                                                                        |
 |            | - [TASK] Add missing changelog for 6.2.12 and 6.2.13                                                                                                                       |
 |            | - [TASK] Update TypoScript template mapping for backend layouts                                                                                                            |
@@ -448,19 +445,16 @@ Information.
 |            | - Update Index.rst                                                                                                                                                         |
 |            | - Create index.rst                                                                                                                                                         |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.13     | - [RELEASE] Release of 6.2.13                                                                                                                                              |
-|            | - [TASK] Include css_styled_content and form in static template                                                                                                            |
+| 6.2.13     | - [TASK] Include css_styled_content and form in static template                                                                                                            |
 |            | - [BUGFIX] Remove leading slash from classnames in typoscript setup                                                                                                        |
 |            | - [BUGFIX] Restrict options for default tab to currently assigned items - fixes #197                                                                                       |
 |            | - Fix 'overridden' typos                                                                                                                                                   |
 |            | - Multiple fixes to composer.json                                                                                                                                          |
 |            | - Fix whitespace in ext_emconf.php                                                                                                                                         |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.12     | - [RELEASE] Release of 6.2.12                                                                                                                                              |
-|            | - [BUGFIX] Add missing static template for bootstrap package                                                                                                               |
+| 6.2.12     | - [BUGFIX] Add missing static template for bootstrap package                                                                                                               |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.11     | - [RELEASE] Release of 6.2.11                                                                                                                                              |
-|            | - [!!!][TASK] Remove compatibility to ext:themes through lack of resources                                                                                                 |
+| 6.2.11     | - [!!!][TASK] Remove compatibility to ext:themes through lack of resources                                                                                                 |
 |            | - [!!!][TASK] Cleanup deprecated template fallbacks                                                                                                                        |
 |            | - [!!!][FEATURE] Add template fallback support                                                                                                                             |
 |            | - [!!!][BUGFIX] Wrong path to font files - fixes #139                                                                                                                      |
@@ -548,8 +542,7 @@ Information.
 |            | - Update jquery.responsiveimages.js                                                                                                                                        |
 |            | - Fix indents in tab feature                                                                                                                                               |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.10     | - [RELEASE] Release of 6.2.10                                                                                                                                              |
-|            | - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables                                                                      |
+| 6.2.10     | - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables                                                                      |
 |            | - [FEATURE] new constant $page.logo.alt used to overwrite the default alt attribute of the logo image                                                                      |
 |            | - [FEATURE] make site logo alt attribute configurable                                                                                                                      |
 |            | - [FEATURE] Disable automatic less compiling - fixes #162                                                                                                                  |
@@ -581,8 +574,7 @@ Information.
 |            | - [Bugfix] FalViewHelper.php                                                                                                                                               |
 |            | - Update Base.ts                                                                                                                                                           |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.9      | - [RELEASE] Release of 6.2.9                                                                                                                                               |
-|            | - [TASK] Update jquery to 1.11.2                                                                                                                                           |
+| 6.2.9      | - [TASK] Update jquery to 1.11.2                                                                                                                                           |
 |            | - [TASK] Update modernizr to 2.8.3                                                                                                                                         |
 |            | - [TASK] Update less.php to current master                                                                                                                                 |
 |            | - [TASK] Throw exception on less compile error                                                                                                                             |
@@ -596,8 +588,7 @@ Information.
 |            | - Use array_merge_recursive() instead                                                                                                                                      |
 |            | - Don't overwrite existing configuration completely                                                                                                                        |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.8      | - [RELEASE] Release 6.2.8                                                                                                                                                  |
-|            | - [TASK] Make realurl optional                                                                                                                                             |
+| 6.2.8      | - [TASK] Make realurl optional                                                                                                                                             |
 |            | - [TASK] Remove e-mail from contact                                                                                                                                        |
 |            | - [TASK] Minify responsiveimages.js and and cleanup                                                                                                                        |
 |            | - [TASK] Cleanup CGL                                                                                                                                                       |
@@ -609,8 +600,7 @@ Information.
 |            | - Update newContentElement.txt                                                                                                                                             |
 |            | - Update jquery.responsiveimages.js                                                                                                                                        |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6.2.7      | - [RELEASE] Release 6.2.7                                                                                                                                                  |
-|            | - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101                                                                                |
+| 6.2.7      | - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101                                                                                |
 |            | - [TASK] Cleanup CGL                                                                                                                                                       |
 |            | - [TASK] Reformat all project-specific content to TYPO3.CMS CGL                                                                                                            |
 |            | - [TASK] Make getCompiledFile a static method - fixes #103 #104                                                                                                            |
