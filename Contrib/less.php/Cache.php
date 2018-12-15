@@ -7,7 +7,7 @@ require_once( dirname(__FILE__).'/Version.php');
  *
  * @package Less
  * @subpackage cache
- *
+ * @extensionScannerIgnoreFile
  */
 class Less_Cache{
 
