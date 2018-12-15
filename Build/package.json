@@ -9,16 +9,16 @@
   "license": "MIT",
   "devDependencies": {
     "bootstrap": "3.3.7",
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.3",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-imagemin": "^1.0.1",
-    "grunt-contrib-less": "^1.4.0",
-    "grunt-contrib-uglify": "^2.1.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-modernizr": "^1.0.2",
-    "hammerjs": "2.0.8",
-    "jquery": "3.1.1",
-    "photoswipe": "4.1.1"
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-imagemin": "^3.1.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-modernizr": "^1.0.3",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.3.1",
+    "photoswipe": "^4.1.2"
   }
 }
