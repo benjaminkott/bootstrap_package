@@ -1,3 +1,21 @@
+# 9.0.3
+
+## TASK
+- [TASK] Streamline changelog 6a38ec71
+- [TASK] Add vscode to gitignore 1fff542c
+- [TASK] Remove preferred install for typo3/cms 177f867e
+- [TASK] Update Bootstrap 3.x to 3.4.0 3f29789a
+- [TASK] Update npm dependencies be7e3a87
+- [TASK] Update travis configuration 1aa31cef
+
+## BUGFIX
+- [BUGFIX] Correct used less parser version e3cdcbcc
+- [BUGFIX] Make Less Parser PHP 7.3 compatible (#617) 26f53b25
+- [BUGFIX] Process fieldName correctly in flexform data processor 4acdf9dd
+- [BUGFIX] Correct docheader of CoreVersionCondition adf31f9c
+- [BUGFIX] Load extension configuration only when extensions are installed 89316707
+- [BUGFIX] Resolve deprecation for EXT:lang in TYPO3 v9.x 47d6a507
+
 # 9.0.2
 
 ## FEATURE

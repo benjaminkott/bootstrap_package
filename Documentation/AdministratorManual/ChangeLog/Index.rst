@@ -20,6 +20,19 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 9.0.3      | - [TASK] Streamline changelog                                                                                                                                              |
+|            | - [TASK] Add vscode to gitignore                                                                                                                                           |
+|            | - [TASK] Remove preferred install for typo3/cms                                                                                                                            |
+|            | - [TASK] Update Bootstrap 3.x to 3.4.0                                                                                                                                     |
+|            | - [TASK] Update npm dependencies                                                                                                                                           |
+|            | - [TASK] Update travis configuration                                                                                                                                       |
+|            | - [BUGFIX] Correct used less parser version                                                                                                                                |
+|            | - [BUGFIX] Make Less Parser PHP 7.3 compatible (#617)                                                                                                                      |
+|            | - [BUGFIX] Process fieldName correctly in flexform data processor                                                                                                          |
+|            | - [BUGFIX] Correct docheader of CoreVersionCondition                                                                                                                       |
+|            | - [BUGFIX] Load extension configuration only when extensions are installed                                                                                                 |
+|            | - [BUGFIX] Resolve deprecation for EXT:lang in TYPO3 v9.x                                                                                                                  |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 9.0.2      | - [FEATURE] Add typoscript condition to check typo3 core version                                                                                                           |
 |            | - [TASK] Use youtube-nocookie url in external media utility                                                                                                                |
 |            | - [BUGFIX] Use .typoscript fileeindng for configuratio files in TYPO3 >= 9.3 for external includes                                                                         |
