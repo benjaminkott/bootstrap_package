@@ -201,7 +201,7 @@ lib.stdheader {
             20 = TEXT
             20 {
                 field = subheader
-                htmlSpecialChars = 1
+                stdWrap.htmlSpecialChars = 1
                 stdWrap.noTrimWrap = | <small>|</small>|
                 stdWrap.required = 1
             }
