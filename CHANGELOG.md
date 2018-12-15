@@ -1,3 +1,17 @@
+# 7.0.6
+
+## TASK
+- [TASK] Update Less Parser 2a911b26
+- [TASK] Update bootstrap to 3.4.0 5d340e09
+- [TASK] Update jquery and hammer js 08febc1b
+- [TASK] Streamline changelog bfa13fda
+- [TASK] Update npm dependencies bc2f99f3
+- [TASK] Update travis configuration b9010c27
+- [TASK] Use youtube-nocookie url in external media utility 953d1a56
+
+## BUGFIX
+- [BUGFIX] Add type to linkVars language parameter 1726a18c
+
 # 7.0.5
 
 ## BUGFIX
