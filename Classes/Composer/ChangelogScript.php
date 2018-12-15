@@ -189,36 +189,31 @@ class ChangelogScript
             'Merge branch',
             'Scrutinizer Auto-Fixer',
             '[FOLLOWUP]',
-            '[RELEASE]',
+            '[RELEASE]'
         ];
+        $categories = [
+            'BUGFIX',
+            'TASK',
+            'FEATURE'
+        ];
+
         foreach ($logs as $version => $entries) {
             foreach ($entries['MISC'] as $logKey => $log) {
-                $blacklisted = false;
                 foreach ($blacklist as $blacklistedValue) {
-                    if (strstr($log['message'], $blacklistedValue)) {
-                        $blacklisted = true;
+                    if (strpos($log['message'], $blacklistedValue) !== false) {
                         unset($logs[$version]['MISC'][$logKey]);
+                        continue 2; // process next entry, jump out of both foreach
                     }
                 }
-                if ($blacklisted) {
-                    continue;
-                }
-                if (strstr($log['message'], '!!!')) {
+                if (strpos($log['message'], '!!!') !== false) {
                     $logs[$version]['BREAKING'][] = $log;
                     unset($logs[$version]['MISC'][$logKey]);
                 }
-                if (strstr($log['message'], '[BUGFIX]')) {
-                    $logs[$version]['BUGFIX'][] = $log;
-                    unset($logs[$version]['MISC'][$logKey]);
-                } elseif (strstr($log['message'], '[TASK]')) {
-                    $logs[$version]['TASK'][] = $log;
-                    unset($logs[$version]['MISC'][$logKey]);
-                } elseif (strstr($log['message'], '[FEATURE]')) {
-                    $logs[$version]['FEATURE'][] = $log;
-                    unset($logs[$version]['MISC'][$logKey]);
-                } elseif (strstr($log['message'], '[RELEASE]')) {
-                    $logs[$version]['RELEASE'][] = $log;
-                    unset($logs[$version]['MISC'][$logKey]);
+                foreach ($categories as $key) {
+                    if (strpos($log['message'], '[' . $key . ']') !== false) {
+                        $logs[$version][$key][] = $log;
+                        unset($logs[$version]['MISC'][$logKey]);
+                    }
                 }
             }
         }
@@ -282,9 +277,7 @@ class ChangelogScript
      */
     public static function cleanMessage($message)
     {
-        $message = str_replace('…', '...', $message);
-        $message = trim($message);
-        return $message;
+        return trim(str_replace('…', '...', $message));
     }
 
     /**
@@ -310,8 +303,8 @@ class ChangelogScript
         $previous = null;
         $revisionRanges = [];
         foreach ($tags as $key => $value) {
-            if (substr($value, 0, 1) !== 'v') {
-                if (!is_null($previous)) {
+            if (strpos($value, 'v') !== 0) {
+                if ($previous !== null) {
                     $revisionRanges[$previous]['start'] = $value;
                 }
                 $revisionRanges[$key]['end'] = $value;
@@ -329,6 +322,6 @@ class ChangelogScript
      */
     public static function shellOutputToArray($output)
     {
-        return array_filter(explode("\n", $output));
+        return array_filter(explode(chr(10), $output));
     }
 }

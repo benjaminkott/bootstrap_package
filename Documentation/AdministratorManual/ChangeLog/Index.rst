@@ -455,6 +455,7 @@ Information.
 |            | - [TASK] Accessibility - delete role contentinfo because you cant nest the same landmark in itself                                                                         |
 |            | - [TASK] Accessibility - correction of landmark                                                                                                                            |
 |            | - [TASK] Accessibility - Add link title attributes to logo constants, setup and html                                                                                       |
+|            | - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options                                                                                                             |
 |            | - [BUGFIX] Add missing icon for text & media missing - fixes #417                                                                                                          |
 |            | - [BUGFIX] Adapt link tag parsing for RTE fields                                                                                                                           |
 |            | - [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading                                                                                      |
