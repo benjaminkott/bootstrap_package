@@ -5,11 +5,6 @@ module.exports = function(grunt) {
      */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*!\n' +
-            ' * Bootstrap Package v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under the <%= pkg.license %> license\n' +
-            ' */\n',
         paths: {
             root: '../',
             bower: 'bower_components/',
@@ -30,7 +25,6 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
-                banner: '<%= banner %>',
                 compress: {
                     warnings: false
                 },
