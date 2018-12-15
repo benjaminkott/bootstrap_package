@@ -1,3 +1,20 @@
+# 6.2.17
+
+## TASK
+- [TASK] Update Less Parser 20ad93c1
+- [TASK] Add changelog and streamline version numbers to current release 535114b1
+- [TASK] Update bootstrap to 3.4.0 aabd135a
+- [TASK] Update jquery to 2.0.8 101160be
+- [TASK] Update jquery to 3.3.1 b416ddff
+- [TASK] Update npm dependencies 2e4df494
+- [TASK] Remove php 5.3 from travis, not available anymore a9be7b2f
+- [TASK] Update composer settings 38744bf2
+- [TASK] Update travis configuration 0d7c3b67
+
+## BUGFIX
+- [BUGFIX] Apply htmlSpecialChars only on subheader user generated content (#555) bb5a1730
+- [BUGFIX] Correct og:image setup height (#478) c4f71ee9
+
 # 6.2.16
 
 ## BUGFIX

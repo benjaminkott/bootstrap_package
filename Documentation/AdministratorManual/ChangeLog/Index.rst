@@ -20,6 +20,18 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 6.2.17     | - [TASK] Update Less Parser                                                                                                                                                |
+|            | - [TASK] Add changelog and streamline version numbers to current release                                                                                                   |
+|            | - [TASK] Update bootstrap to 3.4.0                                                                                                                                         |
+|            | - [TASK] Update hammerjs to 2.0.8                                                                                                                                          |
+|            | - [TASK] Update jquery to 3.3.1                                                                                                                                            |
+|            | - [TASK] Update npm dependencies                                                                                                                                           |
+|            | - [TASK] Remove php 5.3 from travis, not available anymore                                                                                                                 |
+|            | - [TASK] Update composer settings                                                                                                                                          |
+|            | - [TASK] Update travis configuration                                                                                                                                       |
+|            | - [BUGFIX] Apply htmlSpecialChars only on subheader user generated content (#555)                                                                                          |
+|            | - [BUGFIX] Correct og:image setup height (#478)                                                                                                                            |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 6.2.16     | - [BUGFIX] Only check for TYPO3 6.2 and 7.6                                                                                                                                |
 |            | - [BUGFIX] Remove vendor dir from php lint tests                                                                                                                           |
 |            | - [SECURITY] 6.2.16 security changes                                                                                                                                       |
