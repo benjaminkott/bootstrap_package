@@ -5,7 +5,7 @@
   "readme": "../README.rst",
   "homepage": "http://www.bk2k.info",
   "author": "Benjamin Kott",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "license": "MIT",
   "devDependencies": {
     "bootstrap": "3.4.0",
