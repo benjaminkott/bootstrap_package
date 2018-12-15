@@ -20,6 +20,21 @@ Information.
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Version    | Changes                                                                                                                                                                    |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 7.1.1      | - [TASK] Update Less Parser                                                                                                                                                |
+|            | - [TASK] Update bootstrap to 3.4.0                                                                                                                                         |
+|            | - [TASK] Streamline changelog                                                                                                                                              |
+|            | - [TASK] Update npm dependencies                                                                                                                                           |
+|            | - [TASK] Disable php5.6 build, seems to be buggy on travis in combination with composer install                                                                            |
+|            | - [TASK] Remove preferred install for typo3/cms                                                                                                                            |
+|            | - [TASK] Downgrade php-cs-fixer version                                                                                                                                    |
+|            | - [TASK] Update php-cs-fixer config                                                                                                                                        |
+|            | - [TASK] Update travis configuration                                                                                                                                       |
+|            | - [TASK] Use youtube-nocookie url in external media utility                                                                                                                |
+|            | - [BUGFIX] Replace codesniffer with php-cs-fixer                                                                                                                           |
+|            | - [BUGFIX] Correct texticon preview paths on windows                                                                                                                       |
+|            | - [BUGFIX] Correct less variable: @icon-font-path (#450)                                                                                                                   |
+|            | - [BUGFIX] Add type to linkVars language parameter                                                                                                                         |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 7.1.0      | - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356                                                                         |
 |            | - [!!!][TASK] Reintroduce "no frame" option - fixes #319                                                                                                                   |
 |            | - [!!!][FEATURE] Add sections to visually group elements                                                                                                                   |

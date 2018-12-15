@@ -1,3 +1,23 @@
+# 7.1.1
+
+## TASK
+- [TASK] Update Less Parser 5947c041
+- [TASK] Update bootstrap to 3.4.0 64ecbb66
+- [TASK] Streamline changelog 39031e1e
+- [TASK] Update npm dependencies 95698d5c
+- [TASK] Disable php5.6 build, seems to be buggy on travis in combination with composer install 5609b751
+- [TASK] Remove preferred install for typo3/cms a9a415a6
+- [TASK] Downgrade php-cs-fixer version 880fff26
+- [TASK] Update php-cs-fixer config 938db0b3
+- [TASK] Update travis configuration d0d7f50c
+- [TASK] Use youtube-nocookie url in external media utility c3a1b05b
+
+## BUGFIX
+- [BUGFIX] Replace codesniffer with php-cs-fixer 1dfc3c9a
+- [BUGFIX] Correct texticon preview paths on windows 47743c63
+- [BUGFIX] Correct less variable: @icon-font-path (#450) 3072d15b
+- [BUGFIX] Add type to linkVars language parameter 5597daa4
+
 # 7.1.0
 
 ## BREAKING
