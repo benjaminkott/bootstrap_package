@@ -1,3 +1,12 @@
+# 10.0.5
+
+## TASK
+- [TASK] Add vscode to gitignore dddc1e66
+- [TASK] Update Bootstrap 3.x to 3.4.0 cdb0350c
+
+## BUGFIX
+- [BUGFIX] Make Less Parser PHP 7.3 compatible (#617) d3c104dd
+
 # 10.0.4
 
 ## FEATURE
