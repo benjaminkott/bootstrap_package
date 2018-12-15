@@ -1,5 +1,5 @@
 .build
-Build/bower_components/*
+.vscode
 Build/node_modules/*
 composer.lock
 .php_cs.cache
