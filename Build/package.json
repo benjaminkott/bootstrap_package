@@ -8,13 +8,15 @@
     "version": "7.0.5",
     "license": "MIT",
     "devDependencies": {
+        "bootstrap": "3.3.6",
         "grunt": "^1.0.0",
-        "grunt-bowercopy": "^1.2.4",
+        "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-cssmin": "^3.0.0",
         "grunt-contrib-less": "2.0.0",
         "grunt-contrib-uglify": "^4.0.0",
-        "grunt-contrib-watch": "^1.0.0",
-        "grunt-npm-install": "^0.3.1",
-        "grunt-bower-just-install": "^0.0.3"
+        "grunt-contrib-watch": "^1.1.0",
+        "hammerjs": "^2.0.8",
+        "jquery": "^3.3.1",
+        "photoswipe": "^4.1.2"
     }
 }

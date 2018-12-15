@@ -7,10 +7,12 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         paths: {
             root: '../',
-            bower: 'bower_components/',
+            node: 'node_modules/',
             resources: '<%= paths.root %>Resources/',
             less: '<%= paths.resources %>Public/Less/',
             css: '<%= paths.resources %>Public/Css/',
+            fonts: '<%= paths.resources %>Public/Fonts/',
+            images: '<%= paths.resources %>Public/Images/',
             js: '<%= paths.resources %>Public/JavaScript/'
         },
         cssmin: {
@@ -106,33 +108,73 @@ module.exports = function(grunt) {
                 tasks: 'less'
             }
         },
-        bowercopy: {
-            options: {
-                clean: false,
-                report: false,
-                runBower: false,
-                srcPrefix: 'bower_components/'
+        copy: {
+            jquery: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>jquery/dist/',
+                        src: 'jquery.min.js',
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
             },
-            all: {
-                options: {
-                    destPrefix: '<%= paths.resources %>'
-                },
-                files: {
-                    // jQuery
-                    'Public/JavaScript/Libs/jquery.min.js': 'jquery/dist/jquery.min.js',
-                    // hammer.js
-                    'Public/JavaScript/Libs/hammer.min.js': 'hammerjs/hammer.min.js',
-                    // Bootstrap
-                    'Public/Less/Bootstrap': 'bootstrap/less',
-                    'Public/Fonts': 'bootstrap/fonts',
-                    'Public/JavaScript/Libs/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
-                    // PhotoSwipe
-                    'Public/JavaScript/Libs/photoswipe.min.js': 'photoswipe/dist/photoswipe.min.js',
-                    'Public/JavaScript/Libs/photoswipe-ui-default.min.js': 'photoswipe/dist/photoswipe-ui-default.min.js',
-                    'Public/Images/PhotoSwipe/default-skin.png': 'photoswipe/dist/default-skin/default-skin.png',
-                    'Public/Images/PhotoSwipe/default-skin.svg': 'photoswipe/dist/default-skin/default-skin.svg',
-                    'Public/Images/PhotoSwipe/preloader.gif': 'photoswipe/dist/default-skin/preloader.gif'
-                }
+            hammerjs: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>hammerjs/',
+                        src: [
+                            'hammer.min.js'
+                        ],
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    }
+                ]
+            },
+            photoswipe: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>photoswipe/dist/',
+                        src: [
+                            'photoswipe.min.js',
+                            'photoswipe-ui-default.min.js'
+                        ],
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>photoswipe/dist/default-skin/',
+                        src: [
+                            'default-skin.png',
+                            'default-skin.svg',
+                            'preloader.gif'
+                        ],
+                        dest: '<%= paths.images %>PhotoSwipe/',
+                        expand: true
+                    }
+                ]
+            },
+            bootstrap3: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>bootstrap/dist/js/',
+                        src: 'bootstrap.min.js',
+                        dest: '<%= paths.js %>Libs/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>bootstrap/dist/fonts/',
+                        src: '*',
+                        dest: '<%= paths.fonts %>',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= paths.node %>bootstrap/less/',
+                        src: '**',
+                        dest: '<%= paths.less %>Bootstrap/',
+                        expand: true
+                    }
+                ]
             }
         }
     });
@@ -140,18 +182,16 @@ module.exports = function(grunt) {
     /**
      * Register tasks
      */
-    grunt.loadNpmTasks('grunt-bowercopy');
-    grunt.loadNpmTasks('grunt-bower-just-install');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-npm-install');
 
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['npm-install', 'bower_install', 'bowercopy']);
+    grunt.registerTask('update', ['copy']);
     grunt.registerTask('css', ['less', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'cssmin']);
     grunt.registerTask('build', ['update', 'css', 'js']);
