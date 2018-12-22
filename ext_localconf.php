@@ -13,6 +13,7 @@ defined('TYPO3_MODE') || die();
  * Define TypoScript as content rendering template
  */
 $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappackage/Configuration/TypoScript/';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappackage/Configuration/TypoScript/ContentElement/';
 
 /***************
  * Make the extension configuration accessible
@@ -117,32 +118,53 @@ if (TYPO3_MODE === 'BE') {
 /***************
  * Register google font hook
  */
-if (TYPO3_MODE === 'FE' && !$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+if (!$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
 }
 
 /***************
  * Register css processing parser
  */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\ScssParser::class] =
     \BK2K\BootstrapPackage\Parser\ScssParser::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][] =
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\LessParser::class] =
     \BK2K\BootstrapPackage\Parser\LessParser::class;
 
 /***************
  * Register css processing hooks
  */
-if (TYPO3_MODE === 'FE' && (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing'])) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
+if (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing']) {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
 /***************
  * Register font loader
  */
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][]
-    = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
+if (!$bootstrapPackageConfiguration['disableFontLoader']) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(implode(LF, [
+        '# customsubcategory=98=Preloader',
+        'page.preloader {',
+        '    # cat=bootstrap package: preloader/98/1_enable; type=boolean; label=Preloader: Enable to display the preloader',
+        '    enable = 1',
+        '    logo {',
+        '        # cat=bootstrap package: preloader/98/2_logo_file; type=string; label=Logo: Leave blank to don´t show a logo',
+        '        file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg',
+        '        # cat=bootstrap package: preloader/98/3_logo_height; type=int+; label=Height: The image will not be resized!',
+        '        height = 52',
+        '        # cat=bootstrap package: preloader/98/4_logo_width; type=int+; label=Width: The image will not be resized!',
+        '        width = 180',
+        '    }',
+        '    # cat=bootstrap package: preloader/98/5_background_color; type=color; label=Background Color',
+        '    backgroundColor = #333333',
+        '    # cat=bootstrap package: preloader/98/6_fade_duration; type=string; label=Fade duration',
+        '    fadeDuration = 0.25',
+        '}'
+    ]));
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class]
+        = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
+}
 
 /***************
  * Add default RTE configuration for bootstrap package
@@ -271,13 +293,6 @@ if (TYPO3_MODE === 'BE' && !class_exists(\TYPO3\CMS\Core\Configuration\Extension
 if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::class)) {
     // SignalSlot dispatcher
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-    // Register slot to build nessesary sql
-    $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Install\Service\SqlExpectedSchemaService::class,
-        'tablesDefinitionIsBeingBuilt',
-        \BK2K\BootstrapPackage\Slot\LanguageMenuSlot::class,
-        'addSqlFields'
-    );
     // Register slot to build TCA for content elements
     $signalSlotDispatcher->connect(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::class,
@@ -310,7 +325,7 @@ if (!class_exists(\TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor::clas
         '    direction = ltr',
         '}'
     ]));
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][]
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing'][\BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class]
         = \BK2K\BootstrapPackage\Hooks\Frontend\TypoScriptLanguageHook::class . '->addLanguageSetup';
     // Register formEngine nodes
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1525380017] = [
