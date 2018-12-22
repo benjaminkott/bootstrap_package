@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
 use BK2K\BootstrapPackage\Parser\GoogleFontUrlParser;
+use BK2K\BootstrapPackage\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -60,7 +61,7 @@ class FontLoaderHook
         $config = [];
         if (count($urls) > 0 || count($families) > 0) {
             $config['custom']['urls'] = $urls;
-            $config['custom']['families'] = $families;
+            $config['custom']['families'] = ArrayUtility::flatten($families);
             $config['timeout'] = 1000;
             $params['headerData'][] = '<style>' . $this->generateCss() . '</style>';
             $params['headerData'][] = '<script>' . $this->generateJavaScript($config) . '</script>';
