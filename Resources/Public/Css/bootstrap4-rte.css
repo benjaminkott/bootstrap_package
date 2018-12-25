@@ -8651,11 +8651,11 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #2b2b2b;
 }
 
-.footer-section-content a {
+.footer-section-content a:not(.btn):not(.cc-btn) {
   color: #4faf98;
 }
 
-.footer-section-content a:hover, .footer-section-content a:focus {
+.footer-section-content a:not(.btn):not(.cc-btn):hover, .footer-section-content a:not(.btn):not(.cc-btn):focus {
   color: #4aa48f;
 }
 
@@ -8664,11 +8664,11 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #232323;
 }
 
-.footer-section-meta a {
+.footer-section-meta a:not(.btn):not(.cc-btn) {
   color: #4faf98;
 }
 
-.footer-section-meta a:hover, .footer-section-meta a:focus {
+.footer-section-meta a:not(.btn):not(.cc-btn):hover, .footer-section-meta a:not(.btn):not(.cc-btn):focus {
   color: #4aa48f;
 }
 
