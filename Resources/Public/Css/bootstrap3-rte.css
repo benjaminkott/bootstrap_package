@@ -9656,11 +9656,11 @@ body,
   color: #fff;
   background: #333;
 }
-.footer-section a {
+.footer-section a:not(.btn) {
   color: #4faf98;
 }
-.footer-section a:hover,
-.footer-section a:focus {
+.footer-section a:not(.btn):hover,
+.footer-section a:not(.btn):focus {
   color: #377a6a;
   text-decoration: underline;
 }
@@ -9680,11 +9680,11 @@ body,
   color: #fff;
   background: #2b2b2b;
 }
-.footer-section-meta a {
+.footer-section-meta a:not(.btn) {
   color: #377a6a;
 }
-.footer-section-meta a:hover,
-.footer-section-meta a:focus {
+.footer-section-meta a:not(.btn):hover,
+.footer-section-meta a:not(.btn):focus {
   color: #377a6a;
 }
 @media (min-width: 768px) {
