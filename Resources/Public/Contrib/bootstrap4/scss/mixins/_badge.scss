@@ -1,11 +1,12 @@
-@mixin badge-variant($bg) {
+// IMPORTANT, PATCHED BOOTSTRAP 4
+// Code needs to be adapted to be compilable with leafo/scssphp
+@mixin badge-variant($bg, $name) {
   color: color-yiq($bg);
   background-color: $bg;
 
-  &[href] {
+  @at-root a.badge-#{$name} {
     @include hover-focus {
       color: color-yiq($bg);
-      text-decoration: none;
       background-color: darken($bg, 10%);
     }
   }
