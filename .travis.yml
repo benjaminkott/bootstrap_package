@@ -7,6 +7,7 @@ php:
 
 env:
   - TYPO3_VERSION=^9
+  - TYPO3_VERSION=dev-master
 
 addons:
   apt:
