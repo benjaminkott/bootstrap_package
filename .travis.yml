@@ -2,6 +2,10 @@
 sudo: false
 language: php
 
+php:
+  - 7.2
+  - 7.3
+
 addons:
   apt:
     packages:
@@ -10,15 +14,11 @@ addons:
 jobs:
   include:
     - stage: Linting
-      php:
-        - 7.2
-        - 7.3
       script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
 
-    - stage: Tests
-      php:
-        - 7.2
-        - 7.3
+    - stage: "Tests"
+      name: "Unit Tests"
+      php: 7.2
       env:
         - TYPO3_VERSION=^9
       install:
@@ -28,8 +28,7 @@ jobs:
       script: .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
 
     - stage: Quality
-      php:
-        - 7.2
+      php: 7.2
       env:
         - TYPO3_VERSION=^9
       install:
