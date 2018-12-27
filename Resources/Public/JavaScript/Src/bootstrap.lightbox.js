@@ -56,9 +56,13 @@ $(function () {
             } else {
                 caption = $(this).next('figcaption').text();
             }
+            var title = $(this).attr("title");
+            if(!title && caption) {
+                title = '--none--'
+            }
             items.push({
                 src: $(this).attr('href'),
-                title: $(this).attr("title"),
+                title: title,
                 w: $(this).data('lightbox-width'),
                 h: $(this).data('lightbox-height'),
                 caption: caption.replace(/(?:\r\n|\r|\n)/g, '<br />'),
@@ -67,12 +71,11 @@ $(function () {
         });
         var options = {
             index: pid,
-            addCaptionHTMLFn: function(item, captionEl, isFake) {
-                if(!item.title) {
-                    captionEl.children[0].innerHTML = '';
-                    return false;
+            addCaptionHTMLFn: function(item, captionEl) {
+                captionEl.children[0].innerHTML = '';
+                if(item.title && item.title !== '--none--') {
+                    captionEl.children[0].innerHTML += '<div class="pswp__caption__title">' + item.title + '</div>';
                 }
-                captionEl.children[0].innerHTML = '<div class="pswp__caption__title">' + item.title + '</div>';
                 if(item.caption) {
                     captionEl.children[0].innerHTML += '<div class="pswp__caption__subtitle">' + item.caption + '</div>';
                 }
