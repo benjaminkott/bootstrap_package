@@ -23,7 +23,7 @@ jobs:
     - stage: Linting
       script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
 
-    - state: Unit Tests
+    - stage: Unit Tests
       script: .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
 
     - stage: Quality
