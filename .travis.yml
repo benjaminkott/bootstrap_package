@@ -18,20 +18,15 @@ install:
   - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
-script:
-  - >
-    echo;
-    echo "Unit tests";
-    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
-
-  - >
-    echo;
-    echo "PHP lint";
-    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
-
 jobs:
   include:
-    - stage: quality
+    - stage: Linting
+      script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
+
+    - state: Unit Tests
+      script: .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
+
+    - stage: Quality
       php: 7.2
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
