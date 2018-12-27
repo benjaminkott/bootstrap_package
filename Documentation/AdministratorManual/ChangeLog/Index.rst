@@ -511,7 +511,7 @@ Information.
 |            | - [BUGFIX] Display cropping variants for textmedia - fixes #438                                                                                                            |
 |            | - [BUGFIX] Ensure link is displayed correctly in readme                                                                                                                    |
 |            | - [BUGFIX] Correct image link in readme                                                                                                                                    |
-|            | - [BUGFIX] Add bootstrap-package.com as known host                                                                                                                         |
+|            | - [BUGFIX] Add boostrap-package.com as known host                                                                                                                          |
 |            | - [BUGFIX] Specify Deployer file                                                                                                                                           |
 |            | - [BUGFIX] Fix sys_language_uid when adding item to translated tt_content (#458)                                                                                           |
 |            | - [BUGFIX] Only show content in MenuSectionPages that is marked for section index - fixes #466                                                                             |
@@ -1107,7 +1107,7 @@ Information.
 |            | - [BUGFIX] Correct indention                                                                                                                                               |
 |            | - [BUGFIX] Use correct assignment for TypoScript value                                                                                                                     |
 |            | - [BUGFIX] Make class.ext_update.php work on PHP                                                                                                                           |
-|            | - [BUGFIX] There is no bootstrap package                                                                                                                                   |
+|            | - [BUGFIX] There is no boostrap package                                                                                                                                    |
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
 |            | - Scrutinizer Auto-Fixes                                                                                                                                                   |
@@ -1363,7 +1363,7 @@ Information.
 |            | - Provide options to disable parts of the auto included PageTs settings                                                                                                    |
 |            | - Cleanup                                                                                                                                                                  |
 |            | - Make Bootstrap Package run as a OnePage Website                                                                                                                          |
-|            | - fix 'Bootstrap' typos                                                                                                                                                    |
+|            | - fix 'Boostrap' typos                                                                                                                                                     |
 +------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 6.2.5      | - [FEATURE] use SymLinksIfOwnerMatch in .htaccess                                                                                                                          |
 |            | - Release 6.2.5                                                                                                                                                            |
