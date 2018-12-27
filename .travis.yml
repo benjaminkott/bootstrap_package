@@ -3,20 +3,11 @@ sudo: false
 language: php
 
 php:
-  - 7.0
-  - 7.1
   - 7.2
+  - 7.3
 
 env:
-  - TYPO3_VERSION=^8
   - TYPO3_VERSION=^9
-
-matrix:
-  exclude:
-    - php: 7.0
-      env: TYPO3_VERSION=^9
-    - php: 7.1
-      env: TYPO3_VERSION=^9
 
 addons:
   apt:
