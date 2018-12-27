@@ -23,7 +23,6 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 $bootstrapPackageConfiguration = $extensionConfiguration->get('bootstrap_package');
 
-
 /***************
  * PageTS
  */
