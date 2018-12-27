@@ -21,7 +21,7 @@
     .footer-section-#{$name} {
         color: $footer-color;
         background-color: $footer-background;
-        a {
+        a:not(.btn) {
             color: $footer-link-color;
             &:hover,
             &:focus {
