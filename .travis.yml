@@ -2,32 +2,40 @@
 sudo: false
 language: php
 
-php:
-  - 7.2
-
-env:
-  - TYPO3_VERSION=^9
-
 addons:
   apt:
     packages:
       - parallel
 
-install:
-  - composer require typo3/minimal:${TYPO3_VERSION}
-  - git checkout composer.json
-  - export TYPO3_PATH_WEB="$PWD/.build/web"
-
 jobs:
   include:
     - stage: Linting
+      php:
+        - 7.2
+        - 7.3
       script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
 
-    - stage: Unit Tests
+    - stage: Tests
+      php:
+        - 7.2
+        - 7.3
+      env:
+        - TYPO3_VERSION=^9
+      install:
+        - composer require typo3/minimal:${TYPO3_VERSION}
+        - git checkout composer.json
+        - export TYPO3_PATH_WEB="$PWD/.build/web"
       script: .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
 
     - stage: Quality
-      php: 7.2
+      php:
+        - 7.2
+      env:
+        - TYPO3_VERSION=^9
+      install:
+        - composer require typo3/minimal:${TYPO3_VERSION}
+        - git checkout composer.json
+        - export TYPO3_PATH_WEB="$PWD/.build/web"
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
     - stage: dependencies
