@@ -11,11 +11,11 @@ addons:
     packages:
       - parallel
 
+install:
+  - find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
+
 jobs:
   include:
-    - stage: Linting
-      script: find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
-
     - stage: "Tests"
       name: "Unit Tests"
       php: 7.2
