@@ -120,11 +120,7 @@ abstract class AbstractParser implements ParserInterface
      */
     protected function getPathSite()
     {
-        if (class_exists('TYPO3\CMS\Core\Core\Environment', false)) {
-            return Environment::getPublicPath() . '/';
-        } else {
-            return PATH_site;
-        }
+        return Environment::getPublicPath() . '/';
     }
 
     /**

@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Service;
 
 use BK2K\BootstrapPackage\Parser\ParserInterface;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -129,6 +130,6 @@ class CompileService
      */
     protected function clearCompilerCaches()
     {
-        GeneralUtility::rmdir(PATH_site . $this->tempDirectory, true);
+        GeneralUtility::rmdir(Environment::getPublicPath() . '/' . $this->tempDirectory, true);
     }
 }
