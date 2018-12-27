@@ -172,7 +172,7 @@ if (!$bootstrapPackageConfiguration['disableFontLoader']) {
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
 
 /***************
- * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades
+ * Extend TYPO3 upgrade wizards to handle bootstrap package specific upgrades
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\TYPO3\CMS\Install\Updates\SectionFrameToFrameClassUpdate::class]
     = \BK2K\BootstrapPackage\Updates\SectionFrameToFrameClassUpdate::class;

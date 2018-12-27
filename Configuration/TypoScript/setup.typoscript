@@ -28,7 +28,7 @@
 
 
 ###################################
-#### BOOSTRAP PACKAGE SETTINGS ####
+#### BOOTSTRAP PACKAGE SETTINGS ####
 ###################################
 plugin.tx_bootstrappackage {
     settings {
