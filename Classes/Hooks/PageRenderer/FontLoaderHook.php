@@ -13,6 +13,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
 
 /**
  * FontLoaderHook
@@ -20,12 +21,28 @@ use TYPO3\CMS\Core\Utility\PathUtility;
 class FontLoaderHook
 {
     /**
+     * @var FilePathSanitizer
+     */
+    protected $filePathSanitizer;
+
+    /**
      * @var array
      */
     protected $includeMapping = [
         'includeCSSLibs' => 'cssLibs',
         'includeCSS' => 'cssFiles'
     ];
+
+    /**
+     * @param FilePathSanitizer|null $filePathSanitizer
+     */
+    public function __construct(FilePathSanitizer $filePathSanitizer = null)
+    {
+        if ($filePathSanitizer === null) {
+            $filePathSanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
+        }
+        $this->filePathSanitizer = $filePathSanitizer;
+    }
 
     /**
      * @param array $params
@@ -80,7 +97,7 @@ class FontLoaderHook
                 continue;
             }
             if ($cssIncludes[$key . '.']['fontLoader.']['enabled']) {
-                $filename = $this->getTemplateService()->getFileName($filename);
+                $filename = $this->filePathSanitizer->sanitize($filename);
                 $url = str_replace(' ', '+', $filename);
                 $url = $this->getUriForFileName($url);
                 $webFonts[$section . '_' . $key] = [
