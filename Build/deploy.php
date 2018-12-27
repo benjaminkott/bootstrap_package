@@ -51,6 +51,7 @@ after('deploy:failed', 'deploy:unlock');
 
 // Shared Directories and Files
 set('shared_dirs', [
+    'config',
     'web/fileadmin',
     'web/typo3temp',
     'web/uploads'
@@ -58,7 +59,6 @@ set('shared_dirs', [
 set('shared_files', [
     'composer.json',
     'web/.htaccess',
-    'web/robots.txt',
     'web/typo3conf/AdditionalConfiguration.php',
     'web/typo3conf/LocalConfiguration.php',
     'web/typo3conf/PackageStates.php'
@@ -66,6 +66,7 @@ set('shared_files', [
 
 // Set Writeable files
 set('writable_dirs', [
+    'config',
     'web/fileadmin',
     'web/typo3temp',
     'web/typo3conf',
