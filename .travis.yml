@@ -4,7 +4,10 @@ language: php
 
 php:
   - 7.2
-  - 7.3
+
+env:
+  - TYPO3_VERSION=^9
+  - TYPO3_VERSION=dev-master
 
 addons:
   apt:
@@ -12,29 +15,25 @@ addons:
       - parallel
 
 install:
-  - find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \
+  - composer require typo3/minimal:${TYPO3_VERSION}
+  - git checkout composer.json
+  - export TYPO3_PATH_WEB="$PWD/.build/web"
+
+script:
+  - >
+    echo;
+    echo "Unit tests";
+    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
+
+  - >
+    echo;
+    echo "PHP lint";
+    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
 jobs:
   include:
-    - stage: "Tests"
-      name: "Unit Tests"
+    - stage: quality
       php: 7.2
-      env:
-        - TYPO3_VERSION=^9
-      install:
-        - composer require typo3/minimal:${TYPO3_VERSION}
-        - git checkout composer.json
-        - export TYPO3_PATH_WEB="$PWD/.build/web"
-      script: .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
-
-    - stage: Quality
-      php: 7.2
-      env:
-        - TYPO3_VERSION=^9
-      install:
-        - composer require typo3/minimal:${TYPO3_VERSION}
-        - git checkout composer.json
-        - export TYPO3_PATH_WEB="$PWD/.build/web"
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
 
     - stage: dependencies
