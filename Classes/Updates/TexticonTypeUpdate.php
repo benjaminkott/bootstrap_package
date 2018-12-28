@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -13,17 +14,14 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * TexticonTypeUpdate
  */
-class TexticonTypeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TexticonTypeUpdate implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $title = '[BootstrapPackage] Migrate text and icon type options';
-
     /**
      * @var string
      */
@@ -44,17 +42,44 @@ class TexticonTypeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     ];
 
     /**
-     * Checks if an update is needed
-     *
-     * @param string &$description The description for the update
-     *
-     * @return bool Whether an update is needed (TRUE) or not (FALSE)
-     */
-    public function checkForUpdate(&$description)
+    * @return string
+    */
+    public function getIdentifier(): string
     {
-        if ($this->isWizardDone()) {
-            return false;
-        }
+        return self::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return '[Bootstrap Package] Migrate text and icon type options';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return '';
+    }
+
+    /**
+     * @return array
+     */
+    public function getPrerequisites(): array
+    {
+        return [
+            DatabaseUpdatedPrerequisite::class
+        ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function updateNecessary(): bool
+    {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
         $elementCount = $queryBuilder->count('uid')
@@ -73,13 +98,9 @@ class TexticonTypeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     }
 
     /**
-     * Performs the database update
-     *
-     * @param array &$databaseQueries Queries done in this update
-     * @param string &$customMessage Custom message
      * @return bool
      */
-    public function performUpdate(array &$databaseQueries, &$customMessage)
+    public function executeUpdate(): bool
     {
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
         $queryBuilder = $connection->createQueryBuilder();
@@ -109,16 +130,12 @@ class TexticonTypeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
                     $this->field,
                     $this->mapValues($record[$this->field])
                 );
-            $databaseQueries[] = $queryBuilder->getSQL();
             $queryBuilder->execute();
         }
-        $this->markWizardAsDone();
         return true;
     }
 
     /**
-     * Map the old to the new values
-     *
      * @param int $value
      * @return string|null
      */

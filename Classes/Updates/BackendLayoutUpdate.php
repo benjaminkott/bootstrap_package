@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -13,17 +14,14 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * BackendLayoutUpdate
  */
-class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class BackendLayoutUpdate implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $title = '[BootstrapPackage] Migrate Backend Layouts';
-
     /**
      * @var string
      */
@@ -52,17 +50,44 @@ class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     ];
 
     /**
-     * Checks if an update is needed
-     *
-     * @param string &$description The description for the update
-     *
-     * @return bool Whether an update is needed (TRUE) or not (FALSE)
+     * @return string
      */
-    public function checkForUpdate(&$description)
+    public function getIdentifier(): string
     {
-        if ($this->isWizardDone()) {
-            return false;
-        }
+        return self::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return '[Bootstrap Package] Migrate backend layouts';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return '';
+    }
+
+    /**
+     * @return array
+     */
+    public function getPrerequisites(): array
+    {
+        return [
+            DatabaseUpdatedPrerequisite::class
+        ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function updateNecessary(): bool
+    {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
         $elementCount = $queryBuilder->count('uid')
@@ -90,13 +115,9 @@ class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     }
 
     /**
-     * Performs the database update
-     *
-     * @param array &$databaseQueries Queries done in this update
-     * @param string &$customMessage Custom message
      * @return bool
      */
-    public function performUpdate(array &$databaseQueries, &$customMessage)
+    public function executeUpdate(): bool
     {
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
         $queryBuilder = $connection->createQueryBuilder();
@@ -139,16 +160,12 @@ class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
                     'backend_layout_next_level',
                     ($this->mapValues($record['backend_layout_next_level']) ?: $record['backend_layout_next_level'])
                 );
-            $databaseQueries[] = $queryBuilder->getSQL();
             $queryBuilder->execute();
         }
-        $this->markWizardAsDone();
         return true;
     }
 
     /**
-     * Map the old to the new values
-     *
      * @param int $value
      * @return string|null
      */

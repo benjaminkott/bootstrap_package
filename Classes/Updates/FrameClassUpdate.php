@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -11,15 +11,14 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Updates;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
- * CarouselContentElementUpdate
+ * FrameClassUpdate
  */
-class CarouselContentElementUpdate implements UpgradeWizardInterface
+class FrameClassUpdate implements UpgradeWizardInterface
 {
     /**
      * @return string
@@ -34,7 +33,7 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface
      */
     public function getTitle(): string
     {
-        return '[Bootstrap Package] Migrate carousel content element';
+        return '[Bootstrap Package] Migrate the field "section_frame" for all content elements to "frame_class"';
     }
 
     /**
@@ -60,14 +59,21 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface
      */
     public function updateNecessary(): bool
     {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
+        $tableColumns = $connection->getSchemaManager()->listTableColumns('tt_content');
+        // Only proceed if section_frame field still exists
+        if (!isset($tableColumns['section_frame'])) {
+            return false;
+        }
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+        $queryBuilder->getRestrictions()->removeAll();
         $elementCount = $queryBuilder->count('uid')
             ->from('tt_content')
             ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_carousel', \PDO::PARAM_STR))
+                $queryBuilder->expr()->gt('section_frame', 0)
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+            ->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -78,11 +84,11 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface
     {
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
         $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $statement = $queryBuilder->select('uid', 'layout')
+        $queryBuilder->getRestrictions()->removeAll();
+        $statement = $queryBuilder->select('uid', 'section_frame')
             ->from('tt_content')
             ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_carousel', \PDO::PARAM_STR))
+                $queryBuilder->expr()->gt('section_frame', 0)
             )
             ->execute();
         while ($record = $statement->fetch()) {
@@ -94,26 +100,33 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', 0, false)
-                ->set('CType', $this->mapValues($record['layout']));
+                ->set('section_frame', 0, false)
+                ->set('frame_class', $this->mapSectionFrame($record['section_frame']));
             $queryBuilder->execute();
         }
         return true;
     }
 
     /**
-     * @param int $layout
+     * @param int $sectionFrame
      * @return string
      */
-    protected function mapValues($layout)
+    protected function mapSectionFrame($sectionFrame)
     {
         $mapping = [
-            110 => 'carousel_small',
-            120 => 'carousel_fullscreen'
+            0 => 'default',
+            5 => 'ruler-before',
+            6 => 'ruler-after',
+            10 => 'indent',
+            11 => 'indent-left',
+            12 => 'indent-right',
+            20 => 'well',
+            21 => 'jumbotron',
+            66 => 'none'
         ];
-        if (array_key_exists($layout, $mapping)) {
-            return $mapping[$layout];
+        if (array_key_exists($sectionFrame, $mapping)) {
+            return $mapping[$sectionFrame];
         }
-        return 'carousel';
+        return 'custom-' . (int) $sectionFrame;
     }
 }
