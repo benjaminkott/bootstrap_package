@@ -8,7 +8,6 @@
 #### HELPER ####
 ################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/FrontendEditing.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript">
 
 
@@ -16,8 +15,9 @@
 #### EXTENSIONS                                          ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Feedit/setup.typoscript" condition="extension.isLoaded('feedit') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/setup.typoscript" condition="extension.isLoaded('felogin') == 1">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/setup.typoscript" condition="extension.isLoaded('form') == 1">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/FrontendLogin/setup.typoscript" condition="extension.isLoaded('felogin') == 1">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript" condition="extension.isLoaded('indexed_search') == 1">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/setup.typoscript" condition="extension.isLoaded('seo') == 1">
 

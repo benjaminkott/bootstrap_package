@@ -2,5 +2,5 @@
 #### FRONTEND LOGIN ####
 ########################
 styles.content.loginform {
-    templateFile = EXT:bootstrap_package/Resources/Private/Templates/FrontendLogin/FrontendLogin.html
+    templateFile = EXT:bootstrap_package/Resources/Private/Templates/Felogin/FrontendLogin.html
 }
