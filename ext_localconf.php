@@ -55,22 +55,24 @@ if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
 /***************
  * Register custom EXT:form configuration
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
-    module.tx_form {
-        settings {
-            yamlConfigurations {
-                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
+        module.tx_form {
+            settings {
+                yamlConfigurations {
+                    110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+                }
             }
         }
-    }
-    plugin.tx_form {
-        settings {
-            yamlConfigurations {
-                110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+        plugin.tx_form {
+            settings {
+                yamlConfigurations {
+                    110 = EXT:bootstrap_package/Configuration/Form/Setup.yaml
+                }
             }
         }
-    }
-'));
+    '));
+}
 
 if (TYPO3_MODE === 'BE') {
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
