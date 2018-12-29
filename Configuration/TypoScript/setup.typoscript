@@ -526,7 +526,6 @@ config {
     pageTitleSeparator.noTrimWrap = | | |
     linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
-    typolinkEnableLinksAcrossDomains = {$config.typolinkEnableLinksAcrossDomains}
     doctype = html5
     removeDefaultJS = {$config.removeDefaultJS}
     admPanel = {$config.admPanel}

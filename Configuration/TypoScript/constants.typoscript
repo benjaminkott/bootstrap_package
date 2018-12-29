@@ -282,8 +282,6 @@ config {
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/
     # cat=bootstrap package: config/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
     sendCacheHeaders = 1
-    # cat=bootstrap package: config/150/220; type=boolean; label=Enable links across domains: This option enables to create links across domains using current domain's linking scheme.
-    typolinkEnableLinksAcrossDomains = 0
 }
 
 #########################
