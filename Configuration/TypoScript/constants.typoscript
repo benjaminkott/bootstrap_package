@@ -267,9 +267,9 @@ config {
     # cat=bootstrap package: config/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
     removeDefaultJS = 0
     # cat=bootstrap package: config/150/130; type=boolean; label=Compress JavaScript
-    compressJs = 0
+    compressJs = 1
     # cat=bootstrap package: config/150/140; type=boolean; label=Compress CSS
-    compressCss = 0
+    compressCss = 1
     # cat=bootstrap package: config/150/150; type=boolean; label=Concatenate JavaScript
     concatenateJs = 1
     # cat=bootstrap package: config/150/160; type=boolean; label=Concatenate CSS
