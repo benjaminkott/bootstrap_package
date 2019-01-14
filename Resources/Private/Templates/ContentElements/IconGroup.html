@@ -12,7 +12,11 @@
                         </div>
                     </f:if>
                     <div class="icongroup-item-text">
-                        <h4 class="icongroup-item-text-header">{item.data.header}</h4>
+                        <h4 class="icongroup-item-text-header">
+                            <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
+                                {item.data.header}
+                            </f:render>
+                        </h4>
                         <f:if condition="{item.data.subheader}">
                             <p class="icongroup-item-text-subheader">{item.data.subheader}</p>
                         </f:if>
@@ -20,6 +24,20 @@
                 </div>
             </f:for>
         </div>
+    </f:if>
+
+</f:section>
+<f:section name="LinkWrap">
+
+    <f:if condition="{link}">
+        <f:then>
+            <f:link.typolink parameter="{link}" title="{linkTitle -> bk2k:format.trim()}">
+                {content -> f:format.raw()}
+            </f:link.typolink>
+        </f:then>
+        <f:else>
+            <span>{content -> f:format.raw()}</span>
+        </f:else>
     </f:if>
 
 </f:section>
