@@ -210,6 +210,7 @@ CREATE TABLE tx_bootstrappackage_icon_group_item (
     tt_content int(11) unsigned DEFAULT '0',
     header varchar(255) DEFAULT '' NOT NULL,
     subheader varchar(255) DEFAULT '' NOT NULL,
+    link varchar(1024) DEFAULT '' NOT NULL,
     icon_file int(11) unsigned DEFAULT '0',
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,

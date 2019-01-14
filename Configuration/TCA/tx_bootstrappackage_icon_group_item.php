@@ -52,6 +52,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header,
                 subheader,
+                link,
                 icon_file,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
@@ -183,7 +184,6 @@ return [
             ]
         ],
         'header' => [
-            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.header',
             'config' => [
                 'type' => 'input',
@@ -192,7 +192,6 @@ return [
             ],
         ],
         'subheader' => [
-            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.subheader',
             'config' => [
                 'type' => 'input',
@@ -200,8 +199,26 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'link' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.link',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+                'size' => 50,
+                'max' => 1024,
+                'eval' => 'trim',
+                'fieldControl' => [
+                    'linkPopup' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.link',
+                        ],
+                    ],
+                ],
+                'softref' => 'typolink'
+            ],
+            'l10n_mode' => 'exclude',
+        ],
         'icon_file' => [
-            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.icon_file',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'icon_file',
