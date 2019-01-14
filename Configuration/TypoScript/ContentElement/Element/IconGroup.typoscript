@@ -15,8 +15,9 @@ tt_content.icon_group {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-        10 {
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
             table = tx_bootstrappackage_icon_group_item
             pidInList.field = pid
             where {

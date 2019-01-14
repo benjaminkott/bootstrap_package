@@ -12537,20 +12537,28 @@ figure .caption {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin: -20px !important;
+}
+
+.icongroup-align-left {
+  justify-content: flex-start;
+}
+
+.icongroup-align-center {
+  justify-content: center;
+}
+
+.icongroup-align-right {
+  justify-content: flex-end;
 }
 
 .icongroup-item {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  flex-grow: 1;
   align-items: center;
   margin: 20px;
-  width: calc(50% - 20px * 2);
-  min-width: 230px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .icongroup-item-icon {
@@ -12577,6 +12585,34 @@ figure .caption {
 .icongroup-item-text-subheader {
   font-size: 1em;
   margin-bottom: 0;
+}
+
+.icongroup-columns-auto .icongroup-item {
+  width: auto;
+}
+
+@media (min-width: 576px) {
+  .icongroup-columns-2 .icongroup-item {
+    width: calc(100% / 2 - 20px * 2);
+  }
+}
+
+@media (min-width: 768px) {
+  .icongroup-columns-3 .icongroup-item {
+    width: calc(100% / 3 - 20px * 2);
+  }
+}
+
+@media (min-width: 576px) {
+  .icongroup-columns-4 .icongroup-item {
+    width: calc(100% / 2 - 20px * 2);
+  }
+}
+
+@media (min-width: 1200px) {
+  .icongroup-columns-4 .icongroup-item {
+    width: calc(100% / 4 - 20px * 2);
+  }
 }
 
 .uploads-fileicon {
