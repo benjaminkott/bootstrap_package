@@ -361,6 +361,27 @@
             <trans-unit id="content_element.icon_group.description">
                 <source>Insert a element with several icons</source>
             </trans-unit>
+            <trans-unit id="content_element.icon_group.options">
+                <source>Options</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.columns">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.columns.auto">
+                <source>Automatic</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.align">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.align.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.align.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.align.right">
+                <source>Right</source>
+            </trans-unit>
 
             <trans-unit id="content_element.listgroup">
                 <source>List Group</source>

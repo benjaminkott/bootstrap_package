@@ -3,7 +3,7 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div class="icongroup">
+        <div class="icongroup icongroup-align-{data.pi_flexform.align} icongroup-columns-{data.pi_flexform.columns}">
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="icongroup-item">
                     <f:if condition="{item.iconFile.0}">
