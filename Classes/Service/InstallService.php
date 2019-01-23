@@ -66,7 +66,7 @@ class InstallService
                 'There is already an ' . $filename . ' configuration file in the root directory, '
                 . 'please make sure that configuration files are protected and the url rewritings are set properly. '
                 . 'An example configuration is located at: "typo3conf/ext/bootstrap_package/Configuration/Server/_' . $filename . '"',
-                'Webserver coniguration file "' . $filename . '" already exists',
+                'Webserver configuration file "' . $filename . '" already exists',
                 FlashMessage::NOTICE,
                 true
             );
@@ -81,7 +81,7 @@ class InstallService
             $flashMessage = GeneralUtility::makeInstance(
                 FlashMessage::class,
                 'For securing configuration files and optimization purposes an example ' . $filename . ' file was placed in your root directory.',
-                'Webserver coniguration file "' . $filename . '" was placed in the root directory.',
+                'Webserver configuration file "' . $filename . '" was placed in the root directory.',
                 FlashMessage::OK,
                 true
             );
