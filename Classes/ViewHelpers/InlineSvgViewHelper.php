@@ -70,7 +70,12 @@ class InlineSvgViewHelper extends AbstractViewHelper
             }
 
             $svgContent = $image->getContents();
-            $svgContent = preg_replace('/<script[\s\S]*?>[\s\S]*?<\/script>/i', '', $svgContent);
+            $svgContent = trim(preg_replace('/<script[\s\S]*?>[\s\S]*?<\/script>/i', '', $svgContent));
+
+            // Exit if file does not contain content
+            if (empty($svgContent)) {
+                return '';
+            }
 
             // Disables the functionality to allow external entities to be loaded when parsing the XML, must be kept
             $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
