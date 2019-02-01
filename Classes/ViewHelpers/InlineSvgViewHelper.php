@@ -55,16 +55,16 @@ class InlineSvgViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $src = $arguments['src'];
+        $src = (string)$arguments['src'];
         $image = $arguments['image'];
 
-        if (($src === null && $image === null) || ($src !== null && $image !== null)) {
+        if (($src === '' && $image === null) || ($src !== '' && $image !== null)) {
             throw new \Exception('You must either specify a string src or a File object.', 1530601100);
         }
 
         try {
             $imageService = self::getImageService();
-            $image = $imageService->getImage($src, $image, 0);
+            $image = $imageService->getImage($src, $image, false);
             if ($image->getProperty('extension') !== 'svg') {
                 return '';
             }
