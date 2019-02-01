@@ -3,7 +3,7 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div id="carousel-{data.uid}" class="carousel carousel-small carousel-{data.pi_flexform.transition} slide" data-interval="{data.pi_flexform.interval}" data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
+        <div id="carousel-{data.uid}" class="carousel carousel-small carousel-{data.pi_flexform.transition} slide" {f:if(condition: data.pi_flexform.interval, then: 'data-interval="{data.pi_flexform.interval}" ')}data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" data-ride="carousel">
             <div class="carousel-inner">
                 <f:for each="{records}" as="item" iteration="iteration">
                     <f:variable name="itemStyleColor"><f:if condition="{item.data.background_color}">background-color: {item.data.background_color};</f:if></f:variable>
