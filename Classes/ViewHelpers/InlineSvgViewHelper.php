@@ -55,7 +55,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $src = $arguments['src'];
+        $src = (string)$arguments['src'];
         $image = $arguments['image'];
 
         if (($src === null && $image === null) || ($src !== null && $image !== null)) {
@@ -64,7 +64,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
 
         try {
             $imageService = self::getImageService();
-            $image = $imageService->getImage($src, $image, 0);
+            $image = $imageService->getImage($src, $image, false);
             if ($image->getProperty('extension') !== 'svg') {
                 return '';
             }
