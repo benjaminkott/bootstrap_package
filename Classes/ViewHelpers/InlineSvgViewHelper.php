@@ -58,7 +58,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
         $src = (string)$arguments['src'];
         $image = $arguments['image'];
 
-        if (($src === null && $image === null) || ($src !== null && $image !== null)) {
+        if (($src === '' && $image === null) || ($src !== '' && $image !== null)) {
             throw new \Exception('You must either specify a string src or a File object.', 1530601100);
         }
 
