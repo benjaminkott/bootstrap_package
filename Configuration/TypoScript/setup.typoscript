@@ -240,7 +240,14 @@ page {
             rootPage = TEXT
             rootPage.data = leveluid:0
             pagelayout = TEXT
-            pagelayout.data = pagelayout
+            pagelayout {
+                data = pagelayout
+                replacement.10 {
+                    search = pagets__
+                    replace =
+                }
+                ifEmpty = default
+            }
             logoAlt = COA
             logoAlt {
                 10 = TEXT
