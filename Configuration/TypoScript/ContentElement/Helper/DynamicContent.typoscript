@@ -4,7 +4,13 @@
 #
 #  EXAMPLE
 #  ---------------
-#  <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0', wrap: '<div class=\"hero\">|</div>', elementWrap: '<div class=\"element\">|</div>'}" />
+#  <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{
+#      pageUid: '{data.uid}',
+#      colPos: '0',
+#      slide: '0',
+#      wrap: '<div class=\"hero\">|</div>',
+#      elementWrap: '<div class=\"element\">|</div>'
+#  }" />
 #
 #
 #  COLUMN NUMBERS
@@ -52,6 +58,17 @@ lib.dynamicContent {
                 ifEmpty = 0
             }
         }
+        slide.cObject = TEXT
+        slide.cObject {
+            override {
+                field = slide
+                if {
+                    isInList.field = slide
+                    value = -1, 0, 1, 2
+                }
+            }
+            ifEmpty = 0
+        }
         pageUid.cObject = TEXT
         pageUid.cObject {
             field = pageUid
@@ -82,7 +99,9 @@ lib.dynamicContent {
             pidInList.data = register:pageUid
             pidInList.override.data = register:contentFromPid
         }
-        renderObj{
+        slide = {register:slide}
+        slide.insertData = 1
+        renderObj {
             stdWrap{
                 dataWrap = {register:elementWrap}
                 required = 1

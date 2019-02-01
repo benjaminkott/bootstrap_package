@@ -239,6 +239,8 @@ page {
             siteTitle.data = TSFE:tmpl|setup|sitetitle
             rootPage = TEXT
             rootPage.data = leveluid:0
+            pagelayout = TEXT
+            pagelayout.data = pagelayout
             logoAlt = COA
             logoAlt {
                 10 = TEXT
