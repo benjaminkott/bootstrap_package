@@ -28,18 +28,19 @@
 # customsubcategory=320=Cards
 # customsubcategory=321=Tooltips
 # customsubcategory=322=Popovers
-# customsubcategory=323=Badges
-# customsubcategory=324=Modals
-# customsubcategory=325=Alerts
-# customsubcategory=326=Progress Bars
-# customsubcategory=327=List Groups
-# customsubcategory=328=Image Thumbnails
-# customsubcategory=329=Figures
-# customsubcategory=330=Breadcrumbs
-# customsubcategory=331=Carousel
-# customsubcategory=332=Close
-# customsubcategory=333=Code
-# customsubcategory=334=Printing
+# customsubcategory=323=Toasts
+# customsubcategory=324=Badges
+# customsubcategory=325=Modals
+# customsubcategory=326=Alerts
+# customsubcategory=327=Progress Bars
+# customsubcategory=328=List Groups
+# customsubcategory=329=Image Thumbnails
+# customsubcategory=330=Figures
+# customsubcategory=331=Breadcrumbs
+# customsubcategory=332=Carousel
+# customsubcategory=333=Close
+# customsubcategory=334=Code
+# customsubcategory=335=Printing
 
 plugin.bootstrap_package {
     settings {
@@ -128,8 +129,12 @@ plugin.bootstrap_package {
             enable-prefers-reduced-motion-media-query = true
             # cat=bootstrap 4.x: styling/301/enable-grid-classes; type=options[Enabled=true, Disabled=false]; label=$enable-grid-classes:
             enable-grid-classes = true
+            # cat=bootstrap 4.x: styling/301/enable-pointer-cursor-for-buttons; type=options[Enabled=true, Disabled=false]; label=$enable-pointer-cursor-for-buttons:
+            enable-pointer-cursor-for-buttons = true
             # cat=bootstrap 4.x: styling/301/enable-print-styles; type=options[Enabled=true, Disabled=false]; label=$enable-print-styles:
             enable-print-styles = true
+            # cat=bootstrap 4.x: styling/301/enable-responsive-font-sizes; type=options[Enabled=true, Disabled=false]; label=$enable-responsive-font-sizes:
+            enable-responsive-font-sizes = false
             # cat=bootstrap 4.x: styling/301/enable-validation-icons; type=options[Enabled=true, Disabled=false]; label=$enable-validation-icons:
             enable-validation-icons = true
 
@@ -186,6 +191,10 @@ plugin.bootstrap_package {
             component-active-bg = $primary
             # cat=bootstrap 4.x: styling/307/caret-width; type=string; label=$caret-width:
             caret-width = .3em
+            # cat=bootstrap 4.x: styling/307/caret-vertical-align; type=string; label=$caret-vertical-align:
+            caret-vertical-align = $caret-width * .85
+            # cat=bootstrap 4.x: styling/307/caret-spacing; type=string; label=$caret-spacing:
+            caret-spacing = $caret-width * .85
             # cat=bootstrap 4.x: styling/307/transition-base; type=string; label=$transition-base:
             transition-base = all .2s ease-in-out
             # cat=bootstrap 4.x: styling/307/transition-fade; type=string; label=$transition-fade:
@@ -201,6 +210,10 @@ plugin.bootstrap_package {
             font-family-base = "#{$google-webfont}", sans-serif
             # cat=bootstrap 4.x: styling/308/font-size-base; type=string; label=$font-size-base:
             font-size-base = 1rem
+            # cat=bootstrap 4.x: styling/308/font-size-lg; type=string; label=$font-size-lg:
+            font-size-lg = $font-size-base * 1.25
+            # cat=bootstrap 4.x: styling/308/font-size-sm; type=string; label=$font-size-sm:
+            font-size-sm = $font-size-base * .875
             # cat=bootstrap 4.x: styling/308/font-weight-lighter; type=string; label=$font-weight-lighter:
             font-weight-lighter = lighter
             # cat=bootstrap 4.x: styling/308/font-weight-light; type=string; label=$font-weight-light:
@@ -230,13 +243,13 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/headings-margin-bottom; type=string; label=$headings-margin-bottom:
             headings-margin-bottom = $spacer / 2
             # cat=bootstrap 4.x: styling/308/headings-font-family; type=string; label=$headings-font-family:
-            headings-font-family = inherit
+            headings-font-family = null
             # cat=bootstrap 4.x: styling/308/headings-font-weight; type=string; label=$headings-font-weight:
             headings-font-weight = 300
             # cat=bootstrap 4.x: styling/308/headings-line-height; type=string; label=$headings-line-height:
             headings-line-height = 1.2
             # cat=bootstrap 4.x: styling/308/headings-color; type=string; label=$headings-color:
-            headings-color = inherit
+            headings-color = null
             # cat=bootstrap 4.x: styling/308/display1-size; type=string; label=$display1-size:
             display1-size = 6rem
             # cat=bootstrap 4.x: styling/308/display2-size; type=string; label=$display2-size:
@@ -256,7 +269,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/display-line-height; type=string; label=$display-line-height:
             display-line-height = $headings-line-height
             # cat=bootstrap 4.x: styling/308/lead-font-size; type=string; label=$lead-font-size:
-            lead-font-size = ($font-size-base * 1.25)
+            lead-font-size = $font-size-base * 1.25
             # cat=bootstrap 4.x: styling/308/lead-font-weight; type=string; label=$lead-font-weight:
             lead-font-weight = 300
             # cat=bootstrap 4.x: styling/308/small-font-size; type=string; label=$small-font-size:
@@ -268,7 +281,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/308/blockquote-small-font-size; type=string; label=$blockquote-small-font-size:
             blockquote-small-font-size = $small-font-size
             # cat=bootstrap 4.x: styling/308/blockquote-font-size; type=string; label=$blockquote-font-size:
-            blockquote-font-size = ($font-size-base * 1.15)
+            blockquote-font-size = $font-size-base * 1.25
             # cat=bootstrap 4.x: styling/308/hr-border-color; type=string; label=$hr-border-color:
             hr-border-color = rgba($black, .1)
             # cat=bootstrap 4.x: styling/308/hr-border-width; type=string; label=$hr-border-width:
@@ -292,10 +305,14 @@ plugin.bootstrap_package {
             table-cell-padding = .75rem
             # cat=bootstrap 4.x: styling/309/table-cell-padding-sm; type=string; label=$table-cell-padding-sm:
             table-cell-padding-sm = .3rem
+            # cat=bootstrap 4.x: styling/309/table-color; type=string; label=$table-color:
+            table-color = $body-color
             # cat=bootstrap 4.x: styling/309/table-bg; type=string; label=$table-bg:
-            table-bg = transparent
+            table-bg = null
             # cat=bootstrap 4.x: styling/309/table-accent-bg; type=string; label=$table-accent-bg:
             table-accent-bg = rgba($black, .05)
+            # cat=bootstrap 4.x: styling/309/table-hover-color; type=string; label=$table-hover-color:
+            table-hover-color = $table-color
             # cat=bootstrap 4.x: styling/309/table-hover-bg; type=string; label=$table-hover-bg:
             table-hover-bg = rgba($black, .075)
             # cat=bootstrap 4.x: styling/309/table-active-bg; type=string; label=$table-active-bg:
@@ -303,19 +320,23 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/309/table-border-width; type=string; label=$table-border-width:
             table-border-width = $border-width
             # cat=bootstrap 4.x: styling/309/table-border-color; type=string; label=$table-border-color:
-            table-border-color = $gray-300
+            table-border-color = $border-color
             # cat=bootstrap 4.x: styling/309/table-head-bg; type=string; label=$table-head-bg:
             table-head-bg = $gray-200
             # cat=bootstrap 4.x: styling/309/table-head-color; type=string; label=$table-head-color:
             table-head-color = $gray-700
+            # cat=bootstrap 4.x: styling/309/table-dark-color; type=string; label=$table-dark-color:
+            table-dark-color = $white
             # cat=bootstrap 4.x: styling/309/table-dark-bg; type=string; label=$table-dark-bg:
             table-dark-bg = $gray-900
             # cat=bootstrap 4.x: styling/309/table-dark-accent-bg; type=string; label=$table-dark-accent-bg:
             table-dark-accent-bg = rgba($white, .05)
+            # cat=bootstrap 4.x: styling/309/table-dark-hover-color; type=string; label=$table-dark-hover-color:
+            table-dark-hover-color = $table-dark-color
             # cat=bootstrap 4.x: styling/309/table-dark-hover-bg; type=string; label=$table-dark-hover-bg:
             table-dark-hover-bg = rgba($white, .075)
             # cat=bootstrap 4.x: styling/309/table-dark-border-color; type=string; label=$table-dark-border-color:
-            table-dark-border-color = lighten($gray-900, 7.5%)
+            table-dark-border-color = lighten($table-dark-bg, 7.5%)
             # cat=bootstrap 4.x: styling/309/table-dark-color; type=string; label=$table-dark-color:
             table-dark-color = $white
             # cat=bootstrap 4.x: styling/309/table-striped-order; type=string; label=$table-striped-order:
@@ -331,6 +352,8 @@ plugin.bootstrap_package {
             input-btn-padding-y = .375rem
             # cat=bootstrap 4.x: styling/310/input-btn-padding-x; type=string; label=$input-btn-padding-x:
             input-btn-padding-x = .75rem
+            # cat=bootstrap 4.x: styling/310/input-btn-font-family; type=string; label=$input-btn-font-family:
+            input-btn-font-family = null
             # cat=bootstrap 4.x: styling/310/input-btn-font-size; type=string; label=$input-btn-font-size:
             input-btn-font-size = $font-size-base
             # cat=bootstrap 4.x: styling/310/input-btn-line-height; type=string; label=$input-btn-line-height:
@@ -364,6 +387,10 @@ plugin.bootstrap_package {
             btn-padding-y = $input-btn-padding-y
             # cat=bootstrap 4.x: styling/311/btn-padding-x; type=string; label=$btn-padding-x:
             btn-padding-x = $input-btn-padding-x
+            # cat=bootstrap 4.x: styling/311/btn-font-family; type=string; label=$btn-font-family:
+            btn-font-family = $input-btn-font-family
+            # cat=bootstrap 4.x: styling/311/btn-font-size; type=string; label=$btn-font-size:
+            btn-font-size = $input-btn-font-size
             # cat=bootstrap 4.x: styling/311/btn-line-height; type=string; label=$btn-line-height:
             btn-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/311/btn-padding-y-sm; type=string; label=$btn-padding-y-sm:
@@ -409,6 +436,12 @@ plugin.bootstrap_package {
             input-padding-y = $input-btn-padding-y
             # cat=bootstrap 4.x: styling/312/input-padding-x; type=string; label=$input-padding-x:
             input-padding-x = $input-btn-padding-x
+            # cat=bootstrap 4.x: styling/312/input-font-family; type=string; label=$input-font-family:
+            input-font-family = $input-btn-font-family
+            # cat=bootstrap 4.x: styling/312/input-font-family; type=string; label=$input-font-family:
+            input-font-size = $input-btn-font-size
+            # cat=bootstrap 4.x: styling/312/input-font-family; type=string; label=$input-font-family:
+            input-font-weight = $font-weight-base
             # cat=bootstrap 4.x: styling/312/input-line-height; type=string; label=$input-line-height:
             input-line-height = $input-btn-line-height
             # cat=bootstrap 4.x: styling/312/input-padding-y-sm; type=string; label=$input-padding-y-sm:
@@ -456,17 +489,17 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/input-height-border; type=string; label=$input-height-border:
             input-height-border = $input-border-width * 2
             # cat=bootstrap 4.x: styling/312/input-height-inner; type=string; label=$input-height-inner:
-            input-height-inner = ($input-btn-font-size * $input-btn-line-height) + ($input-btn-padding-y * 2)
+            input-height-inner = calc(#{$input-line-height * 1em} + #{$input-padding-y * 2})
+            # cat=bootstrap 4.x: styling/312/input-height-inner-half; type=string; label=$input-height-inner-half:
+            input-height-inner-half = calc(#{$input-line-height * .5em} + #{$input-padding-y})
+            # cat=bootstrap 4.x: styling/312/input-height-inner-quarter; type=string; label=$input-height-inner-quarter:
+            input-height-inner-quarter = calc(#{$input-line-height * .25em} + #{$input-padding-y / 2})
             # cat=bootstrap 4.x: styling/312/input-height; type=string; label=$input-height:
-            input-height = calc(#{$input-height-inner} + #{$input-height-border})
-            # cat=bootstrap 4.x: styling/312/input-height-inner-sm; type=string; label=$input-height-inner-sm:
-            input-height-inner-sm = ($input-btn-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2)
+            input-height = calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/312/input-height-sm; type=string; label=$input-height-sm:
-            input-height-sm = calc(#{$input-height-inner-sm} + #{$input-height-border})
-            # cat=bootstrap 4.x: styling/312/input-height-inner-lg; type=string; label=$input-height-inner-lg:
-            input-height-inner-lg = ($input-btn-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2)
+            input-height-sm = calc(#{$input-line-height-sm * 1em} + #{$input-btn-padding-y-sm * 2} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/312/input-height-lg; type=string; label=$input-height-lg:
-            input-height-lg = calc(#{$input-height-inner-lg} + #{$input-height-border})
+            input-height-lg = calc(#{$input-line-height-lg * 1em} + #{$input-btn-padding-y-lg * 2} + #{$input-height-border})
             # cat=bootstrap 4.x: styling/312/input-transition; type=string; label=$input-transition:
             input-transition = border-color .15s ease-in-out, box-shadow .15s ease-in-out
             # cat=bootstrap 4.x: styling/312/form-text-margin-top; type=string; label=$form-text-margin-top:
@@ -522,7 +555,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/custom-control-indicator-checked-border-color; type=string; label=$custom-control-indicator-checked-border-color:
             custom-control-indicator-checked-border-color = $custom-control-indicator-checked-bg
             # cat=bootstrap 4.x: styling/312/custom-control-indicator-focus-box-shadow; type=string; label=$custom-control-indicator-focus-box-shadow:
-            custom-control-indicator-focus-box-shadow = $input-btn-focus-box-shadow
+            custom-control-indicator-focus-box-shadow = $input-focus-box-shadow
             # cat=bootstrap 4.x: styling/312/custom-control-indicator-focus-border-color; type=string; label=$custom-control-indicator-focus-border-color:
             custom-control-indicator-focus-border-color = $input-focus-border-color
             # cat=bootstrap 4.x: styling/312/custom-control-indicator-active-color; type=string; label=$custom-control-indicator-active-color:
@@ -558,9 +591,13 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/custom-switch-indicator-size; type=string; label=$custom-switch-indicator-size:
             custom-switch-indicator-size = calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4})
             # cat=bootstrap 4.x: styling/312/custom-select-padding-y; type=string; label=$custom-select-padding-y:
-            custom-select-padding-y = $input-btn-padding-y
+            custom-select-padding-y = $input-padding-y
             # cat=bootstrap 4.x: styling/312/custom-select-padding-x; type=string; label=$custom-select-padding-x:
-            custom-select-padding-x = $input-btn-padding-x
+            custom-select-padding-x = $input-padding-x
+            # cat=bootstrap 4.x: styling/312/custom-select-font-family; type=string; label=$custom-select-font-family:
+            custom-select-font-family = $input-font-family
+            # cat=bootstrap 4.x: styling/312/custom-select-font-size; type=string; label=$custom-select-font-size:
+            custom-select-font-size = $input-font-size
             # cat=bootstrap 4.x: styling/312/custom-select-height; type=string; label=$custom-select-height:
             custom-select-height = $input-height
             # cat=bootstrap 4.x: styling/312/custom-select-indicator-padding; type=string; label=$custom-select-indicator-padding:
@@ -586,11 +623,11 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/custom-select-background; type=string; label=$custom-select-background:
             custom-select-background = $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size !default; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
             # cat=bootstrap 4.x: styling/312/custom-select-feedback-icon-padding-right; type=string; label=$custom-select-feedback-icon-padding-right:
-            custom-select-feedback-icon-padding-right = $input-height-inner * 3 / 4 + $custom-select-padding-x + $custom-select-indicator-padding
+            custom-select-feedback-icon-padding-right = calc((1em + #{2 * $custom-select-padding-y}) * 3 / 4 + #{$custom-select-padding-x + $custom-select-indicator-padding})
             # cat=bootstrap 4.x: styling/312/custom-select-feedback-icon-position; type=string; label=$custom-select-feedback-icon-position:
             custom-select-feedback-icon-position = center right ($custom-select-padding-x + $custom-select-indicator-padding)
             # cat=bootstrap 4.x: styling/312/custom-select-feedback-icon-size; type=string; label=$custom-select-feedback-icon-size:
-            custom-select-feedback-icon-size = ($input-height-inner / 2) ($input-height-inner / 2)
+            custom-select-feedback-icon-size = $input-height-inner-half $input-height-inner-half
             # cat=bootstrap 4.x: styling/312/custom-select-border-width; type=string; label=$custom-select-border-width:
             custom-select-border-width = $input-border-width
             # cat=bootstrap 4.x: styling/312/custom-select-border-color; type=string; label=$custom-select-border-color:
@@ -604,13 +641,13 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/custom-select-focus-width; type=string; label=$custom-select-focus-width:
             custom-select-focus-width = $input-focus-width
             # cat=bootstrap 4.x: styling/312/custom-select-focus-box-shadow; type=string; label=$custom-select-focus-box-shadow:
-            custom-select-focus-box-shadow = 0 0 0 $custom-select-focus-width rgba($custom-select-focus-border-color, .5)
+            custom-select-focus-box-shadow = 0 0 0 $custom-select-focus-width $input-btn-focus-color
             # cat=bootstrap 4.x: styling/312/custom-select-padding-y-sm; type=string; label=$custom-select-padding-y-sm:
             custom-select-padding-y-sm = $input-padding-y-sm
             # cat=bootstrap 4.x: styling/312/custom-select-padding-x-sm; type=string; label=$custom-select-padding-x-sm:
             custom-select-padding-x-sm = $input-padding-x-sm
             # cat=bootstrap 4.x: styling/312/custom-select-font-size-sm; type=string; label=$custom-select-font-size-sm:
-            custom-select-font-size-sm = $input-btn-font-size-sm
+            custom-select-font-size-sm = $input-font-size-sm
             # cat=bootstrap 4.x: styling/312/custom-select-height-sm; type=string; label=$custom-select-height-sm:
             custom-select-height-sm = $input-height-sm
             # cat=bootstrap 4.x: styling/312/custom-select-padding-y-lg; type=string; label=$custom-select-padding-y-lg:
@@ -669,6 +706,8 @@ plugin.bootstrap_package {
             custom-file-padding-x = $input-padding-x
             # cat=bootstrap 4.x: styling/312/custom-file-line-height; type=string; label=$custom-file-line-height:
             custom-file-line-height = $input-line-height
+            # cat=bootstrap 4.x: styling/312/custom-file-font-family; type=string; label=$custom-file-font-family:
+            custom-file-font-family = $input-font-family
             # cat=bootstrap 4.x: styling/312/custom-file-font-weight; type=string; label=$custom-file-font-weight:
             custom-file-font-weight = $input-font-weight
             # cat=bootstrap 4.x: styling/312/custom-file-color; type=string; label=$custom-file-color:
@@ -703,7 +742,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/313/form-feedback-icon-invalid-color; type=string; label=$form-feedback-icon-invalid-color:
             form-feedback-icon-invalid-color = $form-feedback-invalid-color
             # cat=bootstrap 4.x: styling/313/form-feedback-icon-invalid; type=string; label=$form-feedback-icon-invalid:
-            form-feedback-icon-invalid = str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$form-feedback-icon-invalid-color}' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E"), "#", "%23")
+            form-feedback-icon-invalid = str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$form-feedback-icon-invalid-color}' viewBox='-2 -2 7 7'%3e%3cpath stroke='#{$form-feedback-icon-invalid-color}' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E"), "#", "%23")
 
             # cat=bootstrap 4.x: styling/314/dropdown-min-width; type=string; label=$dropdown-min-width:
             dropdown-min-width = 10rem
@@ -711,6 +750,10 @@ plugin.bootstrap_package {
             dropdown-padding-y = .5rem
             # cat=bootstrap 4.x: styling/314/dropdown-spacer; type=string; label=$dropdown-spacer:
             dropdown-spacer = .125rem
+            # cat=bootstrap 4.x: styling/314/dropdown-font-size; type=string; label=$dropdown-font-size:
+            dropdown-font-size = $font-size-base
+            # cat=bootstrap 4.x: styling/314/dropdown-color; type=string; label=$dropdown-color:
+            dropdown-color = $body-color
             # cat=bootstrap 4.x: styling/314/dropdown-bg; type=string; label=$dropdown-bg:
             dropdown-bg = $white
             # cat=bootstrap 4.x: styling/314/dropdown-border-color; type=string; label=$dropdown-border-color:
@@ -723,6 +766,8 @@ plugin.bootstrap_package {
             dropdown-inner-border-radius = calc(#{$dropdown-border-radius} - #{$dropdown-border-width})
             # cat=bootstrap 4.x: styling/314/dropdown-divider-bg; type=string; label=$dropdown-divider-bg:
             dropdown-divider-bg = $gray-200
+            # cat=bootstrap 4.x: styling/314/dropdown-divider-margin-y; type=string; label=$dropdown-divider-margin-y:
+            dropdown-divider-margin-y = $nav-divider-margin-y
             # cat=bootstrap 4.x: styling/314/dropdown-box-shadow; type=string; label=$dropdown-box-shadow:
             dropdown-box-shadow = 0 .5rem 1rem rgba($black, .175)
             # cat=bootstrap 4.x: styling/314/dropdown-link-color; type=string; label=$dropdown-link-color:
@@ -890,6 +935,8 @@ plugin.bootstrap_package {
 
             # cat=bootstrap 4.x: styling/319/jumbotron-padding; type=string; label=$jumbotron-padding:
             jumbotron-padding = 2rem
+            # cat=bootstrap 4.x: styling/319/jumbotron-paddicolorng; type=string; label=$jumbotron-color:
+            jumbotron-color = null
             # cat=bootstrap 4.x: styling/319/jumbotron-bg; type=string; label=$jumbotron-bg:
             jumbotron-bg = $gray-200
 
@@ -908,7 +955,9 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/320/card-cap-bg; type=string; label=$card-cap-bg:
             card-cap-bg = rgba($black, .03)
             # cat=bootstrap 4.x: styling/320/card-cap-color; type=string; label=$card-cap-color:
-            card-cap-color = inherit
+            card-cap-color = null
+            # cat=bootstrap 4.x: styling/320/card-color; type=string; label=$card-color:
+            card-color = null
             # cat=bootstrap 4.x: styling/320/card-bg; type=string; label=$card-bg:
             card-bg = $white
             # cat=bootstrap 4.x: styling/320/card-img-overlay-padding; type=string; label=$card-img-overlay-padding:
@@ -986,228 +1035,263 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/322/popover-arrow-outer-color; type=string; label=$popover-arrow-outer-color:
             popover-arrow-outer-color = fade-in($popover-border-color, .05)
 
-            # cat=bootstrap 4.x: styling/323/badge-font-size; type=string; label=$badge-font-size:
+            # cat=bootstrap 4.x: styling/323/toast-max-width; type=string; label=$toast-max-width:
+            toast-max-width = 350px
+            # cat=bootstrap 4.x: styling/323/toast-padding-x; type=string; label=$toast-padding-x:
+            toast-padding-x = .75rem
+            # cat=bootstrap 4.x: styling/323/toast-padding-y; type=string; label=$toast-padding-y:
+            toast-padding-y = .25rem
+            # cat=bootstrap 4.x: styling/323/toast-font-size; type=string; label=$toast-font-size:
+            toast-font-size = .875rem
+            # cat=bootstrap 4.x: styling/323/toast-color; type=string; label=$toast-color:
+            toast-color = null
+            # cat=bootstrap 4.x: styling/323/toast-background-color; type=string; label=$toast-background-color:
+            toast-background-color = rgba($white, .85)
+            # cat=bootstrap 4.x: styling/323/toast-border-width; type=string; label=$toast-border-width:
+            toast-border-width = 1px
+            # cat=bootstrap 4.x: styling/323/toast-border-color; type=string; label=$toast-border-color:
+            toast-border-color = rgba(0, 0, 0, .1)
+            # cat=bootstrap 4.x: styling/323/toast-border-radius; type=string; label=$toast-border-radius:
+            toast-border-radius = .25rem
+            # cat=bootstrap 4.x: styling/323/toast-box-shadow; type=string; label=$toast-box-shadow:
+            toast-box-shadow = 0 .25rem .75rem rgba($black, .1)
+            # cat=bootstrap 4.x: styling/323/toast-header-color; type=string; label=$toast-header-color:
+            toast-header-color = $gray-600
+            # cat=bootstrap 4.x: styling/323/toast-header-background-color; type=string; label=$toast-header-background-color:
+            toast-header-background-color = rgba($white, .85)
+            # cat=bootstrap 4.x: styling/323/toast-header-border-color; type=string; label=$toast-header-border-color:
+            toast-header-border-color = rgba(0, 0, 0, .05)
+
+            # cat=bootstrap 4.x: styling/324/badge-font-size; type=string; label=$badge-font-size:
             badge-font-size = 75%
-            # cat=bootstrap 4.x: styling/323/badge-font-weight; type=string; label=$badge-font-weight:
+            # cat=bootstrap 4.x: styling/324/badge-font-weight; type=string; label=$badge-font-weight:
             badge-font-weight = $font-weight-bold
-            # cat=bootstrap 4.x: styling/323/badge-padding-y; type=string; label=$badge-padding-y:
+            # cat=bootstrap 4.x: styling/324/badge-padding-y; type=string; label=$badge-padding-y:
             badge-padding-y = .25em
-            # cat=bootstrap 4.x: styling/323/badge-padding-x; type=string; label=$badge-padding-x:
+            # cat=bootstrap 4.x: styling/324/badge-padding-x; type=string; label=$badge-padding-x:
             badge-padding-x = .4em
-            # cat=bootstrap 4.x: styling/323/badge-border-radius; type=string; label=$badge-border-radius:
+            # cat=bootstrap 4.x: styling/324/badge-border-radius; type=string; label=$badge-border-radius:
             badge-border-radius = $border-radius
-            # cat=bootstrap 4.x: styling/323/badge-pill-padding-x; type=string; label=$badge-pill-padding-x:
+            # cat=bootstrap 4.x: styling/324/badge-transition; type=string; label=$badge-transition:
+            badge-transition = $btn-transition
+            # cat=bootstrap 4.x: styling/324/badge-focus-width; type=string; label=$badge-focus-width:
+            badge-focus-width = $input-btn-focus-width
+            # cat=bootstrap 4.x: styling/324/badge-pill-padding-x; type=string; label=$badge-pill-padding-x:
             badge-pill-padding-x = .6em
-            # cat=bootstrap 4.x: styling/323/badge-pill-border-radius; type=string; label=$badge-pill-border-radius:
+            # cat=bootstrap 4.x: styling/324/badge-pill-border-radius; type=string; label=$badge-pill-border-radius:
             badge-pill-border-radius = 10rem
 
-            # cat=bootstrap 4.x: styling/324/modal-inner-padding; type=string; label=$modal-inner-padding:
+            # cat=bootstrap 4.x: styling/325/modal-inner-padding; type=string; label=$modal-inner-padding:
             modal-inner-padding = 1rem
-            # cat=bootstrap 4.x: styling/324/modal-dialog-margin; type=string; label=$modal-dialog-margin:
+            # cat=bootstrap 4.x: styling/325/modal-dialog-margin; type=string; label=$modal-dialog-margin:
             modal-dialog-margin = .5rem
-            # cat=bootstrap 4.x: styling/324/modal-dialog-margin-y-sm-up; type=string; label=$modal-dialog-margin-y-sm-up:
+            # cat=bootstrap 4.x: styling/325/modal-dialog-margin-y-sm-up; type=string; label=$modal-dialog-margin-y-sm-up:
             modal-dialog-margin-y-sm-up = 1.75rem
-            # cat=bootstrap 4.x: styling/324/modal-title-line-height; type=string; label=$modal-title-line-height:
+            # cat=bootstrap 4.x: styling/325/modal-title-line-height; type=string; label=$modal-title-line-height:
             modal-title-line-height = $line-height-base
-            # cat=bootstrap 4.x: styling/324/modal-content-bg; type=string; label=$modal-content-bg:
+            # cat=bootstrap 4.x: styling/325/modal-content-color; type=string; label=$modal-content-color:
+            modal-content-color = null
+            # cat=bootstrap 4.x: styling/325/modal-content-bg; type=string; label=$modal-content-bg:
             modal-content-bg = $white
-            # cat=bootstrap 4.x: styling/324/modal-content-border-color; type=string; label=$modal-content-border-color:
+            # cat=bootstrap 4.x: styling/325/modal-content-border-color; type=string; label=$modal-content-border-color:
             modal-content-border-color = rgba($black, .2)
-            # cat=bootstrap 4.x: styling/324/modal-content-border-width; type=string; label=$modal-content-border-width:
+            # cat=bootstrap 4.x: styling/325/modal-content-border-width; type=string; label=$modal-content-border-width:
             modal-content-border-width = $border-width
-            # cat=bootstrap 4.x: styling/324/modal-content-box-shadow-xs; type=string; label=$modal-content-box-shadow-xs:
+            # cat=bootstrap 4.x: styling/325/modal-content-box-shadow-xs; type=string; label=$modal-content-box-shadow-xs:
             modal-content-box-shadow-xs = 0 .25rem .5rem rgba($black, .5)
-            # cat=bootstrap 4.x: styling/324/modal-content-box-shadow-sm-up; type=string; label=$modal-content-box-shadow-sm-up:
+            # cat=bootstrap 4.x: styling/325/modal-content-box-shadow-sm-up; type=string; label=$modal-content-box-shadow-sm-up:
             modal-content-box-shadow-sm-up = 0 .5rem 1rem rgba($black, .5)
-            # cat=bootstrap 4.x: styling/324/modal-backdrop-bg; type=string; label=$modal-backdrop-bg:
+            # cat=bootstrap 4.x: styling/325/modal-backdrop-bg; type=string; label=$modal-backdrop-bg:
             modal-backdrop-bg = $black
-            # cat=bootstrap 4.x: styling/324/modal-backdrop-opacity; type=string; label=$modal-backdrop-opacity:
+            # cat=bootstrap 4.x: styling/325/modal-backdrop-opacity; type=string; label=$modal-backdrop-opacity:
             modal-backdrop-opacity = .5
-            # cat=bootstrap 4.x: styling/324/modal-header-border-color; type=string; label=$modal-header-border-color:
-            modal-header-border-color = $gray-200
-            # cat=bootstrap 4.x: styling/324/modal-footer-border-color; type=string; label=$modal-footer-border-color:
+            # cat=bootstrap 4.x: styling/325/modal-header-border-color; type=string; label=$modal-header-border-color:
+            modal-header-border-color = $border-color
+            # cat=bootstrap 4.x: styling/325/modal-footer-border-color; type=string; label=$modal-footer-border-color:
             modal-footer-border-color = $modal-header-border-color
-            # cat=bootstrap 4.x: styling/324/modal-header-border-width; type=string; label=$modal-header-border-width:
+            # cat=bootstrap 4.x: styling/325/modal-header-border-width; type=string; label=$modal-header-border-width:
             modal-header-border-width = $modal-content-border-width
-            # cat=bootstrap 4.x: styling/324/modal-footer-border-width; type=string; label=$modal-footer-border-width:
+            # cat=bootstrap 4.x: styling/325/modal-footer-border-width; type=string; label=$modal-footer-border-width:
             modal-footer-border-width = $modal-header-border-width
-            # cat=bootstrap 4.x: styling/324/modal-header-padding; type=string; label=$modal-header-padding:
+            # cat=bootstrap 4.x: styling/325/modal-header-padding; type=string; label=$modal-header-padding:
             modal-header-padding = 1rem
-            # cat=bootstrap 4.x: styling/324/modal-lg; type=string; label=$modal-lg:
+            # cat=bootstrap 4.x: styling/325/modal-lg; type=string; label=$modal-lg:
             modal-lg = 800px
-            # cat=bootstrap 4.x: styling/324/modal-md; type=string; label=$modal-md:
+            # cat=bootstrap 4.x: styling/325/modal-md; type=string; label=$modal-md:
             modal-md = 500px
-            # cat=bootstrap 4.x: styling/324/modal-sm; type=string; label=$modal-sm:
+            # cat=bootstrap 4.x: styling/325/modal-sm; type=string; label=$modal-sm:
             modal-sm = 300px
-            # cat=bootstrap 4.x: styling/324/modal-transition; type=string; label=$modal-transition:
+            # cat=bootstrap 4.x: styling/325/modal-transition; type=string; label=$modal-transition:
             modal-transition = transform .3s ease-out
 
-            # cat=bootstrap 4.x: styling/325/alert-padding-y; type=string; label=$alert-padding-y:
+            # cat=bootstrap 4.x: styling/326/alert-padding-y; type=string; label=$alert-padding-y:
             alert-padding-y = .75rem
-            # cat=bootstrap 4.x: styling/325/alert-padding-x; type=string; label=$alert-padding-x:
+            # cat=bootstrap 4.x: styling/326/alert-padding-x; type=string; label=$alert-padding-x:
             alert-padding-x = 1.25rem
-            # cat=bootstrap 4.x: styling/325/alert-margin-bottom; type=string; label=$alert-margin-bottom:
+            # cat=bootstrap 4.x: styling/326/alert-margin-bottom; type=string; label=$alert-margin-bottom:
             alert-margin-bottom = 1rem
-            # cat=bootstrap 4.x: styling/325/alert-border-radius; type=string; label=$alert-border-radius:
+            # cat=bootstrap 4.x: styling/326/alert-border-radius; type=string; label=$alert-border-radius:
             alert-border-radius = $border-radius
-            # cat=bootstrap 4.x: styling/325/alert-link-font-weight; type=string; label=$alert-link-font-weight:
+            # cat=bootstrap 4.x: styling/326/alert-link-font-weight; type=string; label=$alert-link-font-weight:
             alert-link-font-weight = $font-weight-bold
-            # cat=bootstrap 4.x: styling/325/alert-border-width; type=string; label=$alert-border-width:
+            # cat=bootstrap 4.x: styling/326/alert-border-width; type=string; label=$alert-border-width:
             alert-border-width = $border-width
-            # cat=bootstrap 4.x: styling/325/alert-bg-level; type=string; label=$alert-bg-level:
+            # cat=bootstrap 4.x: styling/326/alert-bg-level; type=string; label=$alert-bg-level:
             alert-bg-level = -10
-            # cat=bootstrap 4.x: styling/325/alert-border-level; type=string; label=$alert-border-level:
+            # cat=bootstrap 4.x: styling/326/alert-border-level; type=string; label=$alert-border-level:
             alert-border-level = -9
-            # cat=bootstrap 4.x: styling/325/alert-color-level; type=string; label=$alert-color-level:
+            # cat=bootstrap 4.x: styling/326/alert-color-level; type=string; label=$alert-color-level:
             alert-color-level = 6
 
-            # cat=bootstrap 4.x: styling/326/progress-height; type=string; label=$progress-height:
+            # cat=bootstrap 4.x: styling/327/progress-height; type=string; label=$progress-height:
             progress-height = 1rem
-            # cat=bootstrap 4.x: styling/326/progress-font-size; type=string; label=$progress-font-size:
-            progress-font-size = ($font-size-base * .75)
-            # cat=bootstrap 4.x: styling/326/progress-bg; type=string; label=$progress-bg:
+            # cat=bootstrap 4.x: styling/327/progress-font-size; type=string; label=$progress-font-size:
+            progress-font-size = $font-size-base * .75
+            # cat=bootstrap 4.x: styling/327/progress-bg; type=string; label=$progress-bg:
             progress-bg = $gray-200
-            # cat=bootstrap 4.x: styling/326/progress-border-radius; type=string; label=$progress-border-radius:
+            # cat=bootstrap 4.x: styling/327/progress-border-radius; type=string; label=$progress-border-radius:
             progress-border-radius = $border-radius
-            # cat=bootstrap 4.x: styling/326/progress-box-shadow; type=string; label=$progress-box-shadow:
+            # cat=bootstrap 4.x: styling/327/progress-box-shadow; type=string; label=$progress-box-shadow:
             progress-box-shadow = inset 0 .1rem .1rem rgba($black, .1)
-            # cat=bootstrap 4.x: styling/326/progress-bar-color; type=string; label=$progress-bar-color:
+            # cat=bootstrap 4.x: styling/327/progress-bar-color; type=string; label=$progress-bar-color:
             progress-bar-color = $white
-            # cat=bootstrap 4.x: styling/326/progress-bar-bg; type=string; label=$progress-bar-bg:
+            # cat=bootstrap 4.x: styling/327/progress-bar-bg; type=string; label=$progress-bar-bg:
             progress-bar-bg = $primary
-            # cat=bootstrap 4.x: styling/326/progress-bar-animation-timing; type=string; label=$progress-bar-animation-timing:
+            # cat=bootstrap 4.x: styling/327/progress-bar-animation-timing; type=string; label=$progress-bar-animation-timing:
             progress-bar-animation-timing = 1s linear infinite
-            # cat=bootstrap 4.x: styling/326/progress-bar-transition; type=string; label=$progress-bar-transition:
+            # cat=bootstrap 4.x: styling/327/progress-bar-transition; type=string; label=$progress-bar-transition:
             progress-bar-transition = width .6s ease
 
-            # cat=bootstrap 4.x: styling/327/list-group-bg; type=string; label=$list-group-bg:
+            # cat=bootstrap 4.x: styling/328/list-group-color; type=string; label=$list-group-color:
+            list-group-color = null
+            # cat=bootstrap 4.x: styling/328/list-group-bg; type=string; label=$list-group-bg:
             list-group-bg = $white
-            # cat=bootstrap 4.x: styling/327/list-group-border-color; type=string; label=$list-group-border-color:
+            # cat=bootstrap 4.x: styling/328/list-group-border-color; type=string; label=$list-group-border-color:
             list-group-border-color = rgba($black, .125)
-            # cat=bootstrap 4.x: styling/327/list-group-border-width; type=string; label=$list-group-border-width:
+            # cat=bootstrap 4.x: styling/328/list-group-border-width; type=string; label=$list-group-border-width:
             list-group-border-width = $border-width
-            # cat=bootstrap 4.x: styling/327/list-group-border-radius; type=string; label=$list-group-border-radius:
+            # cat=bootstrap 4.x: styling/328/list-group-border-radius; type=string; label=$list-group-border-radius:
             list-group-border-radius = $border-radius
-            # cat=bootstrap 4.x: styling/327/list-group-item-padding-y; type=string; label=$list-group-item-padding-y:
+            # cat=bootstrap 4.x: styling/328/list-group-item-padding-y; type=string; label=$list-group-item-padding-y:
             list-group-item-padding-y = .75rem
-            # cat=bootstrap 4.x: styling/327/list-group-item-padding-x; type=string; label=$list-group-item-padding-x:
+            # cat=bootstrap 4.x: styling/328/list-group-item-padding-x; type=string; label=$list-group-item-padding-x:
             list-group-item-padding-x = 1.25rem
-            # cat=bootstrap 4.x: styling/327/list-group-hover-bg; type=string; label=$list-group-hover-bg:
+            # cat=bootstrap 4.x: styling/328/list-group-hover-bg; type=string; label=$list-group-hover-bg:
             list-group-hover-bg = $gray-100
-            # cat=bootstrap 4.x: styling/327/list-group-active-color; type=string; label=$list-group-active-color:
+            # cat=bootstrap 4.x: styling/328/list-group-active-color; type=string; label=$list-group-active-color:
             list-group-active-color = $component-active-color
-            # cat=bootstrap 4.x: styling/327/list-group-active-bg; type=string; label=$list-group-active-bg:
+            # cat=bootstrap 4.x: styling/328/list-group-active-bg; type=string; label=$list-group-active-bg:
             list-group-active-bg = $component-active-bg
-            # cat=bootstrap 4.x: styling/327/list-group-active-border-color; type=string; label=$list-group-active-border-color:
+            # cat=bootstrap 4.x: styling/328/list-group-active-border-color; type=string; label=$list-group-active-border-color:
             list-group-active-border-color = $list-group-active-bg
-            # cat=bootstrap 4.x: styling/327/list-group-disabled-color; type=string; label=$list-group-disabled-color:
+            # cat=bootstrap 4.x: styling/328/list-group-disabled-color; type=string; label=$list-group-disabled-color:
             list-group-disabled-color = $gray-600
-            # cat=bootstrap 4.x: styling/327/list-group-disabled-bg; type=string; label=$list-group-disabled-bg:
+            # cat=bootstrap 4.x: styling/328/list-group-disabled-bg; type=string; label=$list-group-disabled-bg:
             list-group-disabled-bg = $list-group-bg
-            # cat=bootstrap 4.x: styling/327/list-group-action-color; type=string; label=$list-group-action-color:
+            # cat=bootstrap 4.x: styling/328/list-group-action-color; type=string; label=$list-group-action-color:
             list-group-action-color = $gray-700
-            # cat=bootstrap 4.x: styling/327/list-group-action-hover-color; type=string; label=$list-group-action-hover-color:
+            # cat=bootstrap 4.x: styling/328/list-group-action-hover-color; type=string; label=$list-group-action-hover-color:
             list-group-action-hover-color = $list-group-action-color
-            # cat=bootstrap 4.x: styling/327/list-group-action-active-color; type=string; label=$list-group-action-active-color:
+            # cat=bootstrap 4.x: styling/328/list-group-action-active-color; type=string; label=$list-group-action-active-color:
             list-group-action-active-color = $body-color
-            # cat=bootstrap 4.x: styling/327/list-group-action-active-bg; type=string; label=$list-group-action-active-bg:
+            # cat=bootstrap 4.x: styling/328/list-group-action-active-bg; type=string; label=$list-group-action-active-bg:
             list-group-action-active-bg = $gray-200
 
-            # cat=bootstrap 4.x: styling/328/thumbnail-padding; type=string; label=$thumbnail-padding:
+            # cat=bootstrap 4.x: styling/329/thumbnail-padding; type=string; label=$thumbnail-padding:
             thumbnail-padding = .25rem
-            # cat=bootstrap 4.x: styling/328/thumbnail-bg; type=string; label=$thumbnail-bg:
+            # cat=bootstrap 4.x: styling/329/thumbnail-bg; type=string; label=$thumbnail-bg:
             thumbnail-bg = $body-bg
-            # cat=bootstrap 4.x: styling/328/thumbnail-border-width; type=string; label=$thumbnail-border-width:
+            # cat=bootstrap 4.x: styling/329/thumbnail-border-width; type=string; label=$thumbnail-border-width:
             thumbnail-border-width = $border-width
-            # cat=bootstrap 4.x: styling/328/thumbnail-border-color; type=string; label=$thumbnail-border-color:
+            # cat=bootstrap 4.x: styling/329/thumbnail-border-color; type=string; label=$thumbnail-border-color:
             thumbnail-border-color = $gray-300
-            # cat=bootstrap 4.x: styling/328/thumbnail-border-radius; type=string; label=$thumbnail-border-radius:
+            # cat=bootstrap 4.x: styling/329/thumbnail-border-radius; type=string; label=$thumbnail-border-radius:
             thumbnail-border-radius = $border-radius
-            # cat=bootstrap 4.x: styling/328/thumbnail-box-shadow; type=string; label=$thumbnail-box-shadow:
+            # cat=bootstrap 4.x: styling/329/thumbnail-box-shadow; type=string; label=$thumbnail-box-shadow:
             thumbnail-box-shadow = 0 1px 2px rgba($black, .075)
 
-            # cat=bootstrap 4.x: styling/329/figure-caption-font-size; type=string; label=$figure-caption-font-size:
+            # cat=bootstrap 4.x: styling/330/figure-caption-font-size; type=string; label=$figure-caption-font-size:
             figure-caption-font-size = 90%
-            # cat=bootstrap 4.x: styling/329/figure-caption-color; type=string; label=$figure-caption-color:
+            # cat=bootstrap 4.x: styling/330/figure-caption-color; type=string; label=$figure-caption-color:
             figure-caption-color = $gray-600
 
-            # cat=bootstrap 4.x: styling/330/breadcrumb-padding-y; type=string; label=$breadcrumb-padding-y:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-padding-y; type=string; label=$breadcrumb-padding-y:
             breadcrumb-padding-y = .75rem
-            # cat=bootstrap 4.x: styling/330/breadcrumb-padding-x; type=string; label=$breadcrumb-padding-x:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-padding-x; type=string; label=$breadcrumb-padding-x:
             breadcrumb-padding-x = 1rem
-            # cat=bootstrap 4.x: styling/330/breadcrumb-item-padding; type=string; label=$breadcrumb-item-padding:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-item-padding; type=string; label=$breadcrumb-item-padding:
             breadcrumb-item-padding = .5rem
-            # cat=bootstrap 4.x: styling/330/breadcrumb-margin-bottom; type=string; label=$breadcrumb-margin-bottom:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-margin-bottom; type=string; label=$breadcrumb-margin-bottom:
             breadcrumb-margin-bottom = 1rem
-            # cat=bootstrap 4.x: styling/330/breadcrumb-bg; type=string; label=$breadcrumb-bg:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-bg; type=string; label=$breadcrumb-bg:
             breadcrumb-bg = #f2f2f2
-            # cat=bootstrap 4.x: styling/330/breadcrumb-divider-color; type=string; label=$breadcrumb-divider-color:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-divider-color; type=string; label=$breadcrumb-divider-color:
             breadcrumb-divider-color = $gray-600
-            # cat=bootstrap 4.x: styling/330/breadcrumb-active-color; type=string; label=$breadcrumb-active-color:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-active-color; type=string; label=$breadcrumb-active-color:
             breadcrumb-active-color = $gray-600
-            # cat=bootstrap 4.x: styling/330/breadcrumb-divider; type=string; label=$breadcrumb-divider:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-divider; type=string; label=$breadcrumb-divider:
             breadcrumb-divider = quote("/")
-            # cat=bootstrap 4.x: styling/330/breadcrumb-border-radius; type=string; label=$breadcrumb-border-radius:
+            # cat=bootstrap 4.x: styling/331/breadcrumb-border-radius; type=string; label=$breadcrumb-border-radius:
             breadcrumb-border-radius = $border-radius
 
-            # cat=bootstrap 4.x: styling/331/carousel-control-color; type=string; label=$carousel-control-color:
+            # cat=bootstrap 4.x: styling/332/carousel-control-color; type=string; label=$carousel-control-color:
             carousel-control-color = $white
-            # cat=bootstrap 4.x: styling/331/carousel-control-width; type=string; label=$carousel-control-width:
+            # cat=bootstrap 4.x: styling/332/carousel-control-width; type=string; label=$carousel-control-width:
             carousel-control-width = 15%
-            # cat=bootstrap 4.x: styling/331/carousel-control-opacity; type=string; label=$carousel-control-opacity:
+            # cat=bootstrap 4.x: styling/332/carousel-control-opacity; type=string; label=$carousel-control-opacity:
             carousel-control-opacity = .5
-            # cat=bootstrap 4.x: styling/331/carousel-indicator-width; type=string; label=$carousel-indicator-width:
+            # cat=bootstrap 4.x: styling/332/carousel-indicator-width; type=string; label=$carousel-indicator-width:
             carousel-indicator-width = 30px
-            # cat=bootstrap 4.x: styling/331/carousel-indicator-height; type=string; label=$carousel-indicator-height:
+            # cat=bootstrap 4.x: styling/332/carousel-indicator-height; type=string; label=$carousel-indicator-height:
             carousel-indicator-height = 3px
-            # cat=bootstrap 4.x: styling/331/carousel-indicator-spacer; type=string; label=$carousel-indicator-spacer:
+            # cat=bootstrap 4.x: styling/332/carousel-indicator-spacer; type=string; label=$carousel-indicator-spacer:
             carousel-indicator-spacer = 3px
-            # cat=bootstrap 4.x: styling/331/carousel-indicator-active-bg; type=string; label=$carousel-indicator-active-bg:
+            # cat=bootstrap 4.x: styling/332/carousel-indicator-active-bg; type=string; label=$carousel-indicator-active-bg:
             carousel-indicator-active-bg = $white
-            # cat=bootstrap 4.x: styling/331/carousel-caption-width; type=string; label=$carousel-caption-width:
+            # cat=bootstrap 4.x: styling/332/carousel-caption-width; type=string; label=$carousel-caption-width:
             carousel-caption-width = 70%
-            # cat=bootstrap 4.x: styling/331/carousel-caption-color; type=string; label=$carousel-caption-color:
+            # cat=bootstrap 4.x: styling/332/carousel-caption-color; type=string; label=$carousel-caption-color:
             carousel-caption-color = $white
-            # cat=bootstrap 4.x: styling/331/carousel-control-icon-width; type=string; label=$carousel-control-icon-width:
+            # cat=bootstrap 4.x: styling/332/carousel-control-icon-width; type=string; label=$carousel-control-icon-width:
             carousel-control-icon-width = 20px
-            # cat=bootstrap 4.x: styling/331/carousel-control-prev-icon-bg; type=string; label=$carousel-control-prev-icon-bg:
+            # cat=bootstrap 4.x: styling/332/carousel-control-prev-icon-bg; type=string; label=$carousel-control-prev-icon-bg:
             carousel-control-prev-icon-bg = str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23")
-            # cat=bootstrap 4.x: styling/331/carousel-control-next-icon-bg; type=string; label=$carousel-control-next-icon-bg:
+            # cat=bootstrap 4.x: styling/332/carousel-control-next-icon-bg; type=string; label=$carousel-control-next-icon-bg:
             carousel-control-next-icon-bg = str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23")
-            # cat=bootstrap 4.x: styling/331/carousel-transition; type=string; label=$carousel-transition:
+            # cat=bootstrap 4.x: styling/332/carousel-transition; type=string; label=$carousel-transition:
             carousel-transition = transform .6s ease
 
-            # cat=bootstrap 4.x: styling/332/close-font-size; type=string; label=$close-font-size:
+            # cat=bootstrap 4.x: styling/333/close-font-size; type=string; label=$close-font-size:
             close-font-size = $font-size-base * 1.5
-            # cat=bootstrap 4.x: styling/332/close-font-weight; type=string; label=$close-font-weight:
+            # cat=bootstrap 4.x: styling/333/close-font-weight; type=string; label=$close-font-weight:
             close-font-weight = $font-weight-bold
-            # cat=bootstrap 4.x: styling/332/close-color; type=string; label=$close-color:
+            # cat=bootstrap 4.x: styling/333/close-color; type=string; label=$close-color:
             close-color = $black
-            # cat=bootstrap 4.x: styling/332/close-text-shadow; type=string; label=$close-text-shadow:
+            # cat=bootstrap 4.x: styling/333/close-text-shadow; type=string; label=$close-text-shadow:
             close-text-shadow = 0 1px 0 $white
 
-            # cat=bootstrap 4.x: styling/333/code-font-size; type=string; label=$code-font-size:
+            # cat=bootstrap 4.x: styling/334/code-font-size; type=string; label=$code-font-size:
             code-font-size = 87.5%
-            # cat=bootstrap 4.x: styling/333/code-color; type=string; label=$code-color:
+            # cat=bootstrap 4.x: styling/334/code-color; type=string; label=$code-color:
             code-color = $pink
-            # cat=bootstrap 4.x: styling/333/kbd-padding-y; type=string; label=$kbd-padding-y:
+            # cat=bootstrap 4.x: styling/334/kbd-padding-y; type=string; label=$kbd-padding-y:
             kbd-padding-y = .2rem
-            # cat=bootstrap 4.x: styling/333/kbd-padding-x; type=string; label=$kbd-padding-x:
+            # cat=bootstrap 4.x: styling/334/kbd-padding-x; type=string; label=$kbd-padding-x:
             kbd-padding-x = .4rem
-            # cat=bootstrap 4.x: styling/333/kbd-font-size; type=string; label=$kbd-font-size:
+            # cat=bootstrap 4.x: styling/334/kbd-font-size; type=string; label=$kbd-font-size:
             kbd-font-size = $code-font-size
-            # cat=bootstrap 4.x: styling/333/kbd-color; type=string; label=$kbd-color:
+            # cat=bootstrap 4.x: styling/334/kbd-color; type=string; label=$kbd-color:
             kbd-color = $white
-            # cat=bootstrap 4.x: styling/333/kbd-bg; type=string; label=$kbd-bg:
+            # cat=bootstrap 4.x: styling/334/kbd-bg; type=string; label=$kbd-bg:
             kbd-bg = $gray-900
-            # cat=bootstrap 4.x: styling/333/pre-color; type=string; label=$pre-color:
+            # cat=bootstrap 4.x: styling/334/pre-color; type=string; label=$pre-color:
             pre-color = $gray-900
-            # cat=bootstrap 4.x: styling/333/pre-scrollable-max-height; type=string; label=$pre-scrollable-max-height:
+            # cat=bootstrap 4.x: styling/334/pre-scrollable-max-height; type=string; label=$pre-scrollable-max-height:
             pre-scrollable-max-height = 340px
 
-            # cat=bootstrap 4.x: styling/334/print-page-size; type=string; label=$print-page-size:
+            # cat=bootstrap 4.x: styling/335/print-page-size; type=string; label=$print-page-size:
             print-page-size = a3
-            # cat=bootstrap 4.x: styling/334/print-body-min-width; type=string; label=$print-body-min-width:
+            # cat=bootstrap 4.x: styling/335/print-body-min-width; type=string; label=$print-body-min-width:
             print-body-min-width = map-get($grid-breakpoints, "lg")
 
         }

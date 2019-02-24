@@ -6,22 +6,21 @@
 .badge {
   display: inline-block;
   padding: $badge-padding-y $badge-padding-x;
-  font-size: $badge-font-size;
+  @include font-size($badge-font-size);
   font-weight: $badge-font-weight;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
   @include border-radius($badge-border-radius);
-}
-// IMPORTANT, PATCHED BOOTSTRAP 4
-// Code needs to be adapted to be compilable with leafo/scssphp
-a.badge {
-  @include hover-focus {
-    text-decoration: none;
+  @include transition($badge-transition);
+
+  @at-root a#{&} {
+    @include hover-focus {
+      text-decoration: none;
+    }
   }
-}
-.badge {
+
   // Empty badges collapse automatically
   &:empty {
     display: none;
@@ -50,8 +49,6 @@ a.badge {
 
 @each $color, $value in $theme-colors {
   .badge-#{$color} {
-    // IMPORTANT, PATCHED BOOTSTRAP 4
-    // Code needs to be adapted to be compilable with leafo/scssphp
-    @include badge-variant($value, $color);
+    @include badge-variant($value);
   }
 }
