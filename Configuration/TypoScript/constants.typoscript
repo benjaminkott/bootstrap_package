@@ -214,6 +214,11 @@ page {
                     # cat=bootstrap package: social media/165/09_vimeo_url; type=string; label=Vimeo: Insert the full account url
                     url =
                 }
+                rss {
+                    label = RSS
+                    # cat=bootstrap package: social media/165/10_rss_url; type=string; label=RSS: Insert the full url
+                    url =
+                }
             }
         }
 
