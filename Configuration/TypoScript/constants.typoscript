@@ -204,9 +204,14 @@ page {
                     # cat=bootstrap package: social media/165/07_youtube_url; type=string; label=YouTube: Insert the full account url
                     url =
                 }
+                vk {
+                    label = VK
+                    # cat=bootstrap package: social media/165/08_vk_url; type=string; label=VK: Insert the full account url
+                    url =
+                }
                 vimeo {
                     label = Vimeo
-                    # cat=bootstrap package: social media/165/08_vimeo_url; type=string; label=Vimeo: Insert the full account url
+                    # cat=bootstrap package: social media/165/09_vimeo_url; type=string; label=Vimeo: Insert the full account url
                     url =
                 }
             }
