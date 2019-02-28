@@ -474,6 +474,7 @@ module.exports = function(grunt) {
                     engine: 'node',
                     autoHint: false,
                     htmlDemo: false,
+                    codepointsFile: "bootstrappackageicon.json",
                     templateOptions: {
                         baseClass: 'bootstrappackageicon',
                         classPrefix: 'bootstrappackageicon-'

@@ -3,10 +3,10 @@
 
 @font-face {
     font-family:"BootstrapPackageIcon";
-    src:url("bootstrappackageicon.eot?17d9ab42e252743b3f4c348ac09bd8e8");
-    src:url("bootstrappackageicon.eot?17d9ab42e252743b3f4c348ac09bd8e8#iefix") format("embedded-opentype"),
-		url("bootstrappackageicon.woff?17d9ab42e252743b3f4c348ac09bd8e8") format("woff"),
-		url("bootstrappackageicon.ttf?17d9ab42e252743b3f4c348ac09bd8e8") format("truetype");
+    src:url("bootstrappackageicon.eot?835febe6daabcd90adace5610d0915b2");
+    src:url("bootstrappackageicon.eot?835febe6daabcd90adace5610d0915b2#iefix") format("embedded-opentype"),
+		url("bootstrappackageicon.woff?835febe6daabcd90adace5610d0915b2") format("woff"),
+		url("bootstrappackageicon.ttf?835febe6daabcd90adace5610d0915b2") format("truetype");
     font-weight:normal;
     font-style:normal;
 }
@@ -78,6 +78,11 @@
 
 .bootstrappackageicon-vimeo:before {
     content:"\f10b";
+}
+
+
+.bootstrappackageicon-vk:before {
+    content:"\f10e";
 }
 
 
