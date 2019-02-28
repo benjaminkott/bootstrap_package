@@ -53,10 +53,6 @@
       "BK2K\\BootstrapPackage\\Tests\\": "Tests"
     }
   },
-  "replace": {
-    "bootstrap_package": "self.version",
-    "typo3-ter/bootstrap-package": "self.version"
-  },
   "config": {
     "optimize-autoloader": true,
     "vendor-dir": ".build/vendor",
