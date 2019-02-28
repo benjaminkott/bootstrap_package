@@ -28,9 +28,9 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap4/setup.typoscript">
 
 
-###################################
+####################################
 #### BOOTSTRAP PACKAGE SETTINGS ####
-###################################
+####################################
 plugin.tx_bootstrappackage {
     settings {
         overrideParserVariables = {$plugin.bootstrap_package.settings.overrideParserVariables}
