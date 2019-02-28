@@ -14,7 +14,8 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '9.5.0-10.0.99',
-            'rte_ckeditor' => '9.5.0-10.0.99'
+            'rte_ckeditor' => '9.5.0-10.0.99',
+            'seo' => '9.5.0-10.0.99'
         ],
         'conflicts' => [
             'css_styled_content' => '*',

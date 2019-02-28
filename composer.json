@@ -37,7 +37,8 @@
     "typo3/cms-fluid": "^9.0 || 10.0.*@dev",
     "typo3/cms-frontend": "^9.0 || 10.0.*@dev",
     "typo3/cms-install": "^9.0 || 10.0.*@dev",
-    "typo3/cms-rte-ckeditor": "^9.0 || 10.0.*@dev"
+    "typo3/cms-rte-ckeditor": "^9.0 || 10.0.*@dev",
+    "typo3/cms-seo": "^9.0 || 10.0.*@dev"
   },
   "require-dev": {
     "typo3/cms-felogin": "^9.0 || 10.0.*@dev",
