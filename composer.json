@@ -46,7 +46,8 @@
     "typo3/cms-indexed-search": "^9.0 || 10.0.*@dev",
     "typo3/cms-tstemplate": "^9.0 || 10.0.*@dev",
     "friendsofphp/php-cs-fixer": "^2.3.1",
-    "typo3/testing-framework": "^4.9 || ^5.0"
+    "typo3/testing-framework": "^4.9 || ^5.0",
+    "bk2k/extension-helper": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -71,10 +72,10 @@
       "@test:php:unit"
     ],
     "set-version": [
-      "BK2K\\BootstrapPackage\\Composer\\VersionScript::setVersion"
+      "extension-helper version:set"
     ],
     "changelog": [
-      "BK2K\\BootstrapPackage\\Composer\\ChangelogScript::generateChangelog"
+      "extension-helper changelog:create"
     ],
     "post-autoload-dump": [
       "mkdir -p .build/web/typo3conf/ext/",
