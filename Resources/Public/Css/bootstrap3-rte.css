@@ -9479,40 +9479,40 @@ body,
   }
 }
 .frame-collapsible,
-.frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-.frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-.frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-.frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-.frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+.frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+.frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+.frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+.frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+.frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
   margin-top: -2em;
 }
 @media (min-width: 768px) {
   .frame-collapsible,
-  .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+  .frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -2.5em;
   }
 }
 @media (min-width: 992px) {
   .frame-collapsible,
-  .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+  .frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -3em;
   }
 }
 @media (min-width: 1200px) {
   .frame-collapsible,
-  .frame-background-none.frame-space-after-none:not(.frame-ruler-after) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-light.frame-space-after-none:not(.frame-ruler-after) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
-  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+  .frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage),
+  .frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
     margin-top: -3.5em;
   }
 }
