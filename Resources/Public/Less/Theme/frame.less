@@ -156,7 +156,8 @@
     }
 }
 .make-frame-spacing(@name) {
-    .@{name}.frame-space-after-none:not(.frame-ruler-after) + .@{name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+    .@{name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage)
+    + .@{name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
         &:extend(.frame-collapsible);
     }
 }

@@ -122,7 +122,8 @@
     }
 }
 @mixin make-frame-spacing($name) {
-    .frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after) + .frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+    .frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage)
+    + .frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
         @extend .frame-collapsible;
     }
 }
