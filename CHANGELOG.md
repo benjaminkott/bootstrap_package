@@ -1,3 +1,40 @@
+# 10.0.6
+
+## FEATURE
+- [FEATURE] Add rss social media icon - fixes #629 2987c856
+- [FEATURE] Add vk social media icon - fixes #651 77aa19b1
+- [FEATURE] Allow content slide configuration for all layouts and colPos dad5e38a
+- [FEATURE] Make icongroup more usable by allowing to change visual behaviour 465872d3
+- [FEATURE] Enable links in icon group db6fe66d
+
+## TASK
+- [TASK] Streamline development environment c8448d49
+- [TASK] Update modernizr to 3.7.0 7c5df767
+- [TASK] Update photoswipe to 4.1.3 fd4194bf
+- [TASK] Update to bootstrap 4.3.1 1ca4a7e9
+- [TASK] Update scssphp and use fork to apply patches. 41f98fc5
+- [TASK] Ensure scss and lf files are checked out with lf 26baaa64
+- [TASK] Strip pagets_ from pagelayout variable and set default if empty da535b6b
+- [TASK] Update bootstrap to 4.2.1 - fixes #627 09aff39d
+
+## BUGFIX
+- [BUGFIX] Prevent collapsing of frames - fixes #618 8a02a624
+- [BUGFIX] Add missing crop variants to carousel image - fixes #665 94df5f0b
+- [BUGFIX] Disable rendering of footer-section-meta if all containing elements are disabled - fixes #657 87ad5af4
+- [BUGFIX] Remove obsolete/invalid replacements in composer.json 7d646725
+- [BUGFIX] Use lf instead of crlf in tab svg b3802382
+- [BUGFIX] htaccess does not allow pages that end with "rc" - fixes #652 08ae8aa4
+- [BUGFIX] Use error object in form field template (#641) 946ee801
+- [BUGFIX] Render data-interval only on carousel if value exists f6b48afb
+- [BUGFIX] Do not process svg file if it does not contain content 448b5bc3
+- [BUGFIX] Add table context to typoscriptObjectPath for tt_content rendering 12f16b64
+- [BUGFIX] ce uploads accepts sorting direction (#630) 7bc713e1
+- [BUGFIX] Correct spelling error in install service 39ff3108
+- [BUGFIX] Show caption in lightbox when title is empty - fixes #626 29e2b5e8
+- [BUGFIX] Minimize word breaks in figure captions (#621) 58771799
+- [BUGFIX] Typo: 'boostrap' should be 'bootstrap' (#625) d816ab71
+- [BUGFIX] Do not overwrite button stylings in footer sections d6ed3563
+
 # 10.0.5
 
 ## TASK
