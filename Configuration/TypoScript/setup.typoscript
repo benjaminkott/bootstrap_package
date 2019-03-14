@@ -228,7 +228,11 @@ page {
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
             }
+            header {
+                wide = {$page.theme.header.wide}
+            }
         }
+
 
         #################
         ### VARIABLES ###
