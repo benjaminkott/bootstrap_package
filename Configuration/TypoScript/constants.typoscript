@@ -60,6 +60,11 @@ page {
             weight = 300,400,700
         }
 
+        header {
+            # cat=bootstrap package: header/171/1_wide; type=boolean; label=Enable full width header
+            wide = false
+        }
+
         navigation {
             # cat=bootstrap package: navigation/151/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
             style = default
