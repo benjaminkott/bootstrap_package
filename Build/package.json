@@ -31,6 +31,11 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "build": "./node_modules/.bin/grunt build"
+    "build": "./node_modules/.bin/grunt build",
+    "css": "./node_modules/.bin/grunt css",
+    "icon": "./node_modules/.bin/grunt icon",
+    "image": "./node_modules/.bin/grunt image",
+    "js": "./node_modules/.bin/grunt js",
+    "update": "./node_modules/.bin/grunt update"
   }
 }
