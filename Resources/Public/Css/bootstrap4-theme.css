@@ -11710,11 +11710,6 @@ blockquote footer::before {
   margin-left: 0.25em;
 }
 
-img.lazyload {
-  opacity: 0.3;
-  transition: opacity .3s ease-in 0s;
-}
-
 .gallery-row {
   display: flex;
   flex-wrap: wrap;

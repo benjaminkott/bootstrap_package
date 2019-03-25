@@ -7875,12 +7875,6 @@ audio {
 iframe {
   border: 0;
 }
-img.lazyload {
-  opacity: 0.3;
-  -webkit-transition: opacity 0.3s ease-in 0s;
-  -o-transition: opacity 0.3s ease-in 0s;
-  transition: opacity 0.3s ease-in 0s;
-}
 figure {
   display: block;
   margin-bottom: 1em;
