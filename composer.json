@@ -71,6 +71,9 @@
     "test": [
       "@test:php:unit"
     ],
+    "cgl": [
+      "php-cs-fixer fix"
+    ],
     "set-version": [
       "extension-helper version:set"
     ],

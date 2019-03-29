@@ -66,5 +66,6 @@ return PhpCsFixer\Config::create()
         PhpCsFixer\Finder::create()
             ->exclude('.build')
             ->exclude('Contrib')
+            ->exclude('var')
             ->in(__DIR__)
     );
