@@ -84,30 +84,9 @@ class InlineSvgViewHelper extends AbstractViewHelper
             libxml_disable_entity_loader($previousValueOfEntityLoader);
 
             // Override css class
-            $elementClass = filter_var(trim((string)$arguments['class']), FILTER_SANITIZE_STRING);
-            if ($elementClass !== '') {
-                if (isset($svgElement->attributes()->class)) {
-                    $svgElement->attributes()->class = $elementClass;
-                } else {
-                    $svgElement->addAttribute('class', $elementClass);
-                }
-            }
-
-            // Override width and height
-            if ($arguments['width']) {
-                if (isset($svgElement->attributes()->width)) {
-                    $svgElement->attributes()->width = (int)$arguments['width'];
-                } else {
-                    $svgElement->addAttribute('width', (int)$arguments['width']);
-                }
-            }
-            if ($arguments['height']) {
-                if (isset($svgElement->attributes()->height)) {
-                    $svgElement->attributes()->height = (int)$arguments['height'];
-                } else {
-                    $svgElement->addAttribute('height', (int)$arguments['height']);
-                }
-            }
+            $svgElement = self::setAttribute($svgElement, 'class', filter_var(trim((string)$arguments['class']), FILTER_SANITIZE_STRING));
+            $svgElement = self::setAttribute($svgElement, 'width', (int)$arguments['width']);
+            $svgElement = self::setAttribute($svgElement, 'height', (int)$arguments['height']);
 
             // remove xml version tag
             $domXml = dom_import_simplexml($svgElement);
@@ -125,6 +104,24 @@ class InlineSvgViewHelper extends AbstractViewHelper
             // thrown if file storage does not exist
             throw new \Exception($e->getMessage(), 1530601103, $e);
         }
+    }
+
+    /**
+     * @param \SimpleXMLElement $element
+     * @param string $attribute
+     * @param mixed $value
+     */
+    protected static function setAttribute(\SimpleXMLElement $element, $attribute, $value): \SimpleXMLElement
+    {
+        if ($value) {
+            if (isset($element->attributes()->$attribute)) {
+                $element->attributes()->$attribute = $value;
+            } else {
+                $element->addAttribute($attribute, $value);
+            }
+        }
+
+        return $element;
     }
 
     /**
