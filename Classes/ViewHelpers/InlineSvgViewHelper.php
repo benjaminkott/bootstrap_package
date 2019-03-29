@@ -39,6 +39,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
         parent::initializeArguments();
         $this->registerArgument('image', 'object', 'a FAL object');
         $this->registerArgument('src', 'string', 'a path to a file');
+        $this->registerArgument('class', 'string', 'Css class for the svg');
         $this->registerArgument('width', 'string', 'Width of the svg.', false);
         $this->registerArgument('height', 'string', 'Height of the svg.', false);
     }
@@ -81,6 +82,16 @@ class InlineSvgViewHelper extends AbstractViewHelper
             $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
             $svgElement = simplexml_load_string($svgContent);
             libxml_disable_entity_loader($previousValueOfEntityLoader);
+
+            // Override css class
+            $elementClass = filter_var(trim((string)$arguments['class']), FILTER_SANITIZE_STRING);
+            if ($elementClass !== '') {
+                if (isset($svgElement->attributes()->class)) {
+                    $svgElement->attributes()->class = $elementClass;
+                } else {
+                    $svgElement->addAttribute('class', $elementClass);
+                }
+            }
 
             // Override width and height
             if ($arguments['width']) {
