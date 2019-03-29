@@ -3,10 +3,10 @@
 
 @font-face {
     font-family:"BootstrapPackageIcon";
-    src:url("bootstrappackageicon.eot?4f5451cc2227991c22bf2d8075f6f7e7");
-    src:url("bootstrappackageicon.eot?4f5451cc2227991c22bf2d8075f6f7e7#iefix") format("embedded-opentype"),
-		url("bootstrappackageicon.woff?4f5451cc2227991c22bf2d8075f6f7e7") format("woff"),
-		url("bootstrappackageicon.ttf?4f5451cc2227991c22bf2d8075f6f7e7") format("truetype");
+    src:url("bootstrappackageicon.eot?230f7a8a34725ae4394eb49681bff170");
+    src:url("bootstrappackageicon.eot?230f7a8a34725ae4394eb49681bff170#iefix") format("embedded-opentype"),
+		url("bootstrappackageicon.woff?230f7a8a34725ae4394eb49681bff170") format("woff"),
+		url("bootstrappackageicon.ttf?230f7a8a34725ae4394eb49681bff170") format("truetype");
     font-weight:normal;
     font-style:normal;
 }

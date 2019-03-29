@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="86px" height="128px" viewBox="0 0 86 128" enable-background="new 0 0 86 128" xml:space="preserve">
-<rect fill="#FFFFFF" width="86" height="128"/>
-<rect x="64" y="30" opacity="0.5" fill="#333333" enable-background="new    " width="20" height="68"/>
-<rect x="42" y="30" fill="#333333" width="20" height="68"/>
-<rect x="2" y="110" fill="#333333" width="26" height="16"/>
-<rect x="30" y="110" fill="#333333" width="26" height="16"/>
-<rect x="58" y="110" fill="#333333" width="26" height="16"/>
-<rect x="2" y="30" fill="#333333" width="38" height="68"/>
-<rect x="2" y="2" fill="#333333" width="82" height="16"/>
-<rect x="2" y="100" fill="#333333" width="82" height="8"/>
-<rect x="2" y="20" fill="#333333" width="82" height="8"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="128"><path fill="#FFF" d="M0 0h86v128H0z"/><path opacity=".5" fill="#333" d="M64 30h20v68H64z"/><path fill="#333" d="M42 30h20v68H42zM2 110h26v16H2zm28 0h26v16H30zm28 0h26v16H58zM2 30h38v68H2zM2 2h82v16H2zm0 98h82v8H2zm0-80h82v8H2z"/></svg>

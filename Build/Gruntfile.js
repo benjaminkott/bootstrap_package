@@ -298,8 +298,18 @@ module.exports = function(grunt) {
                 files: [
                     {
                         cwd: '<%= paths.images %>',
-                        src: ['**/*.{png,jpg,gif}'],
+                        src: ['**/*.{png,jpg,gif,svg}'],
                         dest: '<%= paths.images %>',
+                        expand: true
+                    }
+                ]
+            },
+            icons: {
+                files: [
+                    {
+                        cwd: '<%= paths.icons %>',
+                        src: ['**/*.{png,jpg,gif,svg}'],
+                        dest: '<%= paths.icons %>',
                         expand: true
                     }
                 ]
