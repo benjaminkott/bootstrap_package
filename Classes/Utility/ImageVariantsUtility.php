@@ -20,7 +20,8 @@ class ImageVariantsUtility
      */
     protected static $allowedVariantProperties = [
         'breakpoint',
-        'width'
+        'width',
+        'widthRetina'
     ];
 
     /**
@@ -29,22 +30,27 @@ class ImageVariantsUtility
     protected static $defaultVariants = [
         'default' => [
             'breakpoint' => 1200,
-            'width' => 1100
+            'width' => 1100,
+            'widthRetina' => 2200
         ],
         'large' => [
             'breakpoint' => 992,
-            'width' => 920
+            'width' => 920,
+            'widthRetina' => 1840
         ],
         'medium' => [
             'breakpoint' => 768,
-            'width' => 680
+            'width' => 680,
+            'widthRetina' => 1360
         ],
         'small' => [
             'breakpoint' => 576,
-            'width' => 500
+            'width' => 500,
+            'widthRetina' => 1000
         ],
         'extrasmall' => [
-            'width' => 374
+            'width' => 374,
+            'widthRetina' => 748
         ]
     ];
 
@@ -107,6 +113,9 @@ class ImageVariantsUtility
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + $value);
             }
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['widthRetina'])) {
+                $variants[$variant]['widthRetina'] = (int) ceil($variants[$variant]['widthRetina'] + $value*2);
+            }
         }
         return $variants;
     }
@@ -122,6 +131,9 @@ class ImageVariantsUtility
         foreach ($gutters as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - $value);
+            }
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['widthRetina'])) {
+                $variants[$variant]['widthRetina'] = (int) ceil($variants[$variant]['widthRetina'] - $value*2);
             }
         }
         return $variants;
@@ -139,6 +151,9 @@ class ImageVariantsUtility
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] * $value);
             }
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['widthRetina'])) {
+                $variants[$variant]['widthRetina'] = (int) ceil($variants[$variant]['widthRetina'] * $value);
+            }            
         }
         return $variants;
     }
@@ -155,6 +170,9 @@ class ImageVariantsUtility
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] -= $value;
             }
+            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['widthRetina'])) {
+                $variants[$variant]['widthRetina'] -= $value;
+            }            
         }
         return $variants;
     }
