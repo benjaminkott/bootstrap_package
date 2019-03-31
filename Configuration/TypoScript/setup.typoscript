@@ -215,6 +215,14 @@ page {
                     isTrue = {$page.theme.meta.navigationValue}
                 }
             }
+            1553883874 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+            1553883874 {
+                files {
+                    normal = {$page.logo.file}
+                    inverted = {$page.logo.fileInverted}
+                }
+                as = logo
+            }
         }
 
         ################
@@ -222,8 +230,6 @@ page {
         ################
         settings {
             logo {
-                file = {$page.logo.file}
-                fileInverted = {$page.logo.fileInverted}
                 height = {$page.logo.height}
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
