@@ -516,6 +516,7 @@ page {
         includeJSFooterlibs {
             contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
             bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsent.min.js
+            bootstrap_cookieconsentservice = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsentservice.min.js
         }
     }
 [end]
