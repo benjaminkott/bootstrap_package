@@ -846,7 +846,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/317/nav-link-height; type=string; label=$nav-link-height:
             nav-link-height = $font-size-base * $line-height-base + $nav-link-padding-y * 2
             # cat=bootstrap 4.x: styling/317/navbar-brand-height; type=string; label=$navbar-brand-height:
-            navbar-brand-height = $navbar-brand-font-size * $line-height-base
+            navbar-brand-height = 2.5rem
             # cat=bootstrap 4.x: styling/317/navbar-brand-padding-y; type=string; label=$navbar-brand-padding-y:
             navbar-brand-padding-y = ($nav-link-height - $navbar-brand-height) / 2
             # cat=bootstrap 4.x: styling/317/navbar-toggler-padding-y; type=string; label=$navbar-toggler-padding-y:

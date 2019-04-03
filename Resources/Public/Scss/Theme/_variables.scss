@@ -68,13 +68,24 @@ $grid-gutter-width:            40px !default;
 // Navbar
 //
 $navbar-nav-link-padding-x:    1rem !default;
-$navbar-heights: (
-  xs: 70px,
-  sm: 70px,
-  md: 100px,
-  lg: 130px,
-  xl: 130px
-) !default;
+$navbar-heights: () !default;
+$navbar-heights: map-merge((
+  xs: 4rem,
+  sm: 4rem,
+  md: 4rem,
+  lg: 7rem,
+  xl: 7rem
+), $navbar-heights);
+
+$navbar-brand-height: 2.5rem !default;
+$navbar-brand-heights: () !default;
+$navbar-brand-heights: map-merge((
+  xs: $navbar-brand-height * 1,
+  sm: $navbar-brand-height * 1,
+  md: $navbar-brand-height * 1,
+  lg: $navbar-brand-height * 1.25,
+  xl: $navbar-brand-height * 1.25
+), $navbar-brand-heights);
 
 //
 // Subnav

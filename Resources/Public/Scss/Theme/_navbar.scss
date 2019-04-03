@@ -1,8 +1,38 @@
 //
+// Navbar
+//
+.navbar-mainnavigation {
+    align-items: initial;
+    position: relative;
+    padding: 1rem 0;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
+    @each $breakpoint in map-keys($navbar-heights) {
+        @include media-breakpoint-up($breakpoint) {
+            min-height: map-get($navbar-heights, $breakpoint);
+        }
+    }
+}
+
+//
+// Container
+//
+.navbar-container {
+    @include make-container();
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-boxed {
+    .navbar-container {
+        @include make-container-max-widths();
+    }
+}
+
+//
 // Position Fixed
 //
 .navbar-mainnavigation {
-    position: relative;
     &.navbar-fixed-top {
         @extend .fixed-top;
     }
@@ -13,80 +43,58 @@
 .body-bg-top {
     @each $breakpoint in map-keys($navbar-heights) {
         @include media-breakpoint-up($breakpoint) {
-            padding-top: map-get($navbar-heights, $breakpoint);
+            padding-top: calc(#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)});
         }
     }
 }
 .body-bg-bottom {
     @each $breakpoint in map-keys($navbar-heights) {
         @include media-breakpoint-up($breakpoint) {
-            padding-bottom: map-get($navbar-heights, $breakpoint);
+            padding-bottom: calc(#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)});
         }
     }
 }
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-    .navbar-collapse {
-        @each $breakpoint in map-keys($navbar-heights) {
-            @include media-breakpoint-up($breakpoint) {
-                max-height: calc(100vh - #{map-get($navbar-heights, $breakpoint)});
-            }
-        }
-        &.show {
-            overflow-y: auto;
-        }
-    }
+.navbar-mainnavigation[class*="navbar-fixed"] {
+    max-height: 100vh;
+    overflow-y: auto;
 }
-
 
 //
 // Carousel Corrections
 //
 .navbar {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel-fullscreen,
-        + .carousel-fullscreen .carousel-item {
+    ~,
+    ~ .typo3-feedit-element {
+        .carousel-fullscreen,
+        .carousel-fullscreen .carousel-item {
             @each $breakpoint in map-keys($navbar-heights) {
                 @include media-breakpoint-up($breakpoint) {
-                    height: calc(100vh - #{map-get($navbar-heights, $breakpoint)});
+                    height: calc(100vh - (#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)}));
                 }
             }
         }
     }
+
 }
-.navbar-fixed-top.navbar-default-transition,
-.navbar-fixed-top.navbar-inverse-transition {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel {
+.navbar-fixed-top[class*="-transition"] {
+    ~,
+    ~ .typo3-feedit-element {
+        .carousel {
             @each $breakpoint in map-keys($navbar-heights) {
                 @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
-                    margin-top: -#{map-get($navbar-heights, $breakpoint)};
+                    margin-top: calc(-1 * (#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)}));
                 }
             }
             .carousel-item {
                 @each $breakpoint in map-keys($navbar-heights) {
                     @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
-                        padding-top: calc(#{map-get($navbar-heights, $breakpoint)} / 2);
+                        padding-top: calc((#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)}) / 2);
                     }
                 }
             }
         }
-        + .carousel-fullscreen,
-        + .carousel-fullscreen .carousel-item {
+        .carousel-fullscreen,
+        .carousel-fullscreen .carousel-item {
             @media (min-width: $grid-float-breakpoint) {
                 height: 100vh;
             }
@@ -94,62 +102,48 @@
     }
 }
 .navbar-fixed-bottom {
-    + a,
-    + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
-    + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
-        + .carousel-fullscreen {
+    ~ {
+        .carousel-fullscreen {
             margin-top: 0;
             @each $breakpoint in map-keys($navbar-heights) {
                 @include media-breakpoint-up($breakpoint) {
-                    height: calc(100vh - #{map-get($navbar-heights, $breakpoint)});
+                    height: calc(100vh - (#{map-get($navbar-heights, $breakpoint)} + #{($navbar-padding-y * 2)}));
                 }
             }
         }
     }
 }
 
-
-
 //
 // Brand
 //
-.navbar-mainnavigation {
-    .navbar-brand {
-        margin-right: $grid-gutter-width;
-        @each $breakpoint in map-keys($navbar-heights) {
-            @include media-breakpoint-up($breakpoint) {
-                height: map-get($navbar-heights, $breakpoint);
-            }
-        }
-    }
-    .navbar-brand-image {
-        position: relative;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        img {
-            position: relative;
-            top: 50%;
-            transform: translate(0,-50%);
-            width: auto;
-            max-height: map-get($navbar-heights, xs) - 30;
-            @media (min-width: $grid-float-breakpoint) {
-                max-height: 65%;
-            }
-        }
-        > .navbar-brand-logo-normal {
-            display: block;
-        }
-        > .navbar-brand-logo-inverted {
-            display: none;
+.navbar-brand {
+    margin-right: $navbar-nav-link-padding-x * 2;
+    display: flex;
+    align-items: center;
+    @each $breakpoint in map-keys($navbar-heights) {
+        @include media-breakpoint-up($breakpoint) {
+            height: map-get($navbar-heights, $breakpoint) - ($navbar-padding-y * 2);
         }
     }
 }
-
+.navbar-brand-image {
+    padding: 0;
+}
+.navbar-brand-logo {
+    width: auto;
+    @each $breakpoint in map-keys($navbar-brand-heights) {
+        @include media-breakpoint-up($breakpoint) {
+            height: map-get($navbar-brand-heights, $breakpoint);
+        }
+    }
+}
+.navbar-brand-logo-normal {
+    display: block;
+}
+.navbar-brand-logo-inverted {
+    display: none;
+}
 
 //
 // Breakpoint
@@ -157,230 +151,140 @@
 // a lot of flexibility, so we introduce the legacy float breakpoint again.
 //
 .navbar-mainnavigation {
-    > .navbar-nav,
-    > .container > .navbar-collapse > .navbar-nav,
-    > .container-fluid > .navbar-collapse > .navbar-nav {
-        padding-bottom: 1em;
-        &:first-child {
-            padding-top: 0.5em;
-        }
-        &:last-child {
-            padding-bottom: 1.25em;
-        }
-    }
-    > .container > .navbar-collapse,
-    > .container-fluid > .navbar-collapse {
-        margin-left: -($grid-gutter-width / 2);
-        margin-right: -($grid-gutter-width / 2);
-        padding-left: ($grid-gutter-width / 2);
-        padding-right: ($grid-gutter-width / 2);
-    }
-}
-@media (max-width: ($grid-float-breakpoint - 1)) {
-    .navbar-mainnavigation {
-        &.navbar-default {
-            a:not(.active) {
-                color: $navbar-light-color;
-                @include hover-focus {
-                    color: $navbar-light-hover-color;
-                }
-            }
-        }
-        &.navbar-inverse {
-            a:not(.active) {
-                color: $navbar-dark-color;
-                @include hover-focus {
-                    color: $navbar-dark-hover-color;
-                }
-            }
-        }
-        .navbar-nav {
-            .nav-link {
-                margin-left: -($grid-gutter-width / 2);
-                margin-right: -($grid-gutter-width / 2);
-                padding-left: ($grid-gutter-width / 2);
-                padding-right: ($grid-gutter-width / 2);
-            }
-        }
-    }
-}
-@media (min-width: $grid-float-breakpoint) {
-    .navbar-mainnavigation {
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        > .navbar-nav,
-        > .container > .collapse > .navbar-nav,
-        > .container-fluid > .collapse > .navbar-nav {
-            padding-top: 0!important;
-            padding-bottom: 0!important;
-            flex-direction: row;
-            &:first-child {
-                margin-left: -$navbar-nav-link-padding-x;
-            }
-            &:last-child {
-                margin-left: auto;
-                margin-right: -$navbar-nav-link-padding-x;
-            }
-            .nav-link {
-                padding-right: $navbar-nav-link-padding-x;
-                padding-left: $navbar-nav-link-padding-x;
-            }
-        }
-        > .container,
-        > .container-fluid {
-            flex-wrap: nowrap;
-        }
-        .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
-        }
-        .navbar-toggler {
-            display: none;
-        }
-    }
-}
-
-
-//
-// Dropdown
-//
-.navbar-mainnavigation {
-    .dropdown-menu {
-        margin: 0;
-    }
-    .dropdown-toggle::after {
-        display: none;
-        margin-left: auto;
-        vertical-align: middle;
-    }
-    .dropdown-menu {
-        position: absolute;
-    }
-    .dropdown-item {
-        padding-left: $navbar-nav-link-padding-x;
-        padding-right: $navbar-nav-link-padding-x;
-        display: flex;
-        align-items: center;
-    }
-    .dropdown-icon {
+    [class*="-icon"] {
         svg,
         img {
             display: block;
             margin: 0;
         }
-        & + .dropdown-text {
-            margin-left: 0.5em;
+    }
+    .navbar-collapse {
+        flex-grow: 0;
+        flex-basis: 100%;
+    }
+    .navbar-nav {
+        &:first-child {
+            margin-top: $spacer / 2;
+        }
+        &:last-child {
+            margin-bottom: $spacer / 2;
         }
     }
-    @media (max-width: ($grid-float-breakpoint - 1)) {
-        .dropdown-toggle::after {
-            display: inline-block;
-        }
-        .dropdown-menu {
-            position: static;
-            margin-left: -($grid-gutter-width / 2);
-            margin-right: -($grid-gutter-width / 2);
-            border: none;
-            background: transparent;
-            border-left: 4px solid $primary;
-        }
-        .dropdown-item {
-            &:hover:not(.active),
-            &:focus:not(.active) {
-                background: transparent;
-            }
+    .nav-link {
+        display: flex;
+        align-items: center;
+        padding-left: ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
+    }
+    .nav-link-icon {
+        + .nav-link-text {
+            margin-left: 0.5rem;
         }
     }
-}
-
-
-//
-// Mainnavigation
-//
-.navbar-mainnavigation {
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
-    padding: 0;
-    .navbar-nav:last-child {
+    .dropdown-toggle::after {
         margin-left: auto;
     }
-    .navbar-toggler {
-        width: 22px;
+    .dropdown-menu {
+        margin: 0;
+        padding: 0;
+        border: none;
     }
-}
-
-
-//
-// Item
-//
-.navbar-mainnavigation {
-    .nav-link {
-        position: relative;
+    .dropdown-item {
+        padding-left: $grid-gutter-width;
+        padding-right: ($grid-gutter-width / 2);
+        padding-top: $navbar-padding-y;
+        padding-bottom: $navbar-padding-y;
         display: flex;
         align-items: center;
     }
-    .nav-link-icon,
-    .nav-link-text {
-        display: inline-block;
-        vertical-align: middle;
+    .dropdown-text {
+        white-space: normal;
     }
-    .nav-link-icon {
-        & + .nav-link-text {
-            margin-left: 0.5em;
-        }
-        svg,
-        img {
-            vertical-align: sub;
+    .dropdown-icon {
+        + .dropdown-text {
+            margin-left: 0.5rem;
         }
     }
 }
-
-
-//
-// Status
-//
-.navbar-mainnavigation {
-    .navbar-nav > li {
-        > .nav-link::before {
-            content: '';
+@media (min-width: $grid-float-breakpoint) {
+    .navbar-mainnavigation {
+        &[class*="navbar-fixed"] {
+            overflow-y: inherit
+        }
+        .navbar-toggler {
+            display: none;
+        }
+        .navbar-collapse {
+            width: auto;
+            display: flex;
+            flex-grow: 1;
+            flex-basis: initial;
+            justify-content: space-between;
+            margin-left: -$navbar-nav-link-padding-x;
+            margin-right: -$navbar-nav-link-padding-x;
+        }
+        .navbar-nav {
+            flex-direction: row;
+            align-items: center;
+            margin: 0!important;
+        }
+        .nav-link {
+            padding-left: $navbar-nav-link-padding-x;
+            padding-right: $navbar-nav-link-padding-x;
+        }
+        .dropdown-menu {
             position: absolute;
-            top: 0px;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: $primary;
-            opacity: 0;
-            transition: opacity 0.25s ease-in-out;
+            margin: 0;
+            padding-top: $spacer / 2;
+            padding-bottom: $spacer / 2;
+            background-clip: unset;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
         }
-        > .nav-link:focus::before,
-        > .nav-link:hover::before,
-        &:hover > .nav-link::before {
-                opacity: .25;
+        .dropdown-item {
+            padding-left: $navbar-nav-link-padding-x;
+            padding-right: $navbar-nav-link-padding-x;
         }
-        &.show > .nav-link::before,
-        &.active > .nav-link::before {
-            opacity: .5;
+        .dropdown-text {
+            white-space: nowrap;
         }
-        @media (min-width: $grid-float-breakpoint) {
-            > .nav-link::before {
-                top: auto;
-                left: $navbar-nav-link-padding-x;
-                right: $navbar-nav-link-padding-x;
-                bottom: ($nav-link-padding-y / 2);
-                height: 2px;
-                width: auto;
+    }
+    .navbar-nocaret {
+        .dropdown-toggle::after {
+            display: none;
+        }
+    }
+}
+@media (max-width: ($grid-float-breakpoint - 1)) {
+    .navbar-mainnavigation {
+        &[class*="navbar-inverse"] {
+            a:not(.active) {
+                color: $navbar-dark-color;
+                @include hover-focus {
+                    background: transparent;
+                    color: $navbar-dark-hover-color;
+                }
             }
         }
+        a,
+        a.active {
+            background: transparent;
+            @include hover-focus {
+                background: transparent;
+            }
+        }
+        .dropdown-menu {
+            background-color: transparent;
+        }
     }
 }
-
 
 //
 // Toggler
 //
 .navbar-toggler {
     padding: 0;
-    height: 34px;
-    width: 34px;
+    height: 2.5rem;
+    width: 1.5rem;
     position: relative;
     border: 0;
     &:focus {
@@ -396,8 +300,8 @@
     top: 0;
     background-image: none!important;
     display: inline-block;
-    width: 22px;
-    height: 2px;
+    width: 1.5rem;
+    height: 0.125rem;
     background-color: currentColor;
     transition: all 0.3s ease-in;
 }
@@ -410,75 +314,69 @@
 .navbar-toggler-icon:before {
     transition-delay: 0.1s;
     transform: rotate(-45deg);
-    top: 0px;
+    top: 0;
 }
 .navbar-toggler-icon:after {
     transition-delay: 0.1s;
     transform: rotate(45deg);
-    top: 0px;
+    top: 0;
 }
 .navbar-toggler.collapsed {
     .navbar-toggler-icon {
         transition-delay: 0.2s;
-        height: 2px;
+        height: 0.125rem;
     }
     .navbar-toggler-icon:before {
         transition-delay: 0;
         transform: rotate(0);
-        top: -6px;
+        top: -0.375rem;
     }
     .navbar-toggler-icon:after {
         transition-delay: 0;
         transform: rotate(0);
-        top: 6px;
+        top: 0.375rem;
     }
 }
-
 
 //
 // Navigation Style
 //
-.navbar-default {
+[class*="navbar-default"] {
     @extend .navbar-light;
     @extend .bg-white;
 }
-.navbar-inverse {
+[class*="navbar-inverse"] {
     @extend .navbar-dark;
     @extend .bg-dark;
 }
 
-
 //
 // Transision
 //
-.navbar-default-transition,
-.navbar-default-transition.navbar-transition {
-    @extend .navbar-default;
+[class*="-default-transition"] {
+    @extend [class*="navbar-default"] ;
 }
-.navbar-inverse-transition,
-.navbar-inverse-transition.navbar-transition {
-    @extend .navbar-inverse;
+[class*="-inverse-transition"] {
+    @extend [class*="navbar-inverse"];
 }
 .navbar-transition {
+    min-height: map-get($navbar-heights, xs);
     .navbar-brand {
-        height: map-get($navbar-heights, xs);
+        height: map-get($navbar-heights, xs) - ($navbar-padding-y * 2);
     }
-    .navbar-brand-image img {
-        max-height: map-get($navbar-heights, xs) - 30;
+    .navbar-brand-logo {
+        max-height: map-get($navbar-brand-heights, xs);
     }
 }
 @media (min-width: $grid-float-breakpoint) {
     .navbar {
         transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
     }
-    .navbar-default-transition:not(.navbar-transition),
-    .navbar-inverse-transition:not(.navbar-transition) {
+    [class*="-transition"]:not(.navbar-transition) {
         background: transparent !important;
         box-shadow: none;
         .navbar-nav > li {
-            > .nav-link,
-            > .nav-link:hover,
-            > .nav-link:focus {
+            > .nav-link {
                 color: #ffffff !important;
             }
         }
@@ -489,20 +387,6 @@
             > .navbar-brand-logo-inverted {
                 display: block;
             }
-        }
-    }
-}
-
-
-//
-// Navbar Bottom
-//
-.navbar-mainnavigation {
-    &.navbar-bottom {
-        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.15);
-        .dropdown-menu {
-            top: auto;
-            bottom: 100%;
         }
     }
 }
