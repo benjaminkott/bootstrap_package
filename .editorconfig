@@ -60,7 +60,12 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
-# package.json, composer.json or .travis.yml
-[{package.json,composer.json,.travis.yml}]
+# package.json or .travis.yml
+[{package.json,.travis.yml}]
 indent_style = space
 indent_size = 2
+
+# composer.json
+[composer.json]
+indent_style = space
+indent_size = 4
