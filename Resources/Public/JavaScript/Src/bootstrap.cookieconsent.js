@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     );
                 }
             }
-            settings[i].remove();
+            settings[i].parentNode.removeChild(settings[i]);
         }
         delete settings;
 
