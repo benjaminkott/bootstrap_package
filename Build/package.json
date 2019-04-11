@@ -36,6 +36,7 @@
     "icon": "./node_modules/.bin/grunt icon",
     "image": "./node_modules/.bin/grunt image",
     "js": "./node_modules/.bin/grunt js",
-    "update": "./node_modules/.bin/grunt update"
+    "update": "./node_modules/.bin/grunt update",
+    "watch": "./node_modules/.bin/grunt watch"
   }
 }
