@@ -61,7 +61,7 @@
 
     <f:if condition="{link}">
         <f:then>
-            <a href="{f:uri.typolink(parameter: link)}"{f:if(condition: linkTitle, then: ' title="{linkTitle -> bk2k:format.trim()}"')}>{content -> f:format.raw()}</a>
+            <f:link.typolink parameter="{link}" title="{linkTitle -> bk2k:format.trim()}">{content -> f:format.raw()}</f:link.typolink>
         </f:then>
         <f:else>
             {content -> f:format.raw()}
