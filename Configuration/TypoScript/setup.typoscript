@@ -508,17 +508,10 @@ page {
 }
 
 
-########################
-#### COOKIE CONSENT ####
-########################
-[{$page.theme.cookieconsent.enable} == 1]
-    page {
-        includeJSFooterlibs {
-            contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
-            bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.cookieconsent.min.js
-        }
-    }
-[end]
+####################
+#### COMPONENTS ####
+####################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript">
 
 
 ###################################################
