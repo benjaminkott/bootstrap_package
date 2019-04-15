@@ -348,7 +348,55 @@ class ImageVariantsUtilityTest extends UnitTestCase
                 [
                     'default' => [ 'width' => 520 ]
                 ]
-            ]
+            ],
+            'hi-res' => [
+                [
+                    'variants' => [
+                        'default' => [
+                            'breakpoint' => 1200,
+                            'width' => 1100,
+                            'hi-res' => [
+                                '1.5x' => 1.5,
+                                '2x' => 2,
+                                '2.5x' => 2.5,
+                                '3x' => 3
+                            ]
+                        ],
+                    ]
+                ],
+                [
+                    'default' => [
+                        'breakpoint' => 1200,
+                        'width' => 1100,
+                        'hi-res' => [
+                            '1.5x' => 1650,
+                            '2x' => 2200,
+                            '2.5x' => 2750,
+                            '3x' => 3300,
+                        ]
+                    ],
+                ]
+            ],
+            'hi-res invalid dataset' => [
+                [
+                    'variants' => [
+                        'smaller-value' => [ 'width' => 1100, 'hi-res' => [ '2x' => 0.5 ] ],
+                        'numeric-string' => [ 'width' => 1100, 'hi-res' => [ '2x' => '2' ] ],
+                        'string' => [ 'width' => 1100, 'hi-res' => 'string' ],
+                        'null' => [ 'width' => 1100, 'hi-res' => null ],
+                        'empty-array' => [ 'width' => 1100, 'hi-res' => [] ],
+                        'not-supported-variants' => [ 'width' => 1100, 'hi-res' => [ 'not-supported' => 100 ] ],
+                    ]
+                ],
+                [
+                    'smaller-value' => [ 'width' => 1100 ],
+                    'numeric-string' => [ 'width' => 1100, 'hi-res' => [ '2x' => 2200 ] ],
+                    'string' => [ 'width' => 1100 ],
+                    'null' => [ 'width' => 1100 ],
+                    'empty-array' => [ 'width' => 1100 ],
+                    'not-supported-variants' => [ 'width' => 1100 ],
+                ]
+            ],
         ];
     }
 }

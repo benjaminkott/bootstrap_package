@@ -21,12 +21,17 @@ class ImageVariantsUtility
     protected static $allowedVariantProperties = [
         'breakpoint',
         'width',
-        'highResolutionWidth',
-        'higherResolutionWidth',
-        'highestResolutionWidth',
-        'highResolution',
-        'higherResolution',
-        'highestResolution'
+        'hi-res',
+    ];
+
+    /**
+     * @var array
+     */
+    protected static $allowedHighResolutionVariants = [
+        '1.5x',
+        '2x',
+        '2.5x',
+        '3x'
     ];
 
     /**
@@ -68,6 +73,39 @@ class ImageVariantsUtility
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
         $variants = self::processCorrections($variants, $corrections);
+        $variants = self::processHighResolution($variants);
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @return array
+     */
+    protected static function processHighResolution($variants): array
+    {
+        foreach ($variants as $variant => $properties) {
+            if (!array_key_exists('hi-res', $properties)) {
+                continue;
+            }
+            if (!is_array($properties['hi-res'])) {
+                unset($variants[$variant]['hi-res']);
+                continue;
+            }
+            foreach ($properties['hi-res'] as $key => $value) {
+                if ($value === 'unset' || !in_array($key, self::$allowedHighResolutionVariants, true)) {
+                    unset($variants[$variant]['hi-res'][$key]);
+                    continue;
+                }
+                if (is_numeric($value) && $value > 1) {
+                    $variants[$variant]['hi-res'][$key] = (int) ceil($value * $variants[$variant]['width']);
+                } else {
+                    unset($variants[$variant]['hi-res'][$key]);
+                }
+            }
+            if (empty($variants[$variant]['hi-res'])) {
+                unset($variants[$variant]['hi-res']);
+            }
+        }
         return $variants;
     }
 
@@ -79,25 +117,24 @@ class ImageVariantsUtility
     {
         $variants = is_array($variants) && !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
-            if (is_array($properties)) {
-                foreach ($properties as $key => $value) {
-                    if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
-                        unset($variants[$variant][$key]);
-                        continue;
-                    }
-                    if (is_numeric($value) && $value > 0) {
-                        $variants[$variant][$key] = (float) $value;
-                        $variants[$variant]['highResolutionWidth'] = (int) ceil($variants[$variant]['width'] * $variants[$variant]['highResolution']);
-                        $variants[$variant]['higherResolutionWidth'] = (int) ceil($variants[$variant]['width'] * $variants[$variant]['higherResolution']);
-                        $variants[$variant]['highestResolutionWidth'] = (int) ceil($variants[$variant]['width'] * $variants[$variant]['highestResolution']);
-                    } else {
-                        unset($variants[$variant][$key]);
-                    }
+            if (!is_array($properties)) {
+                unset($variants[$variant]);
+                continue;
+            }
+            foreach ($properties as $key => $value) {
+                if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
+                    unset($variants[$variant][$key]);
+                    continue;
                 }
-                if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
-                    unset($variants[$variant]);
+                if ($key === 'hi-res') {
+                    continue;
+                } elseif (is_numeric($value) && $value > 0) {
+                    $variants[$variant][$key] = (int) $value;
+                } else {
+                    unset($variants[$variant][$key]);
                 }
-            } else {
+            }
+            if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
                 unset($variants[$variant]);
             }
         }
@@ -116,15 +153,6 @@ class ImageVariantsUtility
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + $value);
             }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highResolution'] != 0) {
-                $variants[$variant]['highResolutionWidth'] = (int) ceil($variants[$variant]['highResolutionWidth'] + $value * $variants[$variant]['highResolution']);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['higherResolution'] != 0) {
-                $variants[$variant]['higherResolutionWidth'] = (int) ceil($variants[$variant]['higherResolutionWidth'] + $value * $variants[$variant]['higherResolution']);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highestResolution'] != 0) {
-                $variants[$variant]['highestResolutionWidth'] = (int) ceil($variants[$variant]['highestResolutionWidth'] + $value * $variants[$variant]['highestResolution']);
-            }
         }
         return $variants;
     }
@@ -140,15 +168,6 @@ class ImageVariantsUtility
         foreach ($gutters as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - $value);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highResolution'] != 0) {
-                $variants[$variant]['highResolutionWidth'] = (int) ceil($variants[$variant]['highResolutionWidth'] - $value * $variants[$variant]['highResolution']);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['higherResolution'] != 0) {
-                $variants[$variant]['higherResolutionWidth'] = (int) ceil($variants[$variant]['higherResolutionWidth'] - $value * $variants[$variant]['higherResolution']);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highestResolution'] != 0) {
-                $variants[$variant]['highestResolutionWidth'] = (int) ceil($variants[$variant]['highestResolutionWidth'] - $value * $variants[$variant]['highestResolution']);
             }
         }
         return $variants;
@@ -166,15 +185,6 @@ class ImageVariantsUtility
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] * $value);
             }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highResolution'] != 0) {
-                $variants[$variant]['highResolutionWidth'] = (int) ceil($variants[$variant]['highResolutionWidth'] * $value);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['higherResolution'] != 0) {
-                $variants[$variant]['higherResolutionWidth'] = (int) ceil($variants[$variant]['higherResolutionWidth'] * $value);
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highestResolution'] != 0) {
-                $variants[$variant]['highestResolutionWidth'] = (int) ceil($variants[$variant]['highestResolutionWidth'] * $value);
-            }
         }
         return $variants;
     }
@@ -190,15 +200,6 @@ class ImageVariantsUtility
         foreach ($corrections as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] -= $value;
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highResolution'] != 0) {
-                $variants[$variant]['highResolutionWidth'] -= $value;
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['higherResolution'] != 0) {
-                $variants[$variant]['higherResolutionWidth'] -= $value;
-            }
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highestResolution'] != 0) {
-                $variants[$variant]['highestResolutionWidth'] -= $value;
             }
         }
         return $variants;
