@@ -2,9 +2,8 @@
  * Cookie Consent
  * ======================================================================== */
 
-+function ($) {
-
-    if ($('#cookieconsent').length > 0) {
+window.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('cookieconsent')) {
 
         // Default Options
         var cookieConsentOptions = {
@@ -66,7 +65,7 @@
         // Functions
         var cookieConsentFunctions = {};
         cookieConsentFunctions.updateCookieConsentOptions = function(options, path, value) {
-            var stack = path.split('.');
+            stack = path.split('.');
             while (stack.length > 1) {
                 key = stack.shift();
                 options = options[key];
@@ -75,10 +74,13 @@
         }
 
         // Settings
-        $('[data-cookieconsent-setting]').each(function () {
-            var data = $(this).data();
-            var setting = data.cookieconsentSetting;
-            var value = data.cookieconsentValue;
+        settings = document.querySelectorAll('[data-cookieconsent-setting]');
+        for (i = 0; i < settings.length; ++i) {
+            setting = settings[i].dataset.cookieconsentSetting;
+            value = settings[i].dataset.cookieconsentValue;
+            if (parseInt(value, 10) == value) {
+                value = parseInt(value, 10);
+            }
             if (cookieConsentSupportedOptions.indexOf(setting) != -1) {
                 cookieConsentFunctions.updateCookieConsentOptions(
                     cookieConsentOptions,
@@ -93,8 +95,9 @@
                     );
                 }
             }
-            $(this).remove();
-        });
+            settings[i].parentNode.removeChild(settings[i]);
+        }
+        delete settings;
 
         // Events
         cookieConsentOptions.onPopupOpen = function() {
@@ -145,8 +148,8 @@
         };
 
         // Initialize
-        cookieConsentOptions.container = document.getElementById("cookieconsent");
+        cookieConsentOptions.container = document.getElementById('cookieconsent');
         window.cookieconsent.initialise(cookieConsentOptions);
 
     }
-}(jQuery);
+});

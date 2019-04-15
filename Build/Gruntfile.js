@@ -158,8 +158,8 @@ module.exports = function(grunt) {
                 dest: '<%= paths.js %>Dist/bootstrap.stickyheader.min.js'
             },
             cookieconsent: {
-                src: '<%= paths.js %>Src/jquery.cookieconsent.js',
-                dest: '<%= paths.js %>Dist/jquery.cookieconsent.min.js'
+                src: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
+                dest: '<%= paths.js %>Dist/bootstrap.cookieconsent.min.js'
             },
             ckeditor_address: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
@@ -261,7 +261,7 @@ module.exports = function(grunt) {
                 tasks: 'uglify:bootstrapStickyheader'
             },
             cookieconsent: {
-                files: '<%= paths.js %>Src/jquery.cookieconsent.js',
+                files: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
                 tasks: 'uglify:cookieconsent'
             },
             ckeditor_address: {

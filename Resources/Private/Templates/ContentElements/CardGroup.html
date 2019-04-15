@@ -38,7 +38,7 @@
                                 </f:if>
                             </f:variable>
                             <div class="card-footer">
-                                <a class="btn btn-{item.data.link_class}" title="{linkTitle -> bk2k:format.trim()}" href="{f:uri.typolink(parameter: item.data.link)}">
+                                <f:link.typolink parameter="{item.data.link}" class="btn btn-{item.data.link_class}" title="{linkTitle -> bk2k:format.trim()}">
                                     <f:if condition="{item.linkIcon.0}">
                                         <span class="btn-icon">
                                             <bk2k:inlineSvg image="{item.linkIcon.0}" />
@@ -47,7 +47,7 @@
                                     <span class="btn-text">
                                         {linkTitle}
                                     </span>
-                                </a>
+                                </f:link.typolink>
                             </div>
                         </f:if>
                     </div>
@@ -61,7 +61,7 @@
 
     <f:if condition="{link}">
         <f:then>
-            <a href="{f:uri.typolink(parameter: link)}"{f:if(condition: linkTitle, then: ' title="{linkTitle -> bk2k:format.trim()}"')}>{content -> f:format.raw()}</a>
+            <f:link.typolink parameter="{link}" title="{linkTitle -> bk2k:format.trim()}">{content -> f:format.raw()}</f:link.typolink>
         </f:then>
         <f:else>
             {content -> f:format.raw()}

@@ -215,6 +215,14 @@ page {
                     isTrue = {$page.theme.meta.navigationValue}
                 }
             }
+            1553883874 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+            1553883874 {
+                files {
+                    normal = {$page.logo.file}
+                    inverted = {$page.logo.fileInverted}
+                }
+                as = logo
+            }
         }
 
         ################
@@ -222,8 +230,6 @@ page {
         ################
         settings {
             logo {
-                file = {$page.logo.file}
-                fileInverted = {$page.logo.fileInverted}
                 height = {$page.logo.height}
                 width = {$page.logo.width}
                 linktitle = {$page.logo.linktitle}
@@ -502,17 +508,10 @@ page {
 }
 
 
-########################
-#### COOKIE CONSENT ####
-########################
-[{$page.theme.cookieconsent.enable} == 1]
-    page {
-        includeJSFooterlibs {
-            contrib_cookieconsent = EXT:bootstrap_package/Resources/Public/Contrib/cookieconsent/cookieconsent.min.js
-            bootstrap_cookieconsent = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.cookieconsent.min.js
-        }
-    }
-[end]
+####################
+#### COMPONENTS ####
+####################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript">
 
 
 ###################################################
