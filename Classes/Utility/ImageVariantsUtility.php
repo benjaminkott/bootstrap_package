@@ -25,8 +25,8 @@ class ImageVariantsUtility
         'higherResolutionWidth',
         'highestResolutionWidth',
         'highResolution',
-	    'higherResolution',
-	    'highestResolution'
+        'higherResolution',
+        'highestResolution'
     ];
 
     /**
@@ -190,16 +190,16 @@ class ImageVariantsUtility
         foreach ($corrections as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] -= $value;
-            } 
+            }
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highResolution'] != 0) {
                 $variants[$variant]['highResolutionWidth'] -= $value;
-            } 
+            }
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['higherResolution'] != 0) {
                 $variants[$variant]['higherResolutionWidth'] -= $value;
-            }  
+            }
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width']) && $variants[$variant]['highestResolution'] != 0) {
                 $variants[$variant]['highestResolutionWidth'] -= $value;
-            }       
+            }
         }
         return $variants;
     }

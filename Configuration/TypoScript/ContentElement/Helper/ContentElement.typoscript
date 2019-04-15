@@ -168,37 +168,22 @@ lib.contentElement {
                 default {
                     breakpoint = 1200
                     width = 1100
-	                highResMultiplier = 0
-	                higherResMultiplier = 0
-	                highestResMultiplier = 0
                 }
                 large {
                     breakpoint = 992
                     width = 920
-                    highResMultiplier = 0
-	                higherResMultiplier = 0
-	                highestResMultiplier = 0
                 }
                 medium {
                     breakpoint = 768
                     width = 680
-                    highResMultiplier = 0
-	                higherResMultiplier = 0
-	                highestResMultiplier = 0
                 }
                 small {
                     breakpoint = 576
                     width = 500
-                    highResMultiplier = 0
-	                higherResMultiplier = 0
-	                highestResMultiplier = 0
                 }
                 extrasmall {
                     breakpoint = unset
                     width = 374
-                    highResMultiplier = 0
-	                higherResMultiplier = 0
-	                highestResMultiplier = 0
                 }
             }
             backendlayout {
