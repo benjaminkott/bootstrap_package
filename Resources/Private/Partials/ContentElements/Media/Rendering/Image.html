@@ -3,14 +3,16 @@
     <f:for each="{variants}" key="name" as="variant">
         <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
         <f:variable name="width">{variant.width as integer}</f:variable>
-        <f:variable name="highResMultiplier">{variant.highResMultiplier as float}</f:variable>
-        <f:variable name="highResWidth">{variant.highResWidth as integer}</f:variable>
-        <f:variable name="higherResMultiplier">{variant.higherResMultiplier as float}</f:variable>
-        <f:variable name="higherResWidth">{variant.higherResWidth as integer}</f:variable> 
-        <f:variable name="highestResMultiplier">{variant.highestResMultiplier as float}</f:variable>
-        <f:variable name="highestResWidth">{variant.highestResWidth as integer}</f:variable>       
         <f:if condition="{width}">
-            <source data-variant="{name}" data-maxwidth="{width}" {f:if(condition: breakpoint, then: ' media="(min-width: {breakpoint}px)" ')}srcset="{f:uri.image(image: file, cropVariant: name, maxWidth: width)}{f:if(condition: highResMultiplier, then: ', {f:uri.image(image: file, cropVariant: name, maxWidth: highResWidth)} {highResMultiplier}x')}{f:if(condition: higherResMultiplier, then: ', {f:uri.image(image: file, cropVariant: name, maxWidth: higherResWidth)} {higherResMultiplier}x')}{f:if(condition: highestResMultiplier, then: ', {f:uri.image(image: file, cropVariant: name, maxWidth: highestResWidth)} {highestResMultiplier}x')}">
+            <f:variable name="mediaQuery">{f:if(condition: breakpoint, then: 'media="(min-width: {breakpoint}px)"')}</f:variable>
+            <f:variable name="srcset">{f:uri.image(image: file, cropVariant: name, maxWidth: width)}</f:variable>
+            <f:if condition="{variant.hi-res}">
+                <f:variable name="srcset">{srcset} 1x</f:variable>
+                <f:for each="{variant.hi-res}" key="hiResKey" as="hiResWidth">
+                    <f:variable name="srcset">{srcset}, {f:uri.image(image: file, cropVariant: name, maxWidth: hiResWidth)} {hiResKey}</f:variable>
+                </f:for>
+            </f:if>
+            <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">
         </f:if>
     </f:for>
     <img src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.properties.title}" alt="{file.properties.alternative}">
