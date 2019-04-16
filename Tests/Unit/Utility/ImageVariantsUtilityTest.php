@@ -36,17 +36,17 @@ class ImageVariantsUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function getImageVariantsTestDataProvider()
+    public function getImageVariantsTestDataProvider(): array
     {
         return [
             'empty' => [
                 [],
                 [
-                    'default' => [ 'breakpoint' => 1200, 'width' => 1100 ],
-                    'large' => [ 'breakpoint' => 992, 'width' => 920 ],
-                    'medium' => [ 'breakpoint' => 768, 'width' => 680 ],
-                    'small' => [ 'breakpoint' => 576, 'width' => 500 ],
-                    'extrasmall' => [ 'width' => 374 ]
+                    'default' => [ 'breakpoint' => 1200, 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'large' => [ 'breakpoint' => 992, 'width' => 920, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 920 ] ] ],
+                    'medium' => [ 'breakpoint' => 768, 'width' => 680, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 680 ] ] ],
+                    'small' => [ 'breakpoint' => 576, 'width' => 500, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 500 ] ] ],
+                    'extrasmall' => [ 'width' => 374, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 374 ] ] ]
                 ]
             ],
             'invalid dataset' => [
@@ -56,11 +56,11 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     'corrections' => 'string'
                 ],
                 [
-                    'default' => [ 'breakpoint' => 1200, 'width' => 1100 ],
-                    'large' => [ 'breakpoint' => 992, 'width' => 920 ],
-                    'medium' => [ 'breakpoint' => 768, 'width' => 680 ],
-                    'small' => [ 'breakpoint' => 576, 'width' => 500 ],
-                    'extrasmall' => [ 'width' => 374 ]
+                    'default' => [ 'breakpoint' => 1200, 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'large' => [ 'breakpoint' => 992, 'width' => 920, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 920 ] ] ],
+                    'medium' => [ 'breakpoint' => 768, 'width' => 680, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 680 ] ] ],
+                    'small' => [ 'breakpoint' => 576, 'width' => 500, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 500 ] ] ],
+                    'extrasmall' => [ 'width' => 374, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 374 ] ] ]
                 ]
             ],
             'variants' => [
@@ -70,7 +70,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'breakpoint' => 1200, 'width' => 1100 ]
+                    'default' => [ 'breakpoint' => 1200, 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'variants invalid' => [
@@ -115,9 +115,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'numeric-string' => [
-                        'width' => 100
-                    ]
+                    'numeric-string' => [ 'width' => 100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 100 ] ] ]
                 ]
             ],
             'variants unset property' => [
@@ -129,7 +127,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'unset-breakpoint' => [ 'width' => 1100 ]
+                    'unset-breakpoint' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'multiplier' => [
@@ -142,7 +140,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 550 ]
+                    'default' => [ 'width' => 550, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 550 ] ] ]
                 ]
             ],
             'multiplier on no existent variants' => [
@@ -155,7 +153,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 1100 ]
+                    'default' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'multiplier input types' => [
@@ -178,12 +176,12 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'numeric-string' => [ 'width' => 550 ],
-                    'string' => [ 'width' => 1100 ],
-                    'px' => [ 'width' => 1100 ],
-                    'percent' => [ 'width' => 1100 ],
-                    'null' => [ 'width' => 1100 ],
-                    'array' => [ 'width' => 1100 ]
+                    'numeric-string' => [ 'width' => 550, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 550 ] ] ],
+                    'string' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'px' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'percent' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'null' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'array' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'corrections' => [
@@ -196,7 +194,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 1000 ]
+                    'default' => [ 'width' => 1000, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1000 ] ] ]
                 ]
             ],
             'corrections on no existent variants' => [
@@ -209,7 +207,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ],
                 ],
                 [
-                    'default' => [ 'width' => 1100 ]
+                    'default' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'corrections input types' => [
@@ -232,12 +230,12 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'numeric-string' => [ 'width' => 1000 ],
-                    'string' => [ 'width' => 1100 ],
-                    'px' => [ 'width' => 1100 ],
-                    'percent' => [ 'width' => 1100 ],
-                    'null' => [ 'width' => 1100 ],
-                    'array' => [ 'width' => 1100 ]
+                    'numeric-string' => [ 'width' => 1000, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1000 ] ] ],
+                    'string' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'px' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'percent' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'null' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'array' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'gutter' => [
@@ -250,7 +248,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 1100 ]
+                    'default' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'gutter on no existent variants' => [
@@ -263,7 +261,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ],
                 ],
                 [
-                    'default' => [ 'width' => 1100 ]
+                    'default' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'gutter input types' => [
@@ -286,12 +284,12 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'numeric-string' => [ 'width' => 1100 ],
-                    'string' => [ 'width' => 1100 ],
-                    'px' => [ 'width' => 1100 ],
-                    'percent' => [ 'width' => 1100 ],
-                    'null' => [ 'width' => 1100 ],
-                    'array' => [ 'width' => 1100 ]
+                    'numeric-string' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'string' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'px' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'percent' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'null' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ],
+                    'array' => [ 'width' => 1100, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 1100 ] ] ]
                 ]
             ],
             'multiplier and gutter' => [
@@ -310,8 +308,8 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 530 ],
-                    'large' => [ 'width' => 680 ]
+                    'default' => [ 'width' => 530, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 530 ] ] ],
+                    'large' => [ 'width' => 680, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 680 ] ] ]
                 ]
             ],
             'multiplier and corrections' => [
@@ -327,7 +325,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 540 ]
+                    'default' => [ 'width' => 540, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 540 ] ] ]
                 ]
             ],
             'multiplier, gutter and corrections' => [
@@ -346,57 +344,193 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ],
                 [
-                    'default' => [ 'width' => 520 ]
+                    'default' => [ 'width' => 520, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 520 ] ] ]
                 ]
             ],
-            'hi-res' => [
+            'sizes' => [
                 [
                     'variants' => [
                         'default' => [
-                            'breakpoint' => 1200,
                             'width' => 1100,
-                            'hi-res' => [
-                                '1.5x' => 1.5,
-                                '2x' => 2,
-                                '2.5x' => 2.5,
-                                '3x' => 3
+                            'sizes' => [
+                                '2x' => [
+                                    'multiplier' => 2
+                                ]
                             ]
-                        ],
+                        ]
                     ]
                 ],
                 [
                     'default' => [
-                        'breakpoint' => 1200,
                         'width' => 1100,
-                        'hi-res' => [
-                            '1.5x' => 1650,
-                            '2x' => 2200,
-                            '2.5x' => 2750,
-                            '3x' => 3300,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '2x' => [
+                                'multiplier' => 2,
+                                'width' => 2200,
+                            ]
                         ]
-                    ],
+                    ]
                 ]
             ],
-            'hi-res invalid dataset' => [
+            'sizes-multiplier' => [
                 [
                     'variants' => [
-                        'smaller-value' => [ 'width' => 1100, 'hi-res' => [ '2x' => 0.5 ] ],
-                        'numeric-string' => [ 'width' => 1100, 'hi-res' => [ '2x' => '2' ] ],
-                        'string' => [ 'width' => 1100, 'hi-res' => 'string' ],
-                        'null' => [ 'width' => 1100, 'hi-res' => null ],
-                        'empty-array' => [ 'width' => 1100, 'hi-res' => [] ],
-                        'not-supported-variants' => [ 'width' => 1100, 'hi-res' => [ 'not-supported' => 100 ] ],
+                        'default' => [
+                            'width' => 1100,
+                            'sizes' => [
+                                '1x' => [ 'multiplier' => '2' ],
+                                '2x' => [ 'multiplier' => 'foo' ],
+                                '3x' => [ 'multiplier' => '0.5px' ],
+                                '4x' => [ 'multiplier' => '50%' ],
+                                '5x' => [ 'multiplier' => null ],
+                                '6x' => [ 'multiplier' => [] ],
+                                '7x' => [ 'multiplier' => -2 ],
+                                '8x' => [ 'multiplier' => 0.5 ],
+                            ]
+                        ]
                     ]
                 ],
                 [
-                    'smaller-value' => [ 'width' => 1100 ],
-                    'numeric-string' => [ 'width' => 1100, 'hi-res' => [ '2x' => 2200 ] ],
-                    'string' => [ 'width' => 1100 ],
-                    'null' => [ 'width' => 1100 ],
-                    'empty-array' => [ 'width' => 1100 ],
-                    'not-supported-variants' => [ 'width' => 1100 ],
+                    'default' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 2,
+                                'width' => 2200,
+                            ],
+                        ]
+                    ]
                 ]
             ],
+            'sizes-invalid' => [
+                [
+                    'variants' => [
+                        'default' => [
+                            'width' => 1100,
+                            'sizes' => [
+                                '2x' => [ ],
+                                '3x' => [ 'width' => '300' ],
+                                '4x' => [ 'multiplier' => 'unset' ],
+                                '5x' => [ 'foo' => 'bar' ],
+                                '6x' => [ 'multiplier' => 1, 'width' => 300, 'foo' => 'bar' ],
+                            ]
+                        ]
+                    ],
+                ],
+                [
+                    'default' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '6x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                        ]
+                    ]
+                ]
+                        ],
+            'sizes-invalid-keys' => [
+                [
+                    'variants' => [
+                        'default' => [
+                            'width' => 1100,
+                            'sizes' => [
+                                'superhdpix' => [ 'multiplier' => 1 ],
+                                '13hdpi' => [ 'multiplier' => 1 ],
+                                10 => [ 'multiplier' => 1 ],
+                                '0.5x' => [ 'multiplier' => 1 ],
+                                '10.1234x' => [ 'multiplier' => 1 ],
+                                '123,456.00x' => [ 'multiplier' => 1 ],
+                                '654.321,00x' => [ 'multiplier' => 1 ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'default' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+            'sizes-add-1x' => [
+                [
+                    'variants' => [
+                        'default' => [
+                            'width' => 1100,
+                            'sizes' => [
+                                '2x' => [ 'multiplier' => 2 ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'default' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '2x' => [
+                                'multiplier' => 2,
+                                'width' => 2200,
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+            'sizes-sorting' => [
+                [
+                    'variants' => [
+                        'default' => [
+                            'width' => 1100,
+                            'sizes' => [
+                                '1.5x' => [ 'multiplier' => 1 ],
+                                '2.5x' => [ 'multiplier' => 1 ],
+                                '2x' => [ 'multiplier' => 1 ],
+                                '1x' => [ 'multiplier' => 1 ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'default' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '1.5x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '2x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                            '2.5x' => [
+                                'multiplier' => 1,
+                                'width' => 1100,
+                            ],
+                        ]
+                    ]
+                ]
+            ]
         ];
     }
 
@@ -422,7 +556,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function getStackedImageVariantsTestDataProvider()
+    public function getStackedImageVariantsTestDataProvider(): array
     {
         return [
             'multiplier' => [
@@ -436,7 +570,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ],
                 ],
                 [
-                    'default' => [ 'breakpoint' => 1200, 'width' => 275 ],
+                    'default' => [ 'breakpoint' => 1200, 'width' => 275, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 275 ] ] ],
                 ],
             ],
         ];

@@ -21,17 +21,7 @@ class ImageVariantsUtility
     protected static $allowedVariantProperties = [
         'breakpoint',
         'width',
-        'hi-res',
-    ];
-
-    /**
-     * @var array
-     */
-    protected static $allowedHighResolutionVariants = [
-        '1.5x',
-        '2x',
-        '2.5x',
-        '3x'
+        'sizes',
     ];
 
     /**
@@ -73,7 +63,7 @@ class ImageVariantsUtility
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
         $variants = self::processCorrections($variants, $corrections);
-        $variants = self::processHighResolution($variants);
+        $variants = self::prosessResolutions($variants);
         return $variants;
     }
 
@@ -81,32 +71,54 @@ class ImageVariantsUtility
      * @param array $variants
      * @return array
      */
-    protected static function processHighResolution($variants): array
+    protected static function prosessResolutions($variants): array
     {
         foreach ($variants as $variant => $properties) {
-            if (!array_key_exists('hi-res', $properties)) {
-                continue;
+            if (!array_key_exists('sizes', $properties)) {
+                $properties['sizes'] = [];
             }
-            if (!is_array($properties['hi-res'])) {
-                unset($variants[$variant]['hi-res']);
-                continue;
+            if (!array_key_exists('1x', $properties['sizes'])) {
+                $sizes = [];
+                $sizes['1x'] = ['multiplier' => 1];
+                $properties['sizes'] = array_merge($sizes, $properties['sizes']);
             }
-            foreach ($properties['hi-res'] as $key => $value) {
-                if ($value === 'unset' || !in_array($key, self::$allowedHighResolutionVariants, true)) {
-                    unset($variants[$variant]['hi-res'][$key]);
-                    continue;
-                }
-                if (is_numeric($value) && $value > 1) {
-                    $variants[$variant]['hi-res'][$key] = (int) ceil($value * $variants[$variant]['width']);
-                } else {
-                    unset($variants[$variant]['hi-res'][$key]);
-                }
-            }
-            if (empty($variants[$variant]['hi-res'])) {
-                unset($variants[$variant]['hi-res']);
-            }
+            $properties['sizes'] = self::processSizes($properties['sizes'], $properties['width']);
+            $variants[$variant] = $properties;
         }
         return $variants;
+    }
+
+    /**
+     * @param array $sizes
+     * @param int $width
+     * @return array
+     */
+    protected static function processSizes($sizes, $width): array
+    {
+        $resultSizes = [];
+        $workingSizes = [];
+        foreach ($sizes as $key => $settings) {
+            if (!array_key_exists('multiplier', $settings) ||
+                !is_numeric($settings['multiplier']) ||
+                $settings['multiplier'] < 1 ||
+                !is_string($key) ||
+                substr($key, -1, 1) !== 'x' ||
+                !is_numeric(substr($key, 0, -1)) ||
+                (float) substr($key, 0, -1) < 1 ||
+                (float) substr($key, 0, -1) !== round((float) substr($key, 0, -1), 1)
+            ) {
+                continue;
+            }
+            $workingSizes[(float) substr($key, 0, -1) . ''] = [
+                'multiplier' => 1 * $settings['multiplier'],
+                'width' => (int) ceil($width * $settings['multiplier']),
+            ];
+        }
+        ksort($workingSizes);
+        foreach ($workingSizes as $workingKey => $workingSettings) {
+            $resultSizes[$workingKey . 'x'] = $workingSettings;
+        }
+        return $resultSizes;
     }
 
     /**
@@ -126,7 +138,7 @@ class ImageVariantsUtility
                     unset($variants[$variant][$key]);
                     continue;
                 }
-                if ($key === 'hi-res') {
+                if ($key === 'sizes') {
                     continue;
                 } elseif (is_numeric($value) && $value > 0) {
                     $variants[$variant][$key] = (int) $value;
