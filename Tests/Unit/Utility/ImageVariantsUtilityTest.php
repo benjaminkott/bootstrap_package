@@ -399,4 +399,46 @@ class ImageVariantsUtilityTest extends UnitTestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param string $expectedResult
+     * @dataProvider getStackedImageVariantsTestDataProvider
+     * @test
+     */
+    public function getStackedImageVariantsTest(array $data, array $expectedResult)
+    {
+        $result = null;
+        foreach ($data as $datasetKey => $datasetConfig) {
+            $variants = isset($datasetConfig['variants']) ? $datasetConfig['variants'] : $result;
+            $multiplier = isset($datasetConfig['multiplier']) ? $datasetConfig['multiplier'] : null;
+            $corrections = isset($datasetConfig['corrections']) ? $datasetConfig['corrections'] : null;
+            $gutters = isset($datasetConfig['gutters']) ? $datasetConfig['gutters'] : null;
+            $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutters, $corrections);
+        }
+        $this->assertSame($expectedResult, $result);
+    }
+
+    /**
+     * @return array
+     */
+    public function getStackedImageVariantsTestDataProvider()
+    {
+        return [
+            'multiplier' => [
+                [
+                    'base' => [
+                        'variants' => [ 'default' => [ 'breakpoint' => 1200, 'width' => 1100 ] ],
+                        'multiplier' => [ 'default' => 0.5 ],
+                    ],
+                    'extend' => [
+                        'multiplier' => [ 'default' => 0.5 ],
+                    ],
+                ],
+                [
+                    'default' => [ 'breakpoint' => 1200, 'width' => 275 ],
+                ],
+            ],
+        ];
+    }
 }
