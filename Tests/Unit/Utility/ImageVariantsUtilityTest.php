@@ -436,7 +436,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         ]
                     ]
                 ]
-                        ],
+            ],
             'sizes-invalid-keys' => [
                 [
                     'variants' => [
@@ -572,6 +572,39 @@ class ImageVariantsUtilityTest extends UnitTestCase
                 [
                     'default' => [ 'breakpoint' => 1200, 'width' => 275, 'sizes' => [ '1x' => [ 'multiplier' => 1, 'width' => 275 ] ] ],
                 ],
+            ],
+            'multiplier, gutter, corrections, sizes' => [
+                [
+                    'base' => [
+                        'variants' => [
+                            'default' => [
+                                'width' => 1100 ,
+                                'sizes' => [
+                                    '1.5x' => [ 'multiplier' => 1.5 ],
+                                    '2x' => [ 'multiplier' => 2 ]
+                                ]
+                            ]
+                        ],
+                        'multiplier' => [ 'default' => 0.5 ],
+                        'gutters' => [ 'default' => 40 ],
+                        'corrections' => [ 'default' => 10 ],
+                    ],
+                    'multiplier-gutter-corrections' => [
+                        'multiplier' => [ 'default' => 0.5 ],
+                        'gutters' => [ 'default' => 40 ],
+                        'corrections' => [ 'default' => 10 ],
+                    ],
+                ],
+                [
+                    'default' => [
+                        'width' => 230,
+                        'sizes' => [
+                            '1x' => [ 'multiplier' => 1, 'width' => 230 ],
+                            '1.5x' => [ 'multiplier' => 1.5, 'width' => 345 ],
+                            '2x' => [ 'multiplier' => 2, 'width' => 460 ]
+                        ]
+                    ]
+                ]
             ],
         ];
     }
