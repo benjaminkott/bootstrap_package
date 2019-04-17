@@ -5,11 +5,10 @@
         <f:variable name="width">{variant.width as integer}</f:variable>
         <f:if condition="{width}">
             <f:variable name="mediaQuery">{f:if(condition: breakpoint, then: 'media="(min-width: {breakpoint}px)"')}</f:variable>
-            <f:variable name="srcset">{f:uri.image(image: file, cropVariant: name, maxWidth: width)}</f:variable>
-            <f:if condition="{variant.hi-res}">
-                <f:variable name="srcset">{srcset} 1x</f:variable>
-                <f:for each="{variant.hi-res}" key="hiResKey" as="hiResWidth">
-                    <f:variable name="srcset">{srcset}, {f:uri.image(image: file, cropVariant: name, maxWidth: hiResWidth)} {hiResKey}</f:variable>
+            <f:if condition="{variant.sizes}">
+                <f:variable name="srcset" value="" />
+                <f:for each="{variant.sizes}" key="sizeKey" as="sizeConfig" iteration="iteration">
+                    <f:variable name="srcset">{srcset}{f:uri.image(image: file, cropVariant: name, maxWidth: sizeConfig.width)} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
                 </f:for>
             </f:if>
             <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">
