@@ -998,4 +998,36 @@ class ImageVariantsUtilityTest extends UnitTestCase
             ],
         ];
     }
+
+    /**
+     * @param mixed $input
+     * @param bool $expectedResult
+     * @dataProvider isValidSizeKeyTestDataProvider
+     * @test
+     */
+    public function isValidSizeKeyTest($input, bool $expectedResult)
+    {
+        $result = ImageVariantsUtility::isValidSizeKey($input);
+        $this->assertSame($expectedResult, $result);
+    }
+
+    /**
+     * @return array
+     */
+    public function isValidSizeKeyTestDataProvider(): array
+    {
+        return [
+            'valid 1x' => [ '1x', true ],
+            'valid 1.5x' => [ '1.5x', true ],
+            'invalid superhdpix' => [ 'superhdpix', false ],
+            'invalid 13hdpi' => [ '13hdpi', false ],
+            'invalid 10' => [ 10, false ],
+            'invalid 0.5x' => [ '0.5x', false ],
+            'invalid 10.1234x' => [ '10.1234x', false ],
+            'invalid 123,456.00x' => [ '123,456.00x', false ],
+            'invalid 654.321,00x' => [ '654.321,00x', false ],
+            'invalid []' => [ [], false ],
+            'invalid true' => [ true, false ],
+        ];
+    }
 }

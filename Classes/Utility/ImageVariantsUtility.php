@@ -95,11 +95,7 @@ class ImageVariantsUtility
             if (!array_key_exists('multiplier', $settings) ||
                 !is_numeric($settings['multiplier']) ||
                 $settings['multiplier'] < 1 ||
-                !is_string($key) ||
-                substr($key, -1, 1) !== 'x' ||
-                !is_numeric(substr($key, 0, -1)) ||
-                (float) substr($key, 0, -1) < 1 ||
-                (float) substr($key, 0, -1) !== round((float) substr($key, 0, -1), 1)
+                !self::isValidSizeKey($key)
             ) {
                 continue;
             }
@@ -213,5 +209,20 @@ class ImageVariantsUtility
             }
         }
         return $variants;
+    }
+
+    /**
+     * @param mixed $key
+     * @return bool
+     */
+    public function isValidSizeKey($key): bool
+    {
+        return !(
+            !is_string($key) ||
+            substr($key, -1, 1) !== 'x' ||
+            !is_numeric(substr($key, 0, -1)) ||
+            (float) substr($key, 0, -1) < 1 ||
+            (float) substr($key, 0, -1) !== round((float) substr($key, 0, -1), 1)
+        );
     }
 }
