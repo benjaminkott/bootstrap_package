@@ -1,4 +1,5 @@
 #ddev-generated: Automatically generated ddev .gitignore.
+# You can remove the above line if you want to edit and maintain this file yourself.
 
 /import.yaml
 /docker-compose.yaml
@@ -6,3 +7,4 @@
 /sequelpro.spf
 /import-db
 /.bgsync*
+/config.*.y*ml
