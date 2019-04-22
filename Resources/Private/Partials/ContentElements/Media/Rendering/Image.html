@@ -8,7 +8,9 @@
             <f:if condition="{variant.sizes}">
                 <f:variable name="srcset" value="" />
                 <f:for each="{variant.sizes}" key="sizeKey" as="sizeConfig" iteration="iteration">
-                    <f:variable name="srcset">{srcset}{f:uri.image(image: file, cropVariant: name, maxWidth: sizeConfig.width)} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
+                    <f:variable name="sizeWidth">{sizeConfig.multiplier as float}</f:variable>
+                    <f:variable name="sizeWidth">{sizeWidth * width}</f:variable>
+                    <f:variable name="srcset">{srcset}{f:uri.image(image: file, cropVariant: name, maxWidth: sizeWidth)} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
                 </f:for>
             </f:if>
             <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">

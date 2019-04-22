@@ -59,11 +59,11 @@ class ImageVariantsUtility
     public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
+        $variants = self::prosessResolutions($variants);
         $variants = self::addGutters($variants, $gutters);
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
         $variants = self::processCorrections($variants, $corrections);
-        $variants = self::prosessResolutions($variants);
         return $variants;
     }
 
@@ -77,11 +77,6 @@ class ImageVariantsUtility
             if (!array_key_exists('sizes', $properties)) {
                 $properties['sizes'] = [];
             }
-            if (!array_key_exists('1x', $properties['sizes'])) {
-                $sizes = [];
-                $sizes['1x'] = ['multiplier' => 1];
-                $properties['sizes'] = array_merge($sizes, $properties['sizes']);
-            }
             $properties['sizes'] = self::processSizes($properties['sizes'], $properties['width']);
             $variants[$variant] = $properties;
         }
@@ -90,10 +85,9 @@ class ImageVariantsUtility
 
     /**
      * @param array $sizes
-     * @param int $width
      * @return array
      */
-    protected static function processSizes($sizes, $width): array
+    protected static function processSizes($sizes): array
     {
         $resultSizes = [];
         $workingSizes = [];
@@ -109,15 +103,19 @@ class ImageVariantsUtility
             ) {
                 continue;
             }
-            $workingSizes[(float) substr($key, 0, -1) . ''] = [
+            $workingSizes[substr($key, 0, -1) . ''] = [
                 'multiplier' => 1 * $settings['multiplier'],
-                'width' => (int) ceil($width * $settings['multiplier']),
             ];
+        }
+
+        if (!array_key_exists(1, $workingSizes)) {
+            $workingSizes[(float) 1 . ''] = ['multiplier' => 1];
         }
         ksort($workingSizes);
         foreach ($workingSizes as $workingKey => $workingSettings) {
             $resultSizes[$workingKey . 'x'] = $workingSettings;
         }
+
         return $resultSizes;
     }
 
@@ -134,7 +132,7 @@ class ImageVariantsUtility
                 continue;
             }
             foreach ($properties as $key => $value) {
-                if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
+                if (!in_array($key, self::$allowedVariantProperties, true)) {
                     unset($variants[$variant][$key]);
                     continue;
                 }
