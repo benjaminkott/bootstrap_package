@@ -77,7 +77,7 @@ class ImageVariantsUtility
             if (!array_key_exists('sizes', $properties)) {
                 $properties['sizes'] = [];
             }
-            $properties['sizes'] = self::processSizes($properties['sizes'], $properties['width']);
+            $properties['sizes'] = self::processSizes($properties['sizes']);
             $variants[$variant] = $properties;
         }
         return $variants;
@@ -215,7 +215,7 @@ class ImageVariantsUtility
      * @param mixed $key
      * @return bool
      */
-    public function isValidSizeKey($key): bool
+    public static function isValidSizeKey($key): bool
     {
         return !(
             !is_string($key) ||
