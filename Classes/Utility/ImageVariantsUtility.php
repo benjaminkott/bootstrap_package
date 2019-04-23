@@ -20,7 +20,8 @@ class ImageVariantsUtility
      */
     protected static $allowedVariantProperties = [
         'breakpoint',
-        'width'
+        'width',
+        'sizes',
     ];
 
     /**
@@ -58,6 +59,7 @@ class ImageVariantsUtility
     public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
+        $variants = self::processResolutions($variants);
         $variants = self::addGutters($variants, $gutters);
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
@@ -69,26 +71,76 @@ class ImageVariantsUtility
      * @param array $variants
      * @return array
      */
+    protected static function processResolutions($variants): array
+    {
+        foreach ($variants as $variant => $properties) {
+            if (!array_key_exists('sizes', $properties)) {
+                $properties['sizes'] = [];
+            }
+            $properties['sizes'] = self::processSizes($properties['sizes']);
+            $variants[$variant] = $properties;
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $sizes
+     * @return array
+     */
+    protected static function processSizes($sizes): array
+    {
+        $resultSizes = [];
+        $workingSizes = [];
+        foreach ($sizes as $key => $settings) {
+            if (!array_key_exists('multiplier', $settings) ||
+                !is_numeric($settings['multiplier']) ||
+                $settings['multiplier'] < 1 ||
+                !self::isValidSizeKey($key)
+            ) {
+                continue;
+            }
+            $workingSizes[substr($key, 0, -1) . ''] = [
+                'multiplier' => 1 * $settings['multiplier'],
+            ];
+        }
+
+        if (!array_key_exists(1, $workingSizes)) {
+            $workingSizes[(float) 1 . ''] = ['multiplier' => 1];
+        }
+        ksort($workingSizes);
+        foreach ($workingSizes as $workingKey => $workingSettings) {
+            $resultSizes[$workingKey . 'x'] = $workingSettings;
+        }
+
+        return $resultSizes;
+    }
+
+    /**
+     * @param array $variants
+     * @return array
+     */
     protected static function processVariants($variants): array
     {
         $variants = is_array($variants) && !empty($variants) ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
-            if (is_array($properties)) {
-                foreach ($properties as $key => $value) {
-                    if ($value === 'unset' || !in_array($key, self::$allowedVariantProperties, true)) {
-                        unset($variants[$variant][$key]);
-                        continue;
-                    }
-                    if (is_numeric($value) && $value > 0) {
-                        $variants[$variant][$key] = (int) $value;
-                    } else {
-                        unset($variants[$variant][$key]);
-                    }
+            if (!is_array($properties)) {
+                unset($variants[$variant]);
+                continue;
+            }
+            foreach ($properties as $key => $value) {
+                if (!in_array($key, self::$allowedVariantProperties, true)) {
+                    unset($variants[$variant][$key]);
+                    continue;
                 }
-                if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
-                    unset($variants[$variant]);
+                if ($key === 'sizes') {
+                    continue;
+                } elseif (is_numeric($value) && $value > 0) {
+                    $variants[$variant][$key] = (int) $value;
+                } else {
+                    unset($variants[$variant][$key]);
                 }
-            } else {
+            }
+            if (empty($variants[$variant]) || !isset($variants[$variant]['width'])) {
                 unset($variants[$variant]);
             }
         }
@@ -157,5 +209,20 @@ class ImageVariantsUtility
             }
         }
         return $variants;
+    }
+
+    /**
+     * @param mixed $key
+     * @return bool
+     */
+    public static function isValidSizeKey($key): bool
+    {
+        return !(
+            !is_string($key) ||
+            substr($key, -1, 1) !== 'x' ||
+            !is_numeric(substr($key, 0, -1)) ||
+            (float) substr($key, 0, -1) < 1 ||
+            (float) substr($key, 0, -1) !== round((float) substr($key, 0, -1), 1)
+        );
     }
 }

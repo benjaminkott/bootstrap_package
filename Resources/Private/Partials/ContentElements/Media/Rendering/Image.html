@@ -4,7 +4,16 @@
         <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
         <f:variable name="width">{variant.width as integer}</f:variable>
         <f:if condition="{width}">
-            <source data-variant="{name}" data-maxwidth="{width}" {f:if(condition: breakpoint, then: ' media="(min-width: {breakpoint}px)" ')}srcset="{f:uri.image(image: file, cropVariant: name, maxWidth: width)}">
+            <f:variable name="mediaQuery">{f:if(condition: breakpoint, then: 'media="(min-width: {breakpoint}px)"')}</f:variable>
+            <f:if condition="{variant.sizes}">
+                <f:variable name="srcset" value="" />
+                <f:for each="{variant.sizes}" key="sizeKey" as="sizeConfig" iteration="iteration">
+                    <f:variable name="sizeWidth">{sizeConfig.multiplier as float}</f:variable>
+                    <f:variable name="sizeWidth">{sizeWidth * width}</f:variable>
+                    <f:variable name="srcset">{srcset}{f:uri.image(image: file, cropVariant: name, maxWidth: sizeWidth)} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
+                </f:for>
+            </f:if>
+            <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">
         </f:if>
     </f:for>
     <img src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.properties.title}" alt="{file.properties.alternative}">
