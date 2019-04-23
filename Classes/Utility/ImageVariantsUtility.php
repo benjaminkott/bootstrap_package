@@ -59,7 +59,7 @@ class ImageVariantsUtility
     public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
     {
         $variants = self::processVariants($variants);
-        $variants = self::prosessResolutions($variants);
+        $variants = self::processResolutions($variants);
         $variants = self::addGutters($variants, $gutters);
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
@@ -71,7 +71,7 @@ class ImageVariantsUtility
      * @param array $variants
      * @return array
      */
-    protected static function prosessResolutions($variants): array
+    protected static function processResolutions($variants): array
     {
         foreach ($variants as $variant => $properties) {
             if (!array_key_exists('sizes', $properties)) {
