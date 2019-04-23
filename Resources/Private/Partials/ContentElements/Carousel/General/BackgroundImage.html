@@ -18,9 +18,16 @@
                         <f:variable name="sizeWidth">{sizeConfig.multiplier as float}</f:variable>
                         <f:variable name="sizeWidth">{sizeWidth * width}</f:variable>
                         <f:variable name="sizeDppx">{sizeKey as float}</f:variable>
-                        <f:variable name="mediaBreakpoint"><f:if condition="{breakpoint}"> and (min-width: {breakpoint}px)</f:if></f:variable>
-                        <f:variable name="mediaQuery">(-webkit-min-device-pixel-ratio: {sizeDppx}){mediaBreakpoint}, (min-resolution: {sizeDppx}dppx){mediaBreakpoint}</f:variable>
-                        <f:variable name="variantStyle">{variantStyle} @media {mediaQuery} { #{backgroundImageIdentifier} { background-image: url('{f:uri.image(image: backgroundImageObject, cropVariant: name, maxWidth: sizeWidth)}'); } }</f:variable>
+                        <f:variable name="mediaBreakpoint"><f:if condition="{breakpoint}">(min-width: {breakpoint}px)</f:if></f:variable>
+                        <f:variable name="mediaQuery" value=""/>
+                        <f:if condition="{mediaBreakpoint}">
+                            <f:variable name="mediaQuery"><f:if condition="{mediaQuery}">, </f:if>{mediaBreakpoint}</f:variable>
+                        </f:if>
+                        <f:if condition="{sizeDppx} > 1">
+                            <f:variable name="mediaQuery"><f:if condition="{mediaQuery}">, </f:if>(-webkit-min-device-pixel-ratio: {sizeDppx})<f:if condition="{mediaBreakpoint}"> and {mediaBreakpoint}</f:if></f:variable>
+                            <f:variable name="mediaQuery"><f:if condition="{mediaQuery}">, </f:if>(min-resolution: {sizeDppx}dppx)<f:if condition="{mediaBreakpoint}"> and {mediaBreakpoint}</f:if></f:variable>
+                        </f:if>
+                        <f:variable name="variantStyle">{variantStyle} <f:if condition="{mediaQuery}">@media {mediaQuery} { </f:if>#{backgroundImageIdentifier} { background-image: url('{f:uri.image(image: backgroundImageObject, cropVariant: name, maxWidth: sizeWidth)}'); }<f:if condition="{mediaQuery}"> }</f:if></f:variable>
                     </f:for>
                     <f:variable name="styles" value="{variantStyle -> bk2k:format.trim()} {styles}"/>
                 </f:if>
