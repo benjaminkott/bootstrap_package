@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Parser;
 
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -68,7 +69,7 @@ class LessParser extends AbstractParser
                 'sourceMap' => true,
                 'sourceMapWriteTo' => GeneralUtility::getFileAbsFileName($settings['cache']['tempDirectory']) . basename($file) . '.map',
                 'sourceMapURL' => '/' . $settings['cache']['tempDirectory'] . basename($file) . '.map',
-                'sourceMapBasepath' => realpath(PATH_site),
+                'sourceMapBasepath' => realpath(Environment::getPublicPath() . '/'),
                 'sourceMapRootpath' => '/'
             ];
             $arguments['options'] += $optionsForSourceMap;
@@ -83,7 +84,7 @@ class LessParser extends AbstractParser
 
         // Process file
         $files = [];
-        $files[$arguments['file']['absolute']] = $settings['cache']['tempDirectoryRelativeToRoot'] . str_replace(PATH_site, '', dirname($arguments['file']['absolute'])) . '/';
+        $files[$arguments['file']['absolute']] = $settings['cache']['tempDirectoryRelativeToRoot'] . str_replace(Environment::getPublicPath() . '/', '', dirname($arguments['file']['absolute'])) . '/';
         $compiledFile = \Less_Cache::Get($files, $arguments['options'], $arguments['variables']);
         $file = $settings['cache']['tempDirectory'] . $compiledFile;
 

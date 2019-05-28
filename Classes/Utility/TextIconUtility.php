@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Utility;
 
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -57,7 +58,7 @@ class TextIconUtility
         foreach ($files as $key => $fileinfo) {
             if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'jpg', 'gif'])) {
                 $pathinfo = pathinfo($fileinfo->getPathname());
-                $iconPath = str_replace(PATH_site . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
+                $iconPath = str_replace(Environment::getPublicPath() . '/' . 'typo3conf/ext/', 'EXT:', $fileinfo->getPathname());
                 $iconPath = str_replace('\\', '/', $iconPath);
                 $icons[] = [
                     $pathinfo['filename'],

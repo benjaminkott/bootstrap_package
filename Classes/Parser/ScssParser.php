@@ -12,6 +12,7 @@ namespace BK2K\BootstrapPackage\Parser;
 use Leafo\ScssPhp\Compiler;
 use Leafo\ScssPhp\Formatter\Crunched;
 use Leafo\ScssPhp\Version;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -89,7 +90,7 @@ class ScssParser extends AbstractParser
 
         // Correct relative urls
         $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
-        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen(PATH_site))) . '/';
+        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen(Environment::getPublicPath() . '/'))) . '/';
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativePath . '$3")';
         $css = preg_replace($search, $replace, $css);

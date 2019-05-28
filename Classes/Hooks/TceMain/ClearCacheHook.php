@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Hooks\TceMain;
 
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -29,7 +30,7 @@ class ClearCacheHook
         switch ($params['cacheCmd']) {
             case 'all':
                 GeneralUtility::rmdir(
-                    PATH_site . 'typo3temp/assets/bootstrappackage',
+                    Environment::getPublicPath() . '/' . 'typo3temp/assets/bootstrappackage',
                     true
                 );
                 break;
