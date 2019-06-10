@@ -6,13 +6,13 @@
 //
 // Variables
 //
-$timline-spacing: 1.5rem;
-$timline-padding: 1.5rem;
-$timeline-marker-size: 16px;
-$timeline-icon-size: 46px;
-$timeline-color: $body-color;
-$timeline-bg: #ffffff;
-$timeline-caption-bg: #f2f2f2;
+$timeline-spacing: 1.5rem !default;
+$timeline-padding: 1.5rem !default;
+$timeline-marker-size: 16px !default;
+$timeline-icon-size: 46px !default;
+$timeline-color: $body-color !default;
+$timeline-bg: #ffffff !default;
+$timeline-caption-bg: #f2f2f2 !default;
 
 
 //
@@ -35,15 +35,15 @@ $timeline-caption-bg: #f2f2f2;
 .timeline-item {
     position: relative;
     &:not(:first-child) {
-        margin-top: ($timline-spacing / 2);
+        margin-top: ($timeline-spacing / 2);
     }
 }
 .timeline-item-inner {
-    margin-left: $timline-spacing;
+    margin-left: $timeline-spacing;
     background-color: $timeline-bg;
     border: 1px solid currentColor;
     box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
-    padding: $timline-padding;
+    padding: $timeline-padding;
 }
 .timeline-item-marker,
 .timeline-item-icon {
@@ -102,17 +102,17 @@ $timeline-caption-bg: #f2f2f2;
     }
 }
 .timeline-item-image {
-    margin-top: -$timline-padding;
-    margin-left: -$timline-padding;
-    margin-right: -$timline-padding;
-    margin-bottom: $timline-padding;
+    margin-top: -$timeline-padding;
+    margin-left: -$timeline-padding;
+    margin-right: -$timeline-padding;
+    margin-bottom: $timeline-padding;
     img {
         width: 100%;
         height: auto;
     }
     .caption {
         font-size: 0.8em;
-        padding: 0.5rem $timline-padding;
+        padding: 0.5rem $timeline-padding;
         color: color-yiq($timeline-caption-bg);
         background-color: $timeline-caption-bg;
     }
@@ -150,7 +150,7 @@ $timeline-caption-bg: #f2f2f2;
     .timeline-item {
         width: 50%;
         &:not(:first-child) {
-            margin-top: -$timline-spacing;
+            margin-top: -$timeline-spacing;
         }
     }
     .timeline-item-marker {
@@ -160,12 +160,12 @@ $timeline-caption-bg: #f2f2f2;
     }
     .timeline-item-inner {
         margin-left: 0;
-        margin-right: calc(#{$timline-spacing} + #{$timeline-icon-size} / 2);
+        margin-right: calc(#{$timeline-spacing} + #{$timeline-icon-size} / 2);
     }
     .timeline-item:nth-child(even) {
         margin-left: 50%;
         .timeline-item-inner {
-            margin-left: calc(#{$timline-spacing} + #{$timeline-icon-size} / 2);
+            margin-left: calc(#{$timeline-spacing} + #{$timeline-icon-size} / 2);
             margin-right: 0;
         }
         .timeline-item-marker {
