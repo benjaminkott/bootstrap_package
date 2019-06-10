@@ -329,7 +329,8 @@
         }
         svg,
         img {
-            vertical-align: sub;
+            display: block;
+            margin: 0;
         }
     }
 }
