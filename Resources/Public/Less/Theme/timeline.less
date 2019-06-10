@@ -8,6 +8,8 @@
 //
 @timline-spacing: 1.5em;
 @timline-padding: 1.5em;
+@timeline-headline-size: 1.5em;
+@timeline-date-size: 0.8em;
 @timeline-marker-size: 16px;
 @timeline-icon-size: 46px;
 @timeline-color: @text-color;
@@ -118,7 +120,7 @@
     }
 }
 .timeline-item-header-headline {
-    font-size: 1.5em;
+    font-size: @timeline-headline-size;
     color: @brand-primary;
 }
 .timeline-item-header:last-child,
@@ -132,7 +134,7 @@
     color: @text-color;
 }
 .timeline-item-date {
-    font-size: 0.8em;
+    font-size: @timeline-date-size;
     text-transform: uppercase;
 }
 
