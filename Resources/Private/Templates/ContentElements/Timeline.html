@@ -23,7 +23,7 @@
                             </span>
                         </div>
                         <div class="timeline-item-date">
-                            <time datetime="{item.data.date -> f:format.date(format: '%Y-%m-%d')}">
+                            <time datetime="{item.data.date -> f:format.date(format: '%Y-%m-%d %H:%M')}">
                                 <f:format.date format="{settings.timeline.date.format}">{item.data.date}</f:format.date>
                             </time>
                         </div>
