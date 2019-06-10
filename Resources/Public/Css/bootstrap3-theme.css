@@ -8549,7 +8549,8 @@ body,
 }
 .navbar-mainnavigation .nav-link-icon svg,
 .navbar-mainnavigation .nav-link-icon img {
-  vertical-align: sub;
+  display: block;
+  margin: 0;
 }
 .navbar-mainnavigation .navbar-nav > li > .nav-link::before {
   content: '';
