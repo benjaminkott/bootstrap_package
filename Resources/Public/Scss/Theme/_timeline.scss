@@ -12,6 +12,7 @@ $timeline-headline-size: 1.5rem !default;
 $timeline-date-size: 0.8rem !default;
 $timeline-marker-size: 16px !default;
 $timeline-icon-size: 46px !default;
+$timeline-icon-space: 10px !default;
 $timeline-color: $body-color !default;
 $timeline-bg: #ffffff !default;
 $timeline-caption-bg: #f2f2f2 !default;
@@ -94,7 +95,7 @@ $timeline-caption-bg: #f2f2f2 !default;
     span {
         color: $timeline-color;
         display: block;
-        padding: 10px;
+        padding: $timeline-icon-space;
     }
     svg {
         position: relative;
