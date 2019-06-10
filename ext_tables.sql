@@ -298,7 +298,7 @@ CREATE TABLE tx_bootstrappackage_timeline_item (
     pid int(11) DEFAULT '0' NOT NULL,
 
     tt_content int(11) unsigned DEFAULT '0',
-    date date,
+    date datetime,
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text,
     icon_file int(11) unsigned DEFAULT '0',

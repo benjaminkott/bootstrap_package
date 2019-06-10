@@ -192,9 +192,9 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'date',
-                'eval' => 'date,required',
-                'default' => '0000-00-00'
+                'dbType' => 'datetime',
+                'eval' => 'datetime,required',
+                'default' => '0000-00-00 00:00:00'
             ],
             'l10n_mode' => 'exclude',
         ],
