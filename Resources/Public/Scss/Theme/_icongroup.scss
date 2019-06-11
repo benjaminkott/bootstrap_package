@@ -5,9 +5,9 @@
 //
 // Variables
 //
-$icongroup-margin: ($grid-gutter-width / 2);
-$icongroup-icon-size: 40px;
-$icongroup-item-width: 50%;
+$icongroup-margin: ($grid-gutter-width / 2) !default;
+$icongroup-icon-size: 40px !default;
+$icongroup-item-width: 50% !default;
 
 //
 // Component
