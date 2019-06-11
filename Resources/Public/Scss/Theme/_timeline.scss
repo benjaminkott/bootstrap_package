@@ -6,17 +6,34 @@
 //
 // Variables
 //
-$timeline-spacing: 1.5rem !default;
-$timeline-padding: 1.5rem !default;
-$timeline-headline-size: 1.5rem !default;
-$timeline-date-size: 0.8rem !default;
-$timeline-marker-size: 16px !default;
+$timeline-item-spacing: 1.5rem !default;
+$timeline-item-padding: 1.5rem !default;
+$timeline-item-border: 1px solid currentColor !default;
+$timeline-item-border-radius: 0 !default;
+$timeline-item-shadow: 0 1px 0 0 rgba(0,0,0,0.15) !default;
+$timeline-item-headline-color: $primary !default;
+$timeline-item-headline-size: 1.5rem !default;
+$timeline-item-date-size: 0.8rem !default;
+$timeline-item-color: $body-color !default;
+$timeline-item-bg: #ffffff !default;
+$timeline-item-caption-bg: #f2f2f2 !default;
+
+$timeline-icon-color: $body-color !default;
+$timeline-icon-bg: #ffffff !default;
 $timeline-icon-size: 46px !default;
 $timeline-icon-space: 10px !default;
-$timeline-color: $body-color !default;
-$timeline-bg: #ffffff !default;
-$timeline-caption-bg: #f2f2f2 !default;
+$timeline-icon-border: 3px solid currentColor !default;
+$timeline-icon-border-radius: 50% !default;
+$timeline-icon-border-opacity: 0.25 !default;
 
+$timeline-marker-size: 16px !default;
+$timeline-marker-bg: $timeline-icon-bg !default;
+$timeline-marker-border: $timeline-icon-border !default;
+$timeline-marker-border-radius: $timeline-icon-border-radius !default;
+$timeline-marker-border-opacity: $timeline-icon-border-opacity !default;
+
+$timeline-path-border: 2px dashed currentColor !default;
+$timeline-path-opacity: 0.25 !default;
 
 //
 // Component
@@ -30,26 +47,39 @@ $timeline-caption-bg: #f2f2f2 !default;
         top: 0;
         bottom: 0;
         left: ($timeline-icon-size / 2);
-        margin-left: -1px;
-        border-left: 2px dashed currentColor;
-        opacity: 0.25;
+        transform: translate(-50%, 0);
+        border-left: $timeline-path-border;
+        opacity: $timeline-path-opacity;
     }
 }
 .timeline-item {
     position: relative;
     &:not(:first-child) {
-        margin-top: ($timeline-spacing / 2);
+        margin-top: ($timeline-item-spacing / 2);
     }
 }
 .timeline-item-inner {
-    margin-left: $timeline-spacing;
-    background-color: $timeline-bg;
-    border: 1px solid currentColor;
-    box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
-    padding: $timeline-padding;
+    overflow: hidden;
+    margin-left: $timeline-item-spacing;
+    background-color: $timeline-item-bg;
+    border: $timeline-item-border;
+    border-radius: $timeline-item-border-radius;
+    box-shadow: $timeline-item-shadow;
+    padding: $timeline-item-padding;
 }
 .timeline-item-marker,
 .timeline-item-icon {
+    &:after,
+    &:before,
+    span {
+        background-clip: content-box;
+        border: $timeline-marker-border;
+        border-radius: $timeline-marker-border-radius;
+    }
+    &:after,
+    span {
+        border-color: transparent;
+    }
     &:after,
     &:before {
         top: 0;
@@ -59,18 +89,12 @@ $timeline-caption-bg: #f2f2f2 !default;
         z-index: 1;
         content: '';
         position: absolute;
-        background-color: currentColor;
-        border-radius: 50%;
-        opacity: 0.25;
+    }
+    &:before {
+        opacity: $timeline-marker-border-opacity
     }
     &:after {
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        opacity: 1;
-        background-color: $timeline-bg;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+        background-color: $timeline-marker-bg;
     }
     span {
         display: block;
@@ -86,14 +110,20 @@ $timeline-caption-bg: #f2f2f2 !default;
     width: $timeline-marker-size;
     height: $timeline-marker-size;
     transform: translate(-50%, -50%);
-
 }
 .timeline-item-icon {
     left: -($timeline-icon-size / 2);
     width: $timeline-icon-size;
     height: $timeline-icon-size;
+    border-radius: $timeline-icon-border-radius;
+    &:before {
+        border: $timeline-icon-border;
+    }
+    &:after {
+        background-color: $timeline-icon-bg;
+    }
     span {
-        color: $timeline-color;
+        color: $timeline-icon-color;
         display: block;
         padding: $timeline-icon-space;
     }
@@ -105,24 +135,24 @@ $timeline-caption-bg: #f2f2f2 !default;
     }
 }
 .timeline-item-image {
-    margin-top: -$timeline-padding;
-    margin-left: -$timeline-padding;
-    margin-right: -$timeline-padding;
-    margin-bottom: $timeline-padding;
+    margin-top: -$timeline-item-padding;
+    margin-left: -$timeline-item-padding;
+    margin-right: -$timeline-item-padding;
+    margin-bottom: $timeline-item-padding;
     img {
         width: 100%;
         height: auto;
     }
     .caption {
         font-size: 0.8em;
-        padding: 0.5rem $timeline-padding;
-        color: color-yiq($timeline-caption-bg);
-        background-color: $timeline-caption-bg;
+        padding: 0.5rem $timeline-item-padding;
+        color: color-yiq($timeline-item-caption-bg);
+        background-color: $timeline-item-caption-bg;
     }
 }
 .timeline-item-header-headline {
-    font-size: $timeline-headline-size;
-    color: $primary;
+    font-size: $timeline-item-headline-size;
+    color: $timeline-item-headline-color;
 }
 .timeline-item-header:last-child,
 .timeline-item-text {
@@ -132,10 +162,10 @@ $timeline-caption-bg: #f2f2f2 !default;
 }
 .timeline-item-date,
 .timeline-item-text {
-    color: $timeline-color;
+    color: $timeline-item-color;
 }
 .timeline-item-date {
-    font-size: $timeline-date-size;
+    font-size: $timeline-item-date-size;
     text-transform: uppercase;
 }
 
@@ -153,7 +183,7 @@ $timeline-caption-bg: #f2f2f2 !default;
     .timeline-item {
         width: 50%;
         &:not(:first-child) {
-            margin-top: -$timeline-spacing;
+            margin-top: -$timeline-item-spacing;
         }
     }
     .timeline-item-marker {
@@ -163,12 +193,12 @@ $timeline-caption-bg: #f2f2f2 !default;
     }
     .timeline-item-inner {
         margin-left: 0;
-        margin-right: calc(#{$timeline-spacing} + #{$timeline-icon-size} / 2);
+        margin-right: calc(#{$timeline-item-spacing} + #{$timeline-icon-size} / 2);
     }
     .timeline-item:nth-child(even) {
         margin-left: 50%;
         .timeline-item-inner {
-            margin-left: calc(#{$timeline-spacing} + #{$timeline-icon-size} / 2);
+            margin-left: calc(#{$timeline-item-spacing} + #{$timeline-icon-size} / 2);
             margin-right: 0;
         }
         .timeline-item-marker {

@@ -8543,7 +8543,8 @@ body,
 }
 .navbar-mainnavigation .nav-link-icon svg,
 .navbar-mainnavigation .nav-link-icon img {
-  vertical-align: sub;
+  display: block;
+  margin: 0;
 }
 .navbar-mainnavigation .navbar-nav > li > .nav-link::before {
   content: '';
@@ -10861,7 +10862,7 @@ body .typo3-editPanel-btn:hover,
   top: 0;
   bottom: 0;
   left: 23px;
-  margin-left: -1px;
+  transform: translate(-50%, 0);
   border-left: 2px dashed currentColor;
   opacity: 0.25;
 }
@@ -10872,9 +10873,11 @@ body .typo3-editPanel-btn:hover,
   margin-top: 0.75em;
 }
 .timeline-item-inner {
+  overflow: hidden;
   margin-left: 1.5em;
   background-color: #ffffff;
   border: 1px solid currentColor;
+  border-radius: 0;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
   padding: 1.5em;
 }
@@ -10891,6 +10894,22 @@ body .typo3-editPanel-btn:hover,
 .timeline-item-marker:after,
 .timeline-item-icon:after,
 .timeline-item-marker:before,
+.timeline-item-icon:before,
+.timeline-item-marker span,
+.timeline-item-icon span {
+  background-clip: content-box;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+}
+.timeline-item-marker:after,
+.timeline-item-icon:after,
+.timeline-item-marker span,
+.timeline-item-icon span {
+  border-color: transparent;
+}
+.timeline-item-marker:after,
+.timeline-item-icon:after,
+.timeline-item-marker:before,
 .timeline-item-icon:before {
   top: 0;
   left: 0;
@@ -10899,19 +10918,10 @@ body .typo3-editPanel-btn:hover,
   z-index: 1;
   content: '';
   position: absolute;
-  background-color: currentColor;
-  border-radius: 50%;
-  opacity: 0.25;
 }
 .timeline-item-marker:after,
 .timeline-item-icon:after {
-  top: 3px;
-  left: 3px;
-  right: 3px;
-  bottom: 3px;
-  opacity: 1;
   background-color: #ffffff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 .timeline-item-marker span,
 .timeline-item-icon span {
@@ -10925,6 +10935,13 @@ body .typo3-editPanel-btn:hover,
   left: -23px;
   width: 46px;
   height: 46px;
+  border-radius: 50%;
+}
+.timeline-item-icon:before {
+  border: 3px solid currentColor;
+}
+.timeline-item-icon:after {
+  background-color: #ffffff;
 }
 .timeline-item-icon span {
   color: #333333;
