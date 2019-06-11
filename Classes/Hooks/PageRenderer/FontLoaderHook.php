@@ -61,8 +61,14 @@ class FontLoaderHook
             $config['custom']['urls'] = $urls;
             $config['custom']['families'] = $families;
             $config['timeout'] = 1000;
-            $params['headerData'][] = '<style>' . $this->generateCss() . '</style>';
-            $params['headerData'][] = '<script>' . $this->generateJavaScript($config) . '</script>';
+            $generatedCss = $this->generateCss();
+            if (!empty($generatedCss)) {
+                $params['headerData'][] = '<style>' . $generatedCss . '</style>';
+            }
+            $generatedJavaScript = $this->generateJavaScript($config);
+            if (!empty($generatedJavaScript)) {
+                $params['headerData'][] = '<script>' . $generatedJavaScript . '</script>';
+            }
         }
     }
 
