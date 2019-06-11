@@ -5,13 +5,12 @@
 //
 // Variables
 //
-$cookieconsent-zindex: 1080;
-$cookieconsent-bg: #1b1b1b;
-$cookieconsent-color: color-yiq($cookieconsent-bg);
-$cookieconsent-link-color: $primary;
-
-$cookieconsent-button-bg: $primary;
-$cookieconsent-button-highlight-bg: transparent;
+$cookieconsent-zindex: 1080 !default;
+$cookieconsent-bg: #1b1b1b !default;
+$cookieconsent-color: color-yiq($cookieconsent-bg) !default;
+$cookieconsent-link-color: $primary !default;
+$cookieconsent-button-bg: $primary !default;
+$cookieconsent-button-highlight-bg: transparent !default;
 
 
 //
