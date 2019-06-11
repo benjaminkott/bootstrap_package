@@ -295,6 +295,7 @@ return [
                                 'showitem' => '
                                     title,
                                     alternative,
+                                    description,
                                     crop,
                                     --palette--;;filePalette
                                 '
