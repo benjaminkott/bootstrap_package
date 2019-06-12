@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.menu {
+    elements {
+        menu_thumbnail_dir {
+            iconIdentifier = content-menu-thumbnail
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_dir.description
+            tt_content_defValues {
+                CType = menu_thumbnail_dir
+            }
+        }
+    }
+    show := addToList(menu_thumbnail_dir)
+}

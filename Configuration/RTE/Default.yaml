@@ -1,0 +1,119 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    externalPlugins:
+        bootstrappackage_address:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
+        bootstrappackage_box:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+        bootstrappackage_columns:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
+        bootstrappackage_indent:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
+        bootstrappackage_table:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
+
+    config:
+        contentsCss: "EXT:bootstrap_package/Resources/Public/Css/bootstrap4-rte.min.css"
+
+        stylesSet:
+            - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Small", element: "small" }
+            - { name: "Table", element: "table", attributes: { 'class': 'table' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-condensed' } }
+            - { name: "Row Active", element: "tr", attributes: { 'class': 'active' } }
+            - { name: "Row Success", element: "tr", attributes: { 'class': 'success' } }
+            - { name: "Row Info", element: "tr", attributes: { 'class': 'info' } }
+            - { name: "Row Warning", element: "tr", attributes: { 'class': 'warning' } }
+            - { name: "Row Danger", element: "tr", attributes: { 'class': 'danger' } }
+            - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
+            - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
+            - { name: "Button Secondary", element: "a", attributes: { 'class': 'btn btn-secondary' } }
+            - { name: "Button Success", element: "a", attributes: { 'class': 'btn btn-success' } }
+            - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
+            - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
+            - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
+            - { name: "Button Outline Default", element: "a", attributes: { 'class': 'btn btn-outline-default' } }
+            - { name: "Button Outline Primary", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
+            - { name: "Button Outline Secondary", element: "a", attributes: { 'class': 'btn btn-outline-secondary' } }
+            - { name: "Button Outline Success", element: "a", attributes: { 'class': 'btn btn-outline-success' } }
+            - { name: "Button Outline Info", element: "a", attributes: { 'class': 'btn btn-outline-info' } }
+            - { name: "Button Outline Warning", element: "a", attributes: { 'class': 'btn btn-outline-warning' } }
+            - { name: "Button Outline Danger", element: "a", attributes: { 'class': 'btn btn-outline-danger' } }
+            - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
+            - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
+            - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
+            - { name: "Uppercased text", element: "span", attributes: { 'class': 'text-uppercase' } }
+            - { name: "Capitalized text", element: "span", attributes: { 'class': 'text-capitalize' } }
+            - { name: "Muted", element: "span", attributes: { 'class': 'text-muted' } }
+            - { name: "Primary", element: "span", attributes: { 'class': 'text-primary' } }
+            - { name: "Secondary", element: "span", attributes: { 'class': 'text-secondary' } }
+            - { name: "Success", element: "span", attributes: { 'class': 'text-success' } }
+            - { name: "Info", element: "span", attributes: { 'class': 'text-info' } }
+            - { name: "Warning", element: "span", attributes: { 'class': 'text-warning' } }
+            - { name: "Danger", element: "span", attributes: { 'class': 'text-danger' } }
+
+        toolbarGroups:
+            - { name: styles, groups: [ format, styles ] }
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - "/"
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+            - { name: editing, groups: [ spellchecker ] }
+            - { name: insert, groups: [ insert ] }
+            - { name: tools, groups: [ table, specialchar ] }
+            - { name: document, groups: [ mode ] }
+
+        format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+        justifyClasses:
+            - text-left
+            - text-center
+            - text-right
+            - text-justify
+
+        extraPlugins:
+            - justify
+            - autolink
+            - bootstrappackage_address
+            - bootstrappackage_box
+            - bootstrappackage_columns
+            - bootstrappackage_indent
+            - bootstrappackage_table
+
+        removePlugins:
+            - image
+
+        removeButtons:
+            - Anchor
+            - Underline
+            - Strike
+
+classesAnchor:
+    page:
+        class: 'link-page'
+        type: 'page'
+    folder:
+        class: 'link-folder'
+        type: 'folder'
+    file:
+        class: 'link-file'
+        type: 'file'
+    external:
+        class: 'link-external'
+        type: 'url'
+    mail:
+        class: 'link-mail'
+        type: 'mail'
+
+buttons:
+    link:
+        properties:
+            class:
+                allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail'

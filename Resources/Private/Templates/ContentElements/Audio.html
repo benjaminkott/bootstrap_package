@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{files}">
+        <ul class="media-list">
+            <f:for each="{files}" as="file">
+                <f:if condition="{file.properties.type} == 3">
+                    <li class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <f:if condition="{file.properties.title}">
+                                    <f:then>{file.properties.title}</f:then>
+                                    <f:else>{file.properties.name}</f:else>
+                                </f:if>
+                            </h4>
+                            <f:if condition="{file.properties.description}">
+                                <p>{file.properties.description}</p>
+                            </f:if>
+                            <f:media file="{file}" />
+                        </div>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:if>
+
+</f:section>
+</html>

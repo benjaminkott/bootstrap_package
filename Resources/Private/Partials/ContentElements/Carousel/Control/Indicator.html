@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{records -> f:count()} > 1">
+    <ol class="carousel-indicators{f:if(condition: data.pi_flexform.show_nav_title,then:' carousel-indicators-navigation')}">
+        <f:for each="{records}" as="item" iteration="iteration">
+            <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}">
+                <span>
+                    <f:if condition="{item.data.nav_title}">
+                        <f:then>{item.data.nav_title}</f:then>
+                        <f:else>{item.data.header}</f:else>
+                    </f:if>
+                </span>
+            </li>
+        </f:for>
+    </ol>
+</f:if>
+</html>

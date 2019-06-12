@@ -45,7 +45,7 @@
 <!--###TEMPLATE_LOGIN###-->
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
-<!-- ###LOGIN_FORM### -->
+<!--###LOGIN_FORM###-->
 <form action="###ACTION_URI###" target="_top" method="post" onsubmit="###ON_SUBMIT###">
     <fieldset>
         <legend>###LEGEND###</legend>
@@ -59,13 +59,17 @@
         </div>
         <!--###PERMALOGIN_VALID###-->
         <div class="form-group">
-            <label for="permalogin">###PERMALOGIN###</label>
-            <input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField" />
-            <input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### id="permalogin"  onclick="document.getElementById('permaloginHiddenField').disabled = this.checked;" />
+            <div class="checkbox">
+                <label for="permalogin">
+                    <input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField" />
+                    <input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### id="permalogin"  onclick="document.getElementById('permaloginHiddenField').disabled = this.checked;" />
+                    ###PERMALOGIN###
+                </label>
+            </div>
         </div>
         <!--###PERMALOGIN_VALID###-->
         <div class="form-group">
-            <input class="btn btn-default" type="submit" name="submit" value="###LOGIN_LABEL###" />
+            <input class="btn btn-primary" type="submit" name="submit" value="###LOGIN_LABEL###" />
         </div>
         <div class="felogin-hidden">
             <input type="hidden" name="logintype" value="login" />
@@ -79,7 +83,7 @@
 <!--###FORGOTP_VALID###-->
 <p><!--###FORGOT_PASSWORD_LINK###-->###FORGOT_PASSWORD###<!--###FORGOT_PASSWORD_LINK###--></p>
 <!--###FORGOTP_VALID###-->
-<!-- ###LOGIN_FORM### -->
+<!--###LOGIN_FORM###-->
 <!--###TEMPLATE_LOGIN###-->
 
 
@@ -87,18 +91,21 @@
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
 <form action="###ACTION_URI###" target="_top" method="post">
-    <dl>
-        <dt>###USERNAME_LABEL###</dt>
-        <dd>###USERNAME###</dd>
-    </dl>
-    <div class="form-group">
-        <input class="btn btn-default" type="submit" name="submit" value="###LOGOUT_LABEL###" />
-    </div>
-    <div class="felogin-hidden">
-        <input type="hidden" name="logintype" value="logout" />
-        <input type="hidden" name="pid" value="###STORAGE_PID###" />
-        <input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
-    </div>
+    <fieldset>
+        <legend>###LEGEND###</legend>
+        <dl>
+            <dt>###USERNAME_LABEL###</dt>
+            <dd>###USERNAME###</dd>
+        </dl>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="submit" value="###LOGOUT_LABEL###" />
+        </div>
+        <div class="felogin-hidden">
+            <input type="hidden" name="logintype" value="logout" />
+            <input type="hidden" name="pid" value="###STORAGE_PID###" />
+            <input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
+        </div>
+    </fieldset>
 </form>
 <!--###TEMPLATE_LOGOUT###-->
 
@@ -106,8 +113,11 @@
 <!--###TEMPLATE_FORGOT###-->
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
-<!-- ###FORGOT_FORM### -->
+<!--###FORGOT_FORM###-->
 <form action="###ACTION_URI###" method="post">
+    <div class="felogin-hidden">
+        <input type="hidden" name="tx_felogin_pi1[forgot_hash]" value="###FORGOTHASH###" />
+    </div>
     <fieldset>
         <legend>###LEGEND###</legend>
         <div class="form-group">
@@ -115,14 +125,11 @@
             <input class="form-control" type="text" name="###FORGOT_EMAIL###" id="tx_felogin_pi1-forgot-email" />
         </div>
         <div class="form-group">
-            <input class="btn btn-default" type="submit" name="submit" value="###SEND_PASSWORD###" />
-        </div>
-        <div class="felogin-hidden">
-            <input type="hidden" name="tx_felogin_pi1[forgot_hash]" value="###FORGOTHASH###" />
+            <input class="btn btn-primary" type="submit" name="submit" value="###SEND_PASSWORD###" />
         </div>
     </fieldset>
 </form>
-<!-- ###FORGOT_FORM### -->
+<!--###FORGOT_FORM###-->
 <p>###BACKLINK_LOGIN###</p>
 <!--###TEMPLATE_FORGOT###-->
 
@@ -130,7 +137,7 @@
 <!--###TEMPLATE_CHANGEPASSWORD###-->
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
-<!-- ###CHANGEPASSWORD_FORM### -->
+<!--###CHANGEPASSWORD_FORM###-->
 <form action="###ACTION_URI###" method="post">
     <fieldset>
         <legend>###LEGEND###</legend>
@@ -143,10 +150,10 @@
             <input class="form-control" type="password" name="###NEWPASSWORD2###" id="tx_felogin_pi1-newpassword2" />
         </div>
         <div class="form-group">
-            <input class="btn btn-default" type="submit" name="tx_felogin_pi1[changepasswordsubmit]" value="###SEND_PASSWORD###" />
+            <input class="btn btn-primary" type="submit" name="tx_felogin_pi1[changepasswordsubmit]" value="###SEND_PASSWORD###" />
         </div>
     </fieldset>
 </form>
-<!-- ###CHANGEPASSWORD_FORM### -->
+<!--###CHANGEPASSWORD_FORM###-->
 ###BACKLINK_LOGIN###
 <!--###TEMPLATE_CHANGEPASSWORD###-->

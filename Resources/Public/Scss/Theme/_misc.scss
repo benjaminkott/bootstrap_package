@@ -1,0 +1,74 @@
+//
+// Scrolltop
+//
+.scroll-top {
+    overflow: hidden;
+    @include transition(all 0.3s ease-in-out);
+    z-index: $zindex-sticky;
+    background-color: $gray-700;
+    color: #fff;
+    bottom: ($grid-gutter-width / 2);
+    right: ($grid-gutter-width / 2);
+    position: fixed;
+    opacity: 0;
+    width: 3em;
+    height: 3em;
+    &:active,
+    &:focus,
+    &:hover {
+        color: #ffffff;
+        background-color: $primary;
+    }
+    .scroll-top-icon {
+        @extend .css-arrow;
+    }
+    &.scroll-top-visible {
+        opacity: 1;
+    }
+}
+
+.css-arrow {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    &:before {
+        content: '';
+        position: absolute;
+        height: 30%;
+        width: 30%;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        top: 55%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+//
+// Audio
+//
+audio {
+    width: 100%;
+}
+
+//
+// Vertical Alignment
+//
+.valign {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    .vcontainer {
+        width: 100%;
+    }
+}
+
+//
+// Iframe
+//
+iframe {
+    border: 0;
+}

@@ -1,0 +1,239 @@
+//
+// Form
+//
+.form-element {
+    display: flex;
+    flex-direction: column;
+}
+.form-actions {
+    margin-top: 1em;
+}
+
+//
+// Feedback
+//
+.valid-feedback,
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 80%;
+}
+.valid-feedback {
+    color: @state-success-text;
+}
+.invalid-feedback {
+    color: @state-danger-text;
+}
+.form-control:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@input-border-focus, 20%);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@input-border-focus, 20%);
+}
+.has-success .form-control:focus,
+.custom-file-input.is-valid:focus ~ .custom-file-label {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-success-text, 20%);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-success-text, 20%);
+}
+.has-warning .form-control:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-warning-text, 20%);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-warning-text, 20%);
+}
+.has-error .form-control:focus,
+.custom-file-input.is-invalid:focus ~ .custom-file-label {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-danger-text, 20%);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 0 0.2em fade(@state-danger-text, 20%);
+}
+.custom-file-input.is-invalid ~ .custom-file-label {
+    border-color: @state-danger-text;
+}
+.has-error .custom-control-label {
+    color: @state-danger-text;
+}
+
+//
+// Grid
+//
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    &:before {
+        display: none;
+    }
+    > .col,
+    > [class*="col-"] {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+.form-column {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+//
+// Groups
+//
+.form-text {
+    font-size: 80%;
+    display: block;
+}
+.form-text,
+.form-image {
+    margin-top: 5px;
+}
+
+//
+// Fieldset
+//
+.form-fieldset {
+    height: 100%;
+}
+.form-fieldset-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+//
+// Controls
+//
+.custom-radio-multiple,
+.custom-checkbox-multiple {
+    .invalid-feedback,
+    .valid-feedback,
+    .form-text {
+        padding-left: 20px;
+    }
+}
+
+//
+// Types
+//
+.form-element-type-textarea {
+    flex-grow: 1;
+    .input {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    textarea {
+        min-height: 90px;
+        flex-grow: 1;
+    }
+}
+.form-element-type-date-picker {
+    .form-column-hours,
+    .form-column-minute {
+        min-width: 75px;
+        flex-grow: 0;
+    }
+}
+.form-element-type-advanced-password {
+    .form-group + .form-group {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Special Fields
+//
+.form-element-mandatory {
+    h2 {
+        font-size: 1.35em;
+        flex-grow: 1;
+    }
+    p {
+        size: 0.8em;
+        color: @brand-primary;
+    }
+    @media (min-width: @screen-sm) {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        * {
+            margin-bottom: 0;
+        }
+        p {
+            padding-left: 1.5em;
+        }
+    }
+}
+
+//
+// Custom Checkboxes and Radios
+//
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: (1em * @line-height-base);
+    padding-left: 20px;
+}
+.custom-control-input {
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: -20px !important;
+}
+.custom-control-label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+//
+// Custom File
+//
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: @input-height-base;
+    margin-bottom: 0;
+}
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: @input-height-base;
+    margin: 0;
+    opacity: 0;
+}
+.custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    font-weight: normal;
+    cursor: pointer;
+    height: @input-height-base;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @input-color;
+    background-color: @input-bg;
+    border: 1px solid @input-border;
+    border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: block;
+        height: 100%;
+        padding: @padding-base-vertical @padding-base-horizontal;
+        line-height: @line-height-base;
+        color: @btn-default-color;
+        content: attr(data-browse-label);
+        background-color: @btn-default-bg;
+        border-left: 1px solid @input-border;
+        border-radius: 0 @input-border-radius @input-border-radius 0;
+    }
+}

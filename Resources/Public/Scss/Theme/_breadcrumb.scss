@@ -1,0 +1,15 @@
+//
+// Breadcrumb
+//
+.breadcrumb-section {
+    background-color: $breadcrumb-bg;
+    .breadcrumb {
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+    .breadcrumb-icon + .breadcrumb-text {
+        margin-left: 0.25em;
+    }
+}

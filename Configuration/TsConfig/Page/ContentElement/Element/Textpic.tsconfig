@@ -1,0 +1,29 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        textpic {
+            iconIdentifier = content-textpic
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_description
+            tt_content_defValues {
+                CType = textpic
+            }
+        }
+    }
+    show := addToList(textpic)
+}
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        textpic {
+            iconIdentifier = content-textpic
+            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_title
+            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_textImage_description
+            tt_content_defValues {
+                CType = textpic
+            }
+        }
+    }
+    show := addToList(textpic)
+}

@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{element}">
+    <f:render partial="Field/Field" arguments="{element: element}" contentAs="elementContent">
+
+        <div class="custom-file">
+            <formvh:form.uploadedResource
+                property="{element.identifier}"
+                as="resource"
+                id="{element.uniqueIdentifier}"
+                class="{element.properties.elementClassAttribute}"
+                errorClass="{element.properties.elementErrorClassAttribute}"
+                additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
+                accept="{element.properties.allowedMimeTypes}"
+            >
+                <f:variable name="preview" value="{resource}" />
+            </formvh:form.uploadedResource>
+            <label class="custom-file-label" for="{element.uniqueIdentifier}" data-browse-label="{f:translate(key: 'form.browse', extensionName: 'bootstrap_package')}">
+                <f:if condition="{preview}">
+                    <f:then>
+                        {preview.originalResource.originalFile.name}
+                    </f:then>
+                    <f:else>
+                        {f:translate(key: 'form.selectfile', extensionName: 'bootstrap_package')}
+                    </f:else>
+                </f:if>
+            </label>
+        </div>
+
+    </f:render>
+</formvh:renderRenderable>
+</html>

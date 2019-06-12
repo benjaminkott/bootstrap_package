@@ -1,0 +1,15 @@
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        # bootstrap 3.x will be included in the themes.less file
+        # for standalone usage just uncomment the following line
+        # bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/less/bootstrap.less
+        theme = EXT:bootstrap_package/Resources/Public/Less/Theme/theme.less
+    }
+    includeJSFooterlibs {
+        popper >
+        bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap3/js/bootstrap.min.js
+    }
+}

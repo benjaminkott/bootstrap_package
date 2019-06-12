@@ -1,0 +1,50 @@
+##########################################
+#### CTYPE: MENU OF CATEGORIZED PAGES ####
+##########################################
+
+tt_content.menu_categorized_pages >
+tt_content.menu_categorized_pages =< lib.contentElement
+tt_content.menu_categorized_pages {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = MenuCategorizedPages
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            special = categories
+            special {
+                value.field = selected_categories
+                relation.field = category_field
+                sorting = title
+                order = asc
+            }
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+        90 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        90 {
+            if {
+                isTrue.field = accessibility_bypass
+            }
+            table = tt_content
+            pidInList = this
+            orderBy = sorting
+            max = 1
+            where {
+                dataWrap = colPos = {field:colPos} AND sorting > {field:sorting}
+            }
+            as = nextContentElement
+        }
+    }
+
+}

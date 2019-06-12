@@ -1,0 +1,85 @@
+//
+// Import needed Bootstrap Files
+//
+@import "../Theme/theme.less";
+
+//
+// Variables
+//
+@font-size-base: 14px;
+
+//
+// RTE Stylings
+//
+body {
+    margin: 20px;
+}
+.cke_combopanel {
+    min-width: 200px;
+}
+
+//
+// Text Column
+//
+.text-column {
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        border-left: 1px dashed rgba(0,0,0,.25);
+    }
+    position: relative;
+    border: 1px dashed rgba(0,0,0,.25);
+}
+
+//
+// Minimalistic Address styling
+//
+address.address {
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 5px;
+    background-color: #f2f2f2;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.address-title,
+.address-address,
+.address-phone,
+.address-fax,
+.address-email,
+.address-www {
+    padding: 0.25em;
+    margin-bottom: 5px;
+}
+.address-address,
+.address-fax,
+.address-phone,
+.address-email,
+.address-www {
+    padding-left: 3em;
+    &:before {
+        text-align: center;
+        display: block;
+        float: left;
+        width: 3em;
+        margin-left: -3em;
+    }
+}
+.address-address:before {
+    content: '\1F4CD';
+}
+.address-fax:before {
+    content: '\1F4E0';
+}
+.address-phone:before {
+    content: '\1F4DE';
+}
+.address-email:before {
+    content: '\1F4E7';
+}
+.address-www:before {
+    content: '\1F310';
+}

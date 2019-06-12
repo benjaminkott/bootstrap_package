@@ -1,0 +1,156 @@
+//
+// Backend Layouts
+//
+
+//
+// 2 Columns
+//
+@media (min-width: @screen-md) {
+    .backendlayout-2_columns,
+    .backendlayout-2_columns_25_75 {
+        .maincontent-wrap {
+            width: calc(100% / 12 * 9);
+        }
+        .subcontent-wrap {
+            width: calc(100% / 12 * 3);
+        }
+    }
+    .backendlayout-2_columns_25_75 {
+        .maincontent-wrap {
+            order: 2;
+        }
+        .subcontent-wrap {
+            order: 1;
+        }
+    }
+}
+
+
+//
+// 2 Columns Half
+//
+@media (min-width: @screen-md) {
+    .backendlayout-2_columns_50_50 {
+        .maincontent-wrap {
+            width: calc(100% / 12 * 6);
+        }
+        .subcontent-wrap {
+            width: calc(100% / 12 * 6);
+        }
+    }
+}
+
+
+//
+// 2 Columns Offset Right
+//
+@media (min-width: @screen-md) {
+    .backendlayout-2_columns_offset_right {
+        .maincontent-wrap {
+            width: calc(100% / 12 * 8);
+        }
+        .subcontent-wrap {
+            margin-left: calc(100% / 12 * 1);
+            width: calc(100% / 12 * 3);
+        }
+    }
+}
+
+
+//
+// 3 Columns
+//
+@media (min-width: @screen-md) {
+    .backendlayout-3_columns {
+        .maincontent-wrap {
+            order: 2;
+            width: calc(100% / 12 * 6);
+        }
+        .subcontent-wrap {
+            order: 3;
+            width: calc(100% / 12 * 3);
+        }
+        .maincontent-wrap + .subcontent-wrap {
+            order: 1;
+        }
+    }
+}
+
+
+//
+// Subnavigation
+//
+.backendlayout-subnavigation_right,
+.backendlayout-subnavigation_left {
+    .subnav-wrap {
+        display: none;
+    }
+}
+@media (min-width: @screen-md) {
+    .backendlayout-subnavigation_right,
+    .backendlayout-subnavigation_left {
+        .subnav-wrap {
+            display: block;
+            width: calc(100% / 12 * 3);
+        }
+        .maincontent-wrap {
+            width: calc(100% / 12 * 9);
+        }
+    }
+    .backendlayout-subnavigation_right {
+        .subnav-wrap {
+            order: 2;
+        }
+        .maincontent-wrap {
+            order: 1;
+        }
+    }
+}
+
+
+//
+// Subnavigation 2 Columns
+//
+.backendlayout-subnavigation_right_2_columns,
+.backendlayout-subnavigation_left_2_columns {
+    .subnav-wrap {
+        display: none;
+    }
+}
+@media (min-width: @screen-md) {
+    .backendlayout-subnavigation_right_2_columns,
+    .backendlayout-subnavigation_left_2_columns {
+        .subnav-wrap {
+            display: block;
+            width: calc(100% / 12 * 3);
+        }
+        .maincontent-wrap {
+            width: calc(100% / 12 * 6);
+        }
+        .subcontent-wrap {
+            width: calc(100% / 12 * 3);
+        }
+    }
+    .backendlayout-subnavigation_right_2_columns {
+        .subnav-wrap {
+            order: 3;
+        }
+        .maincontent-wrap {
+            order: 1;
+        }
+        .subcontent-wrap {
+            order: 2;
+        }
+    }
+    .backendlayout-subnavigation_left_2_columns {
+        .subnav-wrap {
+            order: 1;
+        }
+        .maincontent-wrap {
+            order: 3;
+        }
+        .subcontent-wrap {
+            order: 2;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <div class="sociallinks">
+        <ul class="sociallinks-list">
+            <f:for each="{socialmedia.channels}" key="channelKey" as="channelOptions">
+                <f:if condition="{channelOptions.url}">
+                    <li class="sociallinks-item sociallinks-item-{channelKey}" title="{channelOptions.label}">
+                        <a class="sociallinks-link sociallinks-link-{channelKey}" href="{channelOptions.url}" rel="noopener" target="_blank">
+                            <span class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-{channelKey}"></span>
+                            <span class="sociallinks-link-label">{channelOptions.label}</span>
+                        </a>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+    </div>
+
+</f:section>
+</html>

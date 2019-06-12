@@ -1,42 +1,47 @@
-<f:layout name="Default"/>
-<f:section name="Header">
-
-    <f:render partial="Header/All" arguments="{_all}" />
-
-</f:section>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
 <f:section name="Main">
 
     <f:if condition="{bullets}">
-        <f:switch expression="{data.layout}">
-            <f:case value="110">
+        <f:switch expression="{data.bullets_type}">
+            <f:case value="1">
+
                 <ol class="list">
                     <f:for each="{bullets}" as="bullet">
                         <li>{bullet}</li>
                     </f:for>
                 </ol>
+
             </f:case>
-            <f:case value="120">
-                <ul class="list list-unstyled">
-                    <f:for each="{bullets}" as="bullet">
-                        <li>{bullet}</li>
+            <f:case value="2">
+
+                <dl>
+                    <f:for each="{bullets}" as="definitionListItem">
+                        <f:for each="{definitionListItem}" as="termDescription" iteration="termDescriptionIterator">
+                            <f:if condition="{termDescriptionIterator.isFirst}">
+                                <f:then>
+                                    <dt>{termDescription}</dt>
+                                </f:then>
+                                <f:else>
+                                    <dd>{termDescription}</dd>
+                                </f:else>
+                            </f:if>
+                        </f:for>
                     </f:for>
-                </ul>
+                </dl>
+
             </f:case>
-            <f:case value="130">
-                <ul class="list list-inline">
-                    <f:for each="{bullets}" as="bullet">
-                        <li>{bullet}</li>
-                    </f:for>
-                </ul>
-            </f:case>
-            <f:case default="1">
+            <f:defaultCase>
+
                 <ul class="list">
                     <f:for each="{bullets}" as="bullet">
                         <li>{bullet}</li>
                     </f:for>
                 </ul>
-            </f:case>
+
+            </f:defaultCase>
         </f:switch>
     </f:if>
 
 </f:section>
+</html>

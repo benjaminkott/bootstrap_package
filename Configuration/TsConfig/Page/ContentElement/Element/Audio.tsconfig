@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        audio {
+            iconIdentifier = content-audio
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio.description
+            tt_content_defValues {
+                CType = audio
+            }
+        }
+    }
+    show := addToList(audio)
+}

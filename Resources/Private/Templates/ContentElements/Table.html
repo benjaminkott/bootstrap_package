@@ -1,168 +1,63 @@
-{namespace bk2k = BK2K\BootstrapPackage\ViewHelpers}
-<f:layout name="Default"/>
-<f:section name="Header">
-
-    <f:render partial="Header/All" arguments="{_all}" />
-
-</f:section>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
 <f:section name="Main">
 
-    <f:switch expression="{data.layout}">
-        <f:case value="120"><bk2k:var name="tableClass" value="table-striped" /></f:case>
-        <f:case value="130"><bk2k:var name="tableClass" value="table-bordered" /></f:case>
-        <f:case value="140"><bk2k:var name="tableClass" value="table-hover" /></f:case>
-        <f:case value="150"><bk2k:var name="tableClass" value="table-condensed" /></f:case>
-        <f:case default="TRUE"><bk2k:var name="tableClass" value="" /></f:case>
-    </f:switch>
-
     <f:if condition="{table}">
-        <table class="table {tableClass}">
-            <f:if condition="{data.table_caption}">
-                <caption>{data.table_caption}</caption>
-            </f:if>
-            <f:for each="{table}" as="row" iteration="rowIteration">
-                <f:if condition="{rowIteration.isFirst}">
-                    <f:then>
-                        <f:if condition="{data.table_header_position} == 1">
-                            <f:then>
-                                <thead>
-                            </f:then>
-                            <f:else>
-                                <tbody>
-                            </f:else>
-                        </f:if>
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{rowIteration.isLast}">
-                            <f:if condition="{data.table_tfoot}">
-                                </tbody>
-                                <tfoot>
-                            </f:if>
-                        </f:if>
-                    </f:else>
+        <div class="table-responsive">
+            <table class="table{f:if(condition: data.table_class, then: ' table-{data.table_class}')}">
+                <f:if condition="{data.table_caption}">
+                    <caption>{data.table_caption}</caption>
                 </f:if>
-                <tr>
-                    <f:for each="{row}" as="cell" iteration="columnIteration">
-                        <f:render section="Cell" arguments="{_all}" />
-                    </f:for>
-                </tr>
-                <f:if condition="{rowIteration.isFirst}">
-                    <f:then>
-                        <f:if condition="{data.table_header_position} == 1">
-                            </thead>
-                            <tbody>
-                        </f:if>
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{rowIteration.isLast}">
-                            <f:if condition="{data.table_tfoot}">
+                <f:for each="{table}" as="row" iteration="rowIterator">
+                    <f:if condition="{rowIterator.isFirst}">
+                        <f:then>
+                            <f:if condition="{data.table_header_position} == 1">
                                 <f:then>
-                                    </tfoot>
+                                    <thead>
                                 </f:then>
                                 <f:else>
+                                    <tbody>
+                                </f:else>
+                            </f:if>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{rowIterator.isLast}">
+                                <f:if condition="{data.table_tfoot}">
                                     </tbody>
-                                </f:else>
+                                    <tfoot>
+                                </f:if>
                             </f:if>
-                        </f:if>
-                    </f:else>
-                </f:if>
-
-            </f:for>
-        </table>
+                        </f:else>
+                    </f:if>
+                    <tr>
+                        <f:for each="{row}" as="cell" iteration="columnIterator">
+                            <f:render partial="Table/Columns" arguments="{_all}" />
+                        </f:for>
+                    </tr>
+                    <f:if condition="{rowIterator.isFirst}">
+                        <f:then>
+                            <f:if condition="{data.table_header_position} == 1">
+                                </thead>
+                                <tbody>
+                            </f:if>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{rowIterator.isLast}">
+                                <f:if condition="{data.table_tfoot}">
+                                    <f:then>
+                                        </tfoot>
+                                    </f:then>
+                                    <f:else>
+                                        </tbody>
+                                    </f:else>
+                                </f:if>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </table>
+        </div>
     </f:if>
 
 </f:section>
-
-<f:section name="Cell">
-
-    <f:if condition="{rowIteration.isFirst}">
-        <f:then>
-            <f:if condition="{data.table_header_position} == 1">
-                <f:then>
-                    <th>
-                </f:then>
-                <f:else>
-                    <f:if condition="{columnIteration.isFirst}">
-                        <f:then>
-                            <f:if condition="{data.table_header_position} == 2">
-                                <f:then>
-                                    <th>
-                                </f:then>
-                                <f:else>
-                                    <td>
-                                </f:else>
-                            </f:if>
-                        </f:then>
-                        <f:else>
-                            <td>
-                        </f:else>
-                    </f:if>
-                </f:else>
-            </f:if>
-        </f:then>
-        <f:else>
-            <f:if condition="{columnIteration.isFirst}">
-                <f:then>
-                    <f:if condition="{data.table_header_position} == 2">
-                        <f:then>
-                            <th>
-                        </f:then>
-                        <f:else>
-                            <td>
-                        </f:else>
-                    </f:if>
-                </f:then>
-                <f:else>
-                    <td>
-                </f:else>
-            </f:if>
-        </f:else>
-    </f:if>
-
-    <f:format.nl2br>{cell}</f:format.nl2br>
-
-    <f:if condition="{rowIteration.isFirst}">
-        <f:then>
-            <f:if condition="{data.table_header_position} == 1">
-                <f:then>
-                    </th>
-                </f:then>
-                <f:else>
-                    <f:if condition="{columnIteration.isFirst}">
-                        <f:then>
-                            <f:if condition="{data.table_header_position} == 2">
-                                <f:then>
-                                    </th>
-                                </f:then>
-                                <f:else>
-                                    </td>
-                                </f:else>
-                            </f:if>
-                        </f:then>
-                        <f:else>
-                            </td>
-                        </f:else>
-                    </f:if>
-                </f:else>
-            </f:if>
-        </f:then>
-        <f:else>
-            <f:if condition="{columnIteration.isFirst}">
-                <f:then>
-                    <f:if condition="{data.table_header_position} == 2">
-                        <f:then>
-                            </th>
-                        </f:then>
-                        <f:else>
-                            </td>
-                        </f:else>
-                    </f:if>
-                </f:then>
-                <f:else>
-                    </td>
-                </f:else>
-            </f:if>
-        </f:else>
-    </f:if>
-
-</f:section>
+</html>

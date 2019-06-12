@@ -1,0 +1,220 @@
+//
+// Frame Container
+//
+.frame-container {
+    position: relative;
+    @include make-container();
+    @include make-container-max-widths();
+}
+.container {
+    .frame-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//
+// Frame
+//
+.frame {
+    position: relative;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            padding-top: ($frame-inner-spacing * $scaling);
+            padding-bottom: ($frame-inner-spacing * $scaling);
+        }
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.frame-inner {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Frame Styles
+//
+.frame-ruler-before {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-top: ($frame-inner-spacing * $scaling);
+        }
+    }
+}
+.frame-ruler-after {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-bottom: ($frame-inner-spacing * $scaling);
+        }
+    }
+}
+.frame-indent {
+    .frame-inner {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
+                margin-left: $i * 4%;
+                margin-right: $i * 4%;
+            }
+        }
+    }
+}
+.frame-indent-left {
+    .frame-inner {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
+                margin-left: $i * 8%;
+            }
+        }
+    }
+}
+.frame-indent-right {
+    .frame-inner {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
+                margin-right: $i * 8%;
+            }
+        }
+    }
+}
+.frame-small {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    @include media-breakpoint-up('sm') {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+//
+// Background
+//
+.container {
+    .frame-has-backgroundimage {
+        @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+            @include media-breakpoint-up($breakpoint) {
+                $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+                padding-left: ($frame-inner-spacing * $scaling);
+                padding-right: ($frame-inner-spacing * $scaling);
+            }
+        }
+    }
+}
+.frame-collapsible {
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
+            margin-top: -($frame-inner-spacing * $scaling);
+        }
+    }
+}
+@mixin make-frame-spacing($name) {
+    .frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage)
+    + .frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+        @extend .frame-collapsible;
+    }
+}
+@include make-frame-spacing('none');
+@mixin make-frame-background($name, $settings) {
+    $background: map-get($settings, 'background');
+    $color: color-yiq($background);
+    $link-color: map-get($settings, 'link-color');
+    $link-hover-color: map-get($settings, 'link-hover-color');
+    .frame-background-#{$name} {
+        @extend .frame-has-backgroundimage;
+        color: $color;
+        background-color: $background;
+        a:not(.btn) {
+            color: $link-color;
+            &:focus,
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
+    }
+    @include make-frame-spacing($name);
+}
+@each $name, $settings in $frame-backgrounds {
+    @include make-frame-background($name, $settings);
+}
+
+//
+// Background Image
+// --------------------------------------------------
+.frame-backgroundimage-container {
+    overflow: hidden;
+}
+.frame-backgroundimage-container,
+.frame-backgroundimage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.frame-backgroundimage-fade {
+    opacity: 0.125;
+}
+.frame-backgroundimage-parallax {
+    background-attachment: fixed;
+    @media (hover: none) {
+        background-attachment: initial;
+    }
+    background-repeat: no-repeat;
+}
+.frame-backgroundimage-blur {
+    filter: blur(10px);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    top: -20px;
+    left: -20px;
+}
+.frame-backgroundimage-grayscale {
+    filter: grayscale(1);
+}
+.frame-backgroundimage-sepia {
+    filter: sepia(1);
+}
+
+//
+// Space
+//
+@each $name, $scaling in $frame-outer-spacing-scaling {
+    .frame-space-before-#{$name} {
+        margin-top: ($frame-outer-spacing * $scaling);
+    }
+    .frame-space-after-#{$name} {
+        margin-bottom: ($frame-outer-spacing * $scaling);
+    }
+}
+
+//
+// Frame Header
+//
+.frame-header {
+    *:last-child {
+        margin-bottom: $spacer;
+    }
+}
+.frame-type-header {
+    .frame-header {
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

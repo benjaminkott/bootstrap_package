@@ -1,4 +1,0 @@
-########################
-#### BACKENDLAYOUTS ####
-########################
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:bootstrap_package/Configuration/PageTS/Mod/WebLayout/BackendLayouts" extensions="txt">

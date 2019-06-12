@@ -1,0 +1,14 @@
+###########################
+#### CTYPE: TEXTCOLUMN ####
+###########################
+
+tt_content.textcolumn >
+tt_content.textcolumn =< lib.contentElement
+tt_content.textcolumn {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Textcolumn
+
+}

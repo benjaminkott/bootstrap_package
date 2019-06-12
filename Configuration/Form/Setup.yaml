@@ -1,0 +1,60 @@
+TYPO3:
+    CMS:
+        Form:
+            persistenceManager:
+                allowedExtensionPaths:
+                    110: EXT:bootstrap_package/Resources/Private/Forms/
+            prototypes:
+                standard:
+                    formElementsDefinition:
+                        Form:
+                            renderingOptions:
+                                translation:
+                                    translationFile:
+                                        110: 'EXT:bootstrap_package/Resources/Private/Language/locallang.xlf'
+                                layoutRootPaths:
+                                    20: 'EXT:bootstrap_package/Resources/Private/Layouts/Form/'
+                                templateRootPaths:
+                                    20: 'EXT:bootstrap_package/Resources/Private/Templates/Form/'
+                                partialRootPaths:
+                                    20: 'EXT:bootstrap_package/Resources/Private/Partials/Form/'
+                        Checkbox:
+                            properties:
+                                containerClassAttribute: 'custom-control custom-checkbox'
+                                elementClassAttribute: 'custom-control-input'
+                        GridRow:
+                            properties:
+                                elementClassAttribute: 'form-row row'
+                        MultiCheckbox:
+                            properties:
+                                containerClassAttribute: 'custom-checkbox-multiple'
+                                elementClassAttribute: 'custom-control-input'
+                        MultiSelect:
+                            properties:
+                                elementClassAttribute: 'custom-select form-control'
+                        RadioButton:
+                            properties:
+                                containerClassAttribute: 'custom-radio-multiple'
+                                elementClassAttribute: 'custom-control-input'
+                        SingleSelect:
+                            properties:
+                                elementClassAttribute: 'custom-select'
+                        FileUpload:
+                            properties:
+                                elementClassAttribute: 'custom-file-input'
+                        ImageUpload:
+                            properties:
+                                elementClassAttribute: 'custom-file-input'
+                                imageLinkMaxWidth: 1200
+                                imageMaxWidth: 200
+                                imageMaxHeight: 200
+                        DatePicker:
+                            properties:
+                                elementClassAttribute: 'form-control'
+                                timeSelectorClassAttribute: 'custom-select form-control'
+
+            mixins:
+                formElementMixins:
+                    FormElementMixin:
+                        properties:
+                            elementErrorClassAttribute: 'is-invalid'

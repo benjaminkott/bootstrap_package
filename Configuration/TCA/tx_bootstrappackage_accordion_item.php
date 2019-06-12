@@ -1,6 +1,20 @@
 <?php
-return array(
-    'ctrl' => array(
+
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
+    $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
+} else {
+    $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
+}
+
+return [
+    'ctrl' => [
         'label' => 'header',
         'label_alt' => 'bodytext',
         'sortby' => 'sorting',
@@ -9,226 +23,320 @@ return array(
         'cruser_id' => 'cruser_id',
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item',
         'delete' => 'deleted',
-        'versioningWS' => 2,
-        'versioning_followPages' => true,
+        'versioningWS' => true,
         'origUid' => 't3_origuid',
-        'hideAtCopy' => false,
-        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.xlf:LGL.prependAtCopy',
+        'hideTable' => true,
+        'hideAtCopy' => true,
+        'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
-        'dividers2tabs' => true,
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
-        'typeicon_classes' => array(
+        ],
+        'typeicon_classes' => [
             'default' => 'content-bootstrappackage-accordion-item',
-        )
-    ),
-    'interface' => array(
+        ]
+    ],
+    'interface' => [
         'showRecordFieldList' => '
             hidden,
             tt_content,
             header,
             bodytext
         ',
-    ),
-    'types' => array(
-        '1' => array(
+    ],
+    'types' => [
+        '1' => [
             'showitem' => '
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-            header,
-            bodytext,
-            media,
-            mediaorient,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-        '
-        ),
-    ),
-    'palettes' => array(
-        '1' => array(
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                header,
+                bodytext,
+                media,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition;mediaposition,
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;;hiddenLanguagePalette,
+            '
+        ],
+    ],
+    'palettes' => [
+        '1' => [
             'showitem' => ''
-        ),
-        'access' => array(
+        ],
+        'access' => [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
-            ',
-            'canNotCollapse' => 1
-        ),
-        'general' => array(
+            '
+        ],
+        'general' => [
             'showitem' => '
                 tt_content
-            ',
-            'canNotCollapse' => 1
-        ),
-        'visibility' => array(
+            '
+        ],
+        'mediaposition' => [
+            'showitem' => '
+                mediaorient,
+                imagecols,
+                image_zoom,
+            '
+        ],
+        'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item
-            ',
-            'canNotCollapse' => 1
-        ),
-    ),
-    'columns' => array(
-        'tt_content' => array(
-            'exclude' => 0,
+            '
+        ],
+        // hidden but needs to be included all the time, so sys_language_uid is set correctly
+        'hiddenLanguagePalette' => [
+            'showitem' => 'sys_language_uid, l10n_parent',
+            'isHiddenPalette' => true,
+        ],
+    ],
+    'columns' => [
+        'tt_content' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.tt_content',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="bootstrap_package_accordion"',
+                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="accordion"',
                 'maxitems' => 1,
-            ),
-        ),
-        'hidden' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+                'default' => 0,
+            ],
+        ],
+        'hidden' => [
+            'exclude' => true,
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
+            'config' => [
                 'type' => 'check',
-                'items' => array(
-                    '1' => array(
+                'items' => [
+                    '1' => [
                         '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
-                    )
-                )
-            )
-        ),
-        'starttime' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config' => array(
+                    ]
+                ]
+            ]
+        ],
+        'starttime' => [
+            'exclude' => true,
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
+            'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'max' => '20',
+                'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
-                'default' => '0'
-            ),
+                'default' => 0
+            ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
-        ),
-        'endtime' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config' => array(
+        ],
+        'endtime' => [
+            'exclude' => true,
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
+            'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'max' => '20',
+                'renderType' => 'inputDateTime',
                 'eval' => 'datetime',
-                'default' => '0',
-                'range' => array(
-                    'upper' => mktime(0, 0, 0, 12, 31, 2020)
-                )
-            ),
+                'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
+                ]
+            ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
-        ),
-        'sys_language_uid' => array(
+        ],
+        'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => array(
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => array(
-                    array(
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                'items' => [
+                    [
+                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
                         -1
-                    ),
-                    array(
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
+                    ],
+                    [
+                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
                         0
-                    )
-                )
-            )
-        ),
-        'l10n_parent' => array(
+                    ]
+                ],
+                'allowNonIdValues' => true,
+            ]
+        ],
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
+            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    [
+                        '',
+                        0
+                    ]
+                ],
                 'foreign_table' => 'tx_bootstrappackage_accordion_item',
-                'foreign_table_where' => 'AND tx_bootstrappackage_accordion_item.uid=###REC_FIELD_l10n_parent### AND tx_bootstrappackage_accordion_item.sys_language_uid IN (-1,0)',
-            )
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+                'foreign_table_where' => 'AND tx_bootstrappackage_accordion_item.pid=###CURRENT_PID### AND tx_bootstrappackage_accordion_item.sys_language_uid IN (-1,0)',
+                'default' => 0
+            ]
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough'
-            )
-        ),
-        'header' => array(
-            'exclude' => 0,
+            ]
+        ],
+        'header' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.header',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 50,
                 'eval' => 'trim,required'
-            ),
-        ),
-        'bodytext' => array(
-            'exclude' => 0,
+            ],
+        ],
+        'bodytext' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.bodytext',
-            'config' => array(
+            'l10n_mode' => 'prefixLangTitle',
+            'l10n_cat' => 'text',
+            'config' => [
                 'type' => 'text',
-                'cols' => 40,
-                'rows' => 3,
-            ),
-            'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts_css]'
-        ),
-        'media' => array(
-            'exclude' => 0,
+                'cols' => '80',
+                'rows' => '15',
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default'
+            ],
+        ],
+        'media' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
-                array(
-                    'appearance' => array(
+                [
+                    'appearance' => [
                         'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ),
-                    'foreign_types' => array(
-                        '0' => array(
-                            'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
-                        ),
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
-                            'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
-                        ),
-                    ),
-                    'minitems' => 0,
-                    'maxitems' => 1,
-                ),
+                    ],
+                    'overrideChildTca' => [
+                        'types' => [
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ]
+                        ]
+                    ]
+                ],
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
-        ),
-        'mediaorient' => array(
+        ],
+        'mediaorient' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array(
+                'items' => [
+                    [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.left',
-                        0
-                    ),
-                    array(
+                        'left'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.top',
+                        'top'
+                    ],
+                    [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.right',
+                        'right'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.bottom',
+                        'bottom'
+                    ],
+                ],
+                'default' => 'left',
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'imagecols' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.imagecols',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        '1',
                         1
-                    ),
-                ),
-                'default' => 0,
-            )
-        ),
-    ),
-);
+                    ],
+                    [
+                        '2',
+                        2
+                    ],
+                    [
+                        '3',
+                        3
+                    ],
+                    [
+                        '4',
+                        4
+                    ],
+                    [
+                        '5',
+                        5
+                    ],
+                    [
+                        '6',
+                        6
+                    ]
+                ],
+                'default' => 2
+            ],
+            'l10n_mode' => 'exclude'
+        ],
+        'image_zoom' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.image_zoom',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+        ]
+    ]
+];

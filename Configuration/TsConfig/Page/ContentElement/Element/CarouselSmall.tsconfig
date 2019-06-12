@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        carousel_small {
+            iconIdentifier = content-bootstrappackage-carousel
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_small.description
+            tt_content_defValues {
+                CType = carousel_small
+            }
+        }
+    }
+    show := addToList(carousel_small)
+}

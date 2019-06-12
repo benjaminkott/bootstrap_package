@@ -1,0 +1,103 @@
+########################
+#### CTYPE: TEXTPIC ####
+########################
+
+tt_content.textpic >
+tt_content.textpic =< lib.contentElement
+tt_content.textpic {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = TEXT
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+        key.field = imageorient
+        8 = TEXT
+        8.value = TextpicBelow
+        25 = TEXT
+        25.value = TextpicRight
+        26 = TEXT
+        26.value = TextpicLeft
+        125 = TEXT
+        125.value = TextpicCenteredRight
+        126 = TEXT
+        126.value = TextpicCenteredLeft
+        default = TEXT
+        default.value = TextpicAbove
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+            folders.field = file_folder
+            sorting.field = filelink_sorting
+        }
+        20 = BK2K\BootstrapPackage\DataProcessing\FileFilterProcessor
+        20 {
+            predefinedList = image
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    textpic {
+        centered_left {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+        centered_right {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+        left {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+    }
+}

@@ -1,9 +1,7 @@
-.idea/
-Build/bower_components/*
+.build
 Build/node_modules/*
-nbproject/*
-vendor/*
 composer.lock
-Thumbs.db
-prepros.cfg
 .php_cs.cache
+nbproject
+config
+var

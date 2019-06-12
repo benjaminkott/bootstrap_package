@@ -1,14 +1,11 @@
-{namespace is=TYPO3\CMS\IndexedSearch\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:is="http://typo3.org/ns/TYPO3/CMS/IndexedSearch/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:alias map="{sword: searchParams.sword}">
-    <f:render partial="Form" arguments="{_all}"/>
+    <f:render partial="Form" arguments="{_all}" />
 </f:alias>
-
 <f:for each="{resultsets}" as="result">
-
     <f:if condition="{result.categoryTitle}">
         <h1>{result.categoryTitle}</h1>
     </f:if>
-
     <!-- show the info what was searched for -->
     <f:for each="{searchWords}" as="searchWord" key="key">
         <p>
@@ -20,17 +17,18 @@
                     <f:translate key="searchFor" /> <strong>{searchWord.sword}</strong>
                 </f:else>
             </f:if>
-            {result.searchedInSectionInfo}
         </p>
     </f:for>
-
+    <f:if condition="{result.searchedInSectionInfo}">
+        <!-- show the info in which section was searched for -->
+        <p>{result.searchedInSectionInfo}</p>
+    </f:if>
     <f:if condition="{result.count} > 0">
         <f:then>
             <p>
                 <is:pageBrowsingResults numberOfResults="{result.count}" currentPage="{searchParams.pointer}" resultsPerPage="{searchParams.numberOfResults}" />
                 {result.sectionText}
             </p>
-
             <!-- render the anchor-links to the sections inside the displayed result rows -->
             <f:if condition="{result.affectedSections}">
                 <div class="list-group">
@@ -48,13 +46,12 @@
                     </f:for>
                 </div>
             </f:if>
-
             <f:for each="{result.rows}" as="row">
                 <f:if condition="{row.isSectionHeader}">
                     <f:then>
                         <div id="anchor_{row.sectionId}">
                             <h2>
-                                <f:format.raw>{row.sectionTitle}</f:format.raw>
+                                <f:format.html>{row.sectionTitle}</f:format.html>
                                 <span class="tx-indexedsearch-result-count">
                                     {row.numResultRows} <f:translate key="{f:if(condition: '{row.numResultRows} > 1', then: 'result.pages', else: 'result.page')}" />
                                 </span>
@@ -67,7 +64,6 @@
                 </f:if>
             </f:for>
             <is:pageBrowsing numberOfResults="{result.count}" maximumNumberOfResultPages="{settings.page_links}" currentPage="{searchParams.pointer}" resultsPerPage="{searchParams.numberOfResults}" />
-
         </f:then>
         <f:else>
             <div class="alert alert-info">
@@ -76,3 +72,4 @@
         </f:else>
     </f:if>
 </f:for>
+</html>

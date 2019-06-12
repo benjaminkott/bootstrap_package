@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<br>
+<bk2k:explode data="{bodytext}" as="rows">
+    <f:if condition="{rows}">
+        <ul>
+            <f:for each="{rows}" as="content" iteration="iterateRow">
+                <li>{content}</li>
+            </f:for>
+        </ul>
+    </f:if>
+</bk2k:explode>
+</html>

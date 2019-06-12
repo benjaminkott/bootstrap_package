@@ -1,0 +1,14 @@
+######################
+#### CTYPE: QUOTE ####
+######################
+
+tt_content.quote >
+tt_content.quote =< lib.contentElement
+tt_content.quote {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Quote
+
+}

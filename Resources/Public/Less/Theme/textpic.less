@@ -1,0 +1,67 @@
+//
+// Textpic and Textmedia
+//
+.textmedia,
+.textpic {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
+}
+.textmedia-item,
+.textpic-item {
+    order: 1;
+    width: 100%;
+    padding-left: (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+}
+.textmedia-text,
+.textpic-text {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.textmedia-gallery,
+.textpic-gallery {
+    margin-bottom: @line-height-computed;
+}
+
+
+//
+// Alignments
+//
+.textmedia-centered,
+.textpic-centered {
+    align-items: center;
+}
+.textmedia-below,
+.textpic-below {
+    .textmedia-text,
+    .textpic-text {
+        order: 0;
+        margin-bottom: @line-height-computed;
+    }
+    .textmedia-gallery,
+    .textpic-gallery {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: @screen-md) {
+    .textmedia-right,
+    .textmedia-left,
+    .textpic-right,
+    .textpic-left {
+        .textmedia-item,
+        .textpic-item {
+            margin-bottom: 0;
+            width: 50%;
+        }
+    }
+    .textmedia-right,
+    .textpic-right {
+        .textmedia-gallery,
+        .textpic-gallery {
+            order: 2;
+        }
+    }
+}

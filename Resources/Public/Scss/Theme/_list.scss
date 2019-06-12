@@ -1,0 +1,11 @@
+//
+// List
+//
+.list-inline {
+    > li {
+        display: inline-block;
+        &:not(:last-child) {
+          margin-right: $list-inline-padding;
+        }
+    }
+}

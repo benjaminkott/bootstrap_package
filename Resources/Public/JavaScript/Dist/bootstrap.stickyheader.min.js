@@ -1,0 +1,1 @@
+$(function(){$(window).on("resize, scroll",function(){150<$(window).scrollTop()?$(".navbar-fixed-top").addClass("navbar-transition"):$(".navbar-fixed-top").removeClass("navbar-transition")})});

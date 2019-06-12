@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{records -> f:count()} > 1">
+    <a data-slide="prev" role="button" class="left carousel-control carousel-control-prev" href="#carousel-{data.uid}">
+        <span class="carousel-control-icon carousel-control-prev-icon"></span>
+        <span class="sr-only">{f:translate(key: 'previous', extensionName: 'bootstrap_package')}</span>
+    </a>
+    <a data-slide="next" role="button" class="right carousel-control carousel-control-next" href="#carousel-{data.uid}">
+        <span class="carousel-control-icon carousel-control-next-icon"></span>
+        <span class="sr-only">{f:translate(key: 'next', extensionName: 'bootstrap_package')}</span>
+    </a>
+</f:if>
+</html>

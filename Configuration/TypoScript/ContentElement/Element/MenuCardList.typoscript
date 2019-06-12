@@ -1,0 +1,137 @@
+###################################
+#### CTYPE: MENU CARD SUBPAGES ####
+###################################
+
+tt_content.menu_card_list >
+tt_content.menu_card_list =< lib.contentElement
+tt_content.menu_card_list {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = MenuCardList
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        20 {
+            special = list
+            special.value.field = pages
+            includeNotInMenu = 1
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = thumbnail
+                    if {
+                        isTrue = {$plugin.bootstrap_package_contentelements.menu_card.thumbnail.enable}
+                    }
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = nav_icon
+                    as = icon
+                    if {
+                        isTrue = {$plugin.bootstrap_package_contentelements.menu_card.icon.enable}
+                    }
+                }
+            }
+        }
+        90 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        90 {
+            if {
+                isTrue.field = accessibility_bypass
+            }
+            table = tt_content
+            pidInList = this
+            orderBy = sorting
+            max = 1
+            where {
+                dataWrap = colPos = {field:colPos} AND sorting > {field:sorting}
+            }
+            as = nextContentElement
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    menu_card_list {
+        1 {
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        2 {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        3 {
+            multiplier {
+                default = 0.3333
+                large = 0.3333
+                medium = 0.3333
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        4 {
+            multiplier {
+                default = 0.25
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+    }
+}

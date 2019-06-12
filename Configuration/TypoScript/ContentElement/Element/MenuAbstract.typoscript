@@ -1,0 +1,45 @@
+##############################################################
+#### CTYPE: MENU OF SUBPAGES TO THESE PAGES WITH ABSTRACT ####
+##############################################################
+
+tt_content.menu_abstract >
+tt_content.menu_abstract =< lib.contentElement
+tt_content.menu_abstract {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = MenuAbstract
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            special = directory
+            special.value.field = pages
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+        90 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        90 {
+            if {
+                isTrue.field = accessibility_bypass
+            }
+            table = tt_content
+            pidInList = this
+            orderBy = sorting
+            max = 1
+            where {
+                dataWrap = colPos = {field:colPos} AND sorting > {field:sorting}
+            }
+            as = nextContentElement
+        }
+    }
+
+}

@@ -1,0 +1,176 @@
+//
+// Card
+//
+.card {
+    color: color-yiq($card-bg);
+}
+.card-img-top {
+    overflow: hidden;
+    picture,
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.card-body {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+//
+// Card Deck Menu
+//
+.card-menu {
+    margin: -$card-deck-margin;
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+        height: 100%;
+    }
+    .card-icon {
+        margin-bottom: 0.5rem;
+    }
+    .card-title {
+        font-size: 1.35rem;
+    }
+    .card-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: $card-spacer-y;
+    }
+    .card-link {
+        color: $link-color;
+    }
+}
+.card-menu-item {
+    width: 100%;
+    padding: $card-deck-margin;
+}
+.card-menu-align-left {
+    justify-content: flex-start;
+}
+.card-menu-align-center {
+    justify-content: center;
+}
+.card-menu-align-right {
+    justify-content: flex-end;
+}
+.card-menu-columns-2 {
+    .card-menu-item  {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+    }
+}
+.card-menu-columns-3 {
+    .card-menu-item  {
+        @include media-breakpoint-up('md') {
+            width: calc(100% / 3);
+        }
+    }
+}
+.card-menu-columns-4 {
+    .card-menu-item  {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+        @include media-breakpoint-up('xl') {
+            width: calc(100% / 4);
+        }
+    }
+}
+
+
+//
+// Card Group Element
+//
+.card-group-element {
+    margin: -$card-deck-margin;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-group-element-item {
+    width: 100%;
+    padding: $card-deck-margin;
+    .card {
+        height: 100%;
+    }
+    .card-title {
+        font-size: 1.35rem;
+    }
+    .card-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: $card-spacer-y;
+    }
+    .card-footer {
+        border-top: 0;
+        padding: $card-spacer-x;
+        background-color: transparent;
+    }
+}
+.card-group-element-align-left {
+    justify-content: flex-start;
+}
+.card-group-element-align-center {
+    justify-content: center;
+}
+.card-group-element-align-right {
+    justify-content: flex-end;
+}
+.card-group-element-columns-2 {
+    .card-group-element-item {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+    }
+}
+.card-group-element-columns-3 {
+    .card-group-element-item {
+        @include media-breakpoint-up('md') {
+            width: calc(100% / 3);
+        }
+    }
+}
+.card-group-element-columns-4 {
+    .card-group-element-item {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+        @include media-breakpoint-up('xl') {
+            width: calc(100% / 4);
+        }
+    }
+}
+
+
+//
+// Card Panel
+//
+.card-panel {
+    .card-header {
+        font-size: 1.125rem !important;
+    }
+    .card-body {
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+//
+// Variants
+//
+@each $name, $background in $theme-colors {
+    .card-panel-#{$name} {
+        @extend .border-#{$name};
+        .card-header {
+            @extend .bg-#{$name};
+            color: color-yiq($background) !important;
+        }
+    }
+}

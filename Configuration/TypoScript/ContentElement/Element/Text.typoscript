@@ -1,0 +1,14 @@
+#####################
+#### CTYPE: TEXT ####
+#####################
+
+tt_content.text >
+tt_content.text =< lib.contentElement
+tt_content.text {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Text
+
+}

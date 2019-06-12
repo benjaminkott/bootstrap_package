@@ -1,0 +1,123 @@
+##########################
+#### CTYPE: CARDGROUP ####
+##########################
+
+tt_content.card_group >
+tt_content.card_group =< lib.contentElement
+tt_content.card_group {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = CardGroup
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tx_bootstrappackage_card_group_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = sorting
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = image
+                    as = image
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = link_icon
+                    as = linkIcon
+                }
+            }
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    card_group {
+        1 {
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        2 {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        3 {
+            multiplier {
+                default = 0.3333
+                large = 0.3333
+                medium = 0.3333
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+        4 {
+            multiplier {
+                default = 0.25
+                large = 0.5
+                medium = 0.5
+                small = 0.5
+            }
+            gutters {
+                default = 20
+                large = 20
+                medium = 20
+                small = 20
+            }
+            corrections {
+                default = 2
+                large = 2
+                medium = 2
+                small = 2
+                extrasmall = 2
+            }
+        }
+    }
+}

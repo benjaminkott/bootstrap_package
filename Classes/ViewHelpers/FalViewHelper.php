@@ -1,62 +1,44 @@
 <?php
-namespace BK2K\BootstrapPackage\ViewHelpers;
 
 /*
- *  The MIT License (MIT)
+ * This file is part of the package bk2k/bootstrap-package.
  *
- *  Copyright (c) 2014 Benjamin Kott, http://www.bk2k.info
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
  */
 
+namespace BK2K\BootstrapPackage\ViewHelpers;
+
+use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
- * @author Benjamin Kott <info@bk2k.info>
+ * FalViewHelper
  */
-class FalViewHelper extends AbstractViewHelper implements CompilableInterface
+class FalViewHelper extends AbstractViewHelper
 {
+    use CompileWithRenderStatic;
 
     /**
-     * Render
-     *
-     * @param array $data
-     * @param string $as
-     * @param string $table
-     * @param string $field
-     * @return string
+     * @var bool
      */
-    public function render($data, $as = 'items', $table = 'tt_content', $field = 'image')
+    protected $escapeOutput = false;
+
+    /**
+     * Initialize arguments.
+     *
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
+     */
+    public function initializeArguments()
     {
-        return self::renderStatic(
-            array(
-                'data' => $data,
-                'as' => $as,
-                'table' => $table,
-                'field' => $field
-            ),
-            $this->buildRenderChildrenClosure(),
-            $this->renderingContext
-        );
+        parent::initializeArguments();
+        $this->registerArgument('data', 'array', 'Data of current record', true);
+        $this->registerArgument('table', 'string', 'table', false, 'tt_content');
+        $this->registerArgument('field', 'string', 'field', false, 'image');
+        $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
     }
 
     /**
@@ -70,9 +52,9 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $templateVariableContainer = $renderingContext->getTemplateVariableContainer();
+        $variableProvider = $renderingContext->getVariableProvider();
         if (is_array($arguments['data']) && $arguments['data']['uid'] && $arguments['data'][$arguments['field']]) {
-            $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $items = $fileRepository->findByRelation(
                 $arguments['table'],
                 $arguments['field'],
@@ -94,9 +76,9 @@ class FalViewHelper extends AbstractViewHelper implements CompilableInterface
         } else {
             $items = null;
         }
-        $templateVariableContainer->add($arguments['as'], $items);
+        $variableProvider->add($arguments['as'], $items);
         $content = $renderChildrenClosure();
-        $templateVariableContainer->remove($arguments['as']);
+        $variableProvider->remove($arguments['as']);
         return $content;
     }
 }

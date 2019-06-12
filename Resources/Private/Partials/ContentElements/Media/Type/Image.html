@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<figure class="image">
+    <f:if condition="{file.properties.link}">
+        <f:then>
+            <f:link.typolink parameter="{file.properties.link}" title="{file.properties.title}">
+                <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
+            </f:link.typolink>
+        </f:then>
+        <f:else>
+            <f:if condition="{data.image_zoom}">
+                <f:then>
+                    <a href="{f:uri.image(image: file, maxHeight: settings.lightbox.image.maxHeight, maxWidth: settings.lightbox.image.maxWidth)}" title="{file.properties.title}" data-lightbox-caption="{file.properties.description}" class="{settings.lightbox.cssClass}" data-lightbox-width="{bk2k:lastImageInfo(property: 'width')}" data-lightbox-height="{bk2k:lastImageInfo(property: 'height')}" rel="{settings.lightbox.prefix}-{data.uid}">
+                        <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
+                    </a>
+                </f:then>
+                <f:else>
+                    <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
+                </f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+    <f:if condition="{file.properties.description}">
+        <figcaption class="caption"><f:format.nl2br>{file.properties.description}</f:format.nl2br></figcaption>
+    </f:if>
+</figure>
+</html>

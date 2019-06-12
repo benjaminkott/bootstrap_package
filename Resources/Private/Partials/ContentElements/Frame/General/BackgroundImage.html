@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{backgroundImage.0}">
+    <f:variable name="backgroundImageObject" value="{backgroundImage.0}"/>
+    <f:variable name="backgroundImageIdentifier" value="frame-backgroundimage-{data.uid}"/>
+    <f:variable name="backgroundImageClasses">frame-backgroundimage</f:variable>
+    <f:if condition="{data.background_image_options.parallax}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-parallax</f:variable></f:if>
+    <f:if condition="{data.background_image_options.fade}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-fade</f:variable></f:if>
+    <f:if condition="{data.background_image_options.filter}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-{data.background_image_options.filter}</f:variable></f:if>
+    <div class="frame-backgroundimage-container">
+        <div id="{backgroundImageIdentifier}" class="{backgroundImageClasses}">
+            <f:variable name="styles" value=""/>
+            <f:for each="{variants}" key="name" as="variant">
+                <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
+                <f:variable name="width">{variant.width as integer}</f:variable>
+                <f:if condition="{width} && {variant.sizes}">
+                    <f:variable name="variantStyle" value=""/>
+                    <f:for each="{variant.sizes}" key="sizeKey" as="sizeConfig" iteration="iteration">
+                        <f:variable name="sizeWidth">{sizeConfig.multiplier as float}</f:variable>
+                        <f:variable name="sizeWidth">{sizeWidth * width}</f:variable>
+                        <f:variable name="sizeDppx">{sizeKey as float}</f:variable>
+                        <f:variable name="mediaBreakpoint"><f:if condition="{breakpoint}">(min-width: {breakpoint}px)</f:if></f:variable>
+                        <f:variable name="mediaQuery" value=""/>
+                        <f:if condition="{mediaBreakpoint}">
+                            <f:variable name="mediaQuery">{mediaBreakpoint}</f:variable>
+                        </f:if>
+                        <f:if condition="{sizeDppx} > 1">
+                            <f:variable name="mediaQuery">(-webkit-min-device-pixel-ratio: {sizeDppx})<f:if condition="{mediaBreakpoint}"> and {mediaBreakpoint}</f:if></f:variable>
+                            <f:variable name="mediaQuery">{mediaQuery}, (min-resolution: {sizeDppx}dppx)<f:if condition="{mediaBreakpoint}"> and {mediaBreakpoint}</f:if></f:variable>
+                        </f:if>
+                        <f:variable name="variantStyle">{variantStyle} <f:if condition="{mediaQuery}">@media {mediaQuery} { </f:if>#{backgroundImageIdentifier} { background-image: url('{f:uri.image(image: backgroundImageObject, cropVariant: name, maxWidth: sizeWidth)}'); }<f:if condition="{mediaQuery}"> }</f:if></f:variable>
+                    </f:for>
+                    <f:variable name="styles" value="{variantStyle -> bk2k:format.trim()} {styles}"/>
+                </f:if>
+            </f:for>
+            <style>{styles -> f:format.raw()}</style>
+        </div>
+    </div>
+</f:if>
+</html>

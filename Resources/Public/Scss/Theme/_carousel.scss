@@ -1,0 +1,315 @@
+//
+// Carousel
+//
+.carousel {
+    .item {
+        height: 400px;
+        @include media-breakpoint-up(md) {
+            height: 600px;
+        }
+    }
+}
+.carousel-small {
+    .item {
+        height: 300px;
+        @include media-breakpoint-up(md) {
+            height: 400px;
+        }
+    }
+}
+.carousel-fullscreen {
+    .item {
+        height: 100vh;
+    }
+}
+
+//
+// Carousel Item
+//
+.carousel {
+    .carousel-item {
+        padding-left: ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
+        @include media-breakpoint-up(sm) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: inherit;
+            margin-top: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        .valign {
+            margin: 0 auto;
+            height: 100%;
+            @each $breakpoint, $container-max-width in $container-max-widths {
+                @include media-breakpoint-up($breakpoint) {
+                    max-width: $container-max-width - $grid-gutter-width;
+                }
+            }
+        }
+    }
+}
+
+//
+// Carousel Fade
+//
+.carousel-fade {
+    .carousel-item {
+        perspective: initial !important;
+        transform: initial !important;
+    }
+}
+
+//
+// Carousel Backgroundimage
+//
+.carousel {
+    .carousel-backgroundimage-container {
+        overflow: hidden;
+    }
+    .carousel-backgroundimage-container,
+    .carousel-backgroundimage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    .carousel-backgroundimage-fade {
+        opacity: 0.125;
+    }
+    .carousel-backgroundimage-parallax {
+        background-attachment: fixed;
+        @media (hover: none) {
+            background-attachment: initial;
+        }
+        background-repeat: no-repeat;
+    }
+    .carousel-backgroundimage-blur {
+        filter: blur(10px);
+        width: calc(100% + 40px);
+        height: calc(100% + 40px);
+        top: -20px;
+        left: -20px;
+    }
+    .carousel-backgroundimage-grayscale {
+        filter: grayscale(1);
+    }
+    .carousel-backgroundimage-sepia {
+        filter: sepia(1);
+    }
+}
+
+//
+// Carousel Content
+//
+.carousel {
+    .carousel-content {
+        position: relative;
+        height: 100%;
+    }
+}
+
+//
+// Carousel Navigation
+//
+.carousel {
+    overflow: hidden;
+    .carousel-control {
+        width: 50px;
+        @include media-breakpoint-up(sm) {
+            width: 75px;
+        }
+        @include media-breakpoint-up(md) {
+            width: 100px;
+        }
+    }
+    .carousel-indicators {
+        li {
+            overflow: hidden;
+        }
+    }
+    .carousel-control,
+    .carousel-indicators {
+        @include transition(opacity .4s ease-in-out 0s);
+        z-index: 1;
+        opacity: 0;
+    }
+    &:hover {
+        .carousel-indicators,
+        .carousel-control {
+            opacity: 1;
+        }
+    }
+    .carousel-control-icon {
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        width: auto;
+        height: auto;
+        color: $primary;
+        padding: 1em;
+        background-color: $carousel-control-color;
+        @include transition(all .4s ease-in-out 0s);
+        &:before {
+            transform: rotate(45deg);
+            content: '';
+            width: 0.5em;
+            height: 0.5em;
+            display: block;
+            border-top: 1px solid $primary;
+            border-right: 1px solid $primary;
+        }
+    }
+    .carousel-control-prev .carousel-control-icon {
+        left: -100%;
+        &:before {
+            transform: rotate(225deg);
+        }
+    }
+    .carousel-control-next .carousel-control-icon {
+        right: -100%;
+        &:before {
+            transform: rotate(45deg);
+
+        }
+    }
+    &:hover {
+        .carousel-control-prev .carousel-control-icon {
+            left: 0;
+        }
+        .carousel-control-next .carousel-control-icon {
+            right: 0;
+        }
+    }
+    .carousel-indicators-navigation {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 ($grid-gutter-width / 2);
+        margin: 0;
+        width: 100%;
+        z-index: 15;
+        opacity: 1;
+        color: $carousel-caption-color;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        > li {
+            overflow: visible;
+            padding: 0.75em;
+            margin: 0;
+            text-indent: 0;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            cursor: pointer;
+            &.active:before {
+                content: '';
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                left: 0.75em;
+                right: 0.75em;
+                width: auto;
+                border-top: 1px solid $primary;
+            }
+            &:first-child {
+                padding-left: 0;
+                &:before {
+                    left: 0;
+                }
+            }
+            &:last-child {
+                padding-right: 0;
+                &:before {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+//
+// Type: Header
+//
+.carousel-item-type-header {
+    .carousel-text-inner {
+        margin: 0 auto;
+        @include media-breakpoint-up(md) {
+            width: 80%;
+        }
+        @include media-breakpoint-up(lg) {
+            width: 65%;
+        }
+    }
+}
+
+//
+// Type: Text and Image
+//
+.carousel-item-type-text_and_image {
+    .carousel-image {
+        display: none;
+        img {
+            margin: 0 auto;
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+        @include media-breakpoint-up(sm) {
+            display: block;
+        }
+    }
+}
+
+//
+// Type: Background Image
+//
+.carousel-item-type-background_image {
+    a {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+//
+// Type: Call to Action
+//
+.carousel-item-type-call_to_action {
+    .carousel-box {
+        background-color: $body-bg;
+        padding: 2rem;
+        @include media-breakpoint-up(sm) {
+            max-width: 50%;
+        }
+    }
+}
+
+//
+// Type: Image
+//
+.carousel-item-type-image {
+    .carousel-image {
+        img {
+            margin: 0 auto;
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+    }
+}

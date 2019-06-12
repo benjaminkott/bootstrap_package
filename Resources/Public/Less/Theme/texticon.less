@@ -6,36 +6,55 @@
 }
 .texticon-icon {
     font-size: 2em;
-    .glyphicon {
+    .texticon-inner-icon,
+    .texticon-inner-icon svg,
+    .texticon-inner-icon img, {
         text-align: center;
         margin: 0 auto;
         display: block;
         height: 1em;
         width: 1em;
     }
-}
-.texticon-size-medium {
-    font-size: 3em;
-}
-.texticon-size-large {
-    font-size: 4em;
+    .texticon-inner-icon {
+        display: flex;
+        align-items: center;
+    }
 }
 .texticon-size-awesome {
-    font-size: 5em;
+    font-size: 3em;
+}
+@media (min-width: @screen-sm) {
+    .texticon-size-large {
+        font-size: 3em;
+    }
+    .texticon-size-awesome {
+        font-size: 4em;
+    }
+}
+@media (min-width: @screen-md) {
+    .texticon-size-medium {
+        font-size: 3em;
+    }
+    .texticon-size-large {
+        font-size: 4em;
+    }
+    .texticon-size-awesome {
+        font-size: 5em;
+    }
 }
 .texticon-top .texticon-icon {
-    margin-bottom: @line-height-computed;
+    margin-bottom: 0.5em;
 }
 .texticon-type-square,
 .texticon-type-circle {
-    .glyphicon {
+    .texticon-inner-icon {
         line-height: 2.3em;
         height: 2.3em;
         width: 2.3em;
     }
 }
 .texticon-type-circle {
-    .glyphicon {
+    .texticon-inner-icon {
         border-radius: 50%;
     }
 }
@@ -60,6 +79,9 @@
 .texticon-right .texticon-content  {
     *:first-child {
         margin-top: 0px;
+    }
+    *:last-child {
+        margin-bottom: 0px;
     }
     overflow: hidden;
     zoom: 1;

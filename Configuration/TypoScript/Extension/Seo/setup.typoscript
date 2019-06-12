@@ -1,0 +1,22 @@
+#############
+#### SEO ####
+#############
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:seo/Configuration/TypoScript/XmlSitemap/setup.typoscript">
+
+plugin.tx_seo {
+    view {
+        templateRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Templates/Seo/
+            21 = {$plugin.bootstrap_package.view.templateRootPath}Seo/
+        }
+        partialRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Partials/Seo/
+            21 = {$plugin.bootstrap_package.view.partialRootPath}Seo/
+        }
+        layoutRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Layouts/Seo/
+            21 = {$plugin.bootstrap_package.view.layoutRootPath}Seo/
+        }
+    }
+}

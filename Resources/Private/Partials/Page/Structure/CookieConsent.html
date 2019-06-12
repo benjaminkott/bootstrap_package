@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{theme.cookieconsent.enable}">
+<div id="cookieconsent">
+    <span data-cookieconsent-setting="cookie.expiryDays" data-cookieconsent-value="{theme.cookieconsent.cookie.expiryDays}"></span>
+    <span data-cookieconsent-setting="content.header" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.header',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.message" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.message',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.dismiss" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.dismiss',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.allow" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.allow',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.deny" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.deny',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.link" data-cookieconsent-value="{f:translate(key:'cookieconsent.common.link',extensionName:'bootstrap_package')}"></span>
+    <span data-cookieconsent-setting="content.href" data-cookieconsent-value="{f:uri.typolink(parameter: theme.cookieconsent.content.href)}"></span>
+    <span data-cookieconsent-setting="layout" data-cookieconsent-value="{theme.cookieconsent.layout}"></span>
+    <span data-cookieconsent-setting="type" data-cookieconsent-value="{theme.cookieconsent.type}"></span>
+    <span data-cookieconsent-setting="position" data-cookieconsent-value="{theme.cookieconsent.position}"></span>
+    <span data-cookieconsent-setting="revokable" data-cookieconsent-value="{theme.cookieconsent.revokable}"></span>
+    <span data-cookieconsent-setting="static" data-cookieconsent-value="{theme.cookieconsent.static}"></span>
+    <span data-cookieconsent-setting="location" data-cookieconsent-value="{theme.cookieconsent.location}"></span>
+    <span data-cookieconsent-setting="law.countryCode" data-cookieconsent-value="{theme.cookieconsent.law.countryCode}"></span>
+    <span data-cookieconsent-setting="law.regionalLaw" data-cookieconsent-value="{theme.cookieconsent.law.regionalLaw}"></span>
+</div>
+</f:if>
+</html>

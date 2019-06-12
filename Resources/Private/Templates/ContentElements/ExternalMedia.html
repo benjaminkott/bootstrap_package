@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <bk2k:externalMedia url="{data.external_media_source}" class="embed-responsive-item">
+        <f:if condition="{externalMedia}">
+            <f:then>
+                <div class="embed-responsive embed-responsive-{data.external_media_ratio}">
+                    <f:format.raw>{externalMedia}</f:format.raw>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="alert alert-warning">
+                    <f:translate key="externalmediaunsupported" extensionName="bootstrap_package" arguments="{0: '<strong>{data.external_media_source}</strong>'}" />
+                </div>
+            </f:else>
+        </f:if>
+    </bk2k:externalMedia>
+
+</f:section>
+</html>

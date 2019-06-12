@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Header" />
+<f:section name="Main">
+
+    <div class="texticon texticon-{data.icon_position}">
+        <f:if condition="{icon}">
+            <f:link.typolink parameter="{data.header_link}">
+            <div class="texticon-icon texticon-size-{data.icon_size} texticon-type-{data.icon_type}">
+
+                <f:if condition="{data.icon_type} !== default">
+                    <f:if condition="{data.icon_color}"><f:variable name="iconStyle" value="{iconStyle}color: {data.icon_color};" /></f:if>
+                    <f:if condition="{data.icon_background}"><f:variable name="iconStyle" value="{iconStyle}background-color: {data.icon_background};" /></f:if>
+                </f:if>
+                <f:variable name="iconHeight" value="{settings.texticon.icon.{data.icon_size}.height}" />
+                <f:variable name="iconWidth" value="{settings.texticon.icon.{data.icon_size}.width}" />
+                <span class="texticon-inner-icon"{f:if(condition: iconStyle, then: ' style="{iconStyle}"')}>
+                    <f:if condition="{icon.0.extension} === svg">
+                        <f:then>
+                            <bk2k:inlineSvg image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
+                        </f:then>
+                        <f:else>
+                            <f:image image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
+                        </f:else>
+                    </f:if>
+                </span>
+
+            </div>
+            </f:link.typolink>
+        </f:if>
+        <div class="texticon-content">
+            <f:render partial="Header/All" arguments="{_all}" />
+            <f:format.html>{data.bodytext}</f:format.html>
+        </div>
+    </div>
+
+</f:section>
+</html>

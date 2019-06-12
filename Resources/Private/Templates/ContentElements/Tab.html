@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <f:variable name="activeTab">{records.0.data.uid}</f:variable>
+        <f:if condition="{data.pi_flexform.default_tab}">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <f:if condition="{data.pi_flexform.default_tab} == {record.data.uid} || {data.pi_flexform.default_tab} == {record.data._LOCALIZED_UID}">
+                    <f:variable name="activeTab">{record.data.uid}</f:variable>
+                </f:if>
+            </f:for>
+        </f:if>
+        <f:variable name="currentVariants" value="{variants}" />
+
+        <ul class="nav nav-tabs tab-navigation" id="tab-{data.uid}" role="tablist">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <li class="nav-item{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}">
+                    <a href="#tabcontent-{data.uid}-{record.data.uid}" id="tab-{data.uid}-{record.data.uid}" class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" data-toggle="tab" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
+                        <span>{record.data.header}</span>
+                    </a>
+                </li>
+            </f:for>
+        </ul>
+        <div class="tab-content" id="tabcontent-{data.uid}">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <div role="tabpanel" class="tab-pane fade{f:if(condition: '{activeTab} == {record.data.uid}',then: ' show in active')}" id="tabcontent-{data.uid}-{record.data.uid}">
+                    <div class="tab-pane-content tab-pane-content-{record.data.mediaorient}">
+                        <f:if condition="{record.files}">
+                            <div class="tab-pane-content-item tab-pane-content-media">
+                                <f:variable name="imageConfig">{settings.responsiveimages.contentelements.tab.{record.data.mediaorient}}</f:variable>
+                                <bk2k:data.imageVariants as="variants" variants="{currentVariants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+                                <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings}" />
+                            </div>
+                        </f:if>
+                        <div class="tab-pane-content-item tab-pane-content-text">
+                            <f:format.html>{record.data.bodytext}</f:format.html>
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+
+    </f:if>
+
+</f:section>
+</html>

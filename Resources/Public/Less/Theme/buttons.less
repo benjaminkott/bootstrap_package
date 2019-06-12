@@ -1,0 +1,102 @@
+//
+// Buttons
+//
+.button-outline-variant(@color; @color-hover; @active-background: @color; @active-border: @color) {
+    color: @color;
+    background-color: transparent;
+    background-image: none;
+    border-color: @color;
+
+    &:focus,
+    &.focus {
+        color: @color-hover;
+        background-color: darken(@active-background, 10%);
+        border-color: darken(@active-border, 25%);
+    }
+    &:hover {
+        color: @color-hover;
+        background-color: darken(@active-background, 10%);
+        border-color: darken(@active-border, 12%);
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @color;
+        background-color: darken(@active-background, 10%);
+        border-color: darken(@active-border, 12%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: @color;
+            background-color: darken(@active-background, 17%);
+            border-color: darken(@active-border, 25%);
+        }
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: @active-background;
+            border-color: @active-border;
+        }
+    }
+    .badge {
+        color: @color;
+        background-color: @color-hover;
+    }
+}
+
+
+//
+// Normal
+//
+.btn-secondary {
+    .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
+
+
+//
+// Outline
+//
+.btn-outline-default {
+    .button-outline-variant(@btn-default-bg; @btn-default-color);
+}
+.btn-outline-primary {
+    .button-outline-variant(@btn-primary-bg; @btn-primary-color);
+}
+.btn-outline-secondary {
+    .button-outline-variant(@btn-secondary-bg; @btn-secondary-color);
+}
+.btn-outline-success {
+    .button-outline-variant(@btn-success-bg; @btn-success-color);
+}
+.btn-outline-info {
+    .button-outline-variant(@btn-info-bg; @btn-info-color);
+}
+.btn-outline-warning {
+    .button-outline-variant(@btn-warning-bg; @btn-warning-color);
+}
+.btn-outline-danger {
+    .button-outline-variant(@btn-danger-bg; @btn-danger-color);
+}
+
+
+//
+// Icon
+//
+.btn-icon {
+    margin-right: 0.25em;
+    svg {
+        vertical-align: text-top;
+        display: inline-block;
+        height: 1.25em;
+        width: 1.25em;
+    }
+}

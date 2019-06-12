@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<bk2k:fal data="{_all}" field="media" as="csvFiles">
+    <f:if condition="{csvFiles}">
+        <br>
+        <ul class="list-unstyled">
+            <f:for each="{csvFiles}" as="file">
+                <li>
+                    <strong>{f:if(condition: file.properties.title, then: file.properties.title, else: file.properties.name)}</strong><br>
+                    {file.publicUrl}
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+</bk2k:fal>
+</html>

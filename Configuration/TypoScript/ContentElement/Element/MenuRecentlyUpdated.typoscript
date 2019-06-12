@@ -1,0 +1,49 @@
+############################################
+#### CTYPE: MENU RECENTLY UPDATED PAGES ####
+############################################
+
+tt_content.menu_recently_updated >
+tt_content.menu_recently_updated =< lib.contentElement
+tt_content.menu_recently_updated {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = MenuRecentlyUpdated
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            special = updated
+            special {
+                value.field = pages
+                maxAge = 3600*24*7
+                excludeNoSearchPages = 1
+            }
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+        90 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        90 {
+            if {
+                isTrue.field = accessibility_bypass
+            }
+            table = tt_content
+            pidInList = this
+            orderBy = sorting
+            max = 1
+            where {
+                dataWrap = colPos = {field:colPos} AND sorting > {field:sorting}
+            }
+            as = nextContentElement
+        }
+    }
+
+}

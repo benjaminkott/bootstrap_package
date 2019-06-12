@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        media {
+            iconIdentifier = mimetypes-x-content-multimedia
+            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media
+            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media.description
+            tt_content_defValues {
+                CType = media
+            }
+        }
+    }
+    show := addToList(media)
+}

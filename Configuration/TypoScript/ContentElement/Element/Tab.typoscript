@@ -1,0 +1,71 @@
+######################################
+#### CTYPE: BOOTSTRAP PACKAGE TAB ####
+######################################
+
+tt_content.tab >
+tt_content.tab =< lib.contentElement
+tt_content.tab {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Tab
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tx_bootstrappackage_tab_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = sorting
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    tab {
+        left {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 40
+                large = 40
+                medium = 40
+            }
+        }
+    }
+}

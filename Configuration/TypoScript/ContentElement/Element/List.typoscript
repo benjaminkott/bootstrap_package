@@ -1,0 +1,13 @@
+#####################
+#### CTYPE: LIST ####
+#####################
+
+tt_content.list =< lib.contentElement
+tt_content.list {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = List
+
+}

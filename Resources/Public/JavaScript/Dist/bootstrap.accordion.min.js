@@ -1,0 +1,1 @@
+$(".accordion").on("hide.bs.collapse",function(o){var a=$(o.target).prev(".accordion-header").offset().top-5;a<$(window).scrollTop()&&$("html,body").animate({scrollTop:a},500)});

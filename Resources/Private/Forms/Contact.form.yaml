@@ -1,0 +1,114 @@
+type: Form
+identifier: contactform
+label: Contact Form
+prototypeName: standard
+
+finishers:
+    -
+        identifier: EmailToReceiver
+        options:
+            subject: '{subject}'
+            recipientAddress: ''
+            recipientName: ''
+            senderAddress: '{email}'
+            senderName: '{fullname}'
+            replyToAddress: '{email}'
+            carbonCopyAddress: ''
+            blindCarbonCopyAddress: ''
+            format: html
+            attachUploads: true
+    -
+        identifier: Redirect
+        options:
+            pageUid: ''
+            additionalParameters: ''
+
+renderables:
+    -
+        type: Page
+        identifier: form
+        label: ''
+        renderables:
+            -
+                properties:
+                    text: '* Mandatory fields'
+                type: StaticText
+                identifier: mandatory
+                label: 'Your personal data'
+            -
+                type: GridRow
+                identifier: gridrow
+                label: ''
+                renderables:
+                    -
+                        type: Fieldset
+                        identifier: fieldset-left
+                        label: ''
+                        properties:
+                            gridColumnClassAutoConfiguration:
+                                viewPorts:
+                                    xs: { numbersOfColumnsToUse: '12' }
+                                    sm: { numbersOfColumnsToUse: '6' }
+                                    md: { numbersOfColumnsToUse: '6' }
+                                    lg: { numbersOfColumnsToUse: '6' }
+                        renderables:
+                            -
+                                type: Text
+                                identifier: fullname
+                                label: 'Full name and surname'
+                                properties:
+                                    fluidAdditionalAttributes:
+                                        placeholder: 'Full name and surname'
+                                        required: required
+                                validators:
+                                    - { identifier: NotEmpty }
+                            -
+                                type: Text
+                                identifier: company
+                                label: 'Company'
+                                properties:
+                                    fluidAdditionalAttributes:
+                                        placeholder: 'Company'
+                            -
+                                type: Text
+                                identifier: email
+                                label: 'Email'
+                                properties:
+                                    fluidAdditionalAttributes:
+                                        placeholder: 'Email'
+                                        required: required
+                                validators:
+                                    - { identifier: NotEmpty }
+                                    - { identifier: EmailAddress }
+                    -
+                        type: Fieldset
+                        identifier: fieldset-right
+                        label: ''
+                        properties:
+                            gridColumnClassAutoConfiguration:
+                                viewPorts:
+                                    xs: { numbersOfColumnsToUse: '12' }
+                                    sm: { numbersOfColumnsToUse: '6' }
+                                    md: { numbersOfColumnsToUse: '6' }
+                                    lg: { numbersOfColumnsToUse: '6' }
+                        renderables:
+                            -
+                                type: Text
+                                identifier: subject
+                                label: 'Subject'
+                                properties:
+                                    fluidAdditionalAttributes:
+                                        placeholder: 'Subject'
+                                        required: required
+                                validators:
+                                    - { identifier: NotEmpty }
+                            -
+                                type: Textarea
+                                identifier: message
+                                label: 'Message'
+                                properties:
+                                    fluidAdditionalAttributes:
+                                        placeholder: 'Message'
+                                        required: required
+                                validators:
+                                    - { identifier: NotEmpty }

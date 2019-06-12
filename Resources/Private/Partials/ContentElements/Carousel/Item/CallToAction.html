@@ -1,0 +1,30 @@
+<div class="valign">
+    <div class="vcontainer">
+        <div class="carousel-box">
+            <f:if condition="{item.data.nav_title}">
+                <div>{item.data.nav_title}</div>
+            </f:if>
+            <h{item.data.header_layout} class="carousel-item-header{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
+            <f:if condition="{item.data.subheader}">
+                <h{item.data.subheader_layout} class="carousel-item-subheader{f:if(condition: item.data.subheader_class, then: ' {item.data.subheader_class}')}"><f:format.htmlentitiesDecode>{item.data.subheader}</f:format.htmlentitiesDecode></h{item.data.subheader_layout}>
+            </f:if>
+            <f:if condition="{item.data.bodytext}">
+                <div class="carousel-item-bodytext">
+                    <f:format.html>{item.data.bodytext}</f:format.html>
+                </div>
+            </f:if>
+            <f:if condition="{item.data.link}">
+                <f:link.typolink parameter="{item.data.link}" class="carousel-item-button btn btn-primary" additionalAttributes="{draggable:'false'}">
+                    <f:if condition="{item.data.button_text}">
+                        <f:then>
+                            <span>{item.data.button_text}</span>
+                        </f:then>
+                        <f:else>
+                            <span><f:translate key="readmore" extensionName="bootstrap_package" /></span>
+                        </f:else>
+                    </f:if>
+                </f:link.typolink>
+            </f:if>
+        </div>
+    </div>
+</div>

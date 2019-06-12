@@ -1,49 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{files}">
 
-        <div class="row" data-equalheight="container">
-            <f:if condition="{files -> f:count()} > 1">
-                <f:then>
-                    <f:for each="{files}" as="file" iteration="fileIteration">
-                        <f:switch expression="{data.imagecols}">
-                            <f:case value="1">
-                                <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                            <f:case value="2">
-                                <div class="col-md-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                            <f:case value="3">
-                                <div class="col-md-4 col-sm-4 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                            <f:case value="4">
-                                <div class="col-md-3 col-sm-3 col-xs-6" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                            <f:case value="6">
-                                <div class="col-md-2 col-sm-3 col-xs-4" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                            <f:case default="1">
-                                <div class="col-md-12" data-equalheight="item">
-                                    <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings}" />
-                                </div>
-                            </f:case>
-                        </f:switch>
-                    </f:for>
-                </f:then>
-                <f:else>
-                    <div class="col-md-12" data-equalheight="item">
-                        <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings}" />
-                    </div>
-                </f:else>
-            </f:if>
-        </div>
+    <f:variable name="imagecols">1</f:variable>
+    <f:if condition="{files -> f:count()} > 1">
+        <f:variable name="imagecols">{data.imagecols as integer}</f:variable>
+    </f:if>
+    <f:variable name="columnConfig">{settings.gallery.columns.{imagecols}}</f:variable>
+    <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
+
+    <div class="gallery-row">
+        <f:for each="{files}" as="file" iteration="fileIteration">
+            <div class="gallery-item {columnConfig.class}">
+                <f:render partial="Media/Type" arguments="{file: file, data: data, settings: settings, variants: variants}" />
+            </div>
+        </f:for>
+    </div>
 
 </f:if>
+</html>

@@ -12,14 +12,10 @@ TypoScript
 Bootstrap Package was built to be as adjustable as possible, so nothing is fixed and everything can be overridden with TypoScript constants.
 The constants are grouped in basic and advanced settings. Use the **TYPO3 Constant Editor** in the backend to modify the values.
 
-.. figure:: ../../Images/Configuration/TypoScriptConstantEditor.jpg
-	:width: 500px
-	:alt: TypoScript Constant Editor
-
 
 Bootstrap Package: Basic Constants
 ==================================
-The basic settings will provide easy to use and understandable options for that are used mainly for styling and appereance.
+The basic settings will provide easy to use and understandable options for that are used mainly for styling and appearance.
 
 
 page.logo
@@ -71,9 +67,9 @@ page.theme
 +-----------------------------------+---------------+-----------------------------------------------------------------------+
 | Property                          | Data Type     |                                                                       |
 +===================================+===============+=======================================================================+
-| navigationstyle                   | options       | **default** | inverse                                                 |
+| navigation.style                  | options       | **default** | inverse                                                 |
 +-----------------------------------+---------------+-----------------------------------------------------------------------+
-| navigationtype                    | options       | **0** | top | bottom                                                  |
+| navigation.type                   | options       | **0** | top | bottom                                                  |
 +-----------------------------------+---------------+-----------------------------------------------------------------------+
 | breadcrumb                        | boolean       | **1** | 0                                                             |
 +-----------------------------------+---------------+-----------------------------------------------------------------------+
@@ -116,9 +112,21 @@ page.theme.news
 +-----------------------------------+---------------+-----------------------------------------------------------------------+
 
 
+page.theme.language
+-------------------
+
++-----------------------------------+---------------+-----------------------------------------------------------------------+
+| Property                          | Data Type     |                                                                       |
++===================================+===============+=======================================================================+
+| enable                            | boolean       | **1** | 0                                                             |
++-----------------------------------+---------------+-----------------------------------------------------------------------+
+| languageValue                     | string        | **auto** | 0,1,2                                                      |
++-----------------------------------+---------------+-----------------------------------------------------------------------+
+
+
 Bootstrap Package: Advanced Constants
 =====================================
-The advanced settings sould be used only if you really know what you are doing.
+The advanced settings should be used only if you really know what you are doing.
 
 
 page.fluidtemplate

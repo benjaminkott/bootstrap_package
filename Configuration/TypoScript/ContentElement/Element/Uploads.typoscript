@@ -1,0 +1,27 @@
+########################
+#### CTYPE: UPLOADS ####
+########################
+
+tt_content.uploads >
+tt_content.uploads =< lib.contentElement
+tt_content.uploads {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Uploads
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = media
+            collections.field = file_collections
+            sorting.field = filelink_sorting
+            sorting.direction.field = filelink_sorting_direction
+        }
+    }
+
+}

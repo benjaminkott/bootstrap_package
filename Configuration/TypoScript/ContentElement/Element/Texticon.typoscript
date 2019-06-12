@@ -1,0 +1,38 @@
+###########################################
+#### CTYPE: BOOTSTRAP PACKAGE TEXTICON ####
+###########################################
+
+tt_content.texticon >
+tt_content.texticon =< lib.contentElement
+tt_content.texticon {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Texticon
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = icon_file
+            as = icon
+            if {
+                isFalse.field = icon_set
+            }
+        }
+        20 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+        20 {
+            files {
+                0.field = icon
+            }
+            as = icon
+            if {
+                isTrue.field = icon_set
+            }
+        }
+    }
+
+}
