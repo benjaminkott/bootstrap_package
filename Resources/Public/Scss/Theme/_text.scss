@@ -4,26 +4,37 @@
 @each $breakpoint in map-keys($headline-scaling) {
     @include media-breakpoint-up($breakpoint) {
         $scaling: map-get($headline-scaling, $breakpoint);
-        h1, .h1 { font-size: $h1-font-size * $scaling }
-        h2, .h2 { font-size: $h2-font-size * $scaling }
-        h3, .h3 { font-size: $h3-font-size * $scaling }
-        h4, .h4 { font-size: $h4-font-size * $scaling }
-        h5, .h5 { font-size: $h5-font-size * $scaling }
-        h6, .h6 { font-size: $h6-font-size * $scaling }
+        h1,
+        .h1 { font-size: $h1-font-size * $scaling; }
+        h2,
+        .h2 { font-size: $h2-font-size * $scaling; }
+        h3,
+        .h3 { font-size: $h3-font-size * $scaling; }
+        h4,
+        .h4 { font-size: $h4-font-size * $scaling; }
+        h5,
+        .h5 { font-size: $h5-font-size * $scaling; }
+        h6,
+        .h6 { font-size: $h6-font-size * $scaling; }
     }
 }
 @each $breakpoint in map-keys($headline-awesome-scaling) {
     @include media-breakpoint-up($breakpoint) {
         $scaling: map-get($headline-awesome-scaling, $breakpoint);
-        h1.awesome, .h1.awesome { font-size: $h1-font-size * $scaling }
-        h2.awesome, .h2.awesome { font-size: $h2-font-size * $scaling }
-        h3.awesome, .h3.awesome { font-size: $h3-font-size * $scaling }
-        h4.awesome, .h4.awesome { font-size: $h4-font-size * $scaling }
-        h5.awesome, .h5.awesome { font-size: $h5-font-size * $scaling }
-        h6.awesome, .h6.awesome { font-size: $h6-font-size * $scaling }
+        h1.awesome,
+        .h1.awesome { font-size: $h1-font-size * $scaling; }
+        h2.awesome,
+        .h2.awesome { font-size: $h2-font-size * $scaling; }
+        h3.awesome,
+        .h3.awesome { font-size: $h3-font-size * $scaling; }
+        h4.awesome,
+        .h4.awesome { font-size: $h4-font-size * $scaling; }
+        h5.awesome,
+        .h5.awesome { font-size: $h5-font-size * $scaling; }
+        h6.awesome,
+        .h6.awesome { font-size: $h6-font-size * $scaling; }
     }
 }
-
 
 //
 // Columns
@@ -48,7 +59,6 @@
         column-gap: $grid-gutter-width;
     }
 }
-
 
 //
 // Indent

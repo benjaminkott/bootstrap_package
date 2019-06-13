@@ -79,6 +79,13 @@ module.exports = function(grunt) {
             js: '<%= paths.resources %>Public/JavaScript/',
             contrib: '<%= paths.resources %>Public/Contrib/'
         },
+        stylelint: {
+            options: {
+                configFile: '<%= paths.root %>.stylelintrc',
+                fix: true,
+            },
+            sass: ['<%= paths.sass %>**/*.scss'],
+        },
         rebase: {
             bootstrap4: {
                 options: {
@@ -504,6 +511,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-stylelint');
     grunt.loadNpmTasks('grunt-webfont');
 
     /**
@@ -514,6 +522,7 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
+    grunt.registerTask('lint', ['stylelint']);
     grunt.registerTask('build', ['update', 'css', 'js', 'image', 'webfont']);
     grunt.registerTask('default', ['build']);
 

@@ -3,10 +3,10 @@
 //
 .scroll-top {
     overflow: hidden;
-    @include transition(all 0.3s ease-in-out);
+    @include transition(all .3s ease-in-out);
     z-index: $zindex-sticky;
     background-color: $gray-700;
-    color: #fff;
+    color: #ffffff;
     bottom: ($grid-gutter-width / 2);
     right: ($grid-gutter-width / 2);
     position: fixed;
@@ -26,7 +26,6 @@
         opacity: 1;
     }
 }
-
 .css-arrow {
     transform: rotate(45deg);
     position: absolute;

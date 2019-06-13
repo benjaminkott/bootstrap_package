@@ -2,7 +2,6 @@
 // Timeline
 //
 
-
 //
 // Variables
 //
@@ -10,10 +9,10 @@ $timeline-item-spacing: 1.5rem !default;
 $timeline-item-padding: 1.5rem !default;
 $timeline-item-border: 1px solid currentColor !default;
 $timeline-item-border-radius: 0 !default;
-$timeline-item-shadow: 0 1px 0 0 rgba(0,0,0,0.15) !default;
+$timeline-item-shadow: 0 1px 0 0 rgba(0, 0, 0, .15) !default;
 $timeline-item-headline-color: $primary !default;
 $timeline-item-headline-size: 1.5rem !default;
-$timeline-item-date-size: 0.8rem !default;
+$timeline-item-date-size: .8rem !default;
 $timeline-item-color: $body-color !default;
 $timeline-item-bg: #ffffff !default;
 $timeline-item-caption-bg: #f2f2f2 !default;
@@ -24,7 +23,7 @@ $timeline-icon-size: 46px !default;
 $timeline-icon-space: 10px !default;
 $timeline-icon-border: 3px solid currentColor !default;
 $timeline-icon-border-radius: 50% !default;
-$timeline-icon-border-opacity: 0.25 !default;
+$timeline-icon-border-opacity: .25 !default;
 
 $timeline-marker-size: 16px !default;
 $timeline-marker-bg: $timeline-icon-bg !default;
@@ -33,7 +32,7 @@ $timeline-marker-border-radius: $timeline-icon-border-radius !default;
 $timeline-marker-border-opacity: $timeline-icon-border-opacity !default;
 
 $timeline-path-border: 2px dashed currentColor !default;
-$timeline-path-opacity: 0.25 !default;
+$timeline-path-opacity: .25 !default;
 
 //
 // Component
@@ -91,7 +90,7 @@ $timeline-path-opacity: 0.25 !default;
         position: absolute;
     }
     &:before {
-        opacity: $timeline-marker-border-opacity
+        opacity: $timeline-marker-border-opacity;
     }
     &:after {
         background-color: $timeline-marker-bg;
@@ -135,17 +134,15 @@ $timeline-path-opacity: 0.25 !default;
     }
 }
 .timeline-item-image {
-    margin-top: -$timeline-item-padding;
-    margin-left: -$timeline-item-padding;
-    margin-right: -$timeline-item-padding;
+    margin: -$timeline-item-padding;
     margin-bottom: $timeline-item-padding;
     img {
         width: 100%;
         height: auto;
     }
     .caption {
-        font-size: 0.8em;
-        padding: 0.5rem $timeline-item-padding;
+        font-size: .8em;
+        padding: .5rem $timeline-item-padding;
         color: color-yiq($timeline-item-caption-bg);
         background-color: $timeline-item-caption-bg;
     }
@@ -168,7 +165,6 @@ $timeline-path-opacity: 0.25 !default;
     font-size: $timeline-item-date-size;
     text-transform: uppercase;
 }
-
 
 //
 // Small

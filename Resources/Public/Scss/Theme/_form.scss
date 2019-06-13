@@ -74,7 +74,7 @@
     appearance: none;
 }
 .custom-file-input ~ .custom-file-label[data-browse-label]:after {
-    content: attr(data-browse-label) ;
+    content: attr(data-browse-label);
 }
 
 //
@@ -115,7 +115,7 @@
         flex-grow: 1;
     }
     p {
-        size: 0.8em;
+        size: .8em;
         color: $primary;
     }
     @include media-breakpoint-up('sm') {

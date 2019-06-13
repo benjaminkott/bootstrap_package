@@ -20,12 +20,12 @@
 }
 @include media-breakpoint-up('md') {
     .textteaser-teaser {
-        width: calc(100% / 12  * 4);
+        width: calc(100% / 12 * 4);
         > *:last-child {
             margin-bottom: 0;
         }
     }
     .textteaser-text {
-        width: calc(100% / 12  * 8);
+        width: calc(100% / 12 * 8);
     }
 }

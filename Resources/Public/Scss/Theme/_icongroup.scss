@@ -14,9 +14,8 @@ $icongroup-item-width: 50% !default;
 //
 .icongroup {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin: -$icongroup-margin!important;
+    margin: -$icongroup-margin !important;
 }
 
 // Alignment
@@ -33,7 +32,6 @@ $icongroup-item-width: 50% !default;
 // Items
 .icongroup-item {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     margin: $icongroup-margin;
@@ -54,7 +52,7 @@ $icongroup-item-width: 50% !default;
 }
 .icongroup-item-text-header {
     font-size: 1.25em;
-    margin-bottom: 0.15em;
+    margin-bottom: .15em;
 }
 .icongroup-item-text-subheader {
     font-size: 1em;
