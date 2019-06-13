@@ -5,7 +5,7 @@
     <f:if condition="{files}">
         <ul class="media-list">
             <f:for each="{files}" as="file">
-                <f:if condition="{file.properties.type} == 3">
+                <f:if condition="{file -> bk2k:file.isAudio()}">
                     <li class="media">
                         <div class="media-body">
                             <h4 class="media-heading">

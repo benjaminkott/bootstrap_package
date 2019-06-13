@@ -1,12 +1,12 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:switch expression="{file.properties.type}">
-    <f:case value="2">
+<f:switch expression="1">
+    <f:case value="{file -> bk2k:file.isImage()}">
         <f:render partial="Media/Type/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
     </f:case>
-    <f:case value="3">
+    <f:case value="{file -> bk2k:file.isAudio()}">
         <f:render partial="Media/Type/Audio" arguments="{file: file, data: data, settings: settings}" />
     </f:case>
-    <f:case value="4">
+    <f:case value="{file -> bk2k:file.isMedia()}">
         <f:render partial="Media/Type/Video" arguments="{file: file, data: data, settings: settings}" />
     </f:case>
     <f:defaultCase>
