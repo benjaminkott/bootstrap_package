@@ -54,7 +54,7 @@ jobs:
 
     - stage: deploy
       sudo: true
-      if: branch = master AND fork = false
+      if: branch = master AND fork = false AND type = push
       addons:
         ssh_known_hosts:
           - 185.215.157.217
