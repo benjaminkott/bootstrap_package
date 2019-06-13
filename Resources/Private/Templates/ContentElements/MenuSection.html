@@ -4,20 +4,36 @@
 
     <f:if condition="{menu}">
         <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
+        <f:if condition="{menu -> f:count()} > 1">
+            <f:then>
+                <ul>
+                    <f:for each="{menu}" as="page">
+                        <li>
+                            <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}">{page.title}</a>
+                            <f:render section="Menu" arguments="{page: page}" />
+                        </li>
+                    </f:for>
+                </ul>
+            </f:then>
+            <f:else>
+                <f:for each="{menu}" as="page">
+                    <f:render section="Menu" arguments="{page: page}" />
+                </f:for>
+            </f:else>
+        </f:if>
+    </f:if>
+
+</f:section>
+<f:section name="Menu">
+
+    <f:if condition="{page.content}">
         <ul>
-            <f:for each="{menu}" as="page">
-                <li>
-                    <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}">{page.title}</a>
-                    <f:if condition="{page.content}">
-                        <ul>
-                            <f:for each="{page.content}" as="element">
-                                <li>
-                                    <a href="{page.link}#c{element.data.uid}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{element.data.header}">{element.data.header}</a>
-                                </li>
-                            </f:for>
-                        </ul>
-                    </f:if>
-                </li>
+            <f:for each="{page.content}" as="element">
+                <f:if condition="{element.data.header}">
+                    <li>
+                        <a href="{page.link}#c{element.data.uid}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{element.data.subheader}">{element.data.header}</a>
+                    </li>
+                </f:if>
             </f:for>
         </ul>
     </f:if>
