@@ -7,7 +7,7 @@
             <f:for each="{files}" as="file" iteration="fileIterator">
                 <li class="media">
                     <f:if condition="{data.uploads_type} == 2">
-                        <f:if condition="{file.type} == 2 || {file.type} == 4">
+                        <f:if condition="{file -> bk2k:file.isImage()} || {file -> bk2k:file.isMedia()}">
                             <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                                 <div class="media-left">
                                     <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
