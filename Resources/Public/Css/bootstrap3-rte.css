@@ -10458,6 +10458,13 @@ body .typo3-editPanel-btn:hover,
     width: 100%;
   }
 }
+.card a:not(.btn) {
+  color: #4faf98;
+}
+.card a:not(.btn):hover,
+.card a:not(.btn):focus {
+  color: #377a6a;
+}
 .card-img-top {
   overflow: hidden;
 }
@@ -10489,9 +10496,6 @@ body .typo3-editPanel-btn:hover,
 .card-menu .card-subtitle {
   font-size: 1.25em;
   margin-bottom: 0.75em;
-}
-.card-menu .card-link {
-  color: #4faf98;
 }
 .card-menu-item {
   width: 100%;

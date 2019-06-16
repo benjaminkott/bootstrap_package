@@ -1,8 +1,22 @@
 //
+// Variables
+//
+$card-title-size:  1.35rem !default;
+$card-subtitle-size: 1.25rem !default;
+$card-link-color: $link-color !default;
+$card-link-hover-color: $link-hover-color !default;
+
+//
 // Card
 //
 .card {
     color: color-yiq($card-bg);
+    a:not(.btn) {
+        color: $card-link-color;
+        @include hover {
+          color: $card-link-hover-color;
+        }
+    }
 }
 .card-img-top {
     overflow: hidden;
@@ -27,6 +41,7 @@
 //
 .card-menu {
     margin: -$card-deck-margin;
+    margin-bottom: -$card-deck-margin !important;
     display: flex;
     flex-wrap: wrap;
     .card {
@@ -36,14 +51,11 @@
         margin-bottom: 0.5rem;
     }
     .card-title {
-        font-size: 1.35rem;
+        font-size: $card-title-size;
     }
     .card-subtitle {
-        font-size: 1.25rem;
+        font-size: $card-subtitle-size;
         margin-bottom: $card-spacer-y;
-    }
-    .card-link {
-        color: $link-color;
     }
 }
 .card-menu-item {
@@ -90,6 +102,7 @@
 //
 .card-group-element {
     margin: -$card-deck-margin;
+    margin-bottom: -$card-deck-margin !important;
     display: flex;
     flex-wrap: wrap;
 }
@@ -100,10 +113,10 @@
         height: 100%;
     }
     .card-title {
-        font-size: 1.35rem;
+        font-size: $card-title-size;
     }
     .card-subtitle {
-        font-size: 1.25rem;
+        font-size: $card-subtitle-size;
         margin-bottom: $card-spacer-y;
     }
     .card-footer {

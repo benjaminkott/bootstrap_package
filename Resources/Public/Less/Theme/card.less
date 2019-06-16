@@ -16,6 +16,10 @@
 @card-columns-gap:                  1.25em;
 @card-columns-margin:               @card-spacer-y;
 
+@card-title-size:  1.35em;
+@card-subtitle-size: 1.25em;
+@card-link-color: @link-color;
+@card-link-hover-color: @link-hover-color;
 
 // Component
 .card {
@@ -211,6 +215,15 @@
 //
 // Card
 //
+.card {
+    a:not(.btn) {
+        color: @card-link-color;
+        &:hover,
+        &:focus {
+          color: @card-link-hover-color;
+        }
+    }
+}
 .card-img-top {
     overflow: hidden;
     picture,
@@ -243,14 +256,11 @@
         margin-bottom: 0.5em;
     }
     .card-title {
-        font-size: 1.35em;
+        font-size: @card-title-size;
     }
     .card-subtitle {
-        font-size: 1.25em;
+        font-size: @card-subtitle-size;
         margin-bottom: @card-spacer-y;
-    }
-    .card-link {
-        color: @link-color;
     }
 }
 .card-menu-item {
@@ -307,10 +317,10 @@
         height: 100%;
     }
     .card-title {
-        font-size: 1.35em;
+        font-size: @card-title-size;
     }
     .card-subtitle {
-        font-size: 1.25em;
+        font-size: @card-subtitle-size;
         margin-bottom: @card-spacer-y;
     }
     .card-footer {
