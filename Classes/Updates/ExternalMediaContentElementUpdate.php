@@ -14,12 +14,13 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * ExternalMediaContentElementUpdate
  */
-class ExternalMediaContentElementUpdate implements UpgradeWizardInterface
+class ExternalMediaContentElementUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
      * @return string
