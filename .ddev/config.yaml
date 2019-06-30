@@ -1,4 +1,4 @@
-APIVersion: v1.8.0
+APIVersion: v1.9.1
 name: bootstrap-package
 type: typo3
 docroot: .build/web
@@ -12,13 +12,15 @@ additional_fqdns: []
 mariadb_version: "10.2"
 nfs_mount_enabled: false
 provider: default
+use_dns_when_possible: true
+timezone: ""
 
 
-# This config.yaml was created with ddev version v1.8.0
-# webimage: drud/ddev-webserver:v1.8.0
-# dbimage: drud/ddev-dbserver:v1.8.0-10.2
-# dbaimage: drud/phpmyadmin:v1.8.0
-# bgsyncimage: drud/ddev-bgsync:v1.8.0
+# This config.yaml was created with ddev version v1.9.1
+# webimage: drud/ddev-webserver:v1.9.0
+# dbimage: drud/ddev-dbserver:v1.9.0-10.2
+# dbaimage: drud/phpmyadmin:v1.9.0
+# bgsyncimage: drud/ddev-bgsync:v1.9.0
 # However we do not recommend explicitly wiring these images into the
 # config.yaml as they may break future versions of ddev.
 # You can update this config.yaml using 'ddev config'.
@@ -26,7 +28,7 @@ provider: default
 # Key features of ddev's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
-#   http://projectname.ddev.local and https://projectname.ddev.local
+#   http://projectname.ddev.site and https://projectname.ddev.site
 
 # type: <projecttype>  # drupal6/7/8, backdrop, typo3, wordpress, php
 
@@ -53,8 +55,8 @@ provider: default
 # additional_hostnames:
 #  - somename
 #  - someothername
-# would provide http and https URLs for "somename.ddev.local"
-# and "someothername.ddev.local".
+# would provide http and https URLs for "somename.ddev.site"
+# and "someothername.ddev.site".
 
 # additional_fqdns:
 #  - example.com
@@ -102,6 +104,12 @@ provider: default
 # The host port binding for the ddev-dbserver can be explicitly specified. It is dynamic
 # unless explicitly specified.
 
+# phpmyadmin_port: "1000"
+# The PHPMyAdmin port can be changed from the default 8036
+
+# mailhog_port: "1001"
+# The MailHog port can be changed from the default 8025
+
 # webimage_extra_packages: [php-yaml, php7.3-ldap]
 # Extra Debian packages that are needed in the webimage can be added here
 # This is ignored if a free-form .ddev/web-build/Dockerfile is provided
@@ -110,10 +118,26 @@ provider: default
 # Extra Debian packages that are needed in the dbimage can be added here
 # This is ignored if a free-form .ddev/db-build/Dockerfile is provided
 
+# use_dns_when_possible: true
+# If the host has internet access and the domain configured can
+# successfully be looked up, DNS will be used for hostname resolution
+# instead of editing /etc/hosts
+# Defaults to true
+
+# project_tld: ddev.site
+# The top-level domain used for project URLs
+# The default "ddev.site" allows DNS lookup via a wildcard
+# For backward compatibility this can be changed to "ddev.local"
+
+# ngrok_args: --subdomain mysite --auth "user:pass"
+# Provide extra flags to the "ngrok http" command, see
+# https://ngrok.com/docs#http or run "ngrok http -h"
+
 # provider: default # Currently either "default" or "pantheon"
 #
-# Many ddev commands can be extended to run tasks after the ddev command is
-# executed.
+# Many ddev commands can be extended to run tasks before or after the
+# ddev command is executed, for example "post-start", "post-import-db",
+# "pre-composer", "post-composer"
 # See https://ddev.readthedocs.io/en/stable/users/extending-commands/ for more
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
