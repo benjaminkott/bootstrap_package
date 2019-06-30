@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TabContentElementUpdate
  */
-class TabContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TabContentElementUpdate extends ForcedUpdate
 {
     /**
      * @var string

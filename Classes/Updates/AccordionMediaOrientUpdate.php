@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * AccordionMediaOrientUpdate
  */
-class AccordionMediaOrientUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class AccordionMediaOrientUpdate extends ForcedUpdate
 {
     /**
      * @var string

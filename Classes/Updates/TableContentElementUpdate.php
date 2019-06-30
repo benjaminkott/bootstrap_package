@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TableContentElementUpdate
  */
-class TableContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TableContentElementUpdate extends ForcedUpdate
 {
     /**
      * @var string

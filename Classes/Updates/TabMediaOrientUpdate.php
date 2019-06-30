@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TabMediaOrientUpdate
  */
-class TabMediaOrientUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TabMediaOrientUpdate extends ForcedUpdate
 {
     /**
      * @var string

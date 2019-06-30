@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * BackendLayoutUpdate
  */
-class BackendLayoutUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class BackendLayoutUpdate extends ForcedUpdate
 {
     /**
      * @var string

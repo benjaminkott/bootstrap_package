@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TexticonSizeUpdate
  */
-class TexticonSizeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TexticonSizeUpdate extends ForcedUpdate
 {
     /**
      * @var string
