@@ -10,7 +10,7 @@
   "devDependencies": {
     "bootstrap": "^4.3.1",
     "bootstrap3": "github:twbs/bootstrap#3.4.0",
-    "cookieconsent": "^3.1.0",
+    "cookieconsent": "^3.1.1",
     "grunt": "^1.0.3",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
