@@ -318,9 +318,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-"bootstrap3@github:twbs/bootstrap#3.4.0":
-  version "3.4.0"
-  resolved "https://codeload.github.com/twbs/bootstrap/tar.gz/4c547f2175b9a05aa43551f6927da83fe249ce42"
+"bootstrap3@github:twbs/bootstrap#3.4.1":
+  version "3.4.1"
+  resolved "https://codeload.github.com/twbs/bootstrap/tar.gz/68b0d231a13201eb14acd3dc84e51543d16e5f7e"
 
 bootstrap@^4.3.1:
   version "4.3.1"
