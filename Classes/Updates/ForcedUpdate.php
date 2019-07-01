@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * Forces inherited classes to be executed on every update request and ignores
  * the registry state therefor.
  */
-class ForcedUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+abstract class ForcedUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
 {
     /**
      * Constructor
