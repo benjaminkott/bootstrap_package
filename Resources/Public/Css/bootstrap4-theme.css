@@ -12684,6 +12684,8 @@ figure .caption {
 }
 
 .icongroup-iconposition-right-top .icongroup-item-icon {
+  margin-left: 20px;
+  margin-right: 0;
   order: 1;
 }
 
@@ -12692,6 +12694,8 @@ figure .caption {
 }
 
 .icongroup-iconposition-right-center .icongroup-item-icon {
+  margin-left: 20px;
+  margin-right: 0;
   order: 1;
 }
 
@@ -12743,6 +12747,10 @@ figure .caption {
 
 .icongroup-item-text {
   flex-grow: 1;
+}
+
+.icongroup-item-text > *:last-child {
+  margin-bottom: 0;
 }
 
 .icongroup-item-text-header {

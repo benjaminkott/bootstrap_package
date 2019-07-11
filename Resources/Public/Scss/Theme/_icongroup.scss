@@ -105,6 +105,9 @@ $icongroup-item-width: 50% !default;
 }
 .icongroup-item-text {
     flex-grow: 1;
+    > *:last-child {
+        margin-bottom: 0;
+    }
 }
 .icongroup-item-text-header {
     font-size: 1.25em;
