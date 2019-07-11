@@ -12671,6 +12671,55 @@ figure .caption {
   justify-content: flex-end;
 }
 
+.icongroup-iconposition-left-top .icongroup-item {
+  align-items: flex-start;
+}
+
+.icongroup-iconposition-left-center .icongroup-item {
+  align-items: center;
+}
+
+.icongroup-iconposition-right-top .icongroup-item {
+  align-items: flex-start;
+}
+
+.icongroup-iconposition-right-top .icongroup-item-icon {
+  order: 1;
+}
+
+.icongroup-iconposition-right-center .icongroup-item {
+  align-items: center;
+}
+
+.icongroup-iconposition-right-center .icongroup-item-icon {
+  order: 1;
+}
+
+.icongroup-iconposition-above .icongroup-item,
+.icongroup-iconposition-below .icongroup-item {
+  flex-wrap: wrap;
+}
+
+.icongroup-iconposition-above .icongroup-item-text,
+.icongroup-iconposition-below .icongroup-item-text {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.icongroup-iconposition-above .icongroup-item-icon,
+.icongroup-iconposition-below .icongroup-item-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icongroup-iconposition-below .icongroup-item-text {
+  margin-bottom: 20px;
+}
+
+.icongroup-iconposition-below .icongroup-item-icon {
+  order: 1;
+}
+
 .icongroup-item {
   display: flex;
   flex-direction: row;
@@ -12703,7 +12752,6 @@ figure .caption {
 
 .icongroup-item-text-subheader {
   font-size: 1em;
-  margin-bottom: 0;
 }
 
 .icongroup-columns-auto .icongroup-item {

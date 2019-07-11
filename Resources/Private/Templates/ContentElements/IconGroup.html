@@ -3,7 +3,7 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <div class="icongroup icongroup-align-{data.pi_flexform.align} icongroup-columns-{data.pi_flexform.columns}">
+        <div class="icongroup icongroup-align-{data.pi_flexform.align} icongroup-columns-{data.pi_flexform.columns} icongroup-iconposition-{data.pi_flexform.icon_position}">
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="icongroup-item">
                     <f:if condition="{item.iconFile.0}">
@@ -19,6 +19,9 @@
                         </h4>
                         <f:if condition="{item.data.subheader}">
                             <p class="icongroup-item-text-subheader">{item.data.subheader}</p>
+                        </f:if>
+                        <f:if condition="{item.data.bodytext}">
+                            <f:format.html>{item.data.bodytext}</f:format.html>
                         </f:if>
                     </div>
                 </div>

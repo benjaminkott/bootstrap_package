@@ -382,6 +382,27 @@
             <trans-unit id="content_element.icon_group.align.right">
                 <source>Right</source>
             </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position">
+                <source>Icon Position</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.left-top">
+                <source>Left: Top</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.left-center">
+                <source>Left: Center</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.right-top">
+                <source>Right: Top</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.right-center">
+                <source>Right: Center</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.above">
+                <source>Above</source>
+            </trans-unit>
+            <trans-unit id="content_element.icon_group.icon_position.below">
+                <source>Below</source>
+            </trans-unit>
 
             <trans-unit id="content_element.listgroup">
                 <source>List Group</source>
@@ -674,6 +695,9 @@
             </trans-unit>
             <trans-unit id="icon_group_item.subheader">
                 <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="icon_group_item.bodytext">
+                <source>Text</source>
             </trans-unit>
             <trans-unit id="icon_group_item.link">
                 <source>Link</source>
