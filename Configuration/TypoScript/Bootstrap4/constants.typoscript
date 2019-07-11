@@ -621,7 +621,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 4.x: styling/312/custom-select-indicator; type=string; label=$custom-select-indicator:
             custom-select-indicator = str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e"), "#", "%23")
             # cat=bootstrap 4.x: styling/312/custom-select-background; type=string; label=$custom-select-background:
-            custom-select-background = $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size !default; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
+            custom-select-background = $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
             # cat=bootstrap 4.x: styling/312/custom-select-feedback-icon-padding-right; type=string; label=$custom-select-feedback-icon-padding-right:
             custom-select-feedback-icon-padding-right = calc((1em + #{2 * $custom-select-padding-y}) * 3 / 4 + #{$custom-select-padding-x + $custom-select-indicator-padding})
             # cat=bootstrap 4.x: styling/312/custom-select-feedback-icon-position; type=string; label=$custom-select-feedback-icon-position:
