@@ -10491,6 +10491,14 @@ body .typo3-editPanel-btn:hover,
   font-size: 1.25em;
   margin-bottom: 0.75em;
 }
+.card-menu .card-footer {
+  border-top: 0;
+  padding: 1.5em;
+  background-color: transparent;
+}
+.card-menu .card-body + .card-footer {
+  padding-top: 0;
+}
 .card-menu-item {
   width: 100%;
   padding: 10px;
@@ -10547,6 +10555,9 @@ body .typo3-editPanel-btn:hover,
   border-top: 0;
   padding: 1.5em;
   background-color: transparent;
+}
+.card-group-element-item .card-body + .card-footer {
+  padding-top: 0;
 }
 .card-group-element-align-left {
   justify-content: flex-start;

@@ -57,6 +57,14 @@ $card-link-hover-color: $link-hover-color !default;
         font-size: $card-subtitle-size;
         margin-bottom: $card-spacer-y;
     }
+    .card-footer {
+        border-top: 0;
+        padding: $card-spacer-x;
+        background-color: transparent;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
+    }
 }
 .card-menu-item {
     width: 100%;
@@ -123,6 +131,9 @@ $card-link-hover-color: $link-hover-color !default;
         border-top: 0;
         padding: $card-spacer-x;
         background-color: transparent;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
     }
 }
 .card-group-element-align-left {

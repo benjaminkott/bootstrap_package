@@ -10202,6 +10202,16 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 1rem;
 }
 
+.card-menu .card-footer {
+  border-top: 0;
+  padding: 1.5rem;
+  background-color: transparent;
+}
+
+.card-menu .card-body + .card-footer {
+  padding-top: 0;
+}
+
 .card-menu-item {
   width: 100%;
   padding: 10px;
@@ -10272,6 +10282,10 @@ a.text-dark:hover, a.text-dark:focus {
   border-top: 0;
   padding: 1.5rem;
   background-color: transparent;
+}
+
+.card-group-element-item .card-body + .card-footer {
+  padding-top: 0;
 }
 
 .card-group-element-align-left {
