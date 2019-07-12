@@ -50,7 +50,7 @@
                                                 <bk2k:inlineSvg image="{item.icon.0}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
                                             </f:then>
                                             <f:else>
-                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
+                                                <f:image additionalAttributes="{loading: 'lazy'}" image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
                                             </f:else>
                                         </f:if>
                                     </span>
@@ -74,7 +74,7 @@
                                                                         <bk2k:inlineSvg image="{child.icon.0}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
                                                                     </f:then>
                                                                     <f:else>
-                                                                        <f:image image="{child.icon.0}" alt="{child.icon.0.alternative}" title="{child.icon.0.title}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
+                                                                        <f:image additionalAttributes="{loading: 'lazy'}" image="{child.icon.0}" alt="{child.icon.0.alternative}" title="{child.icon.0.title}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
                                                                     </f:else>
                                                                 </f:if>
                                                             </span>

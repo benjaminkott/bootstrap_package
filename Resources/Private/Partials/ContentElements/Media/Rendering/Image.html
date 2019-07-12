@@ -16,6 +16,6 @@
             <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">
         </f:if>
     </f:for>
-    <img src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.properties.title}" alt="{file.properties.alternative}">
+    <img loading="lazy" src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" title="{file.properties.title}" alt="{file.properties.alternative}">
 </picture>
 </html>
