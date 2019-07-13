@@ -37,7 +37,8 @@
         "typo3/cms-fluid": "^8.7.0 || ^9.0",
         "typo3/cms-frontend": "^8.7.0 || ^9.0",
         "typo3/cms-install": "^8.7.0 || ^9.0",
-        "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0"
+        "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0",
+        "scssphp/scssphp": "^1.0.2"
     },
     "require-dev": {
         "typo3/cms-felogin": "^8.7.0 || ^9.0",
