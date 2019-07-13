@@ -28,7 +28,7 @@ $thumbnail-menu-margin: 5px !default;
 .thumbnail-menu-link,
 .thumbnail-menu-link:hover,
 .thumbnail-menu-link:focus {
-    color: color-yiq($primary)
+    color: color-yiq($primary);
 }
 .thumbnail-menu-image {
     overflow: hidden;
@@ -50,12 +50,11 @@ $thumbnail-menu-margin: 5px !default;
     height: 100%;
     width: 100%;
     opacity: 0;
-    background-color: rgba($primary, 0.75);
+    background-color: rgba($primary, .75);
 }
 .thumbnail-menu-caption-inner {
     padding: 1.5em;
     text-align: center;
-
     > *:first-child {
         margin-top: 0;
     }
@@ -65,7 +64,7 @@ $thumbnail-menu-margin: 5px !default;
 }
 .thumbnail-menu-caption-title {
     font-size: 1.25em;
-    margin-bottom: 0.25em;
+    margin-bottom: .25em;
     font-weight: bold;
     opacity: 0;
 }
@@ -75,18 +74,18 @@ $thumbnail-menu-margin: 5px !default;
 }
 .thumbnail-menu-link {
     .thumbnail-menu-caption {
-        transition: opacity 0.25s ease-in-out;
+        transition: opacity .25s ease-in-out;
     }
     .thumbnail-menu-image {
         picture,
         img {
-            transition: filter 0.25s ease-in-out;
+            transition: filter .25s ease-in-out;
         }
     }
     .thumbnail-menu-caption-title,
     .thumbnail-menu-caption-subtitle {
-        transition: opacity 0.25s ease-in-out;
-        transition-delay: 0.25s;
+        transition: opacity .25s ease-in-out;
+        transition-delay: .25s;
     }
     &:hover,
     &:focus {
