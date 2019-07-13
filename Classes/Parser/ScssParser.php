@@ -9,9 +9,9 @@
 
 namespace BK2K\BootstrapPackage\Parser;
 
-use Leafo\ScssPhp\Compiler;
-use Leafo\ScssPhp\Formatter\Crunched;
-use Leafo\ScssPhp\Version;
+use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\Formatter\Crunched;
+use ScssPhp\ScssPhp\Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -25,7 +25,7 @@ class ScssParser extends AbstractParser
      */
     public function __construct()
     {
-        if (!class_exists('Leafo\ScssPhp\Version', false)) {
+        if (!class_exists('ScssPhp\ScssPhp\Version', false)) {
             require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/scssphp/scss.inc.php';
         }
     }

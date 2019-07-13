@@ -123,7 +123,7 @@ Slack
 You can connect directly with us on `Slack <https://typo3.slack.com/messages/bootstrap-package/>`_, the
 preferred instant communication platform of TYPO3 CMS developers. If you already have access to the
 TYPO3 Slack platform join the #bootstrap-package channel. If you don't have access yet, you can
-register `here <https://forger.typo3.org/slack>`_.
+register `here <https://my.typo3.org/about-mytypo3org/slack>`_.
 
 Twitter
 -------

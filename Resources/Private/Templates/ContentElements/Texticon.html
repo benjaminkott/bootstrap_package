@@ -20,7 +20,7 @@
                             <bk2k:inlineSvg image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
                         </f:then>
                         <f:else>
-                            <f:image image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
+                            <f:image additionalAttributes="{loading: 'lazy'}" image="{icon.0}" height="{iconHeight as integer}" width="{iconWidth as integer}"/>
                         </f:else>
                     </f:if>
                 </span>
