@@ -87,8 +87,8 @@
     },
     "extra": {
         "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": ".build/web"
+            "web-dir": ".build/web",
+            "app-dir": ".build"
         },
         "branch-alias": {
             "dev-master": "11.0.x-dev"

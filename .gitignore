@@ -3,5 +3,3 @@ Build/node_modules/*
 composer.lock
 .php_cs.cache
 nbproject
-config
-var
