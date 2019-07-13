@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{theme.breadcrumb.enable}">
     <f:if condition="{breadcrumb}">
-        <nav class="breadcrumb-section" aria-label="breadcrumb">
+        <nav class="breadcrumb-section" aria-label="{f:translate(key: 'breadcrumb.label', extensionName: 'bootstrap_package')}">
             <div class="container">
                 <p class="sr-only" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
