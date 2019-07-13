@@ -73,7 +73,6 @@ page {
                 stdWrap {
                     typolink {
                         parameter.data = field:uid
-                        useCacheHash = 1
                         returnLast = url
                     }
                 }
