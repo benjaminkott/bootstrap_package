@@ -13,12 +13,13 @@ namespace BK2K\BootstrapPackage\Updates;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * FrameClassUpdate
  */
-class FrameClassUpdate implements UpgradeWizardInterface
+class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
      * @return string

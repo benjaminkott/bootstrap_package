@@ -14,12 +14,13 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * TexticonIconUpdate
  */
-class TexticonIconUpdate implements UpgradeWizardInterface
+class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
      * @var string
