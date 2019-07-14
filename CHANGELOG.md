@@ -1,3 +1,34 @@
+# 10.0.7
+
+## FEATURE
+- [FEATURE] Allow processing of configured file types (#709) abe71e74
+
+## TASK
+- [TASK] Bumb bootstrap3 to 3.4.1 f305b768
+- [TASK] Bumb popperjs to 1.15.0 9e59584b
+- [TASK] Bumb cookieconsent to 3.1.1 6de2c36b
+- [TASK] Bumb jQuery to 3.4.1 c539c675
+- [TASK] Update ddev to 1.9.1 b0b54d8c
+- [TASK] Update ddev to 1.8.0 ad0c0868
+- [TASK] Update ddev to 1.7.1 814eb033
+- [TASK] Remove obsolete release scripts 414570f5
+
+## BUGFIX
+- [BUGFIX] Make UpgradeWizards repeatable (#721) 7a7b6853
+- [BUGFIX] Add missing aria-label translations for breadcrumb and nav toggle 5306cd8f
+- [BUGFIX] Correct false typoscript default for 'custom-select-indicator' (#724) e662a4cd
+- [BUGFIX] Avoid spooky random fluid compilation errors 1ca80a0b
+- [BUGFIX] Avoid card-header link color inheritance 13009297
+- [BUGFIX] Add remove obsolete comma a5b67089
+- [BUGFIX] Add missing default parameter for icongroup dbf32f06
+- [BUGFIX] Add fontloader css and js only to header if content exists - fixes #703 b797b1f6
+- [BUGFIX] Make cookieconsent variables overwriteable - fixes #704 80668dfa
+- [BUGFIX] Add missing description field to timeline images 05fa1997
+- [BUGFIX] Correct icon placement in navbar 4ba56af7
+- [BUGFIX] Correct variable spelling error and set variables of timeline to default 25e13b2c
+- [BUGFIX] Respect target option for title link in card-group 8d0e5fbe
+- [BUGFIX] Respect target option for links in card-group 25412566
+
 # 10.0.6
 
 ## FEATURE
