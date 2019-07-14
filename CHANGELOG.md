@@ -1,3 +1,196 @@
+# 11.0.0
+
+## BREAKING
+- [!!!][TASK] Drop seo related meta tag settings 1dc73ff4
+- [!!!][TASK] Section Menu hides single page header and empty entries (#707) b47e8480
+- [!!!][FEATURE] Make timeline more flexible e4a6434d
+- [!!!][FEATURE] Enable time settings for timeline 0f449765
+- [!!!][TASK] Drop jquery dependency from cookie consent wrapper 207de1cf
+- [!!!][TASK] Drop data relation viewhelper a18c46d4
+- [!!!][TASK] Remove fallback for extension configuration d3fcd7d3
+- [!!!][TASK] Drop automatic language menu polyfill 6989ed65
+
+## FEATURE
+- [FEATURE] Introduce text carousel item 2a7e5299
+- [FEATURE] Enable rich text editor for call to action carousel item 3049b345
+- [FEATURE] Make media renderer options configurable 76d883a4
+- [FEATURE] Make header display date format configurable 04225dc1
+- [FEATURE] Add make icon position in icongroup configurable d05ca34f
+- [FEATURE] Allow processing of configured file types (#709) 77549d30
+- [!!!][FEATURE] Make timeline more flexible e4a6434d
+- [FEATURE] Make icon spacing configurable in timeline 57c71ddc
+- [FEATURE] Add variables to configure timeline headline and date size 0039dc64
+- [!!!][FEATURE] Enable time settings for timeline 0f449765
+- [FEATURE] Add support for highres images (#678) b8f7d912
+- [FEATURE] Support class attribute in inline svg viewhelper 13f70718
+- [FEATURE] Add rss social media icon - fixes #629 eb1508d1
+- [FEATURE] Add vk social media icon - fixes #651 9fcf8dec
+- [FEATURE] Allow content slide configuration for all layouts and colPos 159dda4d
+- [FEATURE] Make icongroup more usable by allowing to change visual behaviour f7672c3c
+- [FEATURE] Enable links in icon group a530ee95
+- [FEATURE] Collapsible in accordion should scroll to the top of its contents (#589) 4a128363
+
+## TASK
+- [TASK] Add linter configuration for less files ff143de6
+- [!!!][TASK] Drop seo related meta tag settings 1dc73ff4
+- [TASK] Remove obsolete useCacheHash option for pagebrowser a7da4e2f
+- [TASK] Add stylelint for scss linting (#711) 14b7e8da
+- [TASK] Mark TYPO3 v10.0.0 as compatible ab93487c
+- [TASK] Add dependency to scssphp/scssphp and update bundled code 7fb656dc
+- [TASK] Configure app-dir e7a0b2bc
+- [TASK] Set loading attribute to lazy for images 4d196f02
+- [TASK] Optimize cardgroup and menus 6c69d817
+- [TASK] Bump stringstream from 0.0.5 to 0.0.6 (#713) 1a51d24e
+- [TASK] Bump lodash.mergewith from 4.6.1 to 4.6.2 (#730) d786efcc
+- [TASK] Add FUNDING.yml 41dc8da7
+- [TASK] Bumb bootstrap3 to 3.4.1 48b881ae
+- [TASK] Bumb popperjs to 1.15.0 cefce3a3
+- [TASK] Update slack register link (#722) eb3ce179
+- [TASK] Bumb cookieconsent to 3.1.1 e1ec2e40
+- [TASK] Bumb jQuery to 3.4.1 8b073ba2
+- [TASK] Update ddev to 1.9.1 f84b1a3d
+- [!!!][TASK] Section Menu hides single page header and empty entries (#707) b47e8480
+- [TASK] Update ddev to 1.8.0 08a4487f
+- [TASK] Bump tar from 2.2.1 to 2.2.2 (#694) 5c4ed238
+- [TASK] Bump fstream from 1.0.11 to 1.0.12 (#700) c063b54e
+- [TASK] Bump sshpk from 1.13.1 to 1.16.1 (#702) 97d9da82
+- [TASK] Update ddev to 1.7.1 1b81159b
+- [TASK] Disable deploy stage on forks aa76461f
+- [TASK] Extract cookie consent from main setup and constants 292a489b
+- [TASK] Add watch task to package.json f4f6815f
+- [!!!][TASK] Drop jquery dependency from cookie consent wrapper 207de1cf
+- [TASK] Use file objects for logo 5c881c96
+- [TASK] Cleanup svg viewhelper 386ca145
+- [TASK] Add cgl command to composer.json e632786c
+- [TASK] Change build order e46a2ba2
+- [TASK] Optimize all SVGs 75941808
+- [TASK] Update build dependencies d252cb09
+- [TASK] Remove unused image lazyload css df9f64f2
+- [TASK] Expose grunt build tasks to yarn 8c0b16d7
+- [TASK] Remove changelog from documentation and refer to release notes on github 625902bf
+- [TASK] Use bk2k/extension-helper for release support 9fe82881
+- [TASK] Enable xdebug for development setup 991f2d40
+- [TASK] Require seo extension a8f15484
+- [TASK] Update modernizr to 3.7.0 0e4f4438
+- [TASK] Update photoswipe to 4.1.3 292ef67a
+- [TASK] Require supported core extensions in development mode 7ab26105
+- [TASK] Update to bootstrap 4.3.1 849b941b
+- [TASK] Update scssphp and use fork to apply patches. 15957604
+- [TASK] Ensure scss and lf files are checked out with lf c1f4cb89
+- [TASK] Add ddev development configuration c382b4fe
+- [TASK] Strip pagets_ from pagelayout variable and set default if empty fbc40d09
+- [TASK] Remove typolinkEnableLinksAcrossDomains since its obsolete with siteconfiguration 95a30c73
+- [TASK] Enable css und js compression by default 14115584
+- [TASK] Remove obsolete realurl setting c1a5d22f
+- [!!!][TASK] Drop data relation viewhelper a18c46d4
+- [TASK] Cleanup extension configuration f980445e
+- [TASK] Include seo extension by default if installed 3267945d
+- [TASK] Use symfony expression language for typoscript conditions fd28722d
+- [TASK] Remove legacy config settings from documentation 962a84c6
+- [TASK] Remove deprecated TCA options - fixes #543 a788f76a
+- [TASK] Use UpgradeWizardInterface in upgrade wizards 68d7bb12
+- [TASK] Drop usage of PATH_site b33103f2
+- [!!!][TASK] Remove fallback for extension configuration d3fcd7d3
+- [!!!][TASK] Drop automatic language menu polyfill 6989ed65
+- [TASK] Adjust to use Core's FlexFormService directly 6c8395e5
+- [TASK] Adjust to use Fluid's AbstractViewHelper directly 9ea0cb13
+- [TASK] Adjust for removed code in TemplateService ba8dbc33
+- [TASK] Remove PHP 7.3 from travis until php-cs-fixer is compatible 9f55be45
+- [TASK] Update travis configuration 9abfd3b5
+- [TASK] Adjust version constraints for TYPO3 v10 6ee8af67
+- [TASK] Add config directory to demo site deployment 94b5e1be
+- [TASK] Update bootstrap to 4.2.1 - fixes #627 ac6541ab
+- [TASK] Add vscode to gitignore e50ea553
+- [TASK] Update npm dependencies 3ed67ceb
+- [TASK] Update Bootstrap 3.x to 3.4.0 030e972d
+- [TASK] Update leafo/scssphp to v0.7.7 - fixes #612 270616e7
+- [TASK] Name hooks and always register them, regardless of context 17072560
+- [TASK] Add option to disable the web font loader b3bfa57a
+- [TASK] Mention site introduction repository in readme a9890dca
+- [TASK] Cleanup issue templates 88492bc5
+- [TASK] Update issue template (#599) 6983c7aa
+- [TASK] Include TYPO3 v9.5 in pull request template 93731a7c
+- [TASK] Include TYPO3 v9.5 in issue template 579da24b
+- [TASK] Add minimum scale to viewport configuration 078950ef
+- [TASK] Use ip instead of url for deployment travis ssh known hosts f69e9644
+- [TASK] Remove install notification for unsupported webservers - fixes #562 67ab683d
+- [TASK] Add forgotten textpic and textmedia alignment 7f0ba945
+
+## BUGFIX
+- [BUGFIX] Make UpgradeWizards repeatable (#720) bcf69eb5
+- [BUGFIX] Add missing aria-label translations for breadcrumb and nav toggle f348098c
+- [BUGFIX] Add missing space correction for icongroup in scss 76e8add0
+- [BUGFIX] Correct false typoscript default for 'custom-select-indicator' (#724) c37061e1
+- [BUGFIX] Avoid spooky random fluid compilation errors ba633faf
+- [BUGFIX] Avoid card-header link color inheritance 867b2927
+- [BUGFIX] Remove travis deploy stage for pull requests (#710) c9d4862f
+- [BUGFIX] Add remove obsolete comma 538d3a7d
+- [BUGFIX] Add missing default parameter for icongroup 0fffbbd1
+- [BUGFIX] Add fontloader css and js only to header if content exists - fixes #703 d0efeeb0
+- [BUGFIX] Make cookieconsent variables overwriteable - fixes #704 24da8939
+- [BUGFIX] Add missing description field to timeline images 9280a6df
+- [BUGFIX] Correct icon placement in navbar eaf0c40f
+- [BUGFIX] Correct variable spelling error and set variables of timeline to default 201969b7
+- [BUGFIX] Use full datetime format for timeline items 961ebcc6
+- [BUGFIX] $_EXTKEY is not available anymore in v10 e4b9f5ba
+- [BUGFIX] Respect target option for title link in card-group 7f2225c9
+- [BUGFIX] Respect target option for links in card-group 132a5d32
+- [BUGFIX] Restore IE11 compatibility for cookie consent 95d45cf5
+- [BUGFIX] Prevent collapsing of frames - fixes #618 82e8fd19
+- [BUGFIX] Add missing crop variants to carousel image - fixes #665 571dbf88
+- [BUGFIX] Disable rendering of footer-section-meta if all containing elements are disabled - fixes #657 55a6eb9d
+- [BUGFIX] Remove obsolete/invalid replacements in composer.json 716f8074
+- [BUGFIX] Correct comment formatting 0f4a2633
+- [BUGFIX] Use lf instead of crlf in tab svg 24e38e18
+- [BUGFIX] htaccess does not allow pages that end with "rc" - fixes #652 25af394a
+- [BUGFIX] Use error object in form field template (#641) 26b2fa91
+- [BUGFIX] Ensure type safety for ViewHelper calling ImageService (#640) 15b6626a
+- [BUGFIX] Ensure type safety for ViewHelper calling ImageService (#639) 409ddd4d
+- [BUGFIX] Render data-interval only on carousel if value exists ab754c69
+- [BUGFIX] Do not process svg file if it does not contain content bd8169c5
+- [BUGFIX] Add table context to typoscriptObjectPath for tt_content rendering fcd180a0
+- [BUGFIX] ce uploads accepts sorting direction (#630) e04fd7c7
+- [BUGFIX] Correct spelling error in install service a459c577
+- [BUGFIX] Remove empty line to match cgl 39f19fcb
+- [BUGFIX] Enable basic tests again (#628) de164cea
+- [BUGFIX] Correct dependencies in composer.json 10295654
+- [BUGFIX] Show caption in lightbox when title is empty - fixes #626 2bd79cdd
+- [BUGFIX] Minimize word breaks in figure captions (#621) ed1c0fb0
+- [BUGFIX] Typo: 'boostrap' should be 'bootstrap' (#625) 9b7c43f0
+- [BUGFIX] Do not overwrite button stylings in footer sections 1cf21edc
+- [BUGFIX] Make Less Parser PHP 7.3 compatible (#617) 4e532573
+- [BUGFIX] Ensure parallax effect works across all desktop browsers - fixes #610 e912374b
+- [BUGFIX] Keep page accessible on early javascript errors 8f8c0c80
+- [BUGFIX] Catch exception in TYPO3 8.7 backend on database configuration missmatch 021a9a5f
+- [BUGFIX] Minor fixes to wording - fixes #606 a2d31480
+- [BUGFIX] Avoid update problems and always include sql adjustments for sys_language 465f5e1e
+- [BUGFIX] Move parsefunc and dynamic content to content rendering definition bb7f3a8d
+- [BUGFIX] Use typolink instead of page viewhelper for wizard fields 6cf28f73
+- [BUGFIX] Do not use rem in bootstrap 3 context - part 2 dcbc912b
+- [BUGFIX] Do not use rem in bootstrap 3 context 4ebffc55
+- [BUGFIX] Make standalone element configuration availabe as rendering template f21b759b
+- [BUGFIX] Remove obsolete unsetting of the list content element for plugins 91a1b681
+- [BUGFIX] Correct path in comment to bootstrap resource files - fixes #590 4c9fd781
+- [BUGFIX] Respect title configuration in menu card and menu thumbnail elements - fixes #591 c0ed7e59
+- [BUGFIX] Streamline file property access to also lead sys_file data - #578 1325f3e1
+- [BUGFIX] Add fallback handling for unsupported pointer events in safari - #571 535596db
+- [BUGFIX] Correct styling of accordion - fixes #579 6ed0e904
+- [BUGFIX] Ensure element browser links working in carousel - fixes #575 a301039c
+- [BUGFIX] Adjust comment in ext_tables.php f0df62c3
+- [BUGFIX] Fix typo in comment  (#580) 166a63d1
+- [BUGFIX] Ensure photoswipe scss vars can be adjusted 4837b063
+- [BUGFIX] Adapt navigation documentation for TypoScript changes since v9 (#567) ced0fd77
+- [BUGFIX] Correct placement of main navigation dropdowns on small viewports - fixes #561, #565 72427d02
+- [BUGFIX] Respect overrides for enable-rounded scss variable - #558 2d6754fc
+- [BUGFIX] Correct TCA for carousel small (#557) 6c8a631a
+- [BUGFIX] use correct default value for texticon icon type (#559) d378b0ab
+- [BUGFIX] Correct link color bubbling for sections in bootstrap 4 4d23a561
+- [BUGFIX] Prevent color bubbling for cards 8ab40f07
+- [BUGFIX] Correct primary label in bs4 typoscript constants (#554) ee8a02b3
+
+## MISC
+- Update issue templates 63029706
+
 # 10.0.0
 
 ## BREAKING
