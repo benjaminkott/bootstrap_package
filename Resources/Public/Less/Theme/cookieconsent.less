@@ -178,22 +178,22 @@
 //
 .cc-revoke {
     &.cc-top {
-        top:0;
+        top: 0;
         left: 3em;
-        border-bottom-left-radius:.5em;
-        border-bottom-right-radius:.5em;
+        border-bottom-left-radius: .5em;
+        border-bottom-right-radius: .5em;
     }
     &.cc-bottom {
-        bottom:0;
+        bottom: 0;
         left: 3em;
-        border-top-left-radius:.5em;
-        border-top-right-radius:.5em;
+        border-top-left-radius: .5em;
+        border-top-right-radius: .5em;
     }
-    &.cc-left{
+    &.cc-left {
         left: 3em;
         right: unset;
     }
-    &.cc-right{
+    &.cc-right {
         right: 3em;
         left: unset;
     }
@@ -216,7 +216,7 @@
 .cc-floating {
     > .cc-container > .cc-link,
     > .cc-link {
-        margin-bottom: 1em
+        margin-bottom: 1em;
     }
     .cc-message {
         display: block;
@@ -261,7 +261,8 @@
     margin-left: .5em;
 }
 @media print {
-    .cc-window, .cc-revoke {
+    .cc-window,
+    .cc-revoke {
         display: none;
     }
 }
@@ -273,16 +274,16 @@
 @media screen and (max-width: 480px) and (orientation: portrait), screen and (max-width: 736px) and (orientation: landscape) {
     .cc-window {
         &.cc-top {
-            top:0;
+            top: 0;
         }
         &.cc-bottom {
-            bottom:0;
+            bottom: 0;
         }
         &.cc-banner,
         &.cc-right,
         &.cc-left {
-            left:0;
-            right:0;
+            left: 0;
+            right: 0;
         }
         &.cc-banner {
             flex-direction: column;

@@ -11,7 +11,6 @@
 @pswp__assets-path: '../../Images/PhotoSwipe/'; // path to skin assets folder (preloader, PNG and SVG sprite)
 @pswp__error-text-color: #CCC; // "Image not loaded" text color
 
-
 //
 // PhotoSwipe Default
 //
@@ -27,6 +26,7 @@
     touch-action: none;
     z-index: @pswp__root-z-index;
     -webkit-text-size-adjust: 100%;
+
     /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
     -webkit-backface-visibility: hidden;
     outline: none;
@@ -35,31 +35,39 @@
     }
 }
 .pswp--animate_opacity {
-    opacity: 0.001;
+    opacity: .001;
     will-change: opacity;
-    transition: opacity @pswp__show-hide-transition-duration cubic-bezier(.4,0,.22,1);
+    transition: opacity @pswp__show-hide-transition-duration cubic-bezier(.4, 0, .22, 1);
 }
 .pswp--open {
     display: block;
 }
 .pswp--zoom-allowed .pswp__img {
-    /* autoprefixer: off */
+
+    /* stylelint-disable */
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
     cursor: zoom-in;
+
+    /* stylelint-enable */
 }
 .pswp--zoomed-in .pswp__img {
-    /* autoprefixer: off */
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: grab;
-}
 
-.pswp--dragging  .pswp__img {
-    /* autoprefixer: off */
-    cursor: -webkit-grabbing;
-    cursor: -moz-grabbing;
-    cursor: grabbing;
+    /* stylelint-disable */
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+
+    /* stylelint-enable */
+}
+.pswp--dragging .pswp__img {
+
+    /* stylelint-disable */
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+
+    /* stylelint-enable */
 }
 .pswp__bg {
     position: absolute;
@@ -70,6 +78,7 @@
     background: @pswp__background-color;
     opacity: 0;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     will-change: opacity;
 }
 .pswp__scroll-wrap {
@@ -78,9 +87,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
-
 .pswp__container,
 .pswp__zoom-wrap {
     -ms-touch-action: none;
@@ -96,7 +104,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
 }
 .pswp__zoom-wrap {
@@ -106,11 +114,11 @@
     -moz-transform-origin: left top;
     -ms-transform-origin: left top;
     transform-origin: left top;
-    transition: transform @pswp__show-hide-transition-duration cubic-bezier(.4,0,.22,1);
+    transition: transform @pswp__show-hide-transition-duration cubic-bezier(.4, 0, .22, 1);
 }
 .pswp__bg {
     will-change: opacity;
-    transition: opacity @pswp__show-hide-transition-duration cubic-bezier(.4,0,.22,1);
+    transition: opacity @pswp__show-hide-transition-duration cubic-bezier(.4, 0, .22, 1);
 }
 .pswp--animated-in {
     .pswp__bg,
@@ -166,7 +174,6 @@
     text-decoration: underline;
 }
 
-
 //
 // PhotoSwipe Default Skin
 //
@@ -183,8 +190,8 @@
     padding: 0;
     margin: 0;
     float: right;
-    opacity: 0.75;
-    transition: opacity 0.2s;
+    opacity: .75;
+    transition: opacity .2s;
     box-shadow: none;
     &:focus,
     &:hover {
@@ -192,11 +199,11 @@
     }
     &:active {
         outline: none;
-        opacity: 0.9;
+        opacity: .9;
     }
     &::-moz-focus-inner {
         padding: 0;
-        border: 0
+        border: 0;
     }
 }
 .pswp__ui--over-close .pswp__button--close {
@@ -210,7 +217,7 @@
     width: 44px;
     height: 44px;
 }
-@media (-webkit-min-device-pixel-ratio: 1.1),  (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.1), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
     .pswp--svg .pswp__button,
     .pswp--svg .pswp__button--arrow--left:before,
     .pswp--svg .pswp__button--arrow--right:before {
@@ -271,7 +278,7 @@
 .pswp__button--arrow--right:before {
     content: '';
     top: 35px;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, .3);
     height: 30px;
     width: 32px;
     position: absolute;
@@ -292,7 +299,7 @@
 }
 .pswp__share-modal {
     display: block;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, .5);
     width: 100%;
     height: 100%;
     top: 0;
@@ -301,38 +308,37 @@
     position: absolute;
     z-index: @pswp__root-z-index + 100;
     opacity: 0;
-    transition: opacity 0.25s ease-out;
+    transition: opacity .25s ease-out;
     -webkit-backface-visibility: hidden;
     will-change: opacity;
 }
-
 .pswp__share-modal--hidden {
     display: none;
 }
 .pswp__share-tooltip {
     z-index: @pswp__root-z-index + 120;
     position: absolute;
-    background: #FFF;
+    background: #ffffff;
     top: 56px;
     border-radius: 2px;
     display: block;
     width: auto;
     right: 44px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
     transform: translateY(6px);
-    transition: transform 0.25s;
+    transition: transform .25s;
     -webkit-backface-visibility: hidden;
     will-change: transform;
     a {
         display: block;
         padding: 8px 12px;
-        color: #000;
+        color: #000000;
         text-decoration: none;
         font-size: 14px;
         line-height: 18px;
         &:hover {
             text-decoration: none;
-            color: #000;
+            color: #000000;
         }
         &:first-child {
             border-radius: 2px 2px 0 0;
@@ -361,34 +367,34 @@ a.pswp__share--facebook {
         top: -12px;
         right: 15px;
         border: 6px solid rgba(0, 0, 0, 0);
-        border-bottom-color: #FFF;
+        border-bottom-color: #ffffff;
         -webkit-pointer-events: none;
         -moz-pointer-events: none;
         pointer-events: none;
     }
     &:hover {
-        background: #3E5C9A;
-        color: #FFF;
+        background: #3e5c9a;
+        color: #ffffff;
         &:before {
-            border-bottom-color: #3E5C9A;
+            border-bottom-color: #3e5c9a;
         }
     }
 }
 a.pswp__share--twitter {
     &:hover {
-        background: #55ACEE;
-        color: #FFF;
+        background: #55acee;
+        color: #ffffff;
     }
 }
 a.pswp__share--pinterest {
     &:hover {
-        background: #CCC;
-        color: #CE272D;
+        background: #cccccc;
+        color: #ce272d;
     }
 }
 a.pswp__share--download {
     &:hover {
-        background: #DDD;
+        background: #dddddd;
     }
 }
 .pswp__counter {
@@ -398,8 +404,8 @@ a.pswp__share--download {
     height: 44px;
     font-size: 13px;
     line-height: 44px;
-    color: #FFF;
-    opacity: 0.75;
+    color: #ffffff;
+    opacity: .75;
     padding: 0 10px;
 }
 .pswp__caption {
@@ -410,7 +416,7 @@ a.pswp__share--download {
     min-height: 44px;
     small {
         font-size: 11px;
-        color: #BBB;
+        color: #bbbbbb;
     }
 }
 .pswp__caption__center {
@@ -420,7 +426,7 @@ a.pswp__share--download {
     font-size: 13px;
     padding: 10px;
     line-height: 20px;
-    color: #CCC;
+    color: #cccccc;
 }
 .pswp__caption--empty {
     display: none;
@@ -436,7 +442,7 @@ a.pswp__share--download {
     left: 50%;
     margin-left: -22px;
     opacity: 0;
-    transition: opacity 0.25s ease-out;
+    transition: opacity .25s ease-out;
     will-change: opacity;
     direction: ltr;
 }
@@ -458,12 +464,12 @@ a.pswp__share--download {
             animation: clockwise 500ms linear infinite;
         }
         .pswp__preloader__donut {
-            animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+            animation: donut-rotate 1000ms cubic-bezier(.4, 0, .22, 1) infinite;
         }
     }
     .pswp__preloader__icn {
         background: none;
-        opacity: 0.75;
+        opacity: .75;
         width: 14px;
         height: 14px;
         position: absolute;
@@ -481,7 +487,7 @@ a.pswp__share--download {
         box-sizing: border-box;
         width: 14px;
         height: 14px;
-        border: 2px solid #FFF;
+        border: 2px solid #ffffff;
         border-radius: 50%;
         border-left-color: transparent;
         border-bottom-color: transparent;
@@ -502,14 +508,13 @@ a.pswp__share--download {
     }
 }
 @keyframes clockwise {
-    0% { transform: rotate(0deg) }
-    100% { transform: rotate(360deg) }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
 @keyframes donut-rotate {
-    0% { transform: rotate(0) }
-    50% { transform: rotate(-140deg) }
-    100% { transform: rotate(0) }
+    0% { transform: rotate(0); }
+    50% { transform: rotate(-140deg); }
+    100% { transform: rotate(0); }
 }
 .pswp__ui {
     -webkit-font-smoothing: auto;
@@ -530,7 +535,7 @@ a.pswp__share--download {
 .pswp--has_mouse .pswp__button--arrow--right {
     -webkit-backface-visibility: hidden;
     will-change: opacity;
-    transition: opacity @pswp__controls-transition-duration cubic-bezier(.4,0,.22,1);
+    transition: opacity @pswp__controls-transition-duration cubic-bezier(.4, 0, .22, 1);
 }
 .pswp--has_mouse {
     .pswp__button--arrow--left,
@@ -540,12 +545,12 @@ a.pswp__share--download {
 }
 .pswp__top-bar,
 .pswp__caption {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, .5);
 }
 .pswp__ui--fit {
     .pswp__top-bar,
     .pswp__caption {
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0, 0, 0, .3);
     }
 }
 .pswp__ui--idle {
@@ -562,7 +567,7 @@ a.pswp__share--download {
     .pswp__caption,
     .pswp__button--arrow--left,
     .pswp__button--arrow--right {
-        opacity: 0.001;
+        opacity: .001;
     }
 }
 .pswp__ui--one-slide {

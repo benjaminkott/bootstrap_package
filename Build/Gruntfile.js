@@ -85,6 +85,7 @@ module.exports = function(grunt) {
                 fix: true,
             },
             sass: ['<%= paths.sass %>**/*.scss'],
+            less: ['<%= paths.less %>**/*.less'],
         },
         rebase: {
             bootstrap4: {
@@ -523,7 +524,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('lint', ['stylelint']);
-    grunt.registerTask('build', ['update', 'css', 'js', 'image', 'webfont']);
+    grunt.registerTask('build', ['update', 'lint', 'css', 'js', 'image', 'webfont']);
     grunt.registerTask('default', ['build']);
 
 };

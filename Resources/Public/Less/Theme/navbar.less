@@ -12,25 +12,25 @@
 .body-bg-top {
     padding-top: @navbar-height;
     @media (min-width: @screen-sm) {
-        padding-top: @navbar-height-sm
+        padding-top: @navbar-height-sm;
     }
     @media (min-width: @screen-md) {
-        padding-top: @navbar-height-md
+        padding-top: @navbar-height-md;
     }
     @media (min-width: @screen-lg) {
-        padding-top: @navbar-height-lg
+        padding-top: @navbar-height-lg;
     }
 }
 .body-bg-bottom {
     padding-bottom: @navbar-height;
     @media (min-width: @screen-sm) {
-        padding-bottom: @navbar-height-sm
+        padding-bottom: @navbar-height-sm;
     }
     @media (min-width: @screen-md) {
-        padding-bottom: @navbar-height-md
+        padding-bottom: @navbar-height-md;
     }
     @media (min-width: @screen-lg) {
-        padding-bottom: @navbar-height-lg
+        padding-bottom: @navbar-height-lg;
     }
 }
 .navbar-fixed-top,
@@ -48,7 +48,6 @@
         }
     }
 }
-
 
 //
 // Carousel Corrections
@@ -92,13 +91,13 @@
                 margin-top: -@navbar-height;
             }
             @media (min-width: @grid-float-breakpoint) and (min-width: @screen-sm) {
-                margin-top: -@navbar-height-sm
+                margin-top: -@navbar-height-sm;
             }
             @media (min-width: @grid-float-breakpoint) and (min-width: @screen-md) {
-                margin-top: -@navbar-height-md
+                margin-top: -@navbar-height-md;
             }
             @media (min-width: @grid-float-breakpoint) and (min-width: @screen-lg) {
-                margin-top: -@navbar-height-lg
+                margin-top: -@navbar-height-lg;
             }
             .carousel-item {
                 @media (min-width: @grid-float-breakpoint) {
@@ -142,7 +141,6 @@
     }
 }
 
-
 //
 // Behaviour
 //
@@ -161,7 +159,6 @@
     }
 }
 
-
 //
 // Brand
 //
@@ -175,20 +172,20 @@
         font-family: @headings-font-family;
         font-weight: bold;
         text-transform: uppercase;
-        line-height: @navbar-height ;
+        line-height: @navbar-height;
         height: @navbar-height;
         .transition(opacity .15s ease-in-out 0s);
         &:hover {
-            opacity: 0.8;
+            opacity: .8;
         }
         @media (min-width: @screen-sm) {
-            height: @navbar-height-sm
+            height: @navbar-height-sm;
         }
         @media (min-width: @screen-md) {
-            height: @navbar-height-md
+            height: @navbar-height-md;
         }
         @media (min-width: @screen-lg) {
-            height: @navbar-height-lg
+            height: @navbar-height-lg;
         }
     }
     .navbar-brand-image {
@@ -198,7 +195,7 @@
         img {
             position: relative;
             top: 50%;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
             width: auto;
             max-height: @navbar-height - 30;
             @media (min-width: @grid-float-breakpoint) {
@@ -213,7 +210,6 @@
         }
     }
 }
-
 
 //
 // Breakpoint
@@ -240,7 +236,6 @@
     }
 }
 
-
 //
 // Dropdown
 //
@@ -264,28 +259,27 @@
             margin: 0;
         }
         & + .dropdown-text {
-            margin-left: 0.5em;
+            margin-left: .5em;
         }
     }
     .dropdown-divider {
         height: 0;
-        margin: 0.5em 0;
+        margin: .5em 0;
         overflow: hidden;
-        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        border-top: 1px solid rgba(0, 0, 0, .15);
     }
     @media (max-width: (@grid-float-breakpoint - 1)) {
-        .dropdown-toggle::after {
+        .dropdown-toggle:after {
             content: '';
-            vertical-align: middle;
             display: inline-block;
             width: 0;
             height: 0;
             margin-left: auto;
-            vertical-align: 0.255em;
-            border-top: 0.3em solid;
-            border-right: 0.3em solid transparent;
+            vertical-align: .255em;
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
             border-bottom: 0;
-            border-left: 0.3em solid transparent;
+            border-left: .3em solid transparent;
         }
         &.navbar-default {
             .dropdown-item:not(.active) {
@@ -333,12 +327,11 @@
     }
 }
 
-
 //
 // Mainnavigation
 //
 .navbar-mainnavigation {
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15);
     margin: 0;
     border: 0;
     .navbar-nav {
@@ -349,7 +342,7 @@
         margin: 0;
         list-style: none;
         &:first-child {
-            padding-top: 0.5em;
+            padding-top: .5em;
         }
         @media (min-width: @grid-float-breakpoint) {
             float: none;
@@ -392,7 +385,6 @@
     }
 }
 
-
 //
 // Item
 //
@@ -409,7 +401,7 @@
     }
     .nav-link-icon {
         & + .nav-link-text {
-            margin-left: 0.5em;
+            margin-left: .5em;
         }
         svg,
         img {
@@ -419,34 +411,33 @@
     }
 }
 
-
 //
 // Status
 //
 .navbar-mainnavigation {
     .navbar-nav > li {
-        > .nav-link::before {
+        > .nav-link:before {
             content: '';
             position: absolute;
-            top: 0px;
+            top: 0;
             left: 0;
             width: 4px;
             height: 100%;
             background: @brand-primary;
             opacity: 0;
-            transition: opacity 0.25s ease-in-out;
+            transition: opacity .25s ease-in-out;
         }
-        > .nav-link:focus::before,
-        > .nav-link:hover::before,
-        &:hover > .nav-link::before {
-                opacity: .25;
+        > .nav-link:focus:before,
+        > .nav-link:hover:before,
+        &:hover > .nav-link:before {
+            opacity: .25;
         }
-        &.show > .nav-link::before,
-        &.active > .nav-link::before {
+        &.show > .nav-link:before,
+        &.active > .nav-link:before {
             opacity: .5;
         }
         @media (min-width: @grid-float-breakpoint) {
-            > .nav-link::before {
+            > .nav-link:before {
                 top: auto;
                 left: @navbar-padding-horizontal;
                 right: @navbar-padding-horizontal;
@@ -457,7 +448,6 @@
         }
     }
 }
-
 
 //
 // Toggler
@@ -470,13 +460,12 @@
     .navbar-vertical-align(34px);
     background-color: transparent;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
+    border: 0;
     border-radius: @border-radius-base;
     padding: 0;
     height: 34px;
     width: 22px;
     position: relative;
-    border: 0;
     &:focus {
         outline: 0;
     }
@@ -488,12 +477,12 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-image: none!important;
+    background-image: none !important;
     display: inline-block;
     width: 22px;
     height: 2px;
     background-color: currentColor;
-    transition: all 0.3s ease-in;
+    transition: all .3s ease-in;
 }
 .navbar-toggler-icon {
     top: 50%;
@@ -502,18 +491,18 @@
     transform: translate(-50%, -50%);
 }
 .navbar-toggler-icon:before {
-    transition-delay: 0.1s;
+    transition-delay: .1s;
     transform: rotate(-45deg);
-    top: 0px;
+    top: 0;
 }
 .navbar-toggler-icon:after {
-    transition-delay: 0.1s;
+    transition-delay: .1s;
     transform: rotate(45deg);
-    top: 0px;
+    top: 0;
 }
 .navbar-toggler.collapsed {
     .navbar-toggler-icon {
-        transition-delay: 0.2s;
+        transition-delay: .2s;
         height: 2px;
     }
     .navbar-toggler-icon:before {
@@ -538,7 +527,6 @@
     }
 }
 
-
 //
 // Transision
 //
@@ -560,7 +548,7 @@
 }
 @media (min-width: @grid-float-breakpoint) {
     .navbar {
-        transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        transition: all .27s cubic-bezier(0, 0, .58, 1) 0s;
     }
     .navbar-default-transition:not(.navbar-transition),
     .navbar-inverse-transition:not(.navbar-transition) {
@@ -584,12 +572,11 @@
     }
 }
 
-
 //
 // Navbar Bottom
 //
 .navbar-mainnavigation {
     &.navbar-bottom {
-        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .15);
     }
 }

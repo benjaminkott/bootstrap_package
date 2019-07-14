@@ -6,7 +6,6 @@
     background-color: transparent;
     background-image: none;
     border-color: @color;
-
     &:focus,
     &.focus {
         color: @color-hover;
@@ -53,14 +52,12 @@
     }
 }
 
-
 //
 // Normal
 //
 .btn-secondary {
     .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
-
 
 //
 // Outline
@@ -87,12 +84,11 @@
     .button-outline-variant(@btn-danger-bg; @btn-danger-color);
 }
 
-
 //
 // Icon
 //
 .btn-icon {
-    margin-right: 0.25em;
+    margin-right: .25em;
     svg {
         vertical-align: text-top;
         display: inline-block;

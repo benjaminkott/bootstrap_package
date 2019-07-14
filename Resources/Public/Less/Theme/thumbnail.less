@@ -31,7 +31,7 @@
         height: auto;
         position: absolute;
         transform: translate(-50%, -50%);
-        transition: transform 0.3s ease-in-out;
+        transition: transform .3s ease-in-out;
     }
     position: relative;
     overflow: hidden;
@@ -51,7 +51,6 @@
 // Thumbnail Menu
 //
 @thumbnail-menu-margin: 5px;
-
 .thumbnail-menu {
     margin: -@thumbnail-menu-margin;
     display: flex;
@@ -97,7 +96,6 @@
 .thumbnail-menu-caption-inner {
     padding: 1.5em;
     text-align: center;
-
     > *:first-child {
         margin-top: 0;
     }
@@ -107,7 +105,7 @@
 }
 .thumbnail-menu-caption-title {
     font-size: 1.25em;
-    margin-bottom: 0.25em;
+    margin-bottom: .25em;
     font-weight: bold;
     opacity: 0;
 }
@@ -117,18 +115,18 @@
 }
 .thumbnail-menu-link {
     .thumbnail-menu-caption {
-        transition: opacity 0.25s ease-in-out;
+        transition: opacity .25s ease-in-out;
     }
     .thumbnail-menu-image {
         picture,
         img {
-            transition: filter 0.25s ease-in-out;
+            transition: filter .25s ease-in-out;
         }
     }
     .thumbnail-menu-caption-title,
     .thumbnail-menu-caption-subtitle {
-        transition: opacity 0.25s ease-in-out;
-        transition-delay: 0.25s;
+        transition: opacity .25s ease-in-out;
+        transition-delay: .25s;
     }
     &:hover,
     &:focus {

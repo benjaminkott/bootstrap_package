@@ -156,8 +156,7 @@
     }
 }
 .make-frame-spacing(@name) {
-    .@{name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage)
-    + .@{name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+    .@{name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .@{name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
         &:extend(.frame-collapsible);
     }
 }
@@ -199,7 +198,7 @@
     background-size: cover;
 }
 .frame-backgroundimage-fade {
-    opacity: 0.125;
+    opacity: .125;
 }
 .frame-backgroundimage-parallax {
     background-attachment: fixed;
