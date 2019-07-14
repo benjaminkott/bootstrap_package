@@ -536,6 +536,9 @@
             <trans-unit id="carousel_item.item_type.header">
                 <source>Header</source>
             </trans-unit>
+            <trans-unit id="carousel_item.item_type.text">
+                <source>Text</source>
+            </trans-unit>
             <trans-unit id="carousel_item.item_type.calltoaction">
                 <source>Call to Action</source>
             </trans-unit>

@@ -42,6 +42,7 @@ return [
             'header' => 'content-bootstrappackage-carousel-item-header',
             'call_to_action' => 'content-bootstrappackage-carousel-item-calltoaction',
             'image' => 'content-bootstrappackage-carousel-item-image',
+            'text' => 'content-bootstrappackage-carousel-item-text',
             'text_and_image' => 'content-bootstrappackage-carousel-item-textandimage',
             'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
             'html' => 'content-bootstrappackage-carousel-item-html'
@@ -83,6 +84,23 @@ return [
                 nav_title,
                 text_color,
                 link,
+                --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
+                background_color,
+                background_image,
+                background_image_options,
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;;hiddenLanguagePalette,
+            '
+        ],
+        'text' => [
+            'showitem' => '
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
+                nav_title,
+                bodytext,
+                text_color,
                 --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,
                 background_color,
                 background_image,
@@ -240,6 +258,11 @@ return [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
                         'header',
                         'content-bootstrappackage-carousel-item-header'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.text',
+                        'text',
+                        'content-bootstrappackage-carousel-item-text'
                     ],
                     [
                         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction',

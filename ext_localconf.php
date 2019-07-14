@@ -233,6 +233,7 @@ $icons = [
     'carousel-item-header',
     'carousel-item-html',
     'carousel-item-image',
+    'carousel-item-text',
     'carousel-item-textandimage',
     'beside-text-img-centered-left',
     'beside-text-img-centered-right',

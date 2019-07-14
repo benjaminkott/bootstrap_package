@@ -8875,6 +8875,9 @@ body,
   position: relative;
   height: 100%;
 }
+.carousel-item-bodytext > *:last-child {
+  margin-bottom: 0;
+}
 .carousel {
   overflow: hidden;
 }
@@ -9059,6 +9062,19 @@ body,
 }
 @media (min-width: 1200px) {
   .carousel-item-type-header .carousel-text-inner {
+    width: 65%;
+  }
+}
+.carousel-item-type-text .carousel-text-inner {
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .carousel-item-type-text .carousel-text-inner {
+    width: 80%;
+  }
+}
+@media (min-width: 1200px) {
+  .carousel-item-type-text .carousel-text-inner {
     width: 65%;
   }
 }

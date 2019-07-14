@@ -121,6 +121,15 @@
 }
 
 //
+// Carousel Text
+//
+.carousel-item-bodytext {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
 // Carousel Navigation
 //
 .carousel {
@@ -243,6 +252,21 @@
 // Type: Header
 //
 .carousel-item-type-header {
+    .carousel-text-inner {
+        margin: 0 auto;
+        @include media-breakpoint-up(md) {
+            width: 80%;
+        }
+        @include media-breakpoint-up(lg) {
+            width: 65%;
+        }
+    }
+}
+
+//
+// Type: Text
+//
+.carousel-item-type-text {
     .carousel-text-inner {
         margin: 0 auto;
         @include media-breakpoint-up(md) {
