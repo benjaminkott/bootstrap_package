@@ -17,6 +17,7 @@
                 default: settings.header.defaultHeaderType}" />
             <f:render partial="Header/Date" arguments="{
                 date: data.date,
+                format: settings.header.date.format,
                 positionClass: '{f:if(condition: data.header_position, then: \'text-{data.header_position}\')}'}" />
         </header>
     </f:if>

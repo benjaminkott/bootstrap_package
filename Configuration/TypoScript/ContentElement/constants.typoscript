@@ -30,6 +30,10 @@ plugin.bootstrap_package_contentelements {
         defaultHeaderType = 2
         # cat=bootstrap package: content elements/110_contentelement/002_class; type=string; label=Default Header class
         class = element-header
+        date {
+            # cat=bootstrap package: content elements/110_contentelement/003_date_format; type=string; label=Header date format
+            format = %B %e, %Y
+        }
     }
     subheader {
         # cat=bootstrap package: content elements/120_contentelement/001_class; type=string; label=Default Subheader class

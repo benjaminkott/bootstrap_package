@@ -59,6 +59,9 @@ lib.contentElement {
         header {
             defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
             class = {$plugin.bootstrap_package_contentelements.header.class}
+            date {
+                format = {$plugin.bootstrap_package_contentelements.header.date.format}
+            }
         }
         subheader {
             class = {$plugin.bootstrap_package_contentelements.subheader.class}
