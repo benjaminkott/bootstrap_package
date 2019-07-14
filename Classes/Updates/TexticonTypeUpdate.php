@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TexticonTypeUpdate
  */
-class TexticonTypeUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TexticonTypeUpdate extends ForcedUpdate
 {
     /**
      * @var string

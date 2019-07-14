@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * ListGroupContentElement
  */
-class ListGroupContentElement extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class ListGroupContentElement extends ForcedUpdate
 {
     /**
      * @var string

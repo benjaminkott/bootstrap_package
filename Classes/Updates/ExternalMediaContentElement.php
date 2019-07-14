@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * ExternalMediaContentElement
  */
-class ExternalMediaContentElement extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class ExternalMediaContentElement extends ForcedUpdate
 {
     /**
      * @var string

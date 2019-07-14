@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * TexticonContentElement
  */
-class TexticonContentElement extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class TexticonContentElement extends ForcedUpdate
 {
     /**
      * @var string

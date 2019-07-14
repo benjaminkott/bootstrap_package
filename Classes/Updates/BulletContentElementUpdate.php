@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * BulletContentElementUpdate
  */
-class BulletContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class BulletContentElementUpdate extends ForcedUpdate
 {
     /**
      * @var string

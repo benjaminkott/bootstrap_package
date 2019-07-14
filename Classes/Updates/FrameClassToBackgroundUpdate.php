@@ -18,7 +18,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * FrameClassToBackgroundUpdate
  */
-class FrameClassToBackgroundUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class FrameClassToBackgroundUpdate extends ForcedUpdate
 {
     /**
      * @var string

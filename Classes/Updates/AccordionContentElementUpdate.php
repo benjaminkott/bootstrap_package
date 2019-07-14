@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * AccordionContentElementUpdate
  */
-class AccordionContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class AccordionContentElementUpdate extends ForcedUpdate
 {
     /**
      * @var string

@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * CarouselContentElementUpdate
  */
-class CarouselContentElementUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpdate
+class CarouselContentElementUpdate extends ForcedUpdate
 {
     /**
      * @var string
