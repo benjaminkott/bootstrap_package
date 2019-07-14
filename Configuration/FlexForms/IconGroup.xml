@@ -67,6 +67,42 @@
                             </config>
                         </TCEforms>
                     </columns>
+                    <icon_position>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>left-center</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.left-top</numIndex>
+                                        <numIndex index="1">left-top</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.left-center</numIndex>
+                                        <numIndex index="1">left-center</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.right-top</numIndex>
+                                        <numIndex index="1">right-top</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.right-center</numIndex>
+                                        <numIndex index="1">right-center</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.above</numIndex>
+                                        <numIndex index="1">above</numIndex>
+                                    </numIndex>
+                                    <numIndex index="5" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.icon_position.below</numIndex>
+                                        <numIndex index="1">below</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </icon_position>
                 </el>
             </ROOT>
         </sDEF>

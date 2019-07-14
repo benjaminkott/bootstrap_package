@@ -43,7 +43,10 @@ return [
         'showRecordFieldList' => '
             hidden,
             tt_content,
-            header
+            header,
+            subheader,
+            bodytext,
+            icon_file,
         ',
     ],
     'types' => [
@@ -52,6 +55,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header,
                 subheader,
+                bodytext,
                 link,
                 icon_file,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
@@ -197,6 +201,19 @@ return [
                 'type' => 'input',
                 'size' => 50,
                 'eval' => 'trim'
+            ],
+        ],
+        'bodytext' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.bodytext',
+            'l10n_mode' => 'prefixLangTitle',
+            'l10n_cat' => 'text',
+            'config' => [
+                'type' => 'text',
+                'cols' => '80',
+                'rows' => '15',
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default'
             ],
         ],
         'link' => [

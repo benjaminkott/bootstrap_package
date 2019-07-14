@@ -20,6 +20,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.0.2",
+    "grunt-stylelint": "^0.11.0",
     "grunt-webfont": "^1.7.2",
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
@@ -28,6 +29,7 @@
     "photoswipe": "^4.1.3",
     "popper.js": "^1.15.0",
     "postcss-url": "^8.0.0",
+    "stylelint": "^10.1.0",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
@@ -36,6 +38,7 @@
     "icon": "./node_modules/.bin/grunt icon",
     "image": "./node_modules/.bin/grunt image",
     "js": "./node_modules/.bin/grunt js",
+    "lint": "./node_modules/.bin/grunt lint",
     "update": "./node_modules/.bin/grunt update",
     "watch": "./node_modules/.bin/grunt watch"
   }

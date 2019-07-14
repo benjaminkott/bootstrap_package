@@ -4,16 +4,15 @@
 .gallery-row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
     &:last-child {
         margin-bottom: -1rem;
     }
 }
 .gallery-item {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-
+    padding-left: .5rem;
+    padding-right: .5rem;
     img,
     picture {
         width: 100%;

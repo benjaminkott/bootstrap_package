@@ -10491,6 +10491,14 @@ body .typo3-editPanel-btn:hover,
   font-size: 1.25em;
   margin-bottom: 0.75em;
 }
+.card-menu .card-footer {
+  border-top: 0;
+  padding: 1.5em;
+  background-color: transparent;
+}
+.card-menu .card-body + .card-footer {
+  padding-top: 0;
+}
 .card-menu-item {
   width: 100%;
   padding: 10px;
@@ -10547,6 +10555,9 @@ body .typo3-editPanel-btn:hover,
   border-top: 0;
   padding: 1.5em;
   background-color: transparent;
+}
+.card-group-element-item .card-body + .card-footer {
+  padding-top: 0;
 }
 .card-group-element-align-left {
   justify-content: flex-start;
@@ -10804,6 +10815,48 @@ body .typo3-editPanel-btn:hover,
 .icongroup-align-right {
   justify-content: flex-end;
 }
+.icongroup-iconposition-left-top .icongroup-item {
+  align-items: flex-start;
+}
+.icongroup-iconposition-left-center .icongroup-item {
+  align-items: center;
+}
+.icongroup-iconposition-right-top .icongroup-item {
+  align-items: flex-start;
+}
+.icongroup-iconposition-right-top .icongroup-item-icon {
+  margin-left: 20px;
+  margin-right: 0;
+  order: 1;
+}
+.icongroup-iconposition-right-center .icongroup-item {
+  align-items: center;
+}
+.icongroup-iconposition-right-center .icongroup-item-icon {
+  margin-left: 20px;
+  margin-right: 0;
+  order: 1;
+}
+.icongroup-iconposition-above .icongroup-item,
+.icongroup-iconposition-below .icongroup-item {
+  flex-wrap: wrap;
+}
+.icongroup-iconposition-above .icongroup-item-text,
+.icongroup-iconposition-below .icongroup-item-text {
+  margin-top: 20px;
+  width: 100%;
+}
+.icongroup-iconposition-above .icongroup-item-icon,
+.icongroup-iconposition-below .icongroup-item-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+.icongroup-iconposition-below .icongroup-item-text {
+  margin-bottom: 20px;
+}
+.icongroup-iconposition-below .icongroup-item-icon {
+  order: 1;
+}
 .icongroup-item {
   display: flex;
   flex-direction: row;
@@ -10825,13 +10878,15 @@ body .typo3-editPanel-btn:hover,
 .icongroup-item-text {
   flex-grow: 1;
 }
+.icongroup-item-text > *:last-child {
+  margin-bottom: 0;
+}
 .icongroup-item-text-header {
   font-size: 1.25em;
   margin-bottom: 0.15em;
 }
 .icongroup-item-text-subheader {
   font-size: 1em;
-  margin-bottom: 0;
 }
 .icongroup-columns-auto .icongroup-item {
   width: auto;

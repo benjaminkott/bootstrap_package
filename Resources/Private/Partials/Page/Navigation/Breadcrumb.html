@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{theme.breadcrumb.enable}">
     <f:if condition="{breadcrumb}">
-        <nav class="breadcrumb-section" aria-label="breadcrumb">
+        <nav class="breadcrumb-section" aria-label="{f:translate(key: 'breadcrumb.label', extensionName: 'bootstrap_package')}">
             <div class="container">
                 <p class="sr-only" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
@@ -37,7 +37,7 @@
                     <bk2k:inlineSvg image="{item.icon.0}" width="{theme.breadcrumb.icon.width}" height="{theme.breadcrumb.icon.height}" />
                 </f:then>
                 <f:else>
-                    <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.breadcrumb.icon.width}" height="{theme.breadcrumb.icon.height}" />
+                    <f:image additionalAttributes="{loading: 'lazy'}" image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.breadcrumb.icon.width}" height="{theme.breadcrumb.icon.height}" />
                 </f:else>
             </f:if>
         </span>

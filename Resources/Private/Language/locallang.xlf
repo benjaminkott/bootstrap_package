@@ -17,12 +17,19 @@
                 <source>Scroll to top</source>
             </trans-unit>
 
+            <trans-unit id="togglenavigation">
+                <source>Toggle navigation</source>
+            </trans-unit>
+
             <trans-unit id="linktop">
                 <source>To top</source>
             </trans-unit>
 
             <trans-unit id="breadcrumb">
                 <source>You are here:</source>
+            </trans-unit>
+            <trans-unit id="breadcrumb.label">
+                <source>Breadcrumb</source>
             </trans-unit>
 
             <trans-unit id="previous">

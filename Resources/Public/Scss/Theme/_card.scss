@@ -14,7 +14,7 @@ $card-link-hover-color: $link-hover-color !default;
     a:not(.btn) {
         color: $card-link-color;
         @include hover {
-          color: $card-link-hover-color;
+            color: $card-link-hover-color;
         }
     }
 }
@@ -35,7 +35,6 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 
-
 //
 // Card Deck Menu
 //
@@ -48,7 +47,7 @@ $card-link-hover-color: $link-hover-color !default;
         height: 100%;
     }
     .card-icon {
-        margin-bottom: 0.5rem;
+        margin-bottom: .5rem;
     }
     .card-title {
         font-size: $card-title-size;
@@ -56,6 +55,14 @@ $card-link-hover-color: $link-hover-color !default;
     .card-subtitle {
         font-size: $card-subtitle-size;
         margin-bottom: $card-spacer-y;
+    }
+    .card-footer {
+        border-top: 0;
+        padding: $card-spacer-x;
+        background-color: transparent;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
     }
 }
 .card-menu-item {
@@ -72,21 +79,21 @@ $card-link-hover-color: $link-hover-color !default;
     justify-content: flex-end;
 }
 .card-menu-columns-2 {
-    .card-menu-item  {
+    .card-menu-item {
         @include media-breakpoint-up('sm') {
             width: calc(100% / 2);
         }
     }
 }
 .card-menu-columns-3 {
-    .card-menu-item  {
+    .card-menu-item {
         @include media-breakpoint-up('md') {
             width: calc(100% / 3);
         }
     }
 }
 .card-menu-columns-4 {
-    .card-menu-item  {
+    .card-menu-item {
         @include media-breakpoint-up('sm') {
             width: calc(100% / 2);
         }
@@ -95,7 +102,6 @@ $card-link-hover-color: $link-hover-color !default;
         }
     }
 }
-
 
 //
 // Card Group Element
@@ -123,6 +129,9 @@ $card-link-hover-color: $link-hover-color !default;
         border-top: 0;
         padding: $card-spacer-x;
         background-color: transparent;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
     }
 }
 .card-group-element-align-left {
@@ -159,7 +168,6 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 
-
 //
 // Card Panel
 //
@@ -173,7 +181,6 @@ $card-link-hover-color: $link-hover-color !default;
         }
     }
 }
-
 
 //
 // Variants

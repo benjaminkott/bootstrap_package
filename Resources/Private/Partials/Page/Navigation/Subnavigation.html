@@ -26,7 +26,7 @@
                                                 <bk2k:inlineSvg image="{item.icon.0}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
                                             </f:then>
                                             <f:else>
-                                                <f:image image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
+                                                <f:image additionalAttributes="{loading: 'lazy'}" image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
                                             </f:else>
                                         </f:if>
                                     </span>
