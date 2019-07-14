@@ -74,6 +74,17 @@ lib.contentElement {
                 maxWidth = {$plugin.bootstrap_package_contentelements.lightbox.image.maxWidth}
             }
         }
+        media {
+            additionalConfig {
+                autoplay = {$plugin.bootstrap_package_contentelements.media.additionalConfig.autoplay}
+                controls = {$plugin.bootstrap_package_contentelements.media.additionalConfig.controls}
+                loop = {$plugin.bootstrap_package_contentelements.media.additionalConfig.loop}
+                enablejsapi = {$plugin.bootstrap_package_contentelements.media.additionalConfig.enablejsapi}
+                showinfo = {$plugin.bootstrap_package_contentelements.media.additionalConfig.showinfo}
+                relatedVideos = {$plugin.bootstrap_package_contentelements.media.additionalConfig.relatedVideos}
+                modestbranding = {$plugin.bootstrap_package_contentelements.media.additionalConfig.modestbranding}
+            }
+        }
         gallery {
             columns {
                 1 {
