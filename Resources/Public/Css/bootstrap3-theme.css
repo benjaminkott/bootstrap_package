@@ -10871,7 +10871,7 @@ body .typo3-editPanel-btn:hover,
 }
 .icongroup-item {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   margin: 20px;
   width: 100%;
