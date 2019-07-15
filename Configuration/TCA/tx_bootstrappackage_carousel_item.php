@@ -216,6 +216,8 @@ return [
                 subheader,
                 subheader_layout,
                 subheader_class,
+                --linebreak--,
+                header_position,
             '
         ],
         'general' => [
@@ -434,6 +436,33 @@ return [
                 'default' => '1'
             ],
             'l10n_mode' => 'exclude',
+        ],
+        'header_position' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position',
+            'exclude' => true,
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.default',
+                        ''
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.center',
+                        'center'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.right',
+                        'right'
+                    ],
+                    [
+                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.left',
+                        'left'
+                    ]
+                ],
+                'default' => ''
+            ]
         ],
         'header_class' => [
             'exclude' => true,

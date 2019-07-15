@@ -499,6 +499,21 @@
             <trans-unit id="carousel_item.header_class">
                 <source>Header Class</source>
             </trans-unit>
+            <trans-unit id="carousel_item.header_position">
+                <source>Header Position</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.header_position.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.header_position.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.header_position.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="carousel_item.header_position.right">
+                <source>Right</source>
+            </trans-unit>
             <trans-unit id="carousel_item.subheader">
                 <source>Subheader</source>
             </trans-unit>
