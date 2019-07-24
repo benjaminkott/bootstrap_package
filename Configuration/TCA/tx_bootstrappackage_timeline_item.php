@@ -15,9 +15,8 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
 
 return [
     'ctrl' => [
-        'label' => 'date',
-        'label_alt' => 'header',
-        'label_alt_force' => true,
+        'label' => 'header',
+        'label_userFunc' => BK2K\BootstrapPackage\Userfuncs\Tca::class . '->timelineItemLabel',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
