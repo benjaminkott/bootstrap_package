@@ -583,19 +583,19 @@ lib.contentElement {
             icon {
                 default {
                     height = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
-                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.default.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.default.width}
                 }
                 medium {
                     height = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
-                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.medium.width}
                 }
                 large {
                     height = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
-                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.large.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.large.width}
                 }
                 awesome {
                     height = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
-                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.height}
+                    width = {$plugin.bootstrap_package_contentelements.texticon.icon.awesome.width}
                 }
             }
         }
