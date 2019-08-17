@@ -303,6 +303,11 @@ module.exports = function(grunt) {
         },
         imagemin: {
             images: {
+                options: {
+                    svgoPlugins: [{
+                        removeViewBox: false
+                    }]
+                },
                 files: [
                     {
                         cwd: '<%= paths.images %>',
@@ -313,6 +318,11 @@ module.exports = function(grunt) {
                 ]
             },
             icons: {
+                options: {
+                    svgoPlugins: [{
+                        removeViewBox: false
+                    }]
+                },
                 files: [
                     {
                         cwd: '<%= paths.icons %>',
