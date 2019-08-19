@@ -1,0 +1,47 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build-php:
+    name: Build PHP
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        typo3: ['^9', 'dev-master']
+        php: ['7.2', '7.3']
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up PHP Version
+      run: |
+        sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
+        php -v
+    - name: Update Composer
+      run: |
+        sudo composer self-update
+        composer --version
+    - name: Install
+      run: |
+        composer require typo3/minimal:${{ matrix.typo3 }} --no-progress
+        git checkout composer.json
+    - name: Lint
+      run: composer test:php:lint
+    - name: CGL
+      run: composer cgl
+    - name: Unit Tests
+      run: composer test:php:unit
+
+  build-frontend:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install
+      run: |
+        cd Build
+        yarn install
+    - name: Build
+      run: |
+        cd Build
+        yarn build

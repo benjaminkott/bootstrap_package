@@ -58,10 +58,10 @@ indent_size = 4
 # YML-Files
 [{*.yml,*.yaml}]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
-# package.json or .travis.yml
-[{package.json,.travis.yml}]
+# package.json
+[package.json]
 indent_style = space
 indent_size = 2
 
