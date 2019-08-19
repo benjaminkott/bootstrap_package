@@ -48,7 +48,8 @@
         "typo3/cms-tstemplate": "^9.5 || ~10.0.0",
         "friendsofphp/php-cs-fixer": "^2.3.1",
         "typo3/testing-framework": "^4.9 || ^5.0",
-        "bk2k/extension-helper": "^1.0"
+        "bk2k/extension-helper": "^1.0",
+        "overtrue/phplint": "^1.1"
     },
     "autoload": {
         "psr-4": {
@@ -66,14 +67,18 @@
         "bin-dir": ".build/bin"
     },
     "scripts": {
+        "test:php:lint": [
+            "phplint"
+        ],
         "test:php:unit": [
-            "@php .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml"
+            "phpunit -c Build/phpunit.xml"
         ],
         "test": [
+            "@test:php:lint",
             "@test:php:unit"
         ],
         "cgl": [
-            "php-cs-fixer fix"
+            "php-cs-fixer --diff -v fix"
         ],
         "set-version": [
             "extension-helper version:set"
