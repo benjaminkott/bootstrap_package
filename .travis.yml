@@ -18,11 +18,6 @@ matrix:
     - php: 7.1
       env: TYPO3_VERSION=^9
 
-addons:
-  apt:
-    packages:
-      - parallel
-
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
   - git checkout composer.json
@@ -32,12 +27,12 @@ script:
   - >
     echo;
     echo "Unit tests";
-    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
+    composer test:php:unit
 
   - >
     echo;
     echo "PHP lint";
-    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    composer test:php:lint
 
 jobs:
   include:

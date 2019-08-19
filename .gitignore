@@ -1,7 +1,7 @@
 .build
 Build/node_modules/*
 composer.lock
-.php_cs.cache
+*.cache
 nbproject
 config
 var
