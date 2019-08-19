@@ -9,11 +9,6 @@ env:
   - TYPO3_VERSION=^9
   - TYPO3_VERSION=dev-master
 
-addons:
-  apt:
-    packages:
-      - parallel
-
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
   - git checkout composer.json
@@ -23,12 +18,12 @@ script:
   - >
     echo;
     echo "Unit tests";
-    .build/vendor/phpunit/phpunit/phpunit -c Build/phpunit.xml
+    composer test:php:unit
 
   - >
     echo;
     echo "PHP lint";
-    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    composer test:php:lint
 
 jobs:
   include:
