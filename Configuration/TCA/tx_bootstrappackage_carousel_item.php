@@ -250,7 +250,7 @@ return [
         'starttime' => TcaUtility::getStartTime(),
         'endtime' => TcaUtility::getEndTime(),
         'sys_language_uid' => TcaUtility::getLanguage(),
-        'l10n_parent' => TcaUtility::getLanguage('tx_bootstrappackage_carousel_item'),
+        'l10n_parent' => TcaUtility::getLanguageParent('tx_bootstrappackage_carousel_item'),
         'l10n_diffsource' => TcaUtility::getLanguageDiff(),
         'item_type' => TcaUtility::getOptions(
             'LLL:' . $generalLanguageFile . ':LGL.type',

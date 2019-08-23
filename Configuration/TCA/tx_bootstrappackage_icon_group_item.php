@@ -104,7 +104,7 @@ return [
         'starttime' => TcaUtility::getStartTime(),
         'endtime' => TcaUtility::getEndTime(),
         'sys_language_uid' => TcaUtility::getLanguage(),
-        'l10n_parent' => TcaUtility::getLanguage('tx_bootstrappackage_icon_group_item'),
+        'l10n_parent' => TcaUtility::getLanguageParent('tx_bootstrappackage_icon_group_item'),
         'l10n_diffsource' => TcaUtility::getLanguageDiff(),
         'header' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.header', 'trim,required', 50),
         'subheader' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.subheader'),

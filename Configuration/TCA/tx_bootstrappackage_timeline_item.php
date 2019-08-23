@@ -102,7 +102,7 @@ return [
         'starttime' => TcaUtility::getStartTime(),
         'endtime' => TcaUtility::getEndTime(),
         'sys_language_uid' => TcaUtility::getLanguage(),
-        'l10n_parent' => TcaUtility::getLanguage('tx_bootstrappackage_timeline_item'),
+        'l10n_parent' => TcaUtility::getLanguageParent('tx_bootstrappackage_timeline_item'),
         'l10n_diffsource' => TcaUtility::getLanguageDiff(),
         'date' => TcaUtility::getDateTime('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item.date'),
         'header' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item.header', 'trim,required', 50),

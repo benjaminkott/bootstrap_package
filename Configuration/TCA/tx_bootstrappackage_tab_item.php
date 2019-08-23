@@ -109,7 +109,7 @@ return [
         'starttime' => TcaUtility::getStartTime(),
         'endtime' => TcaUtility::getEndTime(),
         'sys_language_uid' => TcaUtility::getLanguage(),
-        'l10n_parent' => TcaUtility::getLanguage('tx_bootstrappackage_tab_item'),
+        'l10n_parent' => TcaUtility::getLanguageParent('tx_bootstrappackage_tab_item'),
         'l10n_diffsource' => TcaUtility::getLanguageDiff(),
         'header' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.header', 'trim,required', 50),
         'bodytext' => TcaUtility::getRTE('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.bodytext'),
