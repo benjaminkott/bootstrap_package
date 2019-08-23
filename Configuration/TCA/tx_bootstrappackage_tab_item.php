@@ -113,7 +113,7 @@ return [
         'l10n_diffsource' => TcaUtility::getLanguageDiff(),
         'header' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.header', 'trim,required', 50),
         'bodytext' => TcaUtility::getRTE('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.bodytext'),
-        'media' => TcaUtility::getRTE('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.bodytext', 'media'),
+        'media' => TcaUtility::getMedia('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.bodytext', 'media'),
         'mediaorient' => TcaUtility::getOptions(
             'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient',
             [
