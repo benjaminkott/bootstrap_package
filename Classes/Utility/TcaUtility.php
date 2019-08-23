@@ -127,6 +127,7 @@ class TcaUtility
             'config' => [
                 'type' => 'input',
                 'size' => $size,
+                'max' => $max,
                 'eval' => $eval
             ],
         ];
