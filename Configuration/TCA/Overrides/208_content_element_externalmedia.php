@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +22,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/ExternalMedia.tsconfig',
     'Bootstrap Package Content Element: External Media'
@@ -28,7 +31,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -79,26 +82,20 @@ $GLOBALS['TCA']['tt_content']['types']['external_media'] = array_replace_recursi
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'external_media_source' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_source',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'eval' => 'trim',
-                'max' => 1024,
-            ]
-        ],
-        'external_media_ratio' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_ratio',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['16:9', '16by9'],
-                    ['4:3', '4by3'],
-                ]
-            ]
-        ]
+        'external_media_source' => TcaUtility::getText(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_source',
+            'trim',
+            50,
+            1024
+        ),
+        'external_media_ratio' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.external_media_ratio',
+            [
+                ['16:9', '16by9'],
+                ['4:3', '4by3'],
+            ],
+            '16by9'
+        )
     ]
 );
 

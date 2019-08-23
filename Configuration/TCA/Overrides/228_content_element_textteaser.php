@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +22,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Textteaser.tsconfig',
     'Bootstrap Package Content Element: Text with Teaser'
@@ -28,7 +31,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -72,13 +75,7 @@ $GLOBALS['TCA']['tt_content']['types']['textteaser'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
         ',
         'columnsOverrides' => [
-            'bodytext' => [
-                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
-                'config' => [
-                    'enableRichtext' => true,
-                    'richtextConfiguration' => 'default'
-                ]
-            ]
+            'bodytext' => TcaUtility::getRTE('LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel'),
         ]
     ]
 );

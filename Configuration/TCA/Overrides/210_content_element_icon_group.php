@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +22,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/IconGroup.tsconfig',
     'Bootstrap Package Content Element: Icon Group'
@@ -28,7 +31,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -81,35 +84,18 @@ $GLOBALS['TCA']['tt_content']['types']['icon_group'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'tx_bootstrappackage_icon_group_item' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_bootstrappackage_icon_group_item',
-                'foreign_field' => 'tt_content',
-                'appearance' => [
-                    'useSortable' => true,
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => false,
-                    'expandSingle' => true,
-                    'enabledControls' => [
-                        'localize' => true,
-                    ]
-                ],
-                'behaviour' => [
-                    'mode' => 'select',
-                ]
-            ]
-        ]
+        'tx_bootstrappackage_icon_group_item' => TcaUtility::getInlineRelation(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item',
+            'tx_bootstrappackage_icon_group_item',
+            'tt_content'
+        )
     ]
 );
 
 /***************
  * Add flexForms for content element configuration
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/IconGroup.xml',
     'icon_group'

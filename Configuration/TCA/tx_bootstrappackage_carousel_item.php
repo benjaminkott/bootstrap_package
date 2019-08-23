@@ -7,7 +7,10 @@
  * LICENSE file that was distributed with this source code.
  */
 
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+if (ExtensionManagementUtility::isLoaded('lang')) {
     $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
 } else {
     $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
@@ -238,462 +241,96 @@ return [
         ],
     ],
     'columns' => [
-        'tt_content' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.tt_content',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType IN ("carousel","carousel_small","carousel_fullscreen")',
-                'maxitems' => 1,
-                'default' => 0,
+        'tt_content' => TcaUtility::getContentElementRelation(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.tt_content',
+            'CType',
+            ['carousel', 'carousel_small', 'carousel_fullscreen']
+        ),
+        'hidden' => TcaUtility::getHidden(),
+        'starttime' => TcaUtility::getStartTime(),
+        'endtime' => TcaUtility::getEndTime(),
+        'sys_language_uid' => TcaUtility::getLanguage(),
+        'l10n_parent' => TcaUtility::getLanguage('tx_bootstrappackage_carousel_item'),
+        'l10n_diffsource' => TcaUtility::getLanguageDiff(),
+        'item_type' => TcaUtility::getOptions(
+            'LLL:' . $generalLanguageFile . ':LGL.type',
+            [
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header', 'header', 'content-bootstrappackage-carousel-item-header'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.text', 'text', 'content-bootstrappackage-carousel-item-text'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction', 'call_to_action', 'content-bootstrappackage-carousel-item-calltoaction'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.image', 'image', 'content-bootstrappackage-carousel-item-image'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage', 'text_and_image', 'content-bootstrappackage-carousel-item-textandimage'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage', 'background_image', 'content-bootstrappackage-carousel-item-backgroundimage'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html', 'html', 'content-bootstrappackage-carousel-item-html']
             ],
-        ],
-        'item_type' => [
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.type',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
-                        'header',
-                        'content-bootstrappackage-carousel-item-header'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.text',
-                        'text',
-                        'content-bootstrappackage-carousel-item-text'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction',
-                        'call_to_action',
-                        'content-bootstrappackage-carousel-item-calltoaction'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.image',
-                        'image',
-                        'content-bootstrappackage-carousel-item-image'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
-                        'text_and_image',
-                        'content-bootstrappackage-carousel-item-textandimage'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
-                        'background_image',
-                        'content-bootstrappackage-carousel-item-backgroundimage'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
-                        'html',
-                        'content-bootstrappackage-carousel-item-html'
-                    ],
-                ],
-                'default' => 'header',
-                'authMode' => $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'],
-                'authMode_enforce' => 'strict'
+            'header'
+        ),
+        'link' => TcaUtility::getLink('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link'),
+        'header' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header', 'trim,required', 50),
+        'header_layout' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_layout',
+            [
+                ['H1', '1'],
+                ['H2', '2'],
+                ['H3', '3'],
+                ['H4', '4'],
             ],
-            'l10n_mode' => 'exclude',
-        ],
-        'hidden' => [
-            'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
-            'config' => [
-                'type' => 'check',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
-                    ]
-                ]
-            ]
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
-                'default' => 0
+            1
+        ),
+        'header_position' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position',
+            [
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.default', ''],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.center', 'center'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.right', 'right'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.left', 'left'],
             ],
-            'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+            ''
+        ),
+        'header_class' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_class',
+            [
+                ['', 'none'],
+                ['h1', 'h1'],
+                ['h2', 'h2'],
+                ['h3', 'h3'],
+                ['h4', 'h4'],
+                ['h5', 'h5'],
             ],
-            'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
-        ],
-        'sys_language_uid' => [
-            'exclude' => 1,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => [
-                    [
-                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
-                        -1
-                    ],
-                    [
-                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
-                        0
-                    ]
-                ],
-                'allowNonIdValues' => true,
-            ]
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        '',
-                        0
-                    ]
-                ],
-                'foreign_table' => 'tx_bootstrappackage_carousel_item',
-                'foreign_table_where' => 'AND tx_bootstrappackage_carousel_item.pid=###CURRENT_PID### AND tx_bootstrappackage_carousel_item.sys_language_uid IN (-1,0)',
-                'default' => 0
-            ]
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough'
-            ]
-        ],
-        'link' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
-                'size' => 50,
-                'max' => 1024,
-                'eval' => 'trim',
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
-                        ],
-                    ],
-                ],
-                'softref' => 'typolink'
+            ''
+        ),
+        'subheader' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader'),
+        'subheader_layout' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_layout',
+            [
+                ['H2', '2'],
+                ['H3', '3'],
+                ['H4', '4'],
             ],
-        ],
-        'header' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'eval' => 'trim,required'
+            2
+        ),
+        'subheader_class' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_class',
+            [
+                ['', 'none'],
+                ['h1', 'h1'],
+                ['h2', 'h2'],
+                ['h3', 'h3'],
+                ['h4', 'h4'],
+                ['h5', 'h5']
             ],
-        ],
-        'header_layout' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_layout',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'H1',
-                        '1'
-                    ],
-                    [
-                        'H2',
-                        '2'
-                    ],
-                    [
-                        'H3',
-                        '3'
-                    ],
-                    [
-                        'H4',
-                        '4'
-                    ],
-                ],
-                'default' => '1'
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'header_position' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position',
-            'exclude' => true,
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.default',
-                        ''
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.center',
-                        'center'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.right',
-                        'right'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.left',
-                        'left'
-                    ]
-                ],
-                'default' => ''
-            ]
-        ],
-        'header_class' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_class',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['', 'none'],
-                    ['h1', 'h1'],
-                    ['h2', 'h2'],
-                    ['h3', 'h3'],
-                    ['h4', 'h4'],
-                    ['h5', 'h5']
-                ]
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'subheader' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'eval' => 'trim'
-            ],
-        ],
-        'subheader_layout' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_layout',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'H2',
-                        '2'
-                    ],
-                    [
-                        'H3',
-                        '3'
-                    ],
-                    [
-                        'H4',
-                        '4'
-                    ],
-                ],
-                'default' => '2'
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'subheader_class' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.subheader_class',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['', 'none'],
-                    ['h1', 'h1'],
-                    ['h2', 'h2'],
-                    ['h3', 'h3'],
-                    ['h4', 'h4'],
-                    ['h5', 'h5']
-                ]
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'nav_title' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.nav_title',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'eval' => 'trim'
-            ],
-        ],
-        'bodytext' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.bodytext',
-            'l10n_mode' => 'prefixLangTitle',
-            'l10n_cat' => 'text',
-            'config' => [
-                'type' => 'text',
-                'cols' => '80',
-                'rows' => '5',
-                'softref' => 'typolink_tag,images,email[subst],url',
-                'enableRichtext' => true,
-                'richtextConfiguration' => 'default'
-            ],
-        ],
-        'button_text' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.button_text',
-            'config' => [
-                'type' => 'input',
-                'size' => 20,
-                'max' => 255
-            ]
-        ],
-        'image' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image',
-                [
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ],
-                    'overrideChildTca' => [
-                        'types' => [
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-                                    title,
-                                    alternative,
-                                    crop,
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                        ],
-                    ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
-                ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
-        ],
-        'text_color' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'colorpicker',
-                'default' => '#FFFFFF',
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'background_color' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'colorpicker',
-                'default' => '#333333',
-            ],
-            'l10n_mode' => 'exclude',
-        ],
-        'background_image' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'background_image',
-                [
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ],
-                    'overrideChildTca' => [
-                        'types' => [
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-                                    crop,
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-                                'showitem' => '
-                                    --palette--;;filePalette
-                                '
-                            ],
-                        ],
-                    ],
-                    'minitems' => 0,
-                    'maxitems' => 1
-                ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
-            'l10n_mode' => 'exclude',
-        ],
-        'background_image_options' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image_options',
-            'config' => [
-                'type' => 'flex',
-                'ds' => [
-                    'default' => 'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml',
-                ],
-            ],
-            'l10n_mode' => 'exclude',
-        ]
+            ''
+        ),
+        'nav_title' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.nav_title'),
+        'bodytext' => TcaUtility::getRTE('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.bodytext'),
+        'button_text' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.button_text'),
+        'image' => TcaUtility::getImage('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.image', 'image'),
+        'text_color' => TcaUtility::getColor('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color', '#FFFFFF'),
+        'background_color' => TcaUtility::getColor('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color', '#333333'),
+        'background_image' => TcaUtility::getSimpleImage('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_image', 'background_image'),
+        'background_image_options' => TcaUtility::getFlexform(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image_options',
+            'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml'
+        )
     ],
 ];

@@ -7,6 +7,8 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/MenuThumbnailDir.tsconfig',
     'Bootstrap Package Content Element: Menu Thumbnails of subpages'
@@ -28,7 +30,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -80,7 +82,7 @@ $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_rec
 /***************
  * Add flexForms for content element configuration
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuThumbnail.xml',
     'menu_thumbnail_dir'
