@@ -7,6 +7,8 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Csv.tsconfig',
     'Bootstrap Package Content Element: CSV'
@@ -28,7 +30,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [

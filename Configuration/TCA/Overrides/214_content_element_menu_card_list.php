@@ -7,6 +7,8 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +21,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/MenuCardList.tsconfig',
     'Bootstrap Package Content Element: Menu Cards'
@@ -28,7 +30,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -81,7 +83,7 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = array_replace_recursi
 /***************
  * Add flexForms for content element configuration
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
     'menu_card_list'

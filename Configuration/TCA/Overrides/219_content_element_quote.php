@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +22,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Quote.tsconfig',
     'Bootstrap Package Content Element: Quote'
@@ -28,7 +31,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -81,32 +84,7 @@ $GLOBALS['TCA']['tt_content']['types']['quote'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'quote_source' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.source',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'max' => 255
-            ]
-        ],
-        'quote_link' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
-                'size' => 50,
-                'max' => 1024,
-                'eval' => 'trim',
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
-                        ],
-                    ],
-                ],
-                'softref' => 'typolink'
-            ]
-        ],
+        'quote_source' => TcaUtility::getText('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.source'),
+        'quote_link' => TcaUtility::getLink('LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link')
     ]
 );

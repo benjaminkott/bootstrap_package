@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\BootstrapPackage\Utility\TcaUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') || die();
 
 /***************
@@ -19,7 +22,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
 /***************
  * Add content element PageTSConfig
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Panel.tsconfig',
     'Bootstrap Package Content Element: Panel'
@@ -28,7 +31,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
 /***************
  * Add content element to selector list
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -72,13 +75,7 @@ $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
         ',
         'columnsOverrides' => [
-            'bodytext' => [
-                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
-                'config' => [
-                    'enableRichtext' => true,
-                    'richtextConfiguration' => 'default'
-                ]
-            ]
+            'bodytext' => TcaUtility::getRTE('LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel'),
         ]
     ]
 );
@@ -89,20 +86,17 @@ $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'panel_class' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.panel_class',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary', 'primary'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success', 'success'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info', 'info'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning', 'warning'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.danger', 'danger'],
-                ],
+        'panel_class' => TcaUtility::getOptions(
+            'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.panel_class',
+            [
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary', 'primary'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success', 'success'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info', 'info'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning', 'warning'],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.danger', 'danger'],
             ],
-        ],
+            'default'
+        )
     ]
 );
