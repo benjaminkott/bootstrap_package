@@ -24,7 +24,7 @@
             </button>
             <nav id="mainnavigation" class="collapse navbar-collapse">
                 <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
-                <f:render section="MainNavigation" arguments="{menu: mainnavigation, theme: theme}" />
+                <f:render section="MainNavigation" arguments="{menu: mainnavigation, theme: theme, current: data}" />
                 <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
             </nav>
         </f:if>
@@ -35,13 +35,16 @@
     <f:if condition="{menu}">
         <ul class="navbar-nav">
             <f:for each="{menu}" as="item">
+                {f:variable(name:'shortcutState',value:'')}
+                {f:variable(name:'shortcutState',value:' active')
+                    -> f:if(condition:'({item.data.doktype} == 4) && ({item.data.shortcut} == {current.uid})')}
                 <f:if condition="{item.spacer}">
                     <f:then>
                         </ul>
                         <ul class="navbar-nav">
                     </f:then>
                     <f:else>
-                        <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
+                        <li class="nav-item{shortcutState}{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
                             <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
                                 <f:if condition="{theme.navigation.icon.enable} && {item.icon}">
                                     <span class="nav-link-icon">
