@@ -52,7 +52,7 @@ class GoogleFontService
         $content = GeneralUtility::getUrl(
             $file,
             0,
-            ['User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134']
+            ['User-Agent' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
         );
 
         if (!$content) {
@@ -103,9 +103,9 @@ class GoogleFontService
         $cacheFile = $this->getCssFileCacheName($file);
         $absoluteFile = GeneralUtility::getFileAbsFileName($cacheFile);
 
-        if (!file_exists($absoluteFile)) {
+        // if (!file_exists($absoluteFile)) {
             return false;
-        }
+        // }
 
         // Discard cache after 24 hours
         if ((time() - filemtime($absoluteFile)) > 86400) {
