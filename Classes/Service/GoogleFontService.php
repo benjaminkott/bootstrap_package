@@ -103,9 +103,9 @@ class GoogleFontService
         $cacheFile = $this->getCssFileCacheName($file);
         $absoluteFile = GeneralUtility::getFileAbsFileName($cacheFile);
 
-        // if (!file_exists($absoluteFile)) {
+        if (!file_exists($absoluteFile)) {
             return false;
-        // }
+        }
 
         // Discard cache after 24 hours
         if ((time() - filemtime($absoluteFile)) > 86400) {
