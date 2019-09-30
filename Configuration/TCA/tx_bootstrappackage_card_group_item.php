@@ -34,6 +34,7 @@ return [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
+            'fe_group' => 'fe_group',
         ],
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-card-group-item'
@@ -43,7 +44,8 @@ return [
         'showRecordFieldList' => '
             hidden,
             tt_content,
-            header
+            header,
+            fe_group
         ',
     ],
     'types' => [
@@ -58,6 +60,7 @@ return [
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                fe_group
                 --palette--;;hiddenLanguagePalette,
             '
         ],
@@ -69,7 +72,9 @@ return [
         'access' => [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
-                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
+                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+                --linebreak--,
+                fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
             '
         ],
         'header' => [
@@ -152,6 +157,36 @@ return [
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ]
+            ],
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly'
+        ],
+        'fe_group' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'size' => 5,
+                'maxitems' => 20,
+                'items' => [
+                    [
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
+                        -1
+                    ],
+                    [
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
+                        -2
+                    ],
+                    [
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
+                        '--div--'
+                    ]
+                ],
+                'exclusiveKeys' => '-1,-2',
+                'foreign_table' => 'fe_groups',
+                'foreign_table_where' => 'ORDER BY fe_groups.title',
+                'enableMultiSelectFilterTextfield' => true
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
