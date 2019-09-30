@@ -109,7 +109,7 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
     item_type varchar(255) DEFAULT '' NOT NULL,
     header varchar(255) DEFAULT '' NOT NULL,
     header_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
-    header_position varchar(255) DEFAULT '' NOT NULL,
+    header_position varchar(255) DEFAULT 'center' NOT NULL,
     header_class varchar(255) DEFAULT '' NOT NULL,
     subheader varchar(255) DEFAULT '' NOT NULL,
     subheader_layout tinyint(3) unsigned DEFAULT '2' NOT NULL,
