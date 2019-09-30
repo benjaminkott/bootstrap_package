@@ -1,3 +1,34 @@
+# 11.0.1
+
+## FEATURE
+- [FEATURE] Add header position for carousel items e5f0b9a0
+
+## TASK
+- [TASK] Update bundled scssphp/scssphp version to 1.0.4 7e2cd340
+- [TASK] Add width, height and intrinsicsize to images 5e407e27
+- [TASK] Remove update build script e2cd4acd
+- [TASK] Extend CI to 10.x and master (#755) 9bd93914
+- [TASK] Make typo3/cms-* requirements less strict c4021f66
+- [TASK] Update ddev to 1.11.1 060db7d0
+- [TASK] Use github actions for ci (#741) 21c88577
+- [TASK] Disable xdebug by default for dev environment 1ed57870
+- [TASK] Update ddev to 1.10.2 7f0d0daf
+- [TASK] Streamline database field types a5332505
+- [TASK] Enable tmpfs for dev environment 00c41524
+
+## BUGFIX
+- [BUGFIX] Set default header position for carousel items 5eecad1c
+- [BUGFIX] Add check for cached file in GoogleFont Service again 00d16fc3
+- [BUGFIX] Switch GoogleFont Cache to woff for broader support - fixes #751 1b3a62f4
+- [BUGFIX] Keep viewbox attribute for photoswipe skin 0ae05920
+- [BUGFIX] Restore missing viewBox attribute for glyphicon icons 818044e6
+- [BUGFIX] Use correct constant for texticon width (#736) d70f1a91
+- [BUGFIX] Remove invalid date default value for timeline item b9c95a04
+- [BUGFIX] Ensure timeline item can be translated 7fb3993a
+- [BUGFIX] Correct Branch Alias 8084fb02
+- [BUGFIX] Remove default alignment of carousel header item b79f5e32
+- [BUGFIX] Correct wrapping for icongroup with less 43839d60
+
 # 11.0.0
 
 ## BREAKING
