@@ -1,3 +1,20 @@
+# 10.0.8
+
+## TASK
+- [TASK] Update bundled scssphp/scssphp version to 1.0.4 e2240134
+- [TASK] Update ddev to 1.11.1 931478a9
+- [TASK] Use github actions for ci (#741) 73fb2e02
+- [TASK] Disable xdebug by default for dev environment 1f0863a3
+- [TASK] Update ddev to 1.10.2 8a046dca
+- [TASK] Streamline database field types ab4692fb
+- [TASK] Add dependency to scssphp/scssphp and update bundled code c197bf7e
+
+## BUGFIX
+- [BUGFIX] Add check for cached file in GoogleFont Service again 82205ae4
+- [BUGFIX] Switch GoogleFont Cache to woff for broader support - fixes #751 b03ae652
+- [BUGFIX] Use correct constant for texticon width (#736) 23c29887
+- [BUGFIX] Ensure timeline item can be translated 548dd316
+
 # 10.0.7
 
 ## FEATURE
