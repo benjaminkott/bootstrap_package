@@ -239,6 +239,7 @@ $icons = [
     'beside-text-img-centered-right',
     'csv',
     'externalmedia',
+    'gallery',
     'icon-group',
     'icon-group-item',
     'listgroup',
