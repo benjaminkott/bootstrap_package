@@ -36,35 +36,4 @@ tt_content.gallery {
             predefinedList = image
         }
     }
-
-    #################
-    ### VARIABLES ###
-    #################
-    variables {
-        responsiveimages {
-            variants {
-                default {
-                    aspectRatio = TEXT
-                    aspectRatio.field = aspect_ratio
-                }
-                large {
-                    aspectRatio = TEXT
-                    aspectRatio.field = aspect_ratio
-                }
-                medium {
-                    aspectRatio = TEXT
-                    aspectRatio.field = aspect_ratio
-                }
-                small {
-                    aspectRatio = TEXT
-                    aspectRatio.field = aspect_ratio
-                }
-                extrasmall {
-                    aspectRatio = TEXT
-                    aspectRatio.field = aspect_ratio
-                }
-            }
-        }
-    }
-
 }
