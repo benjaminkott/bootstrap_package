@@ -21,6 +21,7 @@ class ImageVariantsUtility
     protected static $allowedVariantProperties = [
         'breakpoint',
         'width',
+        'aspectRatio',
         'sizes',
     ];
 
@@ -134,6 +135,12 @@ class ImageVariantsUtility
                 }
                 if ($key === 'sizes') {
                     continue;
+                } elseif ($key === 'aspectRatio') {
+                    if (is_numeric($value) && $value > 0) {
+                        $variants[$variant][$key] = (float) $value;
+                    } else {
+                        unset($variants[$variant][$key]);
+                    }
                 } elseif (is_numeric($value) && $value > 0) {
                     $variants[$variant][$key] = (int) $value;
                 } else {
