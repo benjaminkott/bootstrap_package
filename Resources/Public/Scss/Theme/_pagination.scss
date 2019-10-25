@@ -1,0 +1,31 @@
+//
+// Pagination
+//
+.pagination__list {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+.pagination__item {
+    &:first-child {
+        .pagination__link {
+            margin-left: 0;
+        }
+    }
+}
+.pagination__item--active {
+    font-weight: bold;
+}
+.pagination__link {
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1;
+    border: 1px solid;
+    .pagination__item--disabled & {
+        pointer-events: none;
+        cursor: auto;
+    }
+}

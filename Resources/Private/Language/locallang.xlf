@@ -130,6 +130,28 @@
                 <source>Deactivate Google Analytics (Opt-Out)</source>
             </trans-unit>
 
+            <trans-unit id="pagination.aria.label" xml:space="preserve">
+                <source>Page navigation</source>
+            </trans-unit>
+            <trans-unit id="pagination.next" xml:space="preserve">
+                <source>Next</source>
+            </trans-unit>
+            <trans-unit id="pagination.previous" xml:space="preserve">
+                <source>Previous</source>
+            </trans-unit>
+            <trans-unit id="pagination.aria.current.page" xml:space="preserve">
+                <source>Current page, page %s</source>
+            </trans-unit>
+            <trans-unit id="pagination.aria.goto.page" xml:space="preserve">
+                <source>Go to page %s</source>
+            </trans-unit>
+            <trans-unit id="pagination.aria.goto.next" xml:space="preserve">
+                <source>Go to next page</source>
+            </trans-unit>
+            <trans-unit id="pagination.aria.goto.previous" xml:space="preserve">
+                <source>Go to previous page</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
