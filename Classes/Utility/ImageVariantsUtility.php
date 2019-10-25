@@ -21,6 +21,7 @@ class ImageVariantsUtility
     protected static $allowedVariantProperties = [
         'breakpoint',
         'width',
+        'aspectRatio',
         'sizes',
     ];
 
@@ -54,9 +55,10 @@ class ImageVariantsUtility
      * @param array $multiplier
      * @param array $gutters
      * @param array $corrections
+     * @param float $aspectRatio
      * @return array
      */
-    public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = []): array
+    public static function getImageVariants($variants = [], $multiplier = [], $gutters = [], $corrections = [], $aspectRatio = null): array
     {
         $variants = self::processVariants($variants);
         $variants = self::processResolutions($variants);
@@ -64,6 +66,7 @@ class ImageVariantsUtility
         $variants = self::processMultiplier($variants, $multiplier);
         $variants = self::removeGutters($variants, $gutters);
         $variants = self::processCorrections($variants, $corrections);
+        $variants = self::processAspectRatio($variants, $aspectRatio);
         return $variants;
     }
 
@@ -134,6 +137,12 @@ class ImageVariantsUtility
                 }
                 if ($key === 'sizes') {
                     continue;
+                } elseif ($key === 'aspectRatio') {
+                    if (is_numeric($value) && $value > 0) {
+                        $variants[$variant][$key] = (float) $value;
+                    } else {
+                        unset($variants[$variant][$key]);
+                    }
                 } elseif (is_numeric($value) && $value > 0) {
                     $variants[$variant][$key] = (int) $value;
                 } else {
@@ -206,6 +215,21 @@ class ImageVariantsUtility
         foreach ($corrections as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
                 $variants[$variant]['width'] -= $value;
+            }
+        }
+        return $variants;
+    }
+
+    /**
+     * @param array $variants
+     * @param float $aspectRatio
+     * @return array
+     */
+    protected static function processAspectRatio($variants, $aspectRatio): array
+    {
+        if (is_numeric($aspectRatio) && $aspectRatio > 0) {
+            foreach ($variants as $variant => $value) {
+                $variants[$variant]['aspectRatio'] = (float) $aspectRatio;
             }
         }
         return $variants;

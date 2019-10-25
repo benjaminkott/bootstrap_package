@@ -3,19 +3,53 @@
     <f:for each="{variants}" key="name" as="variant">
         <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
         <f:variable name="width">{variant.width as integer}</f:variable>
+        <f:variable name="height" value="" />
         <f:if condition="{width}">
+            <f:if condition="{variant.aspectRatio}">
+                <f:variable name="aspectRatio">{variant.aspectRatio as float}</f:variable>
+                <f:variable name="height">{width / aspectRatio}</f:variable>
+                <f:variable name="height">{height as integer}</f:variable>
+            </f:if>
             <f:variable name="mediaQuery">{f:if(condition: breakpoint, then: 'media="(min-width: {breakpoint}px)"')}</f:variable>
             <f:if condition="{variant.sizes}">
                 <f:variable name="srcset" value="" />
                 <f:for each="{variant.sizes}" key="sizeKey" as="sizeConfig" iteration="iteration">
                     <f:variable name="sizeWidth">{sizeConfig.multiplier as float}</f:variable>
                     <f:variable name="sizeWidth">{sizeWidth * width}</f:variable>
-                    <f:variable name="srcset">{srcset}{f:uri.image(image: file, cropVariant: name, maxWidth: sizeWidth)} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
+                    <f:variable name="sizeHeight" value="" />
+                    <f:if condition="{height}">
+                        <f:then>
+                            <f:variable name="sizeHeight">{sizeConfig.multiplier as float}</f:variable>
+                            <f:variable name="sizeHeight">{sizeHeight * height}</f:variable>
+                            <f:variable name="sizeUrl">{f:uri.image(image: file, cropVariant: name, width: '{sizeWidth}c', height: '{sizeHeight}c')}</f:variable>
+                        </f:then>
+                        <f:else>
+                            <f:variable name="sizeUrl">{f:uri.image(image: file, cropVariant: name, maxWidth: sizeWidth)}</f:variable>
+                        </f:else>
+                    </f:if>
+                    <f:variable name="srcset">{srcset}{sizeUrl} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
                 </f:for>
             </f:if>
-            <source data-variant="{name}" data-maxwidth="{width}" {mediaQuery->f:format.raw()} srcset="{srcset}">
+            <source data-variant="{name}" {f:if(condition: sizeHeight, then: 'data-width="{width}" data-height="{sizeHeight}"', else: 'data-maxwidth="{width}"')} {mediaQuery->f:format.raw()} srcset="{srcset}">
         </f:if>
     </f:for>
-    <img loading="lazy" src="{f:uri.image(image: file, cropVariant: 'default', maxWidth: variants.default.width)}" width="{bk2k:lastImageInfo(property: 'width')}" height="{bk2k:lastImageInfo(property: 'height')}" intrinsicsize="{bk2k:lastImageInfo(property: 'width')}x{bk2k:lastImageInfo(property: 'height')}" title="{file.properties.title}" alt="{file.properties.alternative}">
+    <f:variable name="defaultWidth" value="{variants.default.width}" />
+    <f:variable name="defaultAspectRatio" value="{variants.default.aspectRatio}" />
+    <f:if condition="{defaultAspectRatio}">
+        <f:variable name="aspectRatio">{defaultAspectRatio as float}</f:variable>
+        <f:variable name="defaultHeight">{defaultWidth / aspectRatio}</f:variable>
+        <f:variable name="defaultHeight">{height as integer}</f:variable>
+    </f:if>
+    <f:if condition="{defaultHeight}">
+        <f:then>
+            <f:variable name="src" value="{f:uri.image(image: file, cropVariant: 'default', width: defaultWidth, height: defaultHeight)}" />
+        </f:then>
+        <f:else>
+            <f:variable name="src" value="{f:uri.image(image: file, cropVariant: 'default', width: defaultWidth)}" />
+        </f:else>
+    </f:if>
+    <f:variable name="finalWidth" value="{bk2k:lastImageInfo(property: 'width')}" />
+    <f:variable name="finalHeight" value="{bk2k:lastImageInfo(property: 'height')}" />
+    <img loading="lazy" src="{src}" width="{finalWidth}" height="{finalHeight}" intrinsicsize="{finalWidth}x{finalHeight}" title="{file.properties.title}" alt="{file.properties.alternative}">
 </picture>
 </html>

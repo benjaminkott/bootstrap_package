@@ -215,6 +215,13 @@
                 <source>Social Media</source>
             </trans-unit>
 
+            <trans-unit id="content_element.gallery">
+                <source>Gallery</source>
+            </trans-unit>
+            <trans-unit id="content_element.gallery.description">
+                <source>Display multiple images in a rich gallery.</source>
+            </trans-unit>
+
             <trans-unit id="content_element.csv">
                 <source>CSV</source>
             </trans-unit>
@@ -736,6 +743,13 @@
             </trans-unit>
             <trans-unit id="field.external_media_ratio">
                 <source>Ratio</source>
+            </trans-unit>
+
+            <trans-unit id="field.aspect_ratio">
+                <source>Aspect Ratio</source>
+            </trans-unit>
+            <trans-unit id="field.items_per_page">
+                <source>Items per page</source>
             </trans-unit>
 
             <trans-unit id="field.icon">

@@ -1,0 +1,101 @@
+<f:if condition="{configuration.insertAbove}">
+    <f:render section="Paginator" arguments="{pagination: pagination, configuration: configuration}" />
+</f:if>
+<f:renderChildren arguments="{contentArguments}" />
+<f:if condition="{configuration.insertBelow}">
+    <f:render section="Paginator" arguments="{pagination: pagination, configuration: configuration}" />
+</f:if>
+<f:section name="Paginator">
+    <f:if condition="{pagination.numberOfPages} > 1">
+        <nav class="pagination" role="navigation" aria-label="{f:translate(key: 'pagination.aria.label', extensionName: 'BootstrapPackage')}">
+            <ul class="pagination-list">
+                <f:if condition="{pagination.previousPage}">
+                    <li class="pagination-item pagination-item-previous">
+                        <f:if condition="{pagination.previousPage} > 1">
+                            <f:then>
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="BootstrapPackage" /></f:variable>
+                                <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <span class="pagination-itemtitle"><f:translate key="pagination.previous" extensionName="BootstrapPackage" /></span>
+                                </f:widget.link>
+                            </f:then>
+                            <f:else>
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="BootstrapPackage" /></f:variable>
+                                <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <span class="pagination-itemtitle"><f:translate key="pagination.previous" extensionName="BootstrapPackage" /></span>
+                                </f:widget.link>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeStart} > 1">
+                    <li class="pagination-item pagination-item-first">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: '1'}" extensionName="BootstrapPackage" /></f:variable>
+                        <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <span class="pagination-itemtitle">1</span>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.hasLessPages}">
+                    <li class="pagination-item pagination-item-disabled pagination-item-ellipsis">
+                        <a href="javascript:void();" tabindex="-1" aria-hidden="true" class="pagination-link">
+                            <span class="pagination-itemtitle">…</span>
+                        </a>
+                    </li>
+                </f:if>
+                <f:for each="{pagination.pages}" as="page">
+                    <f:if condition="{page.isCurrent}">
+                        <f:then>
+                            <li class="pagination-item pagination-item-active">
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.current.page" arguments="{0: page.number}" extensionName="BootstrapPackage" /></f:variable>
+                                <f:widget.link class="pagination-link pagination-item-current" additionalAttributes="{aria-label: ariaLabel, aria-current: 'true'}" arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <span class="pagination-itemtitle">{page.number}</span>
+                                </f:widget.link>
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li class="pagination-item">
+                                <f:if condition="{page.number} > 1">
+                                    <f:then>
+                                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: page.number}" extensionName="BootstrapPackage" /></f:variable>
+                                        <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                            <span class="pagination-itemtitle">{page.number}</span>
+                                        </f:widget.link>
+                                    </f:then>
+                                    <f:else>
+                                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: page.number}" extensionName="BootstrapPackage" /></f:variable>
+                                        <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                            <span class="pagination-itemtitle">{page.number}</span>
+                                        </f:widget.link>
+                                    </f:else>
+                                </f:if>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+                <f:if condition="{pagination.hasMorePages}">
+                    <li class="pagination-item pagination-item-disabled pagination-item-ellipsis">
+                        <a href="javascript:void();" tabindex="-1" aria-hidden="true" class="pagination-link">
+                            <span class="pagination-itemtitle">…</span>
+                        </a>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
+                    <li class="pagination-item pagination-item-last">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: pagination.numberOfPages}" extensionName="BootstrapPackage" /></f:variable>
+                        <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.numberOfPages}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <span class="pagination-itemtitle">{pagination.numberOfPages}</span>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.nextPage}">
+                    <li class="pagination-item pagination-item-next">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.next" extensionName="BootstrapPackage" /></f:variable>
+                        <f:widget.link class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.nextPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <span class="pagination-itemtitle"><f:translate key="pagination.next" extensionName="BootstrapPackage" /></span>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+            </ul>
+        </nav>
+    </f:if>
+</f:section>

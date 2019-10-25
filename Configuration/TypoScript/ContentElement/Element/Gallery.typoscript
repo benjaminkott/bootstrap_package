@@ -1,0 +1,39 @@
+########################
+#### CTYPE: GALLERY ####
+########################
+
+tt_content.gallery >
+tt_content.gallery =< lib.contentElement
+tt_content.gallery {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Gallery
+
+    ###############
+    ### EXTBASE ###
+    ###############
+    extbase {
+        controllerExtensionName = BootstrapPackage
+        controllerName = Content
+        controllerActionName = generic
+        pluginName = Content
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+            folders.field = file_folder
+            sorting.field = filelink_sorting
+        }
+        20 = BK2K\BootstrapPackage\DataProcessing\FileFilterProcessor
+        20 {
+            predefinedList = image
+        }
+    }
+}

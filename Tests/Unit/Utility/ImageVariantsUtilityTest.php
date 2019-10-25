@@ -912,6 +912,52 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         ]
                     ]
                 ]
+            ],
+            'aspect-ratio' => [
+                [
+                    'variants' => [
+                        'float' => [
+                            'width' => 1100,
+                            'aspectRatio' => 1.3333333333333,
+                        ],
+                        'integer' => [
+                            'width' => 1100,
+                            'aspectRatio' => 1,
+                        ],
+                        'invalid' => [
+                            'width' => 1100,
+                            'aspectRatio' => 'invalid',
+                        ]
+                    ]
+                ],
+                [
+                    'float' => [
+                        'width' => 1100,
+                        'aspectRatio' => 1.3333333333333,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                            ]
+                        ]
+                    ],
+                    'integer' => [
+                        'width' => 1100,
+                        'aspectRatio' => 1.0,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                            ]
+                        ]
+                    ],
+                    'invalid' => [
+                        'width' => 1100,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1,
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ];
     }
@@ -996,6 +1042,32 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ]
             ],
+            'keep-aspect-ratio' => [
+                [
+                    'base' => [
+                        'variants' => [
+                            'default' => [
+                                'width' => 1100,
+                                'aspectRatio' => 1.5
+                            ]
+                        ]
+                    ],
+                    'extend' => [
+                        'multiplier' => [ 'default' => 0.5 ]
+                    ]
+                ],
+                [
+                    'default' => [
+                        'width' => 550,
+                        'aspectRatio' => 1.5,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         ];
     }
 

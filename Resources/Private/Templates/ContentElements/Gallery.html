@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <bk2k:data.imageVariants as="variants" variants="{variants}" aspectRatio="{data.aspect_ratio as float}" />
+    <f:variable name="itemsPerPage" value="{data.items_per_page as integer}" />
+    <f:if condition="{itemsPerPage} <= 0"><f:variable name="itemsPerPage" value="10" /></f:if>
+    <f:widget.paginate customWidgetId="gallery-{data.uid}" objects="{files}" as="files" configuration="{itemsPerPage: itemsPerPage, maximumNumberOfLinks: 10}">
+        <f:render partial="Media/Gallery" arguments="{_all}" />
+    </f:widget.paginate>
+
+</f:section>
+</html>

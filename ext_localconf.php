@@ -239,6 +239,7 @@ $icons = [
     'beside-text-img-centered-right',
     'csv',
     'externalmedia',
+    'gallery',
     'icon-group',
     'icon-group-item',
     'listgroup',
@@ -257,3 +258,14 @@ foreach ($icons as $icon) {
         ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/' . $icon . '.svg']
     );
 }
+
+/***************
+ * Configure Plugins
+ */
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'BK2K.BootstrapPackage',
+    'Content',
+    [
+        'Content' => 'generic',
+    ]
+);

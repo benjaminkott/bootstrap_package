@@ -23,6 +23,8 @@ CREATE TABLE sys_language (
 #
 CREATE TABLE tt_content (
     teaser text,
+    aspect_ratio varchar(255) DEFAULT '1.3333333333333' NOT NULL,
+    items_per_page int(11) unsigned DEFAULT '10',
     readmore_label varchar(255) DEFAULT '' NOT NULL,
     quote_source varchar(255) DEFAULT '' NOT NULL,
     quote_link varchar(1024) DEFAULT '' NOT NULL,
