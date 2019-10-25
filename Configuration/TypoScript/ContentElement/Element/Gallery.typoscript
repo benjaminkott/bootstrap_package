@@ -15,10 +15,10 @@ tt_content.gallery {
     ### EXTBASE ###
     ###############
     extbase {
-        pluginName = Gallery
         controllerExtensionName = BootstrapPackage
-        controllerName = Gallery
-        controllerActionName = default
+        controllerName = Content
+        controllerActionName = generic
+        pluginName = Content
     }
 
     ##########################
@@ -34,6 +34,36 @@ tt_content.gallery {
         20 = BK2K\BootstrapPackage\DataProcessing\FileFilterProcessor
         20 {
             predefinedList = image
+        }
+    }
+
+    #################
+    ### VARIABLES ###
+    #################
+    variables {
+        responsiveimages {
+            variants {
+                default {
+                    aspectRatio = TEXT
+                    aspectRatio.field = aspect_ratio
+                }
+                large {
+                    aspectRatio = TEXT
+                    aspectRatio.field = aspect_ratio
+                }
+                medium {
+                    aspectRatio = TEXT
+                    aspectRatio.field = aspect_ratio
+                }
+                small {
+                    aspectRatio = TEXT
+                    aspectRatio.field = aspect_ratio
+                }
+                extrasmall {
+                    aspectRatio = TEXT
+                    aspectRatio.field = aspect_ratio
+                }
+            }
         }
     }
 

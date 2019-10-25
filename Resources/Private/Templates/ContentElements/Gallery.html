@@ -2,8 +2,9 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
-    <f:variable name="itemsPerPage">{data.items_per_page}</f:variable>
-    <f:widget.paginate objects="{files}" as="files" configuration="{itemsPerPage: itemsPerPage, maximumNumberOfLinks: 10}">
+    <f:variable name="itemsPerPage" value="{data.items_per_page as integer}" />
+    <f:if condition="{itemsPerPage} <= 0"><f:variable name="itemsPerPage" value="10" /></f:if>
+    <f:widget.paginate customWidgetId="gallery-{data.uid}" objects="{files}" as="files" configuration="{itemsPerPage: itemsPerPage, maximumNumberOfLinks: 10}">
         <f:render partial="Media/Gallery" arguments="{_all}" />
     </f:widget.paginate>
 
