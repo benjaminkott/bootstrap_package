@@ -1,0 +1,10 @@
+// Variables
+$radius: 1rem;
+
+// Tests
+.case-with-variable {
+    border-radius: $radius / 2;
+}
+.case-without-variable {
+    border-radius: 1rem / 2;
+}
