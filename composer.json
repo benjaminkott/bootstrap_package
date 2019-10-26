@@ -41,7 +41,7 @@
         "typo3/cms-install": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-rte-ckeditor": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-seo": "^9.5 || ^10.0 || 10.*@dev",
-        "scssphp/scssphp": "^1.0.3, !=1.0.4, !=1.0.5"
+        "scssphp/scssphp": "dev-master"
     },
     "require-dev": {
         "typo3/cms-felogin": "^9.5 || ^10.0 || 10.*@dev",
