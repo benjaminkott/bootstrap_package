@@ -28,27 +28,27 @@ $bootstrapPackageConfiguration = $extensionConfiguration->get('bootstrap_package
  */
 
 // Add Content Elements
-if (!$bootstrapPackageConfiguration['disablePageTsContentElements']) {
+if (!(bool) $bootstrapPackageConfiguration['disablePageTsContentElements']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
 }
 
 // Add BackendLayouts for the BackendLayout DataProvider
-if (!$bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
+if (!(bool) $bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
 }
 
 // RTE
-if (!$bootstrapPackageConfiguration['disablePageTsRTE']) {
+if (!(bool) $bootstrapPackageConfiguration['disablePageTsRTE']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig">');
 }
 
 // TCEMAIN
-if (!$bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
+if (!(bool) $bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig">');
 }
 
 // TCEFORM
-if (!$bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
+if (!(bool) $bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig">');
 }
 
@@ -111,7 +111,7 @@ if (TYPO3_MODE === 'BE') {
 /***************
  * Register google font hook
  */
-if (!$bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+if (!(bool) $bootstrapPackageConfiguration['disableGoogleFontCaching']) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
 }
@@ -127,7 +127,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser']
 /***************
  * Register css processing hooks
  */
-if (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackageConfiguration['disableLessProcessing']) {
+if (!(bool) $bootstrapPackageConfiguration['disableCssProcessing']) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
@@ -135,7 +135,7 @@ if (!$bootstrapPackageConfiguration['disableCssProcessing'] || !$bootstrapPackag
 /***************
  * Register font loader
  */
-if (!$bootstrapPackageConfiguration['disableFontLoader']) {
+if (!(bool) $bootstrapPackageConfiguration['disableFontLoader']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(implode(LF, [
         '# customsubcategory=98=Preloader',
         'page.preloader {',
