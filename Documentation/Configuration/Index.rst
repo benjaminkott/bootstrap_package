@@ -16,4 +16,5 @@ Configuration
    :glob:
 
    Extension/Index
+   ImageRendering/Index
    TypoScript/Index
