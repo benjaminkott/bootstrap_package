@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## Description: TYPO3 Render documentation
+## Usage: t3rd [flags] [args]
+## Example: "ddev t3rd help" or "ddev t3rd makeall" or "ddev t3rd makehtml"
+
+if [ "$(echo $1 | tr '[:upper:]' '[:lower:]')" = "help" ]; then
+    /ALL/Menu/mainmenu.sh --help
+else
+    /ALL/Menu/mainmenu.sh $@
+fi

@@ -1,0 +1,25 @@
+version: '3.6'
+
+services:
+  t3rd:
+    container_name: ddev-${DDEV_SITENAME}-t3rd
+    build: 
+      context: '.t3rdimageBuild'
+      args: 
+        BASE_IMAGE: 't3docs/render-documentation:latest'
+    image: t3docs/render-documentation:latest-built
+    cap_add:
+      - SYS_PTRACE
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+    volumes:
+      - ..:/mnt/t3rd-project:ro
+      - ../.build/doc:/RESULT
+      # ddev custom command support
+      - .:/mnt/ddev_config:ro
+    restart: "no"
+  web:
+    volumes:
+      # doc preview
+      - ../.build/doc/Result/project/0.0.0:/mnt/t3rd-preview:ro
+      - ../Resources/Public/Icons:/mnt/t3rd-favicon:ro
