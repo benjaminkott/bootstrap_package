@@ -8,7 +8,7 @@ declare(strict_types = 1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace T3G\AgencyPack\Blog\Controller;
+namespace BK2K\BootstrapPackage\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
