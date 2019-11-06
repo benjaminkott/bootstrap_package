@@ -6,7 +6,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _migration:
+.. _migration_6.2.11:
 
 =============================
 Upgrade from 6.2.10 to 6.2.11
