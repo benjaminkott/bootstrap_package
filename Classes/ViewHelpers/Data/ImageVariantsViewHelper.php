@@ -31,7 +31,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
         $this->registerArgument('variants', 'array', 'Variants for responsive images.', false);
         $this->registerArgument('multiplier', 'array', 'Multiplier to calculate responsive image widths.', false);
         $this->registerArgument('gutters', 'array', 'Gutter that needs to be respected when calculating responsive image widths.', false);
-        $this->registerArgument('corrections', 'array', 'Corrections to be applied after calculationof image widths.', false);
+        $this->registerArgument('corrections', 'array', 'Corrections to be applied after calculation of image widths.', false);
         $this->registerArgument('aspectRatio', 'float', 'Set aspect ratio for all variants.', false);
     }
 
