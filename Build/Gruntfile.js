@@ -129,6 +129,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.contrib %>modernizr/modernizr.min.js',
                 dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
             },
+            bootstrapAccordion: {
+                src: '<%= paths.js %>Src/bootstrap.accordion.js',
+                dest: '<%= paths.js %>Dist/bootstrap.accordion.min.js'
+            },
             bootstrapForm: {
                 src: '<%= paths.js %>Src/bootstrap.form.js',
                 dest: '<%= paths.js %>Dist/bootstrap.form.min.js'
