@@ -331,7 +331,7 @@ page {
     }
 
     includeCSSLibs {
-        googlewebfont = https://fonts.googleapis.com/css?family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
+        googlewebfont = https://fonts.googleapis.com/css?display=swap&family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
         googlewebfont {
             external = 1
             disableCompression = 1
