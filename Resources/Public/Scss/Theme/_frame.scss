@@ -103,7 +103,8 @@
 // Background
 //
 .container {
-    .frame-has-backgroundimage {
+    .frame-has-backgroundimage,
+    %frame-has-backgroundimage {
         @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
             @include media-breakpoint-up($breakpoint) {
                 $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
@@ -133,7 +134,7 @@
     $link-color: map-get($settings, 'link-color');
     $link-hover-color: map-get($settings, 'link-hover-color');
     .frame-background-#{$name} {
-        @extend .frame-has-backgroundimage;
+        @extend %frame-has-backgroundimage;
         color: $color;
         background-color: $background;
         a:not(.btn) {
