@@ -22,7 +22,7 @@ class LessParser extends AbstractParser
      */
     public function __construct()
     {
-        if (!class_exists('Less_Cache', false)) {
+        if (!class_exists('Less_Cache')) {
             require_once ExtensionManagementUtility::extPath('bootstrap_package') . '/Contrib/less.php/Less.php';
         }
     }
