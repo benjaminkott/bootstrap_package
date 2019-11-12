@@ -13245,6 +13245,48 @@ figure .caption {
   }
 }
 
+.pagination {
+  margin: 1rem 0;
+}
+
+.pagination-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding-left: 1px;
+  list-style: none;
+}
+
+.pagination-link {
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1;
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff !important;
+  color: #2b2b2b !important;
+}
+
+.pagination-link:hover {
+  text-decoration: none;
+  background-color: #f2f2f2 !important;
+  color: #2b2b2b !important;
+}
+
+.pagination-item-disabled .pagination-link {
+  pointer-events: none;
+  cursor: auto;
+}
+
+.pagination-item {
+  margin-top: 1px;
+}
+
+.pagination-item-active .pagination-link {
+  background-color: #e2e2e2 !important;
+  color: #2b2b2b !important;
+}
+
 .cc-window {
   opacity: 1;
   transition: opacity 1s ease;
