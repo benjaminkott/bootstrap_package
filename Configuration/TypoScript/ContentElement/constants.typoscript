@@ -110,27 +110,27 @@ plugin.bootstrap_package_contentelements {
     texticon {
         icon {
             default {
-                # cat=bootstrap package: content elements/190_contentelement/001_default_icon_height; type=string; label=Default Icon Height
+                # cat=bootstrap package: content elements/170_contentelement/001_default_icon_height; type=string; label=Default Icon Height
                 height = 32
-                # cat=bootstrap package: content elements/190_contentelement/002_default_icon_width; type=string; label=Default Icon Width
+                # cat=bootstrap package: content elements/170_contentelement/002_default_icon_width; type=string; label=Default Icon Width
                 width = 32
             }
             medium {
-                # cat=bootstrap package: content elements/190_contentelement/003_medium_icon_height; type=string; label=Medium Icon Height
+                # cat=bootstrap package: content elements/170_contentelement/003_medium_icon_height; type=string; label=Medium Icon Height
                 height = 48
-                # cat=bootstrap package: content elements/190_contentelement/004_medium_icon_width; type=string; label=Medium Icon Width
+                # cat=bootstrap package: content elements/170_contentelement/004_medium_icon_width; type=string; label=Medium Icon Width
                 width = 48
             }
             large {
-                # cat=bootstrap package: content elements/190_contentelement/005_large_icon_height; type=string; label=Large Icon Height
+                # cat=bootstrap package: content elements/170_contentelement/005_large_icon_height; type=string; label=Large Icon Height
                 height = 64
-                # cat=bootstrap package: content elements/190_contentelement/006_large_icon_width; type=string; label=Large Icon Width
+                # cat=bootstrap package: content elements/170_contentelement/006_large_icon_width; type=string; label=Large Icon Width
                 width = 64
             }
             awesome {
-                # cat=bootstrap package: content elements/190_contentelement/007_awesome_icon_height; type=string; label=Awesome Icon Height
+                # cat=bootstrap package: content elements/170_contentelement/007_awesome_icon_height; type=string; label=Awesome Icon Height
                 height = 80
-                # cat=bootstrap package: content elements/190_contentelement/008_awesome_icon_width; type=string; label=Awesome Icon Width
+                # cat=bootstrap package: content elements/170_contentelement/008_awesome_icon_width; type=string; label=Awesome Icon Width
                 width = 80
             }
         }
