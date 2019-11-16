@@ -1,4 +1,4 @@
-APIVersion: v1.11.1
+APIVersion: v1.12.0-alpha2
 name: bootstrap-package
 type: typo3
 docroot: .build/web
@@ -16,9 +16,9 @@ use_dns_when_possible: true
 timezone: ""
 
 
-# This config.yaml was created with ddev version v1.11.1
-# webimage: drud/ddev-webserver:v1.11.0
-# dbimage: drud/ddev-dbserver:v1.11.0-10.2
+# This config.yaml was created with ddev version v1.12.0-alpha2
+# webimage: drud/ddev-webserver:20191104_heddn_drush_node_version
+# dbimage: drud/ddev-dbserver-mariadb-10.2:20191007_many_mariadb
 # dbaimage: drud/phpmyadmin:v1.11.0
 # bgsyncimage: drud/ddev-bgsync:v1.11.0
 # However we do not recommend explicitly wiring these images into the
@@ -44,6 +44,12 @@ timezone: ""
 # dbimage: <docker_image>  # mariadb docker image.
 # dbaimage: <docker_image>
 # bgsyncimage: <docker_image>
+
+# mariadb_version and mysql_version
+# ddev can use many versions of mariadb and mysql
+# However these directives are mutually exclusive
+# mariadb_version: 10.2
+# mysql_version: 8.0
 
 # router_http_port: <port>  # Port to be used for http (defaults to port 80)
 # router_https_port: <port> # Port for https (defaults to 443)
@@ -95,7 +101,7 @@ timezone: ""
 
 # webcache_enabled: false (deprecated)
 # Was only for macOS, but now deprecated.
-# See https://ddev.readthedocs.io/en/stable/users/performance/#using-webcache_enabled-to-cache-the-project-directory
+# See https://ddev.readthedocs.io/en/stable/users/performance/#webcache
 
 # host_https_port: "59002"
 # The host port binding for https can be explicitly specified. It is
