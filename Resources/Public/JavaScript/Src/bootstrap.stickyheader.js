@@ -1,6 +1,6 @@
-$(function () {
+$(function animateHeader() {
 
-    $(window).on('resize, scroll', function () {
+    $(window).on('resize, scroll', function() {
         var stickyheaderScrolled = $(window).scrollTop();
         if (stickyheaderScrolled > 150) {
             $('.navbar-fixed-top').addClass('navbar-transition');
@@ -8,5 +8,8 @@ $(function () {
             $('.navbar-fixed-top').removeClass('navbar-transition');
         }
     });
+  	document.addEventListener("DOMContentLoaded", function(n) {
+    	animateHeader()
+	})
 
 });
