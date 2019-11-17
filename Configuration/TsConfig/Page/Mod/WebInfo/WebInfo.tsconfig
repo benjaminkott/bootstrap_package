@@ -1,0 +1,10 @@
+#######################################
+#### WEB INFO MODULE CONFIGURATION ####
+#######################################
+mod.web_info.fieldDefinitions {
+    1574005852 {
+        # Cache and age
+        label = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:web_info.page_1574005852
+        fields = backend_layout,backend_layout_next_level
+    }
+}
