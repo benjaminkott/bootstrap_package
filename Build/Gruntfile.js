@@ -373,6 +373,18 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+            masonrylayout: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>masonry-layout/dist/',
+                        src: [
+                            'masonry.pkgd.min.js',
+                        ],
+                        dest: '<%= paths.contrib %>masonry-layout/',
+                        expand: true
+                    }
+                ]
+            },
             photoswipe: {
                 files: [
                     {
