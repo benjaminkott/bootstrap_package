@@ -8,7 +8,7 @@
             && location.hostname === this.hostname
             && $(this).data('toggle') === undefined
             && $(this).data('slide') === undefined) {
-            var $target = $(this.hash);
+            var $target = $(this.hash.replace( /(:|\.|\[|\]|,|=|\/)/g, '\\$1'));
             $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
             if ($target.length) {
                 var targetOffset = $target.offset().top;
