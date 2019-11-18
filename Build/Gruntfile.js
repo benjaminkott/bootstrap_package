@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     /**
      * Grunt correct scss urls
      */
-    grunt.registerMultiTask('rebase', 'Grunt task zo rebase urls after sass processing', function () {
+    grunt.registerMultiTask('rebase', 'Grunt task to rebase urls after sass processing', function () {
         var options = this.options(),
             done = this.async(),
             postcss = require('postcss'),
