@@ -1,10 +1,7 @@
+var element = document.getElementsByClassName("navbar-fixed-top");
 function animateHeader() {
-    150<$(window).scrollTop() ? $(".navbar-fixed-top").addClass("navbar-transition") : $(".navbar-fixed-top").removeClass("navbar-transition")
-}
-document.addEventListener("DOMContentLoaded", function(n) {
-    animateHeader()
-}), $(function() {
-    $(window).on("resize, scroll", function() {
-        animateHeader()
-    })
+	150<window.scrollY ? element[0].classList.add("navbar-transition") : element[0].classList.remove("navbar-transition")
+};
+['scroll', 'resize', 'DOMContentLoaded'].forEach(function(e) {
+  window.addEventListener(e, animateHeader);
 });
