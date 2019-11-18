@@ -33,7 +33,12 @@ if (!(bool) $bootstrapPackageConfiguration['disablePageTsContentElements']) {
 }
 
 // BackendLayouts to the Web Info Module
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebInfo/WebInfo.tsconfig">');
+if (stripos(
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig'],
+    'label = LLL:EXT:info/Resources/Private/Language/locallang_webinfo.xlf:pages_3'
+) === false) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebInfo/WebInfo.tsconfig">');
+}
 
 // Add BackendLayouts for the BackendLayout DataProvider
 if (!(bool) $bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
