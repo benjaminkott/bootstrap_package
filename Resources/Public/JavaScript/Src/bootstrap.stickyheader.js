@@ -1,4 +1,4 @@
-var element = document.getElementsByClassName("navbar-fixed-top");
+let element = document.getElementsByClassName("navbar-fixed-top");
 function animateHeader() {
 	150<window.scrollY ? element[0].classList.add("navbar-transition") : element[0].classList.remove("navbar-transition")
 };
