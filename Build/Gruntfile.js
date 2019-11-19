@@ -538,7 +538,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('lint', ['stylelint']);
-    grunt.registerTask('build', ['update', 'lint', 'css', 'js', 'image', 'webfont']);
+    grunt.registerTask('build', ['update', 'lint', 'webfont', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);
 
 };
