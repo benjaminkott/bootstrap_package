@@ -1,12 +1,7 @@
-$(function () {
-
-    $(window).on('resize, scroll', function () {
-        var stickyheaderScrolled = $(window).scrollTop();
-        if (stickyheaderScrolled > 150) {
-            $('.navbar-fixed-top').addClass('navbar-transition');
-        } else {
-            $('.navbar-fixed-top').removeClass('navbar-transition');
-        }
-    });
-
+var stickyheader = document.getElementsByClassName("navbar-fixed-top");
+function animateHeader() {
+	150<window.scrollY ? stickyheader[0].classList.add("navbar-transition") : stickyheader[0].classList.remove("navbar-transition");
+}
+['scroll', 'resize', 'DOMContentLoaded'].forEach(function(e) {
+  window.addEventListener(e, animateHeader);
 });
