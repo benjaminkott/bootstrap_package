@@ -1,10 +1,18 @@
 ---
 name: "⛑ Support"
 about: Ask the community for help.
-labels:
+title: ''
+labels: question
+assignees: ''
 
 ---
 
 # Support
 
-**Is your question related to a problem? Please describe.**
+## Description
+
+[Is your question related to a problem? Please describe.]
+
+## Screenshots
+
+[If applicable, add screenshots to help explain your problem.]
