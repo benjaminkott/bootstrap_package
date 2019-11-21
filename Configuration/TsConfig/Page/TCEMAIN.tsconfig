@@ -8,5 +8,4 @@ TCEMAIN {
         group = show, editcontent, edit, new, delete
         everybody =
     }
-    translateToHidden = 1
 }
