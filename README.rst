@@ -89,7 +89,7 @@ Documentation
 -------------
 
 * `Wiki <https://github.com/benjaminkott/bootstrap_package/wiki>`_
-* `Documentation <https://docs.typo3.org/p/bk2k/bootstrap-package/master/en-us/`_
+* `Documentation <https://docs.typo3.org/p/bk2k/bootstrap-package/master/en-us/>`_
 
 Contributing
 ------------
