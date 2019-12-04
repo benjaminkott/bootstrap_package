@@ -1,0 +1,7 @@
+# Add 'dependencies' label to file containing dependencies
+dependencies:
+  - Build/package.json
+  - Build/yarn.lock
+  - composer.json
+  - composer.lock
+  - ext_emconf.php
