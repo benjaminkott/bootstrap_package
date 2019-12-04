@@ -1,4 +1,4 @@
-APIVersion: v1.12.0-alpha2
+APIVersion: v1.12.0
 name: bootstrap-package
 type: typo3
 docroot: .build/web
@@ -16,11 +16,11 @@ use_dns_when_possible: true
 timezone: ""
 
 
-# This config.yaml was created with ddev version v1.12.0-alpha2
-# webimage: drud/ddev-webserver:20191104_heddn_drush_node_version
-# dbimage: drud/ddev-dbserver-mariadb-10.2:20191007_many_mariadb
-# dbaimage: drud/phpmyadmin:v1.11.0
-# bgsyncimage: drud/ddev-bgsync:v1.11.0
+# This config.yaml was created with ddev version v1.12.0
+# webimage: drud/ddev-webserver:v1.12.1
+# dbimage: drud/ddev-dbserver-mariadb-10.2:v1.12.0
+# dbaimage: drud/phpmyadmin:v1.12.0
+# bgsyncimage: drud/ddev-bgsync:v1.12.0
 # However we do not recommend explicitly wiring these images into the
 # config.yaml as they may break future versions of ddev.
 # You can update this config.yaml using 'ddev config'.
