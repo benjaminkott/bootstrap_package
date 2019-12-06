@@ -1594,10 +1594,24 @@ grunt-postcss@^0.9.0:
     diff "^3.0.0"
     postcss "^6.0.11"
 
+<<<<<<< HEAD
 grunt-sass@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/grunt-sass/-/grunt-sass-3.0.1.tgz#2760207d7b78db84429d9fa77d22289a6fc903a0"
   integrity sha512-eKmtsPmtO+cjE1wT0EkvgavsQCzT2x+2J1tS4SuoBu3j0CDpI6o3cJUJ5CxrbjaWULpLlsu0GFiOa6nYetnaqQ==
+=======
+grunt-sass@^3.0.2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/grunt-sass/-/grunt-sass-3.1.0.tgz#a5936cc2a80ec08092d9f31c101dc307d1e4f71c"
+  integrity sha512-90s27H7FoCDcA8C8+R0GwC+ntYD3lG6S/jqcavWm3bn9RiJTmSfOvfbFa1PXx4NbBWuiGQMLfQTj/JvvqT5w6A==
+
+grunt-stylelint@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/grunt-stylelint/-/grunt-stylelint-0.11.0.tgz#6f1eb442c04acc1ffe1d6d2859328c7c39e60492"
+  integrity sha512-/6LOPh8ftRS70tKa676ZrGG+eNCQQHJPH5QWe4gmzdW+K3Ud0YwbmUe1Bly3x9ymfllNTCALRmMJoV9xEh9RFA==
+  dependencies:
+    chalk "2.4.2"
+>>>>>>> 41475573... [TASK] Bump grunt-sass to version 3.1.0  (#818)
 
 grunt-webfont@^1.7.2:
   version "1.7.2"
