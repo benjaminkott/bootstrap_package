@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Execute Build Commands
+## Usage: build
+## Example: "ddev build help" or "ddev build" or "ddev build build" or "ddev build css"
+
+cd Build
+yarn $@
