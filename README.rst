@@ -148,6 +148,11 @@ Send a tweet `@benjaminkott <https://twitter.com/benjaminkott>`_.
 
 Code Quality
 ============
+
+.. image:: https://github.com/benjaminkott/bootstrap_package/workflows/CI/badge.svg
+   :alt: Continuous Integration Status
+   :target: https://github.com/benjaminkott/bootstrap_package/actions?query=workflow%3ACI
+
 .. image:: https://travis-ci.org/benjaminkott/bootstrap_package.svg?branch=master
    :alt: Build Status
    :target: https://travis-ci.org/benjaminkott/bootstrap_package
