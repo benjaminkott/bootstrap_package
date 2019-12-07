@@ -73,7 +73,6 @@ module.exports = function(grunt) {
             icons: '<%= paths.resources %>Public/Icons/',
             images: '<%= paths.resources %>Public/Images/',
             fonts: '<%= paths.resources %>Public/Fonts/',
-            less: '<%= paths.resources %>Public/Less/',
             sass: '<%= paths.resources %>Public/Scss/',
             css: '<%= paths.resources %>Public/Css/',
             js: '<%= paths.resources %>Public/JavaScript/',
@@ -85,7 +84,6 @@ module.exports = function(grunt) {
                 fix: true,
             },
             sass: ['<%= paths.sass %>**/*.scss'],
-            less: ['<%= paths.less %>**/*.less'],
         },
         rebase: {
             bootstrap4: {
@@ -110,14 +108,6 @@ module.exports = function(grunt) {
             bootstrap4_rte: {
                 src: '<%= paths.css %>bootstrap4-rte.css',
                 dest: '<%= paths.css %>bootstrap4-rte.min.css'
-            },
-            bootstrap3_theme: {
-                src: '<%= paths.css %>bootstrap3-theme.css',
-                dest: '<%= paths.css %>bootstrap3-theme.min.css'
-            },
-            bootstrap3_rte: {
-                src: '<%= paths.css %>bootstrap3-rte.css',
-                dest: '<%= paths.css %>bootstrap3-rte.min.css'
             },
             bootstrappackageicon: {
                 src: '<%= paths.fonts %>bootstrappackageicon.css',
@@ -218,28 +208,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        less: {
-            bootstrap3_theme: {
-                options: {
-                    sourceMap: false,
-                    outputSourceFiles: true,
-                    relativeUrls: true,
-                    rootpath: 'Public/'
-                },
-                src: '<%= paths.less %>Theme/theme.less',
-                dest: '<%= paths.css %>bootstrap3-theme.css'
-            },
-            bootstrap3_rte: {
-                options: {
-                    sourceMap: false,
-                    outputSourceFiles: true,
-                    relativeUrls: true,
-                    rootpath: 'Public/'
-                },
-                src: '<%= paths.less %>RTE/rte.less',
-                dest: '<%= paths.css %>bootstrap3-rte.css'
-            }
-        },
         watch: {
             bootstrapForm: {
                 files: '<%= paths.js %>Src/bootstrap.form.js',
@@ -295,10 +263,6 @@ module.exports = function(grunt) {
             },
             scss: {
                 files: '<%= paths.scss %>**/*.scss',
-                tasks: 'css'
-            },
-            less: {
-                files: '<%= paths.less %>**/*.less',
                 tasks: 'css'
             }
         },
@@ -405,28 +369,6 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            bootstrap3: {
-                files: [
-                    {
-                        cwd: '<%= paths.node %>bootstrap3/dist/js/',
-                        src: 'bootstrap.min.js',
-                        dest: '<%= paths.contrib %>bootstrap3/js/',
-                        expand: true
-                    },
-                    {
-                        cwd: '<%= paths.node %>bootstrap3/dist/fonts/',
-                        src: '*',
-                        dest: '<%= paths.contrib %>bootstrap3/fonts/',
-                        expand: true
-                    },
-                    {
-                        cwd: '<%= paths.node %>bootstrap3/less/',
-                        src: '**',
-                        dest: '<%= paths.contrib %>bootstrap3/less/',
-                        expand: true
-                    }
-                ]
-            },
             bootstrap4: {
                 files: [
                     {
@@ -518,7 +460,6 @@ module.exports = function(grunt) {
      */
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -531,7 +472,7 @@ module.exports = function(grunt) {
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
-    grunt.registerTask('css', ['sass', 'less', 'rebase', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'rebase', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('lint', ['stylelint']);
