@@ -96,7 +96,7 @@ Contributing
 
 Feel free to fork this project and create a pull request when you're happy
 with your changes. We check the source code according to the our Coding Guidelines.
-To reformat the code automatically, you can use `php-cs-fixer` as follows:
+To reformat the code automatically, you can use ``php-cs-fixer`` as follows:
 
 .. code-block::
 
@@ -106,14 +106,14 @@ DDEV Local
 ----------
 
 The extension comes with a ready to use DDEV Local configuration. Type
-`ddev start` in the extension root folder to start the Docker container.
+``ddev start`` in the extension root folder to start the Docker container.
 
-`ddev launch` will open the browser and head to the testing website. You can
-use `ddev launch typo3` to get directly to the backend.
+``ddev launch`` will open the browser and head to the testing website. You can
+use ``ddev launch typo3`` to get directly to the backend.
 
-To run the build process simply execute `ddev yarn install` followed by the
-desired command e.g. `ddev yarn build`. Type `ddev yarn help` or
-`ddev yarn -help` to get an overview of the available commands.
+To run the build process simply execute ``ddev yarn install`` followed by the
+desired command e.g. ``ddev yarn build``. Type ``ddev yarn help`` or
+``ddev yarn -help`` to get an overview of the available commands.
 
 Bug reporting
 -------------
