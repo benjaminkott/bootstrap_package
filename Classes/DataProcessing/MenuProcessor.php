@@ -1,4 +1,12 @@
 <?php
+declare(strict_types = 1);
+
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
@@ -8,8 +16,6 @@ use TYPO3\CMS\Frontend\Page\PageRepository;
 /**
  * Data Processor: Menu Processor
  * Correctly define menu states for all possible types
- *
- * @package BK2K\BootstrapPackage\DataProcessing
  */
 class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
 {
@@ -57,7 +63,7 @@ class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
 
     /**
      * @param array $items
-     * @param integer $current
+     * @param int $current
      * @param array $active
      * @return array
      */
