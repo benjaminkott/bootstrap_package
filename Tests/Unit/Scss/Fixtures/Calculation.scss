@@ -1,0 +1,20 @@
+// Variables
+$radius: 1rem;
+$preCalculatedRadius: $radius / 2;
+
+// Tests
+.case-without-variable {
+    border-radius: 1rem / 2;
+}
+.case-with-variable {
+    border-radius: $radius / 2;
+}
+.case-precalculated-variable {
+    border-radius: $preCalculatedRadius / 2;
+}
+
+$width: 1rem;
+button {
+  width: $width / 2;
+  border-radius: $width / 2;
+}

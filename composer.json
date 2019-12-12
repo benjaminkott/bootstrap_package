@@ -38,7 +38,7 @@
         "typo3/cms-frontend": "^8.7.0 || ^9.0",
         "typo3/cms-install": "^8.7.0 || ^9.0",
         "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0",
-        "scssphp/scssphp": "^1.0.4"
+        "scssphp/scssphp": "^1.0.6"
     },
     "require-dev": {
         "typo3/cms-felogin": "^8.7.0 || ^9.0",
@@ -49,6 +49,9 @@
         "typo3/testing-framework": "^1.2 || ^4.9",
         "bk2k/extension-helper": "^1.0",
         "overtrue/phplint": "^1.1"
+    },
+    "conflict": {
+        "scssphp/scssphp": "1.0.4 || 1.0.5"
     },
     "autoload": {
         "psr-4": {
