@@ -1,0 +1,21 @@
+name: Check PR
+
+on: [pull_request]
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Commit Type
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '^(|\[(!!!|WIP|POC)\])\[(BUGFIX|DOCS|FEATURE|TASK)\] .+($|\n|\r|\n\r)'
+          flags: ''
+          error: 'Your first line has to contain a commit type like "[BUGFIX]".'
+      - name: Check Line Length
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '^[^#].{1,74}'
+          flags: 'gm'
+          error: 'The maximum line length of 74 characters is exceeded.'
