@@ -141,7 +141,7 @@ page {
                 as = theme
                 key = page.theme
             }
-            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             10 {
                 levels = 2
                 includeSpacer = 1
@@ -165,7 +165,7 @@ page {
                     }
                 }
             }
-            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             20 {
                 entryLevel = 1
                 levels = 2
@@ -183,7 +183,7 @@ page {
                     }
                 }
             }
-            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            30 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             30 {
                 special = rootline
                 special.range = 0|-1
@@ -213,7 +213,7 @@ page {
                 languages = {$page.theme.language.languageValue}
                 as = languagenavigation
             }
-            50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            50 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
             50 {
                 special = {$page.theme.meta.navigationType}
                 special.value = {$page.theme.meta.navigationValue}

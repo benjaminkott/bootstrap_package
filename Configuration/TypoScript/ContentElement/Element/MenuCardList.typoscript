@@ -16,7 +16,7 @@ tt_content.menu_card_list {
     ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
-        20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        20 = BK2K\BootstrapPackage\DataProcessing\MenuProcessor
         20 {
             special = list
             special.value.field = pages
