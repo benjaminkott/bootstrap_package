@@ -185,6 +185,10 @@ class Nested extends Formatter
         if (! empty($block->selectors)) {
             $this->indentLevel--;
 
+            if (! $this->keepSemicolons) {
+                $this->strippedSemicolon = '';
+            }
+
             $this->write($this->close);
 
             $closeBlock = $this->break;
