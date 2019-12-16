@@ -43,7 +43,7 @@ class BrandingService
                 $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
             }
 
-            $extensionConfiguration->set('backend', '', $backendConfiguration);
+            $extensionConfiguration->set('backend', $backendConfiguration);
         }
     }
 }
