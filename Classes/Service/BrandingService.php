@@ -43,9 +43,12 @@ class BrandingService
                 $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
             }
 
-            try {
+            $reflection = new ReflectionClass(ExtensionConfiguration::class);
+            $parameters = $reflection->getMethod('set')->getParameters();
+
+            if (count($parameters) === 3) {
                 $extensionConfiguration->set('backend', '', $backendConfiguration);
-            } catch (\Throwable $th) {
+            } else {
                 $extensionConfiguration->set('backend', $backendConfiguration);
             }
         }
