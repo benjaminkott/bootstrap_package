@@ -126,9 +126,6 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
-                compress: {
-                    warnings: false
-                },
                 output: {
                     comments: false
                 }
