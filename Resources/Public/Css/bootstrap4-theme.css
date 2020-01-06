@@ -11004,9 +11004,11 @@ blockquote footer::before {
   }
 }
 
-.navbar-fixed-top .navbar-collapse.show,
-.navbar-fixed-bottom .navbar-collapse.show {
-  overflow-y: auto;
+@media (max-width: 991px) {
+  .navbar-fixed-top .navbar-collapse.show,
+  .navbar-fixed-bottom .navbar-collapse.show {
+    overflow-y: auto;
+  }
 }
 
 .navbar + a + .carousel-fullscreen,
