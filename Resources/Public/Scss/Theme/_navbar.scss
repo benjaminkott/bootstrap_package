@@ -32,8 +32,10 @@
                 max-height: calc(100vh - #{map-get($navbar-heights, $breakpoint)});
             }
         }
-        &.show {
-            overflow-y: auto;
+        @media (max-width: ($grid-float-breakpoint - 1)) {
+            &.show {
+                overflow-y: auto;
+            }
         }
     }
 }
