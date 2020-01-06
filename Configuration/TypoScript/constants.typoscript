@@ -261,9 +261,9 @@ config {
 #########################
 plugin.bootstrap_package {
     settings {
-        # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your LESS/Scss files will be overridden with the ones defined as TypoScript Constants.
+        # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your CSS files will be overridden with the ones defined as TypoScript Constants.
         overrideParserVariables = 1
-        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug LESS/Scss in browser developer tools. Note: CSS compression will be disabled.
+        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug CSS in browser developer tools. Note: CSS compression will be disabled.
         cssSourceMapping = 0
     }
 }

@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * This service handles the parsing of less files for the frontend.
+ * This service handles the parsing of css files for the frontend.
  */
 class CompileService
 {
@@ -101,7 +101,7 @@ class CompileService
             $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
         }
 
-        // Fetch SCSS / Less settings
+        // Fetch settings
         $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
         foreach ($constants as $constant => $value) {
             if (strpos($constant, $prefix) === 0) {
