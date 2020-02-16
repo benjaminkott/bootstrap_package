@@ -2,7 +2,7 @@ APIVersion: v1.13.1
 name: bootstrap-package
 type: typo3
 docroot: .build/web
-php_version: "7.3"
+php_version: "7.4"
 webserver_type: apache-fpm
 router_http_port: "80"
 router_https_port: "443"
