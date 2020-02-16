@@ -70,6 +70,7 @@ class InstallService
                 FlashMessage::NOTICE,
                 true
             );
+            /** @extensionScannerIgnoreLine */
             $this->addFlashMessage($flashMessage);
             return;
         }
@@ -85,6 +86,7 @@ class InstallService
                 FlashMessage::OK,
                 true
             );
+            /** @extensionScannerIgnoreLine */
             $this->addFlashMessage($flashMessage);
         }
     }
