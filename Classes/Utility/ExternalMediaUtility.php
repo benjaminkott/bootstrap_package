@@ -62,11 +62,13 @@ class ExternalMediaUtility
     protected function getMethod($url)
     {
         $urlInformation = @parse_url($url);
-        $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
-        foreach ($this->mediaProvider as $provider) {
-            $functionName = 'process' . ucfirst($provider);
-            if (in_array($provider, $hostName) && is_callable([$this, $functionName])) {
-                return $functionName;
+        if ($urlInformation) {
+            $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
+            foreach ($this->mediaProvider as $provider) {
+                $functionName = 'process' . ucfirst($provider);
+                if (in_array($provider, $hostName) && is_callable([$this, $functionName])) {
+                    return $functionName;
+                }
             }
         }
         return null;
