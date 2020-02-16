@@ -1,4 +1,4 @@
-APIVersion: v1.12.0
+APIVersion: v1.13.0
 name: bootstrap-package
 type: typo3
 docroot: .build/web
@@ -16,11 +16,10 @@ use_dns_when_possible: true
 timezone: ""
 
 
-# This config.yaml was created with ddev version v1.12.0
-# webimage: drud/ddev-webserver:v1.12.1
-# dbimage: drud/ddev-dbserver-mariadb-10.2:v1.12.0
-# dbaimage: drud/phpmyadmin:v1.12.0
-# bgsyncimage: drud/ddev-bgsync:v1.12.0
+# This config.yaml was created with ddev version v1.13.0
+# webimage: drud/ddev-webserver:v1.13.0
+# dbimage: drud/ddev-dbserver-mariadb-10.2:v1.13.0
+# dbaimage: phpmyadmin/phpmyadmin:5
 # However we do not recommend explicitly wiring these images into the
 # config.yaml as they may break future versions of ddev.
 # You can update this config.yaml using 'ddev config'.
@@ -34,7 +33,7 @@ timezone: ""
 
 # docroot: <relative_path> # Relative path to the directory containing index.php.
 
-# php_version: "7.2"  # PHP version to use, "5.6", "7.0", "7.1", "7.2", "7.3", "7.4"
+# php_version: "7.3"  # PHP version to use, "5.6", "7.0", "7.1", "7.2", "7.3", "7.4"
 
 # You can explicitly specify the webimage, dbimage, dbaimage lines but this
 # is not recommended, as the images are often closely tied to ddev's' behavior,
@@ -43,7 +42,6 @@ timezone: ""
 # webimage: <docker_image>  # nginx/php docker image.
 # dbimage: <docker_image>  # mariadb docker image.
 # dbaimage: <docker_image>
-# bgsyncimage: <docker_image>
 
 # mariadb_version and mysql_version
 # ddev can use many versions of mariadb and mysql
@@ -99,10 +97,6 @@ timezone: ""
 # Great performance improvement but requires host configuration first.
 # See https://ddev.readthedocs.io/en/stable/users/performance/#using-nfs-to-mount-the-project-into-the-container
 
-# webcache_enabled: false (deprecated)
-# Was only for macOS, but now deprecated.
-# See https://ddev.readthedocs.io/en/stable/users/performance/#webcache
-
 # host_https_port: "59002"
 # The host port binding for https can be explicitly specified. It is
 # dynamic unless otherwise specified.
@@ -146,6 +140,11 @@ timezone: ""
 # ngrok_args: --subdomain mysite --auth username:pass
 # Provide extra flags to the "ngrok http" command, see
 # https://ngrok.com/docs#http or run "ngrok http -h"
+
+# disable_settings_management: false
+# If true, ddev will not create CMS-specific settings files like
+# Drupal's settings.php/settings.ddev.php or TYPO3's AdditionalSettings.php
+# In this case the user must provide all such settings.
 
 # provider: default # Currently either "default" or "pantheon"
 #
