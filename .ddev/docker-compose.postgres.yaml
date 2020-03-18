@@ -12,7 +12,7 @@ services:
     volumes:
       - type: "volume"
         source: postgres-database
-        target: "/var/lib/postgresql"
+        target: "/var/lib/postgresql/data"
         volume:
           nocopy: true
       - type: "bind"
