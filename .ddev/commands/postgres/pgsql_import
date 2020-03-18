@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Load to an empty postgresql database from .ddev/import-db/postgresql.db.sql
+## Usage: pgsql_import
+## Example: ddev pgsql_import
+
+# Import via user postgres to avoid credentials prompt
+su postgres -c "psql -U db db < /mnt/ddev_config/import-db/postgresql.db.sql"
