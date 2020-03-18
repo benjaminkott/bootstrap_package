@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Dump the postgresql database to .ddev/import-db/postgresql.db.sql
+## Usage: pgsql_export
+## Example: ddev pgsql_export
+
+mkdir -p /mnt/ddev_config/import-db && su postgres -c "pg_dump db --username=db --host=localhost --port=5432 --column-inserts > /mnt/ddev_config/import-db/postgresql.db.sql"
