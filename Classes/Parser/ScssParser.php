@@ -114,6 +114,30 @@ class ScssParser extends AbstractParser
         });
         // Add extensions path to import paths, so that we can use paths relative to this directory to resolve imports
         $scss->addImportPath(Environment::getExtensionsPath());
+
+        // Make paths in url() statements relative to site root
+        $absoluteFilePath = dirname($absoluteFilename);
+        $siteFilePath = dirname(substr($absoluteFilename, strlen($this->getPathSite())));
+        $absoluteBootstrapPackagePath = GeneralUtility::getFileAbsFileName(ExtensionManagementUtility::extPath('bootstrap_package') . 'Resources/Public/Scss/Theme');
+        $siteBootstrapPackagePath = substr($absoluteBootstrapPackagePath, strlen($this->getPathSite()));
+        $scss->registerFunction(
+            'url',
+            function ($args) use ($scss, $absoluteFilePath, $siteFilePath, $absoluteBootstrapPackagePath, $siteBootstrapPackagePath) {
+                $marker = $args[0][1];
+                $args[0][1] = '';
+                $result = $scss->compileValue($args[0]);
+                if (substr_compare($result, 'data:', 0, 5, true) !== 0) {
+                    if (is_file(PathUtility::getCanonicalPath($absoluteFilePath . '/' . $result))) {
+                        $result = PathUtility::getCanonicalPath($siteFilePath . '/' . $result);
+                    } elseif (is_file(PathUtility::getCanonicalPath($absoluteBootstrapPackagePath . '/' . $result))) {
+                        $result = PathUtility::getCanonicalPath($siteBootstrapPackagePath . '/' . $result);
+                    }
+                }
+                return 'url(' . $marker . $result . $marker . ')';
+            }
+        );
+
+        // Compile file
         $css = $scss->compile('@import "' . $absoluteFilename . '"');
 
         // Fix url() statements
