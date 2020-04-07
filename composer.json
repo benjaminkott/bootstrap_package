@@ -28,7 +28,10 @@
     "require": {
         "php": ">=7.0.0",
         "ext-dom": "*",
+        "ext-hash": "*",
+        "ext-json": "*",
         "ext-libxml": "*",
+        "ext-PDO": "*",
         "ext-simplexml": "*",
         "typo3/cms-backend": "^8.7.0 || ^9.0",
         "typo3/cms-core": "^8.7.0 || ^9.0",
