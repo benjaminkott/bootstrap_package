@@ -30,6 +30,7 @@
     "require": {
         "php": ">=7.2.0",
         "ext-dom": "*",
+        "ext-filter": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
         "typo3/cms-backend": "^9.5 || ^10.0 || 10.*@dev",
