@@ -104,6 +104,7 @@
     },
     "extra": {
         "typo3/cms": {
+            "extension-key": "bootstrap_package",
             "web-dir": ".build/web",
             "app-dir": ".build"
         },
