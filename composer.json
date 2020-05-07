@@ -46,7 +46,7 @@
         "typo3/cms-rte-ckeditor": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-seo": "^9.5 || ^10.0 || 10.*@dev",
         "scssphp/scssphp": "^1.0.6",
-        "typo3fluid/fluid": "^2.6"
+        "typo3fluid/fluid": "^2.5.2"
     },
     "require-dev": {
         "typo3/cms-felogin": "^9.5 || ^10.0 || 10.*@dev",
