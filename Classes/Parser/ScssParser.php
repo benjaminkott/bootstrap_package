@@ -91,7 +91,7 @@ class ScssParser extends AbstractParser
         // repository feature of Composer - having one package in `public/typo3conf/ext/`
         // and the other one symlinked in e.g. `packages/`.
         // Since the PHP SCSS parser works on resolved real paths, the symlinked context is lost.
-        $visualImportPath = dirname(GeneralUtility::getFileAbsFileName($file));
+        $visualImportPath = dirname($absoluteFilename);
         $scss->addImportPath(function ($url) use ($visualImportPath) {
             // Resolve potential back paths manually using PathUtility::getCanonicalPath,
             // but make sure we do not break out of TYPO3 application path using GeneralUtility::getFileAbsFileName
