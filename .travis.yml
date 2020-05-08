@@ -7,12 +7,11 @@ php:
 
 env:
   - TYPO3_VERSION=^9
-  - TYPO3_VERSION=dev-master
+  - TYPO3_VERSION=^10
 
 install:
-  - composer require typo3/minimal:${TYPO3_VERSION}
+  - composer require typo3/cms-core:${TYPO3_VERSION} --no-progress
   - git checkout composer.json
-  - export TYPO3_PATH_WEB="$PWD/.build/web"
 
 script:
   - >
@@ -30,22 +29,6 @@ jobs:
     - stage: quality
       php: 7.2
       script: ./.build/bin/php-cs-fixer --diff --dry-run -v fix
-
-    - stage: dependencies
-      php: 7.2
-      sudo: true
-      script:
-        - >
-          echo "Installing node_modules";
-          pushd Build;
-          yarn install;
-        - >
-          echo "Install grunt cli";
-          npm install -g grunt-cli;
-        - >
-          echo "Executing grunt";
-          pushd Build;
-          grunt build;
 
     - stage: deploy
       sudo: true
@@ -71,9 +54,3 @@ jobs:
 cache:
   directories:
     - $HOME/.composer/cache
-
-notifications:
-  slack:
-    secure: fj3lIrSaDe0EzBu+Twng/3vz/Bn2bGtKhEA6hG2vBg1g+/n54l7uhzXjRWgMaI4gfwuBmDcJvPnG2EFweBuSJgQgxcXzCvScZ1Z4Xu+gAeCCCeuVJHsWE34erE86a5MeIAsDZhH2UG/MTOlpUqqdFCD59z5XA+E52LiyTp7QMi0=
-    on_success: change
-    on_failure: always

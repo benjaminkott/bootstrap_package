@@ -13,14 +13,14 @@
 	verbose="false"
 	beStrictAboutTestsThatDoNotTestAnything="true"
 >
-	<testsuites>
-		<testsuite name="bk2k-bootstrap-package-unit-tests">
-			<directory>../Tests/Unit</directory>
-		</testsuite>
-	</testsuites>
-	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">../Classes/</directory>
-		</whitelist>
-	</filter>
+<testsuites>
+	<testsuite name="bk2k-bootstrap-package-unit-tests">
+		<directory>../Tests/Unit</directory>
+	</testsuite>
+</testsuites>
+<filter>
+	<whitelist processUncoveredFilesFromWhitelist="true">
+		<directory suffix=".php">../Classes/</directory>
+	</whitelist>
+</filter>
 </phpunit>
