@@ -96,7 +96,7 @@ class ScssParser extends AbstractParser
             // Resolve potential back paths manually using PathUtility::getCanonicalPath,
             // but make sure we do not break out of TYPO3 application path using GeneralUtility::getFileAbsFileName
             // Also resolve EXT: paths if given
-            $isTypo3Absolute = strpos($url, '..') === false;
+            $isTypo3Absolute = !(strpos($url, '..') === 0);
             $fileName = $isTypo3Absolute ? $url : $visualImportPath . '/' . $url;
             $full = GeneralUtility::getFileAbsFileName(PathUtility::getCanonicalPath($fileName));
             // The API forces us to check the existence of files paths, with or without url.
