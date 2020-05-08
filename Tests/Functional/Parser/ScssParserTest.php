@@ -46,10 +46,12 @@ class ScssParserTest extends FunctionalTestCase
             'direct include' => [
                 'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
             ],
-            // @TODO FIX: Currently Failing
-            // 'relative include from symlinked package' => [
-            //     'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/TestRelative/theme.scss'
-            // ]
+            'relative include from symlinked package' => [
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss'
+            ],
+            'core syntax' => [
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/CoreSyntax/theme.scss'
+            ]
         ];
     }
 }
