@@ -33,7 +33,7 @@ class ScssParserTest extends FunctionalTestCase
     public function scssParserCanCompileTest($inputFile)
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = $compileService->getCompiledFile($inputFile);
+        $compiledFile = GeneralUtility::getFileAbsFileName($compileService->getCompiledFile($inputFile));
         $this->assertFileExists($compiledFile);
     }
 
