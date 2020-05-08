@@ -13,12 +13,12 @@
         "web"
     ],
     "homepage": "https://github.com/benjaminkott/bootstrap_package",
-    "repositories": [
-        {
+    "repositories": {
+        "tests": {
             "type": "path",
-            "url": "Tests/Packages/*"
+            "url": "Tests/Packages/demo_package"
         }
-    ],
+    },
     "authors": [
         {
             "name": "Benjamin Kott",
