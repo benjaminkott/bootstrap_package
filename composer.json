@@ -13,6 +13,12 @@
         "web"
     ],
     "homepage": "https://github.com/benjaminkott/bootstrap_package",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "Build/packages/*"
+        }
+    ],
     "authors": [
         {
             "name": "Benjamin Kott",
@@ -30,7 +36,11 @@
     "require": {
         "php": ">=7.2.0",
         "ext-dom": "*",
+        "ext-filter": "*",
+        "ext-hash": "*",
+        "ext-json": "*",
         "ext-libxml": "*",
+        "ext-PDO": "*",
         "ext-simplexml": "*",
         "typo3/cms-backend": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-core": "^9.5 || ^10.0 || 10.*@dev",
@@ -41,7 +51,8 @@
         "typo3/cms-install": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-rte-ckeditor": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-seo": "^9.5 || ^10.0 || 10.*@dev",
-        "scssphp/scssphp": "^1.0.6"
+        "scssphp/scssphp": "^1.0.6",
+        "typo3fluid/fluid": "^2.5.2"
     },
     "require-dev": {
         "typo3/cms-felogin": "^9.5 || ^10.0 || 10.*@dev",
@@ -52,6 +63,7 @@
         "typo3/cms-tstemplate": "^9.5 || ^10.0 || 10.*@dev",
         "friendsofphp/php-cs-fixer": "^2.3.1",
         "typo3/testing-framework": "^4.9 || ^5.0",
+        "bk2k/demo-package": "*",
         "bk2k/extension-helper": "^1.0",
         "overtrue/phplint": "^1.1"
     },
@@ -75,7 +87,10 @@
             "phplint"
         ],
         "test:php:unit": [
-            "phpunit -c Build/phpunit.xml"
+            "phpunit -c Build/phpunit-unit.xml"
+        ],
+        "test:php:functional": [
+            "phpunit -c Build/phpunit-functional.xml"
         ],
         "test": [
             "@test:php:lint",
@@ -97,6 +112,7 @@
     },
     "extra": {
         "typo3/cms": {
+            "extension-key": "bootstrap_package",
             "web-dir": ".build/web",
             "app-dir": ".build"
         },

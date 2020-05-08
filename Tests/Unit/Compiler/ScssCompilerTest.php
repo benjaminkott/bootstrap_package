@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-namespace BK2K\BootstrapPackage\Tests\Unit\Parser;
+namespace BK2K\BootstrapPackage\Tests\Unit\Compiler;
 
 use ScssPhp\ScssPhp\Compiler;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
@@ -15,7 +15,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * Testcase for class \ScssPhp\ScssPhp\Compiler
  */
-class ScssTest extends UnitTestCase
+class ScssCompilerTest extends UnitTestCase
 {
     /**
      * @param string $file
@@ -38,8 +38,8 @@ class ScssTest extends UnitTestCase
     {
         return [
             'Calculation' => [
-                'Fixtures/Calculation.scss',
-                'Fixtures/Calculation.css'
+                'Fixtures/Calculation/Input.scss',
+                'Fixtures/Calculation/Output.css'
             ]
         ];
     }
