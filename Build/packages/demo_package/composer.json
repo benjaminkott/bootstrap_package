@@ -1,0 +1,16 @@
+{
+    "name": "bk2k/demo-package",
+    "type": "typo3-cms-extension",
+    "description": "Bootstrap Package Extension / Overwrite Tests",
+    "homepage": "https://www.bootstrap-package.com",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "bk2k/bootstrap-package": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bk2k\\DemoPackage\\": "Classes/"
+        }
+    }
+}
