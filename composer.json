@@ -13,12 +13,12 @@
         "web"
     ],
     "homepage": "https://github.com/benjaminkott/bootstrap_package",
-    "repositories": [
-        {
+    "repositories": {
+        "tests": {
             "type": "path",
-            "url": "Build/packages/*"
+            "url": "Tests/Packages/*"
         }
-    ],
+    },
     "authors": [
         {
             "name": "Benjamin Kott",
@@ -63,7 +63,7 @@
         "typo3/cms-tstemplate": "^9.5 || ^10.0 || 10.*@dev",
         "friendsofphp/php-cs-fixer": "^2.3.1",
         "typo3/testing-framework": "^4.9 || ^5.0",
-        "bk2k/demo-package": "*",
+        "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^1.0",
         "overtrue/phplint": "^1.1"
     },
