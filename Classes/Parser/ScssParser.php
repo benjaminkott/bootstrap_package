@@ -110,7 +110,7 @@ class ScssParser extends AbstractParser
             }
 
             throw new \Exception(
-                sprintf('URL "%s" could not be resolved using path "%s"', $url, $visualImportPath)
+                sprintf('URL "%s" could not be found using full path "%s"', $url, $full)
             );
 
             return null;
