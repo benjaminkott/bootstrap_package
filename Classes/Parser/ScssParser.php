@@ -109,10 +109,6 @@ class ScssParser extends AbstractParser
                 return $file;
             }
 
-            throw new \Exception(
-                sprintf('URL "%s" could not be found using full path "%s"', $url, $full)
-            );
-
             return null;
         });
         // Add extensions path to import paths, so that we can use paths relative to this directory to resolve imports
