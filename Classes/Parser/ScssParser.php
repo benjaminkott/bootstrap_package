@@ -85,7 +85,7 @@ class ScssParser extends AbstractParser
                 'sourceMapBasepath' => '<PATH DOES NOT EXIST BUT SUPRESSES WARNINGS>'
             ]);
         }
-        $absoluteFilename = GeneralUtility::getFileAbsFileName($file);
+        $absoluteFilename = $settings['file']['absolute'];
         // Adds visual directory path of the initial file as import path
         // This scenarios happens, when e.g. developing packages using the `path`
         // repository feature of Composer - having one package in `public/typo3conf/ext/`
@@ -96,7 +96,7 @@ class ScssParser extends AbstractParser
             // Resolve potential back paths manually using PathUtility::getCanonicalPath,
             // but make sure we do not break out of TYPO3 application path using GeneralUtility::getFileAbsFileName
             // Also resolve EXT: paths if given
-            $isTypo3Absolute = !(strpos($url, '..') === 0);
+            $isTypo3Absolute = strpos($url, 'EXT:') === 0;
             $fileName = $isTypo3Absolute ? $url : $visualImportPath . '/' . $url;
             $full = GeneralUtility::getFileAbsFileName(PathUtility::getCanonicalPath($fileName));
             // The API forces us to check the existence of files paths, with or without url.
@@ -113,9 +113,9 @@ class ScssParser extends AbstractParser
         });
         // Add extensions path to import paths, so that we can use paths relative to this directory to resolve imports
         $scss->addImportPath(Environment::getExtensionsPath());
-        $css = $scss->compile('@import "' . $file . '"');
+        $css = $scss->compile('@import "' . $absoluteFilename . '"');
 
-        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname(substr($absoluteFilename, strlen($this->getPathSite()))) . '/';
+        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname($settings['file']['relative']) . '/';
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativePath . '$3")';
         $css = preg_replace($search, $replace, $css);
