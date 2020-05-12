@@ -97,7 +97,8 @@
         ],
         "test": [
             "@test:php:lint",
-            "@test:php:unit"
+            "@test:php:unit",
+            "@test:php:functional"
         ],
         "cgl": [
             "php-cs-fixer --diff -v fix"
