@@ -102,7 +102,8 @@ class ScssParser extends AbstractParser
             // The API forces us to check the existence of files paths, with or without url.
             // We must only return a string if the file to be imported actually exists.
             $hasExtension = preg_match('/[.]s?css$/', $url);
-            if (is_file($file = $full . '.scss') ||
+            if (
+                is_file($file = $full . '.scss') ||
                 ($hasExtension && is_file($file = $full))
             ) {
                 // We could trigger a deprecation message here at some point
@@ -115,6 +116,7 @@ class ScssParser extends AbstractParser
         $scss->addImportPath(Environment::getExtensionsPath());
         $css = $scss->compile('@import "' . $absoluteFilename . '"');
 
+        // Fix url() statements
         $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname($settings['file']['relative']) . '/';
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativePath . '$3")';
