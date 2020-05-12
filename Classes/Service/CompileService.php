@@ -39,8 +39,8 @@ class CompileService
         $configuration = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: []);
 
         // Ensure cache directory exists
-        if (!file_exists($this->tempDirectory)) {
-            GeneralUtility::mkdir_deep($this->tempDirectory);
+        if (!file_exists(Environment::getPublicPath() . '/' . $this->tempDirectory)) {
+            GeneralUtility::mkdir_deep(Environment::getPublicPath() . '/' . $this->tempDirectory);
         }
 
         // Settings
@@ -51,7 +51,7 @@ class CompileService
                 'info' => pathinfo($absoluteFile)
             ],
             'cache' => [
-                'tempDirectory' => $this->tempDirectory,
+                'tempDirectory' => Environment::getPublicPath() . '/' . $this->tempDirectory,
                 'tempDirectoryRelativeToRoot' => $this->tempDirectoryRelativeToRoot,
             ],
             'options' => [
