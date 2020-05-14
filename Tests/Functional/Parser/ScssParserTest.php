@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Tests\Functional\Parser;
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use PHPUnit\Framework\ExpectationFailedException;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
@@ -26,6 +27,25 @@ class ScssParserTest extends FunctionalTestCase
         'typo3conf/ext/bootstrap_package',
         'typo3conf/ext/demo_package',
     ];
+
+    /**
+     * Asserts that a file contains a needle.
+     */
+    protected static function assertFileContains(string $filename, string $needle): void
+    {
+        self::assertFileIsReadable($filename);
+        $content = file_get_contents($filename);
+
+        try {
+            self::assertStringContainsString($needle, $content);
+        } catch (ExpectationFailedException $e) {
+            self::fail(\sprintf(
+                'Failed asserting that file \'%s\' contains \'%s\'',
+                $filename,
+                $needle
+            ));
+        }
+    }
 
     /**
      * @test
@@ -57,5 +77,51 @@ class ScssParserTest extends FunctionalTestCase
                 'inputFile' => 'typo3conf/ext/demo_package/Resources/Private/Scss/Legacy/theme.scss'
             ],
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function urlsAreRelativeToTempTest()
+    {
+        $compileService = GeneralUtility::makeInstance(CompileService::class);
+        $compiledFile = $compileService->getCompiledFile(
+            'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.png'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.svg'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/preloader.gif'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function sitepackageImagesAreUsedTest()
+    {
+        $compileService = GeneralUtility::makeInstance(CompileService::class);
+        $compiledFile = $compileService->getCompiledFile(
+            'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.png'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.svg'
+        );
+        $this->assertFileContains(
+            $compiledFile,
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
+        );
     }
 }
