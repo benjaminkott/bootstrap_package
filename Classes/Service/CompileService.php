@@ -51,7 +51,7 @@ class CompileService
                 'info' => pathinfo($absoluteFile)
             ],
             'cache' => [
-                'tempDirectory' => Environment::getPublicPath() . '/' . $this->tempDirectory,
+                'tempDirectory' => $this->tempDirectory,
                 'tempDirectoryRelativeToRoot' => $this->tempDirectoryRelativeToRoot,
             ],
             'options' => [
