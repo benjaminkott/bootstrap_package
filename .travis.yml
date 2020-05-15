@@ -35,7 +35,7 @@ jobs:
       if: branch = master AND fork = false AND type = push
       addons:
         ssh_known_hosts:
-          - 185.215.157.217
+          - 185.243.134.79
       script:
         - >
           openssl aes-256-cbc -K $encrypted_068845507e9d_key -iv $encrypted_068845507e9d_iv -in Build/deploy_rsa.enc -out /tmp/deploy_rsa -d;
