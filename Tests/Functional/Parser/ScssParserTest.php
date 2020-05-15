@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Tests\Functional\Parser;
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -34,7 +35,7 @@ class ScssParserTest extends FunctionalTestCase
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = $compileService->getCompiledFile($inputFile);
-        $this->assertFileExists($compiledFile);
+        $this->assertFileExists(Environment::getPublicPath() . '/' . $compiledFile);
     }
 
     /**
