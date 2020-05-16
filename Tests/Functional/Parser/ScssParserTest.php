@@ -85,20 +85,20 @@ class ScssParserTest extends FunctionalTestCase
     public function urlsAreRelativeToTempTest()
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = $compileService->getCompiledFile(
+        $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
             'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
         );
         $this->assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.png'
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
         );
         $this->assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.svg'
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
         );
         $this->assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/preloader.gif'
+            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
         );
     }
 
@@ -108,16 +108,16 @@ class ScssParserTest extends FunctionalTestCase
     public function sitepackageImagesAreUsedTest()
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = $compileService->getCompiledFile(
+        $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
             'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
         );
         $this->assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.png'
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
         );
         $this->assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.svg'
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
         );
         $this->assertFileContains(
             $compiledFile,
