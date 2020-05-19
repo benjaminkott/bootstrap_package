@@ -37,3 +37,6 @@ tt_content.gallery {
         }
     }
 }
+
+tt_content.gallery.20 < tt_content.gallery
+tt_content.gallery.20.extbase >
