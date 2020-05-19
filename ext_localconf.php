@@ -264,8 +264,8 @@ foreach ($icons as $icon) {
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'BK2K.BootstrapPackage',
-    'Content',
+    'Gallery',
     [
-        'Content' => 'generic',
+        'Gallery' => 'gallery',
     ]
 );

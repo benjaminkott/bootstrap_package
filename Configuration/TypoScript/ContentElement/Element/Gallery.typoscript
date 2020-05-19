@@ -14,11 +14,13 @@ tt_content.gallery {
     ###############
     ### EXTBASE ###
     ###############
+    # Currently, the pagination does not work without an extbase environment.
+    # For details see: https://forge.typo3.org/issues/79430
     extbase {
         controllerExtensionName = BootstrapPackage
-        controllerName = Content
-        controllerActionName = generic
-        pluginName = Content
+        controllerName = Gallery
+        controllerActionName = gallery
+        pluginName = Gallery
     }
 
     ##########################
