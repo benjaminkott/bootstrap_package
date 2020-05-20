@@ -14,7 +14,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ContentController extends ActionController
 {
-    public function genericAction(): void
+    public function galleryAction(): void
     {
     }
 }
