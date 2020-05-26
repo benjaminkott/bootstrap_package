@@ -266,6 +266,6 @@ foreach ($icons as $icon) {
     'BK2K.BootstrapPackage',
     'Content',
     [
-        'Content' => 'generic',
+        'Content' => 'gallery',
     ]
 );
