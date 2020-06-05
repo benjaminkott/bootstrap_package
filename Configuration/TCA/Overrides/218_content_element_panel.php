@@ -75,8 +75,7 @@ $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
             'bodytext' => [
                 'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
                 'config' => [
-                    'enableRichtext' => true,
-                    'richtextConfiguration' => 'default'
+                    'enableRichtext' => true
                 ]
             ]
         ]
