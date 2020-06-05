@@ -556,8 +556,7 @@ return [
                 'cols' => '80',
                 'rows' => '5',
                 'softref' => 'typolink_tag,images,email[subst],url',
-                'enableRichtext' => true,
-                'richtextConfiguration' => 'default'
+                'enableRichtext' => true
             ],
         ],
         'button_text' => [
