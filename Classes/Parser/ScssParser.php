@@ -114,12 +114,44 @@ class ScssParser extends AbstractParser
         });
         // Add extensions path to import paths, so that we can use paths relative to this directory to resolve imports
         $scss->addImportPath(Environment::getExtensionsPath());
+
+        // Make paths in url() statements relative to site root
+        $absoluteFilePath = dirname($absoluteFilename);
+        $relativeFilePath = PathUtility::getAbsoluteWebPath($absoluteFilePath);
+        $absoluteBootstrapPackageThemePath =
+            ExtensionManagementUtility::extPath('bootstrap_package') . 'Resources/Public/Scss/Theme';
+        $relativeBootstrapPackageThemePath = PathUtility::getAbsoluteWebPath($absoluteBootstrapPackageThemePath);
+        $scss->registerFunction(
+            'url',
+            function ($args) use (
+                $scss,
+                $absoluteFilePath,
+                $relativeFilePath,
+                $absoluteBootstrapPackageThemePath,
+                $relativeBootstrapPackageThemePath
+            ) {
+                $marker = $args[0][1];
+                $args[0][1] = '';
+                $result = $scss->compileValue($args[0]);
+                if (substr_compare($result, 'data:', 0, 5, true) !== 0) {
+                    if (is_file(PathUtility::getCanonicalPath($absoluteFilePath . '/' . $result))) {
+                        $result = PathUtility::getCanonicalPath($relativeFilePath . '/' . $result);
+                    } elseif (is_file(PathUtility::getCanonicalPath($absoluteBootstrapPackageThemePath . '/' . $result))) {
+                        $result = PathUtility::getCanonicalPath($relativeBootstrapPackageThemePath . '/' . $result);
+                    }
+                    $result = substr($result, 0, 1) === '/' ? substr($result, 1) : $result;
+                }
+                return 'url(' . $marker . $result . $marker . ')';
+            }
+        );
+
+        // Compile file
         $css = $scss->compile('@import "' . $absoluteFilename . '"');
 
-        // Fix url() statements
-        $relativePath = $settings['cache']['tempDirectoryRelativeToRoot'] . dirname($settings['file']['relative']) . '/';
+        // Fix paths in url() statements to be relative to temp directory
+        $relativeTempPath = $settings['cache']['tempDirectoryRelativeToRoot'];
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
-        $replace = 'url("' . $relativePath . '$3")';
+        $replace = 'url("' . $relativeTempPath . '$3")';
         $css = preg_replace($search, $replace, $css);
 
         return [
