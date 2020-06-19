@@ -8,7 +8,7 @@ Bootstrap Package
 Bootstrap Package delivers a fully configured frontend
 theme for TYPO3, based on the Bootstrap CSS Framework.
 
-The goal of this package is to give an advanced example of how modern templating
+The goal of this package is also to give an advanced example of how modern templating
 in TYPO3 CMS can be handled nicely without depending on third party extensions.
 Bootstrap Package comes with a fully configurable Frontend via TypoScript. This
 includes the TypoScript Constant Editor.
@@ -16,7 +16,9 @@ includes the TypoScript Constant Editor.
 Minimal Dependencies
 ====================
 
-* TYPO3 CMS 8.7 or greater
+* TYPO3 CMS 9.5 or 10.4 for Bootstrap Package 11.x
+* TYPO3 CMS 8.7 or 9.5 for Bootstrap Package 10.x, 9.x and 8.x
+* TYPO3 CMS 7.6 for Bootstrap Package 7.x
 
 Quick Install Guide
 ===================
