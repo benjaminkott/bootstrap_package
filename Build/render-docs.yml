@@ -5,4 +5,4 @@ services:
     command: makehtml
     volumes:
       - ../:/PROJECT:ro
-      - ../.build/Documentation-GENERATED-temp:/RESULT
+      - ../.build/Documentation:/RESULT
