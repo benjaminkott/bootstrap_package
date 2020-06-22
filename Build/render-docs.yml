@@ -1,0 +1,8 @@
+version: '3'
+services:
+  t3docmake:
+    image: t3docs/render-documentation:latest
+    command: makehtml
+    volumes:
+      - ../:/PROJECT:ro
+      - ../.build/Documentation:/RESULT
