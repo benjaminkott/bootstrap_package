@@ -33,38 +33,38 @@
     },
     "require": {
         "php": ">=7.2.0",
+        "ext-PDO": "*",
         "ext-dom": "*",
         "ext-filter": "*",
         "ext-hash": "*",
         "ext-json": "*",
         "ext-libxml": "*",
-        "ext-PDO": "*",
         "ext-simplexml": "*",
-        "typo3/cms-backend": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-core": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-extbase": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-extensionmanager": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-fluid": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-frontend": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-install": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-rte-ckeditor": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-seo": "^9.5 || ^10.4 || 11.*.*@dev",
         "scssphp/scssphp": "^1.4.1",
+        "typo3/cms-backend": "^10.4 || ^11.0",
+        "typo3/cms-core": "^10.4 || ^11.0",
+        "typo3/cms-extbase": "^10.4 || ^11.0",
+        "typo3/cms-extensionmanager": "^10.4 || ^11.0",
+        "typo3/cms-fluid": "^10.4 || ^11.0",
+        "typo3/cms-frontend": "^10.4 || ^11.0",
+        "typo3/cms-install": "^10.4 || ^11.0",
+        "typo3/cms-rte-ckeditor": "^10.4 || ^11.0",
+        "typo3/cms-seo": "^10.4 || ^11.0",
         "typo3fluid/fluid": "^2.5.2"
     },
     "require-dev": {
-        "typo3/cms-felogin": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-form": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-indexed-search": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-info": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-lowlevel": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-tstemplate": "^9.5 || ^10.4 || 11.*.*@dev",
-        "typo3/cms-workspaces": "^9.5 || ^10.4 || 11.*.*@dev",
-        "friendsofphp/php-cs-fixer": "^2.3.1",
-        "typo3/testing-framework": "^4.15 || ^5.0 || ^6.4",
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^1.0",
-        "overtrue/phplint": "^1.1"
+        "friendsofphp/php-cs-fixer": "^2.3.1",
+        "overtrue/phplint": "^1.1",
+        "typo3/cms-felogin": "^10.4 || ^11.0",
+        "typo3/cms-form": "^10.4 || ^11.0",
+        "typo3/cms-indexed-search": "^10.4 || ^11.0",
+        "typo3/cms-info": "^10.4 || ^11.0",
+        "typo3/cms-lowlevel": "^10.4 || ^11.0",
+        "typo3/cms-tstemplate": "^10.4 || ^11.0",
+        "typo3/cms-workspaces": "^10.4 || ^11.0",
+        "typo3/testing-framework": "^5.0 || ^6.4"
     },
     "autoload": {
         "psr-4": {
@@ -79,6 +79,7 @@
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
+        "sort-packages": true,
         "vendor-dir": ".build/vendor",
         "bin-dir": ".build/bin"
     },
@@ -118,7 +119,7 @@
             "app-dir": ".build"
         },
         "branch-alias": {
-            "dev-master": "11.1.x-dev"
+            "dev-master": "12.0.x-dev"
         }
     }
 }
