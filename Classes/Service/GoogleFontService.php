@@ -10,6 +10,8 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Service;
 
+use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -49,14 +51,18 @@ class GoogleFontService
      */
     protected function cacheFile($file)
     {
-        $content = GeneralUtility::getUrl(
-            $file,
-            0,
-            ['User-Agent' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
-        );
+        /** @var RequestFactory */
+        $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
 
-        if (!$content) {
+        /** @var ResponseInterface */
+        $response = $requestFactory->request($file, 'GET', [
+            'headers' => ['User-Agent' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
+        ]);
+
+        if ($response->getStatusCode() >= 300) {
             return false;
+        } else {
+            $content = $response->getBody()->getContents();
         }
 
         // Ensure cache directory exists
@@ -71,7 +77,13 @@ class GoogleFontService
         }
         foreach ($fontFiles as $fontFile) {
             $localFontFile = $this->getCacheDirectory($file) . '/' . basename($fontFile);
-            $fontFileContent = GeneralUtility::getUrl($fontFile);
+            /** @var ResponseInterface */
+            $response = $requestFactory->request($fontFile);
+            if ($response->getStatusCode() >= 300) {
+                continue;
+            } else {
+                $fontFileContent = $response->getBody()->getContents();
+            }
             file_put_contents($localFontFile, $fontFileContent);
             GeneralUtility::fixPermissions($localFontFile);
             $content = str_replace($fontFile, basename($fontFile), $content);
