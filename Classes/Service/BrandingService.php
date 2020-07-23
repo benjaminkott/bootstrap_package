@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Service;
 
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -20,7 +21,12 @@ class BrandingService
     /**
      * @var string
      */
-    const EXT_KEY = 'bootstrap_package';
+    protected const EXT_KEY = 'bootstrap_package';
+
+    public function __invoke(AfterPackageActivationEvent $event): void
+    {
+        $this->setBackendStyling($event->getPackageKey());
+    }
 
     /**
      * @param string $extension

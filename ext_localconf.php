@@ -74,30 +74,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
     '));
 }
 
-if (TYPO3_MODE === 'BE') {
-    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-
-    /**
-     * Add backend styling
-     */
-    $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,
-        'afterExtensionInstall',
-        \BK2K\BootstrapPackage\Service\BrandingService::class,
-        'setBackendStyling'
-    );
-
-    /**
-     * Add current Bootstrap Package version to system information toolbar
-     */
-    $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem::class,
-        'getSystemInformation',
-        \BK2K\BootstrapPackage\Backend\ToolbarItem\VersionToolbarItem::class,
-        'addVersionInformation'
-    );
-}
-
 /***************
  * Register google font hook
  */

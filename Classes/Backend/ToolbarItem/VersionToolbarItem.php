@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\Backend\ToolbarItem;
 
+use TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent;
 use TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem;
 use TYPO3\CMS\Core\Utility\CommandUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -18,6 +19,11 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  */
 class VersionToolbarItem
 {
+    public function __invoke(SystemInformationToolbarCollectorEvent $event): void
+    {
+        $this->addVersionInformation($event->getToolbarItem());
+    }
+
     /**
      * Called by the system information toolbar signal/slot dispatch.
      *
