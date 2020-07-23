@@ -1,0 +1,7 @@
+//
+// Condensed table w/ half padding compatible with Bootstrap 3.x
+//
+
+.table-condensed {
+  @extend .table-sm;
+}
