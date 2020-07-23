@@ -81,8 +81,8 @@ if (TYPO3_MODE === 'BE') {
      * Provide example webserver configuration after extension is installed.
      */
     $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Extensionmanager\Service\ExtensionManagementService::class,
-        'hasInstalledExtensions',
+        \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,
+        'afterExtensionInstall',
         \BK2K\BootstrapPackage\Service\InstallService::class,
         'generateApacheHtaccess'
     );
@@ -91,8 +91,8 @@ if (TYPO3_MODE === 'BE') {
      * Add backend styling
      */
     $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Extensionmanager\Service\ExtensionManagementService::class,
-        'hasInstalledExtensions',
+        \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,
+        'afterExtensionInstall',
         \BK2K\BootstrapPackage\Service\BrandingService::class,
         'setBackendStyling'
     );
