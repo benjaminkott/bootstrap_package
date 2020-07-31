@@ -11,14 +11,7 @@
                             <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                                 <div class="media-left">
                                     <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
-                                        <f:if condition="{file -> bk2k:file.isImage()}">
-                                            <f:then>
-                                                <f:image image="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
-                                            </f:then>
-                                            <f:else>
-                                                <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
-                                            </f:else>
-                                        </f:if>
+                                        <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
                                     </a>
                                 </div>
                             </f:if>
