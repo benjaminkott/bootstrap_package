@@ -15786,10 +15786,16 @@ a.pswp__share--download:hover {
 
 body {
   margin: 20px;
+  font-size: 12px;
 }
 
-.cke_combopanel {
-  min-width: 200px;
+.btn, .cc-btn {
+  cursor: initial;
+  user-select: initial;
+}
+
+a:hover {
+  text-decoration: initial;
 }
 
 .text-column {
