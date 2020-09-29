@@ -11,6 +11,7 @@ jobs:
       matrix:
         typo3: ['^9', '^10']
         php: ['7.2', '7.3', '7.4']
+        stability: ['stable', 'dev']
     steps:
     - name: Start Database-Server
       run: |
@@ -23,6 +24,7 @@ jobs:
         php-version: ${{ matrix.php }}
     - name: Install
       run: |
+        composer config minimum-stability ${{ matrix.stability }}
         composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
         git checkout composer.json
     - name: Lint
