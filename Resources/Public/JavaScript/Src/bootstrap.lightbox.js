@@ -62,6 +62,7 @@ $(function () {
             }
             items.push({
                 src: $(this).attr('href'),
+                msrc: $(this).find('img').attr('src'),
                 title: title,
                 w: $(this).data('lightbox-width'),
                 h: $(this).data('lightbox-height'),
@@ -96,6 +97,12 @@ $(function () {
             counterEl:      true,
             arrowEl:        true,
             preloaderEl:    true,
+            getThumbBoundsFn: function(index) {
+                var thumbnail = document.querySelectorAll('a.lightbox[rel=' + gid + ']')[index];
+                var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+                var rect = thumbnail.getBoundingClientRect();
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            },
         };
         if(items.length > 0) {
             var gallery = new PhotoSwipe( photoswipeContainer, PhotoSwipeUI_Default, items, options);
