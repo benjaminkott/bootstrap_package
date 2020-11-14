@@ -10,7 +10,7 @@ TYPO3:
                         Form:
                             renderingOptions:
                                 translation:
-                                    translationFile:
+                                    translationFiles:
                                         110: 'EXT:bootstrap_package/Resources/Private/Language/locallang.xlf'
                                 layoutRootPaths:
                                     20: 'EXT:bootstrap_package/Resources/Private/Layouts/Form/'
