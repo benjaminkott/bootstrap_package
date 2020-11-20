@@ -1,0 +1,6 @@
+lib.register = TEXT
+lib.register {
+    field = key
+    wrap = {REGISTER:|}
+    insertData = 1
+}
