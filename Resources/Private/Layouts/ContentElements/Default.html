@@ -3,8 +3,8 @@
 
     <bk2k:data.imageVariants as="variants" variants="{settings.responsiveimages.variants}" />
     <f:variable name="backendlayoutConfig">{settings.responsiveimages.backendlayout.{backendlayout}}</f:variable>
-    <f:variable name="_pageLayoutColPos">{f:cObject(typoscriptObjectPath: 'lib.register', data: '{key: "colPos"}')}</f:variable>
-    <f:variable name="columnConfig">{backendlayoutConfig.{_pageLayoutColPos}}</f:variable>
+    <f:variable name="pageLayoutColPos">{f:cObject(typoscriptObjectPath: 'lib.bpRegister', data: '{key: "colPos"}')}</f:variable>
+    <f:variable name="columnConfig">{backendlayoutConfig.{pageLayoutColPos}}</f:variable>
     <f:if condition="{columnConfig}">
         <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
     </f:if>

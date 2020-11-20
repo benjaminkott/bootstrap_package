@@ -1,5 +1,5 @@
-lib.register = TEXT
-lib.register {
+lib.bpRegister = TEXT
+lib.bpRegister {
     field = key
     wrap = {REGISTER:|}
     insertData = 1

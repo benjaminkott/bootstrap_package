@@ -9,7 +9,7 @@
 ################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript">
-@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Register.typoscript'
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/Register.typoscript">
 
 
 #############################################################
