@@ -12151,9 +12151,18 @@ a.pswp__share--download:hover {
 body,
 .htmlarea-content-body {
   margin: 20px;
+  font-size: 12px;
 }
-.cke_combopanel {
-  min-width: 200px;
+.btn,
+.cc-btn {
+  cursor: initial;
+  -webkit-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+}
+a:hover {
+  text-decoration: initial;
 }
 .text-column {
   position: relative;
