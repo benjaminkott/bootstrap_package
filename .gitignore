@@ -1,4 +1,5 @@
 .build
+.ddev/docker-compose.tempfs.yaml
 Build/node_modules/*
 composer.lock
 *.cache
