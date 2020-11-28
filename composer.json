@@ -76,6 +76,7 @@
             "BK2K\\BootstrapPackage\\Tests\\": "Tests"
         }
     },
+    "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
         "vendor-dir": ".build/vendor",
