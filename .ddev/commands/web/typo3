@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## Description: Execute TYPO3 Command (CLI)
-## Usage: typo3
-## Example: "ddev typo3 list" or "ddev typo3 help" or "ddev typo3 --help"
-
-.build/bin/typo3 $@
