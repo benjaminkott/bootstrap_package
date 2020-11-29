@@ -50,7 +50,7 @@ class FontLoaderHook
      */
     public function execute(&$params, &$pagerenderer)
     {
-        if (TYPO3_MODE !== 'FE' ||
+        if (!(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_FE) ||
             (!is_array($params['cssFiles']) && !is_array($params['cssLibs']))
         ) {
             return;

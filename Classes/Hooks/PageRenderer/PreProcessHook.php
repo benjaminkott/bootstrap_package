@@ -28,9 +28,10 @@ class PreProcessHook
      */
     public function execute(&$params, &$pagerenderer)
     {
-        if (TYPO3_MODE !== 'FE') {
+        if (!(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_FE)) {
             return;
         }
+
         foreach (['cssLibs', 'cssFiles'] as $key) {
             $files = [];
             if (is_array($params[$key])) {
