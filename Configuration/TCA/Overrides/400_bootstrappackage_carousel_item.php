@@ -10,7 +10,7 @@
 defined('TYPO3') || die();
 
 // Activate T3EDITOR if extension is activated
-if ((TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_BE) && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
     $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['types']['html']['columnsOverrides'] = [
         'bodytext' => [
             'config' => [
