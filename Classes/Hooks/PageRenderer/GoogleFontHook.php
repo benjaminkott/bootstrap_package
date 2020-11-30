@@ -11,6 +11,8 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
 use BK2K\BootstrapPackage\Service\GoogleFontService;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\ApplicationType;
 use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -38,7 +40,8 @@ class GoogleFontHook
      */
     public function execute(&$params, &$pagerenderer)
     {
-        if (!(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_FE) ||
+        if (!($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface ||
+            !ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend() ||
             (!is_array($params['cssFiles']) && !is_array($params['cssLibs']))
         ) {
             return;
