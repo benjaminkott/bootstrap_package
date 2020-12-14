@@ -1,6 +1,0 @@
-lib.bpRegister = TEXT
-lib.bpRegister {
-    field = key
-    wrap = {REGISTER:|}
-    insertData = 1
-}
