@@ -1,9 +1,0 @@
-version: '3.6'
-
-services:
-  web:
-    volumes:
-      - type: tmpfs
-        target: /var/www/html/.build/var/cache
-        tmpfs:
-          size: 268435456
