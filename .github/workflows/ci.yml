@@ -9,8 +9,14 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        typo3: ['^9', '^10']
+        typo3: ['^9', '^10', '^11']
         php: ['7.2', '7.3', '7.4']
+        exclude:
+          - typo3: '^11'
+            php: '7.2'
+          - typo3: '^11'
+            php: '7.3'
+
     steps:
     - name: Start Database-Server
       run: |
