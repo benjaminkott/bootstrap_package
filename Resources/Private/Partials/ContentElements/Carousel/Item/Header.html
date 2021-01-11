@@ -3,9 +3,9 @@
     <div class="valign" {f:if(condition: item.data.text_color,then:'style="color: {item.data.text_color};"')}>
         <div class="vcontainer">
             <div class="carousel-text-inner">
-                <h{item.data.header_layout} class="carousel-header awesome{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}{f:if(condition: item.data.header_position, then: ' text-{item.data.header_position}')}"><f:format.htmlentitiesDecode>{item.data.header}</f:format.htmlentitiesDecode></h{item.data.header_layout}>
+                <h{item.data.header_layout} class="carousel-header awesome{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}{f:if(condition: item.data.header_position, then: ' text-{item.data.header_position}')}"><f:format.htmlspecialchars doubleEncode="false">{item.data.header}</f:format.htmlspecialchars></h{item.data.header_layout}>
                 <f:if condition="{item.data.subheader}">
-                    <h{item.data.subheader_layout} class="carousel-subheader awesome{f:if(condition: item.data.subheader_class, then: ' {item.data.subheader_class}')}{f:if(condition: item.data.header_position, then: ' text-{item.data.header_position}')}"><f:format.htmlentitiesDecode>{item.data.subheader}</f:format.htmlentitiesDecode></h{item.data.subheader_layout}>
+                    <h{item.data.subheader_layout} class="carousel-subheader awesome{f:if(condition: item.data.subheader_class, then: ' {item.data.subheader_class}')}{f:if(condition: item.data.header_position, then: ' text-{item.data.header_position}')}"><f:format.htmlspecialchars doubleEncode="false">{item.data.subheader}</f:format.htmlspecialchars></h{item.data.subheader_layout}>
                 </f:if>
             </div>
         </div>
