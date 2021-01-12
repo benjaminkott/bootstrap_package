@@ -3,6 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+
   build-php:
     name: Build PHP
     runs-on: ubuntu-latest
@@ -12,15 +13,13 @@ jobs:
         typo3: ['^8', '^9']
         php: ['7.2']
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up PHP Version
-      run: |
-        sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
-        php -v
-    - name: Update Composer
-      run: |
-        sudo composer self-update
-        composer --version
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Set up PHP Version ${{ matrix.php }}
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        tools: composer:v2
     - name: Install
       run: |
         composer require typo3/minimal:${{ matrix.typo3 }} --no-progress
@@ -38,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Setup node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: '10.x'
     - name: Install
