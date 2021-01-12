@@ -51,7 +51,7 @@
         "typo3/cms-install": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-rte-ckeditor": "^9.5 || ^10.0 || 10.*@dev",
         "typo3/cms-seo": "^9.5 || ^10.0 || 10.*@dev",
-        "scssphp/scssphp": "^1.0.6",
+        "scssphp/scssphp": "^1.4.1",
         "typo3fluid/fluid": "^2.5.2"
     },
     "require-dev": {
