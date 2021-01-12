@@ -3,6 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+
   build-php:
     name: Build PHP
     runs-on: ubuntu-latest
@@ -17,10 +18,11 @@ jobs:
         sudo /etc/init.d/mysql start
     - name: Checkout Code
       uses: actions/checkout@v2
-    - name: Set up PHP Version
-      uses: shivammathur/setup-php@v1
+    - name: Set up PHP Version ${{ matrix.php }}
+      uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
+        tools: composer:v2
     - name: Install
       run: |
         composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
@@ -50,7 +52,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: '12.x'
     - name: Install
