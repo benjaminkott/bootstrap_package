@@ -10,7 +10,7 @@
 namespace BK2K\BootstrapPackage\Parser;
 
 use ScssPhp\ScssPhp\Compiler;
-use ScssPhp\ScssPhp\Formatter\Crunched;
+use ScssPhp\ScssPhp\Formatter\Compressed;
 use ScssPhp\ScssPhp\Version;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -76,7 +76,7 @@ class ScssParser extends AbstractParser
     protected function parseFile($file, $settings)
     {
         $scss = new Compiler();
-        $scss->setFormatter(Crunched::class);
+        $scss->setFormatter(Compressed::class);
         $scss->setVariables($settings['variables']);
         if ($settings['options']['sourceMap']) {
             $scss->setSourceMap(Compiler::SOURCE_MAP_INLINE);
