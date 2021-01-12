@@ -158,11 +158,3 @@ Code Quality
 .. image:: https://github.com/benjaminkott/bootstrap_package/workflows/CI/badge.svg
    :alt: Continuous Integration Status
    :target: https://github.com/benjaminkott/bootstrap_package/actions?query=workflow%3ACI
-
-.. image:: https://travis-ci.org/benjaminkott/bootstrap_package.svg?branch=master
-   :alt: Build Status
-   :target: https://travis-ci.org/benjaminkott/bootstrap_package
-
-.. image:: https://scrutinizer-ci.com/g/benjaminkott/bootstrap_package/badges/quality-score.png?b=master
-   :alt: Scrutinizer Code Quality
-   :target: https://scrutinizer-ci.com/g/benjaminkott/bootstrap_package/?branch=master
