@@ -78,16 +78,6 @@ if (TYPO3_MODE === 'BE') {
     $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
 
     /**
-     * Provide example webserver configuration after extension is installed.
-     */
-    $signalSlotDispatcher->connect(
-        \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,
-        'afterExtensionInstall',
-        \BK2K\BootstrapPackage\Service\InstallService::class,
-        'generateApacheHtaccess'
-    );
-
-    /**
      * Add backend styling
      */
     $signalSlotDispatcher->connect(
