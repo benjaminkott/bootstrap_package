@@ -121,8 +121,6 @@ if (!(bool) $bootstrapPackageConfiguration['disableGoogleFontCaching']) {
  */
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\ScssParser::class] =
     \BK2K\BootstrapPackage\Parser\ScssParser::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'][\BK2K\BootstrapPackage\Parser\LessParser::class] =
-    \BK2K\BootstrapPackage\Parser\LessParser::class;
 
 /***************
  * Register css processing hooks
