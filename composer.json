@@ -83,8 +83,6 @@
         "vendor-dir": ".build/vendor",
         "bin-dir": ".build/bin"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "test:php:lint": [
             "phplint"
