@@ -23,6 +23,7 @@ task('typo3:prepare', function () {
 });
 desc('Finish TYPO3 Deployment');
 task('typo3:finish', function () {
+    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms install:generatepackagestates');
     run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms install:fixfolderstructure');
     run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms database:updateschema');
     run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms language:update');
@@ -77,14 +78,14 @@ set('writable_dirs', [
 set('allow_anonymous_stats', false);
 
 // Hosts
-host(getenv('DEPLOYER_HOST'))
+host(getenv('SSH_HOST'))
     ->set('repository', 'https://github.com/benjaminkott/bootstrap_package')
-    ->user(getenv('DEPLOYER_USER'))
+    ->user(getenv('SSH_USER'))
     ->port('22')
-    ->set('keep_releases', '3')
-    ->set('bin/php', getenv('DEPLOYER_PHP'))
+    ->set('keep_releases', '2')
+    ->set('bin/php', 'php')
     ->set('deploy_path', '~/html/{{application}}')
-    ->set('application', getenv('DEPLOYER_APPLICATION'))
+    ->set('application', 'bootstrappackage')
     ->set('ssh_type', 'native')
-    ->set('http_user', getenv('DEPLOYER_USER'))
-    ->set('bin/composer', getenv('DEPLOYER_COMPOSER'));
+    ->set('http_user', getenv('SSH_USER'))
+    ->set('bin/composer', 'composer');
