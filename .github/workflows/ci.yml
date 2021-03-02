@@ -69,3 +69,44 @@ jobs:
       run: |
         cd Build
         yarn build
+
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://bootstrap-package.com
+    needs: [build-php, build-frontend]
+    if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up PHP Version 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          tools: composer:v2
+      - name: Download Deployer
+        run: |
+          curl -LO https://deployer.org/deployer.phar;
+          sudo mv deployer.phar /usr/local/bin/dep;
+          sudo chmod +x /usr/local/bin/dep;
+          dep self-update;
+      - name: Setup SSH Key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh-auth.sock
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_rsa
+          chmod 0600 ~/.ssh/deploy_rsa
+          ssh-keygen -p -P "${{ secrets.SSH_PASSPHRASE }}" -N "" -f ~/.ssh/deploy_rsa
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add ~/.ssh/deploy_rsa
+          ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deploy
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_AUTH_SOCK: /tmp/ssh-auth.sock
+        run: |
+          dep --file="./Build/deploy.php" deploy;
