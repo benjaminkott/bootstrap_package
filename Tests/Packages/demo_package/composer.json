@@ -12,5 +12,10 @@
         "psr-4": {
             "Bk2k\\DemoPackage\\": "Classes/"
         }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "demo_package"
+        }
     }
 }
