@@ -1,8 +1,0 @@
-#!/bin/bash
-
-## Description: Execute Build Commands
-## Usage: yarn
-## Example: "ddev yarn help" or "ddev yarn" or "ddev yarn build" or "ddev yarn css"
-
-cd Build
-yarn $@
