@@ -2433,13 +2433,6 @@ grunt-sass@^3.1.0:
   resolved "https://registry.yarnpkg.com/grunt-sass/-/grunt-sass-3.1.0.tgz#a5936cc2a80ec08092d9f31c101dc307d1e4f71c"
   integrity sha512-90s27H7FoCDcA8C8+R0GwC+ntYD3lG6S/jqcavWm3bn9RiJTmSfOvfbFa1PXx4NbBWuiGQMLfQTj/JvvqT5w6A==
 
-grunt-stylelint@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/grunt-stylelint/-/grunt-stylelint-0.16.0.tgz#a747461259f61e0f60e139572edda46fdd1edca5"
-  integrity sha512-ullm0h9iCdgPEDq1TNwKL5HteXA4zke6wbYoRtsO32ATCU3zfUXmDN9unhu+joEcdgJKOPcd2+7UhRNXO1rr+w==
-  dependencies:
-    chalk "^4.1.0"
-
 grunt-webfont@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/grunt-webfont/-/grunt-webfont-1.7.2.tgz#6e7dcde8f24ea6392c26ace3701b9fc2e92ea3a7"

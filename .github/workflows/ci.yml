@@ -69,6 +69,10 @@ jobs:
       run: |
         cd Build
         yarn build
+    - name: Stylelint
+      run: |
+        cd Build
+        yarn stylelint
 
   deployment:
     name: Deployment
