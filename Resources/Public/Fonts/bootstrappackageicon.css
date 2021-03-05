@@ -1,13 +1,13 @@
 @font-face {
-  font-family: "BootstrapPackageIcon";
-  src: url("./BootstrapPackageIcon.eot?b7d8e0134ce3900408644c548c253346#iefix") format("embedded-opentype"),
-url("./BootstrapPackageIcon.woff2?b7d8e0134ce3900408644c548c253346") format("woff2"),
-url("./BootstrapPackageIcon.woff?b7d8e0134ce3900408644c548c253346") format("woff");
+  font-family: "bootstrappackageicon";
+  src: url("./bootstrappackageicon.eot?771af279f854eddacb05ff6882f1ec59#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?771af279f854eddacb05ff6882f1ec59") format("woff2"),
+url("./bootstrappackageicon.woff?771af279f854eddacb05ff6882f1ec59") format("woff");
 }
 
 .bootstrappackageicon::before {
   display: inline-block;
-  font-family: BootstrapPackageIcon !important;
+  font-family: bootstrappackageicon !important;
   font-style: normal;
   font-weight: normal !important;
   font-variant: normal;

@@ -9867,16 +9867,17 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .footer-sociallinks .sociallinks {
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-sociallinks .sociallinks-list {
-  margin: -.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
 }
 
 .footer-sociallinks .sociallinks-item {
-  display: inline-block;
-  margin: .5rem;
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -9884,6 +9885,19 @@ a.text-dark:hover, a.text-dark:focus {
 .footer-sociallinks .sociallinks-link {
   height: 1.5rem;
   width: 1.5rem;
+  justify-content: center;
+}
+
+.footer-sociallinks .sociallinks-link-label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .footer-copyright p {
@@ -13286,26 +13300,27 @@ figure .caption {
 
 .sociallinks-list {
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 .sociallinks-link {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   overflow: hidden;
   text-decoration: none !important;
+  gap: .5rem;
 }
 
 .sociallinks-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.25rem;
-  text-align: center;
+  width: 1.25rem;
+  height: 1.25rem;
   opacity: .8;
-  vertical-align: middle;
-}
-
-.sociallinks-link-label {
-  vertical-align: middle;
-  margin-left: .5rem;
 }
 
 .timeline {

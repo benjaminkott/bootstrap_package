@@ -3,7 +3,7 @@ module.exports = {
     outputDir: './../Resources/Public/Fonts',
     fontTypes: ['eot', 'woff2', 'woff'],
     assetTypes: ['css', 'json'],
-    name: 'BootstrapPackageIcon',
+    name: 'bootstrappackageicon',
     prefix: 'bootstrappackageicon',
     selector: '.bootstrappackageicon',
     templates: {
