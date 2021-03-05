@@ -101,10 +101,6 @@ module.exports = function(grunt) {
             bootstrap4_rte: {
                 src: '<%= paths.css %>bootstrap4-rte.css',
                 dest: '<%= paths.css %>bootstrap4-rte.min.css'
-            },
-            bootstrappackageicon: {
-                src: '<%= paths.fonts %>bootstrappackageicon.css',
-                dest: '<%= paths.fonts %>bootstrappackageicon.min.css'
             }
         },
         uglify: {
