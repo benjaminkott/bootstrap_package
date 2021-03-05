@@ -9867,7 +9867,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .footer-sociallinks .sociallinks {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
 }
 
@@ -13308,7 +13308,6 @@ figure .caption {
   position: relative;
   display: inline-flex;
   align-items: center;
-  overflow: hidden;
   text-decoration: none !important;
   gap: .5rem;
 }
