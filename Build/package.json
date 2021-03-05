@@ -10,6 +10,7 @@
   "devDependencies": {
     "bootstrap": "^4.6.0",
     "cookieconsent": "^3.1.1",
+    "fantasticon": "^1.1.1",
     "grunt": "^1.3.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
@@ -18,7 +19,6 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
-    "grunt-webfont": "^1.7.2",
     "hammerjs": "^2.0.8",
     "jquery": "^3.6.0",
     "modernizr": "^3.11.4",
@@ -32,7 +32,7 @@
   "scripts": {
     "build": "./node_modules/.bin/grunt build",
     "css": "./node_modules/.bin/grunt css",
-    "icon": "./node_modules/.bin/grunt icon",
+    "icon": "fantasticon",
     "image": "./node_modules/.bin/grunt image",
     "js": "./node_modules/.bin/grunt js",
     "stylelint": "stylelint ../Resources/Public/Scss/*",

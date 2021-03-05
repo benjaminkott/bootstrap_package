@@ -346,7 +346,7 @@ page {
                 isTrue = {$page.theme.googleFont.enable}
             }
         }
-        bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
+        bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.css
         bootstrappackageicon {
             fontLoader {
                 families {

@@ -69,6 +69,10 @@ jobs:
       run: |
         cd Build
         yarn build
+    - name: Icon
+      run: |
+        cd Build
+        yarn icon
     - name: Stylelint
       run: |
         cd Build

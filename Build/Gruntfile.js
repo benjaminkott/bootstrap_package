@@ -426,25 +426,6 @@ module.exports = function(grunt) {
                     ]
                 }
             }
-        },
-        webfont: {
-            bootstrappackageicon: {
-                src: '<%= paths.icons %>BootstrapPackageIcon/*.svg',
-                dest: '<%= paths.fonts %>',
-                options: {
-                    font: 'bootstrappackageicon',
-                    template: 'templates/font.css',
-                    fontFamilyName: 'BootstrapPackageIcon',
-                    engine: 'node',
-                    autoHint: false,
-                    htmlDemo: false,
-                    codepointsFile: "bootstrappackageicon.json",
-                    templateOptions: {
-                        baseClass: 'bootstrappackageicon',
-                        classPrefix: 'bootstrappackageicon-'
-                    }
-                }
-            }
         }
     });
 
@@ -457,17 +438,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-webfont');
 
     /**
      * Grunt update task
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
-    grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'rebase', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
-    grunt.registerTask('build', ['update', 'webfont', 'css', 'js', 'image']);
+    grunt.registerTask('build', ['update', 'css', 'js', 'image']);
     grunt.registerTask('default', ['build']);
 
 };
