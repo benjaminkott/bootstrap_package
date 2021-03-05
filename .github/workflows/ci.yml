@@ -79,7 +79,10 @@ jobs:
         yarn stylelint
     - name: Status
       run: |
-        git status
+        if [[ `git status --porcelain` ]]; then
+          echo "::error Uncommitted changes"
+          exit 1
+        fi
 
   deployment:
     name: Deployment
