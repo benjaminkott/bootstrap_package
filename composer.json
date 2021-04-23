@@ -31,6 +31,7 @@
     "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0"
   },
   "require-dev": {
+    "typo3/minimal": "^8.7 || ^9.0",
     "friendsofphp/php-cs-fixer": "^2.3.1"
   },
   "autoload": {
@@ -58,7 +59,8 @@
   "extra": {
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".build/web"
+      "web-dir": ".build/web",
+      "app-dir": ".build"
     }
   }
 }
