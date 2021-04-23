@@ -12,13 +12,16 @@ jobs:
       matrix:
         typo3: ['^9', '^10']
         php: ['7.2', '7.3', '7.4']
+        mysql: ['5.7']
     steps:
-    - name: Start Database-Server
-      run: |
-        sudo /etc/init.d/mysql start
     - name: Checkout Code
       uses: actions/checkout@v2
-    - name: Set up PHP Version ${{ matrix.php }}
+    - name: Set up MySQL ${{ matrix.mysql }}
+      uses: mirromutth/mysql-action@v1.1
+      with:
+        mysql version: ${{ matrix.mysql }}
+        mysql root password: 'root'
+    - name: Set up PHP ${{ matrix.php }}
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
