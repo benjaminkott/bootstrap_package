@@ -1,3 +1,38 @@
+# 10.0.10
+
+## TASK
+
+- [TASK] Update ddev config 088f5c84
+- [TASK] Update bundled scssphp to 1.4.1 eadc1a6f
+- [TASK] Drop scrutinizer 6e197b4c
+- [TASK] Drop travis ci b24afd56
+- [TASK] Update actions 74678d80
+- [TASK] Update dependencies 2d92669f
+- [TASK] Add publishing TER workflow 94c01641
+- [TASK] Replace GeneralUtility::getUrl by RequestFactory (#910) 370f153c
+- [TASK] Update frontend build dependencies 57a4435b
+- [TASK] Bump DDEV to 1.13.1 (#863) 6cd4ab1a
+- [TASK] Update DDEV to 1.13.0 (#853) ec83cc44
+- [TASK] Use cfg instead of yml for documentation configuration 6a7a2cfb
+
+## BUGFIX
+
+- [BUGFIX] Correct expected result for scss calculation test 0ca6a936
+- Revert "[BUGFIX] Use image vh for image types to enable thumbnails for non images like PDF files (#913)" fa246116
+- [BUGFIX] Use image vh for image types to enable thumbnails for non images like PDF files (#913) b7c70b1f
+- [BUGFIX] Add missing extension dependencies (#871) c0dc2e13
+- [BUGFIX] Change TCA escaping for database compatibility (#865) 8b11b111
+- [BUGFIX] Ensure correct field casing and escaping in TCA for database compatibility (#862) b614ea97
+- [BUGFIX] Check parse_url return for false 4e151fb1
+- [BUGFIX] Resolve merge conflict and update dependencies ba407198
+- [BUGFIX] Restrict fixed menu overflows to mobile resolutions - fixes #837 f03830e6
+- [BUGFIX] Hide link text for carousel bg image 32e1469c
+- [BUGFIX] Ensure elements exist before accessing 282f9b0d
+
+## MISC
+
+- [SECURITY] Ensure content element subheader is HTML encoded 56dec017
+
 # 10.0.9
 
 ## TASK
