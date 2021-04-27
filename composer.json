@@ -1,66 +1,69 @@
 {
-  "name": "bk2k/bootstrap-package",
-  "type": "typo3-cms-extension",
-  "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
-  "keywords": [
-    "TYPO3 CMS",
-    "introduction",
-    "sitepackage",
-    "bootstrap",
-    "responsive",
-    "frontend",
-    "theme",
-    "web"
-  ],
-  "homepage": "https://github.com/benjaminkott/bootstrap_package",
-  "authors": [
-    {
-      "name": "Benjamin Kott",
-      "email": "info@bk2k.info",
-      "role": "Developer",
-      "homepage": "http://www.bk2k.info/"
-    }
-  ],
-  "license": "MIT",
-  "support": {
-    "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
-  },
-  "require": {
-    "php": ">=7.0.0",
-    "typo3/cms-core": "^8.7.0 || ^9.0",
-    "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0"
-  },
-  "require-dev": {
-    "typo3/minimal": "^8.7 || ^9.0",
-    "friendsofphp/php-cs-fixer": "^2.3.1"
-  },
-  "autoload": {
-    "psr-4": {
-      "BK2K\\BootstrapPackage\\": "Classes"
-    }
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin"
-  },
-  "scripts": {
-    "set-version": [
-      "BK2K\\BootstrapPackage\\Composer\\VersionScript::setVersion"
+    "name": "bk2k/bootstrap-package",
+    "type": "typo3-cms-extension",
+    "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
+    "keywords": [
+        "TYPO3 CMS",
+        "introduction",
+        "sitepackage",
+        "bootstrap",
+        "responsive",
+        "frontend",
+        "theme",
+        "web"
     ],
-    "changelog": [
-      "BK2K\\BootstrapPackage\\Composer\\ChangelogScript::generateChangelog"
+    "homepage": "https://github.com/benjaminkott/bootstrap_package",
+    "authors": [
+        {
+            "name": "Benjamin Kott",
+            "email": "info@bk2k.info",
+            "role": "Developer",
+            "homepage": "http://www.bk2k.info/"
+        }
     ],
-    "post-autoload-dump": [
-      "mkdir -p .build/web/typo3conf/ext/",
-      "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
-    ]
-  },
-  "extra": {
-    "typo3/cms": {
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".build/web",
-      "app-dir": ".build"
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "typo3/cms-core": "^8.7.0 || ^9.0",
+        "typo3/cms-rte-ckeditor": "^8.7.0 || ^9.0"
+    },
+    "require-dev": {
+        "typo3/minimal": "^8.7 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^2.3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "BK2K\\BootstrapPackage\\": "Classes"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "vendor-dir": ".build/vendor",
+        "bin-dir": ".build/bin"
+    },
+    "scripts": {
+        "set-version": [
+            "BK2K\\BootstrapPackage\\Composer\\VersionScript::setVersion"
+        ],
+        "changelog": [
+            "BK2K\\BootstrapPackage\\Composer\\ChangelogScript::generateChangelog"
+        ],
+        "post-autoload-dump": [
+            "mkdir -p .build/web/typo3conf/ext/",
+            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".build/web",
+            "app-dir": ".build"
+        },
+        "branch-alias": {
+            "dev-BP_8-0": "8.0.x-dev"
+        }
     }
-  }
 }
