@@ -1,3 +1,64 @@
+# 11.0.3
+
+## TASK
+
+- [TASK] Setup mysql server in docker container fa0c697d
+- [TASK] Update ddev config 484b844f
+- [TASK] Update bundled scssphp to 1.4.1 56254a01
+- [TASK] Drop scrutinizer 6079c083
+- [TASK] Drop travis ci a6425d96
+- [TASK] Update actions 1e3ddba5
+- [TASK] Update dependencies 029d24b5
+- [TASK] Remove tempfs for dev environment 08a86525
+- [TASK] Add publishing TER workflow aec7c889
+- [TASK] Replace GeneralUtility::getUrl by RequestFactory (#910) 1a899285
+- [TASK] Migrate to afterExtensionInstall signal (#909) 07851e99
+- [TASK] Update README.rst (#900) 08f86603
+- [TASK] Bump actions/checkout to v2 89c1b83e
+- [TASK] Move path repository for testing to Tests (#882) ae90147e
+- [TASK] Downgrade to labeler v2 (#881) e0b916f2
+- [TASK] Use v3-preview labeler (#880) 3b153412
+- [TASK] Add functional test setup (#879) 75073b20
+- [TASK] Update ddev to 1.14.0 ef6c6b36
+- [TASK] Update labeler to version 2.1.0 (#812) b07ba7e3
+- [TASK] Automatic label dependency changes (#796) 627aa082
+- [TASK] Add PHP 7.4 to workflow (#855) 43dc25a9
+- [TASK] Add typo3fluid/fluid to composer dependencies (#876) d743bbe2
+- [TASK] Update frontend build dependencies a69544b7
+- [TASK] Add missing extension key (#874) 082c658b
+- [TASK] Bump DDEV to 1.13.1 (#863) 36ec258e
+- [TASK] Update DDEV to 1.13.0 (#853) 80f36eeb
+- [TASK] Use cfg instead of yml for documentation configuration aa7c19df
+- [TASK] Remove path in ExtensionConfiguration::set call (#836) 3b3b10a0
+
+## BUGFIX
+
+- [BUGFIX] Apply latest scssphp changes to import behavior (#948) 48e9dcc9
+- Revert "[BUGFIX] Use image vh for image types to enable thumbnails for non images like PDF files (#913)" 23ebd610
+- [BUGFIX] Use image vh for image types to enable thumbnails for non images like PDF files (#913) 8564d895
+- [BUGFIX] Introduce table-condensed class again for compatibility (#908) d26c5188
+- [BUGFIX] Missing body class for current language (#906) 0e6cf009
+- [BUGFIX] Fix paths in url() statements (#868) 76793039
+- [BUGFIX] Do not force a specific RTE configuration for content elements 739ca18e
+- [BUGFIX] Correct path to temp directory in compile service (#884) 9c1b84c6
+- [BUGFIX] Resolve SCSS files correctly when using symlinked paths (#866) 71052ef3
+- [BUGFIX] Correct test location 7ffcdb7a
+- [BUGFIX] Add missing extension dependencies (#871) e9780872
+- [BUGFIX] Add missing filter extension dependency (#870) 5b39b7d4
+- [BUGFIX] Change TCA escaping for database compatibility (#865) c9928e34
+- [BUGFIX] Ensure correct field casing and escaping in TCA for database compatibility (#862) 94e56ec6
+- [BUGFIX] Check parse_url return for false cb31e068
+- [BUGFIX] Update dependencies and rebuild assets 490d5efd
+- [BUGFIX] Add compiled css 0ad13e26
+- [BUGFIX] Restrict fixed menu overflows to mobile resolutions - fixes #837 7a8c81db
+- [BUGFIX] Hide link text for carousel bg image f0c40ff7
+- [BUGFIX] Ensure elements exist before accessing 0109d3b0
+
+## MISC
+
+- [SECURITY] Ensure content element subheader is HTML encoded 673e6b0c
+- [DOCS] Add render-docs helpers (#901) 3fb5a69b
+
 # 11.0.2
 
 ## TASK
