@@ -1,6 +1,25 @@
+# 9.0.4
+
+## TASK
+
+- [TASK] Add ddev setup 8f50e180
+- [TASK] Drop scrutinizer 8d56b97e
+- [TASK] Drop travis ci 6d978c8d
+
+## BUGFIX
+
+- [BUGFIX] Remove obsolete/invalid replacements in composer.json b20051fb
+- [BUGFIX] htaccess does not allow pages that end with "rc" - fixes #652 5a1edccf
+- [BUGFIX] Render data-interval only on carousel if value exists 39122fcc
+
+## MISC
+
+- [SECURITY] Ensure content element subheader is HTML encoded 4796e779
+
 # 9.0.3
 
 ## TASK
+
 - [TASK] Streamline changelog 6a38ec71
 - [TASK] Add vscode to gitignore 1fff542c
 - [TASK] Remove preferred install for typo3/cms 177f867e
@@ -9,6 +28,7 @@
 - [TASK] Update travis configuration 1aa31cef
 
 ## BUGFIX
+
 - [BUGFIX] Correct used less parser version e3cdcbcc
 - [BUGFIX] Make Less Parser PHP 7.3 compatible (#617) 26f53b25
 - [BUGFIX] Process fieldName correctly in flexform data processor 4acdf9dd
@@ -19,33 +39,40 @@
 # 9.0.2
 
 ## FEATURE
+
 - [FEATURE] Add typoscript condition to check typo3 core version 7059c12b
 
 ## TASK
+
 - [TASK] Use youtube-nocookie url in external media utility 0a71eb26
 
 ## BUGFIX
+
 - [BUGFIX] Use .typoscript fileeindng for configuratio files in TYPO3 >= 9.3 for external includes 1a7ad716
 - [BUGFIX] Use correct accordion_item language label in Backend.xlf (#490) 99fc30cf
 
 # 9.0.1
 
 ## BREAKING
+
 - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. 5c554ac8
 
 ## TASK
+
 - [TASK] Move CMS9 backend branding to service that is only called on installation 1d479f92
 - [TASK] Move icon registration to localconf 4a49fa08
 - [TASK] Exclude php less libary from extension scanner 144c4f6c
 - [TASK] Remove correct addStaticFile function from extension scanner 2a0c745d
 
 ## BUGFIX
+
 - [!!!][BUGFIX] Make DataRelationViewHelper compatible with doctrine. 5c554ac8
 - [BUGFIX] Ensure page layout class is never empty 20709de1
 
 # 9.0.0
 
 ## BREAKING
+
 - [!!!][TASK] Remove obsolete pagetype popup - fixes #476 20124b9a
 - [!!!][FEATURE] Make css classes of footer columns directly addressable a500b6d6
 - [!!!][TASK] Remove fallback menu processor since it was merged into TYPO3 core 625af26f
@@ -59,6 +86,7 @@
 - [!!!][TASK] Drop equalheight script 835b16b3
 
 ## FEATURE
+
 - [FEATURE] Pass current element on trigger loaded.bk2k.responsiveimage - fixes #471 450e4651
 - [FEATURE] Allow links on carousel type background image - fixes #455 33e6ffeb
 - [FEATURE] Enable frontend editing for pages 48ef140a
@@ -92,6 +120,7 @@
 - [FEATURE] Enable cropping for image in carousel 42558aec
 
 ## TASK
+
 - [!!!][TASK] Remove obsolete pagetype popup - fixes #476 20124b9a
 - [TASK] Push notifications to slack cf4cefc1
 - [TASK] Register bk2k as global namespace for viewhelpers ba56d072
@@ -142,6 +171,7 @@
 - [TASK] Add typo3 8.7 to travis 88fa5d67
 
 ## BUGFIX
+
 - [BUGFIX] Correct css selector for carousel item type text and image c105a130
 - [BUGFIX] Correct indentions bb499d76
 - [BUGFIX] Show correct translations in language menu (#487) 54dc3d26
@@ -186,20 +216,24 @@
 - [BUGFIX] Correct dependencies for typo3 cms 9.x 9ce70d27
 
 ## MISC
+
 - [CLEANUP] Fix typo by adding missing c to "seletor" 448d684d
 - Use correct closing tag 8ae85ef1
 
 # 8.0.0
 
 ## BREAKING
+
 - [!!!][TASK] Drop obsolete var viewhelper - use f:variable instead e33f0ed8
 
 ## FEATURE
+
 - [FEATURE] Enable compression of generated css files 4b39a415
 - [FEATURE] Add bootstrap responsive wrapper to table ce - fixes #385 caac09a6
 - [FEATURE] Add art direction for image, media, textpic and textmedia efde1cb1
 
 ## TASK
+
 - [TASK] Force captions to break d1594b66
 - [TASK] Make thumbnail menu more flexible a122f485
 - [TASK] Apply more flexible style on thumbnail menus 7fd49b6f
@@ -337,6 +371,7 @@
 - [TASK] Migrate TCA fields starttime and endtime to inputDateTime 35135f5f
 
 ## BUGFIX
+
 - [BUGFIX] Adapt thumbnail list template 85429004
 - [BUGFIX] Remove all typolinks from backend preview of quote element 12946cd2
 - [BUGFIX] Remove typolink from backend preview of quote element 2306885d
@@ -371,6 +406,7 @@
 # 7.1.0
 
 ## BREAKING
+
 - [!!!][FEATURE] Use explicit templates instead of conditions in carousel templates - relates #356 d2b23d1f
 - [!!!][TASK] Reintroduce "no frame" option - fixes #319 f2b06d7d
 - [!!!][FEATURE] Add sections to visually group elements eedb60dc
@@ -379,6 +415,7 @@
 - [!!!][FEATURE] Add support for spacer in menu processor - fixes #335 5d0a76cd
 
 ## FEATURE
+
 - [FEATURE] Make language uids for menu configurable d07e219a
 - [FEATURE] Add audio content element - fixes #399 c7ac13dd
 - [FEATURE] Add preview for quote content element add8bc0d
@@ -410,6 +447,7 @@
 - [FEATURE] Clear less cache when all caches are cleared ad695e01
 
 ## TASK
+
 - [TASK] Optimize html output 63fa499f
 - [TASK] Update dependencies bcfd9ef1
 - [TASK] Add instruction to clear initial TypoScript (#420) 5cd45254
@@ -485,6 +523,7 @@
 - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options bf80fe37
 
 ## BUGFIX
+
 - [BUGFIX] Add missing icon for text & media missing - fixes #417 ec643241
 - [BUGFIX] Adapt link tag parsing for RTE fields 46697bdc
 - [BUGFIX] Move class alias for menu processor to localconf to ensure correct loading a04a6c7f
@@ -534,12 +573,14 @@
 - [BUGFIX][REVERT][TASK] Remove unneeded rte_transform options bf80fe37
 
 ## MISC
+
 - "usind" is wrong 0459bd33
 - Correct php-cs-fixer command 0a22336a
 
 # 7.0.0
 
 ## BREAKING
+
 - [!!!][TASK] Send cache headers per default 9b9f9452
 - [!!!][TASK] Conflict css_styled_content and fluid_styled_content due inconsistencies and incompatability to each other 5ecadef4
 - [!!!][TASK] Replace FlexFormViewHelper with FlexFormProcessor 22d60c8b
@@ -555,6 +596,7 @@
 - [!!!][TASK] Dropping TYPO3 6.2 support and raise version to 7.0.0-dev 0bc14990
 
 ## FEATURE
+
 - [FEATURE] Remaining PageTS templates are configurable 7806d37a
 - [FEATURE] Allow to disable footer-section with Typoscript constant. 561cb0ed
 - [FEATURE] Allow photoswipe to be opened by url params 317032be
@@ -566,6 +608,7 @@
 - [!!!][FEATURE] Register optional PageTS config files e9caa18c
 
 ## TASK
+
 - [TASK] Set defaults for backend configuration 42001a96
 - [TASK] Remove backend_layout upgrade wizard bdd51ada
 - [TASK] Update hammerjs to 2.0.6 a2f2e591
@@ -696,6 +739,7 @@
 - [TASK] breadcrumb: for the content of the links use alternative navigation title if it is set, else use page title. 4e01a9e4
 
 ## BUGFIX
+
 - [BUGFIX] Remove skin setting from RTE configuration to ensure correct file is loaded in cms 8 3a6d10a6
 - [BUGFIX] Disable output escaping for viewhelpers c8b881a0
 - [BUGFIX] Remove spaceless viewhelper cd18e0ee
@@ -728,6 +772,7 @@
 - [BUGFIX] Correct height operator for opengraph image - fixes #227 0da305fc
 
 ## MISC
+
 - Fix more typos / grammar issues ce3f8df6
 - Fix typos found by codespell 3b25d805
 - Followup: Use spaces instead of tabs a50ed6e4
@@ -772,6 +817,7 @@
 # 6.2.15
 
 ## TASK
+
 - [TASK] Add travis-ci build status image 3e5f00f2
 - [TASK] Remove unused coverage from travis f0ef2c5f
 - [TASK] Add phpcs as dev dependency to composer.json 50d372c3
@@ -792,6 +838,7 @@
 - [TASK] Update less.php to 1.7.0.5 d359261c
 
 ## BUGFIX
+
 - [BUGFIX] Ignore PSR-2 check for legacy core classes aa587827
 - [BUGFIX] Use camel caps format for functions in external media utility d176687a
 - [BUGFIX] PSR-2 Violations f15a896f
@@ -802,6 +849,7 @@
 - [BUGFIX] There is no boostrap package 1cf9b927
 
 ## MISC
+
 - Scrutinizer Auto-Fixes ffe5e3e4
 - Scrutinizer Auto-Fixes 3d6b3427
 - Scrutinizer Auto-Fixes 6bd65dd0
@@ -809,9 +857,11 @@
 # 6.2.14
 
 ## FEATURE
+
 - [FEATURE] Add advanced Open Graph support, support new meta notation for 7.4 2734c162
 
 ## TASK
+
 - [TASK] Add migration information for backend layout prefix change ad9f9282
 - [TASK] Add missing changelog for 6.2.12 and 6.2.13 fc482ca9
 - [TASK] Update TypoScript template mapping for backend layouts 5162b178
@@ -822,10 +872,12 @@
 - [TASK] Add 'active' class for shortcuts in sub navigation eb23a66f
 
 ## BUGFIX
+
 - [BUGFIX] Use always $GLOBALS[TCA] f0f8c620
 - [BUGFIX] fix missing TYPO3SEARCH_end marker b0bde8ab
 
 ## MISC
+
 - Update Index.rst 04d164d9
 - Rename index.rst to Index.rst 63473434
 - Update Index.rst 9826f5ab
@@ -834,13 +886,16 @@
 # 6.2.13
 
 ## TASK
+
 - [TASK] Include css_styled_content and form in static template 4f031d5d
 
 ## BUGFIX
+
 - [BUGFIX] Remove leading slash from classnames in typoscript setup 92c7c219
 - [BUGFIX] Restrict options for default tab to currently assigned items - fixes #197 287e8df7
 
 ## MISC
+
 - Fix 'overridden' typos 76a411b0
 - Multiple fixes to composer.json e27b03e4
 - Fix whitespace in ext_emconf.php e141e230
@@ -848,11 +903,13 @@
 # 6.2.12
 
 ## BUGFIX
+
 - [BUGFIX] Add missing static template for bootstrap package 9347264e
 
 # 6.2.11
 
 ## BREAKING
+
 - [!!!][TASK] Remove compatibility to ext:themes through lack of resources 987c2032
 - [!!!][TASK] Cleanup deprecated template fallbacks 4b16e85f
 - [!!!][FEATURE] Add template fallback support 20ec25cf
@@ -864,6 +921,7 @@
 - [!!!][FEATURE] Support multilevel tree in subnavigation - fixes #186 1f861227
 
 ## FEATURE
+
 - [!!!][FEATURE] Add template fallback support 20ec25cf
 - [FEATURE] Make DynamicContent wrappable 45ffc2c6
 - [FEATURE] Add swipe support for carousels - fixes #161 94b74d51
@@ -881,6 +939,7 @@
 - [FEATURE] New advanced constant to enable/disable CSS source mapping 77639ab9
 
 ## TASK
+
 - [TASK] Update Documentation for TypoScript constants ed01b96e
 - [TASK] Update Documentation 0eeeac64
 - [!!!][TASK] Remove compatibility to ext:themes through lack of resources 987c2032
@@ -923,6 +982,7 @@
 - [TASK] Update bootstrap to 3.3.4 791356db
 
 ## BUGFIX
+
 - [BUGFIX] Add disablePageTsRTE option to extension configuration again e84055e3
 - [!!!][BUGFIX] Wrong path to font files - fixes #139 729e9667
 - [BUGFIX] Correct overflow problem 10a0d604
@@ -934,6 +994,7 @@
 - [BUGFIX] Add missing restore register in text with icon - fixes #174 c6f65941
 
 ## MISC
+
 - slightly smarter TypoScript 825d4b26
 - FLUIDTEMPLATE.templateName and templateRootPaths 193983b8
 - Update jquery.responsiveimages.js a066650a
@@ -952,12 +1013,14 @@
 # 6.2.10
 
 ## FEATURE
+
 - [FEATURE] New advanced constant to enable/disable the use of Typoscript constants as Less variables e01b136d
 - [FEATURE] new constant $page.logo.alt used to overwrite the default alt attribute of the logo image a7544c25
 - [FEATURE] make site logo alt attribute configurable 5e1d06f6
 - [FEATURE] Disable automatic less compiling - fixes #162 1eef6627
 
 ## TASK
+
 - [TASK] Add changelog 2d3dc52c
 - [TASK] Refactor jquery.responsiveimages.js 0f90334b
 - [TASK] HTML5 markup for sub navigation - fixes #171 604ea24e
@@ -973,6 +1036,7 @@
 - [TASK] Update changelog in documentation 88139537
 
 ## BUGFIX
+
 - [BUGFIX] Correct overlapping elements on centered image - fixes #113, #159 4cce784c
 - [BUGFIX] Correct media display for file links content element - fixes #164 0af8bc02
 - [BUGFIX] fix for HTML5 markup validation b5776a1c
@@ -980,6 +1044,7 @@
 - [BUGFIX] Adjust language uids to match introduction database - fixes #135 863615c6
 
 ## MISC
+
 - Stop using deprecated XHTML cleaning 9aef5248
 - Allow "target" attribute inside  tags. 653bd30a
 - added "br" to "allowedTags" a44d88f1
@@ -993,6 +1058,7 @@
 # 6.2.9
 
 ## TASK
+
 - [TASK] Update jquery to 1.11.2 e8822fce
 - [TASK] Update modernizr to 2.8.3 559ff0c8
 - [TASK] Update less.php to current master d065a0be
@@ -1002,11 +1068,13 @@
 - [TASK] Use realurl autoconfig hook instead of overriding every config 7d9fb372
 
 ## BUGFIX
+
 - [BUGFIX] Remove problematic whitespace c7d64280
 - [BUGFIX] Remove superfluous slash in font definition - fixes #132 115a9d58
 - [BUGFIX] Classname must not start with a backslash in ext_conf_template.txt 095c2a17
 
 ## MISC
+
 - Update Index.rst 4660037b
 - Use array_merge_recursive() instead ca4d0322
 - Don't overwrite existing configuration completely 18f1ca82
@@ -1014,6 +1082,7 @@
 # 6.2.8
 
 ## TASK
+
 - [TASK] Make realurl optional 6f92339a
 - [TASK] Remove e-mail from contact b162f602
 - [TASK] Minify responsiveimages.js and and cleanup f8ad4af7
@@ -1021,11 +1090,13 @@
 - [TASK] Make removeDefaultJs configurable. fixes #105 aebd1fcd
 
 ## BUGFIX
+
 - [BUGFIX] Use correct rte transform in accordion textfield - fixes #67 21735bde
 - [BUGFIX] Wrong calculation in news pagination - fixes #106 146a8659
 - [BUGFIX] Flashmessage queue throws error while installing - fixes #116 f0508a9d
 
 ## MISC
+
 - Update newContentElement.txt 94a1a165
 - Update newContentElement.txt c7e27ab8
 - Update jquery.responsiveimages.js e40750d9
@@ -1033,6 +1104,7 @@
 # 6.2.7
 
 ## TASK
+
 - [TASK] Include respond.js with conditional comment to work with static cache - fixes #101 66ce0a66
 - [TASK] Cleanup CGL b5cd79d2
 - [TASK] Reformat all project-specific content to TYPO3.CMS CGL 7a86c368
@@ -1042,9 +1114,11 @@
 - [TASK] Add .editorconfig file cf164b64
 
 ## BUGFIX
+
 - [BUGFIX] Wrong colpos was used in layout "Default, Subnavigation Left and 2 Columns" fixes #98 5e0d2741
 
 ## MISC
+
 - Fix for columns in backend layout 14d4eb34
 - Add 25/75 backend layout 7b676ed6
 - Add missing migrations for realurl cd232393
@@ -1058,9 +1132,11 @@
 # 6.2.6
 
 ## FEATURE
+
 - [FEATURE] add composer.json 2c668813
 
 ## MISC
+
 - Release 6.2.6 26b6ed91
 - Correct colPos for left column on Layout: Default, Subnavigation Left and 2 Columns - fixes #62 51f177e3
 - Add Google Analytics tracking code anonymization - fixes #84 f8ff29b3
@@ -1127,9 +1203,11 @@
 # 6.2.5
 
 ## FEATURE
+
 - [FEATURE] use SymLinksIfOwnerMatch in .htaccess 187c8581
 
 ## MISC
+
 - Release 6.2.5 c86a3480
 - Update Documentation 966bd586
 - Add support for link "Edit me on Github" 858253eb
@@ -1184,6 +1262,7 @@
 # 6.2.4
 
 ## MISC
+
 - ter does not allow long version numbers ... 52370906
 - ter ist fucking up ;( a4608ef1
 - set version to 6.2.2.2 c7aaf3c8
