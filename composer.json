@@ -1,57 +1,60 @@
 {
-  "name": "bk2k/bootstrap-package",
-  "type": "typo3-cms-extension",
-  "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
-  "keywords": [
-    "TYPO3 CMS",
-    "introduction",
-    "sitepackage",
-    "bootstrap",
-    "responsive",
-    "front-end",
-    "web"
-  ],
-  "homepage": "https://github.com/benjaminkott/bootstrap_package",
-  "authors": [
-    {
-      "name": "Benjamin Kott",
-      "email": "info@bk2k.info",
-      "role": "Developer",
-      "homepage": "http://www.bk2k.info/"
+    "name": "bk2k/bootstrap-package",
+    "type": "typo3-cms-extension",
+    "description": "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.",
+    "keywords": [
+        "TYPO3 CMS",
+        "introduction",
+        "sitepackage",
+        "bootstrap",
+        "responsive",
+        "front-end",
+        "web"
+    ],
+    "homepage": "https://github.com/benjaminkott/bootstrap_package",
+    "authors": [
+        {
+            "name": "Benjamin Kott",
+            "email": "info@bk2k.info",
+            "role": "Developer",
+            "homepage": "http://www.bk2k.info/"
+        }
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "typo3/cms-core": ">=7.6.0,<8.6.0"
+    },
+    "require-dev": {
+        "typo3/minimal": ">=7.6.0,<8.6.0",
+        "friendsofphp/php-cs-fixer": "^2.2.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "BK2K\\BootstrapPackage\\": "Classes"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "vendor-dir": ".build/vendor",
+        "bin-dir": ".build/bin"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p .build/web/typo3conf/ext/",
+            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".build/web"
+        },
+        "branch-alias": {
+            "dev-BP_7-1": "7.1.x-dev"
+        }
     }
-  ],
-  "license": "MIT",
-  "support": {
-    "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
-  },
-  "require": {
-    "php": ">=5.5.0",
-    "typo3/cms-core": ">=7.6.0,<8.6.0"
-  },
-  "require-dev": {
-    "typo3/minimal": ">=7.6.0,<8.6.0",
-    "friendsofphp/php-cs-fixer": "^2.2.20"
-  },
-  "autoload": {
-    "psr-4": {
-      "BK2K\\BootstrapPackage\\": "Classes"
-    }
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "vendor-dir": ".build/vendor",
-    "bin-dir": ".build/bin"
-  },
-  "scripts": {
-    "post-autoload-dump": [
-      "mkdir -p .build/web/typo3conf/ext/",
-      "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
-    ]
-  },
-  "extra": {
-    "typo3/cms": {
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".build/web"
-    }
-  }
 }
