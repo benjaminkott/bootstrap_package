@@ -195,7 +195,7 @@ After
 
 
 
-Corrected calucaltion of relative paths in build in LESS parser
+Corrected calculation of relative paths in build in LESS parser
 ===============================================================
 
 Calculation of relative paths in less should now be resolved correctly.
