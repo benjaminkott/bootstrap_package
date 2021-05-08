@@ -22,7 +22,7 @@ Image Variants
 
 Image variants are used to represent the breakpoints of the design. These
 variants have to be defined according the definitions in the style sheet.
-Bootstrap Package defines this variants by default:
+Bootstrap Package defines these variants by default:
 
 .. code-block:: typoscript
 
@@ -51,12 +51,12 @@ Bootstrap Package defines this variants by default:
 
 
 The **breakpoint** defines the minimal device width where the **width** gets
-applied. Having a device with a width of 1200 pixels or more uses a image width
-of 1100 pixels, devices of 992 up to 1199 pixels width use a image width of
+applied. Having a device with a width of 1200 pixels or more uses an image width
+of 1100 pixels, devices of 992 up to 1199 pixels width use an image width of
 920 pixels and so on.
 
 
-For each of this variants the multiplier of size **1x** is set to 1, see next
+For each of these variants the multiplier of size **1x** is set to 1, see next
 section for more about the high-resolution image support:
 
 *  default
@@ -85,8 +85,8 @@ High Resolution Images
 ----------------------
 
 There is a key called sizes in every variant that should be rendered. This
-dataset consists of several entries each with a default key for a normal
-rendering (1x). This key will be added automatically and is always available.
+dataset consists of several entries, each with a default key for a normal
+rendering (1x). This key will be added automatically, and it is always available.
 It is not possible to store sizes smaller than 1. Each size contains a
 multiplier, which is multiplied by the base size.
 
@@ -131,7 +131,7 @@ for devices with a minimum device pixel ratio from 1.5 and 2.
 The data for image rendering is now extended with a sub-set for high-resolution
 variants. If you did not overwrite the default templates, it will just work as 
 soon as you add the configuration. If you have overwritten the default
-templates, it will still work as before but you need to add the new support for 
+templates, it will still work as before, but you need to add the new support for 
 high-resolution images yourself. 
 
 Please check the new updated templates and adjust your code if you want this
@@ -270,17 +270,17 @@ subtracted from the width you can do this kind of corrections late in the
 calculation process.
 
 *  Example `Accordion <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/Accordion.typoscript#L44>`__:
-  Here a correction is added to remove the inner padding of the container.
+   Here a correction is added to remove the inner padding of the container.
 
 *  Example `Card Group <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/CardGroup.typoscript#L50>`__:
-  The border is substracted here.
+   The border is substracted here.
 
 
 
 Crop Variants
 =============
 
-Bootstrap Package predefines some cropping variants which can easily be changed
+The Bootstrap Package predefines some cropping variants which can easily be changed
 or extended by your sitepackage.
 
 The following crop variants are defined by default:
