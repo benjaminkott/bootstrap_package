@@ -59,15 +59,15 @@ of 1100 pixels, devices of 992 up to 1199 pixels width use a image width of
 For each of this variants the multiplier of size **1x** is set to 1, see next
 section for more about the high-resolution image support:
 
-* default
+*  default
 
-   * breakpoint
-   * width
-   * sizes
+   *  breakpoint
+   *  width
+   *  sizes
 
-      * 1x
+      *  1x
 
-         * multiplier: 1
+         *  multiplier: 1
 
 
 Example of changing the default configuration for the default variant.
@@ -94,20 +94,20 @@ Example calculations:
 
 Base width: 1000px
 
-* Minimum Device Pixel Ratio = 1
+*  Minimum Device Pixel Ratio = 1
 
-   * Multiplier = 1
-   * Result: 1000px
+   *  Multiplier = 1
+   *  Result: 1000px
 
-* Minimum Device Pixel Ratio = 1.5
+*  Minimum Device Pixel Ratio = 1.5
 
-   * Multiplier = 1.25
-   * Result: 1250px
+   *  Multiplier = 1.25
+   *  Result: 1250px
 
-* Minimum Device Pixel Ratio = 2
+*  Minimum Device Pixel Ratio = 2
 
-   * Multiplier = 1.5
-   * Result: 1500px
+   *  Multiplier = 1.5
+   *  Result: 1500px
 
 
 Example configuration to enable high-resolution support for the default variant
@@ -143,10 +143,10 @@ Configuration by Variant
 
 For each **variant** the following configuration options are possible:
 
-* breakpoint
-* width
-* aspectRatio
-* sizes
+*  breakpoint
+*  width
+*  aspectRatio
+*  sizes
 
 
 Configuration by Backend Layout
@@ -155,9 +155,9 @@ Configuration by Backend Layout
 For each **backend layout** the following configuration options are possible
 for each defined **column** and **variant**:
 
-* multiplier
-* gutters
-* corrections
+*  multiplier
+*  gutters
+*  corrections
 
 
 Example configuration for backend layouts.
@@ -190,9 +190,9 @@ Configuration by Content Element
 For each **content element** the following configuration options are possible
 for each defined **variant** or **specific property**:
 
-* multiplier
-* gutters
-* corrections
+*  multiplier
+*  gutters
+*  corrections
 
 
 Example configuration for content elements.
@@ -269,10 +269,10 @@ perfect. Means if you have a 1 pixel outline for example and want this to be
 subtracted from the width you can do this kind of corrections late in the
 calculation process.
 
-* Example `Accordion <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/Accordion.typoscript#L44>`__:
+*  Example `Accordion <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/Accordion.typoscript#L44>`__:
   Here a correction is added to remove the inner padding of the container.
 
-* Example `Card Group <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/CardGroup.typoscript#L50>`__:
+*  Example `Card Group <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/ContentElement/Element/CardGroup.typoscript#L50>`__:
   The border is substracted here.
 
 
@@ -285,7 +285,7 @@ or extended by your sitepackage.
 
 The following crop variants are defined by default:
 
-* 16:9, for a fixed ratio
-* 4:3, for a fixed ratio
-* 1:1, for a fixed ratio
-* NaN, for a free ration
+*  16:9, for a fixed ratio
+*  4:3, for a fixed ratio
+*  1:1, for a fixed ratio
+*  NaN, for a free ration
