@@ -10,7 +10,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Bootstrap Package',
     'description' => 'Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.',
-    'category' => 'templates',
+    'category' => 'distribution',
     'constraints' => [
         'depends' => [
             'typo3' => '10.4.0-11.1.99',
