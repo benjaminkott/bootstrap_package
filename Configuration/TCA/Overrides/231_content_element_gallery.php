@@ -9,25 +9,19 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add Content Element
- */
+// Add Content Element
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['gallery'])) {
     $GLOBALS['TCA']['tt_content']['types']['gallery'] = [];
 }
 
-/***************
- * Add content element PageTSConfig
- */
+// Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Gallery.tsconfig',
     'Bootstrap Package Content Element: Gallery'
 );
 
-/***************
- * Add content element to selector list
- */
+// Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -40,14 +34,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['gallery'])) {
     'after'
 );
 
-/***************
- * Assign Icon
- */
+// Assign Icon
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['gallery'] = 'content-bootstrappackage-gallery';
 
-/***************
- * Configure element type
- */
+// Configure element type
 $GLOBALS['TCA']['tt_content']['types']['gallery'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['gallery'],
     [
@@ -79,9 +69,7 @@ $GLOBALS['TCA']['tt_content']['types']['gallery'] = array_replace_recursive(
     ]
 );
 
-/***************
- * Add additional fields
- */
+// Add additional fields
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',
     'aspect_ratio, items_per_page',

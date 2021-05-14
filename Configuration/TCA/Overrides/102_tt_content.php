@@ -9,9 +9,7 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add content element group to selector list
- */
+// Add content element group to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',

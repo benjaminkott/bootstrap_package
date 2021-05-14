@@ -27,7 +27,7 @@ For the full copyright and license information, please read the
 LICENSE file that was distributed with this source code.
 EOF;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
@@ -35,7 +35,9 @@ return PhpCsFixer\Config::create()
             'header' => $header
         ],
         'general_phpdoc_annotation_remove' => [
-            'author'
+            'annotations' => [
+                'author'
+            ]
         ],
         'no_leading_import_slash' => true,
         'no_trailing_comma_in_singleline_array' => true,
@@ -46,14 +48,14 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'single_quote' => true,
         'no_empty_statement' => true,
-        'no_extra_consecutive_blank_lines' => true,
+        'no_extra_blank_lines' => true,
         'phpdoc_no_package' => true,
         'phpdoc_scalar' => true,
         'no_blank_lines_after_phpdoc' => true,
         'array_syntax' => ['syntax' => 'short'],
         'whitespace_after_comma_in_array' => true,
         'function_typehint_space' => true,
-        'hash_to_slash_comment' => true,
+        'single_line_comment_style' => true,
         'no_alias_functions' => true,
         'lowercase_cast' => true,
         'no_leading_namespace_whitespace' => true,

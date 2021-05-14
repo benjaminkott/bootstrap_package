@@ -9,25 +9,19 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add Content Element
- */
+// Add Content Element
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
     $GLOBALS['TCA']['tt_content']['types']['panel'] = [];
 }
 
-/***************
- * Add content element PageTSConfig
- */
+// Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Panel.tsconfig',
     'Bootstrap Package Content Element: Panel'
 );
 
-/***************
- * Add content element to selector list
- */
+// Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -40,14 +34,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
     'after'
 );
 
-/***************
- * Assign Icon
- */
+// Assign Icon
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['panel'] = 'content-panel';
 
-/***************
- * Configure element type
- */
+// Configure element type
 $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['panel'],
     [
@@ -82,9 +72,7 @@ $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
     ]
 );
 
-/***************
- * Register fields
- */
+// Register fields
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [

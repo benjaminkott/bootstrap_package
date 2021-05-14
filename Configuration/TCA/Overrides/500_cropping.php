@@ -9,9 +9,7 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add crop variants
- */
+// Add crop variants
 $defaultCropSettings = [
     'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default',
     'allowedAspectRatios' => [
@@ -49,108 +47,84 @@ $smallCropSettings['title'] = 'LLL:EXT:bootstrap_package/Resources/Private/Langu
 $extrasmallCropSettings = $defaultCropSettings;
 $extrasmallCropSettings['title'] = 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.extrasmall';
 
-/***************
- * Content Element Background Image
- */
+// Content Element Background Image
 $GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tt_content']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Image content element
- */
+// Image content element
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['image']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Textpic content element
- */
+// Textpic content element
 $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textpic']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Media content element
- */
+// Media content element
 $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Textmedia content element
- */
+// Textmedia content element
 $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Card Group
- */
+// Card Group
 $GLOBALS['TCA']['tx_bootstrappackage_card_group_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_card_group_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_card_group_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_card_group_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_card_group_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Accordion
- */
+// Accordion
 $GLOBALS['TCA']['tx_bootstrappackage_accordion_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_accordion_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_accordion_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_accordion_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_accordion_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Carousel Background Image
- */
+// Carousel Background Image
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['background_image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Carousel Image
- */
+// Carousel Image
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['columns']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Tab
- */
+// Tab
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_tab_item']['types']['1']['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Timeline
- */
+// Timeline
 $GLOBALS['TCA']['tx_bootstrappackage_timeline_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_timeline_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_timeline_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['medium'] = $mediumCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_timeline_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['small'] = $smallCropSettings;
 $GLOBALS['TCA']['tx_bootstrappackage_timeline_item']['types']['1']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['extrasmall'] = $extrasmallCropSettings;
 
-/***************
- * Pages
- */
+// Pages
 foreach ([1, 3, 4] as $type) {
     $GLOBALS['TCA']['pages']['types'][$type]['columnsOverrides']['thumbnail']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['default'] = $defaultCropSettings;
     $GLOBALS['TCA']['pages']['types'][$type]['columnsOverrides']['thumbnail']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']['large'] = $largeCropSettings;

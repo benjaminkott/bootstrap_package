@@ -9,18 +9,14 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add content element PageTSConfig
- */
+// Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Textpic.tsconfig',
     'Bootstrap Package Content Element: Text and Images'
 );
 
-/***************
- * Add additional fields
- */
+// Add additional fields
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',
     'file_folder, filelink_sorting',

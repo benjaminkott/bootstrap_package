@@ -9,9 +9,7 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add content element PageTSConfig
- */
+// Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/Bullets.tsconfig',

@@ -9,9 +9,7 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Adjust columns for generic usage
- */
+// Adjust columns for generic usage
 $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
@@ -171,9 +169,7 @@ $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
     'l10n_mode' => 'exclude',
 ];
 
-/***************
- * Adjust default fields
- */
+// Adjust default fields
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'imageorient',
@@ -198,9 +194,7 @@ $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
 );
 $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
 
-/***************
- * Add fields to default palettes
- */
+// Add fields to default palettes
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
     --linebreak--,
     background_color_class,

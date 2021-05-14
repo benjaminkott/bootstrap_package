@@ -9,25 +9,19 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Enable Content Element
- */
+// Enable Content Element
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
     $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = [];
 }
 
-/***************
- * Add content element PageTSConfig
- */
+// Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     $extensionKey,
     'Configuration/TsConfig/Page/ContentElement/Element/MenuCardDir.tsconfig',
     'Bootstrap Package Content Element: Menu Cards of subpages'
 );
 
-/***************
- * Add content element to selector list
- */
+// Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -40,14 +34,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_dir'])) {
     'after'
 );
 
-/***************
- * Assign Icon
- */
+// Assign Icon
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['menu_card_dir'] = 'content-bootstrappackage-menu-card';
 
-/***************
- * Configure element type
- */
+// Configure element type
 $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'],
     [
@@ -78,9 +68,7 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursiv
     ]
 );
 
-/***************
- * Add flexForms for content element configuration
- */
+// Add flexForms for content element configuration
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',

@@ -9,9 +9,7 @@
 
 defined('TYPO3') || die();
 
-/***************
- * Add Palettes for Generic usage
- */
+// Add Palettes for Generic usage
 $GLOBALS['TCA']['tt_content']['palettes']['header_minimal'] = [
     'showitem' => '
         header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
