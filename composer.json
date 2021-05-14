@@ -56,7 +56,7 @@
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^1.0",
         "friendsofphp/php-cs-fixer": "^3.0.0",
-        "overtrue/phplint": "^1.1",
+        "overtrue/phplint": "^2.3.5",
         "typo3/cms-felogin": "^10.4 || 11.*.*@dev",
         "typo3/cms-form": "^10.4 || 11.*.*@dev",
         "typo3/cms-indexed-search": "^10.4 || 11.*.*@dev",
