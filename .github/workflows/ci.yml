@@ -42,6 +42,9 @@ jobs:
     - name: CGL
       run: |
         composer cgl
+    - name: PHPStan
+      run: |
+        composer phpstan
     - name: Unit Tests
       run: |
         composer test:php:unit

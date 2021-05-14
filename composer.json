@@ -57,6 +57,10 @@
         "bk2k/extension-helper": "^1.0",
         "friendsofphp/php-cs-fixer": "^3.0.0",
         "overtrue/phplint": "^2.3.5",
+        "phpstan/phpstan": "^0.12.87",
+        "phpstan/phpstan-deprecation-rules": "^0.12.6",
+        "phpstan/phpstan-phpunit": "^0.12.19",
+        "phpstan/phpstan-strict-rules": "^0.12.9",
         "typo3/cms-felogin": "^10.4 || 11.*.*@dev",
         "typo3/cms-form": "^10.4 || 11.*.*@dev",
         "typo3/cms-indexed-search": "^10.4 || 11.*.*@dev",
@@ -97,6 +101,12 @@
             "@test:php:lint",
             "@test:php:unit",
             "@test:php:functional"
+        ],
+        "phpstan": [
+            "phpstan analyze --configuration Build/phpstan.neon"
+        ],
+        "phpstan:baseline": [
+            "phpstan analyze --configuration Build/phpstan.neon --generate-baseline Build/phpstan-baseline.neon"
         ],
         "cgl": [
             "php-cs-fixer --diff -v fix"
