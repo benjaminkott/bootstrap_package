@@ -23,18 +23,18 @@ class ScssCompilerTest extends UnitTestCase
      * @dataProvider compileDataProvider
      * @test
      */
-    public function compile(string $file, string $expectedResultFile)
+    public function compile(string $file, string $expectedResultFile): void
     {
         $scss = new Compiler();
-        $resultCss = $scss->compile(file_get_contents(__DIR__ . '/' . $file), $file);
+        $resultCss = $scss->compileString((string) file_get_contents(__DIR__ . '/' . $file), $file)->getCss();
         $expectedCss = file_get_contents(__DIR__ . '/' . $expectedResultFile);
-        $this->assertSame($expectedCss, $resultCss);
+        self::assertSame($expectedCss, $resultCss);
     }
 
     /**
      * @return array
      */
-    public function compileDataProvider()
+    public function compileDataProvider(): array
     {
         return [
             'Calculation' => [

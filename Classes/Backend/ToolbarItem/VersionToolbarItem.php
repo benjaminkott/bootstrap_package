@@ -29,7 +29,7 @@ class VersionToolbarItem
      *
      * @param SystemInformationToolbarItem $systemInformation
      */
-    public function addVersionInformation(SystemInformationToolbarItem $systemInformation)
+    public function addVersionInformation(SystemInformationToolbarItem $systemInformation): void
     {
         $value = null;
         $extensionDirectory = ExtensionManagementUtility::extPath('bootstrap_package');
@@ -38,10 +38,10 @@ class VersionToolbarItem
         if (file_exists($extensionDirectory . '.git')) {
             CommandUtility::exec('git --version', $_, $returnCode);
             if ((int)$returnCode === 0) {
-                $currentDir = getcwd();
+                $currentDir = (string) getcwd();
                 chdir($extensionDirectory);
                 $tag = trim(CommandUtility::exec('git tag -l --points-at HEAD'));
-                if ($tag) {
+                if ($tag !== '') {
                     $value = $tag;
                 } else {
                     $branch = trim(CommandUtility::exec('git rev-parse --abbrev-ref HEAD'));

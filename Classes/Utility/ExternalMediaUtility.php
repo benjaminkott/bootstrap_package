@@ -34,7 +34,7 @@ class ExternalMediaUtility
      * @param string $class
      * @return string
      */
-    public function getEmbedCode($url, $class)
+    public function getEmbedCode($url, $class): ?string
     {
         // Prepare url
         $url = $this->setProtocolToHttps($url);
@@ -59,7 +59,7 @@ class ExternalMediaUtility
      * @param string $url
      * @return string|null
      */
-    protected function getMethod($url)
+    protected function getMethod($url): ?string
     {
         $urlInformation = @parse_url($url);
         if ($urlInformation) {
@@ -78,9 +78,9 @@ class ExternalMediaUtility
      * Processes YouTube url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
-    protected function processYoutube($url)
+    protected function processYoutube($url): ?string
     {
         $firstMatches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
@@ -100,9 +100,9 @@ class ExternalMediaUtility
      * Process YouTube short url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
-    protected function processYoutu($url)
+    protected function processYoutu($url): ?string
     {
         return $this->processYoutube($url);
     }
@@ -113,7 +113,7 @@ class ExternalMediaUtility
      * @param string $url
      * @return string
      */
-    protected function processVimeo($url)
+    protected function processVimeo($url): ?string
     {
         $matches = [];
         if (preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
@@ -128,7 +128,7 @@ class ExternalMediaUtility
      * @param  string $url URL
      * @return string
      */
-    protected function setProtocolToHttps($url)
+    protected function setProtocolToHttps($url): string
     {
         $processUrl = trim($url);
         if (strpos($url, 'http://') === 0) {

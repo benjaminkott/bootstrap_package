@@ -1,96 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Backend\\\\ToolbarItem\\\\VersionToolbarItem\\:\\:addVersionInformation\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Backend/ToolbarItem/VersionToolbarItem.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: ../Classes/Backend/ToolbarItem/VersionToolbarItem.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function chdir expects string, string\\|false given\\.$#"
-			count: 1
-			path: ../Classes/Backend/ToolbarItem/VersionToolbarItem.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$setup\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:convertTypoScriptArrayToPlainArray\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:parse\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\ConstantsProcessor\\:\\:process\\(\\) has parameter \\$contentObjectConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\ConstantsProcessor\\:\\:process\\(\\) has parameter \\$processedData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\ConstantsProcessor\\:\\:process\\(\\) has parameter \\$processorConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\ConstantsProcessor\\:\\:process\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Parameter \\#1 \\$key of method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\ConstantsProcessor\\:\\:getFlatConstants\\(\\) expects string, int\\|string\\|true given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/ConstantsProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\CsvFileProcessor\\:\\:process\\(\\) has parameter \\$contentObjectConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\CsvFileProcessor\\:\\:process\\(\\) has parameter \\$processedData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\CsvFileProcessor\\:\\:process\\(\\) has parameter \\$processorConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\CsvFileProcessor\\:\\:process\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
-			message: "#^Parameter \\#2 \\$fieldDelimiter of static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\CsvUtility\\:\\:csvToArray\\(\\) expects string, bool\\|int\\|string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
-			message: "#^Parameter \\#3 \\$fieldEnclosure of static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\CsvUtility\\:\\:csvToArray\\(\\) expects string, bool\\|int\\|string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/CsvFileProcessor.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:getExtension\\(\\)\\.$#"
 			count: 1
 			path: ../Classes/DataProcessing/FileFilterProcessor.php
@@ -98,26 +8,6 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FileFilterProcessor\\:\\:process\\(\\) has parameter \\$contentObjectConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FileFilterProcessor\\:\\:process\\(\\) has parameter \\$processedData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FileFilterProcessor\\:\\:process\\(\\) has parameter \\$processorConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FileFilterProcessor\\:\\:process\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: ../Classes/DataProcessing/FileFilterProcessor.php
 
 		-
@@ -136,58 +26,8 @@ parameters:
 			path: ../Classes/DataProcessing/FlexFormProcessor.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FlexFormProcessor\\:\\:process\\(\\) has parameter \\$contentObjectConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FlexFormProcessor\\:\\:process\\(\\) has parameter \\$processedData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FlexFormProcessor\\:\\:process\\(\\) has parameter \\$processorConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FlexFormProcessor\\:\\:process\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\FlexFormProcessor\\:\\:\\$flexFormService \\(TYPO3\\\\CMS\\\\Core\\\\Service\\\\FlexFormService\\) does not accept object\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:retrieveFileOrFolderObject\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 4
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\StaticFilesProcessor\\:\\:process\\(\\) has parameter \\$contentObjectConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\StaticFilesProcessor\\:\\:process\\(\\) has parameter \\$processedData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\StaticFilesProcessor\\:\\:process\\(\\) has parameter \\$processorConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\DataProcessing\\\\StaticFilesProcessor\\:\\:process\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: ../Classes/DataProcessing/StaticFilesProcessor.php
 
 		-
@@ -216,31 +56,6 @@ parameters:
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:collectWebFonts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:execute\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:execute\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:generateJavaScript\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:getPageCssConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
@@ -261,16 +76,6 @@ parameters:
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:\\$filePathSanitizer \\(TYPO3\\\\CMS\\\\Frontend\\\\Resource\\\\FilePathSanitizer\\) does not accept object\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:\\$includeMapping type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
 			count: 1
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
@@ -281,195 +86,23 @@ parameters:
 			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:adjustTypoScriptCssConfiguration\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:execute\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:execute\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Parameter \\#3 \\$cachedFile of method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:adjustTypoScriptCssConfiguration\\(\\) expects string, string\\|true given\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:\\$googleFontService \\(BK2K\\\\BootstrapPackage\\\\Service\\\\GoogleFontService\\) does not accept object\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:\\$includeMapping type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\PreProcessHook\\:\\:execute\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/PreProcessHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\PreProcessHook\\:\\:execute\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/PreProcessHook.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\PreProcessHook\\:\\:\\$compileService \\(BK2K\\\\BootstrapPackage\\\\Service\\\\CompileService\\) does not accept object\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/PreProcessHook.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:flushCachesInGroup\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\AbstractParser\\:\\:clearPageCaches\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\AbstractParser\\:\\:compile\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\AbstractParser\\:\\:getCacheIdentifier\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\AbstractParser\\:\\:isCached\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\AbstractParser\\:\\:needsCompile\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
 			message: "#^Parameter \\#1 \\$variable_representation of function unserialize expects string, string\\|false given\\.$#"
 			count: 1
 			path: ../Classes/Parser/AbstractParser.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\ParserInterface\\:\\:compile\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/ParserInterface.php
-
-		-
-			message: "#^Anonymous function should have native return typehint \"\\?string\"\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method compile\\(\\) of class ScssPhp\\\\ScssPhp\\\\Compiler\\:
-					Use \\{@see compileString\\} instead\\.$#
-				"""
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Call to deprecated method getParsedFiles\\(\\) of class ScssPhp\\\\ScssPhp\\\\Compiler\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method setFormatter\\(\\) of class ScssPhp\\\\ScssPhp\\\\Compiler\\:
-					Use \\{@see setOutputStyle\\} instead\\.$#
-				"""
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method setVariables\\(\\) of class ScssPhp\\\\ScssPhp\\\\Compiler\\:
-					Use "addVariables" or "replaceVariables" instead\\.$#
-				"""
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\ScssParser\\:\\:compile\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\ScssParser\\:\\:parseFile\\(\\) has parameter \\$settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Parser\\\\ScssParser\\:\\:parseFile\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the left side\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function md5 expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Parser/ScssParser.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:get\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/Service/BrandingService.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:set\\(\\)\\.$#"
-			count: 2
-			path: ../Classes/Service/BrandingService.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 3
 			path: ../Classes/Service/BrandingService.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Service\\\\BrandingService\\:\\:setBackendStyling\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method TYPO3\\\\CMS\\\\Core\\\\Configuration\\\\ExtensionConfiguration\\:\\:set\\(\\) invoked with 3 parameters, 1\\-2 required\\.$#"
 			count: 1
 			path: ../Classes/Service/BrandingService.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 3
-			path: ../Classes/Service/CompileService.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Service\\\\CompileService\\:\\:clearCompilerCaches\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Service/CompileService.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Service\\\\CompileService\\:\\:getConstants\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Service/CompileService.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Service\\\\CompileService\\:\\:getVariablesFromConstants\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: ../Classes/Service/CompileService.php
 
 		-
@@ -479,6 +112,11 @@ parameters:
 
 		-
 			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
+			count: 1
+			path: ../Classes/Service/CompileService.php
+
+		-
+			message: "#^Unable to resolve the template type T in call to method static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\GeneralUtility\\:\\:makeInstance\\(\\)$#"
 			count: 1
 			path: ../Classes/Service/CompileService.php
 
@@ -493,17 +131,30 @@ parameters:
 			path: ../Classes/Service/GoogleFontService.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\AccordionContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/AccordionContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
@@ -513,22 +164,35 @@ parameters:
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\AccordionMediaOrientUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\AccordionMediaOrientUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
@@ -538,22 +202,30 @@ parameters:
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\BackendLayoutUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\BackendLayoutUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
@@ -568,18 +240,36 @@ parameters:
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\BulletContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
+			path: ../Classes/Updates/BulletContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/BulletContentElementUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
+			count: 2
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
 		-
@@ -588,17 +278,35 @@ parameters:
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\CarouselContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselContentElementUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
@@ -608,12 +316,20 @@ parameters:
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
@@ -623,7 +339,12 @@ parameters:
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\CarouselItemTypeUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselItemTypeUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
@@ -633,17 +354,30 @@ parameters:
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\ExternalMediaContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
@@ -653,22 +387,35 @@ parameters:
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\FrameClassToBackgroundUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\FrameClassToBackgroundUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
@@ -678,12 +425,30 @@ parameters:
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
-			count: 2
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
+			count: 1
 			path: ../Classes/Updates/FrameClassUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
+			count: 1
+			path: ../Classes/Updates/FrameClassUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassUpdate.php
 
@@ -693,7 +458,7 @@ parameters:
 			path: ../Classes/Updates/FrameClassUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\FrameClassUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassUpdate.php
 
@@ -703,17 +468,30 @@ parameters:
 			path: ../Classes/Updates/FrameClassUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\ListGroupContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/ListGroupContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
@@ -723,17 +501,35 @@ parameters:
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\PanelContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/PanelContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/PanelContentElementUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
@@ -743,17 +539,30 @@ parameters:
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TabContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TabContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
@@ -763,22 +572,35 @@ parameters:
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TabMediaOrientUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\TabMediaOrientUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TabMediaOrientUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
@@ -788,17 +610,35 @@ parameters:
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TableContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TableContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TableContentElementUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
@@ -808,17 +648,30 @@ parameters:
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonContentElementUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
@@ -828,17 +681,30 @@ parameters:
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonIconUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonIconUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
@@ -848,22 +714,35 @@ parameters:
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonSizeUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonSizeUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonSizeUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
@@ -873,22 +752,35 @@ parameters:
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getConnectionForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getQueryBuilderForTable\\(\\)\\.$#"
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonTypeUpdate\\:\\:getPrerequisites\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 
 		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonTypeUpdate\\:\\:\\$mapping type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonTypeUpdate.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 
@@ -896,11 +788,6 @@ parameters:
 			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonTypeUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Userfuncs\\\\Tca\\:\\:timelineItemLabel\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Userfuncs/Tca.php
 
 		-
 			message: "#^Method BK2K\\\\BootstrapPackage\\\\Userfuncs\\\\Tca\\:\\:timelineItemLabel\\(\\) has parameter \\$parameters with no typehint specified\\.$#"
@@ -923,21 +810,6 @@ parameters:
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\:\\:getEmbedCode\\(\\) should return string but returns null\\.$#"
-			count: 1
-			path: ../Classes/Utility/ExternalMediaUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\:\\:processVimeo\\(\\) should return string but returns null\\.$#"
-			count: 1
-			path: ../Classes/Utility/ExternalMediaUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\:\\:processYoutube\\(\\) should return string but returns null\\.$#"
-			count: 1
-			path: ../Classes/Utility/ExternalMediaUtility.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, array\\<string, int\\|string\\>\\|false given\\.$#"
 			count: 1
 			path: ../Classes/Utility/ExternalMediaUtility.php
@@ -949,11 +821,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$arr of static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\GeneralUtility\\:\\:implodeAttributes\\(\\) expects array\\<string, string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: ../Classes/Utility/ExternalMediaUtility.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\:\\:\\$mediaProvider type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
@@ -993,131 +860,6 @@ parameters:
 			path: ../Classes/Utility/ImageVariantsUtility.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:addGutters\\(\\) has parameter \\$gutters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:addGutters\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:addGutters\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:getImageVariants\\(\\) has parameter \\$corrections with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:getImageVariants\\(\\) has parameter \\$gutters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:getImageVariants\\(\\) has parameter \\$multiplier with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:getImageVariants\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:getImageVariants\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processAspectRatio\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processAspectRatio\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processCorrections\\(\\) has parameter \\$corrections with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processCorrections\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processCorrections\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processMultiplier\\(\\) has parameter \\$multiplier with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processMultiplier\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processMultiplier\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processResolutions\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processResolutions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processSizes\\(\\) has parameter \\$sizes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processSizes\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processVariants\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processVariants\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:removeGutters\\(\\) has parameter \\$gutters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:removeGutters\\(\\) has parameter \\$variants with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:removeGutters\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
 			message: "#^Only numeric types are allowed in \\*, float\\|int\\<1, max\\>\\|string given on the right side\\.$#"
 			count: 2
 			path: ../Classes/Utility/ImageVariantsUtility.php
@@ -1134,16 +876,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$aspectRatio of static method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processAspectRatio\\(\\) expects float, float\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:\\$allowedVariantProperties type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:\\$defaultVariants type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: ../Classes/Utility/ImageVariantsUtility.php
 
@@ -1173,39 +905,9 @@ parameters:
 			path: ../Classes/Utility/TextIconUtility.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\TextIconUtility\\:\\:addIconItems\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\TextIconUtility\\:\\:addIconItems\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Utility\\\\TextIconUtility\\:\\:getIcons\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
 			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array\\|bool given\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|true given\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Data\\\\ImageVariantsViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Data/ImageVariantsViewHelper.php
 
 		-
 			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Data\\\\ImageVariantsViewHelper\\:\\:renderStatic\\(\\) should return mixed but return statement is missing\\.$#"
@@ -1223,38 +925,13 @@ parameters:
 			path: ../Classes/ViewHelpers/ExplodeViewHelper.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\ExplodeViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/ExplodeViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\ExplodeViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/ExplodeViewHelper.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getEmbedCode\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/ExternalMediaViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\ExternalMediaViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/ExternalMediaViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:findByRelation\\(\\)\\.$#"
-			count: 2
-			path: ../Classes/ViewHelpers/FalViewHelper.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 2
-			path: ../Classes/ViewHelpers/FalViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\FalViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
 			path: ../Classes/ViewHelpers/FalViewHelper.php
 
 		-
@@ -1264,11 +941,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method object\\:\\:getType\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsAudioViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
 
@@ -1288,11 +960,6 @@ parameters:
 			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsImageViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsImageViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
@@ -1308,38 +975,9 @@ parameters:
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsMediaViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsMediaViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Format\\\\LowercaseDashedViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Format/LowercaseDashedViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Format\\\\TrimViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Format/TrimViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Format\\\\UpperCamelCaseViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Format/UpperCamelCaseViewHelper.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method get\\(\\) of class TYPO3\\\\CMS\\\\Extbase\\\\Object\\\\ObjectManager\\:
-					since TYPO3 10\\.4, will be removed in version 12\\.0$#
-				"""
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
 
 		-
 			message: "#^Cannot access property \\$documentElement on DOMDocument\\|null\\.$#"
@@ -1358,16 +996,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\InlineSvgViewHelper\\:\\:getImageService\\(\\) should return TYPO3\\\\CMS\\\\Extbase\\\\Service\\\\ImageService but returns object\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\InlineSvgViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
 
@@ -1402,79 +1030,9 @@ parameters:
 			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
 
 		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\LastImageInfoViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\LastImageInfoViewHelper\\:\\:\\$imageInfoMapping type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\LastImageInfoViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\TypoScript\\\\ConstantViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/TypoScript/ConstantViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getCompiledFile\\(\\)\\.$#"
-			count: 3
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Dynamic call to static method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:assertFileContains\\(\\)\\.$#"
-			count: 6
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFileExists\\(\\)\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:scssParserCanCompileTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:scssParserCanCompileTest\\(\\) has parameter \\$inputFile with no typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:scssParserCanCompileTestDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:sitepackageImagesAreUsedTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:urlsAreRelativeToTempTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Property BK2K\\\\BootstrapPackage\\\\Tests\\\\Functional\\\\Parser\\\\ScssParserTest\\:\\:\\$testExtensionsToLoad type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Functional/Parser/ScssParserTest.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: ../Tests/Packages/demo_package/Configuration/TCA/Overrides/sys_template.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
@@ -1485,118 +1043,4 @@ parameters:
 			message: "#^Variable \\$_EXTKEY might not be defined\\.$#"
 			count: 1
 			path: ../Tests/Packages/demo_package/ext_emconf.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: ../Tests/Packages/demo_package/ext_localconf.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: ../Tests/Packages/demo_package/ext_tables.php
-
-		-
-			message:
-				"""
-					#^Call to deprecated method compile\\(\\) of class ScssPhp\\\\ScssPhp\\\\Compiler\\:
-					Use \\{@see compileString\\} instead\\.$#
-				"""
-			count: 1
-			path: ../Tests/Unit/Compiler/ScssCompilerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
-			count: 1
-			path: ../Tests/Unit/Compiler/ScssCompilerTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Compiler\\\\ScssCompilerTest\\:\\:compile\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Unit/Compiler/ScssCompilerTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Compiler\\\\ScssCompilerTest\\:\\:compileDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Compiler/ScssCompilerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$code of method ScssPhp\\\\ScssPhp\\\\Compiler\\:\\:compile\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: ../Tests/Unit/Compiler/ScssCompilerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ExternalMediaUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ExternalMediaUtilityTest\\:\\:getEmbedCode\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ExternalMediaUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ExternalMediaUtilityTest\\:\\:getEmbedCodeDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ExternalMediaUtilityTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
-			count: 3
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getImageVariantsTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getImageVariantsTest\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getImageVariantsTest\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getImageVariantsTestDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getStackedImageVariantsTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getStackedImageVariantsTest\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getStackedImageVariantsTest\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:getStackedImageVariantsTestDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:isValidSizeKeyTest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Tests\\\\Unit\\\\Utility\\\\ImageVariantsUtilityTest\\:\\:isValidSizeKeyTestDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
-
-		-
-			message: "#^PHPDoc tag @param for parameter \\$expectedResult with type string is incompatible with native type array\\.$#"
-			count: 2
-			path: ../Tests/Unit/Utility/ImageVariantsUtilityTest.php
 

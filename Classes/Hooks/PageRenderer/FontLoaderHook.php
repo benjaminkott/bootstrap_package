@@ -50,7 +50,7 @@ class FontLoaderHook
      * @param array $params
      * @param PageRenderer $pagerenderer
      */
-    public function execute(&$params, &$pagerenderer)
+    public function execute(&$params, &$pagerenderer): void
     {
         if (!($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface ||
             !ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend() ||
@@ -97,7 +97,7 @@ class FontLoaderHook
      * @param $section
      * @return array
      */
-    private function collectWebFonts($include, $section)
+    private function collectWebFonts($include, $section): array
     {
         $webFonts = [];
         $cssIncludes = $this->getPageCssConfiguration($include);
@@ -125,7 +125,7 @@ class FontLoaderHook
      * @param array $config
      * @return string
      */
-    private function generateJavaScript($config)
+    private function generateJavaScript($config): string
     {
         $inlineJavaScript = [];
         $inlineJavaScript[] = 'WebFontConfig=' . json_encode($config) . ';';
@@ -140,7 +140,7 @@ class FontLoaderHook
     /**
      * @return string
      */
-    private function generateCss()
+    private function generateCss(): string
     {
         $inlineStyle = [];
 
@@ -205,7 +205,7 @@ class FontLoaderHook
      * @param string $section
      * @return array
      */
-    private function getPageCssConfiguration($section)
+    private function getPageCssConfiguration($section): array
     {
         if (isset($this->getTemplateService()->setup['page.'][$section . '.'])) {
             return $this->getTemplateService()->setup['page.'][$section . '.'];
@@ -217,7 +217,7 @@ class FontLoaderHook
      * @param string $typoscriptConstant
      * @return string
      */
-    private function getTypoScriptConstant($typoscriptConstant)
+    private function getTypoScriptConstant($typoscriptConstant): string
     {
         if (!isset($this->getTemplateService()->flatSetup)
             || !is_array($this->getTemplateService()->flatSetup)
@@ -233,7 +233,7 @@ class FontLoaderHook
     /**
      * @return TemplateService
      */
-    private function getTemplateService()
+    private function getTemplateService(): TemplateService
     {
         return $GLOBALS['TSFE']->tmpl;
     }
@@ -242,7 +242,7 @@ class FontLoaderHook
      * @param string $filename
      * @return string
      */
-    private function getUriForFileName($filename)
+    private function getUriForFileName($filename): string
     {
         if (strpos($filename, '://')) {
             return $filename;

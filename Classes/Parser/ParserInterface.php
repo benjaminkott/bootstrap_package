@@ -18,12 +18,12 @@ interface ParserInterface
      * @param string $extension
      * @return bool
      */
-    public function supports($extension);
+    public function supports($extension): bool;
 
     /**
      * @param string $file
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings);
+    public function compile($file, $settings): string;
 }

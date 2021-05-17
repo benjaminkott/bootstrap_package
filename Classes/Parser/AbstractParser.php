@@ -22,7 +22,7 @@ abstract class AbstractParser implements ParserInterface
      * @param string $extension
      * @return bool
      */
-    public function supports($extension)
+    public function supports($extension): bool
     {
         return false;
     }
@@ -32,7 +32,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings)
+    public function compile($file, $settings): string
     {
         return $file;
     }
@@ -42,7 +42,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return bool
      */
-    protected function isCached($file, $settings)
+    protected function isCached($file, $settings): bool
     {
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
@@ -57,15 +57,14 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return bool
      */
-    protected function needsCompile($cacheFile, $cacheFileMeta, $settings)
+    protected function needsCompile($cacheFile, $cacheFileMeta, $settings): bool
     {
         $needCompilation = false;
         $fileModificationTime = filemtime($cacheFile);
         $metadata = unserialize(file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
 
-        foreach ($metadata['files'] as $file => $cacheTime) {
-            $currentTime = filemtime($file);
-            if ($currentTime !== $cacheTime || $currentTime > $fileModificationTime) {
+        foreach ($metadata['files'] as $file) {
+            if (filemtime($file) > $fileModificationTime) {
                 $needCompilation = true;
                 break;
             }
@@ -87,7 +86,7 @@ abstract class AbstractParser implements ParserInterface
      * @param string $tempDirectory
      * @return string
      */
-    protected function getCacheFile($cacheIdentifier, $tempDirectory)
+    protected function getCacheFile($cacheIdentifier, $tempDirectory): string
     {
         return $tempDirectory . $cacheIdentifier . '.css';
     }
@@ -106,7 +105,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return string
      */
-    protected function getCacheIdentifier($file, $settings)
+    protected function getCacheIdentifier($file, $settings): string
     {
         $filehash = md5($file);
         $hash = hash('sha256', $filehash . serialize($settings));
@@ -118,7 +117,7 @@ abstract class AbstractParser implements ParserInterface
     /**
      * @return string
      */
-    protected function getPathSite()
+    protected function getPathSite(): string
     {
         return Environment::getPublicPath() . '/';
     }
@@ -127,7 +126,7 @@ abstract class AbstractParser implements ParserInterface
      * Clear all page caches
      * @throws \TYPO3\CMS\Core\Cache\Exception\NoSuchCacheGroupException
      */
-    protected function clearPageCaches()
+    protected function clearPageCaches(): void
     {
         GeneralUtility::makeInstance(CacheManager::class)->flushCachesInGroup('pages');
     }

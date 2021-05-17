@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3') || die();
+defined('TYPO3_MODE') or die('Access denied.');
 
 // Enable Content Element
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
@@ -16,7 +16,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
 
 // Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/ContentElement/Element/MenuThumbnailList.tsconfig',
     'Bootstrap Package Content Element: Menu Thumbnails'
 );

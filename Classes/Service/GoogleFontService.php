@@ -31,25 +31,25 @@ class GoogleFontService
 
     /**
      * @param string $file
-     * @return bool|string
+     * @return string|null
      * @throws \Exception
      */
-    public function getCachedFile($file)
+    public function getCachedFile($file): ?string
     {
         if (!$this->supports($file)) {
-            return false;
+            return null;
         }
         if ($this->isCached($file)) {
             return $this->getCssFileCacheName($file);
         }
-        return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : false;
+        return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : null;
     }
 
     /**
      * @param string $file
      * @return bool
      */
-    protected function cacheFile($file)
+    protected function cacheFile($file): bool
     {
         /** @var RequestFactory */
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
@@ -101,7 +101,7 @@ class GoogleFontService
      * @param string $file
      * @return bool
      */
-    protected function supports($file)
+    protected function supports($file): bool
     {
         return strpos($file, $this->googleFontApiUrl) ? true : false;
     }
@@ -110,7 +110,7 @@ class GoogleFontService
      * @param string $file
      * @return bool
      */
-    protected function isCached($file)
+    protected function isCached($file): bool
     {
         $cacheFile = $this->getCssFileCacheName($file);
         $absoluteFile = GeneralUtility::getFileAbsFileName($cacheFile);
@@ -132,7 +132,7 @@ class GoogleFontService
      * @param string $file
      * @return string
      */
-    protected function getCssFileCacheName($file)
+    protected function getCssFileCacheName($file): string
     {
         return $this->getCacheDirectory($file) . '/' . 'webfont.css';
     }
@@ -141,7 +141,7 @@ class GoogleFontService
      * @param string $file
      * @return string
      */
-    protected function getCacheDirectory($file)
+    protected function getCacheDirectory($file): string
     {
         return $this->tempDirectory . '/' . $this->getCacheIdentifier($file);
     }
@@ -150,7 +150,7 @@ class GoogleFontService
      * @param string $file
      * @return string
      */
-    protected function getCacheIdentifier($file)
+    protected function getCacheIdentifier($file): string
     {
         return hash('sha256', $file);
     }

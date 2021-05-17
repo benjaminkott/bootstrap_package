@@ -61,6 +61,7 @@
         "phpstan/phpstan-deprecation-rules": "^0.12.6",
         "phpstan/phpstan-phpunit": "^0.12.19",
         "phpstan/phpstan-strict-rules": "^0.12.9",
+        "saschaegerer/phpstan-typo3": "^0.13.3",
         "typo3/cms-felogin": "^10.4 || 11.*.*@dev",
         "typo3/cms-form": "^10.4 || 11.*.*@dev",
         "typo3/cms-indexed-search": "^10.4 || 11.*.*@dev",

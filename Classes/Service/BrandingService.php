@@ -31,7 +31,7 @@ class BrandingService
     /**
      * @param string $extension
      */
-    public function setBackendStyling($extension = null)
+    public function setBackendStyling($extension = null): void
     {
         if ($extension === self::EXT_KEY && class_exists(ExtensionConfiguration::class)) {
             $extensionConfiguration = GeneralUtility::makeInstance(

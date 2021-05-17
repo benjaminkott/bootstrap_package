@@ -30,10 +30,10 @@ class CompileService
 
     /**
      * @param string $file
-     * @return bool|string
+     * @return string|null
      * @throws \Exception
      */
-    public function getCompiledFile($file)
+    public function getCompiledFile($file): ?string
     {
         $absoluteFile = GeneralUtility::getFileAbsFileName($file);
         $configuration = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: []);
@@ -81,14 +81,14 @@ class CompileService
             }
         }
 
-        return false;
+        return null;
     }
 
     /**
      * @param string $extension
      * @return array
      */
-    protected function getVariablesFromConstants($extension)
+    protected function getVariablesFromConstants($extension): array
     {
         $constants = $this->getConstants();
         $extension = strtolower($extension);
@@ -115,7 +115,7 @@ class CompileService
     /**
      * @return array
      */
-    protected function getConstants()
+    protected function getConstants(): array
     {
         if ($GLOBALS['TSFE']->tmpl->flatSetup === null
         || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
@@ -128,7 +128,7 @@ class CompileService
     /**
      * Clear all caches for the compiler.
      */
-    protected function clearCompilerCaches()
+    protected function clearCompilerCaches(): void
     {
         GeneralUtility::rmdir(Environment::getPublicPath() . '/' . $this->tempDirectory, true);
     }

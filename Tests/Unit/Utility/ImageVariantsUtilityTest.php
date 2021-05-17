@@ -19,18 +19,18 @@ class ImageVariantsUtilityTest extends UnitTestCase
 {
     /**
      * @param array $data
-     * @param string $expectedResult
+     * @param array $expectedResult
      * @dataProvider getImageVariantsTestDataProvider
      * @test
      */
-    public function getImageVariantsTest(array $data, array $expectedResult)
+    public function getImageVariantsTest(array $data, array $expectedResult): void
     {
         $variants = isset($data['variants']) ? $data['variants'] : null;
         $multiplier = isset($data['multiplier']) ? $data['multiplier'] : null;
         $corrections = isset($data['corrections']) ? $data['corrections'] : null;
         $gutters = isset($data['gutters']) ? $data['gutters'] : null;
         $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutters, $corrections);
-        $this->assertSame($expectedResult, $result);
+        self::assertSame($expectedResult, $result);
     }
 
     /**
@@ -964,11 +964,11 @@ class ImageVariantsUtilityTest extends UnitTestCase
 
     /**
      * @param array $data
-     * @param string $expectedResult
+     * @param array $expectedResult
      * @dataProvider getStackedImageVariantsTestDataProvider
      * @test
      */
-    public function getStackedImageVariantsTest(array $data, array $expectedResult)
+    public function getStackedImageVariantsTest(array $data, array $expectedResult): void
     {
         $result = null;
         foreach ($data as $datasetKey => $datasetConfig) {
@@ -978,7 +978,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
             $gutters = isset($datasetConfig['gutters']) ? $datasetConfig['gutters'] : null;
             $result = ImageVariantsUtility::getImageVariants($variants, $multiplier, $gutters, $corrections);
         }
-        $this->assertSame($expectedResult, $result);
+        self::assertSame($expectedResult, $result);
     }
 
     /**
@@ -1077,10 +1077,10 @@ class ImageVariantsUtilityTest extends UnitTestCase
      * @dataProvider isValidSizeKeyTestDataProvider
      * @test
      */
-    public function isValidSizeKeyTest($input, bool $expectedResult)
+    public function isValidSizeKeyTest($input, bool $expectedResult): void
     {
         $result = ImageVariantsUtility::isValidSizeKey($input);
-        $this->assertSame($expectedResult, $result);
+        self::assertSame($expectedResult, $result);
     }
 
     /**
