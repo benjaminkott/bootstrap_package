@@ -43,6 +43,7 @@ jobs:
       run: |
         composer cgl
     - name: PHPStan
+      continue-on-error: true
       run: |
         composer phpstan
     - name: Unit Tests
