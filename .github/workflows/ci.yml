@@ -43,6 +43,7 @@ jobs:
       run: |
         composer cgl
     - name: PHPStan
+      continue-on-error: true
       run: |
         composer phpstan
     - name: Unit Tests
@@ -75,6 +76,11 @@ jobs:
       run: |
         cd Build
         yarn build
+    - name: Status
+      continue-on-error: true
+      run: |
+        git status
+        git status | grep -q "nothing to commit, working tree clean"
 
   deployment:
     name: Deployment
