@@ -76,6 +76,11 @@ jobs:
       run: |
         cd Build
         yarn build
+    - name: Status
+      continue-on-error: true
+      run: |
+        git status
+        git status | grep -q "nothing to commit, working tree clean"
 
   deployment:
     name: Deployment
