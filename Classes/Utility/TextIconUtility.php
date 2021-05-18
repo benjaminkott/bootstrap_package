@@ -37,7 +37,7 @@ class TextIconUtility
     protected function getIcons($directory): ?array
     {
         $icons = [];
-        if (strpos($directory, 'EXT:') !== 0 || !strpos($directory, 'Resources/Public')) {
+        if (strpos($directory, 'EXT:') !== 0 || strpos($directory, 'Resources/Public') === false) {
             return null;
         }
         $path = GeneralUtility::getFileAbsFileName($directory);
@@ -52,7 +52,10 @@ class TextIconUtility
         );
         ksort($files);
         foreach ($files as $key => $fileinfo) {
-            if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'gif'])) {
+            if ($fileinfo instanceof \SplFileInfo
+                && $fileinfo->isFile()
+                && in_array(strtolower($fileinfo->getExtension()), ['svg', 'png', 'gif'], true)
+            ) {
                 $icons[] = [
                     $fileinfo->getBasename('.' . $fileinfo->getExtension()),
                     $directory . $fileinfo->getFilename(),

@@ -880,36 +880,6 @@ parameters:
 			path: ../Classes/Utility/ImageVariantsUtility.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Cannot call method getBasename\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Cannot call method getExtension\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 2
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Cannot call method getFilename\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 2
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Cannot call method isFile\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
-			count: 1
-			path: ../Classes/Utility/TextIconUtility.php
-
-		-
 			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Data\\\\ImageVariantsViewHelper\\:\\:renderStatic\\(\\) should return mixed but return statement is missing\\.$#"
 			count: 1
 			path: ../Classes/ViewHelpers/Data/ImageVariantsViewHelper.php
@@ -980,59 +950,9 @@ parameters:
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
 
 		-
-			message: "#^Cannot access property \\$documentElement on DOMDocument\\|null\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Cannot access property \\$ownerDocument on DOMElement\\|false\\.$#"
-			count: 2
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Cannot call method saveXML\\(\\) on DOMDocument\\|null\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\InlineSvgViewHelper\\:\\:renderStatic\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of static method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\InlineSvgViewHelper\\:\\:setAttribute\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|false given\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
 			message: "#^Variable property access on SimpleXMLElement\\.$#"
 			count: 2
 			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
-
-		-
-			message: "#^Access to an undefined property TYPO3\\\\CMS\\\\Frontend\\\\Controller\\\\TypoScriptFrontendController\\:\\:\\$lastImageInfo\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
-
-		-
-			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\LastImageInfoViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
-			count: 1
-			path: ../Classes/ViewHelpers/LastImageInfoViewHelper.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
