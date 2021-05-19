@@ -73,7 +73,7 @@ class GoogleFontHook
     protected function adjustTypoScriptCssConfiguration($include, $file, $cachedFile): void
     {
         $includeFilesConfiguration = $this->getTemplateService()->setup['page.'][$include . '.'];
-        if (!empty($includeFilesConfiguration)) {
+        if (is_array($includeFilesConfiguration) && count($includeFilesConfiguration) > 0) {
             foreach ($includeFilesConfiguration as $includeKey => $includeFilename) {
                 if (substr($includeKey, -1) === '.') {
                     continue;

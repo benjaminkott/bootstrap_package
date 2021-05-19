@@ -82,11 +82,11 @@ class FontLoaderHook
             $config['custom']['families'] = $families;
             $config['timeout'] = 1000;
             $generatedCss = $this->generateCss();
-            if (!empty($generatedCss)) {
+            if ($generatedCss !== '') {
                 $params['headerData'][] = '<style>' . $generatedCss . '</style>';
             }
             $generatedJavaScript = $this->generateJavaScript($config);
-            if (!empty($generatedJavaScript)) {
+            if ($generatedJavaScript !== '') {
                 $params['headerData'][] = '<script>' . $generatedJavaScript . '</script>';
             }
         }
@@ -160,14 +160,14 @@ class FontLoaderHook
             $bodyStyles[] = 'width:100%;';
 
             $backgroundColor = $this->getTypoScriptConstant('page.preloader.backgroundColor');
-            if (!empty($backgroundColor)) {
+            if ($backgroundColor !== '') {
                 $bodyStyles[] = 'background-color:' . $backgroundColor . ';';
             } else {
                 $bodyStyles[] = 'background-color:#ffffff;';
             }
 
             $logo = $this->getTypoScriptConstant('page.preloader.logo.file');
-            if (!empty($logo)) {
+            if ($logo !== '') {
                 $logoFile = $this->getUriForFileName($logo);
                 $logoHeight = (int) $this->getTypoScriptConstant('page.preloader.logo.height');
                 $logoWidth = (int) $this->getTypoScriptConstant('page.preloader.logo.width');

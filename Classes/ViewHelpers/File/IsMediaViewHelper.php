@@ -36,7 +36,7 @@ class IsMediaViewHelper extends AbstractViewHelper
         $allowedFileExtensions = GeneralUtility::trimExplode(',', $allowedFileExtensions);
 
         if (is_object($file)
-            && in_array(get_class($file), [FileReference::class, File::class], true)
+            && ($file instanceof FileReference || $file instanceof File)
             && (
                 in_array($file->getExtension(), $allowedFileExtensions, true)
                 || $file->getType() === File::FILETYPE_VIDEO

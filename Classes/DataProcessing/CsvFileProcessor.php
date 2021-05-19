@@ -46,7 +46,7 @@ class CsvFileProcessor extends FilesProcessor
         unset($processedData[$targetVariableName]);
 
         foreach ($files as $key => $value) {
-            if (is_object($value) && in_array(get_class($value), [FileReference::class, File::class], true)) {
+            if (is_object($value) && ($value instanceof FileReference || $value instanceof File)) {
                 /** @var ProcessedFile $value */
                 if ($value->getExtension() !== 'csv') {
                     unset($files[$key]);

@@ -63,7 +63,9 @@ class CompileService
         ];
 
         // Parser
-        if (!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])) {
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
+            && is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
+        ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
                 /** @var ParserInterface $parser */
                 $parser = GeneralUtility::makeInstance($className);
@@ -96,8 +98,11 @@ class CompileService
 
         // Fetch Google Font
         $variables['google-webfont'] = 'sans-serif';
-        if (!empty($constants['page.theme.googleFont.enable'])
-            && !empty($constants['page.theme.googleFont.font'])) {
+        if (isset($constants['page.theme.googleFont.enable'])
+            && (bool) $constants['page.theme.googleFont.enable']
+            && isset($constants['page.theme.googleFont.font'])
+            && $constants['page.theme.googleFont.font'] !== ''
+        ) {
             $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
         }
 

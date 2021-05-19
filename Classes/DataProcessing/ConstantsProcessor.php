@@ -57,7 +57,7 @@ class ConstantsProcessor implements DataProcessorInterface
         $constants = $typoScriptService->convertTypoScriptArrayToPlainArray($typoScriptArray);
 
         // Set the target variable
-        $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration);
+        $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
         if ($targetVariableName !== '') {
             $processedData[$targetVariableName] = $constants;
         } else {

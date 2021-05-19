@@ -1,48 +1,8 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to an undefined method object\\:\\:getExtension\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, bool\\|int\\|string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Parameter \\#2 \\$string of static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\GeneralUtility\\:\\:trimExplode\\(\\) expects string, bool\\|int\\|string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/FileFilterProcessor.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: ../Classes/DataProcessing/FlexFormProcessor.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\GeneralUtility\\:\\:getFileAbsFileName\\(\\) expects string, int\\|string\\|true given\\.$#"
-			count: 1
-			path: ../Classes/DataProcessing/StaticFilesProcessor.php
-
-		-
 			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
 			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
 
 		-
@@ -81,29 +41,14 @@ parameters:
 			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
-
-		-
 			message: "#^Parameter \\#1 \\$variable_representation of function unserialize expects string, string\\|false given\\.$#"
 			count: 1
 			path: ../Classes/Parser/AbstractParser.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: ../Classes/Service/BrandingService.php
-
-		-
 			message: "#^Method TYPO3\\\\CMS\\\\Core\\\\Configuration\\\\ExtensionConfiguration\\:\\:set\\(\\) invoked with 3 parameters, 1\\-2 required\\.$#"
 			count: 1
 			path: ../Classes/Service/BrandingService.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: ../Classes/Service/CompileService.php
 
 		-
 			message: "#^Offset 'extension' does not exist on array\\('dirname' \\=\\> string, 'basename' \\=\\> string, 'filename' \\=\\> string, \\?'extension' \\=\\> string\\)\\.$#"
@@ -850,49 +795,14 @@ parameters:
 			path: ../Classes/ViewHelpers/ExplodeViewHelper.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: ../Classes/ViewHelpers/FalViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getExtension\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getType\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsAudioViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getExtension\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getType\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsImageViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsImageViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getExtension\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getType\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
 
 		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsMediaViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"

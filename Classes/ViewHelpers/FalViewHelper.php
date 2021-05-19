@@ -67,8 +67,10 @@ class FalViewHelper extends AbstractViewHelper
                 $localizedId = $arguments['data']['_PAGES_OVERLAY_UID'];
             }
             $isTableLocalizable = (
-                !empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['languageField'])
-                && !empty($GLOBALS['TCA'][$arguments['table']]['ctrl']['transOrigPointerField'])
+                isset($GLOBALS['TCA'][$arguments['table']]['ctrl']['languageField'])
+                && $GLOBALS['TCA'][$arguments['table']]['ctrl']['languageField'] !== ''
+                && isset($GLOBALS['TCA'][$arguments['table']]['ctrl']['transOrigPointerField'])
+                && $GLOBALS['TCA'][$arguments['table']]['ctrl']['transOrigPointerField'] !== ''
             );
             if ($isTableLocalizable && $localizedId !== null) {
                 $items = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $localizedId);
