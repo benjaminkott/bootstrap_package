@@ -22,7 +22,7 @@ abstract class AbstractParser implements ParserInterface
      * @param string $extension
      * @return bool
      */
-    public function supports($extension): bool
+    public function supports(string $extension): bool
     {
         return false;
     }
@@ -32,7 +32,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings): string
+    public function compile(string $file, array $settings): string
     {
         return $file;
     }
@@ -42,7 +42,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return bool
      */
-    protected function isCached($file, $settings): bool
+    protected function isCached(string $file, array $settings): bool
     {
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
@@ -57,7 +57,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return bool
      */
-    protected function needsCompile($cacheFile, $cacheFileMeta, $settings): bool
+    protected function needsCompile(string $cacheFile, string $cacheFileMeta, array $settings): bool
     {
         $needCompilation = false;
         $fileModificationTime = filemtime($cacheFile);
@@ -86,7 +86,7 @@ abstract class AbstractParser implements ParserInterface
      * @param string $tempDirectory
      * @return string
      */
-    protected function getCacheFile($cacheIdentifier, $tempDirectory): string
+    protected function getCacheFile(string $cacheIdentifier, string $tempDirectory): string
     {
         return $tempDirectory . $cacheIdentifier . '.css';
     }
@@ -95,7 +95,7 @@ abstract class AbstractParser implements ParserInterface
      * @param string $filename
      * @return string
      */
-    protected function getCacheFileMeta($filename)
+    protected function getCacheFileMeta(string $filename)
     {
         return $filename . '.meta';
     }
@@ -105,7 +105,7 @@ abstract class AbstractParser implements ParserInterface
      * @param array $settings
      * @return string
      */
-    protected function getCacheIdentifier($file, $settings): string
+    protected function getCacheIdentifier(string $file, array $settings): string
     {
         $filehash = md5($file);
         $hash = hash('sha256', $filehash . serialize($settings));

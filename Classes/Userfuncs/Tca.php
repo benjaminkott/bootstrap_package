@@ -13,9 +13,9 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 class Tca
 {
-    public function timelineItemLabel(&$parameters): void
+    public function timelineItemLabel(array &$parameters): void
     {
-        $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid']);
+        $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid']) ?? [];
         $parameters['title'] = $record['date'] . ' - ' . $record['header'];
     }
 }

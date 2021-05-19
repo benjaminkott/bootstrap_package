@@ -18,22 +18,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class BrandingService
 {
-    /**
-     * @var string
-     */
-    protected const EXT_KEY = 'bootstrap_package';
-
     public function __invoke(AfterPackageActivationEvent $event): void
     {
-        $this->setBackendStyling($event->getPackageKey());
+        if ($event->getPackageKey() === 'bootstrap_package') {
+            $this->setBackendStyling();
+        }
     }
 
-    /**
-     * @param string $extension
-     */
-    public function setBackendStyling($extension = null): void
+    public function setBackendStyling(): void
     {
-        if ($extension === self::EXT_KEY && class_exists(ExtensionConfiguration::class)) {
+        if (class_exists(ExtensionConfiguration::class)) {
             $extensionConfiguration = GeneralUtility::makeInstance(
                 ExtensionConfiguration::class
             );

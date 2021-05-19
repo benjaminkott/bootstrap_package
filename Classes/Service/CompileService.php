@@ -33,7 +33,7 @@ class CompileService
      * @return string|null
      * @throws \Exception
      */
-    public function getCompiledFile($file): ?string
+    public function getCompiledFile(string $file): ?string
     {
         $absoluteFile = GeneralUtility::getFileAbsFileName($file);
         $configuration = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
@@ -67,9 +67,11 @@ class CompileService
             && is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
         ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
-                /** @var ParserInterface $parser */
                 $parser = GeneralUtility::makeInstance($className);
-                if ($parser->supports($settings['file']['info']['extension'])) {
+                if ($parser instanceof ParserInterface
+                    && isset($settings['file']['info']['extension'])
+                    && $parser->supports($settings['file']['info']['extension'])
+                ) {
                     if ($configuration['overrideParserVariables']) {
                         $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
                     }
@@ -90,7 +92,7 @@ class CompileService
      * @param string $extension
      * @return array
      */
-    protected function getVariablesFromConstants($extension): array
+    protected function getVariablesFromConstants(string $extension): array
     {
         $constants = $this->getConstants();
         $extension = strtolower($extension);

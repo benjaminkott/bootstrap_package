@@ -36,7 +36,7 @@ class ScssParser extends AbstractParser
      * @param string $extension
      * @return bool
      */
-    public function supports($extension): bool
+    public function supports(string $extension): bool
     {
         return $extension === 'scss';
     }
@@ -46,7 +46,7 @@ class ScssParser extends AbstractParser
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings): string
+    public function compile(string $file, array $settings): string
     {
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
@@ -73,7 +73,7 @@ class ScssParser extends AbstractParser
      * @param array $settings
      * @return array
      */
-    protected function parseFile($file, $settings): array
+    protected function parseFile(string $file, array $settings): array
     {
         $scss = new Compiler();
         $scss->setOutputStyle(OutputStyle::COMPRESSED);
