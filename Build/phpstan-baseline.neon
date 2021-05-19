@@ -830,56 +830,6 @@ parameters:
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
 		-
-			message: "#^Call to function array_key_exists\\(\\) with 1 and array\\<string, array\\('multiplier' \\=\\> float\\|int\\)\\> will always evaluate to false\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
-			count: 5
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Call to function is_numeric\\(\\) with float will always evaluate to true\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Casting to float something that's already float\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 4
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Only numeric types are allowed in \\*, float\\|int\\<1, max\\>\\|string given on the right side\\.$#"
-			count: 2
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Only numeric types are allowed in \\+, float\\|int\\<1, max\\>\\|string given on the right side\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Only numeric types are allowed in \\-, float\\|int\\<1, max\\>\\|string given on the right side\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
-			message: "#^Parameter \\#2 \\$aspectRatio of static method BK2K\\\\BootstrapPackage\\\\Utility\\\\ImageVariantsUtility\\:\\:processAspectRatio\\(\\) expects float, float\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Utility/ImageVariantsUtility.php
-
-		-
 			message: "#^Method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\Data\\\\ImageVariantsViewHelper\\:\\:renderStatic\\(\\) should return mixed but return statement is missing\\.$#"
 			count: 1
 			path: ../Classes/ViewHelpers/Data/ImageVariantsViewHelper.php

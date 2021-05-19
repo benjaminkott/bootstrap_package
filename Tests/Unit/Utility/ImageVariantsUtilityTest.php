@@ -88,59 +88,6 @@ class ImageVariantsUtilityTest extends UnitTestCase
                     ]
                 ]
             ],
-            'invalid dataset' => [
-                [
-                    'variants' => 'string',
-                    'multiplier' => 'string',
-                    'corrections' => 'string'
-                ],
-                [
-                    'default' => [
-                        'breakpoint' => 1200,
-                        'width' => 1100,
-                        'sizes' => [
-                            '1x' => [
-                                'multiplier' => 1
-                            ]
-                        ]
-                    ],
-                    'large' => [
-                        'breakpoint' => 992,
-                        'width' => 920,
-                        'sizes' => [
-                            '1x' => [
-                                'multiplier' => 1,
-                            ]
-                        ]
-                    ],
-                    'medium' => [
-                        'breakpoint' => 768,
-                        'width' => 680,
-                        'sizes' => [
-                            '1x' => [
-                                'multiplier' => 1,
-                            ]
-                        ]
-                    ],
-                    'small' => [
-                        'breakpoint' => 576,
-                        'width' => 500,
-                        'sizes' => [
-                            '1x' => [
-                                'multiplier' => 1,
-                            ]
-                        ]
-                    ],
-                    'extrasmall' => [
-                        'width' => 374,
-                        'sizes' => [
-                            '1x' => [
-                                'multiplier' => 1,
-                            ]
-                        ]
-                    ]
-                ]
-            ],
             'variants' => [
                 [
                     'variants' => [
