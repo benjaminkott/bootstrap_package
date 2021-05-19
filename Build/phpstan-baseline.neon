@@ -1,63 +1,8 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:collectWebFonts\\(\\) has parameter \\$include with no typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\FontLoaderHook\\:\\:collectWebFonts\\(\\) has parameter \\$section with no typehint specified\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string given\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$include\\)\\: Unexpected token \"\\$include\", expected type at offset 18$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$section\\)\\: Unexpected token \"\\$section\", expected type at offset 41$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
-			count: 1
-			path: ../Classes/Hooks/PageRenderer/FontLoaderHook.php
-
-		-
-			message: "#^Parameter \\#1 \\$variable_representation of function unserialize expects string, string\\|false given\\.$#"
-			count: 1
-			path: ../Classes/Parser/AbstractParser.php
-
-		-
-			message: "#^Method TYPO3\\\\CMS\\\\Core\\\\Configuration\\\\ExtensionConfiguration\\:\\:set\\(\\) invoked with 3 parameters, 1\\-2 required\\.$#"
-			count: 1
-			path: ../Classes/Service/BrandingService.php
-
-		-
 			message: "#^Offset 'extension' does not exist on array\\('dirname' \\=\\> string, 'basename' \\=\\> string, 'filename' \\=\\> string, \\?'extension' \\=\\> string\\)\\.$#"
 			count: 2
-			path: ../Classes/Service/CompileService.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
-			count: 1
 			path: ../Classes/Service/CompileService.php
 
 		-
@@ -177,11 +122,6 @@ parameters:
 		-
 			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\BackendLayoutUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
-			path: ../Classes/Updates/BackendLayoutUpdate.php
-
-		-
-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
-			count: 2
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-

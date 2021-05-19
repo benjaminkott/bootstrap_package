@@ -61,7 +61,7 @@ abstract class AbstractParser implements ParserInterface
     {
         $needCompilation = false;
         $fileModificationTime = filemtime($cacheFile);
-        $metadata = unserialize(file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
+        $metadata = unserialize((string) file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
 
         foreach ($metadata['files'] as $file) {
             if (filemtime($file) > $fileModificationTime) {

@@ -93,11 +93,11 @@ class FontLoaderHook
     }
 
     /**
-     * @param $include
-     * @param $section
+     * @param string $include
+     * @param string $section
      * @return array
      */
-    private function collectWebFonts($include, $section): array
+    private function collectWebFonts(string $include, string $section): array
     {
         $webFonts = [];
         $cssIncludes = $this->getPageCssConfiguration($include);
@@ -114,7 +114,7 @@ class FontLoaderHook
                     'section' => $section,
                     'filename' => $filename,
                     'url' => $url,
-                    'families' => $cssIncludes[$key . '.']['fontLoader.']['families.'] ?: []
+                    'families' => $cssIncludes[$key . '.']['fontLoader.']['families.'] ?? []
                 ];
             }
         }
@@ -144,7 +144,7 @@ class FontLoaderHook
     {
         $inlineStyle = [];
 
-        if ($this->getTypoScriptConstant('page.preloader.enable')) {
+        if ((bool) $this->getTypoScriptConstant('page.preloader.enable')) {
             $bodyStyles = [];
             $bodyStyles[] = 'user-select:none;';
             $bodyStyles[] = 'pointer-events:none;';
@@ -220,7 +220,6 @@ class FontLoaderHook
     private function getTypoScriptConstant($typoscriptConstant): string
     {
         if (!isset($this->getTemplateService()->flatSetup)
-            || !is_array($this->getTemplateService()->flatSetup)
             || count($this->getTemplateService()->flatSetup) === 0) {
             $this->getTemplateService()->generateConfig();
         }
@@ -244,7 +243,7 @@ class FontLoaderHook
      */
     private function getUriForFileName($filename): string
     {
-        if (strpos($filename, '://')) {
+        if ((bool) strpos($filename, '://')) {
             return $filename;
         }
         $urlPrefix = '';

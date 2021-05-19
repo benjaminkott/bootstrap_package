@@ -36,7 +36,7 @@ class CompileService
     public function getCompiledFile($file): ?string
     {
         $absoluteFile = GeneralUtility::getFileAbsFileName($file);
-        $configuration = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: []);
+        $configuration = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
 
         // Ensure cache directory exists
         if (!file_exists(Environment::getPublicPath() . '/' . $this->tempDirectory)) {
