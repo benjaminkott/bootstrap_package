@@ -24,6 +24,16 @@ parameters:
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
 		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/AccordionContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/AccordionContentElementUpdate.php
+
+		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -38,6 +48,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
@@ -60,6 +80,16 @@ parameters:
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/BackendLayoutUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/BackendLayoutUpdate.php
+
+		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -74,6 +104,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/BulletContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/BulletContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
@@ -96,6 +136,16 @@ parameters:
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
 		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselContentElementUpdate.php
+
+		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -114,7 +164,12 @@ parameters:
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
 		-
-			message: "#^Call to function array_key_exists\\(\\) with int and array\\('textandimage' \\=\\> 'text_and_image', 'backgroundimage' \\=\\> 'background_image'\\) will always evaluate to false\\.$#"
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/CarouselItemTypeUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
@@ -133,6 +188,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
@@ -151,6 +216,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
@@ -169,6 +244,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/FrameClassUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassUpdate.php
 
@@ -187,6 +272,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/ListGroupContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/ListGroupContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
@@ -205,6 +300,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/PanelContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/PanelContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
@@ -223,6 +328,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TabContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TabContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
@@ -241,6 +356,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TabMediaOrientUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TabMediaOrientUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
@@ -259,6 +384,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TableContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TableContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
@@ -277,6 +412,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TexticonContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonContentElementUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
@@ -295,6 +440,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TexticonIconUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonIconUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
@@ -313,6 +468,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TexticonSizeUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonSizeUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
@@ -331,6 +496,16 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
+			count: 1
+			path: ../Classes/Updates/TexticonTypeUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/TexticonTypeUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 
