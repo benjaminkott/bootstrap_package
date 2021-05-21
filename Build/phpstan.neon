@@ -13,3 +13,8 @@ parameters:
 	- %currentWorkingDirectory%/Classes/
 	- %currentWorkingDirectory%/Configuration/
 	- %currentWorkingDirectory%/Tests/
+
+	ignoreErrors:
+		- '#Cannot call method fetch\(\) on Doctrine\\DBAL\\Driver\\Statement\|int\.#'
+		- '#Cannot call method fetchColumn\(\) on Doctrine\\DBAL\\Driver\\Statement\|int\.#'
+

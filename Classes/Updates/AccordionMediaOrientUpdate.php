@@ -66,7 +66,7 @@ class AccordionMediaOrientUpdate implements UpgradeWizardInterface, RepeatableIn
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -118,19 +118,18 @@ class AccordionMediaOrientUpdate implements UpgradeWizardInterface, RepeatableIn
             )
             ->execute();
         while ($record = $statement->fetch()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update($this->table)
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
+            if (null !== $newValue = $this->mapValues($record[$this->field])) {
+                $queryBuilder = $connection->createQueryBuilder();
+                $queryBuilder->update($this->table)
+                    ->where(
+                        $queryBuilder->expr()->eq(
+                            'uid',
+                            $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
+                        )
                     )
-                )
-                ->set(
-                    $this->field,
-                    $this->mapValues($record[$this->field])
-                );
-            $queryBuilder->execute();
+                    ->set($this->field, $newValue);
+                $queryBuilder->execute();
+            }
         }
         return true;
     }

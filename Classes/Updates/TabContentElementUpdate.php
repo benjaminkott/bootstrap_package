@@ -47,7 +47,7 @@ class TabContentElementUpdate implements UpgradeWizardInterface, RepeatableInter
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {

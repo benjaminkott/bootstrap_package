@@ -24,21 +24,6 @@ parameters:
 			path: ../Classes/Updates/AccordionContentElementUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/AccordionContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/AccordionContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\AccordionContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/AccordionContentElementUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -53,26 +38,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\AccordionMediaOrientUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/AccordionMediaOrientUpdate.php
 
@@ -95,21 +60,6 @@ parameters:
 			path: ../Classes/Updates/BackendLayoutUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/BackendLayoutUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/BackendLayoutUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\BackendLayoutUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/BackendLayoutUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -128,26 +78,6 @@ parameters:
 			path: ../Classes/Updates/BulletContentElementUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/BulletContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/BulletContentElementUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
-			count: 2
-			path: ../Classes/Updates/BulletContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\BulletContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/BulletContentElementUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -162,26 +92,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/CarouselContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/CarouselContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/CarouselContentElementUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: ../Classes/Updates/CarouselContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\CarouselContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/CarouselContentElementUpdate.php
 
@@ -209,21 +119,6 @@ parameters:
 			path: ../Classes/Updates/CarouselItemTypeUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/CarouselItemTypeUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/CarouselItemTypeUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\CarouselItemTypeUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/CarouselItemTypeUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -238,21 +133,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\ExternalMediaContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/ExternalMediaContentElementUpdate.php
 
@@ -275,26 +155,6 @@ parameters:
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\FrameClassToBackgroundUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -309,31 +169,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/FrameClassUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassUpdate.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: ../Classes/Updates/FrameClassUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\FrameClassUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassUpdate.php
 
@@ -356,21 +191,6 @@ parameters:
 			path: ../Classes/Updates/ListGroupContentElementUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/ListGroupContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/ListGroupContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\ListGroupContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/ListGroupContentElementUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -385,26 +205,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/PanelContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/PanelContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/PanelContentElementUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: ../Classes/Updates/PanelContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\PanelContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/PanelContentElementUpdate.php
 
@@ -427,21 +227,6 @@ parameters:
 			path: ../Classes/Updates/TabContentElementUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TabContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TabContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TabContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/TabContentElementUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -460,26 +245,6 @@ parameters:
 			path: ../Classes/Updates/TabMediaOrientUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TabMediaOrientUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TabMediaOrientUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Updates/TabMediaOrientUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TabMediaOrientUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/TabMediaOrientUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -494,26 +259,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/TableContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TableContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TableContentElementUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: ../Classes/Updates/TableContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TableContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/TableContentElementUpdate.php
 
@@ -536,21 +281,6 @@ parameters:
 			path: ../Classes/Updates/TexticonContentElementUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonContentElementUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonContentElementUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonContentElementUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/TexticonContentElementUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -565,21 +295,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/TexticonIconUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonIconUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonIconUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonIconUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/TexticonIconUpdate.php
 
@@ -602,26 +317,6 @@ parameters:
 			path: ../Classes/Updates/TexticonSizeUpdate.php
 
 		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonSizeUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonSizeUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonSizeUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonSizeUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
-			count: 1
-			path: ../Classes/Updates/TexticonSizeUpdate.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -636,26 +331,6 @@ parameters:
 					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
 					Use fetchOne\\(\\) instead\\.$#
 				"""
-			count: 1
-			path: ../Classes/Updates/TexticonTypeUpdate.php
-
-		-
-			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonTypeUpdate.php
-
-		-
-			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonTypeUpdate.php
-
-		-
-			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: ../Classes/Updates/TexticonTypeUpdate.php
-
-		-
-			message: "#^Return type \\(array\\) of method BK2K\\\\BootstrapPackage\\\\Updates\\\\TexticonTypeUpdate\\:\\:getPrerequisites\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method TYPO3\\\\CMS\\\\Install\\\\Updates\\\\UpgradeWizardInterface\\:\\:getPrerequisites\\(\\)$#"
 			count: 1
 			path: ../Classes/Updates/TexticonTypeUpdate.php
 

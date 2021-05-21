@@ -46,7 +46,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -101,7 +101,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('section_frame', 0, false)
+                ->set('section_frame', '0', false)
                 ->set('frame_class', $this->mapSectionFrame($record['section_frame']));
             $queryBuilder->execute();
         }
@@ -112,7 +112,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
      * @param int $sectionFrame
      * @return string
      */
-    protected function mapSectionFrame($sectionFrame)
+    protected function mapSectionFrame(int $sectionFrame)
     {
         $mapping = [
             0 => 'default',
@@ -128,6 +128,6 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
         if (array_key_exists($sectionFrame, $mapping)) {
             return $mapping[$sectionFrame];
         }
-        return 'custom-' . (int) $sectionFrame;
+        return 'custom-' . $sectionFrame;
     }
 }

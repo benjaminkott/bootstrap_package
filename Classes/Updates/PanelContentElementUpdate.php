@@ -47,7 +47,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -95,7 +95,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', 0, false)
+                ->set('layout', '0', false)
                 ->set('CType', 'panel')
                 ->set('panel_class', $this->mapValues($record['layout']));
             $queryBuilder->execute();

@@ -47,7 +47,7 @@ class TexticonContentElementUpdate implements UpgradeWizardInterface, Repeatable
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {

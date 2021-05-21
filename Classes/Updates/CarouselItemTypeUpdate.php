@@ -48,7 +48,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
