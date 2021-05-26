@@ -2,11 +2,11 @@ name: CI
 
 on:
   push:
-  pull_request:
     branches-ignore:
       - 'task/**'
       - 'bugfix/**'
       - 'feature/**'
+  pull_request:
 
 jobs:
 
