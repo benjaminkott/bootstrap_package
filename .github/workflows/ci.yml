@@ -47,7 +47,7 @@ jobs:
       - name: PHPStan
         continue-on-error: true
         run: |
-          composer phpstan
+          composer phpstan -- --error-format=github
       - name: Unit Tests
         run: |
           composer test:php:unit
