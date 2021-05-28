@@ -48,7 +48,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -115,10 +115,10 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
     }
 
     /**
-     * @param int $type
+     * @param string $type
      * @return string
      */
-    protected function mapValues($type)
+    protected function mapValues(string $type)
     {
         $mapping = [
             'textandimage' => 'text_and_image',

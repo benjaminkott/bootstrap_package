@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -31,22 +31,22 @@ class CsvFileProcessor extends FilesProcessor
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
         // Set the maximum amount of columns
-        $maximumColumns = $cObj->stdWrapValue('maximumColumns', $processorConfiguration, 0);
+        $maximumColumns = (int) $cObj->stdWrapValue('maximumColumns', $processorConfiguration, '0');
 
         // Set the field delimiter which is "," by default
-        $fieldDelimiter = $cObj->stdWrapValue('fieldDelimiter', $processorConfiguration, ',');
+        $fieldDelimiter = (string) $cObj->stdWrapValue('fieldDelimiter', $processorConfiguration, ',');
 
         // Set the field enclosure which is " by default
-        $fieldEnclosure = $cObj->stdWrapValue('fieldEnclosure', $processorConfiguration, '"');
+        $fieldEnclosure = (string) $cObj->stdWrapValue('fieldEnclosure', $processorConfiguration, '"');
 
         // Get processed files
         $processedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
-        $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'files');
+        $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration, 'files');
         $files = $processedData[$targetVariableName];
         unset($processedData[$targetVariableName]);
 
         foreach ($files as $key => $value) {
-            if (is_object($value) && in_array(get_class($value), [FileReference::class, File::class], true)) {
+            if (is_object($value) && ($value instanceof FileReference || $value instanceof File)) {
                 /** @var ProcessedFile $value */
                 if ($value->getExtension() !== 'csv') {
                     unset($files[$key]);
@@ -60,7 +60,7 @@ class CsvFileProcessor extends FilesProcessor
                             $content,
                             $fieldDelimiter,
                             $fieldEnclosure,
-                            (int)$maximumColumns
+                            $maximumColumns
                         )
                     ];
                 }

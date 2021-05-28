@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -43,8 +43,8 @@ class ConstantsProcessor implements DataProcessorInterface
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
         // The key to process
-        $key = $cObj->stdWrapValue('key', $processorConfiguration);
-        if (empty($key)) {
+        $key = (string) $cObj->stdWrapValue('key', $processorConfiguration);
+        if ($key === '') {
             $key = 'page';
         }
 
@@ -57,8 +57,8 @@ class ConstantsProcessor implements DataProcessorInterface
         $constants = $typoScriptService->convertTypoScriptArrayToPlainArray($typoScriptArray);
 
         // Set the target variable
-        $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration);
-        if (!empty($targetVariableName)) {
+        $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
+        if ($targetVariableName !== '') {
             $processedData[$targetVariableName] = $constants;
         } else {
             $processedData['constants'] = $constants;
@@ -71,7 +71,7 @@ class ConstantsProcessor implements DataProcessorInterface
      * @param string $key
      * @return string
      */
-    protected function getFlatConstants($key)
+    protected function getFlatConstants($key): string
     {
         $flatvariables = '';
         $prefix = $key . '.';

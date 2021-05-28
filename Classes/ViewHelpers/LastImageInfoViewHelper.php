@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
@@ -50,26 +51,26 @@ class LastImageInfoViewHelper extends AbstractViewHelper
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return mixed
+     * @return string
      */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        if (self::getTypoScriptFrontendController()->lastImageInfo) {
+        if (isset(self::getTypoScriptFrontendController()->lastImageInfo)) {
             $property = array_key_exists($arguments['property'], self::$imageInfoMapping)
                 ? self::$imageInfoMapping[$arguments['property']]
                 : self::$imageInfoMapping['file'];
-            return self::getTypoScriptFrontendController()->lastImageInfo[$property];
+            return (string) self::getTypoScriptFrontendController()->lastImageInfo[$property];
         }
-        return null;
+        return '';
     }
 
     /**
      * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
      */
-    protected static function getTypoScriptFrontendController()
+    protected static function getTypoScriptFrontendController(): TypoScriptFrontendController
     {
         return $GLOBALS['TSFE'];
     }

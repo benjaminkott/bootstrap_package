@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -36,14 +36,14 @@ class ExplodeViewHelper extends AbstractViewHelper
         parent::initializeArguments();
         $this->registerArgument('data', 'string', 'The input string', true);
         $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
-        $this->registerArgument('delimiter', 'string', 'The boundary string', false, LF);
+        $this->registerArgument('delimiter', 'string', 'The boundary string', false, "\n");
     }
 
     /**
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return mixed
+     * @return string
      */
     public static function renderStatic(
         array $arguments,

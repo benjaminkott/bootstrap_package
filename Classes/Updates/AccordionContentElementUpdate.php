@@ -47,7 +47,7 @@ class AccordionContentElementUpdate implements UpgradeWizardInterface, Repeatabl
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -76,21 +76,21 @@ class FileFilterProcessor implements DataProcessorInterface
             'media' => isset($confVars['SYS']['mediafile_ext']) ? $confVars['SYS']['mediafile_ext'] : 'gif,jpg,jpeg,bmp,png,pdf,svg,ai,mp3,wav,mp4,ogg,flac,opus,webm,youtube,vimeo',
             'text' => isset($confVars['SYS']['textfile_ext']) ? $confVars['SYS']['textfile_ext'] : 'txt,ts,typoscript,html,htm,css,tmpl,js,sql,xml,csv,xlf,yaml,yml',
         ];
-        $predefinedList = $cObj->stdWrapValue('predefinedList', $processorConfiguration, 'image');
-        $allowedFileExtensions = array_key_exists($predefinedList, $predefinedLists) ? $predefinedLists[$predefinedList] : '';
-        $allowedFileExtensions = GeneralUtility::trimExplode(',', $cObj->stdWrapValue('allowedFileExtensions', $processorConfiguration, $allowedFileExtensions));
-        if (empty($allowedFileExtensions)) {
+        $predefinedList = (string) $cObj->stdWrapValue('predefinedList', $processorConfiguration, 'image');
+        $allowedFileExtensions = isset($predefinedLists[$predefinedList]) ? $predefinedLists[$predefinedList] : '';
+        $allowedFileExtensions = GeneralUtility::trimExplode(',', (string) $cObj->stdWrapValue('allowedFileExtensions', $processorConfiguration, $allowedFileExtensions));
+        if (count($allowedFileExtensions) === 0) {
             return $processedData;
         }
 
-        $variableName = $cObj->stdWrapValue('variableName', $processorConfiguration, 'files');
-        if (!isset($processedData[$variableName]) || empty($processedData[$variableName])) {
+        $variableName = (string) $cObj->stdWrapValue('variableName', $processorConfiguration, 'files');
+        if (!isset($processedData[$variableName]) || count($processedData[$variableName]) === 0) {
             return $processedData;
         }
 
         foreach ($processedData[$variableName] as $key => $value) {
             if (is_object($value)
-                && in_array(get_class($value), [FileReference::class, File::class], true)
+                && ($value instanceof FileReference || $value instanceof File)
                 && !in_array($value->getExtension(), $allowedFileExtensions, true)
             ) {
                 unset($processedData[$variableName][$key]);

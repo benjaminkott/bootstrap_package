@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -36,7 +36,7 @@ class IsAudioViewHelper extends AbstractViewHelper
         $allowedFileExtensions = GeneralUtility::trimExplode(',', $allowedFileExtensions);
 
         if (is_object($file)
-            && in_array(get_class($file), [FileReference::class, File::class], true)
+            && ($file instanceof FileReference || $file instanceof File)
             && (
                 in_array($file->getExtension(), $allowedFileExtensions, true)
                 || $file->getType() === File::FILETYPE_AUDIO

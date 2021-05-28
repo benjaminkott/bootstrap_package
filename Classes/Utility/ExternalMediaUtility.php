@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -32,9 +32,9 @@ class ExternalMediaUtility
      *
      * @param string $url
      * @param string $class
-     * @return string
+     * @return string|null
      */
-    public function getEmbedCode($url, $class)
+    public function getEmbedCode(string $url, string $class): ?string
     {
         // Prepare url
         $url = $this->setProtocolToHttps($url);
@@ -42,11 +42,11 @@ class ExternalMediaUtility
         $method = $this->getMethod($url);
         if ($method !== null) {
             $embedUrl = $this->{$method}($url);
-            if ($embedUrl) {
+            if ($embedUrl !== null) {
                 return '<iframe ' . GeneralUtility::implodeAttributes([
                         'class' => $class,
                         'src' => $embedUrl,
-                        'frameborder' => 0
+                        'frameborder' => '0'
                     ], true) . ' allowfullscreen></iframe>';
             }
         }
@@ -59,14 +59,14 @@ class ExternalMediaUtility
      * @param string $url
      * @return string|null
      */
-    protected function getMethod($url)
+    protected function getMethod(string $url): ?string
     {
         $urlInformation = @parse_url($url);
-        if ($urlInformation) {
+        if (is_array($urlInformation) && isset($urlInformation['host'])) {
             $hostName = GeneralUtility::trimExplode('.', $urlInformation['host'], true);
             foreach ($this->mediaProvider as $provider) {
                 $functionName = 'process' . ucfirst($provider);
-                if (in_array($provider, $hostName) && is_callable([$this, $functionName])) {
+                if (in_array($provider, $hostName, true) && is_callable([$this, $functionName])) {
                     return $functionName;
                 }
             }
@@ -78,13 +78,13 @@ class ExternalMediaUtility
      * Processes YouTube url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
-    protected function processYoutube($url)
+    protected function processYoutube(string $url): ?string
     {
         $firstMatches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
-        if (preg_match($pattern, $url, $firstMatches)) {
+        if ((bool) preg_match($pattern, $url, $firstMatches)) {
             $toEmbed = $firstMatches[1];
             $patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
             $secondMatches = [];
@@ -100,9 +100,9 @@ class ExternalMediaUtility
      * Process YouTube short url
      *
      * @param string $url
-     * @return string
+     * @return string|null
      */
-    protected function processYoutu($url)
+    protected function processYoutu(string $url): ?string
     {
         return $this->processYoutube($url);
     }
@@ -113,10 +113,10 @@ class ExternalMediaUtility
      * @param string $url
      * @return string
      */
-    protected function processVimeo($url)
+    protected function processVimeo(string $url): ?string
     {
         $matches = [];
-        if (preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
+        if ((bool) preg_match('/[\\/#](\\d+)$/', $url, $matches)) {
             return 'https://player.vimeo.com/video/' . $matches[1];
         }
         return null;
@@ -128,7 +128,7 @@ class ExternalMediaUtility
      * @param  string $url URL
      * @return string
      */
-    protected function setProtocolToHttps($url)
+    protected function setProtocolToHttps(string $url): string
     {
         $processUrl = trim($url);
         if (strpos($url, 'http://') === 0) {

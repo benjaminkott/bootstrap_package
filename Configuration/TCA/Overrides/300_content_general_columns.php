@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3') || die();
+defined('TYPO3_MODE') or die('Access denied.');
 
 // Adjust columns for generic usage
 $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [

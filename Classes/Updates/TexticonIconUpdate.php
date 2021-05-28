@@ -57,7 +57,7 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {

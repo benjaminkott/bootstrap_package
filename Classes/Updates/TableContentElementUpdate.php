@@ -47,7 +47,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -97,7 +97,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', 0, false)
+                ->set('layout', '0', false)
                 ->set('table_class', $this->mapValues($record['layout']));
             $queryBuilder->execute();
         }

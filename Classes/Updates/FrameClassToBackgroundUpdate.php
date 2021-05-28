@@ -66,7 +66,7 @@ class FrameClassToBackgroundUpdate implements UpgradeWizardInterface, Repeatable
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -118,23 +118,19 @@ class FrameClassToBackgroundUpdate implements UpgradeWizardInterface, Repeatable
             )
             ->execute();
         while ($record = $statement->fetch()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update($this->table)
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
+            if (null !== $newValue = $this->mapValues($record[$this->field])) {
+                $queryBuilder = $connection->createQueryBuilder();
+                $queryBuilder->update($this->table)
+                    ->where(
+                        $queryBuilder->expr()->eq(
+                            'uid',
+                            $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
+                        )
                     )
-                )
-                ->set(
-                    $this->field,
-                    'default'
-                )
-                ->set(
-                    'background_color_class',
-                    $this->mapValues($record[$this->field])
-                );
-            $queryBuilder->execute();
+                    ->set($this->field, 'default')
+                    ->set('background_color_class', $newValue);
+                $queryBuilder->execute();
+            }
         }
         return true;
     }

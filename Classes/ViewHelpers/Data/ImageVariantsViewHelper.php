@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -39,7 +39,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return mixed
+     * @return string
      */
     public static function renderStatic(
         array $arguments,
@@ -48,5 +48,6 @@ class ImageVariantsViewHelper extends AbstractViewHelper
     ) {
         $variants = ImageVariantsUtility::getImageVariants($arguments['variants'], $arguments['multiplier'], $arguments['gutters'], $arguments['corrections'], $arguments['aspectRatio']);
         $renderingContext->getVariableProvider()->add($arguments['as'], $variants);
+        return '';
     }
 }

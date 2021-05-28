@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -19,12 +19,12 @@ class TextIconUtility
     /**
      * @param array $parameters
      */
-    public function addIconItems(array $parameters)
+    public function addIconItems(array $parameters): void
     {
         $directory = $parameters['row']['icon_set'][0];
         if ($directory !== '') {
             $icons = $this->getIcons($directory);
-            if ($icons) {
+            if ($icons !== null) {
                 $parameters['items'] = array_merge($parameters['items'], $icons);
             }
         }
@@ -32,17 +32,17 @@ class TextIconUtility
 
     /**
      * @param string $directory
-     * @return array|bool
+     * @return array|null
      */
-    protected function getIcons($directory)
+    protected function getIcons($directory): ?array
     {
         $icons = [];
-        if (strpos($directory, 'EXT:') !== 0 || !strpos($directory, 'Resources/Public')) {
-            return false;
+        if (strpos($directory, 'EXT:') !== 0 || strpos($directory, 'Resources/Public') === false) {
+            return null;
         }
         $path = GeneralUtility::getFileAbsFileName($directory);
         if (!is_dir($path)) {
-            return false;
+            return null;
         }
         $files = iterator_to_array(
             new \FilesystemIterator(
@@ -52,7 +52,10 @@ class TextIconUtility
         );
         ksort($files);
         foreach ($files as $key => $fileinfo) {
-            if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['svg', 'png', 'gif'])) {
+            if ($fileinfo instanceof \SplFileInfo
+                && $fileinfo->isFile()
+                && in_array(strtolower($fileinfo->getExtension()), ['svg', 'png', 'gif'], true)
+            ) {
                 $icons[] = [
                     $fileinfo->getBasename('.' . $fileinfo->getExtension()),
                     $directory . $fileinfo->getFilename(),

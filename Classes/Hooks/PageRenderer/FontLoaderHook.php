@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -50,7 +50,7 @@ class FontLoaderHook
      * @param array $params
      * @param PageRenderer $pagerenderer
      */
-    public function execute(&$params, &$pagerenderer)
+    public function execute(&$params, &$pagerenderer): void
     {
         if (!($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface ||
             !ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend() ||
@@ -82,22 +82,22 @@ class FontLoaderHook
             $config['custom']['families'] = $families;
             $config['timeout'] = 1000;
             $generatedCss = $this->generateCss();
-            if (!empty($generatedCss)) {
+            if ($generatedCss !== '') {
                 $params['headerData'][] = '<style>' . $generatedCss . '</style>';
             }
             $generatedJavaScript = $this->generateJavaScript($config);
-            if (!empty($generatedJavaScript)) {
+            if ($generatedJavaScript !== '') {
                 $params['headerData'][] = '<script>' . $generatedJavaScript . '</script>';
             }
         }
     }
 
     /**
-     * @param $include
-     * @param $section
+     * @param string $include
+     * @param string $section
      * @return array
      */
-    private function collectWebFonts($include, $section)
+    private function collectWebFonts(string $include, string $section): array
     {
         $webFonts = [];
         $cssIncludes = $this->getPageCssConfiguration($include);
@@ -114,7 +114,7 @@ class FontLoaderHook
                     'section' => $section,
                     'filename' => $filename,
                     'url' => $url,
-                    'families' => $cssIncludes[$key . '.']['fontLoader.']['families.'] ?: []
+                    'families' => $cssIncludes[$key . '.']['fontLoader.']['families.'] ?? []
                 ];
             }
         }
@@ -125,7 +125,7 @@ class FontLoaderHook
      * @param array $config
      * @return string
      */
-    private function generateJavaScript($config)
+    private function generateJavaScript($config): string
     {
         $inlineJavaScript = [];
         $inlineJavaScript[] = 'WebFontConfig=' . json_encode($config) . ';';
@@ -140,11 +140,11 @@ class FontLoaderHook
     /**
      * @return string
      */
-    private function generateCss()
+    private function generateCss(): string
     {
         $inlineStyle = [];
 
-        if ($this->getTypoScriptConstant('page.preloader.enable')) {
+        if ((bool) $this->getTypoScriptConstant('page.preloader.enable')) {
             $bodyStyles = [];
             $bodyStyles[] = 'user-select:none;';
             $bodyStyles[] = 'pointer-events:none;';
@@ -160,14 +160,14 @@ class FontLoaderHook
             $bodyStyles[] = 'width:100%;';
 
             $backgroundColor = $this->getTypoScriptConstant('page.preloader.backgroundColor');
-            if (!empty($backgroundColor)) {
+            if ($backgroundColor !== '') {
                 $bodyStyles[] = 'background-color:' . $backgroundColor . ';';
             } else {
                 $bodyStyles[] = 'background-color:#ffffff;';
             }
 
             $logo = $this->getTypoScriptConstant('page.preloader.logo.file');
-            if (!empty($logo)) {
+            if ($logo !== '') {
                 $logoFile = $this->getUriForFileName($logo);
                 $logoHeight = (int) $this->getTypoScriptConstant('page.preloader.logo.height');
                 $logoWidth = (int) $this->getTypoScriptConstant('page.preloader.logo.width');
@@ -205,7 +205,7 @@ class FontLoaderHook
      * @param string $section
      * @return array
      */
-    private function getPageCssConfiguration($section)
+    private function getPageCssConfiguration($section): array
     {
         if (isset($this->getTemplateService()->setup['page.'][$section . '.'])) {
             return $this->getTemplateService()->setup['page.'][$section . '.'];
@@ -217,10 +217,9 @@ class FontLoaderHook
      * @param string $typoscriptConstant
      * @return string
      */
-    private function getTypoScriptConstant($typoscriptConstant)
+    private function getTypoScriptConstant($typoscriptConstant): string
     {
         if (!isset($this->getTemplateService()->flatSetup)
-            || !is_array($this->getTemplateService()->flatSetup)
             || count($this->getTemplateService()->flatSetup) === 0) {
             $this->getTemplateService()->generateConfig();
         }
@@ -233,7 +232,7 @@ class FontLoaderHook
     /**
      * @return TemplateService
      */
-    private function getTemplateService()
+    private function getTemplateService(): TemplateService
     {
         return $GLOBALS['TSFE']->tmpl;
     }
@@ -242,9 +241,9 @@ class FontLoaderHook
      * @param string $filename
      * @return string
      */
-    private function getUriForFileName($filename)
+    private function getUriForFileName($filename): string
     {
-        if (strpos($filename, '://')) {
+        if ((bool) strpos($filename, '://')) {
             return $filename;
         }
         $urlPrefix = '';

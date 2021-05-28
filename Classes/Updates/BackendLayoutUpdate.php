@@ -75,7 +75,7 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -155,11 +155,11 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
                 ->set(
                     'backend_layout',
-                    ($this->mapValues($record['backend_layout']) ?: $record['backend_layout'])
+                    ($this->mapValues($record['backend_layout']) ?? $record['backend_layout'])
                 )
                 ->set(
                     'backend_layout_next_level',
-                    ($this->mapValues($record['backend_layout_next_level']) ?: $record['backend_layout_next_level'])
+                    ($this->mapValues($record['backend_layout_next_level']) ?? $record['backend_layout_next_level'])
                 );
             $queryBuilder->execute();
         }

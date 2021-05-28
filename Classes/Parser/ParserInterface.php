@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -18,12 +18,12 @@ interface ParserInterface
      * @param string $extension
      * @return bool
      */
-    public function supports($extension);
+    public function supports(string $extension): bool;
 
     /**
      * @param string $file
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings);
+    public function compile(string $file, array $settings): string;
 }

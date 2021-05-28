@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -44,12 +44,12 @@ class StaticFilesProcessor implements DataProcessorInterface
 
         // Collect possible files
         $files = [];
-        if (!empty($processorConfiguration['files.'])) {
+        if (count($processorConfiguration['files.']) > 0) {
             $filesConfiguration = $processorConfiguration['files.'];
             foreach ($filesConfiguration as $key => $file) {
                 $key = substr($key, -1) === '.' ? substr_replace($key, '', -1) : $key;
-                $value = $cObj->stdWrapValue($key, $filesConfiguration);
-                if (!empty($value)) {
+                $value = (string) $cObj->stdWrapValue($key, $filesConfiguration);
+                if ($value !== '') {
                     $files[$key] = $value;
                 }
             }
@@ -57,7 +57,7 @@ class StaticFilesProcessor implements DataProcessorInterface
 
         // Get file objects
         $images = [];
-        if (!empty($files)) {
+        if (count($files) !== 0) {
             $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
             foreach ($files as $key => $file) {
                 $absFilename = GeneralUtility::getFileAbsFileName($file);
@@ -68,8 +68,8 @@ class StaticFilesProcessor implements DataProcessorInterface
         }
 
         // Set the target variable
-        $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration);
-        if (!empty($targetVariableName)) {
+        $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
+        if ($targetVariableName !== '') {
             $processedData[$targetVariableName] = $images;
         } else {
             $processedData['staticFiles'] = $images;

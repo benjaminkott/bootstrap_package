@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -34,7 +34,7 @@ class ScssParserTest extends FunctionalTestCase
     protected static function assertFileContains(string $filename, string $needle): void
     {
         self::assertFileIsReadable($filename);
-        $content = file_get_contents($filename);
+        $content = (string) file_get_contents($filename);
 
         try {
             self::assertStringContainsString($needle, $content);
@@ -51,17 +51,17 @@ class ScssParserTest extends FunctionalTestCase
      * @test
      * @dataProvider scssParserCanCompileTestDataProvider
      */
-    public function scssParserCanCompileTest($inputFile)
+    public function scssParserCanCompileTest(string $inputFile): void
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = $compileService->getCompiledFile($inputFile);
-        $this->assertFileExists(Environment::getPublicPath() . '/' . $compiledFile);
+        self::assertFileExists(Environment::getPublicPath() . '/' . $compiledFile);
     }
 
     /**
      * @return array
      */
-    public function scssParserCanCompileTestDataProvider()
+    public function scssParserCanCompileTestDataProvider(): array
     {
         return [
             'direct include' => [
@@ -82,21 +82,21 @@ class ScssParserTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function urlsAreRelativeToTempTest()
+    public function urlsAreRelativeToTempTest(): void
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
             'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
         );
@@ -105,21 +105,21 @@ class ScssParserTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function sitepackageImagesAreUsedTest()
+    public function sitepackageImagesAreUsedTest(): void
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
             'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
         );
-        $this->assertFileContains(
+        self::assertFileContains(
             $compiledFile,
             'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
         );

@@ -1,26 +1,29 @@
+<?xml version="1.0"?>
 <phpunit
-	backupGlobals="true"
-	bootstrap="../.build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php"
-	colors="true"
-	convertErrorsToExceptions="true"
-	convertWarningsToExceptions="true"
-	forceCoversAnnotation="false"
-	processIsolation="false"
-	stopOnError="false"
-	stopOnFailure="false"
-	stopOnIncomplete="false"
-	stopOnSkipped="false"
-	verbose="false"
-	beStrictAboutTestsThatDoNotTestAnything="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  backupGlobals="true"
+  bootstrap="../.build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php"
+  colors="true"
+  convertErrorsToExceptions="true"
+  convertWarningsToExceptions="true"
+  forceCoversAnnotation="false"
+  processIsolation="false"
+  stopOnError="false"
+  stopOnFailure="false"
+  stopOnIncomplete="false"
+  stopOnSkipped="false"
+  verbose="false"
+  beStrictAboutTestsThatDoNotTestAnything="true"
 >
-<testsuites>
-	<testsuite name="bk2k-bootstrap-package-unit-tests">
-		<directory>../Tests/Unit</directory>
-	</testsuite>
-</testsuites>
-<filter>
-	<whitelist processUncoveredFilesFromWhitelist="true">
-		<directory suffix=".php">../Classes/</directory>
-	</whitelist>
-</filter>
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">../Classes/</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="bk2k-bootstrap-package-unit-tests">
+      <directory>../Tests/Unit</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

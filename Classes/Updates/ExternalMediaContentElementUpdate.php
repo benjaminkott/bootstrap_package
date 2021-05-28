@@ -47,7 +47,7 @@ class ExternalMediaContentElementUpdate implements UpgradeWizardInterface, Repea
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {

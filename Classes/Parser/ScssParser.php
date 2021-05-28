@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -10,7 +10,7 @@
 namespace BK2K\BootstrapPackage\Parser;
 
 use ScssPhp\ScssPhp\Compiler;
-use ScssPhp\ScssPhp\Formatter\Compressed;
+use ScssPhp\ScssPhp\OutputStyle;
 use ScssPhp\ScssPhp\Version;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -36,7 +36,7 @@ class ScssParser extends AbstractParser
      * @param string $extension
      * @return bool
      */
-    public function supports($extension)
+    public function supports(string $extension): bool
     {
         return $extension === 'scss';
     }
@@ -46,7 +46,7 @@ class ScssParser extends AbstractParser
      * @param array $settings
      * @return string
      */
-    public function compile($file, $settings)
+    public function compile(string $file, array $settings): string
     {
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
@@ -73,11 +73,11 @@ class ScssParser extends AbstractParser
      * @param array $settings
      * @return array
      */
-    protected function parseFile($file, $settings)
+    protected function parseFile(string $file, array $settings): array
     {
         $scss = new Compiler();
-        $scss->setFormatter(Compressed::class);
-        $scss->setVariables($settings['variables']);
+        $scss->setOutputStyle(OutputStyle::COMPRESSED);
+        $scss->addVariables($settings['variables']);
         if ($settings['options']['sourceMap']) {
             $scss->setSourceMap(Compiler::SOURCE_MAP_INLINE);
             $scss->setSourceMapOptions([
@@ -92,7 +92,7 @@ class ScssParser extends AbstractParser
         // and the other one symlinked in e.g. `packages/`.
         // Since the PHP SCSS parser works on resolved real paths, the symlinked context is lost.
         $visualImportPath = dirname($absoluteFilename);
-        $scss->addImportPath(function ($url) use ($visualImportPath) {
+        $scss->addImportPath(function ($url) use ($visualImportPath): ?string {
             // Resolve potential back paths manually using PathUtility::getCanonicalPath,
             // but make sure we do not break out of TYPO3 application path using GeneralUtility::getFileAbsFileName
             // Also resolve EXT: paths if given
@@ -101,7 +101,7 @@ class ScssParser extends AbstractParser
             $full = GeneralUtility::getFileAbsFileName(PathUtility::getCanonicalPath($fileName));
             // The API forces us to check the existence of files paths, with or without url.
             // We must only return a string if the file to be imported actually exists.
-            $hasExtension = preg_match('/[.]s?css$/', $url);
+            $hasExtension = (bool) preg_match('/[.]s?css$/', $url);
             if (
                 is_file($file = $full . '.scss') ||
                 ($hasExtension && is_file($file = $full))
@@ -129,7 +129,7 @@ class ScssParser extends AbstractParser
                 $relativeFilePath,
                 $absoluteBootstrapPackageThemePath,
                 $relativeBootstrapPackageThemePath
-            ) {
+            ) : string {
                 $marker = $args[0][1];
                 $args[0][1] = '';
                 $result = $scss->compileValue($args[0]);
@@ -146,13 +146,14 @@ class ScssParser extends AbstractParser
         );
 
         // Compile file
-        $css = $scss->compile('@import "' . $absoluteFilename . '"');
+        $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"');
+        $css = $compilationResult->getCss();
 
         // Fix paths in url() statements to be relative to temp directory
         $relativeTempPath = $settings['cache']['tempDirectoryRelativeToRoot'];
         $search = '%url\s*\(\s*[\\\'"]?(?!(((?:https?:)?\/\/)|(?:data:?:)))([^\\\'")]+)[\\\'"]?\s*\)%';
         $replace = 'url("' . $relativeTempPath . '$3")';
-        $css = preg_replace($search, $replace, $css);
+        $css = (string) preg_replace($search, $replace, $css);
 
         return [
             'css' => $css,
@@ -161,7 +162,7 @@ class ScssParser extends AbstractParser
                 'date' => date('r'),
                 'css' => $css,
                 'etag' => md5($css),
-                'files' => $scss->getParsedFiles(),
+                'files' => $compilationResult->getIncludedFiles(),
                 'variables' => $settings['variables'],
                 'sourceMap' => $settings['options']['sourceMap']
             ]

@@ -1,6 +1,12 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'task/**'
+      - 'bugfix/**'
+      - 'feature/**'
+  pull_request:
 
 jobs:
 
@@ -12,75 +18,77 @@ jobs:
       max-parallel: 4
       matrix:
         typo3: ['^10', '^11']
-        php: ['7.2', '7.3', '7.4']
+        php: ['7.2', '7.3', '7.4', '8.0']
         mysql: ['5.7']
         exclude:
+          - typo3: '^10'
+            php: '8.0'
           - typo3: '^11'
             php: '7.2'
           - typo3: '^11'
             php: '7.3'
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    - name: Set up MySQL ${{ matrix.mysql }}
-      uses: mirromutth/mysql-action@v1.1
-      with:
-        mysql version: ${{ matrix.mysql }}
-        mysql root password: 'root'
-    - name: Set up PHP ${{ matrix.php }}
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php }}
-        tools: composer:v2
-    - name: Install
-      run: |
-        composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
-        git checkout composer.json
-    - name: Lint
-      run: |
-        composer test:php:lint
-    - name: CGL
-      run: |
-        composer cgl
-    - name: PHPStan
-      continue-on-error: true
-      run: |
-        composer phpstan
-    - name: Unit Tests
-      run: |
-        composer test:php:unit
-    - name: Functional Tests
-      run: |
-        composer test:php:functional
-      env:
-        COMPOSER_PROCESS_TIMEOUT: 1200
-        typo3DatabaseHost: 127.0.0.1
-        typo3DatabaseName: t3func
-        typo3DatabasePassword: root
-        typo3DatabaseUsername: root
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Set up MySQL ${{ matrix.mysql }}
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql version: ${{ matrix.mysql }}
+          mysql root password: 'root'
+      - name: Set up PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+      - name: Install
+        run: |
+          composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
+          git checkout composer.json
+      - name: Lint
+        run: |
+          composer test:php:lint
+      - name: CGL
+        run: |
+          composer cgl
+      - name: PHPStan
+        continue-on-error: true
+        run: |
+          composer phpstan -- --error-format=github
+      - name: Unit Tests
+        run: |
+          composer test:php:unit
+      - name: Functional Tests
+        run: |
+          composer test:php:functional
+        env:
+          COMPOSER_PROCESS_TIMEOUT: 1200
+          typo3DatabaseHost: 127.0.0.1
+          typo3DatabaseName: t3func
+          typo3DatabasePassword: root
+          typo3DatabaseUsername: root
 
   build-frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '12.x'
-    - name: Install
-      run: |
-        cd Build
-        yarn install
-    - name: Build
-      run: |
-        cd Build
-        yarn build
-    - name: Status
-      continue-on-error: true
-      run: |
-        git status
-        git status | grep -q "nothing to commit, working tree clean"
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+      - name: Install
+        run: |
+          cd Build
+          yarn install
+      - name: Build
+        run: |
+          cd Build
+          yarn build
+      - name: Status
+        continue-on-error: true
+        run: |
+          git status
+          git status | grep -q "nothing to commit, working tree clean"
 
   deployment:
     name: Deployment

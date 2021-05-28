@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -28,7 +28,7 @@ class PreProcessHook
      * @param array $params
      * @param \TYPO3\CMS\Core\Page\PageRenderer $pagerenderer
      */
-    public function execute(&$params, &$pagerenderer)
+    public function execute(&$params, &$pagerenderer): void
     {
         if (!($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface ||
             !ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend()) {
@@ -40,7 +40,7 @@ class PreProcessHook
             if (is_array($params[$key])) {
                 foreach ($params[$key] as $file => $settings) {
                     $compiledFile = $this->getCompileService()->getCompiledFile($file);
-                    if ($compiledFile !== false) {
+                    if ($compiledFile !== null) {
                         $settings['file'] = $compiledFile;
                         $files[$compiledFile] = $settings;
                     } else {
@@ -57,7 +57,7 @@ class PreProcessHook
      *
      * @return CompileService
      */
-    protected function getCompileService()
+    protected function getCompileService(): CompileService
     {
         if ($this->compileService === null) {
             $this->compileService = GeneralUtility::makeInstance(CompileService::class);

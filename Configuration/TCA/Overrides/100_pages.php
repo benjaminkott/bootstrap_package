@@ -7,42 +7,39 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3') || die();
-
-// Temporary variables
-$extensionKey = 'bootstrap_package';
+defined('TYPO3_MODE') or die('Access denied.');
 
 // Register PageTS
 
 // BackendLayouts
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig',
     'Bootstrap Package: Backend Layouts'
 );
 
 // TCEMAIN
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/TCEMAIN.tsconfig',
     'Bootstrap Package: TCEMAIN'
 );
 
 // TCEFORM
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/TCEFORM.tsconfig',
     'Bootstrap Package: TCEFORM'
 );
 
 // Content Elements
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
     'Bootstrap Package: All Content Elements'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    $extensionKey,
+    'bootstrap_package',
     'Configuration/TsConfig/Page/ContentElement/Categories.tsconfig',
     'Bootstrap Package: Categories for Content Elements'
 );

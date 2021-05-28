@@ -47,7 +47,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getPrerequisites(): array
     {
@@ -97,8 +97,8 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', 0, false)
-                ->set('bullets_type', $this->mapValues($record['layout']));
+                ->set('layout', (string) 0, false)
+                ->set('bullets_type', (string) $this->mapValues($record['layout']));
             $queryBuilder->execute();
         }
         return true;

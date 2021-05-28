@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -30,13 +30,13 @@ class CompileService
 
     /**
      * @param string $file
-     * @return bool|string
+     * @return string|null
      * @throws \Exception
      */
-    public function getCompiledFile($file)
+    public function getCompiledFile(string $file): ?string
     {
         $absoluteFile = GeneralUtility::getFileAbsFileName($file);
-        $configuration = ($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?: []);
+        $configuration = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
 
         // Ensure cache directory exists
         if (!file_exists(Environment::getPublicPath() . '/' . $this->tempDirectory)) {
@@ -63,11 +63,15 @@ class CompileService
         ];
 
         // Parser
-        if (!empty($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])) {
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
+            && is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
+        ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
-                /** @var ParserInterface $parser */
                 $parser = GeneralUtility::makeInstance($className);
-                if ($parser->supports($settings['file']['info']['extension'])) {
+                if ($parser instanceof ParserInterface
+                    && isset($settings['file']['info']['extension'])
+                    && $parser->supports($settings['file']['info']['extension'])
+                ) {
                     if ($configuration['overrideParserVariables']) {
                         $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
                     }
@@ -81,14 +85,14 @@ class CompileService
             }
         }
 
-        return false;
+        return null;
     }
 
     /**
      * @param string $extension
      * @return array
      */
-    protected function getVariablesFromConstants($extension)
+    protected function getVariablesFromConstants(string $extension): array
     {
         $constants = $this->getConstants();
         $extension = strtolower($extension);
@@ -96,8 +100,11 @@ class CompileService
 
         // Fetch Google Font
         $variables['google-webfont'] = 'sans-serif';
-        if (!empty($constants['page.theme.googleFont.enable'])
-            && !empty($constants['page.theme.googleFont.font'])) {
+        if (isset($constants['page.theme.googleFont.enable'])
+            && (bool) $constants['page.theme.googleFont.enable']
+            && isset($constants['page.theme.googleFont.font'])
+            && $constants['page.theme.googleFont.font'] !== ''
+        ) {
             $variables['google-webfont'] = $constants['page.theme.googleFont.font'];
         }
 
@@ -115,7 +122,7 @@ class CompileService
     /**
      * @return array
      */
-    protected function getConstants()
+    protected function getConstants(): array
     {
         if ($GLOBALS['TSFE']->tmpl->flatSetup === null
         || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
@@ -128,7 +135,7 @@ class CompileService
     /**
      * Clear all caches for the compiler.
      */
-    protected function clearCompilerCaches()
+    protected function clearCompilerCaches(): void
     {
         GeneralUtility::rmdir(Environment::getPublicPath() . '/' . $this->tempDirectory, true);
     }

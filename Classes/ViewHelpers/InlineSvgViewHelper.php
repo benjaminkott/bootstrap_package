@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -11,7 +11,6 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
@@ -71,10 +70,10 @@ class InlineSvgViewHelper extends AbstractViewHelper
             }
 
             $svgContent = $image->getContents();
-            $svgContent = trim(preg_replace('/<script[\s\S]*?>[\s\S]*?<\/script>/i', '', $svgContent));
+            $svgContent = trim((string) preg_replace('/<script[\s\S]*?>[\s\S]*?<\/script>/i', '', $svgContent));
 
             // Exit if file does not contain content
-            if (empty($svgContent)) {
+            if ($svgContent === '') {
                 return '';
             }
 
@@ -82,15 +81,26 @@ class InlineSvgViewHelper extends AbstractViewHelper
             $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
             $svgElement = simplexml_load_string($svgContent);
             libxml_disable_entity_loader($previousValueOfEntityLoader);
+            if (!$svgElement instanceof \SimpleXMLElement) {
+                return '';
+            }
 
-            // Override css class
-            $svgElement = self::setAttribute($svgElement, 'class', filter_var(trim((string)$arguments['class']), FILTER_SANITIZE_STRING));
-            $svgElement = self::setAttribute($svgElement, 'width', (int)$arguments['width']);
-            $svgElement = self::setAttribute($svgElement, 'height', (int)$arguments['height']);
+            // Override attributes
+            $class = filter_var(trim((string) $arguments['class']), FILTER_SANITIZE_STRING);
+            $class = $class !== false ? $class : null;
+            $svgElement = self::setAttribute($svgElement, 'class', $class);
+            $width = intval($arguments['width']) > 0 ? (string) intval($arguments['width']) : null;
+            $svgElement = self::setAttribute($svgElement, 'width', $width);
+            $height = intval($arguments['height']) > 0 ? (string) intval($arguments['height']) : null;
+            $svgElement = self::setAttribute($svgElement, 'height', $height);
 
             // remove xml version tag
             $domXml = dom_import_simplexml($svgElement);
-            return $domXml->ownerDocument->saveXML($domXml->ownerDocument->documentElement);
+            if (!$domXml instanceof \DOMElement || !$domXml->ownerDocument instanceof \DOMDocument) {
+                return '';
+            }
+
+            return (string) $domXml->ownerDocument->saveXML($domXml->ownerDocument->documentElement);
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist
             throw new \Exception($e->getMessage(), 1530601100, $e);
@@ -109,11 +119,11 @@ class InlineSvgViewHelper extends AbstractViewHelper
     /**
      * @param \SimpleXMLElement $element
      * @param string $attribute
-     * @param mixed $value
+     * @param string $value
      */
-    protected static function setAttribute(\SimpleXMLElement $element, $attribute, $value): \SimpleXMLElement
+    protected static function setAttribute(\SimpleXMLElement $element, string $attribute, ?string $value): \SimpleXMLElement
     {
-        if ($value) {
+        if ($value !== null) {
             if (isset($element->attributes()->$attribute)) {
                 $element->attributes()->$attribute = $value;
             } else {
@@ -129,10 +139,8 @@ class InlineSvgViewHelper extends AbstractViewHelper
      *
      * @return ImageService
      */
-    protected static function getImageService()
+    protected static function getImageService(): ImageService
     {
-        /** @var ObjectManager $objectManager */
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        return $objectManager->get(ImageService::class);
+        return GeneralUtility::makeInstance(ImageService::class);
     }
 }

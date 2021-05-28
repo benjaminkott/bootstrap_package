@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -24,15 +24,15 @@ class ExternalMediaUtilityTest extends UnitTestCase
      * @dataProvider getEmbedCodeDataProvider
      * @test
      */
-    public function getEmbedCode(string $url, string $class, $expectedResult)
+    public function getEmbedCode(string $url, string $class, $expectedResult): void
     {
-        $this->assertSame($expectedResult, (new ExternalMediaUtility())->getEmbedCode($url, $class));
+        self::assertSame($expectedResult, (new ExternalMediaUtility())->getEmbedCode($url, $class));
     }
 
     /**
      * @return array
      */
-    public function getEmbedCodeDataProvider()
+    public function getEmbedCodeDataProvider(): array
     {
         return [
             'empty' => ['', '', null],
