@@ -9,6 +9,9 @@ parameters:
 	level: max
 	checkMissingIterableValueType: false
 
+	ignoreErrors:
+		- "#Casting to string something that's already string.#"
+
 	paths:
 	- %currentWorkingDirectory%/Classes/
 	- %currentWorkingDirectory%/Configuration/
