@@ -31,7 +31,7 @@ class CsvFileProcessor extends FilesProcessor
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
         // Set the maximum amount of columns
-        $maximumColumns = (int) $cObj->stdWrapValue('maximumColumns', $processorConfiguration, 0);
+        $maximumColumns = (int) $cObj->stdWrapValue('maximumColumns', $processorConfiguration, '0');
 
         // Set the field delimiter which is "," by default
         $fieldDelimiter = (string) $cObj->stdWrapValue('fieldDelimiter', $processorConfiguration, ',');
