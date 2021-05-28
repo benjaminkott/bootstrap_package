@@ -9,9 +9,17 @@
         <f:else>
             <f:if condition="{data.image_zoom}">
                 <f:then>
-                    <a href="{f:uri.image(image: file, maxHeight: settings.lightbox.image.maxHeight, maxWidth: settings.lightbox.image.maxWidth)}" title="{file.properties.title}" data-lightbox-caption="{file.properties.description}" class="{settings.lightbox.cssClass}" data-lightbox-width="{bk2k:lastImageInfo(property: 'width')}" data-lightbox-height="{bk2k:lastImageInfo(property: 'height')}" rel="{settings.lightbox.prefix}-{data.uid}">
+                    <bk2k:link.lightbox
+                        image="{file}"
+                        maxHeight="{settings.lightbox.image.maxHeight}"
+                        maxWidth="{settings.lightbox.image.maxWidth}"
+                        class="{settings.lightbox.cssClass}"
+                        rel="{settings.lightbox.prefix}-{data.uid}"
+                        title="{file.properties.title}"
+                        caption="{file.properties.description}"
+                    >
                         <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
-                    </a>
+                    </bk2k:link.lightbox>
                 </f:then>
                 <f:else>
                     <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
