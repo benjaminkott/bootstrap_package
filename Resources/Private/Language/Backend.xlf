@@ -780,6 +780,10 @@
                 <source>Background</source>
             </trans-unit>
 
+            <trans-unit id="field.frame_layout">
+                <source>Frame Layout</source>
+            </trans-unit>
+
             <trans-unit id="field.background_color_class">
                 <source>Background Color</source>
             </trans-unit>

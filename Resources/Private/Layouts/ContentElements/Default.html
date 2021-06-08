@@ -10,7 +10,7 @@
 
     <f:variable name="frameClass">frame-{data.frame_class}</f:variable>
     <f:variable name="typeClass">frame-type-{data.CType}</f:variable>
-    <f:variable name="layoutClass">frame-layout-{data.layout}</f:variable>
+    <f:variable name="layoutClass">frame-layout-{data.frame_layout}</f:variable>
     <f:variable name="backgroundClass">frame-background-{f:if(condition: data.background_color_class, else: 'none', then: data.background_color_class)}</f:variable>
     <f:variable name="spaceBeforeClass">frame-space-before-{f:if(condition: data.space_before_class, else: 'none', then: data.space_before_class)}</f:variable>
     <f:variable name="spaceAfterClass">frame-space-after-{f:if(condition: data.space_after_class, else: 'none', then: data.space_after_class)}</f:variable>
@@ -20,25 +20,29 @@
 
             <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
             <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
-                <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />
-                <div class="frame-container">
-                    <div class="frame-inner">
-                        <f:if condition="{data._LOCALIZED_UID}">
-                            <a id="c{data._LOCALIZED_UID}"></a>
-                        </f:if>
-                        <f:render section="Before" optional="true">
-                            <f:render partial="DropIn/Before/All" arguments="{_all}" />
-                        </f:render>
-                        <f:render section="Header" optional="true">
-                            <f:render partial="Header/All" arguments="{_all}" />
-                        </f:render>
-                        <f:render section="Main" optional="true" />
-                        <f:render section="Footer" optional="true">
-                            <f:render partial="Footer/All" arguments="{_all}" />
-                        </f:render>
-                        <f:render section="After" optional="true">
-                            <f:render partial="DropIn/After/All" arguments="{_all}" />
-                        </f:render>
+                <div class="frame-group-container">
+                    <div class="frame-group-inner">
+                        <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />
+                        <div class="frame-container frame-container-default">
+                            <div class="frame-inner">
+                                <f:if condition="{data._LOCALIZED_UID}">
+                                    <a id="c{data._LOCALIZED_UID}"></a>
+                                </f:if>
+                                <f:render section="Before" optional="true">
+                                    <f:render partial="DropIn/Before/All" arguments="{_all}" />
+                                </f:render>
+                                <f:render section="Header" optional="true">
+                                    <f:render partial="Header/All" arguments="{_all}" />
+                                </f:render>
+                                <f:render section="Main" optional="true" />
+                                <f:render section="Footer" optional="true">
+                                    <f:render partial="Footer/All" arguments="{_all}" />
+                                </f:render>
+                                <f:render section="After" optional="true">
+                                    <f:render partial="DropIn/After/All" arguments="{_all}" />
+                                </f:render>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

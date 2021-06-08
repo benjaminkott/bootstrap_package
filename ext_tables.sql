@@ -46,6 +46,7 @@ CREATE TABLE tt_content (
     tx_bootstrappackage_icon_group_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_tab_item int(11) unsigned DEFAULT '0',
     tx_bootstrappackage_timeline_item int(11) unsigned DEFAULT '0',
+    frame_layout varchar(255) DEFAULT 'default' NOT NULL,
     background_color_class varchar(255) DEFAULT '' NOT NULL,
     background_image int(11) unsigned DEFAULT '0',
     background_image_options mediumtext,

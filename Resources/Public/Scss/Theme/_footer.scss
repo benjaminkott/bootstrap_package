@@ -1,11 +1,31 @@
 //
+// Footer
+//
+$footer-sections: () !default;
+$footer-sections: map-merge(
+    (
+        'content': (
+            'background':   $gray-900,
+            'color':        #ffffff,
+            'link-color':   $link-color
+        ),
+        'meta': (
+            'background':   darken($gray-900, 3%),
+            'color':        #ffffff,
+            'link-color':   $link-color
+        )
+    ),
+    $footer-sections
+);
+
+//
 // Footer Columns
 //
 .footer-section-content-column-left,
 .footer-section-content-column-middle,
 .footer-section-content-column-right {
     width: 100%;
-    @include media-breakpoint-up('sm') {
+    @include media-breakpoint-up('md') {
         width: calc(100% / 3);
     }
 }
@@ -14,20 +34,12 @@
 // Footer Sections
 //
 @each $name, $settings in $footer-sections {
-    $footer-background: map-get($settings, 'background');
-    $footer-color: map-get($settings, 'color');
-    $footer-link-color: map-get($settings, 'link-color');
-    $footer-link-color-hover: darken($footer-link-color, 3%);
     .footer-section-#{$name} {
-        color: $footer-color;
-        background-color: $footer-background;
-        a:not(.btn) {
-            color: $footer-link-color;
-            &:hover,
-            &:focus {
-                color: $footer-link-color-hover;
-            }
-        }
+        background-color: #{map-get($settings, 'background')};
+        --frame-color: #{map-get($settings, 'color')};
+        --frame-background: #{map-get($settings, 'background')};
+        --frame-link-color: #{map-get($settings, 'link-color')};
+        --frame-link-hover-color: #{darken(map-get($settings, 'link-color'), 3%)};
     }
 }
 

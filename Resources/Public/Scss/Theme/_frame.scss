@@ -1,32 +1,96 @@
 //
-// Frame Container
+// Variables
+// --------------------------------------------------
+$frame-color:                   inherit !default;
+$frame-background:              transparent !default;
+$frame-embedded-border-radius:  .5rem !default;
+$frame-width-large:            1600px !default;
+$frame-width-medium:           870px !default;
+$frame-width-small:            600px !default;
+$frame-inner-spacing:           1.75rem !default;
+$frame-inner-spacing-small:     .75rem !default;
+$frame-inner-spacing-scaling:   () !default;
+$frame-inner-spacing-scaling:   map-merge(
+    (
+        xs: 1,
+        sm: 1.2,
+        md: 1.3,
+        lg: 1.4,
+        xl: 1.5
+    ),
+    $frame-inner-spacing-scaling
+);
+$frame-backgrounds: () !default;
+$frame-backgrounds: map-merge(
+    (
+        'primary': (
+            'background':       $primary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'secondary': (
+            'background':       $secondary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'light': (
+            'background':       $light,
+            'color':            $body-color,
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'dark': (
+            'background':       $dark,
+            'color':            #ffffff,
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        )
+    ),
+    $frame-backgrounds
+);
+
 //
-.frame-container {
-    position: relative;
-    @include make-container();
-    @include make-container-max-widths();
-}
-.container {
-    .frame-container {
-        padding-left: 0;
-        padding-right: 0;
+// CSS Variables
+// --------------------------------------------------
+:root {
+    --frame-color: #{$frame-color};
+    --frame-link-color: #{$link-color};
+    --frame-link-hover-color: #{$link-hover-color};
+    --frame-background: #{$frame-background};
+    --frame-embedded-border-radius: #{$frame-embedded-border-radius};
+    --frame-width-large: #{$frame-width-large};
+    --frame-width-medium: #{$frame-width-medium};
+    --frame-width-small: #{$frame-width-small};
+    --frame-spacing: #{$frame-inner-spacing};
+    --frame-spacing-small: #{$frame-inner-spacing-small};
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        --frame-spacing-#{$breakpoint}: #{$frame-inner-spacing * map-get($frame-inner-spacing-scaling, $breakpoint)};
+        --frame-spacing-small-#{$breakpoint}: #{$frame-inner-spacing-small * map-get($frame-inner-spacing-scaling, $breakpoint)};
     }
 }
 
 //
 // Frame
-//
+// --------------------------------------------------
 .frame {
     position: relative;
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            padding-top: ($frame-inner-spacing * $scaling);
-            padding-bottom: ($frame-inner-spacing * $scaling);
+    padding-top: var(--frame-spacing);
+    padding-bottom: var(--frame-spacing);
+    color: var(--frame-color);
+    background: var(--frame-background);
+    a[class=""],
+    a:not([class]) {
+        color: var(--frame-link-color);
+        &:hover {
+            color: var(--frame-link-hover-color);
         }
     }
-    > *:last-child {
-        margin-bottom: 0;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            --frame-spacing: var(--frame-spacing-#{$breakpoint});
+        }
     }
 }
 .frame-inner {
@@ -36,25 +100,87 @@
 }
 
 //
-// Frame Styles
+// Layout
 //
-.frame-ruler-before {
-    border-top: 1px solid rgba(0, 0, 0, .125);
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            margin-top: ($frame-inner-spacing * $scaling);
+.frame-layout-embedded {
+    background: transparent;
+    .frame-group-container {
+        @include make-container();
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                max-width: $container-max-width;
+            }
+        }
+        &-full {
+            max-width: 100%;
+        }
+        &-large {
+            max-width: var(--frame-width-large);
+        }
+        &-medium {
+            max-width: var(--frame-width-medium);
+        }
+        &-small {
+            max-width: var(--frame-width-small);
         }
     }
+    .frame-group-inner {
+        position: relative;
+        border-radius: var(--frame-embedded-border-radius);
+        background: var(--frame-background);
+        padding: var(--frame-spacing);
+    }
+    .frame-container {
+        padding: 0;
+    }
+    .frame-backgroundimage-container {
+        border-radius: var(--frame-embedded-border-radius);
+    }
+}
+
+//
+// Container
+// --------------------------------------------------
+.frame-container {
+    position: relative;
+    @include make-container();
+    &-default {
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                max-width: $container-max-width;
+            }
+        }
+    }
+    &-full {
+        max-width: 100%;
+    }
+    &-large {
+        max-width: var(--frame-width-large);
+    }
+    &-medium {
+        max-width: var(--frame-width-medium);
+    }
+    &-small {
+        max-width: var(--frame-width-small);
+    }
+}
+.container {
+    .frame-container,
+    .frame-group-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+//
+// Frame Styles
+// --------------------------------------------------
+.frame-ruler-before {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+    margin-top: 0;
 }
 .frame-ruler-after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            margin-bottom: ($frame-inner-spacing * $scaling);
-        }
-    }
 }
 .frame-indent {
     .frame-inner {
@@ -62,8 +188,8 @@
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-left: $i * 4%;
-                margin-right: $i * 4%;
+                margin-left: $i * 5%;
+                margin-right: $i * 5%;
             }
         }
     }
@@ -74,7 +200,7 @@
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-left: $i * 8%;
+                margin-left: $i * 10%;
             }
         }
     }
@@ -85,69 +211,94 @@
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-right: $i * 8%;
+                margin-right: $i * 10%;
             }
         }
-    }
-}
-.frame-small {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    @include media-breakpoint-up('sm') {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
     }
 }
 
 //
-// Background
+// Size
+// --------------------------------------------------
+.frame-size-small {
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            --frame-spacing: var(--frame-spacing-small-#{$breakpoint});
+        }
+    }
+}
+
 //
+// Height
+// --------------------------------------------------
+.frame-height-small,
+.frame-height-medium {
+    display: flex;
+    .frame-container {
+        display: flex;
+        align-items: center;
+    }
+    .frame-inner {
+        flex-grow: 1;
+    }
+}
+.frame-height-small {
+    min-height: 300px;
+    @include media-breakpoint-up(md) {
+        min-height: 400px;
+    }
+}
+.frame-height-medium {
+    min-height: 400px;
+    @include media-breakpoint-up(md) {
+        min-height: 500px;
+    }
+}
+.frame-height-max {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+//
+// Background
+// --------------------------------------------------
 .container {
     .frame-has-backgroundimage,
     %frame-has-backgroundimage {
-        @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-            @include media-breakpoint-up($breakpoint) {
-                $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-                padding-left: ($frame-inner-spacing * $scaling);
-                padding-right: ($frame-inner-spacing * $scaling);
-            }
+        &:not(.frame-layout-embedded) {
+            padding-left: var(--frame-spacing);
+            padding-right: var(--frame-spacing);
         }
     }
-}
-.frame-collapsible {
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            margin-top: -($frame-inner-spacing * $scaling);
-        }
-    }
-}
-@mixin make-frame-spacing($name) {
-    .frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-        @extend .frame-collapsible;
-    }
-}
-@include make-frame-spacing('none');
-@mixin make-frame-background($name, $settings) {
-    $background: map-get($settings, 'background');
-    $color: color-yiq($background);
-    $link-color: map-get($settings, 'link-color');
-    $link-hover-color: map-get($settings, 'link-hover-color');
-    .frame-background-#{$name} {
-        @extend %frame-has-backgroundimage;
-        color: $color;
-        background-color: $background;
-        a:not(.btn) {
-            color: $link-color;
-            @include hover {
-                color: $link-hover-color;
-            }
-        }
-    }
-    @include make-frame-spacing($name);
 }
 @each $name, $settings in $frame-backgrounds {
-    @include make-frame-background($name, $settings);
+    .frame-background-#{$name} {
+        @extend %frame-has-backgroundimage;
+        $color: map-get($settings, 'color');
+        $background: map-get($settings, 'background');
+        $link-color: map-get($settings, 'link-color');
+        $link-hover-color: map-get($settings, 'link-hover-color');
+        @if ($color) {
+            --frame-color: #{$color};
+        }
+        @if ($background) {
+            --frame-background: #{$background};
+        }
+        @if ($link-color) {
+            --frame-link-color: #{$link-color};
+        }
+        @if ($link-hover-color) {
+            --frame-link-hover-color: #{$link-hover-color};
+        }
+    }
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+        margin-top: calc(-1 * var(--frame-spacing));
+    }
+}
+.frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
+    margin-top: calc(-1 * var(--frame-spacing));
 }
 
 //
@@ -191,29 +342,29 @@
 }
 
 //
-// Space
-//
-@each $name, $scaling in $frame-outer-spacing-scaling {
-    .frame-space-before-#{$name} {
-        margin-top: ($frame-outer-spacing * $scaling);
-    }
-    .frame-space-after-#{$name} {
-        margin-bottom: ($frame-outer-spacing * $scaling);
-    }
-}
-
-//
 // Frame Header
-//
+// --------------------------------------------------
 .frame-header {
-    *:last-child {
-        margin-bottom: $spacer;
+    margin-bottom: $spacer;
+    > *:last-child {
+        margin-bottom: 0;
     }
 }
-.frame-type-header {
-    .frame-header {
-        *:last-child {
-            margin-bottom: 0;
-        }
+.frame-header-permalink {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    color: inherit;
+    opacity: .25;
+    transition: opacity ease-in-out .3s;
+    visibility: hidden;
+    top: -.1em;
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+        opacity: .75;
     }
+}
+*:hover > .frame-header-permalink {
+    visibility: visible;
 }

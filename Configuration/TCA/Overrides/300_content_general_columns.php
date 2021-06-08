@@ -10,6 +10,20 @@
 defined('TYPO3_MODE') or die('Access denied.');
 
 // Adjust columns for generic usage
+$GLOBALS['TCA']['tt_content']['columns']['frame_layout'] = [
+    'exclude' => true,
+    'displayCond' => 'FIELD:frame_class:!=:none',
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_layout',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['default', 'default'],
+            ['embedded', 'embedded']
+        ]
+    ],
+    'l10n_mode' => 'exclude',
+];
 $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
@@ -196,6 +210,8 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
 
 // Add fields to default palettes
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
+    --linebreak--,
+    frame_layout,
     --linebreak--,
     background_color_class,
     --linebreak--,
