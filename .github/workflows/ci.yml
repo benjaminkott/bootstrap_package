@@ -96,7 +96,7 @@ jobs:
       name: production
       url: https://bootstrap-package.com
     needs: [build-php, build-frontend]
-    if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request'
+    if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request' && (github.repository == 'benjaminkott/bootstrap_package')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
