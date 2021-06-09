@@ -4,9 +4,9 @@
 $frame-color:                   inherit !default;
 $frame-background:              transparent !default;
 $frame-embedded-border-radius:  .5rem !default;
-$frame-width-large:            1600px !default;
-$frame-width-medium:           870px !default;
-$frame-width-small:            600px !default;
+$frame-width-large:             1600px !default;
+$frame-width-medium:            870px !default;
+$frame-width-small:             600px !default;
 $frame-inner-spacing:           1.75rem !default;
 $frame-inner-spacing-small:     .75rem !default;
 $frame-inner-spacing-scaling:   () !default;
@@ -19,6 +19,19 @@ $frame-inner-spacing-scaling:   map-merge(
         xl: 1.5
     ),
     $frame-inner-spacing-scaling
+);
+$frame-outer-spacing:           1rem !default;
+$frame-outer-spacing-scaling:  () !default;
+$frame-outer-spacing-scaling:  map-merge(
+    (
+        'none': 0,
+        'extra-small': 1,
+        'small': 1.5,
+        'medium': 2,
+        'large': 2.5,
+        'extra-large': 3
+    ),
+    $frame-outer-spacing-scaling
 );
 $frame-backgrounds: () !default;
 $frame-backgrounds: map-merge(
@@ -69,6 +82,11 @@ $frame-backgrounds: map-merge(
         --frame-spacing-#{$breakpoint}: #{$frame-inner-spacing * map-get($frame-inner-spacing-scaling, $breakpoint)};
         --frame-spacing-small-#{$breakpoint}: #{$frame-inner-spacing-small * map-get($frame-inner-spacing-scaling, $breakpoint)};
     }
+    --frame-outer-spacing-before: 0;
+    --frame-outer-spacing-after: 0;
+    @each $variant in map-keys($frame-outer-spacing-scaling) {
+        --frame-outer-spacing-variant-#{$variant}: #{$frame-outer-spacing * map-get($frame-outer-spacing-scaling, $variant)};
+    }
 }
 
 //
@@ -76,6 +94,8 @@ $frame-backgrounds: map-merge(
 // --------------------------------------------------
 .frame {
     position: relative;
+    margin-top: var(--frame-outer-spacing-before);
+    margin-bottom: var(--frame-outer-spacing-after);
     padding-top: var(--frame-spacing);
     padding-bottom: var(--frame-spacing);
     color: var(--frame-color);
@@ -273,7 +293,7 @@ $frame-backgrounds: map-merge(
     }
 }
 %frame-collapsible {
-    margin-top: calc(-1 * var(--frame-spacing));
+    --frame-outer-spacing-before: calc(-1 * var(--frame-spacing));
 }
 @each $name, $settings in $frame-backgrounds {
     .frame-background-#{$name} {
@@ -295,12 +315,12 @@ $frame-backgrounds: map-merge(
             --frame-link-hover-color: #{$link-hover-color};
         }
     }
-    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
+    .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+    .frame-size-default.frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
         @extend %frame-collapsible;
     }
 }
-.frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
+.frame-layout-embedded.frame-space-after-none:not(.frame-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-ruler-before) {
     @extend %frame-collapsible;
 }
 
@@ -342,6 +362,18 @@ $frame-backgrounds: map-merge(
 }
 .frame-backgroundimage-sepia {
     filter: sepia(1);
+}
+
+//
+// Space
+//
+@each $name, $scaling in $frame-outer-spacing-scaling {
+    .frame-space-before-#{$name} {
+        --frame-outer-spacing-before: var(--frame-outer-spacing-variant-#{$name});
+    }
+    .frame-space-after-#{$name} {
+        --frame-outer-spacing-after: var(--frame-outer-spacing-variant-#{$name});
+    }
 }
 
 //
