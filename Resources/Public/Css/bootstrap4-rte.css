@@ -10249,16 +10249,19 @@ a.text-dark:hover, a.text-dark:focus {
   padding-right: var(--frame-spacing);
 }
 
+.frame-size-default.frame-background-primary:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-primary:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-secondary:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-secondary:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-light:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-light:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-dark:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-dark:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
+  margin-top: calc(-1 * var(--frame-spacing));
+}
+
 .frame-background-primary {
   --frame-color: #ffffff;
   --frame-background: #4faf98;
   --frame-link-color: #ffffff;
   --frame-link-hover-color: #ffffff;
-}
-
-.frame-size-default.frame-background-primary:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
-.frame-size-default.frame-background-primary:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-  margin-top: calc(-1 * var(--frame-spacing));
 }
 
 .frame-background-secondary {
@@ -10268,11 +10271,6 @@ a.text-dark:hover, a.text-dark:focus {
   --frame-link-hover-color: #ffffff;
 }
 
-.frame-size-default.frame-background-secondary:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
-.frame-size-default.frame-background-secondary:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-  margin-top: calc(-1 * var(--frame-spacing));
-}
-
 .frame-background-light {
   --frame-color: #2b2b2b;
   --frame-background: #f8f9fa;
@@ -10280,25 +10278,11 @@ a.text-dark:hover, a.text-dark:focus {
   --frame-link-hover-color: #377a6a;
 }
 
-.frame-size-default.frame-background-light:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
-.frame-size-default.frame-background-light:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-  margin-top: calc(-1 * var(--frame-spacing));
-}
-
 .frame-background-dark {
   --frame-color: #ffffff;
   --frame-background: #2b2b2b;
   --frame-link-color: #4faf98;
   --frame-link-hover-color: #377a6a;
-}
-
-.frame-size-default.frame-background-dark:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
-.frame-size-default.frame-background-dark:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-  margin-top: calc(-1 * var(--frame-spacing));
-}
-
-.frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
-  margin-top: calc(-1 * var(--frame-spacing));
 }
 
 .frame-backgroundimage-container {

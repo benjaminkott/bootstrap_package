@@ -272,6 +272,9 @@ $frame-backgrounds: map-merge(
         }
     }
 }
+%frame-collapsible {
+    margin-top: calc(-1 * var(--frame-spacing));
+}
 @each $name, $settings in $frame-backgrounds {
     .frame-background-#{$name} {
         @extend %frame-has-backgroundimage;
@@ -292,13 +295,13 @@ $frame-backgrounds: map-merge(
             --frame-link-hover-color: #{$link-hover-color};
         }
     }
-    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
-    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-        margin-top: calc(-1 * var(--frame-spacing));
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
+        @extend %frame-collapsible;
     }
 }
 .frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
-    margin-top: calc(-1 * var(--frame-spacing));
+    @extend %frame-collapsible;
 }
 
 //

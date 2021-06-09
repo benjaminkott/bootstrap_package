@@ -8,6 +8,7 @@
         <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
     </f:if>
 
+    <f:variable name="frameSize">frame-size-default</f:variable>
     <f:variable name="frameClass">frame-{data.frame_class}</f:variable>
     <f:variable name="typeClass">frame-type-{data.CType}</f:variable>
     <f:variable name="layoutClass">frame-layout-{data.frame_layout}</f:variable>
@@ -19,7 +20,7 @@
         <f:then>
 
             <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
-            <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+            <div id="c{data.uid}" class="frame {frameSize} {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
                 <div class="frame-group-container">
                     <div class="frame-group-inner">
                         <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />
