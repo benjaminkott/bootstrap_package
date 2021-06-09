@@ -66,6 +66,7 @@
         "typo3/cms-form": "^10.4 || 11.*.*@dev",
         "typo3/cms-indexed-search": "^10.4 || 11.*.*@dev",
         "typo3/cms-info": "^10.4 || 11.*.*@dev",
+        "typo3/cms-introduction": "@dev",
         "typo3/cms-lowlevel": "^10.4 || 11.*.*@dev",
         "typo3/cms-tstemplate": "^10.4 || 11.*.*@dev",
         "typo3/cms-workspaces": "^10.4 || 11.*.*@dev",

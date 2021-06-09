@@ -37,5 +37,6 @@ tt_content.gallery {
         20 {
             predefinedList = image
         }
+        30 = BK2K\BootstrapPackage\DataProcessing\PaginateProcessor
     }
 }
