@@ -46,12 +46,8 @@
 .navbar {
     + a,
     + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
     + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
+    + .main-section > a + a {
         + .carousel-fullscreen,
         + .carousel-fullscreen .carousel-item {
             @each $breakpoint in map-keys($navbar-heights) {
@@ -66,12 +62,8 @@
 .navbar-fixed-top.navbar-inverse-transition {
     + a,
     + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
     + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
+    + .main-section > a + a {
         + .carousel {
             @each $breakpoint in map-keys($navbar-heights) {
                 @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
@@ -97,12 +89,8 @@
 .navbar-fixed-bottom {
     + a,
     + a + a,
-    + .typo3-feedit-element > a,
-    + .typo3-feedit-element > a + a,
     + .main-section > a,
-    + .main-section > a + a,
-    + .main-section > .typo3-feedit-element > a,
-    + .main-section > .typo3-feedit-element > a + a {
+    + .main-section > a + a {
         + .carousel-fullscreen {
             margin-top: 0;
             @each $breakpoint in map-keys($navbar-heights) {

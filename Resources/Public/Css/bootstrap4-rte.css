@@ -11165,18 +11165,10 @@ blockquote footer:before {
 .navbar + a + .carousel-fullscreen .carousel-item,
 .navbar + a + a + .carousel-fullscreen,
 .navbar + a + a + .carousel-fullscreen .carousel-item,
-.navbar + .typo3-feedit-element > a + .carousel-fullscreen,
-.navbar + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-.navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
-.navbar + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
 .navbar + .main-section > a + .carousel-fullscreen,
 .navbar + .main-section > a + .carousel-fullscreen .carousel-item,
 .navbar + .main-section > a + a + .carousel-fullscreen,
-.navbar + .main-section > a + a + .carousel-fullscreen .carousel-item,
-.navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-.navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-.navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-.navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+.navbar + .main-section > a + a + .carousel-fullscreen .carousel-item {
   height: calc(100vh - 70px);
 }
 
@@ -11185,18 +11177,10 @@ blockquote footer:before {
   .navbar + a + .carousel-fullscreen .carousel-item,
   .navbar + a + a + .carousel-fullscreen,
   .navbar + a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + .carousel-fullscreen,
   .navbar + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + a + .carousel-fullscreen,
-  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item {
     height: calc(100vh - 70px);
   }
 }
@@ -11206,18 +11190,10 @@ blockquote footer:before {
   .navbar + a + .carousel-fullscreen .carousel-item,
   .navbar + a + a + .carousel-fullscreen,
   .navbar + a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + .carousel-fullscreen,
   .navbar + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + a + .carousel-fullscreen,
-  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item {
     height: calc(100vh - 100px);
   }
 }
@@ -11227,18 +11203,10 @@ blockquote footer:before {
   .navbar + a + .carousel-fullscreen .carousel-item,
   .navbar + a + a + .carousel-fullscreen,
   .navbar + a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + .carousel-fullscreen,
   .navbar + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + a + .carousel-fullscreen,
-  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item {
     height: calc(100vh - 130px);
   }
 }
@@ -11248,18 +11216,10 @@ blockquote footer:before {
   .navbar + a + .carousel-fullscreen .carousel-item,
   .navbar + a + a + .carousel-fullscreen,
   .navbar + a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + .carousel-fullscreen,
   .navbar + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar + .main-section > a + a + .carousel-fullscreen,
-  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+  .navbar + .main-section > a + a + .carousel-fullscreen .carousel-item {
     height: calc(100vh - 130px);
   }
 }
@@ -11267,20 +11227,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 0) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -70px;
   }
 }
@@ -11288,20 +11240,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 576px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -70px;
   }
 }
@@ -11309,20 +11253,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 768px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -100px;
   }
 }
@@ -11330,20 +11266,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 992px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -130px;
   }
 }
@@ -11351,20 +11279,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 1200px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel {
     margin-top: -130px;
   }
 }
@@ -11372,20 +11292,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 0) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item {
     padding-top: calc(70px / 2);
   }
 }
@@ -11393,20 +11305,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 576px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item {
     padding-top: calc(70px / 2);
   }
 }
@@ -11414,20 +11318,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 768px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item {
     padding-top: calc(100px / 2);
   }
 }
@@ -11435,20 +11331,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 992px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item {
     padding-top: calc(130px / 2);
   }
 }
@@ -11456,20 +11344,12 @@ blockquote footer:before {
 @media (min-width: 992px) and (min-width: 1200px) {
   .navbar-fixed-top.navbar-default-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel .carousel-item {
     padding-top: calc(130px / 2);
   }
 }
@@ -11479,46 +11359,26 @@ blockquote footer:before {
   .navbar-fixed-top.navbar-default-transition + a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-default-transition + a + a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-default-transition + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-default-transition + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-default-transition + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-inverse-transition + a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-inverse-transition + a + a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-inverse-transition + .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel-fullscreen,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + .carousel-fullscreen .carousel-item,
   .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + .carousel-fullscreen .carousel-item,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen,
-  .navbar-fixed-top.navbar-inverse-transition + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen .carousel-item {
+  .navbar-fixed-top.navbar-inverse-transition + .main-section > a + a + .carousel-fullscreen .carousel-item {
     height: 100vh;
   }
 }
 
 .navbar-fixed-bottom + a + .carousel-fullscreen,
 .navbar-fixed-bottom + a + a + .carousel-fullscreen,
-.navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
-.navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
 .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-.navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
-.navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-.navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
+.navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
   margin-top: 0;
   height: calc(100vh - 70px);
 }
@@ -11526,12 +11386,8 @@ blockquote footer:before {
 @media (min-width: 576px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
   .navbar-fixed-bottom + a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
     height: calc(100vh - 70px);
   }
 }
@@ -11539,12 +11395,8 @@ blockquote footer:before {
 @media (min-width: 768px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
   .navbar-fixed-bottom + a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
     height: calc(100vh - 100px);
   }
 }
@@ -11552,12 +11404,8 @@ blockquote footer:before {
 @media (min-width: 992px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
   .navbar-fixed-bottom + a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
     height: calc(100vh - 130px);
   }
 }
@@ -11565,12 +11413,8 @@ blockquote footer:before {
 @media (min-width: 1200px) {
   .navbar-fixed-bottom + a + .carousel-fullscreen,
   .navbar-fixed-bottom + a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .typo3-feedit-element > a + a + .carousel-fullscreen,
   .navbar-fixed-bottom + .main-section > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + .carousel-fullscreen,
-  .navbar-fixed-bottom + .main-section > .typo3-feedit-element > a + a + .carousel-fullscreen {
+  .navbar-fixed-bottom + .main-section > a + a + .carousel-fullscreen {
     height: calc(100vh - 130px);
   }
 }
