@@ -31,15 +31,6 @@
 #### BOOTSTRAP PACKAGE SETTINGS ####
 ####################################
 plugin.tx_bootstrappackage {
-    view {
-        widget {
-            TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
-                templateRootPaths {
-                    0 = EXT:bootstrap_package/Resources/Private/Templates/
-                }
-            }
-        }
-    }
     settings {
         overrideParserVariables = {$plugin.bootstrap_package.settings.overrideParserVariables}
         cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
