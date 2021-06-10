@@ -387,18 +387,6 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            webfontloader: {
-                files: [
-                    {
-                        cwd: '<%= paths.node %>webfontloader/',
-                        src: [
-                            'webfontloader.js',
-                        ],
-                        dest: '<%= paths.contrib %>webfontloader/',
-                        expand: true
-                    }
-                ]
-            }
         },
         modernizr: {
             main: {

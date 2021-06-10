@@ -26,9 +26,6 @@
             <trans-unit id="feature.disableGoogleFontCaching">
                 <source>Disable local Google-Font cache: If this option is set, Google Fonts will not be cached on the server.</source>
             </trans-unit>
-            <trans-unit id="feature.disableFontLoader">
-                <source>Disable WebFontLoader: If this option is set, there will be no additional processing of WebFonts.</source>
-            </trans-unit>
 
         </body>
     </file>

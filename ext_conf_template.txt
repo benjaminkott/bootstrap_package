@@ -27,6 +27,3 @@ disableCssProcessing = 0
 
 # cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableGoogleFontCaching
 disableGoogleFontCaching = 0
-
-# cat=Features; type=boolean; label=LLL:EXT:bootstrap_package/Resources/Private/Language/ExtConfTemplate.xlf:feature.disableFontLoader
-disableFontLoader = 0
