@@ -82,31 +82,6 @@ if (!(bool) $bootstrapPackageConfiguration['disableCssProcessing']) {
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
-// Register font loader
-if (!(bool) $bootstrapPackageConfiguration['disableFontLoader']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(implode(LF, [
-        '# customsubcategory=98=Preloader',
-        'page.preloader {',
-        '    # cat=bootstrap package: preloader/98/1_enable; type=boolean; label=Preloader: Enable to display the preloader',
-        '    enable = 1',
-        '    logo {',
-        '        # cat=bootstrap package: preloader/98/2_logo_file; type=string; label=Logo: Leave blank to don´t show a logo',
-        '        file = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg',
-        '        # cat=bootstrap package: preloader/98/3_logo_height; type=int+; label=Height: The image will not be resized!',
-        '        height = 52',
-        '        # cat=bootstrap package: preloader/98/4_logo_width; type=int+; label=Width: The image will not be resized!',
-        '        width = 180',
-        '    }',
-        '    # cat=bootstrap package: preloader/98/5_background_color; type=color; label=Background Color',
-        '    backgroundColor = #333333',
-        '    # cat=bootstrap package: preloader/98/6_fade_duration; type=string; label=Fade duration',
-        '    fadeDuration = 0.25',
-        '}'
-    ]));
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class]
-        = \BK2K\BootstrapPackage\Hooks\PageRenderer\FontLoaderHook::class . '->execute';
-}
-
 // Add default RTE configuration for bootstrap package
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
 
