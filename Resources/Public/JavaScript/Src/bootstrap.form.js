@@ -1,8 +1,12 @@
-$(function () {
+/* ========================================================================
+ * Form
+ * ======================================================================== */
 
-    $('.custom-file-input').on('change', function(){
-        var fileName = $(this).val().split('\\').slice(-1)[0];
-        $(this).next('.custom-file-label').text(fileName);
-    })
-
+window.addEventListener('DOMContentLoaded', function() {
+    Array.from(document.querySelectorAll('.custom-file-input')).forEach(function(element) {
+        element.addEventListener('change', (e) => {
+            let value = element.value.split('\\').slice(-1)[0];
+            element.nextElementSibling.textContent = value;
+        });
+    });
 });
