@@ -1,10 +1,14 @@
-$(function () {
+/* ========================================================================
+ * Lightbox
+ * ======================================================================== */
+
+window.addEventListener('DOMContentLoaded', function() {
 
     /**
      * Add PhotoSwipe template to dom if lightbox elements exist.
      */
-    if ($('a.lightbox').length > 0) {
-        var photoswipeTemplate = '\
+    if (document.querySelectorAll('a.lightbox').length > 0) {
+        let photoswipeTemplate = '\
             <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\
                 <div class="pswp__bg"></div>\
                 <div class="pswp__scroll-wrap">\
@@ -39,7 +43,7 @@ $(function () {
                     </div>\
                 </div>\
             </div>';
-        $('body').append(photoswipeTemplate);
+        document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', photoswipeTemplate);
     }
 
     /**
@@ -49,34 +53,39 @@ $(function () {
         var photoswipeContainer = document.querySelectorAll('.pswp')[0];
         var items = [];
 
-        $('a.lightbox[rel=' + gid + ']').each(function(){
-            var caption = '';
-            if($(this).data('lightbox-caption')) {
-                caption = $(this).data('lightbox-caption');
-            } else {
-                caption = $(this).next('figcaption').text();
+        Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).forEach(function(element) {
+            let title = null;
+            if (element.hasAttribute('title') && element.getAttribute('title') !== '') {
+                title = element.getAttribute('title');
             }
-            var title = $(this).attr("title");
-            if(!title && caption) {
-                title = '--none--'
+            let caption = null;
+            if ("lightboxCaption" in element.dataset && element.dataset.lightboxCaption !== '') {
+                caption = element.dataset.lightboxCaption
+            } else if (element.parentNode.querySelector('figcaption') && element.parentNode.querySelector('figcaption').textContent !== '') {
+                caption = element.parentNode.querySelector('figcaption').textContent
             }
-            items.push({
-                src: $(this).attr('href'),
+            if (caption) {
+                caption = caption.replace(/(?:\r\n|\r|\n)/g, '<br />');
+            }
+            let item = {
+                src: element.getAttribute('href'),
                 title: title,
-                w: $(this).data('lightbox-width'),
-                h: $(this).data('lightbox-height'),
-                caption: caption.replace(/(?:\r\n|\r|\n)/g, '<br />'),
-                pid: $(this).index('a.lightbox[rel=' + gid + ']'),
-            });
+                w: element.dataset.lightboxWidth,
+                h: element.dataset.lightboxHeight,
+                caption: caption,
+                pid: Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).indexOf(element)
+            };
+            items.push(item);
         });
+
         var options = {
             index: pid,
             addCaptionHTMLFn: function(item, captionEl) {
                 captionEl.children[0].innerHTML = '';
-                if(item.title && item.title !== '--none--') {
+                if(item.title && item.title !== '') {
                     captionEl.children[0].innerHTML += '<div class="pswp__caption__title">' + item.title + '</div>';
                 }
-                if(item.caption) {
+                if(item.caption && item.caption !== '') {
                     captionEl.children[0].innerHTML += '<div class="pswp__caption__subtitle">' + item.caption + '</div>';
                 }
                 return true;
@@ -98,7 +107,7 @@ $(function () {
             preloaderEl:    true,
         };
         if(items.length > 0) {
-            var gallery = new PhotoSwipe( photoswipeContainer, PhotoSwipeUI_Default, items, options);
+            var gallery = new PhotoSwipe(photoswipeContainer, PhotoSwipeUI_Default, items, options);
             gallery.init();
         }
     }
@@ -127,17 +136,20 @@ $(function () {
     };
     var photoSwipeHashData = getPhotoSwipeParamsFromHash();
     if(photoSwipeHashData.pid && photoSwipeHashData.gid) {
-        openPhotoSwipe( parseInt(photoSwipeHashData.pid) , photoSwipeHashData.gid);
+        openPhotoSwipe(parseInt(photoSwipeHashData.pid), photoSwipeHashData.gid);
     }
 
     /**
      * Register listener
      */
-    $('a.lightbox').on('click',function(e){
-        e.preventDefault();
-        var gid = $(this).attr('rel');
-        var pid = $(this).index('a.lightbox[rel=' + gid + ']');
-        openPhotoSwipe(pid, gid);
+    Array.from(document.querySelectorAll('a.lightbox')).forEach(function(element) {
+        element.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            let gid = element.getAttribute('rel');
+            let pid = Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).indexOf(element);
+            openPhotoSwipe(pid, gid);
+        });
     });
 
 });
