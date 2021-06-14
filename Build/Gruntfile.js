@@ -144,10 +144,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.popover.js',
                 dest: '<%= paths.js %>Dist/bootstrap.popover.min.js'
             },
-            bootstrapSwipe: {
-                src: '<%= paths.js %>Src/bootstrap.swipe.js',
-                dest: '<%= paths.js %>Dist/bootstrap.swipe.min.js'
-            },
             bootstrapSmoothscroll: {
                 src: '<%= paths.js %>Src/bootstrap.smoothscroll.js',
                 dest: '<%= paths.js %>Dist/bootstrap.smoothscroll.min.js'
@@ -185,7 +181,6 @@ module.exports = function(grunt) {
             contrib: {
                 files: {
                     '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js',
-                    '<%= paths.contrib %>hammerjs/hammer.min.js': '<%= paths.contrib %>hammerjs/hammer.min.js',
                     '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js'
                 }
             }
@@ -224,10 +219,6 @@ module.exports = function(grunt) {
             bootstrapPopover: {
                 files: '<%= paths.js %>Src/bootstrap.popover.js',
                 tasks: 'uglify:bootstrapPopover'
-            },
-            bootstrapSwipe: {
-                files: '<%= paths.js %>Src/bootstrap.swipe.js',
-                tasks: 'uglify:bootstrapSwipe'
             },
             bootstrapSmoothscroll: {
                 files: '<%= paths.js %>Src/bootstrap.smoothscroll.js',
@@ -318,18 +309,6 @@ module.exports = function(grunt) {
                             'cookieconsent.min.js',
                         ],
                         dest: '<%= paths.contrib %>cookieconsent/',
-                        expand: true
-                    }
-                ]
-            },
-            hammerjs: {
-                files: [
-                    {
-                        cwd: '<%= paths.node %>hammerjs/',
-                        src: [
-                            'hammer.min.js'
-                        ],
-                        dest: '<%= paths.contrib %>hammerjs/',
                         expand: true
                     }
                 ]
