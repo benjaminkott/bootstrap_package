@@ -535,11 +535,6 @@ parameters:
 			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
 
 		-
-			message: "#^Call to an undefined method TYPO3Fluid\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContextInterface\\:\\:getUriBuilder\\(\\)\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
-
-		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
 			count: 1
 			path: ../Tests/Packages/demo_package/ext_emconf.php

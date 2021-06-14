@@ -42,8 +42,16 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
             $arguments['paginate'][$paginationId]['page'] = $paginationPage;
         }
 
-        /** @var UriBuilder $uriBuilder */
-        $uriBuilder = $this->renderingContext->getUriBuilder();
+        if (method_exists($this->renderingContext, 'getUriBuilder')) {
+            /** @var UriBuilder $uriBuilder */
+            $uriBuilder = $this->renderingContext->getUriBuilder();
+        } elseif (method_exists($this->renderingContext, 'getControllerContext')) {
+            /** @var UriBuilder $uriBuilder */
+            $uriBuilder = $this->renderingContext->getControllerContext()->getUriBuilder();
+        } else {
+            return $this->renderChildren();
+        }
+
         $uriBuilder->reset()->setArguments($arguments);
 
         $uri = $uriBuilder->build();
