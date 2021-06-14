@@ -1,68 +1,94 @@
-$(function() {
+/* ========================================================================
+ * Navbar
+ * ======================================================================== */
+
+$(function () {
 
     /**
      * Toggle collapsed class on navbar toggle button to change
      * the appearance of the toggle button when navbar is open
      */
-    $('.navbar-collapse')
-        .on('show.bs.collapse', function () {
-            $('.navbar-toggle').removeClass('collapsed');
-        })
-        .on('hide.bs.collapse', function () {
-            $('.navbar-toggle').addClass('collapsed');
-        });
+     $('.navbar-collapse')
+     .on('show.bs.collapse', function () {
+         $('.navbar-toggle').removeClass('collapsed');
+     })
+     .on('hide.bs.collapse', function () {
+         $('.navbar-toggle').addClass('collapsed');
+     });
+
+});
+
+
+window.addEventListener('DOMContentLoaded', function() {
 
     /**
      * Solution to enable links on dropdowns, the link will only be triggered
      * if the dropdown is visible. On touch devices you will need to double
      * click on a dropdown, the first click will open the menu.
      */
-    function navbarPointerOver($element) {
-        if($('.navbar-toggler').is(':hidden') && !$element.hasClass('open')) {
-            $element.parent().parent().find('li').removeClass('show');
-            $element.addClass('show');
-            $element.find('> .dropdown-toggle').attr("aria-expanded", "true");
-            $element.find('> .dropdown-menu').addClass('show');
+    function navbarPointerOver(element) {
+        let toggle = document.querySelector('.navbar-toggler');
+        if (window.getComputedStyle(toggle).display === 'none' && element.classList.contains('open') === false) {
+            Array.from(element.parentElement.parentElement.querySelectorAll('li')).forEach(function(listItem) {
+                listItem.classList.remove('show');
+            });
+            element.classList.add('show');
+            element.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
+            element.querySelector('.dropdown-menu').classList.add('show');
         }
     }
-    function navbarPointerLeave($element) {
-        if ($('.navbar-toggler').is(':hidden')) {
-            $element.removeClass('show');
-            $element.find('> .dropdown-toggle').attr("aria-expanded", "false");
-            $element.find('> .dropdown-menu').removeClass('show');
+    function navbarPointerLeave(element) {
+        let toggle = document.querySelector('.navbar-toggler');
+        if (window.getComputedStyle(toggle).display === 'none') {
+            element.classList.remove('show');
+            element.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+            element.querySelector('.dropdown-menu').classList.remove('show');
         }
     }
-    $(document).on('pointerover', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse") {
-            navbarPointerOver($(this));
-        }
+
+    Array.from(document.querySelectorAll('li.dropdown-hover')).forEach(function(element) {
+        element.addEventListener('pointerover', (e) => {
+            if (e.pointerType === "mouse") {
+                navbarPointerOver(element);
+            }
+        });
+        element.addEventListener('mouseenter', () => {
+            if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+                navbarPointerOver(element);
+            }
+        });
+        element.addEventListener('pointerleave', (e) => {
+            if (e.pointerType === "mouse") {
+                navbarPointerLeave(element);
+            }
+        });
+        element.addEventListener('mouseleave', () => {
+            if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+                navbarPointerLeave(element);
+            }
+        });
     });
-    $(document).on('mouseenter', 'li.dropdown-hover', function () {
-        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-            navbarPointerOver($(this));
-        }
+
+    Array.from(document.querySelectorAll('.nav-link')).forEach(function(element) {
+        element.addEventListener('click', (e) => {
+            let listElement = element.parentElement;
+            if (listElement.classList.contains('dropdown-hover') && listElement.classList.contains('show') === false) {
+                let listElementSiblings = listElement.parentElement.querySelectorAll('.dropdown-hover');
+                Array.from(listElementSiblings).forEach(function(listElementsSibling) {
+                    listElementsSibling.setAttribute('aria-expanded', 'false')
+                });
+                let listElementMenus = listElement.parentElement.querySelectorAll('.dropdown-menu');
+                Array.from(listElementMenus).forEach(function(listElementMenu) {
+                    listElementMenu.classList.remove('show');
+                });
+                listElement.classList.add('show');
+                listElement.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
+                listElement.querySelector('.dropdown-menu').classList.add('show');
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                return false;
+            }
+        });
     });
-    $(document).on('pointerleave', 'li.dropdown-hover', function (e) {
-        if (e.originalEvent.pointerType === "mouse") {
-            navbarPointerLeave($(this));
-        }
-    });
-    $(document).on('mouseleave', 'li.dropdown-hover', function () {
-        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-            navbarPointerLeave($(this));
-        }
-    });
-    $(document).on('click', '.nav-link', function(e) {
-        if ($(this).parent().hasClass('dropdown-hover') && !$(this).parent().hasClass('show')) {
-            $(this).parent().parent().find('.dropdown-hover').removeClass('show');
-            $(this).parent().parent().find('.dropdown-hover').find('> .dropdown-toggle').attr("aria-expanded", "false");
-            $(this).parent().parent().find('.dropdown-hover').find('> .dropdown-menu').removeClass('show');
-            $(this).parent().addClass('show');
-            $(this).parent().find('> .dropdown-toggle').attr("aria-expanded", "true");
-            $(this).parent().find('> .dropdown-menu').addClass('show');
-            e.stopImmediatePropagation();
-            e.preventDefault();
-            return false;
-        }
-    });
+
 });
