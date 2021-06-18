@@ -3,6 +3,7 @@
 <div id="top"></div>
 <div class="body-bg{f:if(condition:theme.navigation.type, then:' body-bg-{theme.navigation.type}')}">
 
+    <f:render partial="DropIn/Page/PageBefore" arguments="{_all}" />
     <f:render partial="Structure/CookieConsent" arguments="{_all}" />
     <a class="sr-only sr-only-focusable" href="#page-content">
         <span>{f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}</span>
@@ -24,6 +25,7 @@
         <f:render partial="DropIn/Structure/FooterAfter" arguments="{_all}" />
     </footer>
     <f:render partial="Structure/ScrollTop" arguments="{_all}" />
+    <f:render partial="DropIn/Page/PageAfter" arguments="{_all}" />
 
 </div>
 </f:spaceless>
