@@ -22,7 +22,7 @@ class TextIconUtility
     public function addIconItems(array $parameters): void
     {
         $directory = $parameters['row']['icon_set'][0];
-        if ($directory !== '') {
+        if ($directory !== null && $directory !== '') {
             $icons = $this->getIcons($directory);
             if ($icons !== null) {
                 $parameters['items'] = array_merge($parameters['items'], $icons);
