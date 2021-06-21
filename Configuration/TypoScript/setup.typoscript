@@ -241,7 +241,7 @@ page {
             pageTitle = TEXT
             pageTitle.data = page:title
             siteTitle = TEXT
-            siteTitle.data = TSFE:tmpl|setup|sitetitle
+            siteTitle.data = siteLanguage:websiteTitle//site:websiteTitle//site:identifier
             rootPage = TEXT
             rootPage.data = leveluid:0
             pagelayout = TEXT
@@ -257,7 +257,7 @@ page {
             logoAlt {
                 10 = TEXT
                 10 {
-                    data = TSFE:tmpl|setup|sitetitle
+                    data = siteLanguage:websiteTitle//site:websiteTitle//site:identifier
                     noTrimWrap = || logo|
                     if.isFalse = {$page.logo.alt}
                 }
