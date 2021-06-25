@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['media'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media',
         'media',
-        'mimetypes-x-content-multimedia'
+        'mimetypes-x-content-multimedia',
+        'bootstrap_package'
     ],
     'listgroup',
     'after'

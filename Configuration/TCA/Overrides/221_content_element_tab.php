@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['tab'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.tab',
         'tab',
-        'content-bootstrappackage-tab'
+        'content-bootstrappackage-tab',
+        'bootstrap_package'
     ],
     'social_links',
     'after'

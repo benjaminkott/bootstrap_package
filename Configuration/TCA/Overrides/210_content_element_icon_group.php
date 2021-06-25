@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['icon_group'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group',
         'icon_group',
-        'content-bootstrappackage-icon-group'
+        'content-bootstrappackage-icon-group',
+        'bootstrap_package'
     ],
     'external_media',
     'after'

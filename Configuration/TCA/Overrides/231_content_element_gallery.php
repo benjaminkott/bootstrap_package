@@ -28,9 +28,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['gallery'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery',
         'gallery',
-        'content-bootstrappackage-gallery'
+        'content-bootstrappackage-gallery',
+        'bootstrap_package'
     ],
-    'image',
+    'external_media',
     'after'
 );
 

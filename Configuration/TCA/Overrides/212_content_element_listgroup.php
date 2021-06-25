@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
         'listgroup',
-        'content-bootstrappackage-listgroup'
+        'content-bootstrappackage-listgroup',
+        'bootstrap_package'
     ],
     'icon_group',
     'after'

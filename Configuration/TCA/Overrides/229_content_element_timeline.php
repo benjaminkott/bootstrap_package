@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline',
         'timeline',
-        'content-bootstrappackage-timeline'
+        'content-bootstrappackage-timeline',
+        'bootstrap_package'
     ],
     'textteaser',
     'after'

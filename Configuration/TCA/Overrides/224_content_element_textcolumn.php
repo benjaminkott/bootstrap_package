@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn',
         'textcolumn',
-        'content-text-columns'
+        'content-text-columns',
+        'bootstrap_package'
     ],
     'tab',
     'after'

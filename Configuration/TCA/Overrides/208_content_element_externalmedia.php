@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
         'external_media',
-        'content-bootstrappackage-externalmedia'
+        'content-bootstrappackage-externalmedia',
+        'bootstrap_package'
     ],
     'csv',
     'after'

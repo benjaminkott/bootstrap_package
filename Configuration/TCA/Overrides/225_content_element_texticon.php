@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon',
         'texticon',
-        'content-bootstrappackage-texticon'
+        'content-bootstrappackage-texticon',
+        'bootstrap_package'
     ],
     'textcolumn',
     'after'

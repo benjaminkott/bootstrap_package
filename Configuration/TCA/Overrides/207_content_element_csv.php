@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.csv',
         'csv',
-        'content-bootstrappackage-csv'
+        'content-bootstrappackage-csv',
+        'bootstrap_package'
     ],
     'carousel_fullscreen',
     'after'

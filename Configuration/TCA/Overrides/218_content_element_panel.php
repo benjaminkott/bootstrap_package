@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
         'panel',
-        'content-panel'
+        'content-panel',
+        'bootstrap_package'
     ],
     'menu_thumbnail_dir',
     'after'

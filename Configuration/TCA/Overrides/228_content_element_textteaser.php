@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textteaser'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textteaser',
         'textteaser',
-        'content-text-teaser'
+        'content-text-teaser',
+        'bootstrap_package'
     ],
     'texticon',
     'after'

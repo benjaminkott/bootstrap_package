@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote',
         'quote',
-        'content-quote'
+        'content-quote',
+        'bootstrap_package'
     ],
     'panel',
     'after'

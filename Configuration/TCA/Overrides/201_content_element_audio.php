@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio',
         'audio',
-        'content-audio'
+        'content-audio',
+        'bootstrap_package'
     ],
     'accordion',
     'after'

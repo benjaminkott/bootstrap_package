@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['card_group'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group',
         'card_group',
-        'content-bootstrappackage-card-group'
+        'content-bootstrappackage-card-group',
+        'bootstrap_package'
     ],
     'audio',
     'after'

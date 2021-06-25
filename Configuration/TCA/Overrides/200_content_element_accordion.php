@@ -28,10 +28,9 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['accordion'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion',
         'accordion',
-        'content-bootstrappackage-accordion'
-    ],
-    '--div--',
-    'after'
+        'content-bootstrappackage-accordion',
+        'bootstrap_package'
+    ]
 );
 
 // Assign Icon

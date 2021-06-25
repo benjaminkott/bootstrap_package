@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
         'carousel',
-        'content-bootstrappackage-carousel'
+        'content-bootstrappackage-carousel',
+        'bootstrap_package'
     ],
     'card_group',
     'after'

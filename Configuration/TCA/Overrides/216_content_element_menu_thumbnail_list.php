@@ -28,7 +28,8 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'])) {
     [
         'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list',
         'menu_thumbnail_list',
-        'content-menu-thumbnail'
+        'content-menu-thumbnail',
+        'bootstrap_package'
     ],
     'menu_card_dir',
     'after'
