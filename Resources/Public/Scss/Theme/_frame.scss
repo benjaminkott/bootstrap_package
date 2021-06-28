@@ -252,8 +252,14 @@ $frame-backgrounds: map-merge(
 // Height
 // --------------------------------------------------
 .frame-height-small,
-.frame-height-medium {
+.frame-height-medium,
+.frame-height-max {
     display: flex;
+    .frame-group-container,
+    .frame-group-inner {
+        display: flex;
+        flex-grow: 1;
+    }
     .frame-container {
         display: flex;
         align-items: center;
@@ -274,11 +280,6 @@ $frame-backgrounds: map-merge(
         min-height: 500px;
     }
 }
-.frame-height-max {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-}
 
 //
 // Background
@@ -295,6 +296,13 @@ $frame-backgrounds: map-merge(
 %frame-collapsible {
     --frame-outer-spacing-before: calc(-1 * var(--frame-spacing));
 }
+@mixin make-frame-collapsible($name) {
+    .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+    .frame-size-default.frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
+        @extend %frame-collapsible;
+    }
+}
+@include make-frame-collapsible('none');
 @each $name, $settings in $frame-backgrounds {
     .frame-background-#{$name} {
         @extend %frame-has-backgroundimage;
@@ -315,10 +323,7 @@ $frame-backgrounds: map-merge(
             --frame-link-hover-color: #{$link-hover-color};
         }
     }
-    .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-    .frame-size-default.frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
-        @extend %frame-collapsible;
-    }
+    @include make-frame-collapsible($name);
 }
 .frame-layout-embedded.frame-space-after-none:not(.frame-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-ruler-before) {
     @extend %frame-collapsible;

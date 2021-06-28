@@ -10209,18 +10209,31 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .frame-height-small,
-.frame-height-medium {
+.frame-height-medium,
+.frame-height-max {
   display: flex;
 }
 
+.frame-height-small .frame-group-container,
+.frame-height-small .frame-group-inner,
+.frame-height-medium .frame-group-container,
+.frame-height-medium .frame-group-inner,
+.frame-height-max .frame-group-container,
+.frame-height-max .frame-group-inner {
+  display: flex;
+  flex-grow: 1;
+}
+
 .frame-height-small .frame-container,
-.frame-height-medium .frame-container {
+.frame-height-medium .frame-container,
+.frame-height-max .frame-container {
   display: flex;
   align-items: center;
 }
 
 .frame-height-small .frame-inner,
-.frame-height-medium .frame-inner {
+.frame-height-medium .frame-inner,
+.frame-height-max .frame-inner {
   flex-grow: 1;
 }
 
@@ -10244,12 +10257,6 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-.frame-height-max {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-}
-
 .container .frame-has-backgroundimage:not(.frame-layout-embedded),
 .container .frame-background-primary:not(.frame-layout-embedded),
 .container .frame-background-secondary:not(.frame-layout-embedded),
@@ -10259,7 +10266,8 @@ a.text-dark:hover, a.text-dark:focus {
   padding-right: var(--frame-spacing);
 }
 
-.frame-size-default.frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
 .frame-size-default.frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
 .frame-size-default.frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
 .frame-size-default.frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
