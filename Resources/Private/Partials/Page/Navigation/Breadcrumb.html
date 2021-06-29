@@ -6,18 +6,20 @@
                 <p class="sr-only" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
                     <f:for each="{breadcrumb}" as="item">
-                        <li class="breadcrumb-item{f:if(condition: item.current, then: ' active')}"{f:if(condition: item.current, then: ' aria-current="page"')}>
-                            <f:if condition="{item.current} && {breadcrumbExtendedValue} == ''">
-                                <f:then>
+                        <f:if condition="{item.current}">
+                            <f:then>
+                                <li class="breadcrumb-item{f:if(condition: breadcrumbExtendedValue, else: ' active')}"{f:if(condition: breadcrumbExtendedValue, else: ' aria-current="page"')}>
                                     <f:render section="BreadcrumbTitle" arguments="{item: item, theme: theme}" />
-                                </f:then>
-                                <f:else>
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li class="breadcrumb-item">
                                     <a class="breadcrumb-link" href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
                                         <f:render section="BreadcrumbTitle" arguments="{item: item, theme: theme}" />
                                     </a>
-                                </f:else>
-                            </f:if>
-                        </li>
+                                </li>
+                            </f:else>
+                        </f:if>
                     </f:for>
                     <f:if condition="{breadcrumbExtendedValue}">
                         <li class="breadcrumb-item active" aria-current="page">
