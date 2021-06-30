@@ -79,7 +79,6 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     'showSynchronizationLink' => true,
                     'showAllLocalizationLink' => true,
                     'showPossibleLocalizationRecords' => true,
-                    'showRemovedLocalizationRecords' => false,
                     'expandSingle' => true,
                     'enabledControls' => [
                         'localize' => true,

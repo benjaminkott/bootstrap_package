@@ -136,7 +136,6 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = 
             'showSynchronizationLink' => true,
             'showAllLocalizationLink' => true,
             'showPossibleLocalizationRecords' => true,
-            'showRemovedLocalizationRecords' => false,
             'expandSingle' => true,
             'enabledControls' => [
                 'localize' => true,
