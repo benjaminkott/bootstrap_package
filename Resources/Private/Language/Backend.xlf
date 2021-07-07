@@ -16,6 +16,10 @@
                 <source>Thumbnail</source>
             </trans-unit>
 
+            <trans-unit id="web_info.page_1574005852">
+                <source>Backend Layouts</source>
+            </trans-unit>
+
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
             </trans-unit>
