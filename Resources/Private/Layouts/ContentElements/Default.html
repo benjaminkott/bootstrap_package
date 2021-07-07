@@ -3,7 +3,7 @@
 
     <bk2k:data.imageVariants as="variants" variants="{settings.responsiveimages.variants}" />
     <f:variable name="backendlayoutConfig">{settings.responsiveimages.backendlayout.{backendlayout}}</f:variable>
-    <f:variable name="columnConfig">{backendlayoutConfig.{data.colPos}}</f:variable>
+    <f:variable name="columnConfig">{backendlayoutConfig.{backendlayoutColPos}}</f:variable>
     <f:if condition="{columnConfig}">
         <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
     </f:if>

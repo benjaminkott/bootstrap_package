@@ -50,6 +50,15 @@ lib.contentElement {
             }
             ifEmpty = default
         }
+        backendlayoutColPos = TEXT
+        backendlayoutColPos {
+            # Set default
+            # This is needed in case the content element is rendered out of the structure context. A use case would
+            # be to render the content element with TS without using fluid and without setting the register `colPos`.
+            value = 0
+            # Set from register if set
+            override.data = register:colPos
+        }
     }
 
     ################
