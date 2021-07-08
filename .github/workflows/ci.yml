@@ -44,6 +44,13 @@ jobs:
         run: |
           composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
           git checkout composer.json
+
+      - name: Workaround V11 - Forge Issue 94422
+        if: matrix.typo3 == '^11'
+        run: |
+          composer req guzzlehttp/psr7:^1.7.0
+          git checkout composer.json
+
       - name: Lint
         run: |
           composer test:php:lint
