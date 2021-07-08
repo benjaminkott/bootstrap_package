@@ -43,6 +43,15 @@ class ImageVariantsUtilityTest extends UnitTestCase
                 [],
                 [
                     'default' => [
+                        'breakpoint' => 1400,
+                        'width' => 1280,
+                        'sizes' => [
+                            '1x' => [
+                                'multiplier' => 1
+                            ]
+                        ]
+                    ],
+                    'xlarge' => [
                         'breakpoint' => 1200,
                         'width' => 1100,
                         'sizes' => [

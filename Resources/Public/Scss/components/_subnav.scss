@@ -1,0 +1,85 @@
+//
+// Variables
+// --------------------------------------------------
+$subnav-font-size:            $font-size-base * .875 !default;
+$subnav-line-height:          1.25 !default;
+$subnav-link-padding-x:       1rem !default;
+$subnav-link-padding-y:       .5rem !default;
+$subnav-border-color:         #e6e6e6 !default;
+$subnav-color:                rgba($black, .5) !default;
+$subnav-hover-color:          rgba($black, .7) !default;
+$subnav-hover-bg:             #f2f2f2 !default;
+$subnav-active-color:         $link-color !default;
+$subnav-active-bg:            transparent !default;
+
+//
+// Subnav
+// --------------------------------------------------
+.subnav-nav {
+    font-size: $subnav-font-size;
+    line-height: $subnav-line-height;
+    color: $subnav-color;
+    width: 100%;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    .subnav-nav {
+        margin-top: -1px;
+        border-left: $subnav-link-padding-x solid lighten($subnav-border-color, 7%);
+        &:before {
+            position: absolute;
+            content: '';
+            width: 1px;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background-color: $subnav-border-color;
+        }
+    }
+}
+.subnav-divider {
+    height: $subnav-link-padding-y;
+    .subnav-item & {
+        background-color: lighten($subnav-border-color, 7%);
+        border-right: 1px solid $subnav-border-color;
+    }
+}
+.subnav-item {
+    position: relative;
+    & + .subnav-item {
+        margin-top: -1px;
+    }
+}
+.subnav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: $subnav-link-padding-y $subnav-link-padding-x;
+    color: inherit;
+    border: 1px solid $subnav-border-color;
+    transition: all .15s ease-in-out;
+    text-decoration: none;
+    .active > & {
+        color: $subnav-active-color !important;
+        background-color: $subnav-active-bg;
+    }
+    &:hover,
+    &:focus {
+        z-index: 1;
+        position: relative;
+        text-decoration: none;
+        color: $subnav-hover-color;
+        background-color: $subnav-hover-bg;
+        border-color: darken($subnav-border-color, 5%);
+    }
+}
+.subnav-link-icon {
+    svg,
+    img {
+        display: block;
+        margin: 0;
+    }
+    & + .subnav-link-text {
+        margin-left: .5em;
+    }
+}

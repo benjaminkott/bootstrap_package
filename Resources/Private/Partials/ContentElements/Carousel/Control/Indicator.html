@@ -2,7 +2,7 @@
 <f:if condition="{records -> f:count()} > 1">
     <ol class="carousel-indicators{f:if(condition: data.pi_flexform.show_nav_title,then:' carousel-indicators-navigation')}">
         <f:for each="{records}" as="item" iteration="iteration">
-            <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}">
+            <li data-target="#carousel-{data.uid}" data-slide-to="{iteration.index}" data-bs-target="#carousel-{data.uid}" data-bs-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}">
                 <span>
                     <f:if condition="{item.data.nav_title}">
                         <f:then>{item.data.nav_title}</f:then>

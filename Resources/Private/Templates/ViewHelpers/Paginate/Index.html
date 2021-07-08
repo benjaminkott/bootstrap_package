@@ -1,12 +1,12 @@
 <f:if condition="{pagination.allPageNumbers -> f:count()} > 1">
-    <nav class="pagination" role="navigation" aria-label="{f:translate(key: 'pagination.aria.label', extensionName: 'BootstrapPackage')}">
-        <ul class="pagination-list">
+    <nav role="navigation" aria-label="{f:translate(key: 'pagination.aria.label', extensionName: 'BootstrapPackage')}">
+        <ul class="pagination">
 
             <f:if condition="{pagination.previousPageNumber}">
-                <li class="pagination-item pagination-item-previous">
+                <li class="page-item page-item-previous">
                     <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="BootstrapPackage" /></f:variable>
-                    <bk2k:link.paginate class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pagination.previousPageNumber}">
-                        <span class="pagination-itemtitle"><f:translate key="pagination.previous" extensionName="BootstrapPackage" /></span>
+                    <bk2k:link.paginate class="page-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pagination.previousPageNumber}">
+                        <span class="page-link-title"><f:translate key="pagination.previous" extensionName="BootstrapPackage" /></span>
                     </bk2k:link.paginate>
                 </li>
             </f:if>
@@ -15,17 +15,17 @@
                 <f:if condition="{pageNumber} == {paginator.currentPageNumber}">
                     <f:then>
                         <f:variable name="ariaLabel"><f:translate key="pagination.aria.current.page" arguments="{0: pageNumber}" extensionName="BootstrapPackage" /></f:variable>
-                        <li class="pagination-item pagination-item-active">
-                            <bk2k:link.paginate class="pagination-link" additionalAttributes="{aria-label: ariaLabel, aria-current: 'true'}" paginationId="{id}" paginationPage="{pageNumber}">
-                                <span class="pagination-itemtitle">{pageNumber}</span>
+                        <li class="page-item active">
+                            <bk2k:link.paginate class="page-link" additionalAttributes="{aria-label: ariaLabel, aria-current: 'true'}" paginationId="{id}" paginationPage="{pageNumber}">
+                                <span class="page-link-title">{pageNumber}</span>
                             </bk2k:link.paginate>
                         </li>
                     </f:then>
                     <f:else>
                         <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: pageNumber}" extensionName="BootstrapPackage" /></f:variable>
-                        <li class="pagination-item">
-                            <bk2k:link.paginate class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pageNumber}">
-                                <span class="pagination-itemtitle">{pageNumber}</span>
+                        <li class="page-item">
+                            <bk2k:link.paginate class="page-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pageNumber}">
+                                <span class="page-link-title">{pageNumber}</span>
                             </bk2k:link.paginate>
                         </li>
                     </f:else>
@@ -33,10 +33,10 @@
             </f:for>
 
             <f:if condition="{pagination.nextPageNumber}">
-                <li class="pagination-item pagination-item-next">
+                <li class="page-item page-item-next">
                     <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.next" extensionName="BootstrapPackage" /></f:variable>
-                    <bk2k:link.paginate class="pagination-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pagination.nextPageNumber}">
-                        <span class="pagination-itemtitle"><f:translate key="pagination.next" extensionName="BootstrapPackage" /></span>
+                    <bk2k:link.paginate class="page-link" additionalAttributes="{aria-label: ariaLabel}" paginationId="{id}" paginationPage="{pagination.nextPageNumber}">
+                        <span class="page-link-title"><f:translate key="pagination.next" extensionName="BootstrapPackage" /></span>
                     </bk2k:link.paginate>
                 </li>
             </f:if>

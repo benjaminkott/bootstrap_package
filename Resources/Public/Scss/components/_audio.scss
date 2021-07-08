@@ -1,0 +1,18 @@
+//
+// Audio
+// --------------------------------------------------
+audio {
+    display: block;
+    width: 100%;
+}
+.audio-list {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+.audio-list-item + .audio-list-item {
+    margin-top: $spacer * 1.5;
+}
+.audio-heading {
+    font-size: 1.25rem;
+}

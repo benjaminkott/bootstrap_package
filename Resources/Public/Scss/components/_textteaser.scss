@@ -1,0 +1,26 @@
+//
+// Textteaser
+// --------------------------------------------------
+.textteaser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer;
+    @include media-breakpoint-up('md') {
+        gap: $grid-gutter-width;
+    }
+}
+.textteaser-item {
+    order: 1;
+    width: 100%;
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+@include media-breakpoint-up('md') {
+    .textteaser-teaser {
+        width: calc((100% / 12 * 4) - (#{$grid-gutter-width} / 2));
+    }
+    .textteaser-text {
+        width: calc((100% / 12 * 8) - (#{$grid-gutter-width} / 2));
+    }
+}

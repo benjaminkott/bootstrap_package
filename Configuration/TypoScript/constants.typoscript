@@ -62,7 +62,7 @@ page {
         navigation {
             # cat=bootstrap package: navigation/151/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
             style = default
-            # cat=bootstrap package: navigation/151/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
+            # cat=bootstrap package: navigation/151/101; type=options[Default=, Fixed Top=top]; label=Navigation Type
             type =
             icon {
                 # cat=bootstrap package: navigation/151/102; type=boolean; label=Navigation Icon Enable
@@ -313,4 +313,4 @@ plugin.bootstrap_package {
 ###################
 #### FRAMEWORK ####
 ###################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap4/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/constants.typoscript">

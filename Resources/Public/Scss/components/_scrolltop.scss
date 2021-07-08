@@ -1,0 +1,53 @@
+//
+// Variables
+// --------------------------------------------------
+$scrolltop-bg:          $gray-700 !default;
+$scrolltop-color:       #ffffff !default;
+$scrolltop-hover-bg:    $primary !default;
+$scrolltop-hover-color: #ffffff !default;
+
+//
+// Scrolltop
+// --------------------------------------------------
+.scroll-top {
+    overflow: hidden;
+    @include transition(all .3s ease-in-out);
+    z-index: $zindex-sticky;
+    background-color: $scrolltop-bg;
+    color: $scrolltop-color;
+    bottom: ($grid-gutter-width / 2);
+    right: ($grid-gutter-width / 2);
+    position: fixed;
+    opacity: 0;
+    width: 3em;
+    height: 3em;
+    @include border-radius(4px);
+    &:active,
+    &:focus,
+    &:hover {
+        color: $scrolltop-hover-color;
+        background-color: $scrolltop-hover-bg;
+    }
+    .scroll-top-icon {
+        transform: rotate(45deg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        &:before {
+            content: '';
+            position: absolute;
+            height: 30%;
+            width: 30%;
+            border-top: 1px solid;
+            border-left: 1px solid;
+            top: 55%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &.scroll-top-visible {
+        opacity: 1;
+    }
+}

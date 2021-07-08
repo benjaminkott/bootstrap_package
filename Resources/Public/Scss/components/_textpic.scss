@@ -1,0 +1,57 @@
+//
+// Textpic and Textmedia
+// --------------------------------------------------
+.textmedia,
+.textpic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-gutter-width;
+}
+.textmedia-item,
+.textpic-item {
+    order: 1;
+    width: 100%;
+}
+.textmedia-text,
+.textpic-text {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Alignments
+// --------------------------------------------------
+.textmedia-centered,
+.textpic-centered {
+    align-items: center;
+}
+.textmedia-below,
+.textpic-below {
+    .textmedia-text,
+    .textpic-text {
+        order: 0;
+    }
+    .textmedia-gallery,
+    .textpic-gallery {
+        margin-bottom: 0;
+    }
+}
+@include media-breakpoint-up('md') {
+    .textmedia-right,
+    .textmedia-left,
+    .textpic-right,
+    .textpic-left {
+        .textmedia-item,
+        .textpic-item {
+            width: calc(50% - (#{$grid-gutter-width} / 2));
+        }
+    }
+    .textmedia-right,
+    .textpic-right {
+        .textmedia-gallery,
+        .textpic-gallery {
+            order: 2;
+        }
+    }
+}

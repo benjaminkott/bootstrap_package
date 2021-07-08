@@ -13,18 +13,24 @@
         </f:if>
         <f:variable name="currentVariants" value="{variants}" />
 
-        <ul class="nav nav-tabs tab-navigation" id="tab-{data.uid}" role="tablist">
-            <f:for each="{records}" as="record" iteration="iteration">
-                <li class="nav-item{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}">
-                    <a href="#tabcontent-{data.uid}-{record.data.uid}" id="tab-{data.uid}-{record.data.uid}" class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" data-toggle="tab" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
+
+        <nav class="tab-navigation">
+            <div class="nav nav-tabs" id="tab-{data.uid}" role="tablist">
+                <f:for each="{records}" as="record" iteration="iteration">
+                    <button class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" id="tab-{data.uid}-{record.data.uid}" data-toggle="tab" data-target="#tabcontent-{data.uid}-{record.data.uid}" data-bs-toggle="tab" data-bs-target="#tabcontent-{data.uid}-{record.data.uid}" type="button" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
                         <span>{record.data.header}</span>
-                    </a>
-                </li>
-            </f:for>
-        </ul>
+                    </button>
+                </f:for>
+            </div>
+        </nav>
+
+
+
+
         <div class="tab-content" id="tabcontent-{data.uid}">
             <f:for each="{records}" as="record" iteration="iteration">
-                <div role="tabpanel" class="tab-pane fade{f:if(condition: '{activeTab} == {record.data.uid}',then: ' show in active')}" id="tabcontent-{data.uid}-{record.data.uid}">
+                <div class="tab-pane fade{f:if(condition: '{activeTab} == {record.data.uid}',then: ' show active')}" id="tabcontent-{data.uid}-{record.data.uid}" role="tabpanel" aria-labelledby="tab-{data.uid}-{record.data.uid}">
+
                     <div class="tab-pane-content tab-pane-content-{record.data.mediaorient}">
                         <f:if condition="{record.files}">
                             <div class="tab-pane-content-item tab-pane-content-media">
@@ -38,6 +44,7 @@
                         </div>
                     </div>
                 </div>
+
             </f:for>
         </div>
 

@@ -1,0 +1,18 @@
+//
+// Button
+// --------------------------------------------------
+.btn-default {
+    @include button-variant($default, $default);
+}
+.btn-outline-default {
+    @include button-outline-variant($default);
+}
+.btn-icon {
+    margin-right: .25em;
+    svg {
+        vertical-align: text-top;
+        display: inline-block;
+        height: 1.25em;
+        width: 1.25em;
+    }
+}

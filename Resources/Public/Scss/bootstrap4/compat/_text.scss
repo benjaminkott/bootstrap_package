@@ -1,0 +1,23 @@
+//
+// Text Alignment
+// --------------------------------------------------
+.text-start {
+    @extend .text-left;
+}
+.text-end {
+    @extend .text-right;
+}
+
+//
+// Display Sizes
+//
+.display-5 {
+    @include font-size($display5-size);
+    font-weight: $display5-weight;
+    line-height: $display-line-height;
+}
+.display-6 {
+    @include font-size($display6-size);
+    font-weight: $display6-weight;
+    line-height: $display-line-height;
+}

@@ -38,3 +38,13 @@ defined('TYPO3') or die('Access denied.');
     'Configuration/TypoScript/Bootstrap4',
     'Bootstrap Package: Bootstrap 4.x (SCSS)'
 );
+
+/***************
+ * TypoScript: Framework
+ * Include Bootstrap 5.x (SCSS) Assets
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    'bootstrap_package',
+    'Configuration/TypoScript/Bootstrap5',
+    'Bootstrap Package: Bootstrap 5.x (SCSS)'
+);

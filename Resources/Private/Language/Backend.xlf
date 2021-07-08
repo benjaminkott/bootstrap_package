@@ -881,6 +881,9 @@
             <trans-unit id="option.primary">
                 <source>Primary</source>
             </trans-unit>
+            <trans-unit id="option.secondary">
+                <source>Secondary</source>
+            </trans-unit>
             <trans-unit id="option.success">
                 <source>Success</source>
             </trans-unit>
@@ -892,6 +895,18 @@
             </trans-unit>
             <trans-unit id="option.danger">
                 <source>Danger</source>
+            </trans-unit>
+            <trans-unit id="option.lighter">
+                <source>Lighter</source>
+            </trans-unit>
+            <trans-unit id="option.light">
+                <source>Light</source>
+            </trans-unit>
+            <trans-unit id="option.dark">
+                <source>Dark</source>
+            </trans-unit>
+            <trans-unit id="option.darker">
+                <source>Darker</source>
             </trans-unit>
 
             <trans-unit id="ratio.16_9">

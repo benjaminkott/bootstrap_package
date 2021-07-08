@@ -1,0 +1,61 @@
+//
+// Variables
+// --------------------------------------------------
+$cardmenu-gap: $spacer !default;
+
+//
+// CSS Variables
+// --------------------------------------------------
+:root {
+    --cardmenu-gap: #{$cardmenu-gap};
+    --cardmenu-columns: 1;
+}
+
+//
+// Card Menu Element
+// --------------------------------------------------
+.card-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cardmenu-gap);
+}
+.card-menu-item {
+    width: calc((100% / var(--cardmenu-columns)) - (var(--cardmenu-gap) * (var(--cardmenu-columns) - 1)) / var(--cardmenu-columns));
+    .card {
+        height: 100%;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
+    }
+    .card-footer {
+        border-top: 0;
+        background-color: transparent;
+    }
+}
+.card-menu-align-left {
+    justify-content: flex-start;
+}
+.card-menu-align-center {
+    justify-content: center;
+}
+.card-menu-align-right {
+    justify-content: flex-end;
+}
+.card-menu-columns-2 {
+    @include media-breakpoint-up('sm') {
+        --cardmenu-columns: 2;
+    }
+}
+.card-menu-columns-3 {
+    @include media-breakpoint-up('md') {
+        --cardmenu-columns: 3;
+    }
+}
+.card-menu-columns-4 {
+    @include media-breakpoint-up('sm') {
+        --cardmenu-columns: 2;
+    }
+    @include media-breakpoint-up('xl') {
+        --cardmenu-columns: 4;
+    }
+}
