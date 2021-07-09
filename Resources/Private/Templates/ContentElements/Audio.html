@@ -3,20 +3,20 @@
 <f:section name="Main">
 
     <f:if condition="{files}">
-        <ul class="media-list">
+        <ul class="audio-list">
             <f:for each="{files}" as="file">
                 <f:if condition="{file -> bk2k:file.isAudio()}">
-                    <li class="media">
-                        <div class="media-body">
-                            <h4 class="media-heading">
-                                <f:if condition="{file.properties.title}">
-                                    <f:then>{file.properties.title}</f:then>
-                                    <f:else>{file.properties.name}</f:else>
-                                </f:if>
-                            </h4>
-                            <f:if condition="{file.properties.description}">
-                                <p>{file.properties.description}</p>
+                    <li class="audio-list-item">
+                        <h4 class="audio-heading">
+                            <f:if condition="{file.properties.title}">
+                                <f:then>{file.properties.title}</f:then>
+                                <f:else>{file.properties.name}</f:else>
                             </f:if>
+                        </h4>
+                        <f:if condition="{file.properties.description}">
+                            <p class="audio-description">{file.properties.description}</p>
+                        </f:if>
+                        <div class="audio-file">
                             <f:media file="{file}" />
                         </div>
                     </li>

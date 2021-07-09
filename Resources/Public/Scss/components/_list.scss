@@ -1,0 +1,7 @@
+//
+// List
+// --------------------------------------------------
+ul.list-inline > li {
+    @extend .list-inline-item;
+    margin-bottom: 1px;
+}

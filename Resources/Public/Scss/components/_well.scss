@@ -1,0 +1,14 @@
+//
+// Well
+// --------------------------------------------------
+.well {
+    background-color: rgba(0, 0, 0, .05);
+    padding: ($spacer * 2);
+    margin-bottom: $spacer;
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}

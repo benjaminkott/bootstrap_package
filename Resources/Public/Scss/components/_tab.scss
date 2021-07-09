@@ -1,0 +1,56 @@
+//
+// Variables
+// --------------------------------------------------
+$tab-content-gap:   $spacer !default;
+
+//
+// Navigation
+//
+.tab-navigation {
+    margin-bottom: $spacer;
+}
+
+//
+// Content
+//
+.tab-pane-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $tab-content-gap;
+}
+.tab-pane-content-item {
+    order: 1;
+    width: 100%;
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.tab-pane-content-text {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+//
+// Position
+//
+.tab-pane-content-bottom {
+    .tab-pane-content-text {
+        order: 0;
+    }
+}
+.tab-pane-content-left {
+    .tab-pane-content-text {
+        order: 0;
+    }
+}
+@include media-breakpoint-up('md') {
+    .tab-pane-content-right,
+    .tab-pane-content-left {
+        .tab-pane-content-item {
+            width: calc(50% - (#{$tab-content-gap} / 2));
+        }
+    }
+}

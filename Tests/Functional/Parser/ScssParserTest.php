@@ -65,7 +65,7 @@ class ScssParserTest extends FunctionalTestCase
     {
         return [
             'direct include' => [
-                'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
+                'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss'
             ],
             'relative include from symlinked package' => [
                 'inputFile' => 'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
@@ -86,7 +86,7 @@ class ScssParserTest extends FunctionalTestCase
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
-            'typo3conf/ext/bootstrap_package/Resources/Public/Scss/Theme/theme.scss'
+            'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss'
         );
         self::assertFileContains(
             $compiledFile,

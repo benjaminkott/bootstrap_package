@@ -31,7 +31,7 @@
                                         </f:if>
                                     </span>
                                 </f:if>
-                                <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if></span>
+                                <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if></span>
                             </a>
                             <f:if condition="{item.children}">
                                 <f:render section="SubnavigationItem" arguments="{menu: item.children, theme: theme}" />

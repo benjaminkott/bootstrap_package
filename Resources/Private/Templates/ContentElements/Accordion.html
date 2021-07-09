@@ -7,17 +7,23 @@
         <f:variable name="currentVariants" value="{variants}" />
         <div class="accordion" id="accordion-{data.uid}">
             <f:for each="{records}" as="record" iteration="iteration">
-                <div class="accordion-item card">
-                    <div class="accordion-header card-header" id="accordion-heading-{data.uid}-{record.data.uid}">
-                        <h4 class="accordion-title">
-                            <a href="#accordion-{data.uid}-{record.data.uid}" class="accordion-title-link{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" data-toggle="collapse" data-parent="#accordion-{data.uid}" aria-expanded="{f:if(condition: '{activeElement} == {record.data.uid}', then: 'true', else: 'false')}" aria-controls="accordion-{data.uid}-{record.data.uid}">
-                                <span class="accordion-title-link-text">{record.data.header}</span>
-                                <span class="accordion-title-link-state"></span>
-                            </a>
-                        </h4>
-                    </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header" id="accordion-heading-{data.uid}-{record.data.uid}">
+                        <button class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" type="button"
+                            data-toggle="collapse"
+                            data-target="#accordion-{data.uid}-{record.data.uid}"
+                            data-parent="#accordion-{data.uid}"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordion-{data.uid}-{record.data.uid}"
+                            data-bs-parent="#accordion-{data.uid}"
+                            aria-expanded="{f:if(condition: '{activeElement} == {record.data.uid}', then: 'true', else: 'false')}"
+                            aria-controls="accordion-{data.uid}-{record.data.uid}"
+                        >
+                            {record.data.header}
+                        </button>
+                    </h4>
                     <div id="accordion-{data.uid}-{record.data.uid}" class="accordion-collapse collapse{f:if(condition: '{activeElement} == {record.data.uid}', then: ' show')}" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}" data-parent="#accordion-{data.uid}">
-                        <div class="accordion-body card-body">
+                        <div class="accordion-body">
                             <div class="accordion-content accordion-content-{record.data.mediaorient}">
                                 <f:if condition="{record.files}">
                                     <div class="accordion-content-item accordion-content-media">

@@ -1,0 +1,62 @@
+//
+// Variables
+// --------------------------------------------------
+$card-color:            $body-color !default;
+$card-title-size:       1.35rem !default;
+$card-subtitle-size:    1.25rem !default;
+$card-link-color:       $link-color !default;
+$card-link-hover-color: $link-hover-color !default;
+
+//
+// Card
+// --------------------------------------------------
+.card {
+    color: $card-color;
+    background: $card-bg;
+    a:not(.btn) {
+        color: $card-link-color;
+        &:hover {
+            color: $card-link-hover-color;
+        }
+    }
+}
+.card-img-top {
+    overflow: hidden;
+    picture,
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.card-body {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.card-title {
+    font-size: $card-title-size;
+    margin-bottom: 1rem;
+    a {
+        text-decoration: none;
+    }
+}
+.card-subtitle {
+    font-size: $card-subtitle-size;
+    margin-bottom: .5em;
+}
+.card-icon {
+    margin-bottom: .5em;
+}
+.card-footer {
+    padding: $card-spacer-x;
+}
+
+//
+// Submodules
+// --------------------------------------------------
+@import "card/cardgroup";
+@import "card/cardmenu";
+@import "card/cardpanel";

@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:link.typolink parameter="{item.data.link}" additionalAttributes="{draggable:'false'}">
-    <div class="valign">
-        <div class="carousel-image vcontainer">
+    <div class="carousel-content-inner">
+        <div class="carousel-image">
             <f:if condition="{item.images.0}">
                 <f:render partial="Media/Rendering/Image" arguments="{file: item.images.0, data: item.data, settings: settings, variants: variants}" />
             </f:if>

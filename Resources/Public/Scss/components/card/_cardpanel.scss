@@ -1,0 +1,105 @@
+//
+// Variables
+// --------------------------------------------------
+$cardpanel-header-background:       transparent !default;
+$cardpanel-header-color:            inherit !default;
+$cardpanel-border-color:            inherit !default;
+$cardpanel-variants: () !default;
+$cardpanel-variants: map-merge(
+    (
+        'primary': (
+            'header-background':    $primary,
+            'header-color':         #ffffff,
+            'border-color':         darken($primary, 10%),
+        ),
+        'secondary': (
+            'header-background':    $secondary,
+            'header-color':         #ffffff,
+            'border-color':         darken($secondary, 10%),
+        ),
+        'lighter': (
+            'header-background':    $lighter,
+            'header-color':         $gray-900,
+            'border-color':         darken($lighter, 10%),
+        ),
+        'light': (
+            'header-background':    $light,
+            'header-color':         $gray-900,
+            'border-color':         darken($light, 10%),
+        ),
+        'dark': (
+            'header-background':    $dark,
+            'header-color':         #ffffff,
+            'border-color':         darken($dark, 10%),
+        ),
+        'darker': (
+            'header-background':    $darker,
+            'header-color':         #ffffff,
+            'border-color':         darken($darker, 10%),
+        ),
+        'default': (
+            'header-background':    $default,
+            'header-color':         $gray-900,
+            'border-color':         darken($default, 10%),
+        ),
+        'success': (
+            'header-background':    $success,
+            'header-color':         #ffffff,
+            'border-color':         darken($success, 10%),
+        ),
+        'info': (
+            'header-background':    $info,
+            'header-color':         #ffffff,
+            'border-color':         darken($info, 10%),
+        ),
+        'warning': (
+            'header-background':    $warning,
+            'header-color':         #ffffff,
+            'border-color':         darken($warning, 10%),
+        ),
+        'danger': (
+            'header-background':    $danger,
+            'header-color':         #ffffff,
+            'border-color':         darken($danger, 10%),
+        ),
+    ),
+    $cardpanel-variants
+);
+
+//
+// CSS Variables
+// --------------------------------------------------
+:root {
+    --cardpanel-header-background: #{$cardpanel-header-background};
+    --cardpanel-header-color: #{$cardpanel-header-color};
+    --cardpanel-border-color: #{$cardpanel-border-color};
+}
+
+//
+// Card Panel
+// --------------------------------------------------
+.card-panel {
+    border-color: var(--cardpanel-border-color);
+    .card-header {
+        background: var(--cardpanel-header-background);
+        color: var(--cardpanel-header-color);
+        font-size: 1rem !important;
+        padding: $card-spacer-y $card-spacer-x;
+    }
+}
+@each $name, $settings in $cardpanel-variants {
+    $header-background: map-get($settings, 'header-background');
+    $header-color: map-get($settings, 'header-color');
+    $border-color: map-get($settings, 'border-color');
+    .card-panel-#{$name} {
+        @if ($header-background) {
+            --cardpanel-header-background: #{$header-background};
+        }
+        @if ($header-color) {
+            --cardpanel-header-color: #{$header-color};
+        }
+        @if ($border-color) {
+            --cardpanel-border-color: #{$border-color};
+        }
+    }
+}

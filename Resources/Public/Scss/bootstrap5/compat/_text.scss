@@ -1,0 +1,37 @@
+//
+// Text Alignment
+// --------------------------------------------------
+.text-left {
+    @extend .text-start;
+}
+.text-right {
+    @extend .text-end;
+}
+
+//
+// Awesome
+// --------------------------------------------------
+h1.awesome,
+.h1.awesome {
+    @extend .display-1;
+}
+h2.awesome,
+.h2.awesome {
+    @extend .display-2;
+}
+h3.awesome,
+.h3.awesome {
+    @extend .display-3;
+}
+h4.awesome,
+.h4.awesome {
+    @extend .display-4;
+}
+h5.awesome,
+.h5.awesome {
+    @extend .display-5;
+}
+h6.awesome,
+.h6.awesome {
+    @extend .display-6;
+}

@@ -1,0 +1,31 @@
+//
+// Filelink
+// --------------------------------------------------
+.filelink-list {
+    padding-left: 0;
+    list-style: none;
+}
+.filelink-item {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+.filelink-item + .filelink-item {
+    margin-top: 1rem;
+}
+.filelink-body {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.filelink-heading {
+    font-size: 1.25rem;
+    margin-bottom: .25em;
+}
+.filelink-fileicon {
+    margin-right: .25rem;
+}
+.filelink-filesize {
+    margin-left: .5rem;
+    font-size: 80%;
+}

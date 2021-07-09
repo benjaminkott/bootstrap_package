@@ -46,16 +46,19 @@ lib.contentElement.settings.responsiveimages.contentelements {
         left {
             multiplier {
                 default = 0.5
+                xlarge = 0.5
                 large = 0.5
                 medium = 0.5
             }
             gutters {
                 default = 24
+                xlarge = 24
                 large = 24
                 medium = 24
             }
             corrections {
                 default = 25
+                xlarge = 25
                 large = 25
                 medium = 25
                 small = 50
@@ -74,16 +77,19 @@ lib.contentElement.settings.responsiveimages.contentelements {
         right {
             multiplier {
                 default = 0.5
+                xlarge = 0.5
                 large = 0.5
                 medium = 0.5
             }
             gutters {
                 default = 24
+                xlarge = 24
                 large = 24
                 medium = 24
             }
             corrections {
                 default = 25
+                xlarge = 25
                 large = 25
                 medium = 25
                 small = 50

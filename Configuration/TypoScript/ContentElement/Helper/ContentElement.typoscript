@@ -94,6 +94,7 @@ lib.contentElement {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.2.class}
                     multiplier {
                         default = 0.5
+                        xlarge = 0.5
                         large = 0.5
                         medium = 0.5
                         small = 0.5
@@ -101,6 +102,7 @@ lib.contentElement {
                     }
                     gutters {
                         default = 16
+                        xlarge = 16
                         large = 16
                         medium = 16
                         small = 16
@@ -111,6 +113,7 @@ lib.contentElement {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.3.class}
                     multiplier {
                         default = 0.3333
+                        xlarge = 0.3333
                         large = 0.3333
                         medium = 0.3333
                         small = 0.3333
@@ -118,6 +121,7 @@ lib.contentElement {
                     }
                     gutters {
                         default = 16
+                        xlarge = 16
                         large = 16
                         medium = 16
                         small = 16
@@ -128,6 +132,7 @@ lib.contentElement {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.4.class}
                     multiplier {
                         default = 0.25
+                        xlarge = 0.25
                         large = 0.25
                         medium = 0.5
                         small = 0.5
@@ -135,6 +140,7 @@ lib.contentElement {
                     }
                     gutters {
                         default = 16
+                        xlarge = 16
                         large = 16
                         medium = 16
                         small = 16
@@ -145,6 +151,7 @@ lib.contentElement {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.5.class}
                     multiplier {
                         default = 0.2
+                        xlarge = 0.2
                         large = 0.2
                         medium = 0.3333
                         small = 0.3333
@@ -152,6 +159,7 @@ lib.contentElement {
                     }
                     gutters {
                         default = 16
+                        xlarge = 16
                         large = 16
                         medium = 16
                         small = 16
@@ -162,6 +170,7 @@ lib.contentElement {
                     class = {$plugin.bootstrap_package_contentelements.gallery.columns.6.class}
                     multiplier {
                         default = 0.1666
+                        xlarge = 0.16666
                         large = 0.16666
                         medium = 0.3333
                         small = 0.3333
@@ -169,6 +178,7 @@ lib.contentElement {
                     }
                     gutters {
                         default = 16
+                        xlarge = 16
                         large = 16
                         medium = 16
                         small = 16
@@ -180,6 +190,10 @@ lib.contentElement {
         responsiveimages {
             variants {
                 default {
+                    breakpoint = 1400
+                    width = 1280
+                }
+                xlarge {
                     breakpoint = 1200
                     width = 1100
                 }
@@ -205,20 +219,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.75
+                            xlarge = 0.75
                             large = 0.75
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     2 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -227,20 +245,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.75
+                            xlarge = 0.75
                             large = 0.75
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     1 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -249,20 +271,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     2 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -271,10 +297,12 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.75
+                            xlarge = 0.75
                             large = 0.75
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -283,20 +311,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.6666
+                            xlarge = 0.6666
                             large = 0.6666
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     2 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -305,30 +337,36 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     1 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     2 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -337,12 +375,14 @@ lib.contentElement {
                     30 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -351,12 +391,14 @@ lib.contentElement {
                     31 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -365,12 +407,14 @@ lib.contentElement {
                     32 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -379,12 +423,14 @@ lib.contentElement {
                     33 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -393,12 +439,14 @@ lib.contentElement {
                     34 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -407,12 +455,14 @@ lib.contentElement {
                     35 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -421,12 +471,14 @@ lib.contentElement {
                     36 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -435,12 +487,14 @@ lib.contentElement {
                     37 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                             medium = 0.5
                             small = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                             small = 40
@@ -451,11 +505,13 @@ lib.contentElement {
                     20 {
                         multiplier {
                             default = 0.3333
+                            xlarge = 0.3333
                             large = 0.3333
                             medium = 0.3333
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                         }
@@ -463,11 +519,13 @@ lib.contentElement {
                     21 {
                         multiplier {
                             default = 0.3333
+                            xlarge = 0.3333
                             large = 0.3333
                             medium = 0.3333
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                         }
@@ -475,11 +533,13 @@ lib.contentElement {
                     22 {
                         multiplier {
                             default = 0.3333
+                            xlarge = 0.3333
                             large = 0.3333
                             medium = 0.3333
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                             medium = 40
                         }
@@ -489,10 +549,12 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.75
+                            xlarge = 0.75
                             large = 0.75
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -501,20 +563,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     1 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -523,10 +589,12 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.75
+                            xlarge = 0.75
                             large = 0.75
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
@@ -535,20 +603,24 @@ lib.contentElement {
                     0 {
                         multiplier {
                             default = 0.5
+                            xlarge = 0.5
                             large = 0.5
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }
                     2 {
                         multiplier {
                             default = 0.25
+                            xlarge = 0.25
                             large = 0.25
                         }
                         gutters {
                             default = 40
+                            xlarge = 40
                             large = 40
                         }
                     }

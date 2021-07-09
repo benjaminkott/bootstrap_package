@@ -1,0 +1,145 @@
+//
+// Footer
+// --------------------------------------------------
+$footer-sections: () !default;
+$footer-sections: map-merge(
+    (
+        'content': (
+            'background':   $dark,
+            'color':        #ffffff,
+            'link-color':   $link-color
+        ),
+        'meta': (
+            'background':   $darker,
+            'color':        #ffffff,
+            'link-color':   $link-color
+        )
+    ),
+    $footer-sections
+);
+
+//
+// Footer Columns
+// --------------------------------------------------
+.footer-section-content-column-left,
+.footer-section-content-column-middle,
+.footer-section-content-column-right {
+    width: 100%;
+    @include media-breakpoint-up('md') {
+        width: calc(100% / 3);
+    }
+}
+
+//
+// Footer Sections
+// --------------------------------------------------
+@each $name, $settings in $footer-sections {
+    .footer-section-#{$name} {
+        background-color: #{map-get($settings, 'background')};
+        --frame-color: #{map-get($settings, 'color')};
+        --frame-background: #{map-get($settings, 'background')};
+        --frame-link-color: #{map-get($settings, 'link-color')};
+        --frame-link-hover-color: #{darken(map-get($settings, 'link-color'), 3%)};
+    }
+}
+
+//
+// Footer Section Meta
+// --------------------------------------------------
+.footer-section-meta {
+    @include media-breakpoint-up('sm') {
+        text-align: center;
+    }
+    .frame-inner > *:not(:first-child) {
+        margin-top: 1rem;
+    }
+}
+
+//
+// Footer Meta
+// --------------------------------------------------
+.footer-meta {
+    overflow: hidden;
+    .meta-menu {
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+        @include media-breakpoint-up('sm') {
+            margin-left: -.5em;
+            margin-right: -.5em;
+            > li {
+                display: inline-block;
+                padding-left: .5em;
+                padding-right: .5em;
+            }
+        }
+        .active a {
+            font-weight: bold;
+        }
+    }
+}
+
+//
+// Footer Language
+// --------------------------------------------------
+.footer-language {
+    overflow: hidden;
+    .language-menu {
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+        @include media-breakpoint-up('sm') {
+            margin-left: -.5em;
+            margin-right: -.5em;
+            > li {
+                display: inline-block;
+                padding-left: .5em;
+                padding-right: .5em;
+            }
+        }
+        .active a {
+            font-weight: bold;
+        }
+    }
+}
+
+//
+// Footer Social
+// --------------------------------------------------
+.footer-sociallinks {
+    @include media-breakpoint-up('sm') {
+        .sociallinks-list {
+            justify-content: center;
+        }
+    }
+    .sociallinks-item {
+        width: auto;
+    }
+    .sociallinks-link {
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        color: inherit;
+        opacity: .75;
+        transition: all ease-in-out .3s;
+        background-color: rgba(255, 255, 255, .05);
+        &:hover {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, .15);
+        }
+    }
+    .sociallinks-link-label {
+        display: none;
+    }
+}
+
+//
+// Footer Copyright
+// --------------------------------------------------
+.footer-copyright {
+    p {
+        margin-bottom: 0;
+    }
+}

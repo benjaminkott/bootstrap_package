@@ -1,0 +1,10 @@
+//
+// Visually
+// --------------------------------------------------
+.visually-hidden {
+    @extend .sr-only;
+}
+.visually-hidden-focusable {
+    @extend .sr-only;
+    @extend .sr-only-focusable;
+}

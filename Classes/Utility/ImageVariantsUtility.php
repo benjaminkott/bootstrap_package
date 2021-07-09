@@ -30,6 +30,10 @@ class ImageVariantsUtility
      */
     protected static $defaultVariants = [
         'default' => [
+            'breakpoint' => 1400,
+            'width' => 1280
+        ],
+        'xlarge' => [
             'breakpoint' => 1200,
             'width' => 1100
         ],

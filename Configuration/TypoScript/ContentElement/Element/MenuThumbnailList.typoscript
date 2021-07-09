@@ -55,12 +55,14 @@ lib.contentElement.settings.responsiveimages.contentelements {
         2 {
             multiplier {
                 default = 0.5
+                xlarge = 0.5
                 large = 0.5
                 medium = 0.5
                 small = 0.5
             }
             gutters {
                 default = 10
+                xlarge = 10
                 large = 10
                 medium = 10
                 small = 10
@@ -69,12 +71,14 @@ lib.contentElement.settings.responsiveimages.contentelements {
         3 {
             multiplier {
                 default = 0.3333
+                xlarge = 0.3333
                 large = 0.3333
                 medium = 0.3333
                 small = 0.3333
             }
             gutters {
                 default = 10
+                xlarge = 10
                 large = 10
                 medium = 10
                 small = 10
@@ -83,12 +87,14 @@ lib.contentElement.settings.responsiveimages.contentelements {
         4 {
             multiplier {
                 default = 0.25
+                xlarge = 0.25
                 large = 0.25
                 medium = 0.5
                 small = 0.5
             }
             gutters {
                 default = 10
+                xlarge = 10
                 large = 10
                 medium = 10
                 small = 10

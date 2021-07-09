@@ -1,0 +1,78 @@
+//
+// Form Group
+// --------------------------------------------------
+.form-group {
+    margin-bottom: $spacer;
+    input[type="file"] {
+        @extend .form-control;
+    }
+}
+fieldset.form-group {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Actions
+// --------------------------------------------------
+.form-actions {
+    margin-top: $spacer;
+}
+
+//
+// Inputs
+// --------------------------------------------------
+.control-label {
+    @extend .form-label;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-check-label {
+    input[type="checkbox"],
+    input[type="radio"] {
+        @extend .form-check-input;
+    }
+}
+.radio {
+    @extend .form-check;
+}
+
+//
+// Validation & Help
+// --------------------------------------------------
+.help-block {
+    @extend .form-text;
+    &.error {
+        @extend .invalid-feedback;
+    }
+    &.success {
+        @extend .valid-feedback;
+    }
+}
+.form-control.error {
+    @extend .form-control.is-invalid;
+}
+.has-error {
+    .help-block {
+        &.error,
+        &.success {
+            display: block;
+        }
+    }
+}

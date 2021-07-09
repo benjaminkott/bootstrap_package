@@ -1,0 +1,27 @@
+//
+// Breadcrumb
+// --------------------------------------------------
+.breadcrumb-section {
+    background-color: $breadcrumb-bg;
+    .breadcrumb {
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
+.breadcrumb-icon svg {
+    display: block;
+}
+.breadcrumb-link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.breadcrumb-link-title {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+}
