@@ -173,3 +173,6 @@ foreach ($icons as $icon) {
         ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/' . $icon . '.svg']
     );
 }
+
+// SiteCreator
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \BK2K\BootstrapPackage\SiteCreator\Hooks\SiteCreatorHook::class;

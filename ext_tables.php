@@ -16,3 +16,30 @@ defined('TYPO3') or die('Access denied.');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_icon_group_item');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_tab_item');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_timeline_item');
+
+// Register SiteCreator Backend Module
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+    'bp',
+    '',
+    'after:web',
+    '',
+    [
+        'labels' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_mod_bootstrap_package.xlf',
+        'name' => 'bp',
+        'iconIdentifier' => 'modulegroup-web'
+    ]
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+    'BootstrapPackage',
+    'bp',
+    'sitecreator',
+    'top',
+    [
+        \BK2K\BootstrapPackage\Controller\BackendController::class => 'index',
+    ],
+    [
+        'access' => 'admin',
+        'icon' => 'EXT:bootstrap_package/Resources/Public/Icons/Module/sitecreator.svg',
+        'labels' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/locallang_mod_sitecreator.xlf'
+    ]
+);
