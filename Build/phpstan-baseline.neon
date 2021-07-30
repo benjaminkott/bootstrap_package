@@ -530,6 +530,11 @@ parameters:
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
 
 		-
+			message: "#^Instanceof between DOMElement and DOMElement will always evaluate to true\\.$#"
+			count: 1
+			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
+
+		-
 			message: "#^Variable property access on SimpleXMLElement\\.$#"
 			count: 2
 			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php

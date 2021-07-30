@@ -86,7 +86,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 5.x: styling/bp5_006/001; type=string; label=$font-family-sans-serif:
             font-family-sans-serif = "#{$google-webfont}", sans-serif
             # cat=bootstrap 5.x: styling/bp5_006/002; type=string; label=$font-family-monospace:
-            font-family-monospace = SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+            font-family-monospace = SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
             # cat=bootstrap 5.x: styling/bp5_010/001; type=options[Enabled=true, Disabled=false]; label=$enable-rounded:
             enable-rounded = true
