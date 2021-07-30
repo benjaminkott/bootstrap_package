@@ -66,7 +66,7 @@ fieldset.form-group {
     }
 }
 .form-control.error {
-    @extend .form-control.is-invalid;
+    @extend .form-control, .is-invalid;
 }
 .has-error {
     .help-block {
