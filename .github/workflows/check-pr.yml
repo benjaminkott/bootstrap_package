@@ -12,7 +12,7 @@ jobs:
       - name: Check Commit Type
         uses: gsactions/commit-message-checker@v1
         with:
-          pattern: '^(|\[(!!!|WIP|POC)\])\[(BUGFIX|DOCS|FEATURE|TASK)\] .+($|\n|\r|\n\r)'
+          pattern: '^(|\[(!!!|WIP|POC|REVERT)\])\[(BUGFIX|DOCS|FEATURE|TASK)\] .+($|\n|\r|\n\r)'
           flags: ''
           error: 'Your first line has to contain a commit type like "[BUGFIX]".'
       - name: Check Line Length
