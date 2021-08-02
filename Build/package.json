@@ -10,7 +10,9 @@
   "devDependencies": {
     "bootstrap4": "npm:bootstrap@^4.6.0",
     "bootstrap5": "npm:bootstrap@^5.0.2",
+    "chalk": "^4.1.2",
     "cookieconsent": "^3.1.1",
+    "fantasticon": "^1.2.2",
     "grunt": "^1.4.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
@@ -21,7 +23,6 @@
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "grunt-stylelint": "^0.16.0",
-    "grunt-webfont": "^1.7.2",
     "jquery": "^3.6.0",
     "modernizr": "^3.11.7",
     "node-sass": "^6.0.1",

@@ -91,7 +91,6 @@ jobs:
           cd Build
           npm run build
       - name: Status
-        continue-on-error: true
         run: |
           git status
           git status | grep -q "nothing to commit, working tree clean"
