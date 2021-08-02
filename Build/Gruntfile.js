@@ -235,7 +235,7 @@ module.exports = function(grunt) {
             },
             bootstrap5_rte: {
                 files: {
-                    '<%= paths.css %>bootstrap5-theme.css': '<%= paths.sass %>bootstrap5/rte.scss'
+                    '<%= paths.css %>bootstrap5-rte.css': '<%= paths.sass %>bootstrap5/rte.scss'
                 }
             },
         },
