@@ -16111,3 +16111,25 @@ a.pswp__share--download:hover {
 .pswp--minimal--dark .pswp__top-bar {
   background: none;
 }
+
+body {
+  margin: 20px;
+}
+
+.cke_combopanel {
+  min-width: 200px;
+}
+
+.text-column {
+  position: relative;
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+}
+
+.text-column:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  border-left: 1px dashed rgba(0, 0, 0, 0.25);
+}
