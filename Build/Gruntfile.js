@@ -1,4 +1,6 @@
 const sass = require('node-sass');
+const fantasticon = require('fantasticon');
+const chalk = require('chalk');
 
 module.exports = function(grunt) {
 
@@ -59,7 +61,26 @@ module.exports = function(grunt) {
             grunt.file.write(dest, output);
             done();
         });
-	});
+    });
+
+    /**
+     * Grunt task for webfonts
+     */
+    grunt.registerMultiTask('webfont', 'Grunt task to run npm scripts', function () {
+        var options = this.options(),
+            done = this.async();
+        fantasticon.generateFonts(options).then(
+            function (result) {
+                for (const { writePath } of result.writeResults) {
+                    grunt.log.ok('Generated ' + chalk.dim(writePath));
+                }
+                done();
+            },
+            function (error) {
+                grunt.log.error(error);
+            }
+        );
+    });
 
     /**
      * Project configuration.
@@ -396,6 +417,44 @@ module.exports = function(grunt) {
                 ]
             },
         },
+        webfont: {
+            bootstrappackageicon: {
+                options: {
+                    inputDir: '../Resources/Public/Icons/BootstrapPackageIcon',
+                    outputDir: '../Resources/Public/Fonts',
+                    fontTypes: [
+                        'eot',
+                        'woff2',
+                        'woff',
+                        'ttf'
+                    ],
+                    assetTypes: [
+                        'css',
+                        'json'
+                    ],
+                    name: 'bootstrappackageicon',
+                    prefix: 'bootstrappackageicon',
+                    selector: '.bootstrappackageicon',
+                    codepoints: grunt.file.readJSON('./bootstrappackageicon.json'),
+                    formatOptions: {
+                        json: {
+                            indent: 4
+                        }
+                    },
+                    templates: {
+                        css: './bootstrappackageicon.css.hbs'
+                    },
+                    pathOptions: {
+                        json:   './bootstrappackageicon.json',
+                        css:    '../Resources/Public/Fonts/bootstrappackageicon.css',
+                        eot:    '../Resources/Public/Fonts/bootstrappackageicon.eot',
+                        ttf:    '../Resources/Public/Fonts/bootstrappackageicon.ttf',
+                        woff:   '../Resources/Public/Fonts/bootstrappackageicon.woff',
+                        woff2:  '../Resources/Public/Fonts/bootstrappackageicon.woff2'
+                    }
+                }
+            }
+        },
         modernizr: {
             main: {
                 'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
@@ -429,25 +488,6 @@ module.exports = function(grunt) {
                     ]
                 }
             }
-        },
-        webfont: {
-            bootstrappackageicon: {
-                src: '<%= paths.icons %>BootstrapPackageIcon/*.svg',
-                dest: '<%= paths.fonts %>',
-                options: {
-                    font: 'bootstrappackageicon',
-                    template: 'templates/font.css',
-                    fontFamilyName: 'BootstrapPackageIcon',
-                    engine: 'node',
-                    autoHint: false,
-                    htmlDemo: false,
-                    codepointsFile: "bootstrappackageicon.json",
-                    templateOptions: {
-                        baseClass: 'bootstrappackageicon',
-                        classPrefix: 'bootstrappackageicon-'
-                    }
-                }
-            }
         }
     });
 
@@ -461,7 +501,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-stylelint');
-    grunt.loadNpmTasks('grunt-webfont');
 
     /**
      * Grunt update task
