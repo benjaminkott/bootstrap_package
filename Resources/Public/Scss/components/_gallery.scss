@@ -18,7 +18,6 @@ $gallery-gap: 1rem !default;
     display: flex;
     flex-wrap: wrap;
     gap: var(--gallery-gap);
-    margin-bottom: $spacer;
 }
 .gallery-item {
     width: calc((100% / var(--gallery-columns)) - (var(--gallery-gap) * (var(--gallery-columns) - 1)) / var(--gallery-columns));

@@ -14120,7 +14120,6 @@ figure .caption {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gallery-gap);
-  margin-bottom: 1rem;
 }
 
 .gallery-item {
