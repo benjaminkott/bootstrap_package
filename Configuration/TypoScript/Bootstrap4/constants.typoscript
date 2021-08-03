@@ -42,26 +42,31 @@ plugin.bootstrap_package {
             black = #000000
 
             # cat=bootstrap 4.x: styling/bp4_002/001; type=string; label=$primary:
-            primary = #4faf98
+            primary = #2a9d8f
             # cat=bootstrap 4.x: styling/bp4_002/002; type=string; label=$secondary:
-            secondary = #313131
-            # cat=bootstrap 4.x: styling/bp4_002/003; type=string; label=$default:
+            secondary = #e76f51
+            # cat=bootstrap 4.x: styling/bp4_002/003; type=string; label=$tertiary:
+            tertiary = #f4a261
+            # cat=bootstrap 4.x: styling/bp4_002/004; type=string; label=$quaternary:
+            quaternary = #e9c46a
+
+            # cat=bootstrap 4.x: styling/bp4_002/005; type=string; label=$default:
             default = #eaebec
-            # cat=bootstrap 4.x: styling/bp4_002/004; type=string; label=$success:
+            # cat=bootstrap 4.x: styling/bp4_002/006; type=string; label=$success:
             success = #5cb85c
-            # cat=bootstrap 4.x: styling/bp4_002/005; type=string; label=$info:
+            # cat=bootstrap 4.x: styling/bp4_002/007; type=string; label=$info:
             info = #319fc0
-            # cat=bootstrap 4.x: styling/bp4_002/006; type=string; label=$warning:
+            # cat=bootstrap 4.x: styling/bp4_002/008; type=string; label=$warning:
             warning = #f0ad4e
-            # cat=bootstrap 4.x: styling/bp4_002/007; type=string; label=$danger:
+            # cat=bootstrap 4.x: styling/bp4_002/009; type=string; label=$danger:
             danger = #d9534f
-            # cat=bootstrap 4.x: styling/bp4_002/008; type=string; label=$lighter:
+            # cat=bootstrap 4.x: styling/bp4_002/010; type=string; label=$lighter:
             lighter = $gray-100
-            # cat=bootstrap 4.x: styling/bp4_002/009; type=string; label=$light:
+            # cat=bootstrap 4.x: styling/bp4_002/011; type=string; label=$light:
             light = $gray-200
-            # cat=bootstrap 4.x: styling/bp4_002/010; type=string; label=$dark:
+            # cat=bootstrap 4.x: styling/bp4_002/012; type=string; label=$dark:
             dark = $gray-800
-            # cat=bootstrap 4.x: styling/bp4_002/011; type=string; label=$darker:
+            # cat=bootstrap 4.x: styling/bp4_002/013; type=string; label=$darker:
             darker = $gray-900
 
             # cat=bootstrap 4.x: styling/bp4_003/001; type=string; label=$yiq-contrasted-threshold:

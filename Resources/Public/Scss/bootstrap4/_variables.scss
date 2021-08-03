@@ -13,8 +13,11 @@ $gray-800:                          #313131 !default;
 $gray-900:                          #212121 !default;
 $black:                             #000000 !default;
 
-$primary:                           #4faf98 !default;
-$secondary:                         #313131 !default;
+$primary:                           #2a9d8f !default;
+$secondary:                         #e76f51 !default;
+$tertiary:                          #f4a261 !default;
+$quaternary:                        #e9c46a !default;
+
 $default:                           #eaebec !default;
 $success:                           #5cb85c !default;
 $info:                              #319fc0 !default;
@@ -28,6 +31,8 @@ $darker:                            $gray-900 !default;
 $theme-colors: (
     'primary':                      $primary,
     'secondary':                    $secondary,
+    'tertiary':                     $tertiary,
+    'quaternary':                   $quaternary,
     'success':                      $success,
     'info':                         $info,
     'warning':                      $warning,

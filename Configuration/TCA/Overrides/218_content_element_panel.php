@@ -86,6 +86,8 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary', 'primary'],
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.secondary', 'secondary'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.tertiary', 'tertiary'],
+                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.quaternary', 'quaternary'],
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success', 'success'],
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info', 'info'],
                     ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning', 'warning'],

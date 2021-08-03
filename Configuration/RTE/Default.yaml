@@ -34,6 +34,8 @@ editor:
             - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
             - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
             - { name: "Button Secondary", element: "a", attributes: { 'class': 'btn btn-secondary' } }
+            - { name: "Button Tertiary", element: "a", attributes: { 'class': 'btn btn-tertiary' } }
+            - { name: "Button Quaternary", element: "a", attributes: { 'class': 'btn btn-quaternary' } }
             - { name: "Button Success", element: "a", attributes: { 'class': 'btn btn-success' } }
             - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
             - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
@@ -41,6 +43,8 @@ editor:
             - { name: "Button Outline Default", element: "a", attributes: { 'class': 'btn btn-outline-default' } }
             - { name: "Button Outline Primary", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
             - { name: "Button Outline Secondary", element: "a", attributes: { 'class': 'btn btn-outline-secondary' } }
+            - { name: "Button Outline Tertiary", element: "a", attributes: { 'class': 'btn btn-outline-tertiary' } }
+            - { name: "Button Outline Quaternary", element: "a", attributes: { 'class': 'btn btn-outline-quaternary' } }
             - { name: "Button Outline Success", element: "a", attributes: { 'class': 'btn btn-outline-success' } }
             - { name: "Button Outline Info", element: "a", attributes: { 'class': 'btn btn-outline-info' } }
             - { name: "Button Outline Warning", element: "a", attributes: { 'class': 'btn btn-outline-warning' } }
@@ -53,6 +57,8 @@ editor:
             - { name: "Muted", element: "span", attributes: { 'class': 'text-muted' } }
             - { name: "Primary", element: "span", attributes: { 'class': 'text-primary' } }
             - { name: "Secondary", element: "span", attributes: { 'class': 'text-secondary' } }
+            - { name: "Tertiary", element: "span", attributes: { 'class': 'text-tertiary' } }
+            - { name: "Quaternary", element: "span", attributes: { 'class': 'text-quaternary' } }
             - { name: "Success", element: "span", attributes: { 'class': 'text-success' } }
             - { name: "Info", element: "span", attributes: { 'class': 'text-info' } }
             - { name: "Warning", element: "span", attributes: { 'class': 'text-warning' } }

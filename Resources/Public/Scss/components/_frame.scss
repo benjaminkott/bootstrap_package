@@ -48,6 +48,18 @@ $frame-backgrounds: map-merge(
             'link-color':       #ffffff,
             'link-hover-color': #ffffff
         ),
+        'tertiary': (
+            'background':       $tertiary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'quaternary': (
+            'background':       $quaternary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
         'light': (
             'background':       $light,
             'color':            $body-color,
