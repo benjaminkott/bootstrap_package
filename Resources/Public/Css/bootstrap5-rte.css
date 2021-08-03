@@ -14112,7 +14112,7 @@ figure .caption {
 }
 
 :root {
-  --gallery-gap: 1rem;
+  --gallery-gap: 0.5rem;
   --gallery-columns: 1;
 }
 
