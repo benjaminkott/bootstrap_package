@@ -17,6 +17,16 @@ $cardpanel-variants: map-merge(
             'header-color':         #ffffff,
             'border-color':         darken($secondary, 10%),
         ),
+        'tertiary': (
+            'header-background':    $tertiary,
+            'header-color':         #ffffff,
+            'border-color':         darken($tertiary, 10%),
+        ),
+        'quaternary': (
+            'header-background':    $quaternary,
+            'header-color':         #ffffff,
+            'border-color':         darken($quaternary, 10%),
+        ),
         'lighter': (
             'header-background':    $lighter,
             'header-color':         $gray-900,

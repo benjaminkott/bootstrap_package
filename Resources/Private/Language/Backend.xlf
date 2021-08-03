@@ -884,6 +884,12 @@
             <trans-unit id="option.secondary">
                 <source>Secondary</source>
             </trans-unit>
+            <trans-unit id="option.tertiary">
+                <source>Tertiary</source>
+            </trans-unit>
+            <trans-unit id="option.quaternary">
+                <source>Quaternary</source>
+            </trans-unit>
             <trans-unit id="option.success">
                 <source>Success</source>
             </trans-unit>
