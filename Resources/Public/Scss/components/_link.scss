@@ -32,6 +32,8 @@ $link-icon-globe:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
         width: 1em;
         content: '';
         display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
     }
 }
 .link-arrow:after {

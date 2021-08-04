@@ -14099,6 +14099,8 @@ audio {
   width: 1em;
   content: '';
   display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .link-arrow:after {
