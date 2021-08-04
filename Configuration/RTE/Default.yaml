@@ -63,6 +63,12 @@ editor:
 
             - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
             - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
+            - { name: "List Check", element: "ul", attributes: { 'class': 'list-check' } }
+            - { name: "List Info", element: "ul", attributes: { 'class': 'list-info' } }
+            - { name: "List Warning", element: "ul", attributes: { 'class': 'list-warning' } }
+            - { name: "List Ban", element: "ul", attributes: { 'class': 'list-ban' } }
+            - { name: "List Chevron", element: "ul", attributes: { 'class': 'list-chevron' } }
+
             - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
             - { name: "Uppercased text", element: "span", attributes: { 'class': 'text-uppercase' } }
             - { name: "Capitalized text", element: "span", attributes: { 'class': 'text-capitalize' } }

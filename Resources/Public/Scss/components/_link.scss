@@ -1,8 +1,7 @@
 //
-// Variants
+// Variables
 // --------------------------------------------------
 $link-icon-color:       $link-color;
-$link-icon-opacity:     1;
 $link-icon-arrow:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><g fill='#{$link-icon-color}'><path d='M2 9h7.3v2c0 .4.5.6.8.4l3.7-3c.2-.2.2-.6 0-.8l-3.7-3c-.3-.2-.8 0-.8.4v2H2v2z'/></g></svg>");
 $link-icon-page:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><g fill='#{$link-icon-color}'><path d='M13.7 3.2l-1.9-1.9c-.2-.2-.4-.3-.7-.3H2.5c-.3 0-.5.2-.5.5v13c0 .3.2.5.5.5h11c.3 0 .5-.2.5-.5V3.9c0-.3-.1-.5-.3-.7zM13 14H3V2h7v2.5c0 .3.2.5.5.5H13v9zM11 4V2l2 2h-2z'/></g></svg>");
 $link-icon-folder:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><g fill='#{$link-icon-color}'><path d='M7.382 4l1 2H14v6H2V4h5.382m.309-1H1.5a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5H9l-.862-1.724A.5.5 0 0 0 7.691 3z'/></g></svg>");
@@ -29,7 +28,6 @@ $link-icon-globe:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
     flex-grow: 0;
     flex-shrink: 0;
     &:after {
-        opacity: $link-icon-opacity;
         height: 1em;
         width: 1em;
         content: '';
