@@ -55,3 +55,6 @@ $link-icon-globe:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 .link-mail:after {
     background: escape-svg($link-icon-mail);
 }
+.link-globe:after {
+    background: escape-svg($link-icon-globe);
+}
