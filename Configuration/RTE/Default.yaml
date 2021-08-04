@@ -31,6 +31,7 @@ editor:
             - { name: "Row Info", element: "tr", attributes: { 'class': 'info' } }
             - { name: "Row Warning", element: "tr", attributes: { 'class': 'warning' } }
             - { name: "Row Danger", element: "tr", attributes: { 'class': 'danger' } }
+
             - { name: "Button Default", element: "a", attributes: { 'class': 'btn btn-default' } }
             - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
             - { name: "Button Secondary", element: "a", attributes: { 'class': 'btn btn-secondary' } }
@@ -40,6 +41,7 @@ editor:
             - { name: "Button Info", element: "a", attributes: { 'class': 'btn btn-info' } }
             - { name: "Button Warning", element: "a", attributes: { 'class': 'btn btn-warning' } }
             - { name: "Button Danger", element: "a", attributes: { 'class': 'btn btn-danger' } }
+
             - { name: "Button Outline Default", element: "a", attributes: { 'class': 'btn btn-outline-default' } }
             - { name: "Button Outline Primary", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
             - { name: "Button Outline Secondary", element: "a", attributes: { 'class': 'btn btn-outline-secondary' } }
@@ -49,6 +51,16 @@ editor:
             - { name: "Button Outline Info", element: "a", attributes: { 'class': 'btn btn-outline-info' } }
             - { name: "Button Outline Warning", element: "a", attributes: { 'class': 'btn btn-outline-warning' } }
             - { name: "Button Outline Danger", element: "a", attributes: { 'class': 'btn btn-outline-danger' } }
+
+            - { name: "Link Arrow", element: "a", attributes: { 'class': 'link-arrow' } }
+            - { name: "Link Chevron", element: "a", attributes: { 'class': 'link-chevron' } }
+            - { name: "Link Page", element: "a", attributes: { 'class': 'link-page' } }
+            - { name: "Link Folder", element: "a", attributes: { 'class': 'link-folder' } }
+            - { name: "Link File", element: "a", attributes: { 'class': 'link-file' } }
+            - { name: "Link External", element: "a", attributes: { 'class': 'link-external' } }
+            - { name: "Link Mail", element: "a", attributes: { 'class': 'link-mail' } }
+            - { name: "Link Globe", element: "a", attributes: { 'class': 'link-globe' } }
+
             - { name: "List Unstyled", element: "ul", attributes: { 'class': 'list-unstyled' } }
             - { name: "List Inline", element: "ul", attributes: { 'class': 'list-inline' } }
             - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
