@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?e1dfa7c11aab9c7dfccf7a00380240dc#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?e1dfa7c11aab9c7dfccf7a00380240dc") format("woff2"),
-url("./bootstrappackageicon.woff?e1dfa7c11aab9c7dfccf7a00380240dc") format("woff"),
-url("./bootstrappackageicon.ttf?e1dfa7c11aab9c7dfccf7a00380240dc") format("truetype");
+    src: url("./bootstrappackageicon.eot?501d2dc39eae9d4c885ee4da5a7d72e1#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?501d2dc39eae9d4c885ee4da5a7d72e1") format("woff2"),
+url("./bootstrappackageicon.woff?501d2dc39eae9d4c885ee4da5a7d72e1") format("woff"),
+url("./bootstrappackageicon.ttf?501d2dc39eae9d4c885ee4da5a7d72e1") format("truetype");
 }
 
 .bootstrappackageicon::before {
