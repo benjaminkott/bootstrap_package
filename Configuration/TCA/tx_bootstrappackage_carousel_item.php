@@ -231,6 +231,8 @@ return [
             'showitem' => '
                 tt_content,
                 item_type;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType_formlabel,
+                --linebreak--,
+                layout,
             '
         ],
         'visibility' => [
@@ -387,6 +389,25 @@ return [
             'config' => [
                 'type' => 'passthrough'
             ]
+        ],
+        'layout' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.layout',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['custom', 'custom'],
+                    ['primary', 'primary'],
+                    ['secondary', 'secondary'],
+                    ['tertiary', 'tertiary'],
+                    ['quaternary', 'quaternary'],
+                    ['light', 'light'],
+                    ['dark', 'dark']
+                ],
+                'default' => 'secondary'
+            ],
+            'l10n_mode' => 'exclude',
         ],
         'link' => [
             'exclude' => 1,
@@ -622,6 +643,7 @@ return [
         'text_color' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color',
+            'displayCond' => 'FIELD:layout:=:custom',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'colorpicker',
@@ -632,6 +654,7 @@ return [
         'background_color' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
+            'displayCond' => 'FIELD:layout:=:custom',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'colorpicker',

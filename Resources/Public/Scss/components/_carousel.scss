@@ -1,4 +1,50 @@
 //
+// Variables
+// --------------------------------------------------
+$carousel-item-layouts: () !default;
+$carousel-item-layouts: map-merge(
+    (
+        'primary': (
+            'background':       $primary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'secondary': (
+            'background':       $secondary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'tertiary': (
+            'background':       $tertiary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'quaternary': (
+            'background':       $quaternary,
+            'color':            #ffffff,
+            'link-color':       #ffffff,
+            'link-hover-color': #ffffff
+        ),
+        'light': (
+            'background':       $light,
+            'color':            $body-color,
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'dark': (
+            'background':       $dark,
+            'color':            #ffffff,
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        )
+    ),
+    $carousel-item-layouts
+);
+
+//
 // Carousel
 // --------------------------------------------------
 .carousel {
@@ -56,6 +102,47 @@
     .carousel-item {
         perspective: initial !important;
         transform: initial !important;
+    }
+}
+
+//
+// Carousel Item Layouts
+// --------------------------------------------------
+:root {
+    --carousel-item-color: inherit;
+    --carousel-item-background: inherit;
+    --carousel-item-link-color: inherit;
+    --carousel-item-link-hover-color: inherit;
+}
+.carousel-item {
+    background-color: var(--carousel-item-background);
+    color: var(--carousel-item-color);
+    a[class=""],
+    a:not([class]) {
+        color: var(--carousel-item-link-color);
+        &:hover {
+            color: var(--carousel-item-link-hover-color);
+        }
+    }
+}
+@each $name, $settings in $carousel-item-layouts {
+    .carousel-item-layout-#{$name} {
+        $color: map-get($settings, 'color');
+        $background: map-get($settings, 'background');
+        $link-color: map-get($settings, 'link-color');
+        $link-hover-color: map-get($settings, 'link-hover-color');
+        @if ($color) {
+            --carousel-item-color: #{$color};
+        }
+        @if ($background) {
+            --carousel-item-background: #{$background};
+        }
+        @if ($link-color) {
+            --carousel-item-link-color: #{$link-color};
+        }
+        @if ($link-hover-color) {
+            --carousel-item-link-hover-color: #{$link-hover-color};
+        }
     }
 }
 
@@ -255,6 +342,13 @@
 // Type: Header
 // --------------------------------------------------
 .carousel-item-type-header {
+    a[class=""],
+    a:not([class]) {
+        &,
+        &:hover {
+            color: var(--carousel-item-color);
+        }
+    }
     .carousel-text-inner {
         margin: 0 auto;
         @include media-breakpoint-up(md) {
@@ -318,10 +412,17 @@
 // --------------------------------------------------
 .carousel-item-type-call_to_action {
     .carousel-box {
+        color: $body-color;
         background-color: $body-bg;
         padding: 2rem;
         @include media-breakpoint-up(sm) {
             max-width: 50%;
+        }
+        .carousel-item-bodytext {
+            margin-bottom: $spacer;
+        }
+        > *:last-child {
+            margin-bottom: 0;
         }
     }
 }

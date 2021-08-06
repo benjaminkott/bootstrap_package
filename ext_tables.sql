@@ -1,15 +1,15 @@
-#
-# Table structure for table 'pages'
-#
+--
+-- Table structure for table 'pages'
+--
 CREATE TABLE pages (
     nav_icon int(11) unsigned DEFAULT '0',
     thumbnail int(11) unsigned DEFAULT '0',
 );
 
 
-#
-# Table structure for table 'sys_language'
-#
+--
+-- Table structure for table 'sys_language'
+--
 CREATE TABLE sys_language (
     nav_title varchar(255) DEFAULT '' NOT NULL,
     locale varchar(20) DEFAULT '' NOT NULL,
@@ -18,9 +18,9 @@ CREATE TABLE sys_language (
 );
 
 
-#
-# Table structure for table 'tt_content'
-#
+--
+-- Table structure for table 'tt_content'
+--
 CREATE TABLE tt_content (
     teaser text,
     aspect_ratio varchar(255) DEFAULT '1.3333333333333' NOT NULL,
@@ -53,9 +53,9 @@ CREATE TABLE tt_content (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_card_group_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_card_group_item'
+--
 CREATE TABLE tx_bootstrappackage_card_group_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
@@ -101,15 +101,16 @@ CREATE TABLE tx_bootstrappackage_card_group_item (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_carousel_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_carousel_item'
+--
 CREATE TABLE tx_bootstrappackage_carousel_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
 
     tt_content int(11) unsigned DEFAULT '0',
     item_type varchar(255) DEFAULT '' NOT NULL,
+    layout varchar(255) DEFAULT '' NOT NULL,
     header varchar(255) DEFAULT '' NOT NULL,
     header_layout tinyint(3) unsigned DEFAULT '1' NOT NULL,
     header_position varchar(255) DEFAULT 'center' NOT NULL,
@@ -158,9 +159,9 @@ CREATE TABLE tx_bootstrappackage_carousel_item (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_accordion_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_accordion_item'
+--
 CREATE TABLE tx_bootstrappackage_accordion_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
@@ -204,9 +205,9 @@ CREATE TABLE tx_bootstrappackage_accordion_item (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_icon_group_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_icon_group_item'
+--
 CREATE TABLE tx_bootstrappackage_icon_group_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
@@ -249,9 +250,9 @@ CREATE TABLE tx_bootstrappackage_icon_group_item (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_tab_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_tab_item'
+--
 CREATE TABLE tx_bootstrappackage_tab_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
@@ -295,9 +296,9 @@ CREATE TABLE tx_bootstrappackage_tab_item (
 );
 
 
-#
-# Table structure for table 'tx_bootstrappackage_timeline_item'
-#
+--
+-- Table structure for table 'tx_bootstrappackage_timeline_item'
+--
 CREATE TABLE tx_bootstrappackage_timeline_item (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT '0' NOT NULL,
