@@ -96,6 +96,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
 
             // remove xml version tag
             $domXml = dom_import_simplexml($svgElement);
+            /** @phpstan-ignore-next-line */
             if (!$domXml instanceof \DOMElement || !$domXml->ownerDocument instanceof \DOMDocument) {
                 return '';
             }
