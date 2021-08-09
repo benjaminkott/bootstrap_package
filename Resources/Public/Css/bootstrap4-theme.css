@@ -5120,11 +5120,11 @@ input[type="button"].btn-block {
 }
 
 .card-title {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-subtitle {
-  margin-top: -0.5rem;
+  margin-top: -0.75rem;
   margin-bottom: 0;
 }
 
@@ -5141,7 +5141,7 @@ input[type="button"].btn-block {
 }
 
 .card-header {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -5152,7 +5152,7 @@ input[type="button"].btn-block {
 }
 
 .card-footer {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -5163,7 +5163,7 @@ input[type="button"].btn-block {
 
 .card-header-tabs {
   margin-right: -0.75rem;
-  margin-bottom: -1rem;
+  margin-bottom: -1.5rem;
   margin-left: -0.75rem;
   border-bottom: 0;
 }
@@ -5265,7 +5265,7 @@ input[type="button"].btn-block {
 }
 
 .card-columns .card {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 576px) {
@@ -12008,7 +12008,7 @@ ul.list-inline > li {
   background: var(--cardpanel-header-background);
   color: var(--cardpanel-header-color);
   font-size: 1rem !important;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
 }
 
 .card-panel-primary {
