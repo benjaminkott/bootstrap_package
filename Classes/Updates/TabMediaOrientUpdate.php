@@ -93,7 +93,7 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -117,7 +117,7 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             if (null !== $newValue = $record[$this->field]) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)

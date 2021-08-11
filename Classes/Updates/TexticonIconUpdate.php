@@ -86,7 +86,7 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
                     $queryBuilder->expr()->literal('Ionicons%')
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
 
         return (bool)$elementCount;
     }
@@ -112,7 +112,7 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             $icon = explode('__', $record[$this->field]);
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update($this->table)

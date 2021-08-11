@@ -69,7 +69,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('table', \PDO::PARAM_STR)),
                 $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150])
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -88,7 +88,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                 $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150])
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(

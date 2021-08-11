@@ -93,7 +93,7 @@ class AccordionMediaOrientUpdate implements UpgradeWizardInterface, RepeatableIn
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -117,7 +117,7 @@ class AccordionMediaOrientUpdate implements UpgradeWizardInterface, RepeatableIn
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             if (null !== $newValue = $this->mapValues($record[$this->field])) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)

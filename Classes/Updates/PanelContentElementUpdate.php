@@ -68,7 +68,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_panel', \PDO::PARAM_STR))
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -86,7 +86,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_panel', \PDO::PARAM_STR))
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(

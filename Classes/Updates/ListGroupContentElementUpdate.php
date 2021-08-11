@@ -68,7 +68,7 @@ class ListGroupContentElementUpdate implements UpgradeWizardInterface, Repeatabl
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_listgroup', \PDO::PARAM_STR))
             )
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -86,7 +86,7 @@ class ListGroupContentElementUpdate implements UpgradeWizardInterface, Repeatabl
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_listgroup', \PDO::PARAM_STR))
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(
