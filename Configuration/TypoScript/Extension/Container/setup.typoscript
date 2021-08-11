@@ -1,0 +1,229 @@
+###############################
+### RESPONSIVE IMAGE CONFIG ###
+###############################
+lib.contentElement {
+    settings {
+        responsiveimages {
+            container {
+                container_2_columns {
+                    201 {
+                        multiplier {
+                            default = 0.5
+                            xlarge = 0.5
+                            large = 0.5
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    202 {
+                        multiplier {
+                            default = 0.5
+                            xlarge = 0.5
+                            large = 0.5
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+                container_2_columns_right {
+                    201 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.33
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    202 {
+                        multiplier {
+                            default = 0.75
+                            xlarge = 0.75
+                            large = 0.75
+                            medium = 0.66
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+                container_2_columns_left {
+                    201 {
+                        multiplier {
+                            default = 0.75
+                            xlarge = 0.75
+                            large = 0.75
+                            medium = 0.66
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    202 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.33
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+                container_3_columns {
+                    201 {
+                        multiplier {
+                            default = 0.33
+                            xlarge = 0.33
+                            large = 0.33
+                            medium = 0.33
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    202 {
+                        multiplier {
+                            default = 0.33
+                            xlarge = 0.33
+                            large = 0.33
+                            medium = 0.33
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    203 {
+                        multiplier {
+                            default = 0.33
+                            xlarge = 0.33
+                            large = 0.33
+                            medium = 0.33
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+                container_4_columns {
+                    201 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    202 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    203 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                    204 {
+                        multiplier {
+                            default = 0.25
+                            xlarge = 0.25
+                            large = 0.25
+                            medium = 0.5
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                            medium = 40
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+###############################
+### RESPONSIVE IMAGE CONFIG ###
+###############################
+lib.contentElement {
+    dataProcessing {
+        1628591788 = BK2K\BootstrapPackage\DataProcessing\ContainerContextProcessor
+    }
+}
+
+########################
+### CONTAINER CONFIG ###
+########################
+lib.contentContainer < lib.contentElement
+lib.contentContainer {
+    templateName = Container
+    dataProcessing {
+        1628519620 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+tt_content.container_1_columns < lib.contentContainer
+tt_content.container_2_columns < lib.contentContainer
+tt_content.container_2_columns_right < lib.contentContainer
+tt_content.container_2_columns_left < lib.contentContainer
+tt_content.container_3_columns < lib.contentContainer
+tt_content.container_4_columns < lib.contentContainer
