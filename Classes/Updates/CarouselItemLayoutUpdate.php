@@ -66,7 +66,7 @@ class CarouselItemLayoutUpdate implements UpgradeWizardInterface, RepeatableInte
         $elementCount = $queryBuilder->count('uid')
             ->from('tx_bootstrappackage_carousel_item')
             ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
-            ->execute()->fetchColumn(0);
+            ->execute()->fetchOne();
         return (bool)$elementCount;
     }
 
@@ -82,7 +82,7 @@ class CarouselItemLayoutUpdate implements UpgradeWizardInterface, RepeatableInte
             ->from('tx_bootstrappackage_carousel_item')
             ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $statement->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tx_bootstrappackage_carousel_item')
                 ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
