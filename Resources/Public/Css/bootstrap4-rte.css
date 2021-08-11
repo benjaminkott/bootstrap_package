@@ -13069,6 +13069,11 @@ blockquote footer:before {
   gap: var(--gallery-gap);
 }
 
+.gallery-row + .gallery-row,
+.gallery-row + nav {
+  margin-top: 1rem;
+}
+
 .gallery-item {
   width: calc((100% / var(--gallery-columns)) - (var(--gallery-gap) * (var(--gallery-columns) - 1)) / var(--gallery-columns));
 }
