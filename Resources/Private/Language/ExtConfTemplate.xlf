@@ -13,6 +13,9 @@
             <trans-unit id="pageTs.disablePageTsTCEMAIN">
                 <source>Disable TCEMAIN: If this option is set the config for TCEMAIN will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>
+            <trans-unit id="pageTs.disablePageTsTCADefaults">
+                <source>Disable TCA Defaults: If this option is set the config for TCAdefaults will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCADefaults.tsconfig" in your PageTsConfig to load the config manually.</source>
+            </trans-unit>
             <trans-unit id="pageTs.disablePageTsBackendLayouts">
                 <source>Disable BackendLayouts: If this option is set the included backend layouts will not load automatically. Include "FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig" in your PageTsConfig to load the config manually.</source>
             </trans-unit>

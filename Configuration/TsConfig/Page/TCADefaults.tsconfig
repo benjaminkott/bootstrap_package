@@ -1,0 +1,8 @@
+#####################
+#### TCAdefaults ####
+#####################
+TCAdefaults {
+    tt_content {
+        imagecols = 1
+    }
+}
