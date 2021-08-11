@@ -15,10 +15,10 @@
                                 <f:render partial="Media/Gallery" arguments="{files: item.image, data: item.data, settings: settings, variants: variants}" />
                             </div>
                         </f:if>
-                        <div class="timeline-item-marker{f:if(condition:item.iconFile.0,then:' timeline-item-icon')}">
+                        <div class="timeline-item-marker{f:if(condition:item.icon,then:' timeline-item-icon')}">
                             <span>
-                                <f:if condition="{item.iconFile.0}">
-                                    <bk2k:inlineSvg image="{item.iconFile.0}" />
+                                <f:if condition="{item.icon}">
+                                    <bk2k:icon icon="{item.icon}" />
                                 </f:if>
                             </span>
                         </div>

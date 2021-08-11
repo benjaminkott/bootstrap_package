@@ -39,9 +39,9 @@
                             </f:variable>
                             <div class="card-footer">
                                 <f:link.typolink parameter="{item.data.link}" class="btn btn-{item.data.link_class}" title="{linkTitle -> bk2k:format.trim()}">
-                                    <f:if condition="{item.linkIcon.0}">
+                                    <f:if condition="{item.linkIcon}">
                                         <span class="btn-icon">
-                                            <bk2k:inlineSvg image="{item.linkIcon.0}" />
+                                            <bk2k:icon icon="{item.linkIcon}" />
                                         </span>
                                     </f:if>
                                     <span class="btn-text">

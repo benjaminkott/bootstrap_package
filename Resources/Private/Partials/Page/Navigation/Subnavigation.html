@@ -21,14 +21,7 @@
                             <a href="{item.link}" id="subnav-item-{item.data.uid}" class="subnav-link"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
                                 <f:if condition="{item.icon}">
                                     <span class="subnav-link-icon">
-                                        <f:if condition="{item.icon.0.extension} === svg">
-                                            <f:then>
-                                                <bk2k:inlineSvg image="{item.icon.0}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
-                                            </f:then>
-                                            <f:else>
-                                                <f:image additionalAttributes="{loading: 'lazy'}" image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
-                                            </f:else>
-                                        </f:if>
+                                        <bk2k:icon icon="{item.icon}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
                                     </span>
                                 </f:if>
                                 <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if></span>

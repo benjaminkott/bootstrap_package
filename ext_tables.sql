@@ -2,6 +2,8 @@
 -- Table structure for table 'pages'
 --
 CREATE TABLE pages (
+    nav_icon_set varchar(255) DEFAULT '' NOT NULL,
+    nav_icon_identifier varchar(255) DEFAULT '' NOT NULL,
     nav_icon int(11) unsigned DEFAULT '0',
     thumbnail int(11) unsigned DEFAULT '0',
 );
@@ -67,6 +69,8 @@ CREATE TABLE tx_bootstrappackage_card_group_item (
     bodytext text,
     link varchar(1024) DEFAULT '' NOT NULL,
     link_title varchar(255) DEFAULT '' NOT NULL,
+    link_icon_set varchar(255) DEFAULT '' NOT NULL,
+    link_icon_identifier varchar(255) DEFAULT '' NOT NULL,
     link_icon int(11) unsigned DEFAULT '0',
     link_class varchar(255) DEFAULT '' NOT NULL,
 
@@ -217,6 +221,8 @@ CREATE TABLE tx_bootstrappackage_icon_group_item (
     subheader varchar(255) DEFAULT '' NOT NULL,
     bodytext text,
     link varchar(1024) DEFAULT '' NOT NULL,
+    icon_set varchar(255) DEFAULT '' NOT NULL,
+    icon_identifier varchar(255) DEFAULT '' NOT NULL,
     icon_file int(11) unsigned DEFAULT '0',
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -307,6 +313,8 @@ CREATE TABLE tx_bootstrappackage_timeline_item (
     date datetime,
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text,
+    icon_set varchar(255) DEFAULT '' NOT NULL,
+    icon_identifier varchar(255) DEFAULT '' NOT NULL,
     icon_file int(11) unsigned DEFAULT '0',
     image int(11) unsigned DEFAULT '0',
 

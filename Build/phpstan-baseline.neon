@@ -6,6 +6,11 @@ parameters:
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
 		-
+			message: "#^Variable property access on SimpleXMLElement\\.$#"
+			count: 2
+			path: ../Classes/Utility/SvgUtility.php
+
+		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsAudioViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
@@ -19,11 +24,6 @@ parameters:
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsMediaViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
-
-		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
-			count: 2
-			path: ../Classes/ViewHelpers/InlineSvgViewHelper.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"

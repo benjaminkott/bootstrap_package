@@ -358,6 +358,12 @@
             <trans-unit id="card_group_item.link_icon">
                 <source>Icon</source>
             </trans-unit>
+            <trans-unit id="card_group_item.link_icon_set">
+                <source>Icon Set</source>
+            </trans-unit>
+            <trans-unit id="card_group_item.link_icon_identifier">
+                <source>Icon</source>
+            </trans-unit>
             <trans-unit id="card_group_item.link_class">
                 <source>Color</source>
             </trans-unit>
@@ -705,6 +711,12 @@
             <trans-unit id="timeline_item.bodytext">
                 <source>Text</source>
             </trans-unit>
+            <trans-unit id="timeline_item.icon_set">
+                <source>Icon Set</source>
+            </trans-unit>
+            <trans-unit id="timeline_item.icon_identifier">
+                <source>Icon</source>
+            </trans-unit>
             <trans-unit id="timeline_item.icon_file">
                 <source>Icon File</source>
             </trans-unit>
@@ -730,8 +742,14 @@
             <trans-unit id="icon_group_item.link">
                 <source>Link</source>
             </trans-unit>
+            <trans-unit id="icon_group_item.icon_set">
+                <source>Icon Set</source>
+            </trans-unit>
+            <trans-unit id="icon_group_item.icon_identifier">
+                <source>Icon</source>
+            </trans-unit>
             <trans-unit id="icon_group_item.icon_file">
-                <source>Icon File</source>
+                <source>Icon</source>
             </trans-unit>
 
             <trans-unit id="field.panel_class">

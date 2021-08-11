@@ -138,9 +138,11 @@ page {
                 includeSpacer = 1
                 as = mainnavigation
                 dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = nav_icon
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
                         as = icon
                         if {
                             isTrue.stdWrap.cObject = COA
@@ -164,9 +166,11 @@ page {
                 includeSpacer = 1
                 as = subnavigation
                 dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = nav_icon
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
                         as = icon
                         if {
                             isTrue = {$page.theme.subnavigation.icon.enable}
@@ -192,9 +196,11 @@ page {
                     }
                 }
                 dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = nav_icon
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
                         as = icon
                     }
                 }

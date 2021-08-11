@@ -32,9 +32,11 @@ tt_content.card_group {
                     references.fieldName = image
                     as = image
                 }
-                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                20 {
-                    references.fieldName = link_icon
+                1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                1628754217 {
+                    iconSet.field = link_icon_set
+                    iconIdentifier.field = link_icon_identifier
+                    iconFileFieldName = link_icon
                     as = linkIcon
                 }
             }

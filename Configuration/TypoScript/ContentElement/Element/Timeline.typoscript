@@ -34,15 +34,17 @@ tt_content.timeline {
                 }
             }
             dataProcessing {
-                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                10 {
-                    references.fieldName = icon_file
-                    as = iconFile
-                }
                 20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 20 {
                     references.fieldName = image
                     as = image
+                }
+                1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                1628754217 {
+                    iconSet.field = icon_set
+                    iconIdentifier.field = icon_identifier
+                    iconFileFieldName = icon_file
+                    as = icon
                 }
             }
         }

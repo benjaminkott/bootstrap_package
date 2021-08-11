@@ -29,9 +29,11 @@ tt_content.menu_card_list {
                         isTrue = {$plugin.bootstrap_package_contentelements.menu_card.thumbnail.enable}
                     }
                 }
-                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                20 {
-                    references.fieldName = nav_icon
+                1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                1628754217 {
+                    iconSet.field = nav_icon_set
+                    iconIdentifier.field = nav_icon_identifier
+                    iconFileFieldName = nav_icon
                     as = icon
                     if {
                         isTrue = {$plugin.bootstrap_package_contentelements.menu_card.icon.enable}
