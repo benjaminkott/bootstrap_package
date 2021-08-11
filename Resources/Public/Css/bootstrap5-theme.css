@@ -15641,6 +15641,87 @@ iframe {
   border: 0;
 }
 
+:root {
+  --contentcontainer-gap: 40px;
+}
+
+.contentcontainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--contentcontainer-gap);
+}
+
+.contentcontainer .frame-layout-default .frame-container-default {
+  padding-left: var(--frame-spacing);
+  padding-right: var(--frame-spacing);
+}
+
+.contentcontainer .frame-background-none:first-child,
+.contentcontainer .frame-layout-embedded:first-child {
+  padding-top: 0;
+}
+
+.contentcontainer .frame-background-none:last-child,
+.contentcontainer .frame-layout-embedded:last-child {
+  padding-bottom: 0;
+}
+
+.contentcontainer .frame-background-none .frame-container-default,
+.contentcontainer .frame-background-none .frame-group-container,
+.contentcontainer .frame-layout-embedded .frame-container-default,
+.contentcontainer .frame-layout-embedded .frame-group-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .contentcontainer[data-container-identifier="container_2_columns"] {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .contentcontainer[data-container-identifier="container_2_columns_right"] {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .contentcontainer[data-container-identifier="container_2_columns_right"] {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .contentcontainer[data-container-identifier="container_2_columns_left"] {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .contentcontainer[data-container-identifier="container_2_columns_left"] {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .contentcontainer[data-container-identifier="container_3_columns"] {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .contentcontainer[data-container-identifier="container_4_columns"] {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .contentcontainer[data-container-identifier="container_4_columns"] {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .cc-window {
   opacity: 1;
   transition: opacity 1s ease;

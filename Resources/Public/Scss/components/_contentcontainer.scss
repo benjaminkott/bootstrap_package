@@ -1,0 +1,74 @@
+//
+// Variables
+// --------------------------------------------------
+$contentcontainer-gap: $grid-gutter-width !default;
+
+//
+// CSS Variables
+// --------------------------------------------------
+:root {
+    --contentcontainer-gap: #{$contentcontainer-gap};
+}
+
+//
+// Content Container
+//
+.contentcontainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--contentcontainer-gap);
+    .frame-layout-default {
+        .frame-container-default {
+            padding-left: var(--frame-spacing);
+            padding-right: var(--frame-spacing);
+        }
+    }
+    .frame-background-none,
+    .frame-layout-embedded {
+        &:first-child {
+            padding-top: 0;
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
+        .frame-container-default,
+        .frame-group-container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+.contentcontainer[data-container-identifier="container_2_columns"] {
+    @include media-breakpoint-up('md') {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.contentcontainer[data-container-identifier="container_2_columns_right"] {
+    @include media-breakpoint-up('md') {
+        grid-template-columns: 1fr 2fr;
+    }
+    @include media-breakpoint-up('lg') {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+.contentcontainer[data-container-identifier="container_2_columns_left"] {
+    @include media-breakpoint-up('md') {
+        grid-template-columns: 2fr 1fr;
+    }
+    @include media-breakpoint-up('lg') {
+        grid-template-columns: 3fr 1fr;
+    }
+}
+.contentcontainer[data-container-identifier="container_3_columns"] {
+    @include media-breakpoint-up('md') {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.contentcontainer[data-container-identifier="container_4_columns"] {
+    @include media-breakpoint-up('md') {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include media-breakpoint-up('lg') {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
