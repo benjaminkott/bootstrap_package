@@ -68,13 +68,10 @@ class ImageVariantsUtility
         $variants = self::processVariants($variants);
         $variants = self::processResolutions($variants);
         if ($gutters !== null) {
-            $variants = self::addGutters($variants, $gutters);
+            $variants = self::removeGutters($variants, $gutters);
         }
         if ($multiplier !== null) {
             $variants = self::processMultiplier($variants, $multiplier);
-        }
-        if ($gutters !== null) {
-            $variants = self::removeGutters($variants, $gutters);
         }
         if ($corrections !== null) {
             $variants = self::processCorrections($variants, $corrections);
@@ -167,21 +164,6 @@ class ImageVariantsUtility
             }
             if (count($variants[$variant]) === 0 || !isset($variants[$variant]['width'])) {
                 unset($variants[$variant]);
-            }
-        }
-        return $variants;
-    }
-
-    /**
-     * @param array $variants
-     * @param array $gutters
-     * @return array
-     */
-    protected static function addGutters(array $variants, array $gutters): array
-    {
-        foreach ($gutters as $variant => $value) {
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
-                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] + (float) $value);
             }
         }
         return $variants;

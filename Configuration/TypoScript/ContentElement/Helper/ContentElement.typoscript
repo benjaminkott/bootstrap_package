@@ -101,12 +101,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 16
-                        xlarge = 16
-                        large = 16
-                        medium = 16
-                        small = 16
-                        extrasmall = 16
+                        default = 8
+                        xlarge = 8
+                        large = 8
+                        medium = 8
+                        small = 8
+                        extrasmall = 8
                     }
                 }
                 3 {
@@ -139,12 +139,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 16
-                        xlarge = 16
-                        large = 16
-                        medium = 16
-                        small = 16
-                        extrasmall = 16
+                        default = 24
+                        xlarge = 24
+                        large = 24
+                        medium = 8
+                        small = 8
+                        extrasmall = 8
                     }
                 }
                 5 {
@@ -158,12 +158,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 16
-                        xlarge = 16
-                        large = 16
+                        default = 32
+                        xlarge = 32
+                        large = 32
                         medium = 16
                         small = 16
-                        extrasmall = 16
+                        extrasmall = 8
                     }
                 }
                 6 {
@@ -177,12 +177,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 16
-                        xlarge = 16
-                        large = 16
+                        default = 40
+                        xlarge = 40
+                        large = 40
                         medium = 16
                         small = 16
-                        extrasmall = 16
+                        extrasmall = 8
                     }
                 }
             }
@@ -510,10 +510,10 @@ lib.contentElement {
                             medium = 0.3333
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
-                            medium = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
+                            medium = 80
                         }
                     }
                     21 {
@@ -524,10 +524,10 @@ lib.contentElement {
                             medium = 0.3333
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
-                            medium = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
+                            medium = 80
                         }
                     }
                     22 {
@@ -538,10 +538,10 @@ lib.contentElement {
                             medium = 0.3333
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
-                            medium = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
+                            medium = 80
                         }
                     }
                 }

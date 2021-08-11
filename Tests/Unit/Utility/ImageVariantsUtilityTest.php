@@ -463,7 +463,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                 ],
                 [
                     'default' => [
-                        'width' => 1100,
+                        'width' => 1060,
                         'sizes' => [
                             '1x' => [
                                 'multiplier' => 1
@@ -515,7 +515,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                 ],
                 [
                     'numeric-string' => [
-                        'width' => 1100,
+                        'width' => 1060,
                         'sizes' => [
                             '1x' => [
                                 'multiplier' => 1
@@ -589,7 +589,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         ]
                     ],
                     'large' => [
-                        'width' => 680,
+                        'width' => 660,
                         'sizes' => [
                             '1x' => [
                                 'multiplier' => 1
