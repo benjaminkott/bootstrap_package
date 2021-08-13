@@ -15,23 +15,12 @@ tt_content.texticon {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-        10 {
-            references.fieldName = icon_file
+        1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+        1628754217 {
+            iconSet.field = icon_set
+            iconIdentifier.field = icon
+            iconFileFieldName = icon_file
             as = icon
-            if {
-                isFalse.field = icon_set
-            }
-        }
-        20 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
-        20 {
-            files {
-                0.field = icon
-            }
-            as = icon
-            if {
-                isTrue.field = icon_set
-            }
         }
     }
 

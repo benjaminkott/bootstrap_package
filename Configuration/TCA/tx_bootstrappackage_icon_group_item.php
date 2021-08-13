@@ -57,6 +57,8 @@ return [
                 subheader,
                 bodytext,
                 link,
+                icon_set,
+                icon_identifier,
                 icon_file,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
@@ -234,8 +236,35 @@ return [
             ],
             'l10n_mode' => 'exclude',
         ],
+        'icon_set' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.icon_set',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconSetItems',
+            ],
+        ],
+        'icon_identifier' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.icon_identifier',
+            'displayCond' => 'FIELD:icon_set:REQ:true',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconItems',
+                'itemsProcConfig' => [
+                    'iconSetField' => 'icon_set'
+                ],
+                'fieldWizard' => [
+                    'selectIcons' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
         'icon_file' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:icon_group_item.icon_file',
+            'displayCond' => 'FIELD:icon_set:REQ:false',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'icon_file',
                 [
@@ -276,12 +305,10 @@ return [
                             ],
                         ],
                     ],
-                    'minitems' => 1,
                     'maxitems' => 1,
                 ],
-                'svg'
+                'gif,png,svg'
             ),
-            'l10n_mode' => 'exclude',
         ],
     ],
 ];

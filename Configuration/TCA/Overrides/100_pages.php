@@ -48,9 +48,35 @@ defined('TYPO3') or die('Access denied.');
 $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['pages']['columns'],
     [
+        'nav_icon_set' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon_set',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconSetItems',
+            ],
+        ],
+        'nav_icon_identifier' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon',
+            'displayCond' => 'FIELD:nav_icon_set:REQ:true',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconItems',
+                'itemsProcConfig' => [
+                    'iconSetField' => 'nav_icon_set'
+                ],
+                'fieldWizard' => [
+                    'selectIcons' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
         'nav_icon' => [
-            'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:pages.nav_icon',
+            'displayCond' => 'FIELD:nav_icon_set:REQ:false',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'nav_icon',
                 [
@@ -91,7 +117,6 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                             ],
                         ],
                     ],
-                    'minitems' => 0,
                     'maxitems' => 1,
                 ],
                 'gif,png,svg'
@@ -154,5 +179,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
 );
 
 // Assign position to fields
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'nav_icon', '1,3,4', 'after:nav_title');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'nav_icon_set', '1,3,4', 'after:nav_title');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'nav_icon_identifier', '1,3,4', 'after:nav_icon_set');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'nav_icon', '1,3,4', 'after:nav_icon_set');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'thumbnail', '1,3,4', 'after:backend_layout_next_level');

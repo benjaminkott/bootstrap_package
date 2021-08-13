@@ -35,14 +35,7 @@
     <span class="breadcrumb-link-title">
         <f:if condition="{theme.breadcrumb.icon.enable} && {item.icon}">
             <span class="breadcrumb-icon">
-                <f:if condition="{item.icon.0.extension} === svg">
-                    <f:then>
-                        <bk2k:inlineSvg image="{item.icon.0}" width="{theme.breadcrumb.icon.width}" height="{theme.breadcrumb.icon.height}" />
-                    </f:then>
-                    <f:else>
-                        <f:image additionalAttributes="{loading: 'lazy'}" image="{item.icon.0}" alt="{item.icon.0.alternative}" title="{item.icon.0.title}" width="{theme.breadcrumb.icon.width}" height="{theme.breadcrumb.icon.height}" />
-                    </f:else>
-                </f:if>
+                <bk2k:icon icon="{item.icon}" height="{theme.breadcrumb.icon.height}" width="{theme.breadcrumb.icon.width}" />
             </span>
         </f:if>
         <span class="breadcrumb-text">{item.title}</span>

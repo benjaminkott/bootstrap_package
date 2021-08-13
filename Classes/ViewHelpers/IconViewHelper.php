@@ -9,15 +9,14 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
-use BK2K\BootstrapPackage\Utility\SvgUtility;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
- * InlineSvgViewHelper
+ * IconViewHelper
  */
-class InlineSvgViewHelper extends AbstractViewHelper
+class IconViewHelper extends AbstractViewHelper
 {
     use CompileWithRenderStatic;
 
@@ -34,11 +33,9 @@ class InlineSvgViewHelper extends AbstractViewHelper
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument('image', 'object', 'a FAL object');
-        $this->registerArgument('src', 'string', 'a path to a file');
-        $this->registerArgument('class', 'string', 'Css class for the svg');
-        $this->registerArgument('width', 'string', 'Width of the svg.', false);
-        $this->registerArgument('height', 'string', 'Height of the svg.', false);
+        $this->registerArgument('icon', 'object', 'Icon to render', true);
+        $this->registerArgument('height', 'int', 'Height');
+        $this->registerArgument('width', 'int', 'Width');
     }
 
     /**
@@ -53,12 +50,15 @@ class InlineSvgViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $src = (string)$arguments['src'];
-        $image = $arguments['image'];
-        $width = $arguments['width'] ? (int) $arguments['width'] : null;
-        $height = $arguments['height'] ? (int) $arguments['height'] : null;
-        $class = $arguments['class'] ? (string) $arguments['class'] : null;
+        $icon = $arguments['icon'];
 
-        return SvgUtility::getInlineSvg($src, $image, $width, $height, $class);
+        if (isset($arguments['width'])) {
+            $icon->setWidth((int) $arguments['width']);
+        }
+        if (isset($arguments['height'])) {
+            $icon->setHeight((int) $arguments['height']);
+        }
+
+        return $icon->render();
     }
 }

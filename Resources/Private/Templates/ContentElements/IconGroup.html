@@ -6,9 +6,9 @@
         <div class="icongroup icongroup-align-{data.pi_flexform.align} icongroup-columns-{data.pi_flexform.columns} icongroup-iconposition-{data.pi_flexform.icon_position}">
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="icongroup-item">
-                    <f:if condition="{item.iconFile.0}">
+                    <f:if condition="{item.icon}">
                         <div class="icongroup-item-icon">
-                            <bk2k:inlineSvg image="{item.iconFile.0}" />
+                            <bk2k:icon icon="{item.icon}" />
                         </div>
                     </f:if>
                     <div class="icongroup-item-text">
