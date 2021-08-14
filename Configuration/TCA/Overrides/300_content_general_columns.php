@@ -122,7 +122,7 @@ $GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
     'exclude' => true,
     'config' => [
         'type' => 'text',
-        'softref' => 'rtehtmlarea_images,typolink_tag',
+        'softref' => 'typolink_tag',
         'cols' => '40',
         'rows' => '3'
     ]
