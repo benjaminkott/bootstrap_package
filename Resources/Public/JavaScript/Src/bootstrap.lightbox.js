@@ -75,6 +75,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 caption: caption,
                 pid: Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).indexOf(element)
             };
+            if (element.querySelector('img')) {
+                item.msrc = element.querySelector('img').getAttribute('src');
+            }
             items.push(item);
         });
 
@@ -105,6 +108,12 @@ window.addEventListener('DOMContentLoaded', function() {
             counterEl:      true,
             arrowEl:        true,
             preloaderEl:    true,
+            getThumbBoundsFn: function(index) {
+                let thumbnail = document.querySelectorAll('a.lightbox[rel=' + gid + ']')[index];
+                let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+                let rect = thumbnail.getBoundingClientRect();
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            },
         };
         if(items.length > 0) {
             var gallery = new PhotoSwipe(photoswipeContainer, PhotoSwipeUI_Default, items, options);
