@@ -11,8 +11,6 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Icons;
 
 use BK2K\BootstrapPackage\Utility\SvgUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
  * SvgIcon
@@ -47,7 +45,7 @@ class SvgIcon extends AbstractIcon
      */
     public function render(): string
     {
-        $src = PathUtility::getAbsoluteWebPath(GeneralUtility::getFileAbsFileName($this->getSrc()));
+        $src = $this->getSrc();
         $height = $this->getHeight();
         $width = $this->getWidth();
 
