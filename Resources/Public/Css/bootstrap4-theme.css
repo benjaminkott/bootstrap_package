@@ -11333,7 +11333,7 @@ ul.list-inline > li {
   background: transparent;
 }
 
-.frame-layout-embedded .frame-group-container {
+.frame-layout-embedded > .frame-group-container {
   width: 100%;
   padding-right: 20px;
   padding-left: 20px;
@@ -11342,57 +11342,57 @@ ul.list-inline > li {
 }
 
 @media (min-width: 576px) {
-  .frame-layout-embedded .frame-group-container {
+  .frame-layout-embedded > .frame-group-container {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .frame-layout-embedded .frame-group-container {
+  .frame-layout-embedded > .frame-group-container {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
-  .frame-layout-embedded .frame-group-container {
+  .frame-layout-embedded > .frame-group-container {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .frame-layout-embedded .frame-group-container {
+  .frame-layout-embedded > .frame-group-container {
     max-width: 1140px;
   }
 }
 
-.frame-layout-embedded .frame-group-container-full {
+.frame-layout-embedded > .frame-group-container-full {
   max-width: 100%;
 }
 
-.frame-layout-embedded .frame-group-container-large {
+.frame-layout-embedded > .frame-group-container-large {
   max-width: var(--frame-width-large);
 }
 
-.frame-layout-embedded .frame-group-container-medium {
+.frame-layout-embedded > .frame-group-container-medium {
   max-width: var(--frame-width-medium);
 }
 
-.frame-layout-embedded .frame-group-container-small {
+.frame-layout-embedded > .frame-group-container-small {
   max-width: var(--frame-width-small);
 }
 
-.frame-layout-embedded .frame-group-inner {
+.frame-layout-embedded > .frame-group-container > .frame-group-inner {
   position: relative;
   border-radius: var(--frame-embedded-border-radius);
   background: var(--frame-background);
   padding: var(--frame-spacing);
 }
 
-.frame-layout-embedded .frame-container {
+.frame-layout-embedded > .frame-group-container > .frame-group-inner > .frame-container {
   padding: 0;
 }
 
-.frame-layout-embedded .frame-backgroundimage-container {
+.frame-layout-embedded > .frame-group-container > .frame-group-inner .frame-backgroundimage-container {
   border-radius: var(--frame-embedded-border-radius);
 }
 
@@ -11688,6 +11688,10 @@ ul.list-inline > li {
   --frame-background: #313131;
   --frame-link-color: #2a9d8f;
   --frame-link-hover-color: #1a6158;
+}
+
+.frame-background-none {
+  --frame-background: transparent;
 }
 
 .frame-backgroundimage-container {
