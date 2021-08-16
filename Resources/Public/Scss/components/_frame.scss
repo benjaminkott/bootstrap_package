@@ -136,7 +136,7 @@ $frame-backgrounds: map-merge(
 //
 .frame-layout-embedded {
     background: transparent;
-    .frame-group-container {
+    > .frame-group-container {
         @include make-container();
         @each $breakpoint, $container-max-width in $container-max-widths {
             @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -155,18 +155,18 @@ $frame-backgrounds: map-merge(
         &-small {
             max-width: var(--frame-width-small);
         }
-    }
-    .frame-group-inner {
-        position: relative;
-        border-radius: var(--frame-embedded-border-radius);
-        background: var(--frame-background);
-        padding: var(--frame-spacing);
-    }
-    .frame-container {
-        padding: 0;
-    }
-    .frame-backgroundimage-container {
-        border-radius: var(--frame-embedded-border-radius);
+        > .frame-group-inner {
+            position: relative;
+            border-radius: var(--frame-embedded-border-radius);
+            background: var(--frame-background);
+            padding: var(--frame-spacing);
+            > .frame-container {
+                padding: 0;
+            }
+            .frame-backgroundimage-container {
+                border-radius: var(--frame-embedded-border-radius);
+            }
+        }
     }
 }
 
@@ -339,6 +339,9 @@ $frame-backgrounds: map-merge(
 }
 .frame-layout-embedded.frame-space-after-none:not(.frame-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-ruler-before) {
     @extend %frame-collapsible;
+}
+.frame-background-none {
+    --frame-background: transparent;
 }
 
 //
