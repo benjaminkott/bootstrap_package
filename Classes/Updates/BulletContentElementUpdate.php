@@ -69,7 +69,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bullets', \PDO::PARAM_STR)),
                 $queryBuilder->expr()->in('layout', [100, 110, 120, 130])
             )
-            ->execute()->fetchOne();
+            ->execute()->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -88,7 +88,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
                 $queryBuilder->expr()->in('layout', [100, 110, 120, 130])
             )
             ->execute();
-        while ($record = $statement->fetchAssociative()) {
+        while ($record = $statement->fetch()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(

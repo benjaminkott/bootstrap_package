@@ -94,7 +94,7 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
                     )
                 )
             )
-            ->execute()->fetchOne();
+            ->execute()->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -118,7 +118,7 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
             )
             ->execute();
-        while ($record = $statement->fetchAssociative()) {
+        while ($record = $statement->fetch()) {
             if (null !== $newValue = $this->mapValues($record[$this->field])) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)
