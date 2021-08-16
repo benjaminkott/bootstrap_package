@@ -111,7 +111,7 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
                     )
                 )
             )
-            ->execute()->fetchOne();
+            ->execute()->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -144,7 +144,7 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
             )
             ->execute();
-        while ($record = $statement->fetchAssociative()) {
+        while ($record = $statement->fetch()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update($this->table)
                 ->where(
