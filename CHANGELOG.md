@@ -1,3 +1,12 @@
+# 12.0.1
+
+## BUGFIX
+
+- [BUGFIX] Let image service resolve svgicon - fixes #1042 e763705f
+- [REVERT][BUGFIX] Update doctrine usages (#1037) (#1044) 1e8864b4
+- [BUGFIX] Add missing embed css to bootstrap 5 (#1043) c6addb4b
+- [BUGFIX] Remove external softref to ext:rtehtmlarea (#1039) 7345b209
+
 # 12.0.0
 
 ## BREAKING

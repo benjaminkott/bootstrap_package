@@ -133,7 +133,7 @@
             "app-dir": ".build"
         },
         "branch-alias": {
-            "dev-master": "12.0.x-dev"
+            "dev-BP_12-0": "12.0.x-dev"
         }
     }
 }
