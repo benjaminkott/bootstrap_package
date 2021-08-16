@@ -74,7 +74,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
                 $queryBuilder->expr()->gt('section_frame', 0)
             )
             ->execute()
-            ->fetchOne();
+            ->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -92,7 +92,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
                 $queryBuilder->expr()->gt('section_frame', 0)
             )
             ->execute();
-        while ($record = $statement->fetchAssociative()) {
+        while ($record = $statement->fetch()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(

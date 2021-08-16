@@ -75,7 +75,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
                     )
                 )
             )
-            ->execute()->fetchOne();
+            ->execute()->fetchColumn(0);
         return (bool)$elementCount;
     }
 
@@ -99,7 +99,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
                 )
             )
             ->execute();
-        while ($record = $statement->fetchAssociative()) {
+        while ($record = $statement->fetch()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tx_bootstrappackage_carousel_item')
                 ->where(
