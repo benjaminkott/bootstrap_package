@@ -8,14 +8,18 @@
 # customsubcategory=150=Config
 # customsubcategory=151=Navigation
 # customsubcategory=152=Subnavigation
+# customsubcategory=153=Footer
 # customsubcategory=160=Theme
 # customsubcategory=161=Font
 # customsubcategory=162=Breadcrumb
 # customsubcategory=165=Social Media
+# customsubcategory=166=Contact
 # customsubcategory=167=Meta
 # customsubcategory=168=Language
 # customsubcategory=169=Copyright
 # customsubcategory=180=Tracking
+# customsubcategory=181=Address
+# customsubcategory=182=Button
 # customsubcategory=190=Bootstrap Package Settings
 # customsubcategory=200=Extension Overrides
 # customsubcategory=201=Blocks
@@ -119,6 +123,62 @@ page {
             navigationType = list
             # cat=bootstrap package: navigation/167/meta_includeNotInMenu; type=boolean; label=Meta Navigation include items not in menu
             includeNotInMenu = 1
+        }
+
+        contact {
+            # cat=bootstrap package: contact/166/contact_enable; type=boolean; label=Contact: Enable to display the Contact at bottom
+            enable = 0
+            # cat=bootstrap package: contact/166/contact_label; type=string; label=Label
+            label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:contact.label
+            data {
+                # cat=bootstrap package: contact/181/contact_01_title; type=string; label=Title
+                title =
+                # cat=bootstrap package: contact/181/contact_02_addressLine1; type=string; label=Address Line 1
+                addressLine1 =
+                # cat=bootstrap package: contact/181/contact_03_addressLine2; type=string; label=Address Line 2
+                addressLine2 =
+                # cat=bootstrap package: contact/181/contact_04_addressLine3; type=string; label=Address Line 3
+                addressLine3 =
+                # cat=bootstrap package: contact/181/contact_05_country; type=string; label=Country
+                country =
+                # cat=bootstrap package: contact/181/contact_06_phone; type=string; label=Phone
+                phone =
+                # cat=bootstrap package: contact/181/contact_07_fax; type=string; label=Fax
+                fax =
+                # cat=bootstrap package: contact/181/contact_08_email; type=string; label=Email
+                email =
+                # cat=bootstrap package: contact/181/contact_09_wwww; type=string; label=WWW
+                www =
+            }
+            button {
+                # cat=bootstrap package: contact/182/contact_button_pageUid; type=int+; label=Button Page Uid
+                pageUid =
+                # cat=bootstrap package: contact/182/contact_button_label; type=string; label=Button Label
+                label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:contact.button.label
+                # cat=bootstrap package: contact/182/contact_button_colorClass;  type=options[primary=primary]; label=Button Class
+                colorClass = primary
+            }
+        }
+
+        footernavigation {
+            # cat=bootstrap package: navigation/153/footernavigation_01_enable; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
+            enable = 0
+            # cat=bootstrap package: navigation/153/footernavigation_02_navigationValue; type=string; label=Footer Navigation Values: Comma separated list of page uids
+            navigationValue =
+            # cat=bootstrap package: navigation/153/footernavigation_03_navigationType; type=options[List=list, Directory=directory]; label=Footer Navigation Type
+            navigationType = list
+            # cat=bootstrap package: navigation/153/footernavigation_04_includeNotInMenu; type=boolean; label=Footer Navigation include items not in menu
+            includeNotInMenu = 1
+            # cat=bootstrap package: navigation/153/footernavigation_05_levels; type=int+; label=Footer Navigation Levels
+            levels = 2
+            icon {
+                # cat=bootstrap package: navigation/153/footernavigation_06_icon_enable; type=boolean; label=Footer Navigation Icon Enable
+                enable = 1
+                # cat=bootstrap package: navigation/153/footernavigation_07_icon_width; type=int+; label=Footer Navigation Icon Width
+                width = 16
+                # cat=bootstrap package: navigation/153/footernavigation_08_icon_height; type=int+; label=Footer Navigation Icon Height
+                height = 16
+            }
         }
 
         language {
