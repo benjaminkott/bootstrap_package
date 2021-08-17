@@ -12,25 +12,16 @@
         "theme",
         "web"
     ],
-    "homepage": "https://github.com/benjaminkott/bootstrap_package",
-    "repositories": {
-        "tests": {
-            "type": "path",
-            "url": "Tests/Packages/*"
-        }
-    },
+    "homepage": "https://www.bootstrap-package.com/",
+    "license": "MIT",
     "authors": [
         {
             "name": "Benjamin Kott",
             "email": "info@bk2k.info",
-            "role": "Developer",
-            "homepage": "http://www.bk2k.info/"
+            "homepage": "http://www.bk2k.info/",
+            "role": "Developer"
         }
     ],
-    "license": "MIT",
-    "support": {
-        "issues": "https://github.com/benjaminkott/bootstrap_package/issues"
-    },
     "require": {
         "php": ">=7.2.0",
         "ext-PDO": "*",
@@ -74,6 +65,22 @@
         "typo3/cms-workspaces": "^10.4 || ^11.3 || 11.*.*@dev",
         "typo3/testing-framework": "^5.0 || ^6.4"
     },
+    "config": {
+        "bin-dir": ".build/bin",
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "vendor-dir": ".build/vendor"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "12.1.x-dev"
+        },
+        "typo3/cms": {
+            "app-dir": ".build",
+            "extension-key": "bootstrap_package",
+            "web-dir": ".build/web"
+        }
+    },
     "autoload": {
         "psr-4": {
             "BK2K\\BootstrapPackage\\": "Classes"
@@ -84,27 +91,23 @@
             "BK2K\\BootstrapPackage\\Tests\\": "Tests"
         }
     },
-    "prefer-stable": true,
-    "config": {
-        "optimize-autoloader": true,
-        "sort-packages": true,
-        "vendor-dir": ".build/vendor",
-        "bin-dir": ".build/bin"
+    "repositories": {
+        "tests": {
+            "type": "path",
+            "url": "Tests/Packages/*"
+        }
     },
+    "prefer-stable": true,
     "scripts": {
-        "test:php:lint": [
-            "phplint"
+        "post-autoload-dump": [
+            "mkdir -p .build/web/typo3conf/ext/",
+            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
         ],
-        "test:php:unit": [
-            "phpunit -c Build/phpunit-unit.xml"
+        "cgl": [
+            "php-cs-fixer --diff -v fix"
         ],
-        "test:php:functional": [
-            "phpunit -c Build/phpunit-functional.xml"
-        ],
-        "test": [
-            "@test:php:lint",
-            "@test:php:unit",
-            "@test:php:functional"
+        "changelog": [
+            "extension-helper changelog:create"
         ],
         "phpstan": [
             "phpstan analyze --configuration Build/phpstan.neon"
@@ -112,28 +115,28 @@
         "phpstan:baseline": [
             "phpstan analyze --configuration Build/phpstan.neon --generate-baseline Build/phpstan-baseline.neon"
         ],
-        "cgl": [
-            "php-cs-fixer --diff -v fix"
-        ],
         "set-version": [
             "extension-helper version:set"
         ],
-        "changelog": [
-            "extension-helper changelog:create"
+        "test": [
+            "@test:php:lint",
+            "@test:php:unit",
+            "@test:php:functional"
         ],
-        "post-autoload-dump": [
-            "mkdir -p .build/web/typo3conf/ext/",
-            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+        "test:php:functional": [
+            "phpunit -c Build/phpunit-functional.xml"
+        ],
+        "test:php:lint": [
+            "phplint"
+        ],
+        "test:php:unit": [
+            "phpunit -c Build/phpunit-unit.xml"
         ]
     },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "bootstrap_package",
-            "web-dir": ".build/web",
-            "app-dir": ".build"
-        },
-        "branch-alias": {
-            "dev-master": "12.1.x-dev"
-        }
+    "support": {
+        "issues": "https://github.com/benjaminkott/bootstrap_package/issues",
+        "wiki": "https://github.com/benjaminkott/bootstrap_package/wiki",
+        "source": "https://github.com/benjaminkott/bootstrap_package",
+        "docs": "https://docs.typo3.org/p/bk2k/bootstrap-package/master/en-us/"
     }
 }
