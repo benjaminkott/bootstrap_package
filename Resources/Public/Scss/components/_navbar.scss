@@ -222,15 +222,15 @@
         padding-right: $navbar-nav-link-padding-x;
         display: flex;
         align-items: center;
+        gap: .25em;
     }
     .dropdown-icon {
+        flex-grow: 0;
+        flex-shrink: 0;
         svg,
         img {
             display: block;
             margin: 0;
-        }
-        & + .dropdown-text {
-            margin-left: .5em;
         }
     }
     @media (max-width: ($grid-float-breakpoint - 1)) {
@@ -278,6 +278,7 @@
         position: relative;
         display: flex;
         align-items: center;
+        gap: .25em;
     }
     .nav-link-icon,
     .nav-link-text {
@@ -285,9 +286,8 @@
         vertical-align: middle;
     }
     .nav-link-icon {
-        & + .nav-link-text {
-            margin-left: .5em;
-        }
+        flex-grow: 0;
+        flex-shrink: 0;
         svg,
         img {
             display: block;

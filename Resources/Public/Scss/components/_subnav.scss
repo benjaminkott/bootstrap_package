@@ -59,6 +59,7 @@ $subnav-active-bg:            transparent !default;
     border: 1px solid $subnav-border-color;
     transition: all .15s ease-in-out;
     text-decoration: none;
+    gap: .25em;
     .active > & {
         color: $subnav-active-color !important;
         background-color: $subnav-active-bg;
@@ -74,12 +75,11 @@ $subnav-active-bg:            transparent !default;
     }
 }
 .subnav-link-icon {
+    flex-grow: 0;
+    flex-shrink: 0;
     svg,
     img {
         display: block;
         margin: 0;
-    }
-    & + .subnav-link-text {
-        margin-left: .5em;
     }
 }

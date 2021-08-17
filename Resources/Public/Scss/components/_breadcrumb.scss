@@ -11,8 +11,14 @@
         margin-bottom: 0;
     }
 }
-.breadcrumb-icon svg {
-    display: block;
+.breadcrumb-icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    svg,
+    img {
+        display: block;
+        margin: 0;
+    }
 }
 .breadcrumb-link {
     text-decoration: none;

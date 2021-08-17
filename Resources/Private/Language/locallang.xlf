@@ -48,6 +48,13 @@
                 <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
             </trans-unit>
 
+            <trans-unit id="contact.label">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="contact.button.label">
+                <source>Contact us</source>
+            </trans-unit>
+
             <trans-unit id="form.browse">
                 <source>Browse</source>
             </trans-unit>

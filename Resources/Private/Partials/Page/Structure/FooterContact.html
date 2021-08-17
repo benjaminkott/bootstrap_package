@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <h5 class="footer-contact-headline"><f:translate key="{theme.contact.label}" /></h5>
+    <address>
+        <f:if condition="{theme.contact.data.title}">
+            <p class="address-title"><strong>{theme.contact.data.title}</strong></p>
+        </f:if>
+        <p class="address-address">
+            <f:if condition="{theme.contact.data.addressLine1}">{theme.contact.data.addressLine1}</f:if>
+            <f:if condition="{theme.contact.data.addressLine2}"><br>{theme.contact.data.addressLine2}</f:if>
+            <f:if condition="{theme.contact.data.addressLine3}"><br>{theme.contact.data.addressLine3}</f:if>
+            <f:if condition="{theme.contact.data.country}"><br>{theme.contact.data.country}</f:if>
+        </p>
+        <f:if condition="{theme.contact.data.phone}">
+            <p class="address-phone"><a href="tel:{theme.contact.data.phone}">{theme.contact.data.phone}</a></p>
+        </f:if>
+        <f:if condition="{theme.contact.data.fax}">
+            <p class="address-fax">{theme.contact.data.fax}</p>
+        </f:if>
+        <f:if condition="{theme.contact.data.email}">
+            <p class="address-email"><f:link.typolink parameter="{theme.contact.data.email}" /></p>
+        </f:if>
+        <f:if condition="{theme.contact.data.www}">
+            <p class="address-www"><f:link.typolink parameter="{theme.contact.data.www}" /></p>
+        </f:if>
+    </address>
+    <f:if condition="{theme.contact.button.pageUid}">
+        <p>
+            <f:link.page class="btn btn-{theme.contact.button.colorClass}" pageUid="{theme.contact.button.pageUid}">
+                <f:translate key="{theme.contact.button.label}" />
+            </f:link.page>
+        </p>
+    </f:if>
+</html>
