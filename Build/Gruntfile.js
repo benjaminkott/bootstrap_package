@@ -207,7 +207,8 @@ module.exports = function(grunt) {
                 files: {
                     '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js',
                     '<%= paths.contrib %>bootstrap5/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap5/js/bootstrap.min.js',
-                    '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js'
+                    '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js',
+                    '<%= paths.contrib %>popper-core/popper.min.js': '<%= paths.contrib %>popper-core/popper.min.js'
                 }
             }
         },
@@ -376,6 +377,18 @@ module.exports = function(grunt) {
                             'popper.min.js'
                         ],
                         dest: '<%= paths.contrib %>popper/',
+                        expand: true
+                    }
+                ]
+            },
+            popperCore: {
+                files: [
+                    {
+                        cwd: '<%= paths.node %>@popperjs/core/dist/umd/',
+                        src: [
+                            'popper.min.js'
+                        ],
+                        dest: '<%= paths.contrib %>popper-core/',
                         expand: true
                     }
                 ]
