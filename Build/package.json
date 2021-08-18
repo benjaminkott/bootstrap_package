@@ -8,6 +8,7 @@
   "version": "12.1.0-dev",
   "license": "MIT",
   "devDependencies": {
+    "@popperjs/core": "^2.9.3",
     "bootstrap4": "npm:bootstrap@^4.6.0",
     "bootstrap5": "npm:bootstrap@^5.1.0",
     "chalk": "^4.1.2",
