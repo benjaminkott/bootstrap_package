@@ -14,6 +14,11 @@ use_dns_when_possible: true
 composer_version: "2"
 web_environment:
 - PATH=/var/www/html/.build/bin:$PATH
+- TYPO3_CONTEXT=Development
+- typo3DatabaseHost=db
+- typo3DatabaseName=t3func
+- typo3DatabasePassword=root
+- typo3DatabaseUsername=root
 
 
 # This config.yaml was created with ddev version v1.17.7
