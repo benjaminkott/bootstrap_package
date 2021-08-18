@@ -16,8 +16,3 @@ defined('TYPO3') or die('Access denied.');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_icon_group_item');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_tab_item');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bootstrappackage_timeline_item');
-
-/***************
- * Modify CSS for backend
- */
-$GLOBALS['TBE_STYLES']['skins']['backend']['stylesheetDirectories']['bk2k'] = 'EXT:bootstrap_package/Resources/Public/Css/Backend/';
