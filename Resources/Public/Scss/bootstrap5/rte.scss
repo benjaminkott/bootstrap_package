@@ -10,8 +10,8 @@ body {
     margin: 20px;
 }
 .btn {
-    cursor: initial;
-    user-select: initial;
+    cursor: initial !important;
+    user-select: initial !important;
 }
 a:hover {
     text-decoration: initial;
