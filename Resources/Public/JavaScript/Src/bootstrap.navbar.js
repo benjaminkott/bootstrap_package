@@ -76,12 +76,14 @@ window.addEventListener('DOMContentLoaded', function() {
                 let listElementSiblings = listElement.parentElement.querySelectorAll('.dropdown-hover');
                 Array.from(listElementSiblings).forEach(function(listElementsSibling) {
                     listElementsSibling.setAttribute('aria-expanded', 'false')
+                    listElementsSibling.classList.remove('show');
                 });
                 let listElementMenus = listElement.parentElement.querySelectorAll('.dropdown-menu');
                 Array.from(listElementMenus).forEach(function(listElementMenu) {
                     listElementMenu.classList.remove('show');
                 });
                 listElement.classList.add('show');
+                listElement.setAttribute('aria-expanded', 'true')
                 listElement.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
                 listElement.querySelector('.dropdown-menu').classList.add('show');
                 e.stopImmediatePropagation();
