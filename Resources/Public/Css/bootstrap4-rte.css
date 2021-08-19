@@ -2481,7 +2481,6 @@ textarea.form-control {
   color: #212121;
   text-align: center;
   vertical-align: middle;
-  user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
@@ -2510,10 +2509,6 @@ textarea.form-control {
 .btn.disabled, .disabled.cc-btn, .btn:disabled, .cc-btn:disabled {
   opacity: 0.65;
   box-shadow: none;
-}
-
-.btn:not(:disabled):not(.disabled), .cc-btn:not(:disabled):not(.disabled) {
-  cursor: pointer;
 }
 
 .btn:not(:disabled):not(.disabled):active, .cc-btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active, .cc-btn:not(:disabled):not(.disabled).active {
@@ -15786,11 +15781,6 @@ a.pswp__share--download:hover {
 
 body {
   margin: 20px;
-}
-
-.btn, .cc-btn {
-  cursor: initial;
-  user-select: initial;
 }
 
 a:hover {
