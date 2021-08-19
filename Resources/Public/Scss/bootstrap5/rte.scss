@@ -9,8 +9,12 @@
 body {
     margin: 20px;
 }
-.cke_combopanel {
-    min-width: 200px;
+.btn {
+    cursor: initial !important;
+    user-select: initial !important;
+}
+a:hover {
+    text-decoration: initial;
 }
 
 //
