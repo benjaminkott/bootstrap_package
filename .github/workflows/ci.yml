@@ -35,7 +35,7 @@ jobs:
         composer test:php:lint
     - name: CGL
       run: |
-        composer cgl
+        composer cgl:ci
     - name: Unit Tests
       run: |
         composer test:php:unit
