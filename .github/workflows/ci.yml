@@ -49,7 +49,7 @@ jobs:
           composer test:php:lint
       - name: CGL
         run: |
-          composer cgl
+          composer cgl:ci
       - name: PHPStan
         run: |
           composer phpstan -- --error-format=github
