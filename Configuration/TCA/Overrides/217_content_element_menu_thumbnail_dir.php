@@ -10,7 +10,7 @@
 defined('TYPO3') or die('Access denied.');
 
 // Enable Content Element
-if (!array_key_exists('panel',$GLOBALS['TCA']['tt_content']['types'])) {
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] ?? false)) {
     $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = [];
 }
 
