@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-{f:if(condition: logo.normal, then: 'image', else: 'text')}" title="{settings.logo.linktitle}">
+    <f:if condition="{logo.normal}">
+        <f:then>
+            <img class="navbar-brand-logo-normal" src="{f:uri.image(image: logo.normal)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
+            <f:if condition="{logo.inverted}">
+                <img class="navbar-brand-logo-inverted" src="{f:uri.image(image: logo.inverted)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
+            </f:if>
+        </f:then>
+        <f:else>
+            <span>{siteTitle}</span>
+        </f:else>
+    </f:if>
+</f:link.page>
+</html>

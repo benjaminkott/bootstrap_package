@@ -5,79 +5,16 @@
 <f:variable name="headerClass">{headerClass}{f:if(condition: theme.navigation.type, else:' navbar-top', then:' navbar-{theme.navigation.type} navbar-fixed-{theme.navigation.type}')}</f:variable>
 <header id="page-header" class="{headerClass}">
     <div class="container">
-        <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-{f:if(condition: logo.normal, then: 'image', else: 'text')}" title="{settings.logo.linktitle}">
-            <f:if condition="{logo.normal}">
-                <f:then>
-                    <img class="navbar-brand-logo-normal" src="{f:uri.image(image: logo.normal)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                    <f:if condition="{logo.inverted}">
-                        <img class="navbar-brand-logo-inverted" src="{f:uri.image(image: logo.inverted)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                    </f:if>
-                </f:then>
-                <f:else>
-                    <span>{siteTitle}</span>
-                </f:else>
-            </f:if>
-        </f:link.page>
+        <f:render partial="Header/Logo" arguments="{_all}" />
         <f:if condition="{mainnavigation}">
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#mainnavigation" data-bs-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="{f:translate(key: 'togglenavigation', extensionName: 'bootstrap_package')}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <f:render partial="Header/Toggle" arguments="{_all}" />
             <nav id="mainnavigation" class="collapse navbar-collapse">
                 <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
-                <f:render section="MainNavigation" arguments="{menu: mainnavigation, theme: theme}" />
+                <f:render partial="Navigation/MainNavigation" arguments="{_all}" />
                 <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
             </nav>
         </f:if>
     </div>
 </header>
 
-<f:section name="MainNavigation">
-    <f:if condition="{menu}">
-        <ul class="navbar-nav">
-            <f:for each="{menu}" as="item">
-                <f:if condition="{item.spacer}">
-                    <f:then>
-                        </ul>
-                        <ul class="navbar-nav">
-                    </f:then>
-                    <f:else>
-                        <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
-                            <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
-                                <f:if condition="{theme.navigation.icon.enable} && {item.icon}">
-                                    <span class="nav-link-icon">
-                                        <bk2k:icon icon="{item.icon}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
-                                    </span>
-                                </f:if>
-                                <span class="nav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if></span>
-                            </a>
-                            <f:if condition="{item.children}">
-                                <ul class="dropdown-menu" aria-labelledby="nav-item-{item.data.uid}">
-                                    <f:for each="{item.children}" as="child">
-                                        <f:if condition="{child.spacer}">
-                                            <f:then>
-                                                <li class="dropdown-divider"></li>
-                                            </f:then>
-                                            <f:else>
-                                                <li>
-                                                    <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
-                                                        <f:if condition="{theme.navigation.dropdown.icon.enable} && {child.icon}">
-                                                            <span class="dropdown-icon">
-                                                                <bk2k:icon icon="{child.icon}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
-                                                            </span>
-                                                        </f:if>
-                                                        <span class="dropdown-text">{child.title}<f:if condition="{child.current}"> <span class="visually-hidden">(current)</span></f:if></span>
-                                                    </a>
-                                                </li>
-                                            </f:else>
-                                        </f:if>
-                                    </f:for>
-                                </ul>
-                            </f:if>
-                        </li>
-                    </f:else>
-                </f:if>
-            </f:for>
-        </ul>
-    </f:if>
-</f:section>
 </html>
