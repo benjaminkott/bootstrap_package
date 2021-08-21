@@ -1,0 +1,27 @@
+#!/bin/bash
+
+## Description: Builds the frontend files
+## Usage: build [flags] [args]
+## Example: "ddev build" or "ddev build --no-install" or "ddev build css" or "ddev build icon" or "ddev build image" or "ddev build js" or "ddev build lint"
+
+cd Build || exit 1
+
+install=1
+
+if [ "${1:-}" == "--no-install" ]; then
+    install=0
+    shift
+fi
+
+if [ "$install" -gt "0" ]; then
+    npm install || exit 1
+fi
+
+if [ -z "${1:-}" ]; then
+    command="build"
+else
+    command="$1"
+    shift
+fi
+
+npm run "$command" "$@"
