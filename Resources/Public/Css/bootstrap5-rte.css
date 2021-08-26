@@ -13677,6 +13677,11 @@ textarea.form-control.error {
   filter: sepia(1);
 }
 
+.frame-backgroundimage-behaviour-pattern {
+  background-repeat: repeat;
+  background-size: auto;
+}
+
 .frame-space-before-none {
   --frame-outer-spacing-before: var(--frame-outer-spacing-variant-none);
 }

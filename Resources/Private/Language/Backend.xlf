@@ -829,6 +829,15 @@
                 <source>Beside Text, Centered Left</source>
             </trans-unit>
 
+            <trans-unit id="option.background_image.behaviour">
+                <source>Behaviour</source>
+            </trans-unit>
+            <trans-unit id="option.background_image.behaviour.cover">
+                <source>Cover</source>
+            </trans-unit>
+            <trans-unit id="option.background_image.behaviour.pattern">
+                <source>Pattern</source>
+            </trans-unit>
             <trans-unit id="option.background_image.parallax">
                 <source>Parallax</source>
             </trans-unit>

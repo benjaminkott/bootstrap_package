@@ -3,6 +3,10 @@
     <f:variable name="backgroundImageObject" value="{backgroundImage.0}"/>
     <f:variable name="backgroundImageIdentifier" value="frame-backgroundimage-{data.uid}"/>
     <f:variable name="backgroundImageClasses">frame-backgroundimage</f:variable>
+    <f:if condition="{data.background_image_options.behaviour}">
+        <f:then><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-behaviour-{data.background_image_options.behaviour}</f:variable></f:then>
+        <f:else><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-behaviour-cover</f:variable></f:else>
+    </f:if>
     <f:if condition="{data.background_image_options.parallax}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-parallax</f:variable></f:if>
     <f:if condition="{data.background_image_options.fade}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-fade</f:variable></f:if>
     <f:if condition="{data.background_image_options.filter}"><f:variable name="backgroundImageClasses">{backgroundImageClasses} frame-backgroundimage-{data.background_image_options.filter}</f:variable></f:if>

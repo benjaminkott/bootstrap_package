@@ -11,6 +11,26 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
+                    <behaviour>
+                        <TCEforms>
+                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default></default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.cover</numIndex>
+                                        <numIndex index="1">cover</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.pattern</numIndex>
+                                        <numIndex index="1">pattern</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </behaviour>
                     <parallax>
                         <TCEforms>
                             <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.parallax</label>
