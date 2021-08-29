@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{mainnavigation}">
+    <ul class="navbar-nav">
+        <f:for each="{mainnavigation}" as="item">
+            <f:if condition="{item.spacer}">
+                <f:then>
+                    </ul>
+                    <ul class="navbar-nav">
+                </f:then>
+                <f:else>
+                    <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
+                        <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
+                            <f:if condition="{theme.navigation.icon.enable} && {item.icon}">
+                                <span class="nav-link-icon">
+                                    <bk2k:icon icon="{item.icon}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
+                                </span>
+                            </f:if>
+                            <span class="nav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if></span>
+                        </a>
+                        <f:if condition="{item.children}">
+                            <ul class="dropdown-menu" aria-labelledby="nav-item-{item.data.uid}">
+                                <f:for each="{item.children}" as="child">
+                                    <f:if condition="{child.spacer}">
+                                        <f:then>
+                                            <li class="dropdown-divider"></li>
+                                        </f:then>
+                                        <f:else>
+                                            <li>
+                                                <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
+                                                    <f:if condition="{theme.navigation.dropdown.icon.enable} && {child.icon}">
+                                                        <span class="dropdown-icon">
+                                                            <bk2k:icon icon="{child.icon}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
+                                                        </span>
+                                                    </f:if>
+                                                    <span class="dropdown-text">{child.title}<f:if condition="{child.current}"> <span class="visually-hidden">(current)</span></f:if></span>
+                                                </a>
+                                            </li>
+                                        </f:else>
+                                    </f:if>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </li>
+                </f:else>
+            </f:if>
+        </f:for>
+    </ul>
+</f:if>
+</html>

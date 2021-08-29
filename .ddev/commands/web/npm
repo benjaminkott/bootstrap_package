@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Run npm inside the web container in the Build folder
+## Usage: npm [flags] [args]
+## Example: "ddev npm install" or "ddev npm run build"
+
+cd Build || exit 1
+npm "$@"
