@@ -37,7 +37,6 @@ class ContainerContextProcessor implements DataProcessorInterface
             $this->getPageRecords($cObj, $processedData['data']['pid']),
             $processedData['data']
         );
-        $processedData['containerContext'] = array_reverse($processedData['containerContext']);
 
         return $processedData;
     }
