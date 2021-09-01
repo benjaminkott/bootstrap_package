@@ -9,7 +9,7 @@
             <f:for each="{records}" as="record" iteration="iteration">
                 <div class="accordion-item">
                     <h4 class="accordion-header" id="accordion-heading-{data.uid}-{record.data.uid}">
-                        <button class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" type="button"
+                        <button class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid} || {activeElement} == {record.data._LOCALIZED_UID}', else:' collapsed')}" type="button"
                             data-toggle="collapse"
                             data-target="#accordion-{data.uid}-{record.data.uid}"
                             data-parent="#accordion-{data.uid}"
