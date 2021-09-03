@@ -75,7 +75,7 @@
                 <a id="c{data._LOCALIZED_UID}"></a>
             </f:if>
             <f:if condition="{data.space_before_class}">
-                <div class="{spaceBeforeClass}"></div>
+                <div class="frame-space-before {spaceBeforeClass}"></div>
             </f:if>
             <f:render section="Before" optional="true">
                 <f:render partial="DropIn/Before/All" arguments="{_all}" />
@@ -91,7 +91,7 @@
                 <f:render partial="DropIn/After/All" arguments="{_all}" />
             </f:render>
             <f:if condition="{data.space_after_class}">
-                <div class="{spaceAfterClass}"></div>
+                <div class="frame-space-after {spaceAfterClass}"></div>
             </f:if>
 
         </f:else>
