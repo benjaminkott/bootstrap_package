@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Unable to resolve the template type T in call to method static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\GeneralUtility\\:\\:makeInstance\\(\\)$#"
-			count: 1
-			path: ../Classes/Service/CompileService.php
-
-		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
@@ -256,6 +251,34 @@ parameters:
 			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
 			count: 1
 			path: ../Classes/Updates/FrameClassToBackgroundUpdate.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchNumeric\\(\\), fetchAssociative\\(\\) or fetchOne\\(\\) instead\\.$#
+				"""
+			count: 1
+			path: ../Classes/Updates/FrameClassToOptionsUpdate.php
+
+		-
+			message:
+				"""
+					#^Call to deprecated method fetchColumn\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
+					Use fetchOne\\(\\) instead\\.$#
+				"""
+			count: 1
+			path: ../Classes/Updates/FrameClassToOptionsUpdate.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassToOptionsUpdate.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\Statement\\|int\\.$#"
+			count: 1
+			path: ../Classes/Updates/FrameClassToOptionsUpdate.php
 
 		-
 			message:
