@@ -325,7 +325,9 @@ $frame-backgrounds: map-merge(
     }
     @include make-frame-collapsible($name);
 }
-.frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
+.frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before),
+.frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-size-default.frame-background-none.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage),
+.frame-size-default.frame-background-none.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
     @extend %frame-collapsible;
 }
 .frame-background-none {

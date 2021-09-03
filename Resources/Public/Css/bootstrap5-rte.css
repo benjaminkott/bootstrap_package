@@ -13541,7 +13541,9 @@ textarea.form-control.error {
 .frame-size-default.frame-background-tertiary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-quaternary.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
 .frame-size-default.frame-background-quaternary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-light.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
 .frame-size-default.frame-background-light.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-dark.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-dark.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
+.frame-size-default.frame-background-dark.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before),
+.frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-size-default.frame-background-none.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage),
+.frame-size-default.frame-background-none.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
   --frame-outer-spacing-before: calc(-1 * var(--frame-spacing));
 }
 
