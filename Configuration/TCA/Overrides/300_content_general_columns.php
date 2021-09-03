@@ -24,6 +24,34 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_layout'] = [
     ],
     'l10n_mode' => 'exclude',
 ];
+$GLOBALS['TCA']['tt_content']['columns']['frame_options'] = [
+    'exclude' => true,
+    'displayCond' => 'FIELD:frame_class:!=:none',
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectCheckBox',
+        'items' => [
+            [
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_before',
+                'ruler-before'
+            ],
+            [
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_after',
+                'ruler-after'
+            ],
+            [
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_left',
+                'indent-left'
+            ],
+            [
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_right',
+                'indent-right'
+            ],
+        ],
+    ],
+    'l10n_mode' => 'exclude',
+];
 $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
@@ -213,6 +241,7 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
     --linebreak--,
     frame_layout,
+    frame_options,
     --linebreak--,
     background_color_class,
     --linebreak--,
