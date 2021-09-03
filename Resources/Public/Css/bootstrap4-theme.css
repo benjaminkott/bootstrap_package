@@ -11740,6 +11740,14 @@ ul.list-inline > li {
   filter: sepia(1);
 }
 
+.frame-space-before {
+  margin-top: var(--frame-outer-spacing-before, 0);
+}
+
+.frame-space-after {
+  margin-bottom: var(--frame-outer-spacing-after, 0);
+}
+
 .frame-space-before-none {
   --frame-outer-spacing-before: var(--frame-outer-spacing-variant-none);
 }
