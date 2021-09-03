@@ -11527,101 +11527,68 @@ ul.list-inline > li {
   padding-right: 0;
 }
 
-.frame-ruler-before {
+.frame-option-ruler-before {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   margin-top: 0;
 }
 
-.frame-ruler-after {
+.frame-option-ruler-after {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.frame-indent .frame-inner {
+.frame-option-indent-left .frame-inner {
   margin-left: 0%;
+}
+
+@media (min-width: 576px) {
+  .frame-option-indent-left .frame-inner {
+    margin-left: 5%;
+  }
+}
+
+@media (min-width: 768px) {
+  .frame-option-indent-left .frame-inner {
+    margin-left: 10%;
+  }
+}
+
+@media (min-width: 992px) {
+  .frame-option-indent-left .frame-inner {
+    margin-left: 15%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .frame-option-indent-left .frame-inner {
+    margin-left: 20%;
+  }
+}
+
+.frame-option-indent-right .frame-inner {
   margin-right: 0%;
 }
 
 @media (min-width: 576px) {
-  .frame-indent .frame-inner {
-    margin-left: 5%;
+  .frame-option-indent-right .frame-inner {
     margin-right: 5%;
   }
 }
 
 @media (min-width: 768px) {
-  .frame-indent .frame-inner {
-    margin-left: 10%;
+  .frame-option-indent-right .frame-inner {
     margin-right: 10%;
   }
 }
 
 @media (min-width: 992px) {
-  .frame-indent .frame-inner {
-    margin-left: 15%;
+  .frame-option-indent-right .frame-inner {
     margin-right: 15%;
   }
 }
 
 @media (min-width: 1200px) {
-  .frame-indent .frame-inner {
-    margin-left: 20%;
+  .frame-option-indent-right .frame-inner {
     margin-right: 20%;
-  }
-}
-
-.frame-indent-left .frame-inner {
-  margin-left: 0%;
-}
-
-@media (min-width: 576px) {
-  .frame-indent-left .frame-inner {
-    margin-left: 10%;
-  }
-}
-
-@media (min-width: 768px) {
-  .frame-indent-left .frame-inner {
-    margin-left: 20%;
-  }
-}
-
-@media (min-width: 992px) {
-  .frame-indent-left .frame-inner {
-    margin-left: 30%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .frame-indent-left .frame-inner {
-    margin-left: 40%;
-  }
-}
-
-.frame-indent-right .frame-inner {
-  margin-right: 0%;
-}
-
-@media (min-width: 576px) {
-  .frame-indent-right .frame-inner {
-    margin-right: 10%;
-  }
-}
-
-@media (min-width: 768px) {
-  .frame-indent-right .frame-inner {
-    margin-right: 20%;
-  }
-}
-
-@media (min-width: 992px) {
-  .frame-indent-right .frame-inner {
-    margin-right: 30%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .frame-indent-right .frame-inner {
-    margin-right: 40%;
   }
 }
 
@@ -11713,14 +11680,14 @@ ul.list-inline > li {
   padding-right: var(--frame-spacing);
 }
 
-.frame-size-default.frame-background-none.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-none.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-primary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-primary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-secondary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-secondary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-tertiary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-tertiary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-quaternary.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-quaternary.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-light.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-light.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-dark.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-.frame-size-default.frame-background-dark.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-layout-embedded.frame-space-after-none:not(.frame-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-ruler-before) {
+.frame-size-default.frame-background-none.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-none.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-primary.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-primary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-secondary.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-secondary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-tertiary.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-tertiary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-quaternary.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-quaternary.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-light.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-light.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-size-default.frame-background-dark.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+.frame-size-default.frame-background-dark.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded), .frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
   --frame-outer-spacing-before: calc(-1 * var(--frame-spacing));
 }
 

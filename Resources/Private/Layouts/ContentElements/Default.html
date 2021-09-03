@@ -26,11 +26,20 @@
     <f:variable name="spaceBeforeClass">frame-space-before-{f:if(condition: data.space_before_class, else: 'none', then: data.space_before_class)}</f:variable>
     <f:variable name="spaceAfterClass">frame-space-after-{f:if(condition: data.space_after_class, else: 'none', then: data.space_after_class)}</f:variable>
 
+    <f:variable name="frameOptionClasses"></f:variable>
+    <f:if condition="{data.frame_options}">
+        <bk2k:explode data="{data.frame_options}" as="frameOptions" delimiter=",">
+            <f:for each="{frameOptions}" as="frameOption">
+                <f:variable name="frameOptionClasses">{frameOptionClasses} frame-option-{frameOption}</f:variable>
+            </f:for>
+        </bk2k:explode>
+    </f:if>
+
     <f:if condition="{data.frame_class} != none">
         <f:then>
 
             <f:variable name="backgroundImageClass">{f:if(condition: backgroundImage.0, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
-            <div id="c{data.uid}" class="frame {frameSize} {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+            <div id="c{data.uid}" class="frame {frameSize} {frameClass}{frameOptionClasses} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
                 <div class="frame-group-container">
                     <div class="frame-group-inner">
                         <f:render partial="Frame/General/BackgroundImage" arguments="{_all}" />

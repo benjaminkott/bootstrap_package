@@ -205,45 +205,33 @@ $frame-backgrounds: map-merge(
 }
 
 //
-// Frame Styles
+// Frame Options
 // --------------------------------------------------
-.frame-ruler-before {
+.frame-option-ruler-before {
     border-top: 1px solid rgba(0, 0, 0, .125);
     margin-top: 0;
 }
-.frame-ruler-after {
+.frame-option-ruler-after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
 }
-.frame-indent {
+.frame-option-indent-left {
     .frame-inner {
         @each $breakpoint in map-keys($grid-breakpoints) {
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
                 margin-left: $i * 5%;
+            }
+        }
+    }
+}
+.frame-option-indent-right {
+    .frame-inner {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $i: index(map-keys($grid-breakpoints), $breakpoint);
+            $i: $i - 1;
+            @include media-breakpoint-up($breakpoint) {
                 margin-right: $i * 5%;
-            }
-        }
-    }
-}
-.frame-indent-left {
-    .frame-inner {
-        @each $breakpoint in map-keys($grid-breakpoints) {
-            $i: index(map-keys($grid-breakpoints), $breakpoint);
-            $i: $i - 1;
-            @include media-breakpoint-up($breakpoint) {
-                margin-left: $i * 10%;
-            }
-        }
-    }
-}
-.frame-indent-right {
-    .frame-inner {
-        @each $breakpoint in map-keys($grid-breakpoints) {
-            $i: index(map-keys($grid-breakpoints), $breakpoint);
-            $i: $i - 1;
-            @include media-breakpoint-up($breakpoint) {
-                margin-right: $i * 10%;
             }
         }
     }
@@ -309,8 +297,8 @@ $frame-backgrounds: map-merge(
     --frame-outer-spacing-before: calc(-1 * var(--frame-spacing));
 }
 @mixin make-frame-collapsible($name) {
-    .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
-    .frame-size-default.frame-background-#{$name}.frame-space-before-none:not(.frame-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
+    .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-option-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +
+    .frame-size-default.frame-background-#{$name}.frame-space-before-none:not(.frame-option-ruler-before):not(.frame-has-backgroundimage):not(.frame-layout-embedded) {
         @extend %frame-collapsible;
     }
 }
@@ -337,7 +325,7 @@ $frame-backgrounds: map-merge(
     }
     @include make-frame-collapsible($name);
 }
-.frame-layout-embedded.frame-space-after-none:not(.frame-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-ruler-before) {
+.frame-layout-embedded.frame-space-after-none:not(.frame-option-ruler-after) + .frame-layout-embedded.frame-space-before-none:not(.frame-option-ruler-before) {
     @extend %frame-collapsible;
 }
 .frame-background-none {
