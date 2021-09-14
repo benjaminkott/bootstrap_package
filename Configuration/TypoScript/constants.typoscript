@@ -319,41 +319,35 @@ config {
 #########################
 ### BOOTSTRAP PACKAGE ###
 #########################
-plugin.bootstrap_package {
-    settings {
-        # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your SCSS files will be overridden with the ones defined as TypoScript Constants.
-        overrideParserVariables = 1
-        # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug CSS in browser developer tools. Note: CSS compression will be disabled.
-        cssSourceMapping = 0
-    }
+plugin.bootstrap_package.settings {
+    # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your SCSS files will be overridden with the ones defined as TypoScript Constants.
+    overrideParserVariables = 1
+    # cat=bootstrap package: css parser/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug CSS in browser developer tools. Note: CSS compression will be disabled.
+    cssSourceMapping = 0
 }
 
 #################################
 ### BOOTSTRAP PACKAGE BLOCKS ####
 #################################
-plugin.bootstrap_package_blocks {
-    view {
-        # cat=bootstrap package: blocks/201/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
-        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
-        # cat=bootstrap package: blocks/201/partialRootPath; type=string; label=Partial Root Path: Path to partials
-        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Blocks/
-        # cat=bootstrap package: blocks/201/templateRootPath; type=string; label=Template Root Path: Path to templates
-        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
-    }
+plugin.bootstrap_package_blocks.view {
+    # cat=bootstrap package: blocks/201/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+    layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
+    # cat=bootstrap package: blocks/201/partialRootPath; type=string; label=Partial Root Path: Path to partials
+    partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/Blocks/
+    # cat=bootstrap package: blocks/201/templateRootPath; type=string; label=Template Root Path: Path to templates
+    templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
 }
 
 ####################################
 ### BOOTSTRAP PACKAGE EXTENSIONS ###
 ####################################
-plugin.bootstrap_package {
-    view {
-        # cat=bootstrap package: templates/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
-        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
-        # cat=bootstrap package: templates/200/partialRootPath; type=string; label=Partial Root Path: Path to partials
-        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
-        # cat=bootstrap package: templates/200/templateRootPath; type=string; label=Template Root Path: Path to templates
-        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
-    }
+plugin.bootstrap_package.view {
+    # cat=bootstrap package: templates/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+    layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
+    # cat=bootstrap package: templates/200/partialRootPath; type=string; label=Partial Root Path: Path to partials
+    partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
+    # cat=bootstrap package: templates/200/templateRootPath; type=string; label=Template Root Path: Path to templates
+    templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
 }
 
 ####################

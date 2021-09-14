@@ -84,7 +84,7 @@ lib.dynamicContent {
             field = wrap
         }
         elementWrap.cObject = TEXT
-        elementWrap.cObject{
+        elementWrap.cObject {
             field = elementWrap
         }
     }
@@ -102,7 +102,7 @@ lib.dynamicContent {
         slide = {register:slide}
         slide.insertData = 1
         renderObj {
-            stdWrap{
+            stdWrap {
                 dataWrap = {register:elementWrap}
                 required = 1
             }
