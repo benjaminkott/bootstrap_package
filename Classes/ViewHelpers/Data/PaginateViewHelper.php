@@ -14,8 +14,8 @@ use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -143,7 +143,7 @@ class PaginateViewHelper extends AbstractViewHelper
 
     protected static function getConfigurationManager(): ConfigurationManagerInterface
     {
-        return GeneralUtility::makeInstance(ObjectManager::class)->get(ConfigurationManagerInterface::class);
+        return GeneralUtility::getContainer()->get(ConfigurationManager::class);
     }
 
     protected static function getRequest(): ServerRequestInterface

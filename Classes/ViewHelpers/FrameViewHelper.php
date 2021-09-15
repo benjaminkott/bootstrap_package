@@ -14,8 +14,8 @@ use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
@@ -199,6 +199,6 @@ class FrameViewHelper extends AbstractViewHelper
 
     protected static function getConfigurationManager(): ConfigurationManagerInterface
     {
-        return GeneralUtility::makeInstance(ObjectManager::class)->get(ConfigurationManagerInterface::class);
+        return GeneralUtility::getContainer()->get(ConfigurationManager::class);
     }
 }
