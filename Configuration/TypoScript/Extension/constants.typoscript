@@ -1,0 +1,19 @@
+###########################
+#### BOOTSTRAP PACKAGE ####
+###########################
+plugin.tx_bootstrappackage {
+    view {
+        templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
+        partialRootPath = EXT:bootstrap_package/Resources/Private/Partials/
+        layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
+    }
+}
+
+#############################################################
+#### EXTENSIONS                                          ####
+#### Manual inclusion to keep control over loading order ####
+#############################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/constants.typoscript" condition="extension.isLoaded('felogin') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/constants.typoscript" condition="extension.isLoaded('form') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/constants.typoscript" condition="extension.isLoaded('indexed_search') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/constants.typoscript" condition="extension.isLoaded('seo') == 1">

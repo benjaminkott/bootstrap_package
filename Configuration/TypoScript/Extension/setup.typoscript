@@ -1,0 +1,29 @@
+###########################
+#### BOOTSTRAP PACKAGE ####
+###########################
+plugin.tx_bootstrappackage {
+    view {
+        templateRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Templates/
+            1 = {$plugin.tx_bootstrappackage.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Partials/
+            1 = {$plugin.tx_bootstrappackage.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Layouts/
+            1 = {$plugin.tx_bootstrappackage.view.layoutRootPath}
+        }
+    }
+}
+
+#############################################################
+#### EXTENSIONS                                          ####
+#### Manual inclusion to keep control over loading order ####
+#############################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/setup.typoscript" condition="extension.isLoaded('felogin') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/setup.typoscript" condition="extension.isLoaded('form') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript" condition="extension.isLoaded('indexed_search') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/setup.typoscript" condition="extension.isLoaded('seo') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Container/setup.typoscript" condition="extension.isLoaded('container') == 1">
