@@ -13596,17 +13596,17 @@ textarea.form-control.error {
 }
 
 .frame-background-tertiary {
-  --frame-color: #ffffff;
+  --frame-color: #000000;
   --frame-background: #f4a261;
-  --frame-link-color: #ffffff;
-  --frame-link-hover-color: #ffffff;
+  --frame-link-color: #000000;
+  --frame-link-hover-color: #000000;
 }
 
 .frame-background-quaternary {
-  --frame-color: #ffffff;
+  --frame-color: #000000;
   --frame-background: #e9c46a;
-  --frame-link-color: #ffffff;
-  --frame-link-hover-color: #ffffff;
+  --frame-link-color: #000000;
+  --frame-link-hover-color: #000000;
 }
 
 .frame-background-light {
@@ -14089,17 +14089,17 @@ textarea.form-control.error {
 }
 
 .carousel-item-layout-tertiary {
-  --carousel-item-color: #ffffff;
+  --carousel-item-color: #000000;
   --carousel-item-background: #f4a261;
-  --carousel-item-link-color: #ffffff;
-  --carousel-item-link-hover-color: #ffffff;
+  --carousel-item-link-color: #000000;
+  --carousel-item-link-hover-color: #000000;
 }
 
 .carousel-item-layout-quaternary {
-  --carousel-item-color: #ffffff;
+  --carousel-item-color: #000000;
   --carousel-item-background: #e9c46a;
-  --carousel-item-link-color: #ffffff;
-  --carousel-item-link-hover-color: #ffffff;
+  --carousel-item-link-color: #000000;
+  --carousel-item-link-hover-color: #000000;
 }
 
 .carousel-item-layout-light {
@@ -14746,25 +14746,25 @@ textarea.form-control.error {
 
 .card-panel-tertiary {
   --cardpanel-header-background: #f4a261;
-  --cardpanel-header-color: #ffffff;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #f18631;
 }
 
 .card-panel-quaternary {
   --cardpanel-header-background: #e9c46a;
-  --cardpanel-header-color: #ffffff;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #e2b23e;
 }
 
 .card-panel-lighter {
   --cardpanel-header-background: #f8f8f8;
-  --cardpanel-header-color: #212121;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #dfdede;
 }
 
 .card-panel-light {
   --cardpanel-header-background: #e9e9e9;
-  --cardpanel-header-color: #212121;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #d0cfcf;
 }
 
@@ -14782,7 +14782,7 @@ textarea.form-control.error {
 
 .card-panel-default {
   --cardpanel-header-background: #eaebec;
-  --cardpanel-header-color: #212121;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #cfd2d4;
 }
 
@@ -14800,7 +14800,7 @@ textarea.form-control.error {
 
 .card-panel-warning {
   --cardpanel-header-background: #f0ad4e;
-  --cardpanel-header-color: #ffffff;
+  --cardpanel-header-color: #000000;
   --cardpanel-border-color: #ec971f;
 }
 
