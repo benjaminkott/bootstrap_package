@@ -1,3 +1,31 @@
+# 12.0.2
+
+## TASK
+
+- [TASK] Update frontend dependencies 151f4877
+- [TASK] Update scssphp to v1.7.0 168b6c90
+- [TASK] Update Bug Report template (#1069) 95ba43c4
+- [TASK] Provide frontend build custom commands (#1068) 6c56d7ba
+- [TASK] Exclude submenues from indexing (#1061) 1c4b80a2
+- [TASK] correct Photoswipe opening animation (#941) 3a6f50cd
+
+## BUGFIX
+
+- [BUGFIX] Add automatic contrast calculations again for backgrounds - fixes #1057 e56f5ec4
+- [BUGFIX] Hide header for container elements - fixes #1079 98faa9ad
+- [BUGFIX] Ensure spacing for frames is applied when set to none 48ec125d
+- [BUGFIX] Missing theme colors (#1067) 85867a1b
+- [BUGFIX] Array access warnings in PHP 8 (#1063) 1511a449
+- [BUGFIX] CGL in CI workflow (#1064) 7dafab16
+- [BUGFIX] Docs rendering (#1062) 2122e791
+- [BUGFIX] Mark menu items correctly as closed - fixes #1052 9bc37078
+- [BUGFIX] Include correct popper.js version for bootstrap 5 f9fccd09
+- [BUGFIX] Wrong table classes and add missing ones (#927) faaa75c7
+- [BUGFIX] Preserve custom layout values (#1055) 63667857
+- [BUGFIX] Add Bootstrap v5 options to Fullscreen and Small carousel (#1053) 10b2eced
+- [BUGFIX] Remove deprecated softref `images` (#1046) 07bdd774
+- [BUGFIX] Make embedded layouts more strict and reset backgrounds properly 42395176
+
 # 12.0.1
 
 ## BUGFIX
