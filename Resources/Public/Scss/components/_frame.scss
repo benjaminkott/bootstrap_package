@@ -38,27 +38,27 @@ $frame-backgrounds: map-merge(
     (
         'primary': (
             'background':       $primary,
-            'color':            #ffffff,
-            'link-color':       #ffffff,
-            'link-hover-color': #ffffff
+            'color':            color-contrast($primary),
+            'link-color':       color-contrast($primary),
+            'link-hover-color': color-contrast($primary)
         ),
         'secondary': (
             'background':       $secondary,
-            'color':            #ffffff,
-            'link-color':       #ffffff,
-            'link-hover-color': #ffffff
+            'color':            color-contrast($secondary),
+            'link-color':       color-contrast($secondary),
+            'link-hover-color': color-contrast($secondary)
         ),
         'tertiary': (
             'background':       $tertiary,
-            'color':            #ffffff,
-            'link-color':       #ffffff,
-            'link-hover-color': #ffffff
+            'color':            color-contrast($tertiary),
+            'link-color':       color-contrast($tertiary),
+            'link-hover-color': color-contrast($tertiary)
         ),
         'quaternary': (
             'background':       $quaternary,
-            'color':            #ffffff,
-            'link-color':       #ffffff,
-            'link-hover-color': #ffffff
+            'color':            color-contrast($quaternary),
+            'link-color':       color-contrast($quaternary),
+            'link-hover-color': color-contrast($quaternary)
         ),
         'light': (
             'background':       $light,
@@ -68,7 +68,7 @@ $frame-backgrounds: map-merge(
         ),
         'dark': (
             'background':       $dark,
-            'color':            #ffffff,
+            'color':            color-contrast($dark),
             'link-color':       $link-color,
             'link-hover-color': $link-hover-color
         )
