@@ -45,6 +45,7 @@ class FrameViewHelper extends AbstractViewHelper
         $this->registerArgument('frameClass', 'string', '', false, 'default');
         $this->registerArgument('type', 'string', '', false, 'default');
         $this->registerArgument('size', 'string', '', false, 'default');
+        $this->registerArgument('height', 'string', '', false, '');
         $this->registerArgument('layout', 'string', '', false, 'default');
         $this->registerArgument('backgroundColor', 'string', '', false, 'none');
         $this->registerArgument('spaceBefore', 'string', '', false, 'none');
@@ -71,6 +72,7 @@ class FrameViewHelper extends AbstractViewHelper
         $configuration['type'] = trim((string) $configuration['type']) !== '' ? trim($configuration['type']) : 'default';
         $configuration['frameClass'] = trim((string) $configuration['frameClass']) !== '' ? trim($configuration['frameClass']) : 'default';
         $configuration['size'] = trim((string) $configuration['size']) !== '' ? trim($configuration['size']) : 'default';
+        $configuration['height'] = trim((string) $configuration['height']) !== '' ? trim($configuration['height']) : 'default';
         $configuration['layout'] = trim((string) $configuration['layout']) !== '' ? trim($configuration['layout']) : 'default';
         $configuration['backgroundColor'] = trim((string) $configuration['backgroundColor']) !== '' ? trim($configuration['backgroundColor']) : 'none';
         $configuration['spaceBefore'] = trim((string) $configuration['spaceBefore']) !== '' ? trim($configuration['spaceBefore']) : 'none';
@@ -86,6 +88,7 @@ class FrameViewHelper extends AbstractViewHelper
         $classes[] = 'frame-type-' . $configuration['type'];
         $classes[] = 'frame-layout-' . $configuration['layout'];
         $classes[] = 'frame-size-' . $configuration['size'];
+        $classes[] = 'frame-height-' . $configuration['height'];
         $classes[] = 'frame-background-' . $configuration['backgroundColor'];
         $classes[] = 'frame-space-before-' . $configuration['spaceBefore'];
         $classes[] = 'frame-space-after-' . $configuration['spaceAfter'];
