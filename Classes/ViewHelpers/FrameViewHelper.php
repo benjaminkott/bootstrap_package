@@ -45,7 +45,7 @@ class FrameViewHelper extends AbstractViewHelper
         $this->registerArgument('frameClass', 'string', '', false, 'default');
         $this->registerArgument('type', 'string', '', false, 'default');
         $this->registerArgument('size', 'string', '', false, 'default');
-        $this->registerArgument('height', 'string', '', false, '');
+        $this->registerArgument('height', 'string', '', false, 'default');
         $this->registerArgument('layout', 'string', '', false, 'default');
         $this->registerArgument('backgroundColor', 'string', '', false, 'none');
         $this->registerArgument('spaceBefore', 'string', '', false, 'none');
