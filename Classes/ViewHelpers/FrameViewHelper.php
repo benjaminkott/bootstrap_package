@@ -131,10 +131,10 @@ class FrameViewHelper extends AbstractViewHelper
         $backgroundImageClasses[] = 'frame-backgroundimage';
         $backgroundImageClasses[] = 'frame-backgroundimage-behaviour-' . $backgroundImageOptions['behaviour'];
         if ($backgroundImageOptions['parallax']) {
-            $backgroundImageClasses[] = 'frame-backgroundimage-' . $backgroundImageOptions['parallax'];
+            $backgroundImageClasses[] = 'frame-backgroundimage-parallax';
         }
         if ($backgroundImageOptions['fade']) {
-            $backgroundImageClasses[] = 'frame-backgroundimage-' . $backgroundImageOptions['fade'];
+            $backgroundImageClasses[] = 'frame-backgroundimage-fade';
         }
         if ($backgroundImageOptions['filter']) {
             $backgroundImageClasses[] = 'frame-backgroundimage-' . $backgroundImageOptions['filter'];
