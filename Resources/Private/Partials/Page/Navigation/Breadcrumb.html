@@ -1,4 +1,3 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{theme.breadcrumb.enable}">
     <f:if condition="{breadcrumb}">
         <nav class="breadcrumb-section" aria-label="{f:translate(key: 'breadcrumb.label', extensionName: 'bootstrap_package')}">
@@ -6,8 +5,12 @@
                 <p class="visually-hidden" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
                     <f:for each="{breadcrumb}" as="item">
-                        <li class="breadcrumb-item{f:if(condition: item.current, then: ' active')}"{f:if(condition: item.current, then: ' aria-current="page"')}>
-                            <f:if condition="{item.current} && {breadcrumbExtendedValue} == ''">
+                        <f:variable name="isCurrent" value="0" />
+                        <f:if condition="{item.current} && {breadcrumbExtendedValue} == ''">
+                            <f:variable name="isCurrent" value="1" />
+                        </f:if>
+                        <li class="breadcrumb-item{f:if(condition: isCurrent, then: ' active')}"{f:if(condition: isCurrent, then: ' aria-current="page"')}>
+                            <f:if condition="{isCurrent}">
                                 <f:then>
                                     <f:render section="BreadcrumbTitle" arguments="{item: item, theme: theme}" />
                                 </f:then>
@@ -41,4 +44,3 @@
         <span class="breadcrumb-text">{item.title}</span>
     </span>
 </f:section>
-</html>
