@@ -1,0 +1,6 @@
+//
+// Mixins
+//
+@function color-contrast($background, $color-contrast-dark: $yiq-text-dark, $color-contrast-light: $yiq-text-light) {
+    @return color-yiq($background, $color-contrast-dark, $color-contrast-light);
+}

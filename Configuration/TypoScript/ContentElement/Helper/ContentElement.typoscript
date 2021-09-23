@@ -545,20 +545,6 @@ lib.contentElement {
                         }
                     }
                 }
-                subnavigation_left {
-                    0 {
-                        multiplier {
-                            default = 0.75
-                            xlarge = 0.75
-                            large = 0.75
-                        }
-                        gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
-                        }
-                    }
-                }
                 subnavigation_left_2_columns {
                     0 {
                         multiplier {

@@ -14,6 +14,8 @@ use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -79,7 +81,7 @@ class PaginateViewHelper extends AbstractViewHelper
         }
         $pagination = new SimplePagination($paginator);
 
-        $paginationView = self::getPaginationTemplateObject();
+        $paginationView = self::getTemplateObject();
         $paginationView->assignMultiple(
             [
                 'id' => $id,
@@ -103,16 +105,45 @@ class PaginateViewHelper extends AbstractViewHelper
         return implode('', $contents);
     }
 
-    protected static function getPaginationTemplateObject(): StandaloneView
+    protected static function getTemplateObject(): StandaloneView
     {
+        $setup = static::getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+
+        $layoutRootPaths = [];
+        $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
+        if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['layoutRootPaths.'])) {
+            foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['layoutRootPaths.'] as $layoutRootPath) {
+                $layoutRootPaths[] = GeneralUtility::getFileAbsFileName(rtrim($layoutRootPath, '/') . '/ViewHelpers/');
+            }
+        }
+        $partialRootPaths = [];
+        $partialRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Partials/ViewHelpers/');
+        if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['partialRootPaths.'])) {
+            foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['partialRootPaths.'] as $partialRootPath) {
+                $partialRootPaths[] = GeneralUtility::getFileAbsFileName(rtrim($partialRootPath, '/') . '/ViewHelpers/');
+            }
+        }
+        $templateRootPaths = [];
+        $templateRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Templates/ViewHelpers/');
+        if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['templateRootPaths.'])) {
+            foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['templateRootPaths.'] as $templateRootPath) {
+                $templateRootPaths[] = GeneralUtility::getFileAbsFileName(rtrim($templateRootPath, '/') . '/ViewHelpers/');
+            }
+        }
+
         /** @var StandaloneView $view */
         $view = GeneralUtility::makeInstance(StandaloneView::class);
-        $view->setLayoutRootPaths([GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts')]);
-        $view->setPartialRootPaths([GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Partials')]);
-        $view->setTemplateRootPaths([GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Templates')]);
-        $view->setTemplatePathAndFilename(GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Templates/ViewHelpers/Paginate/Index.html'));
+        $view->setLayoutRootPaths($layoutRootPaths);
+        $view->setPartialRootPaths($partialRootPaths);
+        $view->setTemplateRootPaths($templateRootPaths);
+        $view->setTemplate('Paginate/Index');
 
         return $view;
+    }
+
+    protected static function getConfigurationManager(): ConfigurationManagerInterface
+    {
+        return GeneralUtility::getContainer()->get(ConfigurationManager::class);
     }
 
     protected static function getRequest(): ServerRequestInterface

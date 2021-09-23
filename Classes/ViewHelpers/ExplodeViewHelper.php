@@ -15,7 +15,18 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
- * ExplodeViewHelper
+ * ExplodeViewHelper.
+ *
+ * Example: Assigns variable named items with the resulting array
+ * {string -> bk2k:explode(delimiter: ' ', as: 'items')}
+ * <f:debug>{items}</f:debug>
+ *
+ * Example: Assigns variable named items with the resulting array within the tags
+ * <bk2k:explode data="{array}" delimiter=" " as="items"><f:debug>{items}</f:debug></bk2k:explode>
+ *
+ * Example: Assigns variable named items with the resulting array
+ * <bk2k:explode data"{string}" delimiter=" " />
+ * <f:debug>{items}</f:debug>
  */
 class ExplodeViewHelper extends AbstractViewHelper
 {
@@ -34,7 +45,7 @@ class ExplodeViewHelper extends AbstractViewHelper
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument('data', 'string', 'The input string', true);
+        $this->registerArgument('data', 'string', 'The input string', false);
         $this->registerArgument('as', 'string', 'Name of variable to create', false, 'items');
         $this->registerArgument('delimiter', 'string', 'The boundary string', false, "\n");
     }
@@ -50,14 +61,21 @@ class ExplodeViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $content = '';
-        if (isset($arguments['data'])) {
-            $variableProvider = $renderingContext->getVariableProvider();
-            $items = GeneralUtility::trimExplode($arguments['delimiter'], $arguments['data']);
-            $variableProvider->add($arguments['as'], $items);
+        $data = $arguments['data'] ?? $renderChildrenClosure();
+        if (!is_string($data)) {
+            return '';
+        }
+
+        $variableProvider = $renderingContext->getVariableProvider();
+        $items = GeneralUtility::trimExplode($arguments['delimiter'], $data);
+        $variableProvider->add($arguments['as'], $items);
+
+        if ($arguments['data'] !== null && $renderChildrenClosure() !== null) {
             $content = $renderChildrenClosure();
             $variableProvider->remove($arguments['as']);
+            return $content;
         }
-        return $content;
+
+        return '';
     }
 }

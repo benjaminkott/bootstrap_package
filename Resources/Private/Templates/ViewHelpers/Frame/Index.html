@@ -1,0 +1,32 @@
+<f:spaceless>
+<f:if condition="{configuration.displayFrame}">
+    <f:then>
+
+        <div id="{configuration.id}" class="{classes -> bk2k:implode()}">
+            <div class="frame-group-container">
+                <div class="frame-group-inner">
+                    <f:render partial="Frame/BackgroundImage" arguments="{_all}" />
+                    <div class="frame-container frame-container-default">
+                        <div class="frame-inner">
+                            {content -> f:format.raw()}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </f:then>
+    <f:else>
+
+        <a id="{configuration.id}"></a>
+        <f:if condition="{configuration.spaceBefore} !== none">
+            <div class="frame-space-before frame-space-before-{configuration.spaceBefore}"></div>
+        </f:if>
+        {content -> f:format.raw()}
+        <f:if condition="{configuration.spaceAfter} !== none">
+            <div class="frame-space-after frame-space-after-{configuration.spaceAfter}"></div>
+        </f:if>
+
+    </f:else>
+</f:if>
+</f:spaceless>

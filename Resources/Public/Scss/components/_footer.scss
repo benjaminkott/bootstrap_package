@@ -6,12 +6,12 @@ $footer-sections: map-merge(
     (
         'content': (
             'background':   $dark,
-            'color':        #ffffff,
+            'color':        color-contrast($dark),
             'link-color':   $link-color
         ),
         'meta': (
             'background':   $darker,
-            'color':        #ffffff,
+            'color':        color-contrast($darker),
             'link-color':   $link-color
         )
     ),
