@@ -41,7 +41,7 @@
         "typo3/cms-install": "^10.4 || ^11.3 || 11.*.*@dev",
         "typo3/cms-rte-ckeditor": "^10.4 || ^11.3 || 11.*.*@dev",
         "typo3/cms-seo": "^10.4 || ^11.3 || 11.*.*@dev",
-        "typo3fluid/fluid": "^2.5.2"
+        "typo3fluid/fluid": "^4"
     },
     "require-dev": {
         "b13/container": "^1.3",
