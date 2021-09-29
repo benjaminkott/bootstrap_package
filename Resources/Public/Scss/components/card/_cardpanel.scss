@@ -98,18 +98,18 @@ $cardpanel-variants: map-merge(
     }
 }
 @each $name, $settings in $cardpanel-variants {
-    $header-background: map-get($settings, 'header-background');
-    $header-color: map-get($settings, 'header-color');
-    $border-color: map-get($settings, 'border-color');
+    $tmp-header-background: map-get($settings, 'header-background');
+    $tmp-header-color: map-get($settings, 'header-color');
+    $tmp-border-color: map-get($settings, 'border-color');
     .card-panel-#{$name} {
-        @if ($header-background) {
-            --cardpanel-header-background: #{$header-background};
+        @if ($tmp-header-background) {
+            --cardpanel-header-background: #{$tmp-header-background};
         }
-        @if ($header-color) {
-            --cardpanel-header-color: #{$header-color};
+        @if ($tmp-header-color) {
+            --cardpanel-header-color: #{$tmp-header-color};
         }
-        @if ($border-color) {
-            --cardpanel-border-color: #{$border-color};
+        @if ($tmp-border-color) {
+            --cardpanel-border-color: #{$tmp-border-color};
         }
     }
 }
