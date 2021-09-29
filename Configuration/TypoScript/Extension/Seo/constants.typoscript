@@ -2,4 +2,4 @@
 #### SEO ####
 #############
 
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:seo/Configuration/TypoScript/XmlSitemap/constants.typoscript">
+@import 'EXT:seo/Configuration/TypoScript/XmlSitemap/constants.typoscript'

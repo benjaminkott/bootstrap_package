@@ -2,7 +2,7 @@
 #### INDEXED SEARCH ####
 ########################
 
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:indexed_search/Configuration/TypoScript/setup.typoscript'
 
 plugin.tx_indexedsearch {
     view {

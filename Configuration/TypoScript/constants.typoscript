@@ -27,8 +27,8 @@
 ######################
 #### DEPENDENCIES ####
 ######################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/constants.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/constants.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/constants.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/constants.typoscript'
 
 ############
 ### PAGE ###
@@ -354,9 +354,9 @@ plugin.bootstrap_package.view {
 ####################
 #### COMPONENTS ####
 ####################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/constants.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/constants.typoscript'
 
 ###################
 #### FRAMEWORK ####
 ###################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/constants.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/constants.typoscript'
