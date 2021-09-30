@@ -33,13 +33,13 @@ class BrandingService
             );
             $backendConfiguration = $extensionConfiguration->get('backend');
 
-            if (!isset($backendConfiguration['loginLogo']) || trim($backendConfiguration['loginLogo']) !== '') {
+            if (!isset($backendConfiguration['loginLogo']) || trim($backendConfiguration['loginLogo']) === '') {
                 $backendConfiguration['loginLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-logo.svg';
             }
-            if (!isset($backendConfiguration['loginBackgroundImage']) || trim($backendConfiguration['loginBackgroundImage']) !== '') {
+            if (!isset($backendConfiguration['loginBackgroundImage']) || trim($backendConfiguration['loginBackgroundImage']) === '') {
                 $backendConfiguration['loginBackgroundImage'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/login-background-image.jpg';
             }
-            if (!isset($backendConfiguration['backendLogo']) || trim($backendConfiguration['backendLogo']) !== '') {
+            if (!isset($backendConfiguration['backendLogo']) || trim($backendConfiguration['backendLogo']) === '') {
                 $backendConfiguration['backendLogo'] = 'EXT:bootstrap_package/Resources/Public/Images/Backend/backend-logo.svg';
             }
 
