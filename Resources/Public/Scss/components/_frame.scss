@@ -318,21 +318,21 @@ $frame-backgrounds: map-merge(
 @each $name, $settings in $frame-backgrounds {
     .frame-background-#{$name} {
         @extend %frame-has-backgroundimage;
-        $color: map-get($settings, 'color');
-        $background: map-get($settings, 'background');
-        $link-color: map-get($settings, 'link-color');
-        $link-hover-color: map-get($settings, 'link-hover-color');
-        @if ($color) {
-            --frame-color: #{$color};
+        $tmp-color: map-get($settings, 'color');
+        $tmp-background: map-get($settings, 'background');
+        $tmp-link-color: map-get($settings, 'link-color');
+        $tmp-link-hover-color: map-get($settings, 'link-hover-color');
+        @if ($tmp-color) {
+            --frame-color: #{$tmp-color};
         }
-        @if ($background) {
-            --frame-background: #{$background};
+        @if ($tmp-background) {
+            --frame-background: #{$tmp-background};
         }
-        @if ($link-color) {
-            --frame-link-color: #{$link-color};
+        @if ($tmp-link-color) {
+            --frame-link-color: #{$tmp-link-color};
         }
-        @if ($link-hover-color) {
-            --frame-link-hover-color: #{$link-hover-color};
+        @if ($tmp-link-hover-color) {
+            --frame-link-hover-color: #{$tmp-link-hover-color};
         }
     }
     @include make-frame-collapsible($name);
