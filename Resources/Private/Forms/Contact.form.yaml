@@ -8,13 +8,10 @@ finishers:
         identifier: EmailToReceiver
         options:
             subject: '{subject}'
-            recipientAddress: ''
-            recipientName: ''
             senderAddress: '{email}'
             senderName: '{fullname}'
-            replyToAddress: '{email}'
-            carbonCopyAddress: ''
-            blindCarbonCopyAddress: ''
+            replyToRecipients:
+              '{email}': ''
             format: html
             attachUploads: true
     -
