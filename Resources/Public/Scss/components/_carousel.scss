@@ -127,21 +127,21 @@ $carousel-item-layouts: map-merge(
 }
 @each $name, $settings in $carousel-item-layouts {
     .carousel-item-layout-#{$name} {
-        $color: map-get($settings, 'color');
-        $background: map-get($settings, 'background');
-        $link-color: map-get($settings, 'link-color');
-        $link-hover-color: map-get($settings, 'link-hover-color');
-        @if ($color) {
-            --carousel-item-color: #{$color};
+        $tmp-color: map-get($settings, 'color');
+        $tmp-background: map-get($settings, 'background');
+        $tmp-link-color: map-get($settings, 'link-color');
+        $tmp-link-hover-color: map-get($settings, 'link-hover-color');
+        @if ($tmp-color) {
+            --carousel-item-color: #{$tmp-color};
         }
-        @if ($background) {
-            --carousel-item-background: #{$background};
+        @if ($tmp-background) {
+            --carousel-item-background: #{$tmp-background};
         }
-        @if ($link-color) {
-            --carousel-item-link-color: #{$link-color};
+        @if ($tmp-link-color) {
+            --carousel-item-link-color: #{$tmp-link-color};
         }
-        @if ($link-hover-color) {
-            --carousel-item-link-hover-color: #{$link-hover-color};
+        @if ($tmp-link-hover-color) {
+            --carousel-item-link-hover-color: #{$tmp-link-hover-color};
         }
     }
 }
