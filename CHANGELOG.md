@@ -1,3 +1,17 @@
+# 12.0.3
+
+## TASK
+
+- [TASK] Migrate form definition (#1095) 13707e54
+
+## BUGFIX
+
+- [BUGFIX] BrandingService conditions (#1094) 41718f62
+- [BUGFIX] Remove pollution of global scss variables add3aeac
+- [BUGFIX] Ensure accordion elements collapse as intended with bootstrap 5 c2ea116b
+- [BUGFIX] Avoid overrides of global scss variables within card-panel comonent 05ef945f
+- [BUGFIX] Fix breadcrumb when "breadcrumbExtendedValue" is used 576014e7
+
 # 12.0.2
 
 ## TASK
@@ -36,6 +50,10 @@
 - [BUGFIX] Remove external softref to ext:rtehtmlarea (#1039) 7345b209
 
 # 12.0.0
+
+## SECURITY
+
+- [SECURITY] Ensure content element subheader is HTML encoded de3a568f
 
 ## BREAKING
 
@@ -258,7 +276,6 @@
 - [DOCS] Fix some typos (#1001) 3c501e44
 - [DOCS] Fix bullet lists (#1000) bd79929d
 - [DOCS] Fix typo (#998) bc68d846
-- [SECURITY] Ensure content element subheader is HTML encoded de3a568f
 - [DOCS] Add render-docs helpers (#901) 6d0a6581
 - [DOCS] Fix code blocks (#825) 4bca8502
 - [DOCS] Add documentation hints to README (#802) 279c9761
