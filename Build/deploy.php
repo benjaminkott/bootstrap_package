@@ -23,11 +23,10 @@ task('typo3:prepare', function () {
 });
 desc('Finish TYPO3 Deployment');
 task('typo3:finish', function () {
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms install:generatepackagestates');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms install:fixfolderstructure');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms database:updateschema');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms language:update');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3cms cache:flush');
+    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 extension:setup');
+    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 cache:flush');
+    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 cache:warmup');
+    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 upgrade:run');
 });
 
 // Main
