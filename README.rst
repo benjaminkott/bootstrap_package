@@ -16,6 +16,7 @@ includes the TypoScript Constant Editor.
 Minimal Dependencies
 ====================
 
+* TYPO3 CMS 10.4 or 11.5 for Bootstrap Package 12.x
 * TYPO3 CMS 9.5 or 10.4 for Bootstrap Package 11.x
 * TYPO3 CMS 8.7 or 9.5 for Bootstrap Package 10.x, 9.x and 8.x
 * TYPO3 CMS 7.6 for Bootstrap Package 7.x
