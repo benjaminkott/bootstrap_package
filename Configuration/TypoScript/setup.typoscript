@@ -2,14 +2,14 @@
 #### DEPENDENCIES ####
 ######################
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript'
-@import 'bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
 
 
 ################
 #### HELPER ####
 ################
-@import 'bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
-@import 'bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'
 
 
 ###################

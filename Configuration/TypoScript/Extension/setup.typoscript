@@ -22,18 +22,18 @@ plugin.tx_bootstrappackage {
 #### EXTENSIONS                                          ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
-[extension.isLoaded('felogin') == 1]
+[extension.isLoaded('felogin')]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/setup.typoscript'
 [end]
-[extension.isLoaded('form') == 1]
+[extension.isLoaded('form')]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/setup.typoscript'
 [end]
-[extension.isLoaded('indexed_search') == 1]
+[extension.isLoaded('indexed_search')]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript'
 [end]
-[extension.isLoaded('seo') == 1]
+[extension.isLoaded('seo')]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/setup.typoscript'
 [end]
-[extension.isLoaded('container') == 1]
+[extension.isLoaded('container')]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Container/setup.typoscript'
 [end]
