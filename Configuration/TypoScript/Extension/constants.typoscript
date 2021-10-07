@@ -13,15 +13,7 @@ plugin.tx_bootstrappackage {
 #### EXTENSIONS                                          ####
 #### Manual inclusion to keep control over loading order ####
 #############################################################
-[extension.isLoaded('felogin')]
-    @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/constants.typoscript'
-[end]
-[extension.isLoaded('form')]
-    @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/constants.typoscript'
-[end]
-[extension.isLoaded('indexed_search')]
-    @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/constants.typoscript'
-[end]
-[extension.isLoaded('seo')]
-    @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/constants.typoscript'
-[end]
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/constants.typoscript" condition="extension.isLoaded('felogin') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/constants.typoscript" condition="extension.isLoaded('form') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/constants.typoscript" condition="extension.isLoaded('indexed_search') == 1">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/constants.typoscript" condition="extension.isLoaded('seo') == 1">
