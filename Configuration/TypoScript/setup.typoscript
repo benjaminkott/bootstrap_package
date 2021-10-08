@@ -1,21 +1,21 @@
 ######################
 #### DEPENDENCIES ####
 ######################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
 
 
 ################
 #### HELPER ####
 ################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'
 
 
 ###################
 #### FRAMEWORK ####
 ###################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/setup.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/setup.typoscript'
 
 
 ####################################
@@ -452,7 +452,7 @@ page {
 ####################
 #### COMPONENTS ####
 ####################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript">
+@import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript'
 
 
 ################

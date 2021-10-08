@@ -113,7 +113,8 @@ class FrameViewHelper extends AbstractViewHelper
             $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
             $backgroundImageAbsFilename = GeneralUtility::getFileAbsFileName($configuration['backgroundImage']);
             if (file_exists($backgroundImageAbsFilename)) {
-                $backgroundImageFile = $resourceFactory->retrieveFileOrFolderObject($backgroundImageAbsFilename);
+                // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
+                $backgroundImageFile = $resourceFactory->retrieveFileOrFolderObject($configuration['backgroundImage']);
             }
         }
         if ($backgroundImageFile !== null) {

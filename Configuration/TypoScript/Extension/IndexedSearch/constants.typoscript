@@ -2,4 +2,4 @@
 #### INDEXED SEARCH ####
 ########################
 
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'

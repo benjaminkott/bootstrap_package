@@ -62,7 +62,8 @@ class StaticFilesProcessor implements DataProcessorInterface
             foreach ($files as $key => $file) {
                 $absFilename = GeneralUtility::getFileAbsFileName($file);
                 if (file_exists($absFilename)) {
-                    $images[$key] = $resourceFactory->retrieveFileOrFolderObject($absFilename);
+                    // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
+                    $images[$key] = $resourceFactory->retrieveFileOrFolderObject($file);
                 }
             }
         }
