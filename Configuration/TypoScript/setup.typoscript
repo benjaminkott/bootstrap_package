@@ -236,6 +236,7 @@ page {
                     normal = {$page.logo.file}
                     inverted = {$page.logo.fileInverted}
                 }
+                compatibilityMode = false
                 as = logo
             }
         }

@@ -11,11 +11,12 @@ namespace BK2K\BootstrapPackage\DataProcessing;
 
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
- * This processor generates a set of file objects.
+ * This processor generates a set of file objects (deprecated) or URIs.
  *
  * 10 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
  * 10 {
@@ -24,6 +25,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *     1 = EXT:bootstrap_package/Resources/Public/Images/Icons/icon-1.png
  *     circle = EXT:bootstrap_package/Resources/Public/Images/Icons/icon-circle.png
  *   }
+ *   compatibilityMode = false
  *   as = staticFiles
  * }
  */
@@ -55,15 +57,31 @@ class StaticFilesProcessor implements DataProcessorInterface
             }
         }
 
-        // Get file objects
+        // Get file objects (deprecated) or URI for each file
         $images = [];
         if (count($files) !== 0) {
-            $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+            // @todo: compat fallback, will be removed with v13
+            $resourceFactory = null;
+            if ($this->isCompatibilityMode($processorConfiguration)) {
+                trigger_error(
+                    'The resolvement to FILE objects is deprecated and will stop working in Bootstrap Package 13.0. Change your Fluid templates properly and set "compatibilityMode" to "false".',
+                    E_USER_DEPRECATED
+                );
+                $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+            }
+
             foreach ($files as $key => $file) {
                 $absFilename = GeneralUtility::getFileAbsFileName($file);
                 if (file_exists($absFilename)) {
-                    // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
-                    $images[$key] = $resourceFactory->retrieveFileOrFolderObject($file);
+                    if ($resourceFactory instanceof ResourceFactory) {
+                        // @todo: compat fallback, will be removed with v13
+                        // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
+                        $images[$key] = $resourceFactory->retrieveFileOrFolderObject($file);
+                    } elseif (str_starts_with($file, 'EXT:') && method_exists(PathUtility::class, 'getPublicResourceWebPath')) {
+                        $images[$key] = PathUtility::getPublicResourceWebPath($file);
+                    } else {
+                        $images[$key] = PathUtility::getAbsoluteWebPath($absFilename);
+                    }
                 }
             }
         }
@@ -77,5 +95,14 @@ class StaticFilesProcessor implements DataProcessorInterface
         }
 
         return $processedData;
+    }
+
+    /**
+     * @param array $processorConfiguration The configuration of this processor
+     * @return bool
+     */
+    private function isCompatibilityMode(array $processorConfiguration)
+    {
+        return !isset($processorConfiguration['compatibilityMode']) || $processorConfiguration['compatibilityMode'] !== 'false';
     }
 }
