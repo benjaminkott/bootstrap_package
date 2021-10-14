@@ -104,6 +104,7 @@ class GoogleFontHook
      */
     private function getTemplateService(): TemplateService
     {
-        return $GLOBALS['TSFE']->tmpl;
+        $frontendController = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.controller', $GLOBALS['TSFE']);
+        return $frontendController->tmpl;
     }
 }
