@@ -53,6 +53,13 @@ tt_content.carousel_fullscreen {
 #########################
 lib.contentElement.settings.responsiveimages.contentelements {
     carousel_fullscreen {
+        background_image {
+            multiplier {
+                default = 1.5
+                xlarge = 1.5
+                large = 1.5
+            }
+        }
         text_and_image {
             multiplier {
                 default = 0.5
