@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-    <f:render section="FooterMenu" arguments="{menu: footernavigation, level: 0}" />
+    <f:render section="FooterMenu" arguments="{menu: footernavigation, level: 0, theme: theme}" />
     <f:section name="FooterMenu">
         <f:if condition="{menu}">
             <f:variable name="level" value="{level + 1}" />
@@ -8,7 +8,7 @@
                 <f:for each="{menu}" as="item">
                     <li class="footer-navigation-item footer-navigation-item-level-{level}">
                         <a class="footer-navigation-link footer-navigation-link-level-{level}" href="{item.link}" title="{item.title}">
-                            <f:if condition="{item.icon}">
+                            <f:if condition="{theme.footernavigation.icon.enable} && {item.icon}">
                                 <span class="footer-navigation-link-icon">
                                     <bk2k:icon icon="{item.icon}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
                                 </span>
@@ -18,7 +18,7 @@
                             </span>
                         </a>
                         <f:if condition="{item.children}">
-                            <f:render section="FooterMenu" arguments="{menu: item.children, level: level}" />
+                            <f:render section="FooterMenu" arguments="{menu: item.children, level: level, theme: theme}" />
                         </f:if>
                     </li>
                 </f:for>
