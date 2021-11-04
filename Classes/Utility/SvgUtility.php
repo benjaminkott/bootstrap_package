@@ -55,7 +55,7 @@ class SvgUtility
             }
 
             // Disables the functionality to allow external entities to be loaded when parsing the XML, must be kept
-            $previousValueOfEntityLoader = null;
+            $previousValueOfEntityLoader = false;
             if (PHP_MAJOR_VERSION < 8) {
                 $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
             }
