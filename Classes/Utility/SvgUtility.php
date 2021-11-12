@@ -55,9 +55,14 @@ class SvgUtility
             }
 
             // Disables the functionality to allow external entities to be loaded when parsing the XML, must be kept
-            $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
+            $previousValueOfEntityLoader = false;
+            if (PHP_MAJOR_VERSION < 8) {
+                $previousValueOfEntityLoader = libxml_disable_entity_loader(true);
+            }
             $svgElement = simplexml_load_string($svgContent);
-            libxml_disable_entity_loader($previousValueOfEntityLoader);
+            if (PHP_MAJOR_VERSION < 8) {
+                libxml_disable_entity_loader($previousValueOfEntityLoader);
+            }
             if (!$svgElement instanceof \SimpleXMLElement) {
                 return '';
             }
