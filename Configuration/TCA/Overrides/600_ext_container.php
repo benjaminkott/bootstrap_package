@@ -76,7 +76,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_2_columns_left',
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container.container_2_columns_left.name',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_2_columns_left.name',
                 '',
                 [
                     [
@@ -99,7 +99,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_3_columns',
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container.container_3_columns.name',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_3_columns.name',
                 '',
                 [
                     [
@@ -124,7 +124,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_4_columns',
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container.container_4_columns.name',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_4_columns.name',
                 '',
                 [
                     [
