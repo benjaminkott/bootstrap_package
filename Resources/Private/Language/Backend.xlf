@@ -893,6 +893,9 @@
             <trans-unit id="option.medium">
                 <source>Medium</source>
             </trans-unit>
+            <trans-unit id="option.xlarge">
+                <source>Extra Large</source>
+            </trans-unit>
             <trans-unit id="option.large">
                 <source>Large</source>
             </trans-unit>
