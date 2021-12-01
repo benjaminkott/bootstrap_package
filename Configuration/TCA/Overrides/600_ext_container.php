@@ -15,12 +15,12 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_1_columns',
-                '1 Column',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_1_columns.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Middle',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.middle',
                             'colPos' => 201
                         ]
                     ]
@@ -32,16 +32,16 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_2_columns',
-                '2 Columns 50%/50%',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_2_columns.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.left',
                             'colPos' => 201
                         ],
                         [
-                            'name' => 'Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.right',
                             'colPos' => 202
                         ]
                     ]
@@ -53,17 +53,17 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_2_columns_right',
-                '2 Columns 25%/75%',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_2_columns_right.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.left',
                             'colspan' => 1,
                             'colPos' => 201
                         ],
                         [
-                            'name' => 'Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.right',
                             'colspan' => 3,
                             'colPos' => 202
                         ]
@@ -76,17 +76,17 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_2_columns_left',
-                '2 Columns 75%/25%',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_2_columns_left.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.left',
                             'colspan' => 3,
                             'colPos' => 201
                         ],
                         [
-                            'name' => 'Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.right',
                             'colspan' => 2,
                             'colPos' => 202
                         ]
@@ -99,20 +99,20 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_3_columns',
-                '3 Columns',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_3_columns.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.left',
                             'colPos' => 201
                         ],
                         [
-                            'name' => 'Middle',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.middle',
                             'colPos' => 203
                         ],
                         [
-                            'name' => 'Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.right',
                             'colPos' => 202
                         ]
                     ]
@@ -124,24 +124,24 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         (
             new \B13\Container\Tca\ContainerConfiguration(
                 'container_4_columns',
-                '4 Columns',
+                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.container_4_columns.name',
                 '',
                 [
                     [
                         [
-                            'name' => 'Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.left',
                             'colPos' => 201
                         ],
                         [
-                            'name' => 'Middle Left',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.middle_left',
                             'colPos' => 203
                         ],
                         [
-                            'name' => 'Middle Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.middle_right',
                             'colPos' => 204
                         ],
                         [
-                            'name' => 'Right',
+                            'name' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:container.column.right',
                             'colPos' => 202
                         ]
                     ]

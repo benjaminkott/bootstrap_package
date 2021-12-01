@@ -839,7 +839,7 @@
 
             <trans-unit id="field.imageorient.125">
                 <source>Beside Text, Centered Right</source>
-           </trans-unit>
+            </trans-unit>
             <trans-unit id="field.imageorient.126">
                 <source>Beside Text, Centered Left</source>
             </trans-unit>
@@ -916,6 +916,9 @@
             </trans-unit>
             <trans-unit id="option.medium">
                 <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="option.xlarge">
+                <source>Extra Large</source>
             </trans-unit>
             <trans-unit id="option.large">
                 <source>Large</source>
@@ -1031,7 +1034,39 @@
             <trans-unit id="field.readmore_label">
                 <source>Read More Label</source>
             </trans-unit>
-
+            <trans-unit id="container.container_1_columns.name">
+                <source>1 Column</source>
+            </trans-unit>
+            <trans-unit id="container.container_2_columns.name">
+                <source>2 Columns 50%/50%</source>
+            </trans-unit>
+            <trans-unit id="container.container_2_columns_right.name">
+                <source>2 Columns 25%/75%</source>
+            </trans-unit>
+            <trans-unit id="container.container_2_columns_left.name">
+                <source>2 Columns 75%/25%</source>
+            </trans-unit>
+            <trans-unit id="container.container_3_columns.name">
+                <source>3 Columns</source>
+            </trans-unit>
+            <trans-unit id="container.container_4_columns.name">
+                <source>4 Columns</source>
+            </trans-unit>
+            <trans-unit id="container.column.middle">
+                <source>Middle</source>
+            </trans-unit>
+            <trans-unit id="container.column.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="container.column.right">
+                <source>Right</source>
+            </trans-unit>
+            <trans-unit id="container.column.middle_left">
+                <source>Middle Left</source>
+            </trans-unit>
+            <trans-unit id="container.column.middle_right">
+                <source>Middle Right</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
