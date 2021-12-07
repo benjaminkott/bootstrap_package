@@ -27,7 +27,6 @@ return [
         'hideTable' => true,
         'hideAtCopy' => true,
         'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
-        'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
         'enablecolumns' => [
@@ -38,13 +37,6 @@ return [
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-card-group-item'
         ],
-    ],
-    'interface' => [
-        'showRecordFieldList' => '
-            hidden,
-            tt_content,
-            header
-        ',
     ],
     'types' => [
         '1' => [

@@ -28,7 +28,6 @@ return [
         'hideTable' => true,
         'hideAtCopy' => true,
         'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
-        'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
         'enablecolumns' => [
@@ -47,23 +46,6 @@ return [
             'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
             'html' => 'content-bootstrappackage-carousel-item-html'
         ]
-    ],
-    'interface' => [
-        'showRecordFieldList' => '
-            hidden,
-            tt_content,
-            header,
-            header_layout,
-            header_class,
-            subheader,
-            subheader_layout,
-            subheader_class
-            bodytext,
-            image,
-            text_color,
-            background_color,
-            background_image
-        ',
     ],
     'types' => [
         '1' => [
