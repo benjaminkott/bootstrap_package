@@ -62,6 +62,9 @@ use ScssPhp\ScssPhp\Util\Path;
  *
  * @final Extending the Compiler is deprecated
  */
+ /**
+ * @extensionScannerIgnoreFile
+ */
 class Compiler
 {
     /**
