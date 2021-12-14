@@ -1,4 +1,10 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+  BK2K\BootstrapPackage\:
+    resource: '../Classes/*'
   BK2K\BootstrapPackage\Service\BrandingService:
     tags:
       - name: event.listener
