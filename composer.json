@@ -69,7 +69,11 @@
         "bin-dir": ".build/bin",
         "optimize-autoloader": true,
         "sort-packages": true,
-        "vendor-dir": ".build/vendor"
+        "vendor-dir": ".build/vendor",
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
     },
     "extra": {
         "branch-alias": {
