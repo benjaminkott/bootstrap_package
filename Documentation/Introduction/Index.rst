@@ -10,7 +10,7 @@
 Introduction
 ==============================
 
-Bootstrap Package is a theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 3.3.7
+Bootstrap Package is a theme for TYPO3 CMS based on the `Bootstrap CSS Framework <http://getbootstrap.com/>`_ Version 5.1
 
 Features
 ==============================

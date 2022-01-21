@@ -56,7 +56,7 @@ class GoogleFontService
 
         /** @var ResponseInterface */
         $response = $requestFactory->request($file, 'GET', [
-            'headers' => ['User-Agent' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
+            'headers' => ['User-Agent' => 'Mozilla/5.0 Gecko/20100101 Firefox/94.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55']
         ]);
 
         if ($response->getStatusCode() >= 300) {
