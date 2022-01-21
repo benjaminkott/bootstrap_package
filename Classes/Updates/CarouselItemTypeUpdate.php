@@ -75,7 +75,8 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

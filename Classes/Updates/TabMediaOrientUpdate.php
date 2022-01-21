@@ -93,7 +93,8 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

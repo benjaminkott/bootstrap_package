@@ -96,7 +96,8 @@ class FrameClassToOptionsUpdate implements UpgradeWizardInterface, RepeatableInt
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

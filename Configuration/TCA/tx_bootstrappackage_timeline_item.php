@@ -27,7 +27,6 @@ return [
         'hideTable' => true,
         'hideAtCopy' => true,
         'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
-        'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
         'default_sortby' => 'date',
@@ -39,13 +38,6 @@ return [
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-timeline-item'
         ],
-    ],
-    'interface' => [
-        'showRecordFieldList' => '
-            hidden,
-            tt_content,
-            header
-        ',
     ],
     'types' => [
         '1' => [

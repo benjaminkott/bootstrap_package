@@ -93,7 +93,8 @@ class FrameClassToBackgroundUpdate implements UpgradeWizardInterface, Repeatable
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 
