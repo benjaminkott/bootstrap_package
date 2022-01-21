@@ -86,8 +86,8 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
                     $queryBuilder->expr()->literal('Ionicons%')
                 )
             )
-            ->execute()->fetchColumn(0);
-
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

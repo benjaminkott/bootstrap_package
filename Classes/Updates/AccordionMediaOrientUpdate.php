@@ -93,7 +93,8 @@ class AccordionMediaOrientUpdate implements UpgradeWizardInterface, RepeatableIn
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

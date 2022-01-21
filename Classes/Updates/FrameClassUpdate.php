@@ -74,7 +74,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
                 $queryBuilder->expr()->gt('section_frame', 0)
             )
             ->execute()
-            ->fetchColumn(0);
+            ->fetchOne();
         return (bool)$elementCount;
     }
 

@@ -94,7 +94,8 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
                     )
                 )
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

@@ -68,7 +68,8 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface, Repeatable
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_carousel', \PDO::PARAM_STR))
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 
