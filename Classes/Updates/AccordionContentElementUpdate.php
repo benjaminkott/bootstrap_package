@@ -68,7 +68,8 @@ class AccordionContentElementUpdate implements UpgradeWizardInterface, Repeatabl
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_accordion', \PDO::PARAM_STR))
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 

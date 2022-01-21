@@ -68,7 +68,8 @@ class TabContentElementUpdate implements UpgradeWizardInterface, RepeatableInter
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_tab', \PDO::PARAM_STR))
             )
-            ->execute()->fetchColumn(0);
+            ->execute()
+			->fetchOne();
         return (bool)$elementCount;
     }
 
