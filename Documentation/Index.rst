@@ -33,7 +33,7 @@ Bootstrap Package
         2014
 
     :Author:
-        Benjamin Kott
+        Benjamin Kott and contributors
 
     :Email:
         info@bk2k.info
@@ -59,3 +59,4 @@ Bootstrap Package
     Introduction/Index
     Configuration/Index
     AdministratorManual/Index
+    QuickStart/Index
