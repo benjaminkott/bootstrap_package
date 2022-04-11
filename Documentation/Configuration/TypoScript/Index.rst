@@ -1,20 +1,28 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+﻿.. include:: ../../Includes.txt
 
-.. include:: ../../Includes.txt
-
+.. _typoscript:
 
 ==========
 TypoScript
 ==========
-Bootstrap Package was built to be as adjustable as possible, so nothing is fixed and everything can be overridden with TypoScript constants.
-The constants are grouped in basic and advanced settings. Use the **TYPO3 Constant Editor** in the backend to modify the values.
+
+Bootstrap Package was built to be as adjustable as possible, so nothing is fixed
+and everything can be overridden with TypoScript constants. The constants are
+grouped in basic and advanced settings. Use the :ref:`Constant Editor <t3tsref:constant-editor>`
+in the backend to modify the values.
+
+**Table of Contents:**
+
+.. contents::
+   :backlinks: top
+   :class: compact-list
+   :depth: 2
+   :local:
 
 
 Bootstrap Package: Basic Constants
 ==================================
+
 The basic settings will provide easy to use and understandable options for that are used mainly for styling and appearance.
 
 
