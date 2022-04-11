@@ -3,6 +3,8 @@
 /.github export-ignore
 /.vscode export-ignore
 /Build export-ignore
+/Documentation export-ignore
+/Tests export-ignore
 
 # Files
 .editorconfig export-ignore
