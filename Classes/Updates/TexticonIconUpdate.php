@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use Doctrine\DBAL\ForwardCompatibility\Result;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -73,33 +74,8 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-
-        $elementCount = $queryBuilder->count('uid')
-            ->from($this->table)
-            ->orWhere(
-                $queryBuilder->expr()->like(
-                    $this->field,
-                    $queryBuilder->expr()->literal('Glyphicons%')
-                ),
-                $queryBuilder->expr()->like(
-                    $this->field,
-                    $queryBuilder->expr()->literal('Ionicons%')
-                )
-            )
-            ->execute()->fetchColumn(0);
-
-        return (bool)$elementCount;
-    }
-
-    /**
-     * @return bool
-     */
-    public function executeUpdate(): bool
-    {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $statement = $queryBuilder->select('uid', $this->field)
+        /** @var Result $result */
+        $result = $queryBuilder->count('uid')
             ->from($this->table)
             ->orWhere(
                 $queryBuilder->expr()->like(
@@ -112,7 +88,32 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        return (bool) $result->fetchOne();
+    }
+
+    /**
+     * @return bool
+     */
+    public function executeUpdate(): bool
+    {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
+        $queryBuilder = $connection->createQueryBuilder();
+        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+        /** @var Result $result */
+        $result = $queryBuilder->select('uid', $this->field)
+            ->from($this->table)
+            ->orWhere(
+                $queryBuilder->expr()->like(
+                    $this->field,
+                    $queryBuilder->expr()->literal('Glyphicons%')
+                ),
+                $queryBuilder->expr()->like(
+                    $this->field,
+                    $queryBuilder->expr()->literal('Ionicons%')
+                )
+            )
+            ->execute();
+        while ($record = $result->fetchAssociative()) {
             $icon = explode('__', $record[$this->field]);
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update($this->table)

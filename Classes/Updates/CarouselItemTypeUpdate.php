@@ -10,6 +10,7 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use Doctrine\DBAL\ForwardCompatibility\Result;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -64,30 +65,8 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_bootstrappackage_carousel_item');
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $elementCount = $queryBuilder->count('uid')
-            ->from('tx_bootstrappackage_carousel_item')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'item_type',
-                    $queryBuilder->createNamedParameter(
-                        ['textandimage', 'backgroundimage'],
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute()->fetchColumn(0);
-        return (bool)$elementCount;
-    }
-
-    /**
-     * @return bool
-     */
-    public function executeUpdate(): bool
-    {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bootstrappackage_carousel_item');
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $statement = $queryBuilder->select('uid', 'item_type')
+        /** @var Result $result */
+        $result = $queryBuilder->count('uid')
             ->from('tx_bootstrappackage_carousel_item')
             ->where(
                 $queryBuilder->expr()->in(
@@ -99,7 +78,31 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        return (bool) $result->fetchOne();
+    }
+
+    /**
+     * @return bool
+     */
+    public function executeUpdate(): bool
+    {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bootstrappackage_carousel_item');
+        $queryBuilder = $connection->createQueryBuilder();
+        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+        /** @var Result $result */
+        $result = $queryBuilder->select('uid', 'item_type')
+            ->from('tx_bootstrappackage_carousel_item')
+            ->where(
+                $queryBuilder->expr()->in(
+                    'item_type',
+                    $queryBuilder->createNamedParameter(
+                        ['textandimage', 'backgroundimage'],
+                        Connection::PARAM_STR_ARRAY
+                    )
+                )
+            )
+            ->execute();
+        while ($record = $result->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tx_bootstrappackage_carousel_item')
                 ->where(
