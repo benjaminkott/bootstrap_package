@@ -1,6 +1,5 @@
 const sass = require('node-sass');
 const fantasticon = require('fantasticon');
-const chalk = require('chalk');
 
 module.exports = function(grunt) {
 
@@ -72,7 +71,7 @@ module.exports = function(grunt) {
         fantasticon.generateFonts(options).then(
             function (result) {
                 for (const { writePath } of result.writeResults) {
-                    grunt.log.ok('Generated ' + chalk.dim(writePath));
+                    grunt.log.ok('Generated ' + writePath);
                 }
                 done();
             },
