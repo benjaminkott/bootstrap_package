@@ -19,7 +19,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
-        tools: composer:v2
+        tools: composer:2.2
     - name: Install
       run: |
         composer require typo3/minimal:${{ matrix.typo3 }} --no-progress
