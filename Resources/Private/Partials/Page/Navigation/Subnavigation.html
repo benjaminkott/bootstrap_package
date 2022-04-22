@@ -20,7 +20,7 @@
                     </f:then>
                     <f:else>
                         <li class="subnav-item{f:if(condition: item.active, then:' active')}">
-                            <a href="{item.link}" id="subnav-item-{item.data.uid}" class="subnav-link"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
+                            <a href="{item.link}" id="subnav-item-{item.data.uid}" class="subnav-link"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}">
                                 <f:if condition="{item.icon}">
                                     <span class="subnav-link-icon">
                                         <bk2k:icon icon="{item.icon}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />

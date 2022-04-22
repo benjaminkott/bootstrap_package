@@ -9,7 +9,7 @@
                 </f:then>
                 <f:else>
                     <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
-                        <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
+                        <a href="{item.link}" id="nav-item-{item.data.uid}" class="nav-link{f:if(condition: item.children, then:' dropdown-toggle')}"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}"{f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
                             <f:if condition="{theme.navigation.icon.enable} && {item.icon}">
                                 <span class="nav-link-icon">
                                     <bk2k:icon icon="{item.icon}" width="{theme.navigation.icon.width}" height="{theme.navigation.icon.height}" />
@@ -26,7 +26,7 @@
                                         </f:then>
                                         <f:else>
                                             <li>
-                                                <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: child.target, then: ' target="{child.target}"')} title="{child.title}">
+                                                <a href="{child.link}" class="dropdown-item{f:if(condition: child.active, then:' active')}"{f:if(condition: '{child.target}', then: ' target="{child.target}"')}{f:if(condition: '{child.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{child.title}">
                                                     <f:if condition="{theme.navigation.dropdown.icon.enable} && {child.icon}">
                                                         <span class="dropdown-icon">
                                                             <bk2k:icon icon="{child.icon}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />

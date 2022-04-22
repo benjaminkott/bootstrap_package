@@ -15,7 +15,7 @@
                                     <f:render section="BreadcrumbTitle" arguments="{item: item, theme: theme}" />
                                 </f:then>
                                 <f:else>
-                                    <a class="breadcrumb-link" href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
+                                    <a class="breadcrumb-link" href="{item.link}"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}">
                                         <f:render section="BreadcrumbTitle" arguments="{item: item, theme: theme}" />
                                     </a>
                                 </f:else>
