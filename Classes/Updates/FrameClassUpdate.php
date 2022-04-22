@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use Doctrine\DBAL\ForwardCompatibility\Result;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
@@ -68,14 +69,14 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
         }
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
         $queryBuilder->getRestrictions()->removeAll();
-        $elementCount = $queryBuilder->count('uid')
+        /** @var Result $result */
+        $result = $queryBuilder->count('uid')
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->gt('section_frame', 0)
             )
-            ->execute()
-            ->fetchColumn(0);
-        return (bool)$elementCount;
+            ->execute();
+        return (bool) $result->fetchOne();
     }
 
     /**
@@ -86,13 +87,14 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
         $queryBuilder = $connection->createQueryBuilder();
         $queryBuilder->getRestrictions()->removeAll();
-        $statement = $queryBuilder->select('uid', 'section_frame')
+        /** @var Result $result */
+        $result = $queryBuilder->select('uid', 'section_frame')
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->gt('section_frame', 0)
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $result->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tt_content')
                 ->where(

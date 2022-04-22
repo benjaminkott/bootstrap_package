@@ -10,6 +10,7 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use Doctrine\DBAL\ForwardCompatibility\Result;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -63,11 +64,12 @@ class CarouselItemLayoutUpdate implements UpgradeWizardInterface, RepeatableInte
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_bootstrappackage_carousel_item');
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $elementCount = $queryBuilder->count('uid')
+        /** @var Result $result */
+        $result = $queryBuilder->count('uid')
             ->from('tx_bootstrappackage_carousel_item')
             ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
-            ->execute()->fetchColumn(0);
-        return (bool)$elementCount;
+            ->execute();
+        return (bool) $result->fetchOne();
     }
 
     /**
@@ -78,14 +80,20 @@ class CarouselItemLayoutUpdate implements UpgradeWizardInterface, RepeatableInte
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bootstrappackage_carousel_item');
         $queryBuilder = $connection->createQueryBuilder();
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $statement = $queryBuilder->select('uid', 'layout')
+        /** @var Result $result */
+        $result = $queryBuilder->select('uid', 'layout')
             ->from('tx_bootstrappackage_carousel_item')
             ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
             ->execute();
-        while ($record = $statement->fetch()) {
+        while ($record = $result->fetchAssociative()) {
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update('tx_bootstrappackage_carousel_item')
-                ->where($queryBuilder->expr()->eq('layout', $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)))
+                ->where(
+                    $queryBuilder->expr()->eq(
+                        'uid',
+                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
+                    )
+                )
                 ->set('layout', 'custom');
             $queryBuilder->execute();
         }
