@@ -89,7 +89,11 @@
         "optimize-autoloader": true,
         "sort-packages": true,
         "vendor-dir": ".build/vendor",
-        "bin-dir": ".build/bin"
+        "bin-dir": ".build/bin",
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
     },
     "scripts": {
         "test:php:lint": [
