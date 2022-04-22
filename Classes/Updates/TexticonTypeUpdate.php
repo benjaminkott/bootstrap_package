@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use Doctrine\DBAL\ForwardCompatibility\Result;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -83,30 +84,8 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $elementCount = $queryBuilder->count('uid')
-            ->from($this->table)
-            ->where(
-                $queryBuilder->expr()->in(
-                    $this->field,
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute()->fetchColumn(0);
-        return (bool)$elementCount;
-    }
-
-    /**
-     * @return bool
-     */
-    public function executeUpdate(): bool
-    {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $statement = $queryBuilder->select('uid', $this->field)
+        /** @var Result $result */
+        $result = $queryBuilder->count('uid')
             ->from($this->table)
             ->where(
                 $queryBuilder->expr()->in(
@@ -118,7 +97,31 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
             )
             ->execute();
-        while ($record = $statement->fetch()) {
+        return (bool) $result->fetchOne();
+    }
+
+    /**
+     * @return bool
+     */
+    public function executeUpdate(): bool
+    {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
+        $queryBuilder = $connection->createQueryBuilder();
+        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+        /** @var Result $result */
+        $result = $queryBuilder->select('uid', $this->field)
+            ->from($this->table)
+            ->where(
+                $queryBuilder->expr()->in(
+                    $this->field,
+                    $queryBuilder->createNamedParameter(
+                        array_keys($this->mapping),
+                        Connection::PARAM_STR_ARRAY
+                    )
+                )
+            )
+            ->execute();
+        while ($record = $result->fetchAssociative()) {
             if (null !== $newValue = $this->mapValues($record[$this->field])) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)
