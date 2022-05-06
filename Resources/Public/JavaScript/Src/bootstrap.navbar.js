@@ -1,27 +1,22 @@
-/* ========================================================================
- * Navbar
- * ======================================================================== */
-
-$(function () {
-
-    /**
-     * Toggle collapsed class on navbar toggle button to change
-     * the appearance of the toggle button when navbar is open
-     */
-     $('.navbar-collapse')
-     .on('show.bs.collapse', function () {
-         $('.navbar-toggle').removeClass('collapsed');
-     })
-     .on('hide.bs.collapse', function () {
-         $('.navbar-toggle').addClass('collapsed');
-     });
-
-});
-
-
 window.addEventListener('DOMContentLoaded', function() {
 
-    /**
+    const navbarCollapse = document.querySelectorAll('.navbar-collapse');
+    navbarCollapse.forEach(
+        function(navbar) {
+            navbar.addEventListener('show.bs.collapse', function() {
+                document.querySelectorAll('.navbar-toggle').forEach(function(element) {
+                    element.classList.remove('collapsed');
+                });
+            });
+            navbar.addEventListener('hide.bs.collapse', function() {
+                document.querySelectorAll('.navbar-toggle').forEach(function(element) {
+                    element.classList.add('collapsed');
+                });
+            });
+        }
+    )
+
+    /*
      * Solution to enable links on dropdowns, the link will only be triggered
      * if the dropdown is visible. On touch devices you will need to double
      * click on a dropdown, the first click will open the menu.
