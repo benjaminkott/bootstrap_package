@@ -10,7 +10,6 @@ page {
     }
     includeJSFooterlibs {
         jquery >
-        bootstrap_accordion >
         popper = EXT:bootstrap_package/Resources/Public/Contrib/popper-core/popper.min.js
         bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap5/js/bootstrap.min.js
     }
