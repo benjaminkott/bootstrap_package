@@ -36,6 +36,7 @@ class VersionToolbarItem
 
         // Try to get current version from git
         if (file_exists($extensionDirectory . '.git')) {
+            $returnCode = 0;
             CommandUtility::exec('git --version', $_, $returnCode);
             if ((int)$returnCode === 0) {
                 $currentDir = (string) getcwd();
