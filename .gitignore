@@ -4,3 +4,4 @@ Build/node_modules/*
 composer.lock
 *.cache
 nbproject
+/Documentation-GENERATED-temp/

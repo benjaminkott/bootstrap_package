@@ -1,61 +1,60 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+﻿.. include:: /Includes.rst.txt
 
-.. include:: Includes.txt
-
-
-.. _start:
-
-=============================================================
+=================
 Bootstrap Package
-=============================================================
+=================
 
-.. only:: html
+:Extension key:
+   bootstrap_package
 
-    :Classification:
-        bootstrap_package
+:Package name:
+   bk2k/bootstrap-package
 
-    :Version:
-        |release|
+:Version:
+   |release|
 
-    :Language:
-        en
+:Language:
+   en
 
-    :Description:
-        Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework.
+:Author:
+   Benjamin Kott & Contributors
 
-    :Keywords:
-        Theme, Bootstrap
+:License:
+   This document is published under the
+   `Open Publication License <https://www.opencontent.org/openpub/>`__.
 
-    :Copyright:
-        2014
+:Rendered:
+   |today|
 
-    :Author:
-        Benjamin Kott
+----
 
-    :Email:
-        info@bk2k.info
+Bootstrap Package delivers a fully configured frontend theme for TYPO3, based on
+the Bootstrap CSS Framework.
 
-    :License:
-        This document is published under the Open Content License
-        available from http://www.opencontent.org/opl.shtml
+The goal of this package is also to give an advanced example of how modern
+templating in TYPO3 CMS can be handled nicely without depending on third party
+extensions. Bootstrap Package comes with a fully configurable Frontend via
+TypoScript. This includes the TypoScript Constant Editor.
 
-    :Rendered:
-        |today|
+----
 
-    The content of this document is related to TYPO3,
-    a GNU/GPL CMS/Framework available from `www.typo3.org <http://www.typo3.org/>`_.
-
-
-    **Table of Contents**
+**Table of Contents:**
 
 .. toctree::
-    :maxdepth: 5
-    :titlesonly:
-    :glob:
+   :maxdepth: 2
+   :titlesonly:
 
-    Introduction/Index
-    Configuration/Index
-    AdministratorManual/Index
+   Introduction/Index
+   Installation/Index
+   QuickStart/Index
+   Configuration/Index
+   AdministratorManual/Index
+   Contribution/Index
+
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
+   Sitemap
+   genindex

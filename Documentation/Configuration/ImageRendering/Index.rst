@@ -1,10 +1,6 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+﻿.. include:: /Includes.rst.txt
 
-.. include:: ../../Includes.txt
-
+.. _image-rendering:
 
 ===============
 Image Rendering
@@ -14,6 +10,14 @@ Bootstrap Package comes with a very flexible responsive image rendering and
 supports multiple variants for various device sizes. Each variant defines the
 **break point**, **width** and the optional **sizes** for high resolution image
 support.
+
+**Table of Contents:**
+
+.. contents::
+   :backlinks: top
+   :class: compact-list
+   :depth: 2
+   :local:
 
 
 
@@ -129,10 +133,10 @@ for devices with a minimum device pixel ratio from 1.5 and 2.
    }
 
 The data for image rendering is now extended with a sub-set for high-resolution
-variants. If you did not overwrite the default templates, it will just work as 
+variants. If you did not overwrite the default templates, it will just work as
 soon as you add the configuration. If you have overwritten the default
-templates, it will still work as before, but you need to add the new support for 
-high-resolution images yourself. 
+templates, it will still work as before, but you need to add the new support for
+high-resolution images yourself.
 
 Please check the new updated templates and adjust your code if you want this
 support.
@@ -240,11 +244,11 @@ Options for variants:
 +---------------+-----------+-------------------------------------------------+
 | aspectRatio   | float     | Optional, defines the default aspect ratio      |
 |               |           | which will override all previously defined      |
-|               |           | ratios on image level                           | 
+|               |           | ratios on image level                           |
 +---------------+-----------+-------------------------------------------------+
 | sizes         | array     | Optional, defines the available high resolution |
 |               |           | image multiplier for a minimal device pixel     |
-|               |           | ratio per variant                               |  
+|               |           | ratio per variant                               |
 +---------------+-----------+-------------------------------------------------+
 
 

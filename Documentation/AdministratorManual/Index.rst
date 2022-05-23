@@ -1,25 +1,20 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../Includes.txt
-
+﻿.. include:: /Includes.rst.txt
 
 .. _admin-manual:
 
 Administrator manual
 ====================
 
-.. only:: html
+This chapter describes how to manage the extension from a superuser point of
+view.
 
-   This chapter describes how to manage the extension from a superuser point of view.
+For a complete changelog please see the release notes on
+`GitHub <https://github.com/benjaminkott/bootstrap_package/releases/>`_.
 
-   For a complete changelog please see the release notes on  `GitHub <https://github.com/benjaminkott/bootstrap_package/releases/>`_.
-
+**Table of Contents:**
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :titlesonly:
 
    Migration/6-2-14
