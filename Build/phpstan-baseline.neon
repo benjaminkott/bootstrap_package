@@ -1,6 +1,16 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Call to function method_exists\\(\\) with 'TYPO3\\\\\\\\CMS\\\\\\\\Core\\\\\\\\Utility\\\\\\\\PathUtility' and 'getPublicResourceWe…' will always evaluate to true\\.$#"
+			count: 1
+			path: ../Classes/DataProcessing/StaticFilesProcessor.php
+
+		-
+			message: "#^Call to an undefined static method TYPO3\\\\CMS\\\\Core\\\\Utility\\\\PathUtility::getPublicResourceWebPath\\(\\).$#"
+			count: 1
+			path: ../Classes/DataProcessing/StaticFilesProcessor.php
+
+		-
 			message:
 				"""
 					#^Call to deprecated method fetch\\(\\) of class Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\:
