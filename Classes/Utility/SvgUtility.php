@@ -68,8 +68,7 @@ class SvgUtility
             }
 
             // Override attributes
-            $class = filter_var(trim((string) $class), FILTER_SANITIZE_STRING);
-            $class = $class !== false ? $class : null;
+            $class = htmlspecialchars($class ?? '');
             $svgElement = self::setAttribute($svgElement, 'class', $class);
             $width = intval($width) > 0 ? (string) intval($width) : null;
             $svgElement = self::setAttribute($svgElement, 'width', $width);
