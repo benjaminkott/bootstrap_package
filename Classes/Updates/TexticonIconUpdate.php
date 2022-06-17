@@ -114,7 +114,7 @@ class TexticonIconUpdate implements UpgradeWizardInterface, RepeatableInterface
             )
             ->execute();
         while ($record = $result->fetchAssociative()) {
-            $icon = explode('__', $record[$this->field]);
+            $icon = explode('__', strval($record[$this->field]));
             $queryBuilder = $connection->createQueryBuilder();
             $queryBuilder->update($this->table)
                 ->where(

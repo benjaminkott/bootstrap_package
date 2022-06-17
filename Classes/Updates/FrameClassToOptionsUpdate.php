@@ -124,7 +124,7 @@ class FrameClassToOptionsUpdate implements UpgradeWizardInterface, RepeatableInt
             )
             ->execute();
         while ($record = $result->fetchAssociative()) {
-            if (null !== $newValue = $this->mapValues($record[$this->field])) {
+            if (null !== $newValue = $this->mapValues(strval($record[$this->field]))) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)
                     ->where(
@@ -142,10 +142,10 @@ class FrameClassToOptionsUpdate implements UpgradeWizardInterface, RepeatableInt
     }
 
     /**
-     * @param string|int $value
+     * @param string $value
      * @return string|null
      */
-    protected function mapValues($value)
+    protected function mapValues(string $value): ?string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];

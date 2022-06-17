@@ -98,8 +98,8 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface, Repeatable
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('layout', $this->resetLayout($record['layout']), false)
-                ->set('CType', $this->mapValues($record['layout']));
+                ->set('layout', $this->resetLayout(intval($record['layout'])), false)
+                ->set('CType', $this->mapValues(intval($record['layout'])));
             $queryBuilder->execute();
         }
         return true;
@@ -117,7 +117,7 @@ class CarouselContentElementUpdate implements UpgradeWizardInterface, Repeatable
      * @param int $layout
      * @return string
      */
-    protected function mapValues($layout)
+    protected function mapValues(int $layout): string
     {
         $mapping = [
             110 => 'carousel_small',

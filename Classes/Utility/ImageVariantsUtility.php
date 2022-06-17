@@ -120,6 +120,7 @@ class ImageVariantsUtility
             ];
         }
 
+        // @phpstan-ignore-next-line
         if (!isset($workingSizes['1'])) {
             $workingSizes['1'] = ['multiplier' => 1];
         }

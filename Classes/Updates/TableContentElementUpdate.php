@@ -101,7 +101,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                     )
                 )
                 ->set('layout', '0', false)
-                ->set('table_class', $this->mapValues($record['layout']));
+                ->set('table_class', $this->mapValues(intval($record['layout'])));
             $queryBuilder->execute();
         }
         return true;
@@ -111,7 +111,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
      * @param int $layout
      * @return string
      */
-    protected function mapValues($layout)
+    protected function mapValues(int $layout): string
     {
         $mapping = [
             100 => '',

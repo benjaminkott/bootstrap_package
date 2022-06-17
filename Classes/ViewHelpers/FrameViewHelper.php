@@ -203,6 +203,9 @@ class FrameViewHelper extends AbstractViewHelper
 
     protected static function getConfigurationManager(): ConfigurationManagerInterface
     {
-        return GeneralUtility::getContainer()->get(ConfigurationManager::class);
+        /** @var ConfigurationManager $configurationManager  */
+        $configurationManager = GeneralUtility::getContainer()->get(ConfigurationManager::class);
+
+        return $configurationManager;
     }
 }

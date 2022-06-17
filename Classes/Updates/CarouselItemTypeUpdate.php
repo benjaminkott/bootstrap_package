@@ -111,7 +111,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
                         $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
                     )
                 )
-                ->set('item_type', $this->mapValues($record['item_type']));
+                ->set('item_type', $this->mapValues(strval($record['item_type'])));
             $queryBuilder->execute();
         }
         return true;
@@ -121,7 +121,7 @@ class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterf
      * @param string $type
      * @return string
      */
-    protected function mapValues(string $type)
+    protected function mapValues(string $type): string
     {
         $mapping = [
             'textandimage' => 'text_and_image',

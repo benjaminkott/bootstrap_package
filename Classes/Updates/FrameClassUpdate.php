@@ -104,7 +104,7 @@ class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
                     )
                 )
                 ->set('section_frame', '0', false)
-                ->set('frame_class', $this->mapSectionFrame($record['section_frame']));
+                ->set('frame_class', $this->mapSectionFrame(intval($record['section_frame'])));
             $queryBuilder->execute();
         }
         return true;

@@ -158,11 +158,11 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
                 )
                 ->set(
                     'backend_layout',
-                    ($this->mapValues($record['backend_layout']) ?? $record['backend_layout'])
+                    ($this->mapValues(intval($record['backend_layout'])) ?? $record['backend_layout'])
                 )
                 ->set(
                     'backend_layout_next_level',
-                    ($this->mapValues($record['backend_layout_next_level']) ?? $record['backend_layout_next_level'])
+                    ($this->mapValues(intval($record['backend_layout_next_level'])) ?? $record['backend_layout_next_level'])
                 );
             $queryBuilder->execute();
         }
@@ -173,7 +173,7 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
      * @param int $value
      * @return string|null
      */
-    protected function mapValues($value)
+    protected function mapValues(int $value): ?string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];

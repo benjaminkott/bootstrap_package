@@ -101,7 +101,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
                     )
                 )
                 ->set('layout', (string) 0, false)
-                ->set('bullets_type', (string) $this->mapValues($record['layout']));
+                ->set('bullets_type', (string) $this->mapValues(intval($record['layout'])));
             $queryBuilder->execute();
         }
         return true;
@@ -111,7 +111,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
      * @param int $layout
      * @return int
      */
-    protected function mapValues($layout)
+    protected function mapValues(int $layout): int
     {
         $mapping = [
             110 => 1

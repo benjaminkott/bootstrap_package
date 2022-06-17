@@ -84,11 +84,13 @@ class ExternalMediaUtility
     {
         $firstMatches = [];
         $pattern = '%^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=))([^"&?/ ]{11})(?:.+)?$%xs';
-        if ((bool) preg_match($pattern, $url, $firstMatches)) {
+        preg_match($pattern, $url, $firstMatches);
+        if (isset($firstMatches[1])) {
             $toEmbed = $firstMatches[1];
             $patternForAdditionalParams = '%^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))(?:[^"&?\/ ]{11})(.+)?(?:.+)?$%xs';
             $secondMatches = [];
-            if (preg_match($patternForAdditionalParams, $url, $secondMatches) > 1) {
+            preg_match($patternForAdditionalParams, $url, $secondMatches);
+            if (isset($secondMatches[1])) {
                 $toEmbed .= '?' . substr($secondMatches[1], 1);
             }
             return 'https://www.youtube-nocookie.com/embed/' . $toEmbed;

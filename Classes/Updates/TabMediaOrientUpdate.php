@@ -144,7 +144,7 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
      * @param int $value
      * @return string|null
      */
-    protected function mapValues($value)
+    protected function mapValues($value): ?string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];

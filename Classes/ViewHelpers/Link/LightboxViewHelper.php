@@ -71,10 +71,10 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
             $imageUri = $imageService->getImageUri($processedImage, isset($this->arguments['absolute']) ? $this->arguments['absolute'] : false);
 
             $this->tag->addAttribute('href', $imageUri);
-            $this->tag->addAttribute('data-lightbox-width', $processedImage->getProperty('width'));
-            $this->tag->addAttribute('data-lightbox-height', $processedImage->getProperty('height'));
+            $this->tag->addAttribute('data-lightbox-width', $processedImage->getProperty('width') !== null ? strval($processedImage->getProperty('width')) : null);
+            $this->tag->addAttribute('data-lightbox-height', $processedImage->getProperty('height') !== null ? strval($processedImage->getProperty('height')) : null);
             $this->tag->addAttribute('data-lightbox-caption', isset($this->arguments['caption']) ? $this->arguments['caption'] : null);
-            $this->tag->setContent($this->renderChildren());
+            $this->tag->setContent(strval($this->renderChildren()));
             $this->tag->forceClosingTag(true);
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist

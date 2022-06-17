@@ -122,7 +122,7 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
             )
             ->execute();
         while ($record = $result->fetchAssociative()) {
-            if (null !== $newValue = $this->mapValues($record[$this->field])) {
+            if (null !== $newValue = $this->mapValues(intval($record[$this->field]))) {
                 $queryBuilder = $connection->createQueryBuilder();
                 $queryBuilder->update($this->table)
                     ->where(
@@ -145,7 +145,7 @@ class TexticonTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
      * @param int $value
      * @return string|null
      */
-    protected function mapValues($value)
+    protected function mapValues(int $value): ?string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];

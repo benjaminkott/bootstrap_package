@@ -100,7 +100,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
                 )
                 ->set('layout', '0', false)
                 ->set('CType', 'panel')
-                ->set('panel_class', $this->mapValues($record['layout']));
+                ->set('panel_class', $this->mapValues(intval($record['layout'])));
             $queryBuilder->execute();
         }
         return true;
@@ -110,7 +110,7 @@ class PanelContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
      * @param int $layout
      * @return string
      */
-    protected function mapValues($layout)
+    protected function mapValues(int $layout): string
     {
         $mapping = [
             110 => 'primary',
