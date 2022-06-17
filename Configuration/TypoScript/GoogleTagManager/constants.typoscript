@@ -1,0 +1,16 @@
+############################
+### CUSTOM SUBCATEGORIES ###
+############################
+# customsubcategory=bp_googletagmanager=Google Tag Manager
+
+############
+### PAGE ###
+############
+page {
+    tracking {
+        google {
+            # cat=bootstrap package: tracking/bp_googletagmanager/100; type=string; label=Container-ID: Google Tag Manager Container ID
+            tagManagerContainerId =
+        }
+    }
+}

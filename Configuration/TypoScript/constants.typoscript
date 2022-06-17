@@ -282,13 +282,6 @@ page {
         # cat=bootstrap package: meta data/120/150; type=string; label=google-site-verification
         google-site-verification =
     }
-
-    tracking {
-        google {
-            # cat=bootstrap package: tracking/180/100; type=string; label=Google Analytics: Tracking-ID
-            trackingID =
-        }
-    }
 }
 
 ##############
@@ -355,6 +348,7 @@ plugin.bootstrap_package.view {
 #### COMPONENTS ####
 ####################
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/constants.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/constants.typoscript'
 
 ###################
 #### FRAMEWORK ####

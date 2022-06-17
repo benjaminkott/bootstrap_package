@@ -374,85 +374,11 @@ page {
 }
 
 
-##########################
-#### GOOGLE ANALYTICS ####
-##########################
-page {
-    10.stdWrap.replacement {
-        99 {
-            search = ###GoogleAnalyticsStatus###
-            replace {
-                cObject < lib.block
-                cObject.templateName = GoogleAnalyticsStatus
-            }
-        }
-    }
-    jsInline {
-        99 = COA
-        99 {
-            if {
-                isTrue = {$page.tracking.google.trackingID}
-            }
-            10 = TEXT
-            10.value (
-    var gaProperty = '{$page.tracking.google.trackingID}';
-    var disableStr = 'ga-disable-' + gaProperty;
-    if (document.cookie.indexOf(disableStr + '=true') > -1) {
-        window[disableStr] = true;
-    }
-    function googleAnalyticsToggle(event) {
-        if (document.cookie.indexOf(disableStr + '=true') > -1) {
-            event.target.innerHTML = event.target.getAttribute('data-label-disable');
-            googleAnalyticsOptIn();
-        } else {
-            event.target.innerHTML = event.target.getAttribute('data-label-enable');
-            googleAnalyticsOptOut();
-        }
-    }
-    function googleAnalyticsOptOut() {
-        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-        window[disableStr] = true;
-    }
-    function googleAnalyticsOptIn() {
-        document.cookie = disableStr + '=; expires=Thu, 01 Jan 1970 00:00:01 UTC; path=/';
-        window[disableStr] = false;
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        var matches = document.querySelectorAll('[data-action="googleAnalyticsToggle"]');
-        for (i=0; i<matches.length; i++) {
-            if (document.cookie.indexOf(disableStr + '=true') > -1) {
-                matches[i].innerHTML = matches[i].getAttribute('data-label-enable');
-            } else {
-                matches[i].innerHTML = matches[i].getAttribute('data-label-disable');
-            }
-            matches[i].onclick = function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                googleAnalyticsToggle(event);
-            }
-        }
-    });
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', '{$page.tracking.google.trackingID}', 'auto');
-    ga('set', 'anonymizeIp', true);
-            )
-            90 = TEXT
-            90.value (
-
-    ga('send', 'pageview');
-            )
-        }
-    }
-}
-
-
 ####################
 #### COMPONENTS ####
 ####################
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/setup.typoscript'
 
 
 ################
