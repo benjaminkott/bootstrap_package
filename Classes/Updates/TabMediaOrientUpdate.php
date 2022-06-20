@@ -132,7 +132,7 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
                     )
                     ->set(
                         $this->field,
-                        $newValue
+                        strval($newValue)
                     );
                 $queryBuilder->execute();
             }
