@@ -67,6 +67,12 @@ window.addEventListener('DOMContentLoaded', function() {
             if (caption) {
                 caption = caption.replace(/(?:\r\n|\r|\n)/g, '<br />');
             }
+            if (!title && !!caption) {
+                // If title is not given but caption is, swap properties to workaround an issue where photoswipe doesn't
+                // show the description
+                title = caption;
+                caption = null;
+            }
             let item = {
                 src: element.getAttribute('href'),
                 title: title,
