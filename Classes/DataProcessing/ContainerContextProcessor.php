@@ -60,7 +60,7 @@ class ContainerContextProcessor implements DataProcessorInterface
     public function getPageRecords(ContentObjectRenderer $cObj, int $pid): array
     {
         $runtimeCache = GeneralUtility::makeInstance(CacheManager::class)->getCache('runtime');
-        $cache = $runtimeCache->get('containerContext') ?? [];
+        $cache = $runtimeCache->get('containerContext') ?: [];
         $cacheIdentifier = 'containerContext:' . $pid;
 
         if (!isset($cache[$cacheIdentifier])) {
