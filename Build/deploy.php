@@ -30,7 +30,7 @@ task('typo3:finish', function () {
 });
 
 // Main
- task('deploy', [
+task('deploy', [
     'deploy:info',
     'deploy:prepare',
     'deploy:lock',
