@@ -312,6 +312,9 @@ $carousel-item-layouts: map-merge(
             height: auto;
             background-color: transparent;
             cursor: pointer;
+            &.active {
+                position: relative;
+            }
             &.active:before {
                 content: '';
                 position: absolute;
