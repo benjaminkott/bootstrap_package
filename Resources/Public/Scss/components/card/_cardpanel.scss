@@ -93,7 +93,6 @@ $cardpanel-variants: map-merge(
     .card-header {
         background: var(--cardpanel-header-background);
         color: var(--cardpanel-header-color);
-        font-size: 1rem !important;
         padding: $card-spacer-y $card-spacer-x;
     }
 }
