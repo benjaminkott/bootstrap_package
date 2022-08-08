@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const ankers = document.querySelectorAll('a[href*="#"]:not([href$="#"])');
+    const ankers = document.querySelectorAll('a[href*="#"]:not([href^="http"]):not([href$="#"])');
     ankers.forEach(function(anker) {
         anker.addEventListener('click', function(event) {
             event.preventDefault();
