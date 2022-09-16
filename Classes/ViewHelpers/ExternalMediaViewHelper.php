@@ -31,6 +31,7 @@ class ExternalMediaViewHelper extends AbstractViewHelper
      * Initialize arguments.
      *
      * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
+     * @return void
      */
     public function initializeArguments()
     {
