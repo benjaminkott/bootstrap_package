@@ -114,7 +114,7 @@ class ImageVariantsUtility
             ) {
                 continue;
             }
-            $settings['multiplier'] = gettype($settings['multiplier']) === 'double' ? (float) $settings['multiplier'] : (int) $settings['multiplier'];
+            $settings['multiplier'] = gettype($settings['multiplier']) === 'double' ? $settings['multiplier'] : (int) $settings['multiplier'];
             $workingSizes[substr($key, 0, -1) . ''] = [
                 'multiplier' => 1 * $settings['multiplier'],
             ];

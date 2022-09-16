@@ -21,6 +21,8 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
 
     /**
      * Initialize arguments
+     *
+     * @return void
      */
     public function initializeArguments()
     {
