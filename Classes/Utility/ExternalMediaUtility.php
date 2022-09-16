@@ -16,7 +16,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ExternalMediaUtility
 {
-
     /**
      * @var array Provider that can be handled, the provider is equal the hostname and needs a process function
      */

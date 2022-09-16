@@ -37,6 +37,7 @@ class PaginateViewHelper extends AbstractViewHelper
 
     /**
      * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
+     * @return void
      */
     public function initializeArguments()
     {
