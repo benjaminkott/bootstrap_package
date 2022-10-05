@@ -88,7 +88,7 @@ class TableContentElementUpdate implements UpgradeWizardInterface, RepeatableInt
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('table', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150])
+                $queryBuilder->expr()->in('layout', [100, 110, 120, 130, 140, 150], \TYPO3\CMS\Core\Database\Connection::PARAM_INT_ARRAY)
             )
             ->execute();
         while ($record = $result->fetchAssociative()) {
