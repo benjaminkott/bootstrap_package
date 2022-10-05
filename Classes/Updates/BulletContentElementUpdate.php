@@ -69,7 +69,7 @@ class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableIn
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bullets', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130])
+                $queryBuilder->expr()->in('layout', $queryBuilder->createNamedParameter([100, 110, 120, 130], \TYPO3\CMS\Core\Database\Connection::PARAM_INT_ARRAY))
             )
             ->execute();
         return (bool) $result->fetchOne();
