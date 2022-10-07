@@ -82,7 +82,7 @@
         "typo3/cms": {
             "app-dir": ".build",
             "extension-key": "bootstrap_package",
-            "web-dir": ".build/web"
+            "web-dir": ".build/public"
         }
     },
     "autoload": {
@@ -104,8 +104,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
-            "mkdir -p .build/web/typo3conf/ext/",
-            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+            "mkdir -p .build/public/typo3conf/ext/",
+            "[ -L .build/public/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/public/typo3conf/ext/bootstrap_package"
         ],
         "cgl": [
             "php-cs-fixer --diff -v fix"
