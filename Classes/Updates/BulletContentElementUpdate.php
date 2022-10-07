@@ -10,107 +10,58 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * BulletContentElementUpdate
  */
-class BulletContentElementUpdate implements UpgradeWizardInterface, RepeatableInterface
+class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
-     * @return string
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
+    protected $title = 'EXT:bootstrap_package: Migrate bullet content element';
 
     /**
-     * @return string
+     * @var string
      */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate bullet content element';
-    }
+    protected $table = 'tt_content';
 
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bullets', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130])
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [
+            $this->createEqualStringCriteria($queryBuilder, 'CType', 'bullets'),
+            $this->createInCriteria($queryBuilder, 'layout', [100, 110, 120, 130]),
+        ];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid', 'layout')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bullets', \PDO::PARAM_STR)),
-                $queryBuilder->expr()->in('layout', [100, 110, 120, 130])
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update('tt_content')
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                    )
-                )
-                ->set('layout', (string) 0, false)
-                ->set('bullets_type', (string) $this->mapValues(intval($record['layout'])));
-            $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [
+            $this->createEqualStringCriteria($queryBuilder, 'CType', 'bullets'),
+            $this->createInCriteria($queryBuilder, 'layout', [100, 110, 120, 130]),
+        ];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        foreach ($records as $record) {
+            $this->updateRecord(
+                (int) $record['uid'],
+                [
+                    'layout' => (string) 0,
+                    'bullets_type' => (string) $this->mapValues(intval($record['layout']))
+                ]
+            );
         }
+
         return true;
     }
 
-    /**
-     * @param int $layout
-     * @return int
-     */
     protected function mapValues(int $layout): int
     {
         $mapping = [

@@ -10,20 +10,19 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\Connection;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * TabMediaOrientUpdate
  */
-class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterface
+class TabMediaOrientUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
+    /**
+     * @var string
+     */
+    protected $title = 'EXT:bootstrap_package: Migrate media orientation of tab content element';
+
     /**
      * @var string
      */
@@ -42,109 +41,34 @@ class TabMediaOrientUpdate implements UpgradeWizardInterface, RepeatableInterfac
         1 => 'right'
     ];
 
-    /**
-     * @return string
-     */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate media orientation of tab content element';
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from($this->table)
-            ->where(
-                $queryBuilder->expr()->in(
-                    $this->field,
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createInCriteria($queryBuilder, $this->field, array_keys($this->mapping))];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid', $this->field)
-            ->from($this->table)
-            ->where(
-                $queryBuilder->expr()->in(
-                    $this->field,
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            if (null !== $newValue = $record[$this->field]) {
-                $queryBuilder = $connection->createQueryBuilder();
-                $queryBuilder->update($this->table)
-                    ->where(
-                        $queryBuilder->expr()->eq(
-                            'uid',
-                            $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                        )
-                    )
-                    ->set(
-                        $this->field,
-                        strval($newValue)
-                    );
-                $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createInCriteria($queryBuilder, $this->field, array_keys($this->mapping))];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        foreach ($records as $record) {
+            if (null !== $newValue = $this->mapValues(intval($record[$this->field]))) {
+                $this->updateRecord(
+                    (int) $record['uid'],
+                    [$this->field => $newValue]
+                );
             }
         }
+
         return true;
     }
 
-    /**
-     * @param int $value
-     * @return string|null
-     */
-    protected function mapValues($value): ?string
+    protected function mapValues(int $value): ?string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];

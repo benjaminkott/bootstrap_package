@@ -10,29 +10,23 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\Connection;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * BackendLayoutUpdate
  */
-class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
+class BackendLayoutUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
      * @var string
      */
-    protected $table = 'pages';
+    protected $title = 'EXT:bootstrap_package: Migrate backend layouts';
 
     /**
      * @var string
      */
-    protected $field = 'backend_layout';
+    protected $table = 'pages';
 
     /**
      * @var array
@@ -51,133 +45,45 @@ class BackendLayoutUpdate implements UpgradeWizardInterface, RepeatableInterface
         'pagets__default_subnavigation_left_2_columns' => 'pagets__subnavigation_left_2_columns'
     ];
 
-    /**
-     * @return string
-     */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate backend layouts';
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($this->table);
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from($this->table)
-            ->where(
-                $queryBuilder->expr()->in(
-                    'backend_layout',
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->orWhere(
-                $queryBuilder->expr()->in(
-                    'backend_layout_next_level',
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [
+            $this->createInCriteria($queryBuilder, 'backend_layout', array_keys($this->mapping)),
+            $this->createInCriteria($queryBuilder, 'backend_layout_next_level', array_keys($this->mapping)),
+        ];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria, AbstractUpdate::CONDITION_OR);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->table);
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid', 'backend_layout', 'backend_layout_next_level')
-            ->from($this->table)
-            ->where(
-                $queryBuilder->expr()->in(
-                    'backend_layout',
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->orWhere(
-                $queryBuilder->expr()->in(
-                    'backend_layout_next_level',
-                    $queryBuilder->createNamedParameter(
-                        array_keys($this->mapping),
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update($this->table)
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                    )
-                )
-                ->set(
-                    'backend_layout',
-                    ($this->mapValues(strval($record['backend_layout'])) ?? strval($record['backend_layout']))
-                )
-                ->set(
-                    'backend_layout_next_level',
-                    ($this->mapValues(strval($record['backend_layout_next_level'])) ?? strval($record['backend_layout_next_level']))
-                );
-            $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [
+            $this->createInCriteria($queryBuilder, 'backend_layout', array_keys($this->mapping)),
+            $this->createInCriteria($queryBuilder, 'backend_layout_next_level', array_keys($this->mapping)),
+        ];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria, AbstractUpdate::CONDITION_OR);
+
+        foreach ($records as $record) {
+            $this->updateRecord(
+                (int) $record['uid'],
+                [
+                    'backend_layout' => $this->mapValues(strval($record['backend_layout'])),
+                    'backend_layout_next_level' => $this->mapValues(strval($record['backend_layout_next_level']))
+                ]
+            );
         }
+
         return true;
     }
 
-    /**
-     * @param string $value
-     * @return string|null
-     */
-    protected function mapValues(string $value): ?string
+    protected function mapValues(string $value): string
     {
         if (array_key_exists($value, $this->mapping)) {
             return $this->mapping[$value];
         }
-        return null;
+        return $value;
     }
 }

@@ -10,117 +10,49 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\Connection;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * CarouselItemTypeUpdate
  */
-class CarouselItemTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
+class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
-     * @return string
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
+    protected $title = 'EXT:bootstrap_package: Migrate carousel item types';
 
     /**
-     * @return string
+     * @var string
      */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate carousel item types';
-    }
+    protected $table = 'tx_bootstrappackage_carousel_item';
 
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_bootstrappackage_carousel_item');
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from('tx_bootstrappackage_carousel_item')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'item_type',
-                    $queryBuilder->createNamedParameter(
-                        ['textandimage', 'backgroundimage'],
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createInCriteria($queryBuilder, 'item_type', ['textandimage', 'backgroundimage'])];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bootstrappackage_carousel_item');
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid', 'item_type')
-            ->from('tx_bootstrappackage_carousel_item')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'item_type',
-                    $queryBuilder->createNamedParameter(
-                        ['textandimage', 'backgroundimage'],
-                        Connection::PARAM_STR_ARRAY
-                    )
-                )
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update('tx_bootstrappackage_carousel_item')
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                    )
-                )
-                ->set('item_type', $this->mapValues(strval($record['item_type'])));
-            $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createInCriteria($queryBuilder, 'item_type', ['textandimage', 'backgroundimage'])];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        foreach ($records as $record) {
+            $this->updateRecord(
+                (int) $record['uid'],
+                ['item_type' => $this->mapValues(strval($record['item_type']))]
+            );
         }
+
         return true;
     }
 
-    /**
-     * @param string $type
-     * @return string
-     */
     protected function mapValues(string $type): string
     {
         $mapping = [
