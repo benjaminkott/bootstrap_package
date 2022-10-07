@@ -65,13 +65,13 @@ class ScssParserTest extends FunctionalTestCase
                 'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss'
             ],
             'relative include from symlinked package' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss'
             ],
             'core syntax' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Private/Scss/CoreSyntax/theme.scss'
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/CoreSyntax/theme.scss'
             ],
             'legacy include' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Private/Scss/Legacy/theme.scss'
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Legacy/theme.scss'
             ],
         ];
     }
@@ -106,7 +106,7 @@ class ScssParserTest extends FunctionalTestCase
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
-            'typo3conf/ext/demo_package/Resources/Private/Scss/Relative/theme.scss'
+            'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss'
         );
         self::assertFileContains(
             $compiledFile,
