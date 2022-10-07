@@ -12,8 +12,6 @@ parameters:
 
 	ignoreErrors:
 		- "#Casting to string something that's already string.#"
-		- "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\|int\\.$#"
-		- "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\Driver\\\\ResultStatement\\|int\\.$#"
 
 	paths:
 	- %currentWorkingDirectory%/Classes/
