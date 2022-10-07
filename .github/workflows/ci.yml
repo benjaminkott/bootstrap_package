@@ -30,14 +30,17 @@ jobs:
           - typo3: '^11'
             php: '7.3'
     steps:
-      - name: Checkout Code
+      - id: checkout
+        name: Checkout Code
         uses: actions/checkout@v2
-      - name: Set up MySQL ${{ matrix.mysql }}
+      - id: setup_mysql
+        name: Set up MySQL ${{ matrix.mysql }}
         uses: mirromutth/mysql-action@v1.1
         with:
           mysql version: ${{ matrix.mysql }}
           mysql root password: 'root'
-      - name: Set up PHP ${{ matrix.php }}
+      - id: setup_php
+        name: Set up PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -56,23 +59,34 @@ jobs:
             ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.typo3 }}-
             ${{ runner.os }}-composer-${{ matrix.php }}-
             ${{ runner.os }}-composer-
-      - name: Install
+      - id: install
+        name: Install
         run: |
           composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
           git checkout composer.json
-      - name: Lint
+      - id: lint
+        name: Lint
+        if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer test:php:lint
-      - name: CGL
+      - id: cgl
+        name: CGL
+        if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer cgl:ci
-      - name: PHPStan
+      - id: phpstan
+        name: PHPStan
+        if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer phpstan -- --error-format=github
-      - name: Unit Tests
+      - id: tests_unit
+        name: Unit Tests
+        if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer test:php:unit
-      - name: Functional Tests
+      - id: tests_functional
+        name: Functional Tests
+        if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer test:php:functional
         env:
