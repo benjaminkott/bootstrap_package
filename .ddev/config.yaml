@@ -1,6 +1,6 @@
 name: bootstrap-package-12
 type: typo3
-docroot: .build/web
+docroot: .build/public
 php_version: "7.4"
 webserver_type: apache-fpm
 router_http_port: "80"

@@ -129,14 +129,14 @@
             "extension-helper changelog:create"
         ],
         "post-autoload-dump": [
-            "mkdir -p .build/web/typo3conf/ext/",
-            "[ -L .build/web/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/web/typo3conf/ext/bootstrap_package"
+            "mkdir -p .build/public/typo3conf/ext/",
+            "[ -L .build/public/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/public/typo3conf/ext/bootstrap_package"
         ]
     },
     "extra": {
         "typo3/cms": {
             "extension-key": "bootstrap_package",
-            "web-dir": ".build/web",
+            "web-dir": ".build/public",
             "app-dir": ".build"
         },
         "branch-alias": {
