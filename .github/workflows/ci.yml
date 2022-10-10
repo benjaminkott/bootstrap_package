@@ -17,18 +17,10 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        typo3: ['^10', '^11']
-        php: ['7.2', '7.3', '7.4', '8.0', '8.1']
-        mysql: ['5.7']
-        exclude:
-          - typo3: '^10'
-            php: '8.0'
-          - typo3: '^10'
-            php: '8.1'
-          - typo3: '^11'
-            php: '7.2'
-          - typo3: '^11'
-            php: '7.3'
+        typo3: ['^11']
+        php: ['7.4', '8.0', '8.1']
+        mysql: ['5.7', '8.0']
+
     steps:
       - id: checkout
         name: Checkout Code
