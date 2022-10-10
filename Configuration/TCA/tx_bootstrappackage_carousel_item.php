@@ -7,12 +7,6 @@
  * LICENSE file that was distributed with this source code.
  */
 
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lang')) {
-    $generalLanguageFile = 'EXT:lang/Resources/Private/Language/locallang_general.xlf';
-} else {
-    $generalLanguageFile = 'EXT:core/Resources/Private/Language/locallang_general.xlf';
-}
-
 return [
     'ctrl' => [
         'label' => 'header',
@@ -27,7 +21,7 @@ return [
         'origUid' => 't3_origuid',
         'hideTable' => true,
         'hideAtCopy' => true,
-        'prependAtCopy' => 'LLL:' . $generalLanguageFile . ':LGL.prependAtCopy',
+        'prependAtCopy' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'languageField' => 'sys_language_uid',
@@ -47,23 +41,6 @@ return [
             'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
             'html' => 'content-bootstrappackage-carousel-item-html'
         ]
-    ],
-    'interface' => [
-        'showRecordFieldList' => '
-            hidden,
-            tt_content,
-            header,
-            header_layout,
-            header_class,
-            subheader,
-            subheader_layout,
-            subheader_class
-            bodytext,
-            image,
-            text_color,
-            background_color,
-            background_image
-        ',
     ],
     'types' => [
         '1' => [
@@ -260,7 +237,7 @@ return [
             ],
         ],
         'item_type' => [
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.type',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -309,7 +286,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -321,7 +298,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.starttime',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -333,7 +310,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.endtime',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -348,29 +325,12 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.language',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => [
-                    [
-                        'LLL:' . $generalLanguageFile . ':LGL.allLanguages',
-                        -1
-                    ],
-                    [
-                        'LLL:' . $generalLanguageFile . ':LGL.default_value',
-                        0
-                    ]
-                ],
-                'allowNonIdValues' => true,
-            ]
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => ['type' => 'language']
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:' . $generalLanguageFile . ':LGL.l18n_parent',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
