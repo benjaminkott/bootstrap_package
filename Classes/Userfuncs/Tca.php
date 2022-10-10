@@ -16,6 +16,6 @@ class Tca
     public function timelineItemLabel(array &$parameters): void
     {
         $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid']) ?? [];
-        $parameters['title'] = $record['date'] . ' - ' . $record['header'];
+        $parameters['title'] = ($record['date'] ?? '') . ' - ' . ($record['header'] ?? '');
     }
 }
