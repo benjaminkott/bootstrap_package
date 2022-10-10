@@ -63,15 +63,18 @@ class ContainerContextProcessor implements DataProcessorInterface
         $cache = is_array($runtimeCache->get('containerContext')) ? $runtimeCache->get('containerContext') : [];
         $cacheIdentifier = 'containerContext:' . $pid;
 
-        if (!isset($cache[$cacheIdentifier])) {
+        if (!$cache || !isset($cache[$cacheIdentifier])) {
             $records = $cObj->getRecords('tt_content', ['pidInList' => $pid]);
             $dataset = [];
             foreach ($records as $record) {
                 $dataset[$record['uid']] = $record;
             }
 
-            $cache[$cacheIdentifier] = $dataset;
-            $runtimeCache->set('containerContext', $cache);
+            if ($cache) {
+                $cache[$cacheIdentifier] = $dataset;
+                $runtimeCache->set('containerContext', $cache);
+            }
+            return $dataset;
         }
 
         return $cache[$cacheIdentifier];
