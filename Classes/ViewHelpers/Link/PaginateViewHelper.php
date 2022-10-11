@@ -9,7 +9,16 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Link;
 
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\ApplicationType;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\HttpUtility;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface as ExtbaseRequestInterface;
+use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder as ExtbaseUriBuilder;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\Typolink\LinkFactory;
+use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
 class PaginateViewHelper extends AbstractTagBasedViewHelper
@@ -44,28 +53,59 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
             $arguments['paginate'][$paginationId]['page'] = $paginationPage;
         }
 
-        if (method_exists($this->renderingContext, 'getUriBuilder')) {
-            /** @var UriBuilder $uriBuilder */
-            $uriBuilder = $this->renderingContext->getUriBuilder();
-        } elseif (method_exists($this->renderingContext, 'getControllerContext')) {
-            /** @var UriBuilder $uriBuilder */
-            $uriBuilder = $this->renderingContext->getControllerContext()->getUriBuilder();
-        } else {
-            return strval($this->renderChildren());
+        /** @var RenderingContext $renderingContext */
+        $renderingContext = $this->renderingContext;
+        $request = $renderingContext->getRequest();
+
+        if ($request instanceof ExtbaseRequestInterface) {
+            $uriBuilder = GeneralUtility::makeInstance(ExtbaseUriBuilder::class);
+            $uriBuilder->reset()
+                ->setRequest($request)
+                ->setSection($section)
+                ->setArguments($arguments);
+            return $this->renderLink($uriBuilder->build());
         }
 
-        $uriBuilder->reset()->setArguments($arguments);
+        $applicationType = ApplicationType::fromRequest($request);
+        if ($request instanceof ServerRequestInterface) {
+            if ($applicationType->isFrontend()) {
+                try {
+                    $typolinkConfiguration = [];
+                    $typolinkConfiguration['parameter'] = 'current';
+                    $typolinkConfiguration['additionalParams'] = HttpUtility::buildQueryString($arguments, '&');
+                    $typolinkConfiguration['fragment'] = $section;
+                    $typolinkConfiguration['addQueryString'] = '1';
 
-        $uri = $uriBuilder->build();
-        if ($uri !== '') {
-            $this->tag->addAttribute('href', $uri);
-            $this->tag->setContent(strval($this->renderChildren()));
-            $this->tag->forceClosingTag(true);
-            $result = $this->tag->render();
-        } else {
-            $result = $this->renderChildren();
+                    /** @var ContentObjectRenderer $contentObjectRenderer */
+                    $contentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+                    $contentObjectRenderer->setRequest($request);
+
+                    /** @var LinkFactory $linkFactory */
+                    $linkFactory = GeneralUtility::makeInstance(LinkFactory::class);
+                    $linkResult = $linkFactory->create((string)$this->renderChildren(), $typolinkConfiguration, $contentObjectRenderer);
+                    return $this->renderLink($linkResult->getUrl());
+                } catch (UnableToLinkException $e) {
+                    return strval($this->renderChildren());
+                }
+            }
         }
 
-        return strval($result);
+        throw new \RuntimeException(
+            'ViewHelper bk2k:paginate.data needs a request implementing ServerRequestInterface.',
+            1639819269
+        );
+    }
+
+    private function renderLink(string $uri): string
+    {
+        $content = strval($this->renderChildren());
+        if (trim($uri) === '') {
+            return $content;
+        }
+
+        $this->tag->addAttribute('href', $uri);
+        $this->tag->setContent($content);
+        $this->tag->forceClosingTag(true);
+        return $this->tag->render();
     }
 }

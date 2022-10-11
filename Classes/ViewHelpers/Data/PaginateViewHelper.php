@@ -9,7 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
-use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
@@ -18,18 +18,15 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Fluid\View\StandaloneView;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * PaginateViewHelper
  */
 class PaginateViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
@@ -47,19 +44,13 @@ class PaginateViewHelper extends AbstractViewHelper
         $this->registerArgument('configuration', 'array', 'configuration', false, ['itemsPerPage' => 10, 'insertAbove' => false, 'insertBelow' => true]);
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     * @return string
-     * @throws \Exception
-     */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $objects = $arguments['objects'];
+    public function render(): string
+    {
+        /** @var RenderingContext $renderingContext */
+        $renderingContext = $this->renderingContext;
+        $request = $renderingContext->getRequest();
+
+        $objects = $this->arguments['objects'];
         if (!($objects instanceof QueryResultInterface || is_array($objects))) {
             throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
         }
@@ -70,10 +61,11 @@ class PaginateViewHelper extends AbstractViewHelper
             'insertBelow' => true,
             'section' => ''
         ];
-        ArrayUtility::mergeRecursiveWithOverrule($configuration, $arguments['configuration'], false);
-        $id = $arguments['id'];
+        ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
+
+        $id = $this->arguments['id'];
         $itemsPerPage = (int) $configuration['itemsPerPage'];
-        $currentPage = (int) (self::getRequest()->getQueryParams()['paginate'][$id]['page'] ?? 1);
+        $currentPage = (int) ($request->getQueryParams()['paginate'][$id]['page'] ?? 1);
 
         if ($objects instanceof QueryResultInterface) {
             $paginator = new QueryResultPaginator($objects, $currentPage, $itemsPerPage);
@@ -82,15 +74,13 @@ class PaginateViewHelper extends AbstractViewHelper
         }
         $pagination = new SimplePagination($paginator);
 
-        $paginationView = self::getTemplateObject();
-        $paginationView->assignMultiple(
-            [
-                'id' => $id,
-                'paginator' => $paginator,
-                'pagination' => $pagination,
-                'configuration' => $configuration
-            ]
-        );
+        $paginationView = $this->getTemplateObject($renderingContext);
+        $paginationView->assignMultiple([
+            'id' => $id,
+            'paginator' => $paginator,
+            'pagination' => $pagination,
+            'configuration' => $configuration
+        ]);
         $paginationRendered = $paginationView->render();
 
         $variableProvider = $renderingContext->getVariableProvider();
@@ -98,7 +88,7 @@ class PaginateViewHelper extends AbstractViewHelper
 
         $contents = [];
         $contents[] = $configuration['insertAbove'] === true ? $paginationRendered : '';
-        $contents[] = $renderChildrenClosure();
+        $contents[] = $this->renderChildren();
         $contents[] = $configuration['insertBelow'] === true ? $paginationRendered : '';
 
         $variableProvider->remove('paginator');
@@ -106,25 +96,33 @@ class PaginateViewHelper extends AbstractViewHelper
         return implode('', $contents);
     }
 
-    protected static function getTemplateObject(): StandaloneView
+    protected function getTemplateObject(RenderingContext $renderingContext): StandaloneView
     {
-        $setup = static::getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+        $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
-        $layoutRootPaths = [];
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            /** @var StandaloneView $view */
+            $view = GeneralUtility::makeInstance(StandaloneView::class);
+        } else {
+            /** @var StandaloneView $view */
+            $view = GeneralUtility::makeInstance(StandaloneView::class, $renderingContext);
+        }
+
+        $layoutRootPaths = $view->getLayoutRootPaths();
         $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
         if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['layoutRootPaths.'])) {
             foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['layoutRootPaths.'] as $layoutRootPath) {
                 $layoutRootPaths[] = GeneralUtility::getFileAbsFileName(rtrim($layoutRootPath, '/') . '/ViewHelpers/');
             }
         }
-        $partialRootPaths = [];
+        $partialRootPaths = $view->getPartialRootPaths();
         $partialRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Partials/ViewHelpers/');
         if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['partialRootPaths.'])) {
             foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['partialRootPaths.'] as $partialRootPath) {
                 $partialRootPaths[] = GeneralUtility::getFileAbsFileName(rtrim($partialRootPath, '/') . '/ViewHelpers/');
             }
         }
-        $templateRootPaths = [];
+        $templateRootPaths = $view->getTemplateRootPaths();
         $templateRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Templates/ViewHelpers/');
         if (isset($setup['plugin.']['tx_bootstrappackage.']['view.']['templateRootPaths.'])) {
             foreach ($setup['plugin.']['tx_bootstrappackage.']['view.']['templateRootPaths.'] as $templateRootPath) {
@@ -132,8 +130,6 @@ class PaginateViewHelper extends AbstractViewHelper
             }
         }
 
-        /** @var StandaloneView $view */
-        $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setLayoutRootPaths($layoutRootPaths);
         $view->setPartialRootPaths($partialRootPaths);
         $view->setTemplateRootPaths($templateRootPaths);
@@ -142,16 +138,11 @@ class PaginateViewHelper extends AbstractViewHelper
         return $view;
     }
 
-    protected static function getConfigurationManager(): ConfigurationManagerInterface
+    protected function getConfigurationManager(): ConfigurationManagerInterface
     {
         /** @var ConfigurationManager $configurationManager  */
         $configurationManager = GeneralUtility::getContainer()->get(ConfigurationManager::class);
 
         return $configurationManager;
-    }
-
-    protected static function getRequest(): ServerRequestInterface
-    {
-        return $GLOBALS['TYPO3_REQUEST'];
     }
 }
