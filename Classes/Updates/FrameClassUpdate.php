@@ -10,111 +10,57 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * FrameClassUpdate
  */
-class FrameClassUpdate implements UpgradeWizardInterface, RepeatableInterface
+class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
-     * @return string
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
+    protected $title = 'EXT:bootstrap_package: Migrate the field "section_frame" for all content elements to "frame_class"';
 
     /**
-     * @return string
+     * @var string
      */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate the field "section_frame" for all content elements to "frame_class"';
-    }
+    protected $table = 'tt_content';
 
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-        $tableColumns = $connection->getSchemaManager()->listTableColumns('tt_content');
-        // Only proceed if section_frame field still exists
-        if (!isset($tableColumns['section_frame'])) {
+        if (!$this->tableHasColumn('section_frame')) {
             return false;
         }
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-        $queryBuilder->getRestrictions()->removeAll();
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->gt('section_frame', 0)
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createCreaterThanCriteria($queryBuilder, 'section_frame', 0)];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll();
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid', 'section_frame')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->gt('section_frame', 0)
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update('tt_content')
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                    )
-                )
-                ->set('section_frame', '0', false)
-                ->set('frame_class', $this->mapSectionFrame($record['section_frame']));
-            $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createCreaterThanCriteria($queryBuilder, 'section_frame', 0)];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        foreach ($records as $record) {
+            $this->updateRecord(
+                (int) $record['uid'],
+                [
+                    'section_frame' => '0',
+                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame']))
+                ]
+            );
         }
+
         return true;
     }
 
-    /**
-     * @param int $sectionFrame
-     * @return string
-     */
-    protected function mapSectionFrame(int $sectionFrame)
+    protected function mapSectionFrame(int $sectionFrame): string
     {
         $mapping = [
             0 => 'default',

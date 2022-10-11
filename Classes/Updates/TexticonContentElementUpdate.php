@@ -10,97 +10,51 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
-use Doctrine\DBAL\ForwardCompatibility\Result;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * TexticonContentElementUpdate
  */
-class TexticonContentElementUpdate implements UpgradeWizardInterface, RepeatableInterface
+class TexticonContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
-    * @return string
-    */
-    public function getIdentifier(): string
-    {
-        return self::class;
-    }
+     * @var string
+     */
+    protected $title = 'EXT:bootstrap_package: Migrate text and icon content element';
 
     /**
-     * @return string
+     * @var string
      */
-    public function getTitle(): string
-    {
-        return '[Bootstrap Package] Migrate text and icon content element';
-    }
+    protected $table = 'tt_content';
 
     /**
-     * @return string
+     * @var string
      */
-    public function getDescription(): string
-    {
-        return '';
-    }
+    protected $field = 'CType';
 
-    /**
-     * @return string[]
-     */
-    public function getPrerequisites(): array
-    {
-        return [
-            DatabaseUpdatedPrerequisite::class
-        ];
-    }
-
-    /**
-     * @return bool
-     */
     public function updateNecessary(): bool
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->count('uid')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_texticon', \PDO::PARAM_STR))
-            )
-            ->execute();
-        return (bool) $result->fetchOne();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createEqualStringCriteria($queryBuilder, $this->field, 'bootstrap_package_texticon')];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        return (bool) count($records);
     }
 
-    /**
-     * @return bool
-     */
     public function executeUpdate(): bool
     {
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-        $queryBuilder = $connection->createQueryBuilder();
-        $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        /** @var Result $result */
-        $result = $queryBuilder->select('uid')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('bootstrap_package_texticon', \PDO::PARAM_STR))
-            )
-            ->execute();
-        while ($record = $result->fetchAssociative()) {
-            $queryBuilder = $connection->createQueryBuilder();
-            $queryBuilder->update('tt_content')
-                ->where(
-                    $queryBuilder->expr()->eq(
-                        'uid',
-                        $queryBuilder->createNamedParameter($record['uid'], \PDO::PARAM_INT)
-                    )
-                )
-                ->set('CType', 'texticon');
-            $queryBuilder->execute();
+        $queryBuilder = $this->createQueryBuilder();
+        $criteria = [$this->createEqualStringCriteria($queryBuilder, $this->field, 'bootstrap_package_texticon')];
+        $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
+
+        foreach ($records as $record) {
+            $this->updateRecord(
+                (int) $record['uid'],
+                [$this->field => 'texticon']
+            );
         }
+
         return true;
     }
 }
