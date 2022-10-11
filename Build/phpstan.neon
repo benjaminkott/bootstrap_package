@@ -12,6 +12,10 @@ parameters:
 
 	ignoreErrors:
 		- "#Casting to string something that's already string.#"
+		- """
+				#^Call to deprecated method getFileFieldTCAConfig\\(\\) of class TYPO3\\\\CMS\\\\Core\\\\Utility\\\\ExtensionManagementUtility\\:
+				since TYPO3 v12\\.0\\. Use the TCA type "file" directly$#
+			"""
 
 	paths:
 	- %currentWorkingDirectory%/Classes/

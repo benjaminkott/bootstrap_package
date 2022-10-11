@@ -66,8 +66,8 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
             return $this->renderLink($uriBuilder->build());
         }
 
-        $applicationType = ApplicationType::fromRequest($request);
         if ($request instanceof ServerRequestInterface) {
+            $applicationType = ApplicationType::fromRequest($request);
             if ($applicationType->isFrontend()) {
                 try {
                     $typolinkConfiguration = [];
@@ -82,7 +82,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
 
                     /** @var LinkFactory $linkFactory */
                     $linkFactory = GeneralUtility::makeInstance(LinkFactory::class);
-                    $linkResult = $linkFactory->create((string)$this->renderChildren(), $typolinkConfiguration, $contentObjectRenderer);
+                    $linkResult = $linkFactory->create('', $typolinkConfiguration, $contentObjectRenderer);
                     return $this->renderLink($linkResult->getUrl());
                 } catch (UnableToLinkException $e) {
                     return strval($this->renderChildren());
@@ -91,7 +91,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         }
 
         throw new \RuntimeException(
-            'ViewHelper bk2k:paginate.data needs a request implementing ServerRequestInterface.',
+            'ViewHelper bk2k:link.paginate needs a request implementing ServerRequestInterface.',
             1639819269
         );
     }

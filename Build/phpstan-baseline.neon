@@ -1,17 +1,35 @@
 parameters:
 	ignoreErrors:
 		-
+			message: """
+				#^Fetching class constant class of deprecated class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\Parser\\\\TypoScriptParser\\:
+				This class should not be used anymore, last core usages will be removed during v12\\.
+				            Using methods or properties of this class will start logging deprecation messages\\.$#
+			"""
+			count: 1
+			path: ../Classes/DataProcessing/ConstantsProcessor.php
+
+		-
+			message: """
+				#^Return type of method BK2K\\\\BootstrapPackage\\\\Hooks\\\\PageRenderer\\\\GoogleFontHook\\:\\:getTemplateService\\(\\) has typehint with deprecated class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\TemplateService\\:
+				This class should not be used anymore, last core usages will be removed during v12\\.
+				            Using methods or properties of this class will start logging deprecation messages\\.$#
+			"""
+			count: 1
+			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
+
+		-
 			message: "#^Variable method call on \\$this\\(BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\)\\.$#"
 			count: 1
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
 		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
+			message: "#^Call to deprecated function libxml_disable_entity_loader\\(\\)\\.$#"
 			count: 2
 			path: ../Classes/Utility/SvgUtility.php
 
 		-
-			message: "#^Call to deprecated function libxml_disable_entity_loader\\(\\)\\.$#"
+			message: "#^Variable property access on SimpleXMLElement\\.$#"
 			count: 2
 			path: ../Classes/Utility/SvgUtility.php
 
