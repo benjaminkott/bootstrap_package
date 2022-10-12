@@ -1,5 +1,8 @@
 window.addEventListener('DOMContentLoaded', function () {
 
+    /*
+     * Smooth Sroll
+     */
     const ankers = document.querySelectorAll('a[href*="#"]:not([href^="http"]):not([href$="#"])');
     ankers.forEach(function (anker) {
         anker.addEventListener('click', function (event) {
@@ -27,9 +30,9 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //
-    // Scroll to top
-    //
+    /*
+     * Scroll to top
+     */
     document.querySelector('.scroll-top').addEventListener('click', function (event) {
         event.currentTarget.blur();
     });
