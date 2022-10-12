@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
@@ -48,52 +49,62 @@ class PaginateViewHelper extends AbstractViewHelper
     {
         /** @var RenderingContext $renderingContext */
         $renderingContext = $this->renderingContext;
+
+        /** @var ServerRequestInterface|null $request */
         $request = $renderingContext->getRequest();
 
-        $objects = $this->arguments['objects'];
-        if (!($objects instanceof QueryResultInterface || is_array($objects))) {
-            throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
+        /** @phpstan-ignore-next-line */
+        if ($request instanceof ServerRequestInterface) {
+            $objects = $this->arguments['objects'];
+            if (!($objects instanceof QueryResultInterface || is_array($objects))) {
+                throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
+            }
+
+            $configuration = [
+                'itemsPerPage' => 10,
+                'insertAbove' => false,
+                'insertBelow' => true,
+                'section' => ''
+            ];
+            ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
+
+            $id = $this->arguments['id'];
+            $itemsPerPage = (int) $configuration['itemsPerPage'];
+            $currentPage = (int) ($request->getQueryParams()['paginate'][$id]['page'] ?? 1);
+
+            if ($objects instanceof QueryResultInterface) {
+                $paginator = new QueryResultPaginator($objects, $currentPage, $itemsPerPage);
+            } else {
+                $paginator = new ArrayPaginator($objects, $currentPage, $itemsPerPage);
+            }
+            $pagination = new SimplePagination($paginator);
+
+            $paginationView = $this->getTemplateObject($renderingContext);
+            $paginationView->assignMultiple([
+                'id' => $id,
+                'paginator' => $paginator,
+                'pagination' => $pagination,
+                'configuration' => $configuration
+            ]);
+            $paginationRendered = $paginationView->render();
+
+            $variableProvider = $renderingContext->getVariableProvider();
+            $variableProvider->add('paginator', $paginator);
+
+            $contents = [];
+            $contents[] = $configuration['insertAbove'] === true ? $paginationRendered : '';
+            $contents[] = $this->renderChildren();
+            $contents[] = $configuration['insertBelow'] === true ? $paginationRendered : '';
+
+            $variableProvider->remove('paginator');
+
+            return implode('', $contents);
         }
 
-        $configuration = [
-            'itemsPerPage' => 10,
-            'insertAbove' => false,
-            'insertBelow' => true,
-            'section' => ''
-        ];
-        ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
-
-        $id = $this->arguments['id'];
-        $itemsPerPage = (int) $configuration['itemsPerPage'];
-        $currentPage = (int) ($request->getQueryParams()['paginate'][$id]['page'] ?? 1);
-
-        if ($objects instanceof QueryResultInterface) {
-            $paginator = new QueryResultPaginator($objects, $currentPage, $itemsPerPage);
-        } else {
-            $paginator = new ArrayPaginator($objects, $currentPage, $itemsPerPage);
-        }
-        $pagination = new SimplePagination($paginator);
-
-        $paginationView = $this->getTemplateObject($renderingContext);
-        $paginationView->assignMultiple([
-            'id' => $id,
-            'paginator' => $paginator,
-            'pagination' => $pagination,
-            'configuration' => $configuration
-        ]);
-        $paginationRendered = $paginationView->render();
-
-        $variableProvider = $renderingContext->getVariableProvider();
-        $variableProvider->add('paginator', $paginator);
-
-        $contents = [];
-        $contents[] = $configuration['insertAbove'] === true ? $paginationRendered : '';
-        $contents[] = $this->renderChildren();
-        $contents[] = $configuration['insertBelow'] === true ? $paginationRendered : '';
-
-        $variableProvider->remove('paginator');
-
-        return implode('', $contents);
+        throw new \RuntimeException(
+            'ViewHelper bk2k:data.paginate needs a request implementing ServerRequestInterface.',
+            1639819269
+        );
     }
 
     protected function getTemplateObject(RenderingContext $renderingContext): StandaloneView

@@ -32,38 +32,37 @@
         "ext-libxml": "*",
         "ext-simplexml": "*",
         "scssphp/scssphp": "^1.8.1",
-        "typo3/cms-backend": "^11.5",
-        "typo3/cms-core": "^11.5",
-        "typo3/cms-extbase": "^11.5",
-        "typo3/cms-extensionmanager": "^11.5",
-        "typo3/cms-fluid": "^11.5",
-        "typo3/cms-frontend": "^11.5",
-        "typo3/cms-install": "^11.5",
-        "typo3/cms-rte-ckeditor": "^11.5",
-        "typo3/cms-seo": "^11.5",
-        "typo3fluid/fluid": "^2.5.2"
+        "typo3/cms-backend": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-core": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-extbase": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-extensionmanager": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-fluid": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-frontend": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-install": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-rte-ckeditor": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-seo": "^11.5 || ^12.0 || 12.*.*@dev"
     },
     "require-dev": {
-        "b13/container": "^1.3",
+        "b13/container": "^2.0 || dev-feature/v12-2",
         "bk2k/demo-package": "@dev",
-        "bk2k/extension-helper": "^1.0",
+        "bk2k/extension-helper": "^2.0 || dev-master",
         "friendsofphp/php-cs-fixer": "^3.0.0",
         "friendsoftypo3/phpstan-typo3": "^0.9",
-        "overtrue/phplint": "^2.3.5",
+        "overtrue/phplint": "^3.2 || ^4.3 || ^5.3",
         "phpstan/phpstan": "^1.7",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.1",
         "phpstan/phpstan-strict-rules": "^1.2",
-        "typo3/cms-belog": "^11.5",
-        "typo3/cms-felogin": "^11.5",
-        "typo3/cms-filelist": "^11.5",
-        "typo3/cms-form": "^11.5",
-        "typo3/cms-indexed-search": "^11.5",
-        "typo3/cms-info": "^11.5",
-        "typo3/cms-lowlevel": "^11.5",
-        "typo3/cms-tstemplate": "^11.5",
-        "typo3/cms-workspaces": "^11.5",
-        "typo3/testing-framework": "^6.16"
+        "typo3/cms-belog": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-felogin": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-filelist": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-form": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-indexed-search": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-info": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-lowlevel": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-tstemplate": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/cms-workspaces": "^11.5 || ^12.0 || 12.*.*@dev",
+        "typo3/testing-framework": "7.x-dev"
     },
     "config": {
         "bin-dir": ".build/bin",
@@ -77,10 +76,9 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "13.x-dev"
+            "dev-master": "13.0.x-dev"
         },
         "typo3/cms": {
-            "app-dir": ".build",
             "extension-key": "bootstrap_package",
             "web-dir": ".build/public"
         }
@@ -104,8 +102,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
-            "mkdir -p .build/public/typo3conf/ext/",
-            "[ -L .build/public/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/public/typo3conf/ext/bootstrap_package"
+            "[ -d .build/public/_assets ] || mkdir -p .build/public/typo3conf/ext/",
+            "[ -d .build/public/_assets ] || [ -L .build/public/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/public/typo3conf/ext/bootstrap_package"
         ],
         "cgl": [
             "php-cs-fixer --diff -v fix"

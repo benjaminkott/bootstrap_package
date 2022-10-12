@@ -1,7 +1,7 @@
 name: bootstrap-package
-type: typo3
+type: php
 docroot: .build/public
-php_version: "7.4"
+php_version: "8.1"
 webserver_type: apache-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -260,5 +260,3 @@ nodejs_version: "16"
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
 #hooks:
-#  post-start:
-#    - exec: composer install -d /var/www/html

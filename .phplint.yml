@@ -5,3 +5,5 @@ extensions:
     - php
 exclude:
     - .build
+    - config
+    - var

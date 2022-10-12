@@ -17,9 +17,18 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        typo3: ['^11']
+        typo3: ['^11', '^12']
         php: ['7.4', '8.0', '8.1']
         mysql: ['5.7', '8.0']
+        exclude:
+          - typo3: '^11'
+            mysql: '8.0'
+          - typo3: '^12'
+            mysql: '5.7'
+          - typo3: '^12'
+            php: '7.4'
+          - typo3: '^12'
+            php: '8.0'
 
     steps:
       - id: checkout
@@ -78,7 +87,7 @@ jobs:
           composer test:php:unit
       - id: tests_functional
         name: Functional Tests
-        if: ${{ always() && steps.install.conclusion == 'success' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.typo3 == '^11' }}
         run: |
           composer test:php:functional
         env:
