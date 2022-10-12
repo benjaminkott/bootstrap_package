@@ -43,9 +43,9 @@
         "typo3/cms-seo": "^11.5 || ^12.0 || 12.*.*@dev"
     },
     "require-dev": {
-        "b13/container": "^2.0 || dev-feature/v12-2",
+        "b13/container": "^2.0",
         "bk2k/demo-package": "@dev",
-        "bk2k/extension-helper": "^2.0 || dev-master",
+        "bk2k/extension-helper": "^2.0",
         "friendsofphp/php-cs-fixer": "^3.0.0",
         "friendsoftypo3/phpstan-typo3": "^0.9",
         "overtrue/phplint": "^3.2 || ^4.3 || ^5.3",
