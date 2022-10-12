@@ -2,7 +2,7 @@
  * Cookie Consent
  * ======================================================================== */
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('cookieconsent')) {
 
         // Default Options
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // Functions
         var cookieConsentFunctions = {};
-        cookieConsentFunctions.updateCookieConsentOptions = function(options, path, value) {
+        cookieConsentFunctions.updateCookieConsentOptions = function (options, path, value) {
             stack = path.split('.');
             while (stack.length > 1) {
                 key = stack.shift();
@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', function() {
         delete settings;
 
         // Events
-        cookieConsentOptions.onPopupOpen = function() {
+        cookieConsentOptions.onPopupOpen = function () {
             var eventOpen = document.createEvent('Event');
             eventOpen.initEvent('bk2k.cookie.popupopen', true, true);
             window.dispatchEvent(eventOpen);

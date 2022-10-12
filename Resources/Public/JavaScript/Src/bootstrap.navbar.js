@@ -1,15 +1,15 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
 
     const navbarCollapse = document.querySelectorAll('.navbar-collapse');
     navbarCollapse.forEach(
-        function(navbar) {
-            navbar.addEventListener('show.bs.collapse', function() {
-                document.querySelectorAll('.navbar-toggle').forEach(function(element) {
+        function (navbar) {
+            navbar.addEventListener('show.bs.collapse', function () {
+                document.querySelectorAll('.navbar-toggle').forEach(function (element) {
                     element.classList.remove('collapsed');
                 });
             });
-            navbar.addEventListener('hide.bs.collapse', function() {
-                document.querySelectorAll('.navbar-toggle').forEach(function(element) {
+            navbar.addEventListener('hide.bs.collapse', function () {
+                document.querySelectorAll('.navbar-toggle').forEach(function (element) {
                     element.classList.add('collapsed');
                 });
             });
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function() {
     function navbarPointerOver(element) {
         let toggle = document.querySelector('.navbar-toggler');
         if (window.getComputedStyle(toggle).display === 'none' && element.classList.contains('open') === false) {
-            Array.from(element.parentElement.parentElement.querySelectorAll('li')).forEach(function(listItem) {
+            Array.from(element.parentElement.parentElement.querySelectorAll('li')).forEach(function (listItem) {
                 listItem.classList.remove('show');
             });
             element.classList.add('show');
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    Array.from(document.querySelectorAll('li.dropdown-hover')).forEach(function(element) {
+    Array.from(document.querySelectorAll('li.dropdown-hover')).forEach(function (element) {
         element.addEventListener('pointerover', (e) => {
             if (e.pointerType === "mouse") {
                 navbarPointerOver(element);
@@ -64,17 +64,17 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    Array.from(document.querySelectorAll('.nav-link')).forEach(function(element) {
+    Array.from(document.querySelectorAll('.nav-link')).forEach(function (element) {
         element.addEventListener('click', (e) => {
             let listElement = element.parentElement;
             if (listElement.classList.contains('dropdown-hover') && listElement.classList.contains('show') === false) {
                 let listElementSiblings = listElement.parentElement.querySelectorAll('.dropdown-hover');
-                Array.from(listElementSiblings).forEach(function(listElementsSibling) {
+                Array.from(listElementSiblings).forEach(function (listElementsSibling) {
                     listElementsSibling.setAttribute('aria-expanded', 'false')
                     listElementsSibling.classList.remove('show');
                 });
                 let listElementMenus = listElement.parentElement.querySelectorAll('.dropdown-menu');
-                Array.from(listElementMenus).forEach(function(listElementMenu) {
+                Array.from(listElementMenus).forEach(function (listElementMenu) {
                     listElementMenu.classList.remove('show');
                 });
                 listElement.classList.add('show');

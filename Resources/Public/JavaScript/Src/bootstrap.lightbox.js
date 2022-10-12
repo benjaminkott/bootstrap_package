@@ -2,7 +2,7 @@
  * Lightbox
  * ======================================================================== */
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
 
     /**
      * Add PhotoSwipe template to dom if lightbox elements exist.
@@ -49,11 +49,11 @@ window.addEventListener('DOMContentLoaded', function() {
     /**
      * Open PhotoSwipe
      */
-    var openPhotoSwipe = function(pid, gid) {
+    var openPhotoSwipe = function (pid, gid) {
         var photoswipeContainer = document.querySelectorAll('.pswp')[0];
         var items = [];
 
-        Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).forEach(function(element) {
+        Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).forEach(function (element) {
             let title = null;
             if (element.hasAttribute('title') && element.getAttribute('title') !== '') {
                 title = element.getAttribute('title');
@@ -89,39 +89,39 @@ window.addEventListener('DOMContentLoaded', function() {
 
         var options = {
             index: pid,
-            addCaptionHTMLFn: function(item, captionEl) {
+            addCaptionHTMLFn: function (item, captionEl) {
                 captionEl.children[0].innerHTML = '';
-                if(item.title && item.title !== '') {
+                if (item.title && item.title !== '') {
                     captionEl.children[0].innerHTML += '<div class="pswp__caption__title">' + item.title + '</div>';
                 }
-                if(item.caption && item.caption !== '') {
+                if (item.caption && item.caption !== '') {
                     captionEl.children[0].innerHTML += '<div class="pswp__caption__subtitle">' + item.caption + '</div>';
                 }
                 return true;
             },
-            spacing:        0.12,
-            loop:           true,
-            bgOpacity:      1,
-            closeOnScroll:  true,
-            history:        true,
-            galleryUID:     gid,
-            galleryPIDs:    true,
-            closeEl:        true,
-            captionEl:      true,
-            fullscreenEl:   true,
-            zoomEl:         true,
-            shareEl:        false,
-            counterEl:      true,
-            arrowEl:        true,
-            preloaderEl:    true,
-            getThumbBoundsFn: function(index) {
+            spacing: 0.12,
+            loop: true,
+            bgOpacity: 1,
+            closeOnScroll: true,
+            history: true,
+            galleryUID: gid,
+            galleryPIDs: true,
+            closeEl: true,
+            captionEl: true,
+            fullscreenEl: true,
+            zoomEl: true,
+            shareEl: false,
+            counterEl: true,
+            arrowEl: true,
+            preloaderEl: true,
+            getThumbBoundsFn: function (index) {
                 let thumbnail = document.querySelectorAll('a.lightbox[rel=' + gid + ']')[index];
                 let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
                 let rect = thumbnail.getBoundingClientRect();
-                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
             },
         };
-        if(items.length > 0) {
+        if (items.length > 0) {
             var gallery = new PhotoSwipe(photoswipeContainer, PhotoSwipeUI_Default, items, options);
             gallery.init();
         }
@@ -130,19 +130,19 @@ window.addEventListener('DOMContentLoaded', function() {
     /**
      * Get PhotoSwipe params from url hash and open gallery
      */
-    var getPhotoSwipeParamsFromHash = function() {
+    var getPhotoSwipeParamsFromHash = function () {
         var hash = window.location.hash.substring(1),
-        params = {};
-        if(hash.length < 5) {
+            params = {};
+        if (hash.length < 5) {
             return params;
         }
         var vars = hash.split('&');
         for (var i = 0; i < vars.length; i++) {
-            if(!vars[i]) {
+            if (!vars[i]) {
                 continue;
             }
             var pair = vars[i].split('=');
-            if(pair.length < 2) {
+            if (pair.length < 2) {
                 continue;
             }
             params[pair[0]] = pair[1];
@@ -150,14 +150,14 @@ window.addEventListener('DOMContentLoaded', function() {
         return params;
     };
     var photoSwipeHashData = getPhotoSwipeParamsFromHash();
-    if(photoSwipeHashData.pid && photoSwipeHashData.gid) {
+    if (photoSwipeHashData.pid && photoSwipeHashData.gid) {
         openPhotoSwipe(parseInt(photoSwipeHashData.pid), photoSwipeHashData.gid);
     }
 
     /**
      * Register listener
      */
-    Array.from(document.querySelectorAll('a.lightbox')).forEach(function(element) {
+    Array.from(document.querySelectorAll('a.lightbox')).forEach(function (element) {
         element.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
