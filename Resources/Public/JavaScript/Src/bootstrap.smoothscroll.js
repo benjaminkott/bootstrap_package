@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
+
     const ankers = document.querySelectorAll('a[href*="#"]:not([href^="http"]):not([href$="#"])');
     ankers.forEach(function (anker) {
         anker.addEventListener('click', function (event) {
@@ -40,4 +41,5 @@ window.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.scroll-top').classList.remove('scroll-top-visible');
         }
     });
+
 });

@@ -1,10 +1,6 @@
-/* ========================================================================
- * Cookie Consent
- * ======================================================================== */
-
 window.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('cookieconsent')) {
 
+    if (document.getElementById('cookieconsent')) {
         // Default Options
         var cookieConsentOptions = {
             layout: 'basic',
@@ -150,6 +146,6 @@ window.addEventListener('DOMContentLoaded', function () {
         // Initialize
         cookieConsentOptions.container = document.getElementById('cookieconsent');
         window.cookieconsent.initialise(cookieConsentOptions);
-
     }
+
 });
