@@ -358,8 +358,6 @@ page {
 
     includeJSFooterlibs {
         #### Contrib
-        jquery = EXT:bootstrap_package/Resources/Public/Contrib/jquery/jquery.min.js
-        jquery.forceOnTop = 1
         photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.min.js
         photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-ui-default.min.js
 

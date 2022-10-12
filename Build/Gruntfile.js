@@ -266,16 +266,6 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            jquery: {
-                files: [
-                    {
-                        cwd: '<%= paths.node %>jquery/dist/',
-                        src: 'jquery.min.js',
-                        dest: '<%= paths.contrib %>jquery/',
-                        expand: true
-                    }
-                ]
-            },
             cookieconsent: {
                 files: [
                     {
