@@ -4,31 +4,6 @@ const fantasticon = require('fantasticon');
 module.exports = function(grunt) {
 
     /**
-     * Grunt correct scss urls
-     */
-    grunt.registerMultiTask('rebase', 'Grunt task to rebase urls after sass processing', function () {
-        var options = this.options(),
-            done = this.async(),
-            postcss = require('postcss'),
-            url = require('postcss-url'),
-            files = this.filesSrc.filter(function (file) {
-                return grunt.file.isFile(file);
-            }),
-            counter = 0;
-        this.files.forEach(function (file) {
-            file.src.filter(function (filepath) {
-                var content = grunt.file.read(filepath);
-                postcss().use(url(options)).process(content, { from: undefined }).then(function (result) {
-                    grunt.file.write(file.dest, result.css);
-                    grunt.log.success('Source file "' + filepath + '" was processed.');
-                    counter++;
-                    if (counter >= files.length) done(true);
-                });
-            });
-        });
-    });
-
-    /**
      * Grunt task to remove source map comment
      */
     grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemp comment from files', function() {
@@ -105,29 +80,10 @@ module.exports = function(grunt) {
             },
             sass: ['<%= paths.sass %>**/*.scss'],
         },
-        rebase: {
-            bootstrap4: {
-                options: {
-                    url: "rebase",
-                    assetsPath: '../'
-                },
-                files: {
-                    '<%= paths.css %>bootstrap4-theme.css': '<%= paths.css %>bootstrap4-theme.css'
-                }
-            },
-        },
         cssmin: {
             options: {
                 keepSpecialComments: '*',
                 advanced: false
-            },
-            bootstrap4_theme: {
-                src: '<%= paths.css %>bootstrap4-theme.css',
-                dest: '<%= paths.css %>bootstrap4-theme.min.css'
-            },
-            bootstrap4_rte: {
-                src: '<%= paths.css %>bootstrap4-rte.css',
-                dest: '<%= paths.css %>bootstrap4-rte.min.css'
             },
             bootstrap5_theme: {
                 src: '<%= paths.css %>bootstrap5-theme.css',
@@ -204,9 +160,7 @@ module.exports = function(grunt) {
         removesourcemap: {
             contrib: {
                 files: {
-                    '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap4/js/bootstrap.min.js',
                     '<%= paths.contrib %>bootstrap5/js/bootstrap.min.js': '<%= paths.contrib %>bootstrap5/js/bootstrap.min.js',
-                    '<%= paths.contrib %>popper/popper.min.js': '<%= paths.contrib %>popper/popper.min.js',
                     '<%= paths.contrib %>popper-core/popper.min.js': '<%= paths.contrib %>popper-core/popper.min.js'
                 }
             }
@@ -217,16 +171,6 @@ module.exports = function(grunt) {
                 outputStyle: 'expanded',
                 precision: 8,
                 sourceMap: false
-            },
-            bootstrap4_theme: {
-                files: {
-                    '<%= paths.css %>bootstrap4-theme.css': '<%= paths.sass %>bootstrap4/theme.scss'
-                }
-            },
-            bootstrap4_rte: {
-                files: {
-                    '<%= paths.css %>bootstrap4-rte.css': '<%= paths.sass %>bootstrap4/rte.scss'
-                }
             },
             bootstrap5_theme: {
                 files: {
@@ -392,24 +336,6 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            bootstrap4: {
-                files: [
-                    {
-                        cwd: '<%= paths.node %>bootstrap4/dist/js/',
-                        src: [
-                            'bootstrap.min.js'
-                        ],
-                        dest: '<%= paths.contrib %>bootstrap4/js/',
-                        expand: true
-                    },
-                    {
-                        cwd: '<%= paths.node %>bootstrap4/scss/',
-                        src: '**',
-                        dest: '<%= paths.contrib %>bootstrap4/scss/',
-                        expand: true
-                    }
-                ]
-            },
             bootstrap5: {
                 files: [
                     {
@@ -519,7 +445,7 @@ module.exports = function(grunt) {
      */
     grunt.registerTask('update', ['copy', 'modernizr']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
-    grunt.registerTask('css', ['sass', 'rebase', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
     grunt.registerTask('image', ['imagemin']);
     grunt.registerTask('lint', ['stylelint']);

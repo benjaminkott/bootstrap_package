@@ -17,7 +17,7 @@
         <nav class="tab-navigation">
             <div class="nav nav-tabs" id="tab-{data.uid}" role="tablist">
                 <f:for each="{records}" as="record" iteration="iteration">
-                    <button class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" id="tab-{data.uid}-{record.data.uid}" data-toggle="tab" data-target="#tabcontent-{data.uid}-{record.data.uid}" data-bs-toggle="tab" data-bs-target="#tabcontent-{data.uid}-{record.data.uid}" type="button" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
+                    <button class="nav-link{f:if(condition: '{activeTab} == {record.data.uid}',then: ' active')}" id="tab-{data.uid}-{record.data.uid}" data-bs-toggle="tab" data-bs-target="#tabcontent-{data.uid}-{record.data.uid}" type="button" role="tab" aria-controls="tabcontent-{data.uid}-{record.data.uid}" aria-selected="{f:if(condition: '{activeTab} == {record.data.uid}',then: 'true', else: 'false')}">
                         <span>{record.data.header}</span>
                     </button>
                 </f:for>
