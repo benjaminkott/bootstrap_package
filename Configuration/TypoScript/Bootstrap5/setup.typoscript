@@ -9,7 +9,6 @@ page {
         theme = EXT:bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss
     }
     includeJSFooterlibs {
-        jquery >
         popper = EXT:bootstrap_package/Resources/Public/Contrib/popper-core/popper.min.js
         bootstrap = EXT:bootstrap_package/Resources/Public/Contrib/bootstrap5/js/bootstrap.min.js
     }
