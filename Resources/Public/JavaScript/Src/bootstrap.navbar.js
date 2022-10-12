@@ -1,5 +1,9 @@
 window.addEventListener('DOMContentLoaded', function () {
 
+    /*
+     * Toggle collapsed class on navbar toggle button to change
+     * the appearance of the toggle button when navbar is open
+     */
     const navbarCollapse = document.querySelectorAll('.navbar-collapse');
     navbarCollapse.forEach(
         function (navbar) {
