@@ -29,6 +29,6 @@ class TrimViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
-        return trim($renderChildrenClosure());
+        return trim($renderChildrenClosure() ?? '');
     }
 }

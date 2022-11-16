@@ -46,7 +46,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'], $arguments['multiplier'], $arguments['gutters'], $arguments['corrections'], $arguments['aspectRatio']);
+        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'] ?? null, $arguments['multiplier'] ?? null, $arguments['gutters'] ?? null, $arguments['corrections'] ?? null, $arguments['aspectRatio'] ?? null);
         $renderingContext->getVariableProvider()->add($arguments['as'], $variants);
         return '';
     }
