@@ -29,7 +29,7 @@ jobs:
             php: '7.3'
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up MySQL ${{ matrix.mysql }}
         uses: mirromutth/mysql-action@v1.1
         with:
@@ -70,9 +70,9 @@ jobs:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
       - name: Install
@@ -98,7 +98,7 @@ jobs:
     if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request' && (github.repository == 'benjaminkott/bootstrap_package')
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up PHP Version 7.4
         uses: shivammathur/setup-php@v2
         with:
