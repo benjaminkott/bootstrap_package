@@ -9,7 +9,7 @@
   "license": "MIT",
   "devDependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap5": "npm:bootstrap@5.2.2",
+    "bootstrap5": "npm:bootstrap@5.2.3",
     "cookieconsent": "^3.1.1",
     "fantasticon": "^1.2.3",
     "grunt": "^1.5.3",
