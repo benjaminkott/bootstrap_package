@@ -1,3 +1,19 @@
+# 10.0.11
+
+## TASK
+
+- [TASK] Update actions to v3 2d2af757
+- [TASK] Replace deprecated set-output command (#1213) 5bb32902
+- [TASK] Use composer 2.2 9b701de7
+- [TASK] Allow composer plugins 15bb3cc4
+- [TASK] Drop commit message check to avoid unnessesary long ci runs ee136eb8
+
+## BUGFIX
+
+- [BUGFIX] Add figure tag to external blocks in rte parsing 9a7283cd
+- [BUGFIX] Docs rendering (#1062) 7b3e1a8e
+- [BUGFIX] Preserve custom layout values (#1055) fc27b0f7
+
 # 10.0.10
 
 ## TASK
