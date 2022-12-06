@@ -1,3 +1,23 @@
+# 11.0.4
+
+## TASK
+
+- [TASK] Update actions to v3 563a70ef
+- [TASK] Replace deprecated set-output command (#1213) a6611d4f
+- [TASK] Remove obsolete labeler config 5258b087
+- [TASK] Allow composer plugins 19d88fa0
+- [TASK] Drop labeler to avoid unnessesary long ci runs f8153125
+- [TASK] Update Bug Report template (#1069) fcfd9ee5
+
+## BUGFIX
+
+- [BUGFIX] Add figure tag to external blocks in rte parsing 46ae5623
+- [BUGFIX] Replace deprecated PHP 8.1 filter FILTER_SANITIZE_STRING a1e6d1d4
+- [BUGFIX] CGL in CI workflow (#1064) 0458a4a2
+- [BUGFIX] Docs rendering (#1062) 538f91e0
+- [BUGFIX] Wrong table classes and add missing ones (#927) fa72366b
+- [BUGFIX] Preserve custom layout values (#1055) 0c506bea
+
 # 11.0.3
 
 ## TASK
