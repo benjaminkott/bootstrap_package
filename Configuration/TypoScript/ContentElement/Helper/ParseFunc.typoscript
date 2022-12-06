@@ -64,7 +64,7 @@ lib.parseFunc {
 lib.parseFunc_RTE < lib.parseFunc
 lib.parseFunc_RTE {
     externalBlocks := addToList(article, address, aside, blockquote, div, dd, dl, footer)
-    externalBlocks := addToList(header, nav, ol, section, table, ul, pre)
+    externalBlocks := addToList(header, nav, ol, section, table, ul, pre, figure)
     externalBlocks {
         ol {
             stripNL = 1
@@ -112,10 +112,10 @@ lib.parseFunc_RTE {
             stripNL = 1
             callRecursive = 1
         }
-        address < .div
-        blockquote < .div
         article < .div
         aside < .div
+        figure < .div
+        blockquote < .div
         footer < .div
         header < .div
         nav < .div
