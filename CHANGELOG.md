@@ -1,3 +1,23 @@
+# 12.0.6
+
+## TASK
+
+- [TASK] Update actions to v3 7f16644f
+- [TASK] Replace deprecated set-output command (#1213) 22a3a4f6
+- [TASK] Streamline upgrade wizards (#1210) 59d1c325
+- [TASK] Use public directory for setup instead of web ec4476b6
+- [TASK] Adapt ddev config for BP_12 ab2d4d8c
+- [TASK] Fix indention d2deb08e
+
+## BUGFIX
+
+- [BUGFIX] Add figure tag to external blocks in rte parsing c500ed01
+- [BUGFIX] Prevent PHP Warning: Undefined array key (#1208) e22a400c
+- [BUGFIX] PHPStan return types (#1199) aee78298
+- [BUGFIX] Properly check return type (#1182) 8e519af9
+- [BUGFIX] Swap caption and title in photoswipe if no title is given (#1181) 7342e2a6
+- [BUGFIX] Replace deprecated PHP 8.1 filter FILTER_SANITIZE_STRING 061a6d84
+
 # 12.0.5
 
 ## BREAKING
