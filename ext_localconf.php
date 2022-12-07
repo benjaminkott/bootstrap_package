@@ -17,37 +17,36 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'bootstrappac
 $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
     \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
 );
-$bootstrapPackageConfiguration = $extensionConfiguration->get('bootstrap_package');
 
 // PageTS
 
 // Add Content Elements
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsContentElements']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsContentElements')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
 }
 
 // Add BackendLayouts for the BackendLayout DataProvider
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsBackendLayouts']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsContentElements')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
 }
 
 // RTE
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsRTE']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsRTE')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig">');
 }
 
 // TCADefaults
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsTCADefaults']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCADefaults')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCADefaults.tsconfig">');
 }
 
 // TCEMAIN
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsTCEMAIN']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEMAIN')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig">');
 }
 
 // TCEFORM
-if (!(bool) $bootstrapPackageConfiguration['disablePageTsTCEFORM']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEFORM')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig">');
 }
 
@@ -72,7 +71,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
 }
 
 // Register google font hook
-if (!(bool) $bootstrapPackageConfiguration['disableGoogleFontCaching']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disableGoogleFontCaching')) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\GoogleFontHook::class . '->execute';
 }
@@ -82,7 +81,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser']
     \BK2K\BootstrapPackage\Parser\ScssParser::class;
 
 // Register css processing hooks
-if (!(bool) $bootstrapPackageConfiguration['disableCssProcessing']) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disableCssProcessing')) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][\BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class]
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
