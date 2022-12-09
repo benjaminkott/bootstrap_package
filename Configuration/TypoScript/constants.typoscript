@@ -95,7 +95,7 @@ page {
                 enable = 1
                 # cat=bootstrap package: navigation/152/109; type=int+; label=SubNavigation Icon Width
                 width = 16
-                # cat=bootstrap package: navigation/152/110; type=int+; label=SubNavigation Icon Width
+                # cat=bootstrap package: navigation/152/110; type=int+; label=SubNavigation Icon Height
                 height = 16
             }
         }
