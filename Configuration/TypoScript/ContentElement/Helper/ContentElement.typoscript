@@ -101,12 +101,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 8
-                        xlarge = 8
-                        large = 8
-                        medium = 8
-                        small = 8
-                        extrasmall = 8
+                        default = 4
+                        xlarge = 4
+                        large = 4
+                        medium = 4
+                        small = 4
+                        extrasmall = 4
                     }
                 }
                 3 {
@@ -120,12 +120,12 @@ lib.contentElement {
                         extrasmall = 0.3333
                     }
                     gutters {
-                        default = 16
-                        xlarge = 16
-                        large = 16
-                        medium = 16
-                        small = 16
-                        extrasmall = 16
+                        default = 4
+                        xlarge = 4
+                        large = 4
+                        medium = 4
+                        small = 4
+                        extrasmall = 4
                     }
                 }
                 4 {
@@ -139,12 +139,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 24
-                        xlarge = 24
-                        large = 24
-                        medium = 8
-                        small = 8
-                        extrasmall = 8
+                        default = 4
+                        xlarge = 4
+                        large = 4
+                        medium = 4
+                        small = 4
+                        extrasmall = 4
                     }
                 }
                 5 {
@@ -158,12 +158,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 32
-                        xlarge = 32
-                        large = 32
-                        medium = 16
-                        small = 16
-                        extrasmall = 8
+                        default = 4
+                        xlarge = 4
+                        large = 4
+                        medium = 4
+                        small = 4
+                        extrasmall = 4
                     }
                 }
                 6 {
@@ -177,12 +177,12 @@ lib.contentElement {
                         extrasmall = 0.5
                     }
                     gutters {
-                        default = 40
-                        xlarge = 40
-                        large = 40
-                        medium = 16
-                        small = 16
-                        extrasmall = 8
+                        default = 4
+                        xlarge = 4
+                        large = 4
+                        medium = 4
+                        small = 4
+                        extrasmall = 4
                     }
                 }
             }
@@ -191,11 +191,11 @@ lib.contentElement {
             variants {
                 default {
                     breakpoint = 1400
-                    width = 1280
+                    width = 1320
                 }
                 xlarge {
                     breakpoint = 1200
-                    width = 1100
+                    width = 1140
                 }
                 large {
                     breakpoint = 992
@@ -215,6 +215,22 @@ lib.contentElement {
                 }
             }
             backendlayout {
+                default {
+                    0 {
+                        multiplier {
+                            default = 1
+                            xlarge = 1
+                            large = 1
+                        }
+                        gutters {
+                            default = 40
+                            xlarge = 40
+                            large = 40
+                        }
+                    }
+                }
+                none < .default
+                simple < .default
                 2_columns {
                     0 {
                         multiplier {
@@ -371,6 +387,7 @@ lib.contentElement {
                         }
                     }
                 }
+                special_feature < .default
                 special_feature {
                     30 {
                         multiplier {
@@ -501,6 +518,7 @@ lib.contentElement {
                         }
                     }
                 }
+                special_start < .default
                 special_start {
                     20 {
                         multiplier {

@@ -61,11 +61,12 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                // 50% of --thumbnailmenu-gap, which is 5px
+                default = 2
+                xlarge = 2
+                large = 2
+                medium = 2
+                small = 2
             }
         }
         3 {
@@ -77,11 +78,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.3333
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                default = 2
+                xlarge = 2
+                large = 2
+                medium = 2
+                small = 2
             }
         }
         4 {
@@ -93,11 +94,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                default = 2
+                xlarge = 2
+                large = 2
+                medium = 2
+                small = 2
             }
         }
     }

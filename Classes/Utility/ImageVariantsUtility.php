@@ -31,26 +31,26 @@ class ImageVariantsUtility
     protected static $defaultVariants = [
         'default' => [
             'breakpoint' => 1400,
-            'width' => 1280
+            'width' => 1320
         ],
         'xlarge' => [
             'breakpoint' => 1200,
-            'width' => 1100
+            'width' => 1140
         ],
         'large' => [
             'breakpoint' => 992,
-            'width' => 920
+            'width' => 960
         ],
         'medium' => [
             'breakpoint' => 768,
-            'width' => 680
+            'width' => 720
         ],
         'small' => [
             'breakpoint' => 576,
-            'width' => 500
+            'width' => 540
         ],
         'extrasmall' => [
-            'width' => 374
+            'width' => 400
         ]
     ];
 
@@ -67,11 +67,11 @@ class ImageVariantsUtility
         $variants = $variants !== null ? $variants : [];
         $variants = self::processVariants($variants);
         $variants = self::processResolutions($variants);
-        if ($gutters !== null) {
-            $variants = self::removeGutters($variants, $gutters);
-        }
         if ($multiplier !== null) {
             $variants = self::processMultiplier($variants, $multiplier);
+        }
+        if ($gutters !== null) {
+            $variants = self::removeGutters($variants, $gutters);
         }
         if ($corrections !== null) {
             $variants = self::processCorrections($variants, $corrections);

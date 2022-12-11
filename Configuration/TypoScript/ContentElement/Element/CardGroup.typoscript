@@ -70,11 +70,12 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
-                small = 20
+                // 50% of --cardgroup-gap, which is 1rem=16px
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
+                small = 8
             }
             corrections {
                 default = 2
@@ -93,10 +94,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.3333
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
             }
             corrections {
                 default = 2
@@ -116,11 +117,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
-                small = 20
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
+                small = 8
             }
             corrections {
                 default = 2

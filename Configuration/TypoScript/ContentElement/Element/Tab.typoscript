@@ -51,10 +51,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                // 50% of gap, which is 1rem=16px
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
             }
         }
         right {
@@ -65,10 +66,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
             }
         }
     }

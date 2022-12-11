@@ -53,10 +53,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                // 50% of gap, which is 40px
+                default = 20
+                xlarge = 20
+                large = 20
+                medium = 20
             }
         }
         centered_right {
@@ -67,10 +68,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 20
+                xlarge = 20
+                large = 20
+                medium = 20
             }
         }
         left {
@@ -81,10 +82,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 20
+                xlarge = 20
+                large = 20
+                medium = 20
             }
         }
         right {
@@ -95,10 +96,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 20
+                xlarge = 20
+                large = 20
+                medium = 20
             }
         }
     }
