@@ -60,11 +60,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                default = 8
+                xlarge = 8
+                large = 8
+                medium = 8
+                small = 8
             }
         }
         3 {
@@ -76,11 +76,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.3333
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
+                small = 16
             }
         }
         4 {
@@ -92,11 +92,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 10
-                xlarge = 10
-                large = 10
-                medium = 10
-                small = 10
+                default = 24
+                xlarge = 24
+                large = 24
+                medium = 16
+                small = 16
             }
         }
     }
