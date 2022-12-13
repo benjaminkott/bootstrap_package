@@ -1,3 +1,23 @@
+# 13.0.1
+
+## BREAKING
+
+- e852dc36 [!!!][BUGFIX] Correct responsive image config for backend layouts (#1232)
+
+## BUGFIX
+
+- 55b4e934 [BUGFIX] Correct image scaling in thumbnail menus
+- 4ffcea6a [BUGFIX] Correct image scaling in card menus
+- fd3ba341 [BUGFIX] Correct image scaling in card groups
+- dcc08bb3 [BUGFIX] Correct image scaling in accordions
+- 195f60cc [BUGFIX] Correct image scaling in tabs
+- e852dc36 [!!!][BUGFIX] Correct responsive image config for backend layouts (#1232)
+- 4d5c8d46 [BUGFIX] Use extension configuration service to access config
+
+## Contributors
+
+- Benjamin Kott
+
 # 13.0.0
 
 ## BREAKING
