@@ -16045,7 +16045,7 @@ blockquote footer:before {
 }
 
 :root {
-  --thumbnailmenu-gap: 5px;
+  --thumbnailmenu-gap: 0.5rem;
   --thumbnailmenu-columns: 1;
   --thumbnailmenu-color: #ffffff;
   --thumbnailmenu-bg: rgba(42, 157, 143, 0.75);
