@@ -83,11 +83,11 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 small = 0.5
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
-                small = 20
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
+                small = 16
             }
             corrections {
                 default = 2
@@ -106,10 +106,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.3333
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
+                default = 32
+                xlarge = 32
+                large = 32
+                medium = 32
             }
             corrections {
                 default = 2
@@ -123,17 +123,17 @@ lib.contentElement.settings.responsiveimages.contentelements {
         4 {
             multiplier {
                 default = 0.25
-                xlarge = 0.5
+                xlarge = 0.25
                 large = 0.5
                 medium = 0.5
                 small = 0.5
             }
             gutters {
-                default = 20
-                xlarge = 20
-                large = 20
-                medium = 20
-                small = 20
+                default = 48
+                xlarge = 48
+                large = 16
+                medium = 16
+                small = 16
             }
             corrections {
                 default = 2
