@@ -51,27 +51,28 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 24
-                xlarge = 24
-                large = 24
-                medium = 24
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
             }
             corrections {
-                default = 25
-                xlarge = 25
-                large = 25
-                medium = 25
-                small = 50
-                extrasmall = 50
+                default = 21
+                xlarge = 21
+                large = 21
+                medium = 21
+                small = 42
+                extrasmall = 42
             }
         }
         top {
             corrections {
-                default = 50
-                large = 50
-                medium = 50
-                small = 50
-                extrasmall = 50
+                default = 42
+                xlarge = 42
+                large = 42
+                medium = 42
+                small = 42
+                extrasmall = 42
             }
         }
         right {
@@ -82,27 +83,28 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 24
-                xlarge = 24
-                large = 24
-                medium = 24
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
             }
             corrections {
-                default = 25
-                xlarge = 25
-                large = 25
-                medium = 25
-                small = 50
-                extrasmall = 50
+                default = 21
+                xlarge = 21
+                large = 21
+                medium = 21
+                small = 42
+                extrasmall = 42
             }
         }
         bottom {
             corrections {
-                default = 50
-                large = 50
-                medium = 50
-                small = 50
-                extrasmall = 50
+                default = 42
+                xlarge = 42
+                large = 42
+                medium = 42
+                small = 42
+                extrasmall = 42
             }
         }
     }
