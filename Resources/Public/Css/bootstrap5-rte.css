@@ -13300,11 +13300,13 @@ textarea.form-control.error {
 @media (min-width: 992px) {
   .backendlayout-2_columns .maincontent-wrap,
   .backendlayout-2_columns_25_75 .maincontent-wrap {
-    width: calc(100% / 12 * 9);
+    --section-gaps: 1;
+    --section-colspan: 9;
   }
   .backendlayout-2_columns .subcontent-wrap,
   .backendlayout-2_columns_25_75 .subcontent-wrap {
-    width: calc(100% / 12 * 3);
+    --section-gaps: 1;
+    --section-colspan: 3;
   }
   .backendlayout-2_columns_25_75 .maincontent-wrap {
     order: 2;
@@ -13316,31 +13318,36 @@ textarea.form-control.error {
 
 @media (min-width: 992px) {
   .backendlayout-2_columns_50_50 .maincontent-wrap {
-    width: calc(100% / 12 * 6);
+    --section-gaps: 1;
+    --section-colspan: 6;
   }
   .backendlayout-2_columns_50_50 .subcontent-wrap {
-    width: calc(100% / 12 * 6);
+    --section-gaps: 1;
+    --section-colspan: 6;
   }
 }
 
 @media (min-width: 992px) {
   .backendlayout-2_columns_offset_right .maincontent-wrap {
-    width: calc(100% / 12 * 8);
+    --section-gaps: 1;
+    --section-colspan: 8;
   }
   .backendlayout-2_columns_offset_right .subcontent-wrap {
-    margin-left: calc(100% / 12 * 1);
-    width: calc(100% / 12 * 3);
+    --section-gaps: 1;
+    --section-colspan: 3;
   }
 }
 
 @media (min-width: 992px) {
   .backendlayout-3_columns .maincontent-wrap {
     order: 2;
-    width: calc(100% / 12 * 6);
+    --section-gaps: 1;
+    --section-colspan: 6;
   }
   .backendlayout-3_columns .subcontent-wrap {
     order: 3;
-    width: calc(100% / 12 * 3);
+    --section-gaps: 1;
+    --section-colspan: 3;
   }
   .backendlayout-3_columns .maincontent-wrap + .subcontent-wrap {
     order: 1;
@@ -13356,11 +13363,13 @@ textarea.form-control.error {
   .backendlayout-subnavigation_right .subnav-wrap,
   .backendlayout-subnavigation_left .subnav-wrap {
     display: block;
-    width: calc(100% / 12 * 3);
+    --section-gaps: 1;
+    --section-colspan: 3;
   }
   .backendlayout-subnavigation_right .maincontent-wrap,
   .backendlayout-subnavigation_left .maincontent-wrap {
-    width: calc(100% / 12 * 9);
+    --section-gaps: 1;
+    --section-colspan: 9;
   }
   .backendlayout-subnavigation_right .subnav-wrap {
     order: 2;
@@ -13379,15 +13388,18 @@ textarea.form-control.error {
   .backendlayout-subnavigation_right_2_columns .subnav-wrap,
   .backendlayout-subnavigation_left_2_columns .subnav-wrap {
     display: block;
-    width: calc(100% / 12 * 3);
+    --section-gaps: 2;
+    --section-colspan: 3;
   }
   .backendlayout-subnavigation_right_2_columns .maincontent-wrap,
   .backendlayout-subnavigation_left_2_columns .maincontent-wrap {
-    width: calc(100% / 12 * 6);
+    --section-gaps: 2;
+    --section-colspan: 6;
   }
   .backendlayout-subnavigation_right_2_columns .subcontent-wrap,
   .backendlayout-subnavigation_left_2_columns .subcontent-wrap {
-    width: calc(100% / 12 * 3);
+    --section-gaps: 2;
+    --section-colspan: 3;
   }
   .backendlayout-subnavigation_right_2_columns .subnav-wrap {
     order: 3;
@@ -13414,27 +13426,31 @@ textarea.form-control.error {
 }
 
 .section-row {
+  --section-columns: 12;
+  --section-colspan: 12;
+  --section-gaps: 0;
+  --section-gap: 40px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-right: -20px;
+  gap: var(--section-gap);
 }
 
 .section-column {
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
 }
 
 @media (min-width: 576px) {
   .section-column-half {
-    width: 50%;
+    --section-gaps: 1;
+    --section-colspan: 6;
   }
 }
 
 @media (min-width: 768px) {
   .section-column-third {
-    width: calc(100% / 3);
+    --section-gaps: 3;
+    --section-colspan: 4;
   }
 }
 
@@ -14135,14 +14151,15 @@ textarea.form-control.error {
 .footer-section-content-column-left,
 .footer-section-content-column-middle,
 .footer-section-content-column-right {
-  width: 100%;
+  --section-colspan: 12;
 }
 
 @media (min-width: 768px) {
   .footer-section-content-column-left,
   .footer-section-content-column-middle,
   .footer-section-content-column-right {
-    width: calc(100% / 3);
+    --section-gaps: 2;
+    --section-colspan: 4;
   }
 }
 

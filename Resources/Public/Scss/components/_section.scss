@@ -5,23 +5,27 @@
     overflow: hidden;
 }
 .section-row {
+    --section-columns: 12;
+    --section-colspan: 12;
+    --section-gaps: 0;
+    --section-gap: #{$grid-gutter-width};
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin-left: -($grid-gutter-width / 2);
-    margin-right: -($grid-gutter-width / 2);
+    gap: var(--section-gap);
 }
 .section-column {
-    width: 100%;
-    padding-left: ($grid-gutter-width / 2);
-    padding-right: ($grid-gutter-width / 2);
+    width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
     &-half {
         @include media-breakpoint-up('sm') {
-            width: 50%;
+            --section-gaps: 1;
+            --section-colspan: 6;
         }
     }
     &-third {
         @include media-breakpoint-up('md') {
-            width: calc(100% / 3);
+            --section-gaps: 3;
+            --section-colspan: 4;
         }
     }
 }

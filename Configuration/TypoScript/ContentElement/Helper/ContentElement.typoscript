@@ -1,4 +1,23 @@
 ##################################################
+### CONFIG FOR IMAGE RENDERING                 ###
+### Shared settings for BackendLayout configs  ###
+##################################################
+shared.responsiveimages.footer.column {
+    multiplier {
+        default = 0.3333
+        xlarge = 0.3333
+        large = 0.3333
+        medium = 0.3333
+    }
+    gutters {
+        default = 80
+        xlarge = 80
+        large = 80
+        medium = 80
+    }
+}
+
+##################################################
 ### CONTENT ELEMENT SETTINGS                   ###
 ### Shared settings for TYPO3 content elements ###
 ##################################################
@@ -215,6 +234,16 @@ lib.contentElement {
                 }
             }
             backendlayout {
+                default {
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
+                }
+                simple {
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
+                }
                 2_columns {
                     0 {
                         multiplier {
@@ -240,6 +269,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 2_columns_25_75 {
                     0 {
@@ -266,6 +298,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 2_columns_50_50 {
                     0 {
@@ -292,6 +327,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 subnavigation_left {
                     0 {
@@ -306,6 +344,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 2_columns_offset_right {
                     0 {
@@ -332,6 +373,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 3_columns {
                     0 {
@@ -370,6 +414,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 special_feature {
                     30 {
@@ -500,6 +547,9 @@ lib.contentElement {
                             small = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 special_start {
                     20 {
@@ -544,6 +594,9 @@ lib.contentElement {
                             medium = 80
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 subnavigation_left_2_columns {
                     0 {
@@ -553,9 +606,9 @@ lib.contentElement {
                             large = 0.5
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
                         }
                     }
                     1 {
@@ -565,11 +618,14 @@ lib.contentElement {
                             large = 0.25
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 subnavigation_right {
                     0 {
@@ -584,6 +640,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
                 subnavigation_right_2_columns {
                     0 {
@@ -593,9 +652,9 @@ lib.contentElement {
                             large = 0.5
                         }
                         gutters {
-                            default = 40
-                            xlarge = 40
-                            large = 40
+                            default = 80
+                            xlarge = 80
+                            large = 80
                         }
                     }
                     2 {
@@ -610,6 +669,9 @@ lib.contentElement {
                             large = 40
                         }
                     }
+                    10 < shared.responsiveimages.footer.column
+                    11 < shared.responsiveimages.footer.column
+                    12 < shared.responsiveimages.footer.column
                 }
             }
         }

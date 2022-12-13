@@ -24,9 +24,10 @@ $footer-sections: map-merge(
 .footer-section-content-column-left,
 .footer-section-content-column-middle,
 .footer-section-content-column-right {
-    width: 100%;
+    --section-colspan: 12;
     @include media-breakpoint-up('md') {
-        width: calc(100% / 3);
+        --section-gaps: 2;
+        --section-colspan: 4;
     }
 }
 
