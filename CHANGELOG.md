@@ -1,3 +1,13 @@
+# 12.0.7
+
+## BUGFIX
+
+- [BUGFIX] Correct image scaling in thumbnail menus 9ea9f265
+- [BUGFIX] Correct image scaling in card menus c261a730
+- [BUGFIX] Correct image scaling in card groups 87f0457e
+- [BUGFIX] Correct image scaling in accordions 5cdfd76b
+- [BUGFIX] Correct image scaling in tabs bf98657a
+
 # 12.0.6
 
 ## TASK
