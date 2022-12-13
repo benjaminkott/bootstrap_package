@@ -51,10 +51,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
             }
         }
         right {
@@ -65,10 +65,10 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 medium = 0.5
             }
             gutters {
-                default = 40
-                xlarge = 40
-                large = 40
-                medium = 40
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
             }
         }
     }
