@@ -4,8 +4,8 @@
         <f:for each="{mainnavigation}" as="item">
             <f:if condition="{item.spacer}">
                 <f:then>
-                    </ul>
                     <ul class="navbar-nav">
+                    </ul>
                 </f:then>
                 <f:else>
                     <li class="nav-item{f:if(condition: item.active, then:' active')}{f:if(condition: item.children, then:' dropdown dropdown-hover')}">
