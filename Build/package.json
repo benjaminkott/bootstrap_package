@@ -12,7 +12,7 @@
     "bootstrap5": "npm:bootstrap@5.2.3",
     "cookieconsent": "^3.1.1",
     "fantasticon": "^2.0.0",
-    "grunt": "^1.5.3",
+    "grunt": "^1.6.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-imagemin": "^4.0.0",
