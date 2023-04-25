@@ -13,6 +13,7 @@ use BK2K\BootstrapPackage\Utility\ImageVariantsUtility;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
@@ -55,6 +56,7 @@ class FrameViewHelper extends AbstractViewHelper
         $this->registerArgument('variants', 'array', '', false, []);
         $this->registerArgument('backgroundImage', 'mixed', 'image object or src');
         $this->registerArgument('backgroundImageOptions', 'mixed', '');
+        $this->registerArgument('additionalAttributes', 'array', 'Additional tag attributes. They will be added directly to the resulting HTML tag.', false, []);
     }
 
     /**
@@ -159,7 +161,8 @@ class FrameViewHelper extends AbstractViewHelper
                     'classes' => $backgroundImageClasses,
                 ],
                 'variants' => $configuration['variants'],
-                'content' => $renderChildrenClosure()
+                'content' => $renderChildrenClosure(),
+                'additionalAttributes' => self::getConvertedAdditionalAttributes($arguments['additionalAttributes'], true)
             ]
         );
 
@@ -208,5 +211,29 @@ class FrameViewHelper extends AbstractViewHelper
         $configurationManager = GeneralUtility::getContainer()->get(ConfigurationManager::class);
 
         return $configurationManager;
+    }
+
+    protected static function getConvertedAdditionalAttributes(array $additionalAttributes, bool $asRenderedHtmlAttributesString = false): array|string
+    {
+        $additionalAttributes = ArrayUtility::removeNullValuesRecursive($additionalAttributes);
+        $additionalAttributes = ArrayUtility::removeArrayEntryByValue($additionalAttributes, '');
+
+        $convertedAttributes = [];
+        foreach ($additionalAttributes as $attributeName => $attributeValue) {
+            $attributeName = htmlspecialchars($attributeName);
+            $attributeValue = htmlspecialchars((string)$attributeValue);
+
+            $convertedAttributes[$attributeName] = $attributeValue;
+        }
+
+        if ($asRenderedHtmlAttributesString) {
+            $output = '';
+            foreach ($convertedAttributes as $attributeName => $attributeValue) {
+                $output .= ' ' . $attributeName . '="' . $attributeValue . '"';
+            }
+            return $output;
+        }
+
+        return $convertedAttributes;
     }
 }
