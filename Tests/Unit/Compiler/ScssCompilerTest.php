@@ -34,7 +34,7 @@ class ScssCompilerTest extends UnitTestCase
     /**
      * @return array
      */
-    public function compileDataProvider(): array
+    public static function compileDataProvider(): array
     {
         return [
             'Calculation' => [
