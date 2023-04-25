@@ -36,10 +36,10 @@
             </f:for>
             <bk2k:condition.classExists class="TYPO3\CMS\Fluid\ViewHelpers\Security\NonceViewHelper">
                 <f:then>
-                    <style nonce="{f:security.nonce()}">{styles -> f:format.raw()}</style>
+                    <f:render partial="Carousel/General/BackgroundImageStyleNonce" arguments="{_all}" />
                 </f:then>
                 <f:else>
-                    <style>{styles -> f:format.raw()}</style>
+                    <f:render partial="Carousel/General/BackgroundImageStyle" arguments="{_all}" />
                 </f:else>
             </bk2k:condition.classExists>
         </div>
