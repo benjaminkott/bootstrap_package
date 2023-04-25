@@ -657,6 +657,9 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'default' => [
                             'width' => 1100,
                             'sizes' => [
+                                '1.5x' => [
+                                    'multiplier' => 1.5
+                                ],
                                 '2x' => [
                                     'multiplier' => 2
                                 ]
@@ -670,6 +673,9 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'sizes' => [
                             '1x' => [
                                 'multiplier' => 1,
+                            ],
+                            '1.5x' => [
+                                'multiplier' => 1.5
                             ],
                             '2x' => [
                                 'multiplier' => 2,
@@ -707,6 +713,9 @@ class ImageVariantsUtilityTest extends UnitTestCase
                                 ],
                                 '8x' => [
                                     'multiplier' => 0.5
+                                ],
+                                '8.5x' => [
+                                    'multiplier' => '1.5'
                                 ]
                             ]
                         ]
@@ -718,6 +727,9 @@ class ImageVariantsUtilityTest extends UnitTestCase
                         'sizes' => [
                             '1x' => [
                                 'multiplier' => 2,
+                            ],
+                            '8.5x' => [
+                                'multiplier' => 1.5,
                             ]
                         ]
                     ]
