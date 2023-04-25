@@ -3,8 +3,7 @@ parameters:
 		-
 			message: """
 				#^Fetching class constant class of deprecated class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\Parser\\\\TypoScriptParser\\:
-				This class should not be used anymore, last core usages will be removed during v12\\.
-				            Using methods or properties of this class will start logging deprecation messages\\.$#
+				This class should not be used anymore\\. Switch to the new parser construct instead\\.$#
 			"""
 			count: 1
 			path: ../Classes/DataProcessing/ConstantsProcessor.php
@@ -17,6 +16,14 @@ parameters:
 			"""
 			count: 1
 			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
+
+		-
+			message: """
+				#^Fetching deprecated class constant PARAM_STR_ARRAY of class TYPO3\\\\CMS\\\\Core\\\\Database\\\\Connection\\:
+				Use \\{@see ArrayParameterType\\:\\:STRING\\} instead\\.$#
+			"""
+			count: 1
+			path: ../Classes/Updates/Criteria/InCriteria.php
 
 		-
 			message: "#^Variable method call on \\$this\\(BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\)\\.$#"
@@ -47,16 +54,6 @@ parameters:
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsMediaViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsMediaViewHelper.php
-
-		-
-			message: "#^Instanceof between TYPO3\\\\CMS\\\\Extbase\\\\Mvc\\\\Request and TYPO3\\\\CMS\\\\Extbase\\\\Mvc\\\\RequestInterface will always evaluate to true\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
 
 		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
