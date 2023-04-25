@@ -26,7 +26,7 @@ if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsCont
 }
 
 // Add BackendLayouts for the BackendLayout DataProvider
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsContentElements')) {
+if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsBackendLayouts')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
 }
 
