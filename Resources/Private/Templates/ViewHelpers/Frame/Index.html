@@ -1,8 +1,7 @@
 <f:spaceless>
 <f:if condition="{configuration.displayFrame}">
     <f:then>
-
-        <div id="{configuration.id}" class="{classes -> bk2k:implode()}">
+        <div {frameAttributes -> f:format.raw()}>
             <div class="frame-group-container">
                 <div class="frame-group-inner">
                     <f:render partial="Frame/BackgroundImage" arguments="{_all}" />

@@ -43,6 +43,12 @@ lib.contentElement {
         1532626753 {
             fieldName = background_image_options
         }
+        1682424577 = BK2K\BootstrapPackage\DataProcessing\ArrayProcessor
+        1682424577 {
+            data {
+            }
+            as = frameAttributes
+        }
     }
 
     variables {

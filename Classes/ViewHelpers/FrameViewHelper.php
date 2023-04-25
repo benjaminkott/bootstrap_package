@@ -44,6 +44,7 @@ class FrameViewHelper extends AbstractViewHelper
         parent::initializeArguments();
         $this->registerArgument('id', 'string', 'identifier', true);
         $this->registerArgument('frameClass', 'string', '', false, 'default');
+        $this->registerArgument('frameAttributes', 'array', 'Additional tag attributes. They will be added directly to the resulting HTML tag.', false, []);
         $this->registerArgument('type', 'string', '', false, 'default');
         $this->registerArgument('size', 'string', '', false, 'default');
         $this->registerArgument('height', 'string', '', false, 'default');
@@ -72,6 +73,7 @@ class FrameViewHelper extends AbstractViewHelper
         $configuration = $arguments;
         $configuration['type'] = trim((string) $configuration['type']) !== '' ? trim($configuration['type']) : 'default';
         $configuration['frameClass'] = trim((string) $configuration['frameClass']) !== '' ? trim($configuration['frameClass']) : 'default';
+        $configuration['frameAttributes'] = isset($configuration['frameAttributes']) && is_array($configuration['frameAttributes']) ? $configuration['frameAttributes'] : [];
         $configuration['size'] = trim((string) $configuration['size']) !== '' ? trim($configuration['size']) : 'default';
         $configuration['height'] = trim((string) $configuration['height']) !== '' ? trim($configuration['height']) : 'default';
         $configuration['layout'] = trim((string) $configuration['layout']) !== '' ? trim($configuration['layout']) : 'default';
@@ -145,6 +147,19 @@ class FrameViewHelper extends AbstractViewHelper
             $backgroundImageClasses[] = 'frame-backgroundimage-' . $backgroundImageOptions['filter'];
         }
 
+        // Frame Attributes
+        $configuration['frameAttributes']['id'] = $identifier;
+        $configuration['frameAttributes']['class'] = implode(
+            ' ',
+            array_merge(
+                GeneralUtility::trimExplode(
+                    ' ',
+                    isset($configuration['frameAttributes']['class']) && is_string($configuration['frameAttributes']['class']) ? $configuration['frameAttributes']['class'] : ''
+                ),
+                $classes
+            )
+        );
+
         // Template
         $view = self::getTemplateObject();
         $view->assignMultiple(
@@ -159,7 +174,8 @@ class FrameViewHelper extends AbstractViewHelper
                     'classes' => $backgroundImageClasses,
                 ],
                 'variants' => $configuration['variants'],
-                'content' => $renderChildrenClosure()
+                'content' => $renderChildrenClosure(),
+                'frameAttributes' => GeneralUtility::implodeAttributes($configuration['frameAttributes'], true)
             ]
         );
 
