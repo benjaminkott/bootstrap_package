@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of the package bk2k/bootstrap-package.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace BK2K\BootstrapPackage\ViewHelpers\Condition;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -15,9 +22,6 @@ final class ClassExistsViewHelper extends AbstractConditionViewHelper
         $this->registerArgument('class', 'string', 'The class name. The name is matched in a case-insensitive manner.', true);
     }
 
-    /**
-     * @param array{class: string} $arguments
-     */
     public static function verdict(array $arguments, RenderingContextInterface $renderingContext): bool
     {
         return class_exists($arguments['class']);
