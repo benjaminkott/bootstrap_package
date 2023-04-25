@@ -1,9 +1,7 @@
-################################
-#### BACKENDLAYOUT: DEFAULT ####
-################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: DEFAULT
             default {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.default
                 config {

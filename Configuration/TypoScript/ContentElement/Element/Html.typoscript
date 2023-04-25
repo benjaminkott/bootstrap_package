@@ -1,14 +1,6 @@
-#####################
-#### CTYPE: HTML ####
-#####################
-
 tt_content.html >
+# CTYPE: HTML
 tt_content.html =< lib.contentElement
 tt_content.html {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Html
-
 }

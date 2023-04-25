@@ -1,19 +1,8 @@
-#####################
-#### CTYPE: MENU ####
-#####################
-
 tt_content.menu_pages >
+# CTYPE: MENU
 tt_content.menu_pages =< lib.contentElement
 tt_content.menu_pages {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuPages
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -42,5 +31,4 @@ tt_content.menu_pages {
             as = nextContentElement
         }
     }
-
 }

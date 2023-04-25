@@ -1,19 +1,8 @@
-###########################################
-#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL ####
-###########################################
-
 tt_content.carousel >
+# CTYPE: BOOTSTRAP PACKAGE CAROUSEL
 tt_content.carousel =< lib.contentElement
 tt_content.carousel {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Carousel
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -44,13 +33,9 @@ tt_content.carousel {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     carousel {
         background_image {

@@ -1,19 +1,8 @@
-#########################
-#### CTYPE: TIMELINE ####
-#########################
-
 tt_content.timeline >
+# CTYPE: TIMELINE
 tt_content.timeline =< lib.contentElement
 tt_content.timeline {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Timeline
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         10 {
@@ -49,13 +38,9 @@ tt_content.timeline {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     timeline {
         multiplier {

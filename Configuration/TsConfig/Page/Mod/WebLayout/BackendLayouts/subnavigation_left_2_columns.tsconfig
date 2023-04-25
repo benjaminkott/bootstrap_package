@@ -1,9 +1,7 @@
-#####################################################
-#### BACKENDLAYOUT: SUBNAVIGATION LEFT 2 COLUMNS ####
-#####################################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SUBNAVIGATION LEFT 2 COLUMNS
             subnavigation_left_2_columns {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.subnavigation_left_2_columns
                 config {

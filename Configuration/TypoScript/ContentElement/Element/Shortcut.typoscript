@@ -1,19 +1,8 @@
-#########################
-#### CTYPE: SHORTCUT ####
-#########################
-
 tt_content.shortcut >
+# CTYPE: SHORTCUT
 tt_content.shortcut =< lib.contentElement
 tt_content.shortcut {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Shortcut
-
-    #################
-    ### VARIABLES ###
-    #################
     variables {
         shortcuts = RECORDS
         shortcuts {
@@ -21,5 +10,4 @@ tt_content.shortcut {
             tables = tt_content
         }
     }
-
 }

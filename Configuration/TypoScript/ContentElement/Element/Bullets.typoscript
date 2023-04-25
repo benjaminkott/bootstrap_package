@@ -1,19 +1,8 @@
-########################
-#### CTYPE: BULLETS ####
-########################
-
 tt_content.bullets >
+# CTYPE: BULLETS
 tt_content.bullets =< lib.contentElement
 tt_content.bullets {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Bullets
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
         10 {
@@ -36,5 +25,4 @@ tt_content.bullets {
             as = bullets
         }
     }
-
 }

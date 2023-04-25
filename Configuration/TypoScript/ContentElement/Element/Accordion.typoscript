@@ -1,19 +1,8 @@
-############################################
-#### CTYPE: BOOTSTRAP PACKAGE ACCORDION ####
-############################################
-
 tt_content.accordion >
+# CTYPE: BOOTSTRAP PACKAGE ACCORDION
 tt_content.accordion =< lib.contentElement
 tt_content.accordion {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Accordion
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -34,13 +23,9 @@ tt_content.accordion {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     accordion {
         left {

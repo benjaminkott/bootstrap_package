@@ -1,14 +1,6 @@
-###########################
-#### CTYPE: TEXTTEASER ####
-###########################
-
 tt_content.textteaser >
+# CTYPE: TEXTTEASER
 tt_content.textteaser =< lib.contentElement
 tt_content.textteaser {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Textteaser
-
 }

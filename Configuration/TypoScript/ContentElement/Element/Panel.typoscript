@@ -1,14 +1,6 @@
-########################################
-#### CTYPE: BOOTSTRAP PACKAGE PANEL ####
-########################################
-
 tt_content.panel >
+# CTYPE: BOOTSTRAP PACKAGE PANEL
 tt_content.panel =< lib.contentElement
 tt_content.panel {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Panel
-
 }

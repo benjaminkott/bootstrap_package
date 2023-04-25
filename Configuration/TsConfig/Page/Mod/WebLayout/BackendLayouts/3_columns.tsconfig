@@ -1,9 +1,7 @@
-##################################
-#### BACKENDLAYOUT: 3 COLUMNS ####
-##################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: 3 COLUMNS
             3_columns {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.3_columns
                 config {

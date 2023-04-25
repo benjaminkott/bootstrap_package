@@ -1,19 +1,8 @@
-#################################################
-#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL SMALL ####
-#################################################
-
 tt_content.carousel_small >
+# CTYPE: BOOTSTRAP PACKAGE CAROUSEL SMALL
 tt_content.carousel_small =< lib.contentElement
 tt_content.carousel_small {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = CarouselSmall
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -44,13 +33,9 @@ tt_content.carousel_small {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     carousel_small {
         background_image {

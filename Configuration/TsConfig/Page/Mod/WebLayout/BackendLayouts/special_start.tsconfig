@@ -1,9 +1,7 @@
-######################################
-#### BACKENDLAYOUT: SPECIAL START ####
-######################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SPECIAL START
             special_start {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.special_start
                 config {

@@ -1,15 +1,11 @@
-################
-#### HELPER ####
-################
+# HELPER
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Helper/ContentElement.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Helper/DynamicContent.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Helper/ParseFunc.typoscript'
 
 
-#############################################################
-#### CONTENT ELEMENT RENDERING                           ####
-#### Manual inclusion to keep control over loading order ####
-#############################################################
+# CONTENT ELEMENT RENDERING
+# Manual inclusion to keep control over loading order
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Element/Audio.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Element/Bullets.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/Element/Csv.typoscript'

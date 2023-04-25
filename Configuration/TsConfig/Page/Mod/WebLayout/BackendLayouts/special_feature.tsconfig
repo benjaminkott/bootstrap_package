@@ -1,9 +1,7 @@
-########################################
-#### BACKENDLAYOUT: SPECIAL FEATURE ####
-########################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SPECIAL FEATURE
             special_feature {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.special_feature
                 config {

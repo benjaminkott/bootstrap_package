@@ -1,19 +1,8 @@
-######################
-#### CTYPE: MEDIA ####
-######################
-
 tt_content.media >
+# CTYPE: MEDIA
 tt_content.media =< lib.contentElement
 tt_content.media {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Media
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
@@ -26,5 +15,4 @@ tt_content.media {
             allowedFileExtensions = youtube, vimeo
         }
     }
-
 }

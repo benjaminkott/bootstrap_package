@@ -1,9 +1,7 @@
-########################################
-#### BACKENDLAYOUT: 2 COLUMNS 50/50 ####
-########################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: 2 COLUMNS 50/50
             2_columns_50_50 {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns_50_50
                 config {

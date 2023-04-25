@@ -1,6 +1,4 @@
-##################
-### CATEGORIES ###
-##################
+# CATEGORIES
 # customsubcategory=100_contentelement=Templates
 # customsubcategory=110_contentelement=Header
 # customsubcategory=120_contentelement=Subheader
@@ -14,9 +12,7 @@
 # customsubcategory=190_contentelement=Uploads
 
 
-########################
-### CONTENT ELEMENTS ###
-########################
+# CONTENT ELEMENTS
 plugin.bootstrap_package_contentelements {
     view {
         # cat=bootstrap package: content elements/100_contentelement/001_layoutRootPath; type=string; label=Layout Root Path: Path to layouts

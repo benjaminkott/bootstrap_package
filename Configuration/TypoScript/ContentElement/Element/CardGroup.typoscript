@@ -1,19 +1,8 @@
-##########################
-#### CTYPE: CARDGROUP ####
-##########################
-
 tt_content.card_group >
+# CTYPE: CARDGROUP
 tt_content.card_group =< lib.contentElement
 tt_content.card_group {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = CardGroup
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -42,13 +31,9 @@ tt_content.card_group {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     card_group {
         1 {

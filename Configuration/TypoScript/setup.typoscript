@@ -1,27 +1,19 @@
-######################
-#### DEPENDENCIES ####
-######################
+# DEPENDENCIES
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
 
 
-################
-#### HELPER ####
-################
+# HELPER
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'
 
 
-###################
-#### FRAMEWORK ####
-###################
+# FRAMEWORK
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/setup.typoscript'
 
 
-####################################
-#### BOOTSTRAP PACKAGE SETTINGS ####
-####################################
 plugin.tx_bootstrappackage {
+    # BOOTSTRAP PACKAGE SETTINGS
     settings {
         overrideParserVariables = {$plugin.bootstrap_package.settings.overrideParserVariables}
         cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
@@ -29,9 +21,6 @@ plugin.tx_bootstrappackage {
 }
 
 
-##############
-#### PAGE ####
-##############
 page = PAGE
 page {
     typeNum = 0
@@ -113,9 +102,6 @@ page {
             1 = {$page.fluidtemplate.layoutRootPath}
         }
 
-        ##########################
-        ### DATA PREPROCESSING ###
-        ##########################
         dataProcessing {
             1 = BK2K\BootstrapPackage\DataProcessing\ConstantsProcessor
             1 {
@@ -240,9 +226,6 @@ page {
             }
         }
 
-        ################
-        ### SETTINGS ###
-        ################
         settings {
             logo {
                 height = {$page.logo.height}
@@ -251,9 +234,6 @@ page {
             }
         }
 
-        #################
-        ### VARIABLES ###
-        #################
         variables {
             pageTitle = TEXT
             pageTitle.data = page:title
@@ -372,16 +352,11 @@ page {
 }
 
 
-####################
-#### COMPONENTS ####
-####################
+# COMPONENTS
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/setup.typoscript'
 
 
-################
-#### CONFIG ####
-################
 config {
     absRefPrefix = auto
     no_cache = {$config.no_cache}

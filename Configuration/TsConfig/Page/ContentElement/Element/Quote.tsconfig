@@ -1,6 +1,3 @@
-####################################
-#### NEW CONTENT ELEMENT WIZARD ####
-####################################
 mod.wizards.newContentElement.wizardItems.text {
     elements {
         quote {
@@ -15,9 +12,6 @@ mod.wizards.newContentElement.wizardItems.text {
     show := addToList(quote)
 }
 
-#################
-#### PREVIEW ####
-#################
 mod.web_layout.tt_content {
     preview {
         quote = EXT:bootstrap_package/Resources/Private/Templates/Preview/Quote.html

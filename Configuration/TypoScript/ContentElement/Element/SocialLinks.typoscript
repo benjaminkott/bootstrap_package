@@ -1,19 +1,8 @@
-#############################
-#### CTYPE: SOCIAL LINKS ####
-#############################
-
 tt_content.social_links >
+# CTYPE: SOCIAL LINKS
 tt_content.social_links =< lib.contentElement
 tt_content.social_links {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = SocialLinks
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         1 = BK2K\BootstrapPackage\DataProcessing\ConstantsProcessor
         1 {
@@ -21,5 +10,4 @@ tt_content.social_links {
             key = page.theme.socialmedia
         }
     }
-
 }

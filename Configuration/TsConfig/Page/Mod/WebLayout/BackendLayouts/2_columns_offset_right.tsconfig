@@ -1,9 +1,7 @@
-###############################################
-#### BACKENDLAYOUT: 2 COLUMNS OFFSET RIGHT ####
-###############################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: 2 COLUMNS OFFSET RIGHT
             2_columns_offset_right {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns_offset_right
                 config {

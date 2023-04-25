@@ -1,9 +1,7 @@
-###########################
-#### Google Tagmanager ####
-###########################
 page {
     headerData {
 
+        # Google Tagmanager
         99 = TEXT
         99.if.isTrue = {$page.tracking.google.tagManagerContainerId}
         99.value (
@@ -22,6 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         )
     }
 
+    # Google Tagmanager
     5 = TEXT
     5.if.isTrue = {$page.tracking.google.tagManagerContainerId}
     5.value (

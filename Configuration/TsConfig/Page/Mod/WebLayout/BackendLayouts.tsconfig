@@ -1,4 +1,1 @@
-########################
-#### BACKENDLAYOUTS ####
-########################
 @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts/*.tsconfig'

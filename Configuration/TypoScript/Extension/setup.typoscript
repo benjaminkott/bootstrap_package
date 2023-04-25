@@ -1,6 +1,4 @@
-###########################
-#### BOOTSTRAP PACKAGE ####
-###########################
+# BOOTSTRAP PACKAGE
 plugin.tx_bootstrappackage {
     view {
         templateRootPaths {
@@ -18,10 +16,8 @@ plugin.tx_bootstrappackage {
     }
 }
 
-#############################################################
-#### EXTENSIONS                                          ####
-#### Manual inclusion to keep control over loading order ####
-#############################################################
+# EXTENSIONS
+# Manual inclusion to keep control over loading order
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Felogin/setup.typoscript" condition="extension.isLoaded('felogin') == 1">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/Form/setup.typoscript" condition="extension.isLoaded('form') == 1">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript" condition="extension.isLoaded('indexed_search') == 1">

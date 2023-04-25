@@ -1,6 +1,3 @@
-###################
-#### PARSEFUNC ####
-###################
 lib.parseFunc {
     makelinks = 1
     makelinks {
@@ -58,9 +55,6 @@ lib.parseFunc {
 }
 
 
-#######################
-#### PARSEFUNC RTE ####
-#######################
 lib.parseFunc_RTE < lib.parseFunc
 lib.parseFunc_RTE {
     externalBlocks := addToList(article, address, aside, blockquote, div, dd, dl, footer)

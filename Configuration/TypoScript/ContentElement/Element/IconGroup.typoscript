@@ -1,19 +1,8 @@
-#####################
-#### CTYPE: HTML ####
-#####################
-
 tt_content.icon_group >
+# CTYPE: HTML
 tt_content.icon_group =< lib.contentElement
 tt_content.icon_group {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = IconGroup
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -37,5 +26,4 @@ tt_content.icon_group {
             }
         }
     }
-
 }

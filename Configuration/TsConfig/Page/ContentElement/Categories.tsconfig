@@ -1,7 +1,5 @@
-####################
-#### CATEGORIES ####
-####################
 mod.wizards.newContentElement.wizardItems {
+    # CATEGORIES
     interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
     media.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.media
     text.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.text

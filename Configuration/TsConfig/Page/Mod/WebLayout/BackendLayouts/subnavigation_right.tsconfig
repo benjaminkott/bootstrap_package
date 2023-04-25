@@ -1,9 +1,7 @@
-############################################
-#### BACKENDLAYOUT: SUBNAVIGATION RIGHT ####
-############################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SUBNAVIGATION RIGHT
             subnavigation_right {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.subnavigation_right
                 config {

@@ -1,19 +1,8 @@
-######################################
-#### CTYPE: BOOTSTRAP PACKAGE TAB ####
-######################################
-
 tt_content.tab >
+# CTYPE: BOOTSTRAP PACKAGE TAB
 tt_content.tab =< lib.contentElement
 tt_content.tab {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Tab
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -34,13 +23,9 @@ tt_content.tab {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     tab {
         left {

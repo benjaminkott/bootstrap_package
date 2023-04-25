@@ -1,6 +1,4 @@
-############################
-### CUSTOM SUBCATEGORIES ###
-############################
+# CUSTOM SUBCATEGORIES
 # customsubcategory=100=Page Template
 # customsubcategory=110=Logo
 # customsubcategory=111=Favicon
@@ -24,15 +22,10 @@
 # customsubcategory=200=Extension Overrides
 # customsubcategory=201=Blocks
 
-######################
-#### DEPENDENCIES ####
-######################
+# DEPENDENCIES
 @import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/constants.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/constants.typoscript'
 
-############
-### PAGE ###
-############
 page {
     logo {
         # cat=bootstrap package: logo/110/100; type=string; label=Logo: Leave blank to use website title from template instead
@@ -284,9 +277,6 @@ page {
     }
 }
 
-##############
-### CONFIG ###
-##############
 config {
     # cat=bootstrap package: config/150/110; type=boolean; label=No Cache
     no_cache = 0
@@ -310,9 +300,6 @@ config {
     sendCacheHeaders = 1
 }
 
-#########################
-### BOOTSTRAP PACKAGE ###
-#########################
 plugin.bootstrap_package.settings {
     # cat=bootstrap package: css parser/190/100; type=boolean; label=Override Parser Variables: If enabled the variables defined in your SCSS files will be overridden with the ones defined as TypoScript Constants.
     overrideParserVariables = 1
@@ -320,9 +307,6 @@ plugin.bootstrap_package.settings {
     cssSourceMapping = 0
 }
 
-#################################
-### BOOTSTRAP PACKAGE BLOCKS ####
-#################################
 plugin.bootstrap_package_blocks.view {
     # cat=bootstrap package: blocks/201/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
     layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/Blocks/
@@ -332,9 +316,6 @@ plugin.bootstrap_package_blocks.view {
     templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/Blocks/
 }
 
-####################################
-### BOOTSTRAP PACKAGE EXTENSIONS ###
-####################################
 plugin.bootstrap_package.view {
     # cat=bootstrap package: templates/200/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
     layoutRootPath = EXT:bootstrap_package/Resources/Private/Layouts/
@@ -344,13 +325,9 @@ plugin.bootstrap_package.view {
     templateRootPath = EXT:bootstrap_package/Resources/Private/Templates/
 }
 
-####################
-#### COMPONENTS ####
-####################
+# COMPONENTS
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/constants.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/constants.typoscript'
 
-###################
-#### FRAMEWORK ####
-###################
+# FRAMEWORK
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Bootstrap5/constants.typoscript'
