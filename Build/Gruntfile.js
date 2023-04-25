@@ -183,56 +183,6 @@ module.exports = function(grunt) {
                 }
             },
         },
-        watch: {
-            bootstrapLightbox: {
-                files: '<%= paths.js %>Src/bootstrap.lightbox.js',
-                tasks: 'uglify:bootstrapLightbox'
-            },
-            bootstrapNavbar: {
-                files: '<%= paths.js %>Src/bootstrap.navbar.js',
-                tasks: 'uglify:bootstrapNavbar'
-            },
-            bootstrapPopover: {
-                files: '<%= paths.js %>Src/bootstrap.popover.js',
-                tasks: 'uglify:bootstrapPopover'
-            },
-            bootstrapSmoothscroll: {
-                files: '<%= paths.js %>Src/bootstrap.smoothscroll.js',
-                tasks: 'uglify:bootstrapSmoothscroll'
-            },
-            bootstrapStickyheader: {
-                files: '<%= paths.js %>Src/bootstrap.stickyheader.js',
-                tasks: 'uglify:bootstrapStickyheader'
-            },
-            cookieconsent: {
-                files: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
-                tasks: 'uglify:cookieconsent'
-            },
-            ckeditor_address: {
-                files: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
-                tasks: 'uglify:ckeditor_address'
-            },
-            ckeditor_box: {
-                files: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
-                tasks: 'uglify:ckeditor_box'
-            },
-            ckeditor_columns: {
-                files: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
-                tasks: 'uglify:ckeditor_columns'
-            },
-            ckeditor_indent: {
-                files: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
-                tasks: 'uglify:ckeditor_indent'
-            },
-            ckeditor_table: {
-                files: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
-                tasks: 'uglify:ckeditor_table'
-            },
-            scss: {
-                files: '<%= paths.scss %>**/*.scss',
-                tasks: 'css'
-            }
-        },
         imagemin: {
             images: {
                 options: {
@@ -425,7 +375,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-stylelint');
