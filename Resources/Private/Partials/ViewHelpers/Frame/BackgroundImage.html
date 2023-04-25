@@ -26,7 +26,14 @@
                     <f:variable name="styles" value="{variantStyle -> bk2k:format.trim()} {styles}"/>
                 </f:if>
             </f:for>
-            <style>{styles -> f:format.raw()}</style>
+            <bk2k:condition.classExists class="TYPO3\CMS\Fluid\ViewHelpers\Security\NonceViewHelper">
+                <f:then>
+                    <f:render partial="Frame/BackgroundImageStyleNonce" arguments="{_all}" />
+                </f:then>
+                <f:else>
+                    <f:render partial="Frame/BackgroundImageStyle" arguments="{_all}" />
+                </f:else>
+            </bk2k:condition.classExists>
         </div>
     </div>
 </f:if>
