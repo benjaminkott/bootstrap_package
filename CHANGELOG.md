@@ -1,3 +1,36 @@
+# 13.0.2
+
+## TASK
+
+- 8118d41d [TASK] Update frontend dependencies (#1272)
+- 794eefd6 [TASK] Make test dataprovider static (#1271)
+- 51be7197 [TASK] add additionalAttributes to FrameViewHelper (#1268)
+- fd10bf81 [TASK] Streamline TypoScript comments (#1267)
+- 87536c14 [TASK] Support CSP for background images in v12 (#1265)
+- c0ea6dae [TASK] Adjust phpstan (#1266)
+- c5b078c5 [TASK] Allow 12.4 in ext_emconf.php
+
+## BUGFIX
+
+- ee768c2d [BUGFIX] Correct multiplier value float type being transformed to integer. (#1270)
+- 278d0fb0 [BUGFIX] Add missing no-cookie to media additionalConfig (#1122)
+- 9e8fce09 [BUGFIX] Set testing framework versions (#1269)
+- 6e8c4a59 [BUGFIX] Correct duplicate constant editor categories
+- 339a381c [BUGFIX] Fix undefined variables access (PHP 8+ compatibility) (#1218)
+- 0a970663 [BUGFIX] Wrong constant label (#1227)
+- 056c6f37 [BUGFIX] Allow to disable backend layouts (#1242)
+- a7e05232 [BUGFIX] Render "hidden" fields as `checkboxToggle` (#1247)
+
+## Contributors
+
+- Andreas Fernandez
+- Benjamin Kott
+- Christian Kuhn
+- François Suter
+- Patrick Lenk
+- Sven Petersen
+- Thomas Kieslich
+
 # 13.0.1
 
 ## BREAKING
