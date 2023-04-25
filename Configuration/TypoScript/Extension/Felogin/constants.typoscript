@@ -1,4 +1,5 @@
-# FRONTEND LOGIN
-styles.content.loginform {
-    templateFile = EXT:bootstrap_package/Resources/Private/Templates/Felogin/FrontendLogin.html
-}
+########################
+#### FRONTEND LOGIN ####
+########################
+
+@import 'EXT:felogin/Configuration/TypoScript/constants.typoscript'
