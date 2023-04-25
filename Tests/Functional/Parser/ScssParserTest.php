@@ -20,6 +20,13 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class ScssParserTest extends FunctionalTestCase
 {
+    protected bool $initializeDatabase = false;
+
+    protected array $coreExtensionsToLoad = [
+        'seo',
+        'rte_ckeditor',
+    ];
+
     protected array $testExtensionsToLoad = [
         'typo3conf/ext/bootstrap_package',
         'typo3conf/ext/demo_package',
