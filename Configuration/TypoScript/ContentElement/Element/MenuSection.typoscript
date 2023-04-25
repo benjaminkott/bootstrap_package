@@ -1,19 +1,8 @@
-###################################
-#### CTYPE: MENU SECTION INDEX ####
-###################################
-
 tt_content.menu_section >
+# CTYPE: MENU SECTION INDEX
 tt_content.menu_section =< lib.contentElement
 tt_content.menu_section {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuSection
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -66,5 +55,4 @@ tt_content.menu_section {
             as = nextContentElement
         }
     }
-
 }

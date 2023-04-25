@@ -1,19 +1,8 @@
-########################
-#### CTYPE: GALLERY ####
-########################
-
 tt_content.gallery >
+# CTYPE: GALLERY
 tt_content.gallery =< lib.contentElement
 tt_content.gallery {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Gallery
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {

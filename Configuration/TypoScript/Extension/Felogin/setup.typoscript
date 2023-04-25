@@ -1,6 +1,4 @@
-########################
-#### FRONTEND LOGIN ####
-########################
+# FRONTEND LOGIN
 plugin.tx_felogin_pi1 {
     wrapContentInBaseClass = 0
     welcomeMessage_stdWrap.wrap = <p>|</p>

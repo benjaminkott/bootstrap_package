@@ -1,19 +1,8 @@
-##########################################
-#### CTYPE: MENU OF CATEGORIZED PAGES ####
-##########################################
-
 tt_content.menu_categorized_pages >
+# CTYPE: MENU OF CATEGORIZED PAGES
 tt_content.menu_categorized_pages =< lib.contentElement
 tt_content.menu_categorized_pages {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuCategorizedPages
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -46,5 +35,4 @@ tt_content.menu_categorized_pages {
             as = nextContentElement
         }
     }
-
 }

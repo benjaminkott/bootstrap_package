@@ -1,19 +1,8 @@
-#####################################################
-#### CTYPE: MENU RELATED PAGES BASED ON KEYWORDS ####
-#####################################################
-
 tt_content.menu_related_pages >
+# CTYPE: MENU RELATED PAGES BASED ON KEYWORDS
 tt_content.menu_related_pages =< lib.contentElement
 tt_content.menu_related_pages {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuRelatedPages
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -44,5 +33,4 @@ tt_content.menu_related_pages {
             as = nextContentElement
         }
     }
-
 }

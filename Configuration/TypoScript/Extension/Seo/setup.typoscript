@@ -1,7 +1,4 @@
-#############
-#### SEO ####
-#############
-
+# SEO
 @import 'EXT:seo/Configuration/TypoScript/XmlSitemap/setup.typoscript'
 
 plugin.tx_seo {

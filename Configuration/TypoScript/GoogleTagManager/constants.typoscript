@@ -1,11 +1,6 @@
-############################
-### CUSTOM SUBCATEGORIES ###
-############################
+# CUSTOM SUBCATEGORIES
 # customsubcategory=bp_googletagmanager=Google Tag Manager
 
-############
-### PAGE ###
-############
 page {
     tracking {
         google {

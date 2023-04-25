@@ -1,6 +1,3 @@
-##############
-#### PAGE ####
-##############
 page {
     includeCSS {
         # bootstrap 5.x will be included in the themes.scss file

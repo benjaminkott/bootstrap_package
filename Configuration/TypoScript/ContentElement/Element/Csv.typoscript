@@ -1,19 +1,8 @@
-####################
-#### CTYPE: CSV ####
-####################
-
 tt_content.csv >
+# CTYPE: CSV
 tt_content.csv =< lib.contentElement
 tt_content.csv {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Csv
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\CsvFileProcessor
         10 {

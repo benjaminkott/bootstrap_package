@@ -1,19 +1,8 @@
-######################
-#### CTYPE: IMAGE ####
-######################
-
 tt_content.image >
+# CTYPE: IMAGE
 tt_content.image =< lib.contentElement
 tt_content.image {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Image
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
@@ -26,5 +15,4 @@ tt_content.image {
             predefinedList = image
         }
     }
-
 }

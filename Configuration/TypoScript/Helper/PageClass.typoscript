@@ -1,6 +1,4 @@
-####################
-#### PAGE CLASS ####
-####################
+# PAGE CLASS
 lib.page.class = COA
 lib.page.class {
     // Page alias or id as fallback

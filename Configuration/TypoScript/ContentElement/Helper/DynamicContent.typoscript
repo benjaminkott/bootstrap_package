@@ -1,6 +1,4 @@
-################################################
-#### DYNAMIC CONTENT LIB FOR USAGE IN FLUID ####
-################################################
+# DYNAMIC CONTENT LIB FOR USAGE IN FLUID
 #
 #  EXAMPLE
 #  ---------------
@@ -11,7 +9,6 @@
 #      wrap: '<div class=\"hero\">|</div>',
 #      elementWrap: '<div class=\"element\">|</div>'
 #  }" />
-#
 #
 #  COLUMN NUMBERS
 #  ---------------
@@ -43,8 +40,6 @@
 #  37 = special8
 #  38 = special9
 #  39 = special10
-#
-#################
 lib.dynamicContent = COA
 lib.dynamicContent {
     5 = LOAD_REGISTER

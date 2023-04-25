@@ -1,11 +1,6 @@
-############################
-### CUSTOM SUBCATEGORIES ###
-############################
+# CUSTOM SUBCATEGORIES
 # customsubcategory=230=Cookie Consent
 
-############
-### PAGE ###
-############
 page {
     theme {
         cookieconsent {

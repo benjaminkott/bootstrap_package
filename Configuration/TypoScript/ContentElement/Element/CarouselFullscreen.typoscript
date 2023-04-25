@@ -1,19 +1,8 @@
-######################################################
-#### CTYPE: BOOTSTRAP PACKAGE CAROUSEL FULLSCREEN ####
-######################################################
-
 tt_content.carousel_fullscreen >
+# CTYPE: BOOTSTRAP PACKAGE CAROUSEL FULLSCREEN
 tt_content.carousel_fullscreen =< lib.contentElement
 tt_content.carousel_fullscreen {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = CarouselFullscreen
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -44,13 +33,9 @@ tt_content.carousel_fullscreen {
             }
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     carousel_fullscreen {
         background_image {

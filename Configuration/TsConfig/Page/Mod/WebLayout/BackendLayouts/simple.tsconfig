@@ -1,9 +1,7 @@
-###############################
-#### BACKENDLAYOUT: SIMPLE ####
-###############################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SIMPLE
             simple {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.simple
                 config {

@@ -1,14 +1,7 @@
-##########################
-#### CTYPE: TEXTMEDIA ####
-##########################
-
 tt_content.textmedia >
+# CTYPE: TEXTMEDIA
 tt_content.textmedia =< lib.contentElement
 tt_content.textmedia {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = TEXT
     templateName.stdWrap.cObject = CASE
     templateName.stdWrap.cObject {
@@ -27,22 +20,15 @@ tt_content.textmedia {
         default.value = TextmediaAbove
     }
 
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
             references.fieldName = assets
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     textmedia {
         centered_left {

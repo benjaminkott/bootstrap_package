@@ -1,19 +1,8 @@
-######################
-#### CTYPE: TABLE ####
-######################
-
 tt_content.table >
+# CTYPE: TABLE
 tt_content.table =< lib.contentElement
 tt_content.table {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Table
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
         10 {
@@ -29,5 +18,4 @@ tt_content.table {
             as = table
         }
     }
-
 }

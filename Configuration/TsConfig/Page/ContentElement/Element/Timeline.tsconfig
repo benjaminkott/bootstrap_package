@@ -1,6 +1,3 @@
-####################################
-#### NEW CONTENT ELEMENT WIZARD ####
-####################################
 mod.wizards.newContentElement.wizardItems.interactive {
     elements {
         timeline {

@@ -1,19 +1,8 @@
-###################################
-#### CTYPE: MENU CARD SUBPAGES ####
-###################################
-
 tt_content.menu_card_dir >
+# CTYPE: MENU CARD SUBPAGES
 tt_content.menu_card_dir =< lib.contentElement
 tt_content.menu_card_dir {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuCardDir
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
@@ -55,13 +44,9 @@ tt_content.menu_card_dir {
             as = nextContentElement
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     menu_card_dir {
         1 {

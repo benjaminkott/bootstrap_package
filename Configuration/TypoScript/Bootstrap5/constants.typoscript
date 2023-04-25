@@ -1,11 +1,7 @@
-#####################
-### BOOTSTRAP 5.x ###
-#####################
+# BOOTSTRAP 5.x
 plugin.bootstrap_package.settings.scss >
 
-############################
-### CUSTOM SUBCATEGORIES ###
-############################
+# CUSTOM SUBCATEGORIES
 # customsubcategory=bp5_001=Grayscale
 # customsubcategory=bp5_002=Colors
 # customsubcategory=bp5_003=Contrast

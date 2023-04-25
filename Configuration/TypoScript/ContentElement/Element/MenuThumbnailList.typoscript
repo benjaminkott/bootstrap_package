@@ -1,19 +1,8 @@
-########################################
-#### CTYPE: MENU THUMBNAIL SUBPAGES ####
-########################################
-
 tt_content.menu_thumbnail_list >
+# CTYPE: MENU THUMBNAIL SUBPAGES
 tt_content.menu_thumbnail_list =< lib.contentElement
 tt_content.menu_thumbnail_list {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuThumbnailList
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = BK2K\BootstrapPackage\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
@@ -43,13 +32,9 @@ tt_content.menu_thumbnail_list {
             as = nextContentElement
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     menu_thumbnail_list {
         2 {

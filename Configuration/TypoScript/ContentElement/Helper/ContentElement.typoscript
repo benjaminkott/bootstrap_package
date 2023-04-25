@@ -1,7 +1,5 @@
-##################################################
-### CONFIG FOR IMAGE RENDERING                 ###
-### Shared settings for BackendLayout configs  ###
-##################################################
+# CONFIG FOR IMAGE RENDERING
+# Shared settings for BackendLayout configs
 shared.responsiveimages.footer.column {
     multiplier {
         default = 0.3333
@@ -17,16 +15,10 @@ shared.responsiveimages.footer.column {
     }
 }
 
-##################################################
-### CONTENT ELEMENT SETTINGS                   ###
-### Shared settings for TYPO3 content elements ###
-##################################################
+# CONTENT ELEMENT SETTINGS
+# Shared settings for TYPO3 content elements
 lib.contentElement = FLUIDTEMPLATE
 lib.contentElement {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Default
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
@@ -41,9 +33,6 @@ lib.contentElement {
         10 = {$plugin.bootstrap_package_contentelements.view.layoutRootPath}
     }
 
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         1509614342 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         1509614342 {
@@ -56,9 +45,6 @@ lib.contentElement {
         }
     }
 
-    #################
-    ### VARIABLES ###
-    #################
     variables {
         backendlayout = TEXT
         backendlayout {
@@ -71,9 +57,6 @@ lib.contentElement {
         }
     }
 
-    ################
-    ### SETTINGS ###
-    ################
     settings {
         header {
             defaultHeaderType = {$plugin.bootstrap_package_contentelements.header.defaultHeaderType}
@@ -731,5 +714,4 @@ lib.contentElement {
             }
         }
     }
-
 }

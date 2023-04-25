@@ -1,6 +1,3 @@
-####################################
-#### NEW CONTENT ELEMENT WIZARD ####
-####################################
 mod.wizards.newContentElement.wizardItems.data {
     elements {
         csv {
@@ -15,9 +12,6 @@ mod.wizards.newContentElement.wizardItems.data {
     show := addToList(csv)
 }
 
-#################
-#### PREVIEW ####
-#################
 mod.web_layout.tt_content {
     preview {
         csv = EXT:bootstrap_package/Resources/Private/Templates/Preview/Csv.html

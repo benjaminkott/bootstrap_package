@@ -1,19 +1,8 @@
-################################################
-#### CTYPE: MENU OF SUBPAGES TO THESE PAGES ####
-################################################
-
 tt_content.menu_subpages >
+# CTYPE: MENU OF SUBPAGES TO THESE PAGES
 tt_content.menu_subpages =< lib.contentElement
 tt_content.menu_subpages {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuSubpages
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -41,5 +30,4 @@ tt_content.menu_subpages {
             as = nextContentElement
         }
     }
-
 }

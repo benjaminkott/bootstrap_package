@@ -1,9 +1,7 @@
-##################################
-#### BACKENDLAYOUT: 2 COLUMNS ####
-##################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: 2 COLUMNS
             2_columns {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.2_columns
                 config {

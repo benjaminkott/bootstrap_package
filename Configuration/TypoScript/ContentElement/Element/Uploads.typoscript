@@ -1,19 +1,8 @@
-########################
-#### CTYPE: UPLOADS ####
-########################
-
 tt_content.uploads >
+# CTYPE: UPLOADS
 tt_content.uploads =< lib.contentElement
 tt_content.uploads {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = Uploads
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {

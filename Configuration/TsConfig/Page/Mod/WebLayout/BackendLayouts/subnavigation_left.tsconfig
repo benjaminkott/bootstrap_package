@@ -1,9 +1,7 @@
-###########################################
-#### BACKENDLAYOUT: SUBNAVIGATION LEFT ####
-###########################################
 mod {
     web_layout {
         BackendLayouts {
+            # BACKENDLAYOUT: SUBNAVIGATION LEFT
             subnavigation_left {
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.subnavigation_left
                 config {

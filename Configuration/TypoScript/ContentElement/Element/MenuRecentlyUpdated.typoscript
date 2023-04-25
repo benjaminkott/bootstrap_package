@@ -1,19 +1,8 @@
-############################################
-#### CTYPE: MENU RECENTLY UPDATED PAGES ####
-############################################
-
 tt_content.menu_recently_updated >
+# CTYPE: MENU RECENTLY UPDATED PAGES
 tt_content.menu_recently_updated =< lib.contentElement
 tt_content.menu_recently_updated {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = MenuRecentlyUpdated
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         10 {
@@ -45,5 +34,4 @@ tt_content.menu_recently_updated {
             as = nextContentElement
         }
     }
-
 }

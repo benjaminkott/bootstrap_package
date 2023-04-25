@@ -1,14 +1,7 @@
-########################
-#### CTYPE: TEXTPIC ####
-########################
-
 tt_content.textpic >
+# CTYPE: TEXTPIC
 tt_content.textpic =< lib.contentElement
 tt_content.textpic {
-
-    ################
-    ### TEMPLATE ###
-    ################
     templateName = TEXT
     templateName.stdWrap.cObject = CASE
     templateName.stdWrap.cObject {
@@ -27,9 +20,6 @@ tt_content.textpic {
         default.value = TextpicAbove
     }
 
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
@@ -42,13 +32,9 @@ tt_content.textpic {
             predefinedList = image
         }
     }
-
 }
 
 
-#########################
-### RESPONSIVE IMAGES ###
-#########################
 lib.contentElement.settings.responsiveimages.contentelements {
     textpic {
         centered_left {
