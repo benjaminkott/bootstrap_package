@@ -36,7 +36,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function getImageVariantsTestDataProvider(): array
+    public static function getImageVariantsTestDataProvider(): array
     {
         return [
             'empty' => [
@@ -940,7 +940,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function getStackedImageVariantsTestDataProvider(): array
+    public static function getStackedImageVariantsTestDataProvider(): array
     {
         return [
             'multiplier' => [
@@ -1042,7 +1042,7 @@ class ImageVariantsUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function isValidSizeKeyTestDataProvider(): array
+    public static function isValidSizeKeyTestDataProvider(): array
     {
         return [
             'valid 1x' => [ '1x', true ],

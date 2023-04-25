@@ -32,7 +32,7 @@ class ExternalMediaUtilityTest extends UnitTestCase
     /**
      * @return array
      */
-    public function getEmbedCodeDataProvider(): array
+    public static function getEmbedCodeDataProvider(): array
     {
         return [
             'empty' => ['', '', null],
