@@ -64,9 +64,9 @@ plugin.bootstrap_package_contentelements {
             enablejsapi = 1
             # cat=bootstrap package: content elements/131_contentelement/005_showinfo; type=boolean; label=Show Info
             showinfo = 0
-            # cat=bootstrap package: content elements/131_contentelement/005_relatedVideos; type=boolean; label=Related Videos
+            # cat=bootstrap package: content elements/131_contentelement/006_relatedVideos; type=boolean; label=Related Videos
             relatedVideos = 0
-            # cat=bootstrap package: content elements/131_contentelement/005_relatedVideos; type=boolean; label=Modest Branding
+            # cat=bootstrap package: content elements/131_contentelement/007_modestbranding; type=boolean; label=Modest Branding
             modestbranding = 0
         }
     }

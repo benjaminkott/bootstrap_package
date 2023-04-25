@@ -210,42 +210,42 @@ page {
                 }
                 github {
                     label = GitHub
-                    # cat=bootstrap package: social media/165/04_googleplus_url; type=string; label=GitHub: Insert the full account url
+                    # cat=bootstrap package: social media/165/04_github_url; type=string; label=GitHub: Insert the full account url
                     url =
                 }
                 googleplus {
                     label = Google+
-                    # cat=bootstrap package: social media/165/04_googleplus_url; type=string; label=Google+: Insert the full account url
+                    # cat=bootstrap package: social media/165/05_googleplus_url; type=string; label=Google+: Insert the full account url
                     url =
                 }
                 linkedin {
                     label = LinkedIn
-                    # cat=bootstrap package: social media/165/05_linkedin_url; type=string; label=LinkedIn: Insert the full account url
+                    # cat=bootstrap package: social media/165/06_linkedin_url; type=string; label=LinkedIn: Insert the full account url
                     url =
                 }
                 xing {
                     label = Xing
-                    # cat=bootstrap package: social media/165/06_xing_url; type=string; label=Xing: Insert the full account url
+                    # cat=bootstrap package: social media/165/07_xing_url; type=string; label=Xing: Insert the full account url
                     url =
                 }
                 youtube {
                     label = YouTube
-                    # cat=bootstrap package: social media/165/07_youtube_url; type=string; label=YouTube: Insert the full account url
+                    # cat=bootstrap package: social media/165/08_youtube_url; type=string; label=YouTube: Insert the full account url
                     url =
                 }
                 vk {
                     label = VK
-                    # cat=bootstrap package: social media/165/08_vk_url; type=string; label=VK: Insert the full account url
+                    # cat=bootstrap package: social media/165/09_vk_url; type=string; label=VK: Insert the full account url
                     url =
                 }
                 vimeo {
                     label = Vimeo
-                    # cat=bootstrap package: social media/165/09_vimeo_url; type=string; label=Vimeo: Insert the full account url
+                    # cat=bootstrap package: social media/165/10_vimeo_url; type=string; label=Vimeo: Insert the full account url
                     url =
                 }
                 rss {
                     label = RSS
-                    # cat=bootstrap package: social media/165/10_rss_url; type=string; label=RSS: Insert the full url
+                    # cat=bootstrap package: social media/165/11_rss_url; type=string; label=RSS: Insert the full url
                     url =
                 }
             }
