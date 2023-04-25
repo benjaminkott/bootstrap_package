@@ -17,6 +17,14 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword;
 use TYPO3\CMS\Core\Type\Map;
 
+if (!class_exists(Map::class)) {
+    return [];
+}
+
+if (!class_exists(Directive::class)) {
+    return [];
+}
+
 return Map::fromEntries([
     Scope::frontend(),
     new MutationCollection(
