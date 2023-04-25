@@ -64,6 +64,8 @@ plugin.bootstrap_package_contentelements {
             relatedVideos = 0
             # cat=bootstrap package: content elements/131_contentelement/007_modestbranding; type=boolean; label=Modest Branding
             modestbranding = 0
+            # cat=bootstrap package: content elements/131_contentelement/008_nocookie; type=boolean; label=No Cookie
+            nocookie = 1
         }
     }
     gallery {

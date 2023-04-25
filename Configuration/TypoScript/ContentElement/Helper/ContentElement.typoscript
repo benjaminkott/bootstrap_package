@@ -91,6 +91,7 @@ lib.contentElement {
                 showinfo = {$plugin.bootstrap_package_contentelements.media.additionalConfig.showinfo}
                 relatedVideos = {$plugin.bootstrap_package_contentelements.media.additionalConfig.relatedVideos}
                 modestbranding = {$plugin.bootstrap_package_contentelements.media.additionalConfig.modestbranding}
+                no-cookie = {$plugin.bootstrap_package_contentelements.media.additionalConfig.nocookie}
             }
         }
         gallery {
