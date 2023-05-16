@@ -55,8 +55,8 @@ class CompileService
                 'tempDirectoryRelativeToRoot' => $this->tempDirectoryRelativeToRoot,
             ],
             'options' => [
-                'override' => $configuration['overrideParserVariables'] ? true: false,
-                'sourceMap' => $configuration['cssSourceMapping'] ? true : false,
+                'override' => (bool) ($configuration['overrideParserVariables'] ?? false),
+                'sourceMap' => (bool) ($configuration['cssSourceMapping'] ?? false),
                 'compress' => true
             ],
             'variables' => []
