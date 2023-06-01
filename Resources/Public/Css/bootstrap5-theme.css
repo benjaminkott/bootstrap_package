@@ -15768,7 +15768,8 @@ textarea.form-control.error {
   }
 }
 
-.carousel:hover .carousel-indicators,
+.carousel:focus-within .carousel-indicators,
+.carousel:focus-within .carousel-control, .carousel:hover .carousel-indicators,
 .carousel:hover .carousel-control {
   opacity: 1;
 }
@@ -15779,8 +15780,8 @@ textarea.form-control.error {
   transform: translate(0, -50%);
   width: auto;
   height: auto;
-  color: #2a9d8f;
-  padding: 1em;
+  color: #212121;
+  padding: 1rem;
   background-color: #ffffff;
   transition: all 0.4s ease-in-out 0s;
 }
@@ -15792,13 +15793,24 @@ textarea.form-control.error {
 }
 
 .carousel .carousel-control-icon:before {
+  opacity: .25;
   transform: rotate(45deg);
   content: '';
-  width: .5em;
-  height: .5em;
+  width: .5rem;
+  height: .5rem;
   display: block;
-  border-top: 1px solid #2a9d8f;
-  border-right: 1px solid #2a9d8f;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+
+.carousel .carousel-control:focus .carousel-control-icon,
+.carousel .carousel-control:hover .carousel-control-icon {
+  color: #2a9d8f;
+}
+
+.carousel .carousel-control:focus .carousel-control-icon:before,
+.carousel .carousel-control:hover .carousel-control-icon:before {
+  opacity: 1;
 }
 
 .carousel .carousel-control-prev .carousel-control-icon {
@@ -15817,11 +15829,11 @@ textarea.form-control.error {
   transform: rotate(45deg);
 }
 
-.carousel:hover .carousel-control-prev .carousel-control-icon {
+.carousel:focus-within .carousel-control-prev .carousel-control-icon, .carousel:hover .carousel-control-prev .carousel-control-icon {
   left: 0;
 }
 
-.carousel:hover .carousel-control-next .carousel-control-icon {
+.carousel:focus-within .carousel-control-next .carousel-control-icon, .carousel:hover .carousel-control-next .carousel-control-icon {
   right: 0;
 }
 

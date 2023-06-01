@@ -244,6 +244,7 @@ $carousel-item-layouts: map-merge(
         z-index: 1;
         opacity: 0;
     }
+    &:focus-within,
     &:hover {
         .carousel-indicators,
         .carousel-control {
@@ -256,18 +257,28 @@ $carousel-item-layouts: map-merge(
         transform: translate(0, -50%);
         width: auto;
         height: auto;
-        color: $primary;
-        padding: 1em;
+        color: $body-color;
+        padding: 1rem;
         background-color: $carousel-control-color;
         @include transition(all .4s ease-in-out 0s);
         &:before {
+            opacity: .25;
             transform: rotate(45deg);
             content: '';
-            width: .5em;
-            height: .5em;
+            width: .5rem;
+            height: .5rem;
             display: block;
-            border-top: 1px solid $primary;
-            border-right: 1px solid $primary;
+            border-top: 1px solid currentColor;
+            border-right: 1px solid currentColor;
+        }
+    }
+    .carousel-control:focus,
+    .carousel-control:hover {
+        .carousel-control-icon {
+            color: $primary;
+            &:before {
+                opacity: 1;
+            }
         }
     }
     .carousel-control-prev .carousel-control-icon {
@@ -282,6 +293,7 @@ $carousel-item-layouts: map-merge(
             transform: rotate(45deg);
         }
     }
+    &:focus-within,
     &:hover {
         .carousel-control-prev .carousel-control-icon {
             left: 0;
