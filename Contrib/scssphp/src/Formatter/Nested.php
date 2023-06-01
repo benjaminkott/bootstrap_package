@@ -27,7 +27,7 @@ use ScssPhp\ScssPhp\Type;
 class Nested extends Formatter
 {
     /**
-     * @var integer
+     * @var int
      */
     private $depth;
 
@@ -68,7 +68,9 @@ class Nested extends Formatter
 
         foreach ($block->lines as $index => $line) {
             if (substr($line, 0, 2) === '/*') {
-                $block->lines[$index] = preg_replace('/\r\n?|\n|\f/', $this->break, $line);
+                $replacedLine = preg_replace('/\r\n?|\n|\f/', $this->break, $line);
+                assert($replacedLine !== null);
+                $block->lines[$index] = $replacedLine;
             }
         }
 
@@ -221,7 +223,7 @@ class Nested extends Formatter
      *
      * @param \ScssPhp\ScssPhp\Formatter\OutputBlock $block
      *
-     * @return boolean
+     * @return bool
      */
     private function hasFlatChild($block)
     {

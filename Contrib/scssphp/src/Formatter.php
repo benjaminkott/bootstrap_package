@@ -25,7 +25,7 @@ use ScssPhp\ScssPhp\SourceMap\SourceMapGenerator;
 abstract class Formatter
 {
     /**
-     * @var integer
+     * @var int
      */
     public $indentLevel;
 
@@ -60,7 +60,7 @@ abstract class Formatter
     public $assignSeparator;
 
     /**
-     * @var boolean
+     * @var bool
      */
     public $keepSemicolons;
 
@@ -70,12 +70,12 @@ abstract class Formatter
     protected $currentBlock;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $currentLine;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $currentColumn;
 
@@ -239,7 +239,7 @@ abstract class Formatter
      *
      * @param \ScssPhp\ScssPhp\Formatter\OutputBlock $block
      *
-     * @return boolean
+     * @return bool
      */
     protected function testEmptyChildren($block)
     {
@@ -286,9 +286,18 @@ abstract class Formatter
 
         ob_start();
 
-        $this->block($block);
+        try {
+            $this->block($block);
+        } catch (\Exception $e) {
+            ob_end_clean();
+            throw $e;
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
 
         $out = ob_get_clean();
+        assert($out !== false);
 
         return $out;
     }
@@ -331,6 +340,8 @@ abstract class Formatter
                 // If the written line starts is empty, adding a mapping would add it for
                 // a non-existent column as we are at the end of the line
                 if ($line !== '') {
+                    assert($this->currentBlock->sourceLine !== null);
+                    assert($this->currentBlock->sourceName !== null);
                     $this->sourceMapGenerator->addMapping(
                         $this->currentLine,
                         $this->currentColumn,
@@ -346,6 +357,8 @@ abstract class Formatter
             }
 
             if ($lastLine !== '') {
+                assert($this->currentBlock->sourceLine !== null);
+                assert($this->currentBlock->sourceName !== null);
                 $this->sourceMapGenerator->addMapping(
                     $this->currentLine,
                     $this->currentColumn,
