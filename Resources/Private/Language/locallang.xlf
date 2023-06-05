@@ -106,7 +106,7 @@
             </trans-unit>
 
             <trans-unit id="cookieconsent.common.header">
-                <source>Cookies used on the website!</source>
+                <source>We use cookies</source>
             </trans-unit>
             <trans-unit id="cookieconsent.common.message">
                 <source>This website uses cookies to ensure you get the best experience on our website.</source>

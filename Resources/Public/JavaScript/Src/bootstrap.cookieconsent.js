@@ -16,9 +16,14 @@ window.addEventListener('DOMContentLoaded', function () {
             compliance: {
                 'opt-in': '<div class="cc-compliance cc-highlight">{{deny}}{{allow}}</div>',
             },
+            elements: {
+                header: '<h2 class="cc-header">{{header}}</h2>',
+            },
+            window:
+                '<div role="dialog" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window {{classes}}"><!--googleoff: all-->{{children}}<!--googleon: all--></div>',
             revokeBtn: '<div class="cc-revoke {{classes}}">Cookie settings</div>',
             content: {
-                header: "Cookies used on the website!",
+                header: "We use cookies",
                 message: "This website uses cookies to ensure you get the best experience on our website.",
                 dismiss: "Got it!",
                 allow: "Allow cookies",
