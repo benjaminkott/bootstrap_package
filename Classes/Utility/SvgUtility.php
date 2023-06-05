@@ -74,6 +74,7 @@ class SvgUtility
             $svgElement = self::setAttribute($svgElement, 'width', $width);
             $height = intval($height) > 0 ? (string) intval($height) : null;
             $svgElement = self::setAttribute($svgElement, 'height', $height);
+            $svgElement = self::setAttribute($svgElement, 'aria-hidden', 'true');
 
             // remove xml version tag
             $domXml = dom_import_simplexml($svgElement);

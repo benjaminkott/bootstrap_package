@@ -66,7 +66,7 @@ class FileIcon extends AbstractIcon
             $processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
             $imageUri = $imageService->getImageUri($processedImage);
 
-            return '<img loading="lazy" src="' . $imageUri . '" height="' . $height . '" width="' . $width . '" />';
+            return '<img loading="lazy" src="' . $imageUri . '" height="' . $height . '" width="' . $width . '" aria-hidden="true" />';
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist
             throw new \Exception($e->getMessage(), 1628773040, $e);
