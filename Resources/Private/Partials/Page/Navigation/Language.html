@@ -1,8 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{languagenavigation}">
-    <ul id="language_menu" class="language-menu">
+    <div id="language_menu" class="language-menu">
         <f:for each="{languagenavigation}" as="item">
-            <li class="{f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'inactive')}">
+            <div class="nav-item {f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'inactive')}">
                 <f:if condition="{item.available}">
                     <f:then>
                         <a href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
@@ -13,8 +13,8 @@
                         <span>{item.navigationTitle}</span>
                     </f:else>
                 </f:if>
-            </li>
+            </div>
         </f:for>
-    </ul>
+    </div>
 </f:if>
 </html>

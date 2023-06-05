@@ -300,7 +300,7 @@
 // Status
 // --------------------------------------------------
 .navbar-mainnavigation {
-    .navbar-nav > li {
+    .navbar-nav > .nav-item {
         > .nav-link:before {
             content: '';
             position: absolute;
@@ -432,7 +432,7 @@
     .navbar-inverse-transition:not(.navbar-transition) {
         background: transparent !important;
         box-shadow: none;
-        .navbar-nav > li {
+        .navbar-nav > .nav-item {
             > .nav-link,
             > .nav-link:hover,
             > .nav-link:focus {

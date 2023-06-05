@@ -166,7 +166,7 @@ $footer-sections: map-merge(
         @include media-breakpoint-up('sm') {
             margin-left: -.5em;
             margin-right: -.5em;
-            > li {
+            > .nav-item {
                 display: inline-block;
                 padding-left: .5em;
                 padding-right: .5em;

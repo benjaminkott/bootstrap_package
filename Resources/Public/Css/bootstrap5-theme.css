@@ -14322,7 +14322,7 @@ textarea.form-control.error {
   margin: 0;
 }
 
-.navbar-mainnavigation .navbar-nav > li > .nav-link:before {
+.navbar-mainnavigation .navbar-nav > .nav-item > .nav-link:before {
   content: '';
   position: absolute;
   top: 0;
@@ -14334,19 +14334,19 @@ textarea.form-control.error {
   transition: opacity .25s ease-in-out;
 }
 
-.navbar-mainnavigation .navbar-nav > li > .nav-link:focus:before,
-.navbar-mainnavigation .navbar-nav > li > .nav-link:hover:before,
-.navbar-mainnavigation .navbar-nav > li:hover > .nav-link:before {
+.navbar-mainnavigation .navbar-nav > .nav-item > .nav-link:focus:before,
+.navbar-mainnavigation .navbar-nav > .nav-item > .nav-link:hover:before,
+.navbar-mainnavigation .navbar-nav > .nav-item:hover > .nav-link:before {
   opacity: .25;
 }
 
-.navbar-mainnavigation .navbar-nav > li.show > .nav-link:before,
-.navbar-mainnavigation .navbar-nav > li.active > .nav-link:before {
+.navbar-mainnavigation .navbar-nav > .nav-item.show > .nav-link:before,
+.navbar-mainnavigation .navbar-nav > .nav-item.active > .nav-link:before {
   opacity: .5;
 }
 
 @media (min-width: 992px) {
-  .navbar-mainnavigation .navbar-nav > li > .nav-link:before {
+  .navbar-mainnavigation .navbar-nav > .nav-item > .nav-link:before {
     top: auto;
     left: 1rem;
     right: 1rem;
@@ -14436,12 +14436,12 @@ textarea.form-control.error {
     background: transparent !important;
     box-shadow: none;
   }
-  .navbar-default-transition:not(.navbar-transition) .navbar-nav > li > .nav-link,
-  .navbar-default-transition:not(.navbar-transition) .navbar-nav > li > .nav-link:hover,
-  .navbar-default-transition:not(.navbar-transition) .navbar-nav > li > .nav-link:focus,
-  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > li > .nav-link,
-  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > li > .nav-link:hover,
-  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > li > .nav-link:focus {
+  .navbar-default-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link,
+  .navbar-default-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link:hover,
+  .navbar-default-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link:focus,
+  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link,
+  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link:hover,
+  .navbar-inverse-transition:not(.navbar-transition) .navbar-nav > .nav-item > .nav-link:focus {
     color: #ffffff !important;
   }
   .navbar-default-transition:not(.navbar-transition) .navbar-brand > .navbar-brand-logo-normal,
@@ -15463,7 +15463,7 @@ textarea.form-control.error {
     margin-left: -.5em;
     margin-right: -.5em;
   }
-  .footer-language .language-menu > li {
+  .footer-language .language-menu > .nav-item {
     display: inline-block;
     padding-left: .5em;
     padding-right: .5em;
