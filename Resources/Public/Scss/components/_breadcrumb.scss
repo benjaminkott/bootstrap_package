@@ -31,3 +31,12 @@
     align-items: center;
     gap: .25em;
 }
+.breadcrumb-item {
+    + .breadcrumb-item {
+        // syntax content: "/" / "" in order to create an empty string for screen readers
+        // in order to prevent the screen reader from reading the optical divider
+        &::before {
+            content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"} / "";
+        }
+    }
+}
