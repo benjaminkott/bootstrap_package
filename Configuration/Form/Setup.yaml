@@ -9,6 +9,7 @@ TYPO3:
                     formElementsDefinition:
                         Form:
                             renderingOptions:
+                                templateVariant: version2
                                 translation:
                                     translationFiles:
                                         110: 'EXT:bootstrap_package/Resources/Private/Language/locallang.xlf'
