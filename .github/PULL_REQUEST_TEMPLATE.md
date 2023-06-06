@@ -8,13 +8,14 @@
 
 ## Prerequisites
 
-* [ ] Changes have been tested on TYPO3 v10.4 LTS
 * [ ] Changes have been tested on TYPO3 v11.5 LTS
-* [ ] Changes have been tested on PHP 7.2
-* [ ] Changes have been tested on PHP 7.3
+* [ ] Changes have been tested on TYPO3 v12.4 LTS
 * [ ] Changes have been tested on PHP 7.4
 * [ ] Changes have been tested on PHP 8.0
+* [ ] Changes have been tested on PHP 8.1
+* [ ] Changes have been tested on PHP 8.2
 * [ ] Changes have been checked for CGL compliance `php-cs-fixer fix`
+* [ ] CSS has been rebuild (only if there are SCSS changes `cd Build; npm ci; ./node_modules/.bin/grunt build`)
 
 ## Description
 
