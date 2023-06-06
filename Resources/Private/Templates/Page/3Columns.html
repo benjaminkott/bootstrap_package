@@ -12,9 +12,9 @@
     <div class="section section-default">
         <div class="container">
             <div class="section-row">
-                <main class="section-column maincontent-wrap">
+                <div class="section-column maincontent-wrap" role="main">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0', slide: '{theme.pagelayout.{pagelayout}.colPos.0.slide}'}" />
-                </main>
+                </div>
                 <div class="section-column subcontent-wrap">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '1', slide: '{theme.pagelayout.{pagelayout}.colPos.1.slide}'}" />
                 </div>

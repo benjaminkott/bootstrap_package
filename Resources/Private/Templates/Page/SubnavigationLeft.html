@@ -15,9 +15,9 @@
                 <div class="section-column subnav-wrap">
                     <f:render partial="Navigation/Subnavigation" arguments="{_all}" />
                 </div>
-                <main class="section-column maincontent-wrap">
+                <div class="section-column maincontent-wrap" role="main">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0', slide: '{theme.pagelayout.{pagelayout}.colPos.0.slide}'}" />
-                </main>
+                </div>
             </div>
         </div>
     </div>
