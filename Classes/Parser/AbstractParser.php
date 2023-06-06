@@ -102,6 +102,15 @@ abstract class AbstractParser implements ParserInterface
     }
 
     /**
+     * @param string $filename
+     * @return string
+     */
+    protected function getCacheFileMap(string $filename)
+    {
+        return $filename . '.map';
+    }
+
+    /**
      * @param string $file
      * @param array $settings
      * @return string
