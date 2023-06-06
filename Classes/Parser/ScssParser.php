@@ -65,7 +65,7 @@ class ScssParser extends AbstractParser
                 // Write css file and append reference to source map file
                 GeneralUtility::writeFile(
                     GeneralUtility::getFileAbsFileName($cacheFile),
-                    sprintf("%s /*# sourceMappingURL=%s */", $result['css'], basename($cacheFileMap))
+                    sprintf('%s /*# sourceMappingURL=%s */', $result['css'], basename($cacheFileMap))
                 );
                 // Write map file
                 GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMap), $result['sourceMap']);

@@ -132,7 +132,7 @@ class ScssParserTest extends FunctionalTestCase
      * @return void
      * @dataProvider scssParserCanCompileTestDataProvider
      */
-    public function sourceMapsAreIncluded($file): void
+    public function sourceMapsAreIncluded(string $file): void
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $tsfeBackup = $GLOBALS['TSFE'];
