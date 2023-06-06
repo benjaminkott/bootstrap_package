@@ -145,6 +145,9 @@
             <trans-unit id="pagination.aria.goto.previous" xml:space="preserve">
                 <source>Go to previous page</source>
             </trans-unit>
+            <trans-unit id="footercontent.h2" xml:space="preserve">
+                <source>footer area</source>
+            </trans-unit>
 
         </body>
     </file>
