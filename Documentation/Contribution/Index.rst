@@ -47,6 +47,25 @@ The extension comes with a ready to use DDEV Local configuration. Type
 use ``ddev launch typo3`` to get directly to the backend.
 
 
+Build the frontend files
+========================
+
+When you change any of the SCSS files, the combined and minified versions
+of the CSS have to be rebuild.
+
+You can run them like this:
+
+.. code-block:: bash
+
+   cd Build
+   npm ci
+   npm run build
+
+Then commit any changes to files in folder :file:`Resources/Public/Css`. If you
+ommit any of these steps the pipeline of the automatic checks fails for
+"build-frontend".
+
+
 License
 =======
 
