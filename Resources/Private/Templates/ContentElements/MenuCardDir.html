@@ -6,7 +6,7 @@
         <f:variable name="imageConfig">{settings.responsiveimages.contentelements.menu_card_dir.{data.pi_flexform.columns}}</f:variable>
         <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
         <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
-        <div class="card-menu card-menu card-menu-align-{data.pi_flexform.align} card-menu-columns-{data.pi_flexform.columns}">
+        <div class="card-menu card-menu-align-{data.pi_flexform.align} card-menu-columns-{data.pi_flexform.columns}">
             <f:for each="{menu}" as="page">
                 <div class="card-menu-item">
 
