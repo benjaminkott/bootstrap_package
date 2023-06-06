@@ -2,6 +2,9 @@
 @import 'EXT:indexed_search/Configuration/TypoScript/setup.typoscript'
 
 plugin.tx_indexedsearch {
+    settings {
+        displayRules = 0
+    }
     view {
         templateRootPaths {
             20 = EXT:bootstrap_package/Resources/Private/Templates/IndexedSearch/
