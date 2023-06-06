@@ -63,7 +63,7 @@ class ScssParserTest extends FunctionalTestCase
     /**
      * @return array
      */
-    public function scssParserCanCompileTestDataProvider(): array
+    public static function scssParserCanCompileTestDataProvider(): array
     {
         return [
             'direct include' => [
@@ -148,7 +148,7 @@ class ScssParserTest extends FunctionalTestCase
     {
         $tsfe = new \stdClass();
         $tmpl = new \stdClass();
-        $tmpl->setup = ['plugin.' => ['tx_bootstrappackage.' => ['settings.' => ['sourceMapping' => true]]]];
+        $tmpl->setup = ['plugin.' => ['tx_bootstrappackage.' => ['settings.' => ['cssSourceMapping' => true]]]];
         $tsfe->tmpl = $tmpl;
         return $tsfe;
     }
