@@ -33,12 +33,12 @@
 }
 .breadcrumb-item {
     + .breadcrumb-item {
-        // syntax content: "/" / "" in order to create an empty string for screen readers
-        // in order to prevent the screen reader from reading the optical divider
-        // more information here: https://a11ysupport.io/tests/tech__css__css_generated_content_alt
-        // first line for browser that do not support the new syntax
-        &::before {
+        &:before {
+            // first line for browser that do not support the new syntax
             content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
+            // syntax content: "/" / "" in order to create an empty string for screen readers
+            // in order to prevent the screen reader from reading the optical divider
+            // more information here: https://a11ysupport.io/tests/tech__css__css_generated_content_alt
             content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"} / "";
         }
     }
