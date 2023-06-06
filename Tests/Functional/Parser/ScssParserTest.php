@@ -63,7 +63,7 @@ class ScssParserTest extends FunctionalTestCase
     /**
      * @return array
      */
-    public function scssParserCanCompileTestDataProvider(): array
+    public static function scssParserCanCompileTestDataProvider(): array
     {
         return [
             'direct include' => [
@@ -125,5 +125,31 @@ class ScssParserTest extends FunctionalTestCase
             $compiledFile,
             'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
         );
+    }
+
+    /**
+     * @test
+     * @return void
+     * @dataProvider scssParserCanCompileTestDataProvider
+     */
+    public function sourceMapsAreIncluded(string $file): void
+    {
+        $compileService = GeneralUtility::makeInstance(CompileService::class);
+        $tsfeBackup = $GLOBALS['TSFE'];
+        $GLOBALS['TSFE'] = $this->mockTSFEWithSourceMappingEnabled();
+        $compiledFile = $compileService->getCompiledFile($file);
+        $mapFile = $compiledFile . '.map';
+        $GLOBALS['TSFE'] = $tsfeBackup;
+        self::assertFileExists(Environment::getPublicPath() . '/' . $mapFile);
+        self::assertFileContains(Environment::getPublicPath() . '/' . $compiledFile, '/*# sourceMappingURL=' . basename($mapFile));
+    }
+
+    protected function mockTSFEWithSourceMappingEnabled(): \stdClass
+    {
+        $tsfe = new \stdClass();
+        $tmpl = new \stdClass();
+        $tmpl->setup = ['plugin.' => ['tx_bootstrappackage.' => ['settings.' => ['cssSourceMapping' => true]]]];
+        $tsfe->tmpl = $tmpl;
+        return $tsfe;
     }
 }
