@@ -51,6 +51,7 @@ class ScssParser extends AbstractParser
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
         $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
+        $cacheFileMap = $this->getCacheFileMap($cacheFile);
         $compile = false;
 
         if (!$this->isCached($file, $settings)
@@ -60,7 +61,18 @@ class ScssParser extends AbstractParser
 
         if ($compile) {
             $result = $this->parseFile($file, $settings);
-            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
+            if ($settings['options']['sourceMap']) {
+                // Write css file and append reference to source map file
+                GeneralUtility::writeFile(
+                    GeneralUtility::getFileAbsFileName($cacheFile),
+                    sprintf('%s /*# sourceMappingURL=%s */', $result['css'], basename($cacheFileMap))
+                );
+                // Write map file
+                GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMap), $result['sourceMap']);
+            } else {
+                // Write css file
+                GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFile), $result['css']);
+            }
             GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($cacheFileMeta), serialize($result['cache']));
             $this->clearPageCaches();
         }
@@ -79,10 +91,11 @@ class ScssParser extends AbstractParser
         $scss->setOutputStyle(OutputStyle::COMPRESSED);
         $scss->addVariables($settings['variables']);
         if ($settings['options']['sourceMap']) {
-            $scss->setSourceMap(Compiler::SOURCE_MAP_INLINE);
+            $scss->setSourceMap(Compiler::SOURCE_MAP_FILE);
             $scss->setSourceMapOptions([
                 'sourceMapRootpath' => $settings['cache']['tempDirectoryRelativeToRoot'],
-                'sourceMapBasepath' => '<PATH DOES NOT EXIST BUT SUPRESSES WARNINGS>'
+                'sourceMapBasepath' => Environment::getProjectPath(),
+                'outputSourceFiles' => true,
             ]);
         }
         $absoluteFilename = $settings['file']['absolute'];
@@ -145,8 +158,8 @@ class ScssParser extends AbstractParser
             }
         );
 
-        // Compile file
-        $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"');
+        // Compile file. Second parameter is needed for source mapping
+        $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"', $absoluteFilename);
         $css = $compilationResult->getCss();
 
         // Fix paths in url() statements to be relative to temp directory
@@ -157,6 +170,7 @@ class ScssParser extends AbstractParser
 
         return [
             'css' => $css,
+            'sourceMap' => $compilationResult->getSourceMap(),
             'cache' => [
                 'version' => Version::VERSION,
                 'date' => date('r'),
