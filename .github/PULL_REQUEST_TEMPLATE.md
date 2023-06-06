@@ -15,7 +15,7 @@
 * [ ] Changes have been tested on PHP 8.1
 * [ ] Changes have been tested on PHP 8.2
 * [ ] Changes have been checked for CGL compliance `php-cs-fixer fix`
-* [ ] CSS has been rebuild (only if there are SCSS changes `cd Build; npm ci; ./node_modules/.bin/grunt build`)
+* [ ] CSS has been rebuilt (only if there are SCSS changes `cd Build; npm ci; npm build`)
 
 ## Description
 
