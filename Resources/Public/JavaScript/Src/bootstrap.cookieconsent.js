@@ -18,6 +18,8 @@ window.addEventListener('DOMContentLoaded', function () {
             },
             elements: {
                 header: '<h2 class="cc-header">{{header}}</h2>',
+                dismiss: '<button tabindex="0" class="cc-btn cc-dismiss">{{dismiss}}</button>',
+                allow: '<button tabindex="0" class="cc-btn cc-allow">{{allow}}</button>',
             },
             window:
                 '<div role="dialog" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window {{classes}}"><!--googleoff: all-->{{children}}<!--googleon: all--></div>',
