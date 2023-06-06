@@ -69,7 +69,7 @@
                 <source>Your personal data</source>
             </trans-unit>
             <trans-unit id="contactform.element.mandatory.properties.text">
-                <source>* Mandatory fields</source>
+                <source>Required fields are marked with *</source>
             </trans-unit>
             <trans-unit id="contactform.element.fullname.properties.label">
                 <source>Full name and surname</source>

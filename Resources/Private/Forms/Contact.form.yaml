@@ -27,7 +27,7 @@ renderables:
     renderables:
       -
         properties:
-          text: '* Mandatory fields'
+          text: 'Required fields are marked with *'
         type: StaticText
         identifier: mandatory
         label: 'Your personal data'
