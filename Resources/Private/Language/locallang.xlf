@@ -105,6 +105,16 @@
                 <source>Summary</source>
             </trans-unit>
 
+            <trans-unit id="searchForm.element.defaultOperand.label">
+                <source>Match in</source>
+            </trans-unit>
+            <trans-unit id="searchForm.element.language.label">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="searchForm.element.sortDesc.label">
+                <source>Show in order</source>
+            </trans-unit>
+
             <trans-unit id="cookieconsent.common.header">
                 <source>Cookies used on the website!</source>
             </trans-unit>
