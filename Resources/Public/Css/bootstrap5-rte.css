@@ -112,7 +112,7 @@
   --bs-highlight-bg: #fff3cd;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #dedede;
+  --bs-border-color: #6c6c6c;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0.375rem;
   --bs-border-radius-sm: 0.25rem;
@@ -2149,7 +2149,8 @@ progress {
   color: var(--bs-secondary-color);
 }
 
-.form-control, .form-group input[type="file"] {
+.form-control, .form-group input[type="file"], .frame-type-felogin_login input[type="text"],
+.frame-type-felogin_login input[type="password"] {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -2167,20 +2168,24 @@ progress {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-control, .form-group input[type="file"] {
+  .form-control, .form-group input[type="file"], .frame-type-felogin_login input[type="text"],
+  .frame-type-felogin_login input[type="password"] {
     transition: none;
   }
 }
 
-.form-control[type="file"], .form-group input[type="file"] {
+.form-control[type="file"], .form-group input[type="file"], .frame-type-felogin_login input[type="file"][type="text"],
+.frame-type-felogin_login input[type="file"][type="password"] {
   overflow: hidden;
 }
 
-.form-control[type="file"]:not(:disabled):not([readonly]), .form-group input[type="file"]:not(:disabled):not([readonly]) {
+.form-control[type="file"]:not(:disabled):not([readonly]), .form-group input[type="file"]:not(:disabled):not([readonly]), .frame-type-felogin_login input[type="file"]:not(:disabled):not([readonly])[type="text"],
+.frame-type-felogin_login input[type="file"]:not(:disabled):not([readonly])[type="password"] {
   cursor: pointer;
 }
 
-.form-control:focus, .form-group input:focus[type="file"] {
+.form-control:focus, .form-group input:focus[type="file"], .frame-type-felogin_login input:focus[type="text"],
+.frame-type-felogin_login input:focus[type="password"] {
   color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
   border-color: #95cec7;
@@ -2188,28 +2193,33 @@ progress {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 0 0.25rem rgba(42, 157, 143, 0.25);
 }
 
-.form-control::-webkit-date-and-time-value, .form-group input[type="file"]::-webkit-date-and-time-value {
+.form-control::-webkit-date-and-time-value, .form-group input[type="file"]::-webkit-date-and-time-value, .frame-type-felogin_login input[type="text"]::-webkit-date-and-time-value,
+.frame-type-felogin_login input[type="password"]::-webkit-date-and-time-value {
   min-width: 85px;
   height: 1.5em;
   margin: 0;
 }
 
-.form-control::-webkit-datetime-edit, .form-group input[type="file"]::-webkit-datetime-edit {
+.form-control::-webkit-datetime-edit, .form-group input[type="file"]::-webkit-datetime-edit, .frame-type-felogin_login input[type="text"]::-webkit-datetime-edit,
+.frame-type-felogin_login input[type="password"]::-webkit-datetime-edit {
   display: block;
   padding: 0;
 }
 
-.form-control::placeholder, .form-group input[type="file"]::placeholder {
+.form-control::placeholder, .form-group input[type="file"]::placeholder, .frame-type-felogin_login input[type="text"]::placeholder,
+.frame-type-felogin_login input[type="password"]::placeholder {
   color: var(--bs-secondary-color);
   opacity: 1;
 }
 
-.form-control:disabled, .form-group input:disabled[type="file"] {
+.form-control:disabled, .form-group input:disabled[type="file"], .frame-type-felogin_login input:disabled[type="text"],
+.frame-type-felogin_login input:disabled[type="password"] {
   background-color: var(--bs-secondary-bg);
   opacity: 1;
 }
 
-.form-control::file-selector-button, .form-group input[type="file"]::file-selector-button {
+.form-control::file-selector-button, .form-group input[type="file"]::file-selector-button, .frame-type-felogin_login input[type="text"]::file-selector-button,
+.frame-type-felogin_login input[type="password"]::file-selector-button {
   padding: 0.375rem 0.75rem;
   margin: -0.375rem -0.75rem;
   margin-inline-end: 0.75rem;
@@ -2225,12 +2235,14 @@ progress {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-control::file-selector-button, .form-group input[type="file"]::file-selector-button {
+  .form-control::file-selector-button, .form-group input[type="file"]::file-selector-button, .frame-type-felogin_login input[type="text"]::file-selector-button,
+  .frame-type-felogin_login input[type="password"]::file-selector-button {
     transition: none;
   }
 }
 
-.form-control:hover:not(:disabled):not([readonly])::file-selector-button, .form-group input[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button {
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button, .form-group input[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button, .frame-type-felogin_login input[type="text"]:hover:not(:disabled):not([readonly])::file-selector-button,
+.frame-type-felogin_login input[type="password"]:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: var(--bs-secondary-bg);
 }
 
@@ -2657,7 +2669,8 @@ textarea.form-control-lg {
   position: relative;
 }
 
-.form-floating > .form-control, .form-group .form-floating > input[type="file"],
+.form-floating > .form-control, .form-group .form-floating > input[type="file"], .frame-type-felogin_login .form-floating > input[type="text"],
+.frame-type-felogin_login .form-floating > input[type="password"],
 .form-floating > .form-control-plaintext,
 .form-floating > .form-select {
   height: calc(3.5rem + calc(var(--bs-border-width) * 2));
@@ -2688,24 +2701,29 @@ textarea.form-control-lg {
   }
 }
 
-.form-floating > .form-control, .form-group .form-floating > input[type="file"],
+.form-floating > .form-control, .form-group .form-floating > input[type="file"], .frame-type-felogin_login .form-floating > input[type="text"],
+.frame-type-felogin_login .form-floating > input[type="password"],
 .form-floating > .form-control-plaintext {
   padding: 1rem 0.75rem;
 }
 
-.form-floating > .form-control::placeholder, .form-group .form-floating > input[type="file"]::placeholder,
+.form-floating > .form-control::placeholder, .form-group .form-floating > input[type="file"]::placeholder, .frame-type-felogin_login .form-floating > input[type="text"]::placeholder,
+.frame-type-felogin_login .form-floating > input[type="password"]::placeholder,
 .form-floating > .form-control-plaintext::placeholder {
   color: transparent;
 }
 
-.form-floating > .form-control:focus, .form-group .form-floating > input:focus[type="file"], .form-floating > .form-control:not(:placeholder-shown), .form-group .form-floating > input:not(:placeholder-shown)[type="file"],
+.form-floating > .form-control:focus, .form-group .form-floating > input:focus[type="file"], .frame-type-felogin_login .form-floating > input:focus[type="text"],
+.frame-type-felogin_login .form-floating > input:focus[type="password"], .form-floating > .form-control:not(:placeholder-shown), .form-group .form-floating > input:not(:placeholder-shown)[type="file"], .frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="text"],
+.frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="password"],
 .form-floating > .form-control-plaintext:focus,
 .form-floating > .form-control-plaintext:not(:placeholder-shown) {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
 }
 
-.form-floating > .form-control:-webkit-autofill, .form-group .form-floating > input:-webkit-autofill[type="file"],
+.form-floating > .form-control:-webkit-autofill, .form-group .form-floating > input:-webkit-autofill[type="file"], .frame-type-felogin_login .form-floating > input:-webkit-autofill[type="text"],
+.frame-type-felogin_login .form-floating > input:-webkit-autofill[type="password"],
 .form-floating > .form-control-plaintext:-webkit-autofill {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
@@ -2716,18 +2734,22 @@ textarea.form-control-lg {
   padding-bottom: 0.625rem;
 }
 
-.form-floating > .form-control:focus ~ label, .form-group .form-floating > input:focus[type="file"] ~ label,
+.form-floating > .form-control:focus ~ label, .form-group .form-floating > input:focus[type="file"] ~ label, .frame-type-felogin_login .form-floating > input:focus[type="text"] ~ label, .frame-type-felogin_login .form-floating > input:focus[type="password"] ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-group .form-floating > input:not(:placeholder-shown)[type="file"] ~ label,
+.frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="text"] ~ label,
+.frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="password"] ~ label,
 .form-floating > .form-control-plaintext ~ label,
 .form-floating > .form-select ~ label {
   color: rgba(var(--bs-body-color-rgb), 0.65);
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
-.form-floating > .form-control:focus ~ label::after, .form-group .form-floating > input:focus[type="file"] ~ label::after,
+.form-floating > .form-control:focus ~ label::after, .form-group .form-floating > input:focus[type="file"] ~ label::after, .frame-type-felogin_login .form-floating > input:focus[type="text"] ~ label::after, .frame-type-felogin_login .form-floating > input:focus[type="password"] ~ label::after,
 .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
 .form-group .form-floating > input:not(:placeholder-shown)[type="file"] ~ label::after,
+.frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="text"] ~ label::after,
+.frame-type-felogin_login .form-floating > input:not(:placeholder-shown)[type="password"] ~ label::after,
 .form-floating > .form-control-plaintext ~ label::after,
 .form-floating > .form-select ~ label::after {
   position: absolute;
@@ -2739,7 +2761,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius);
 }
 
-.form-floating > .form-control:-webkit-autofill ~ label, .form-group .form-floating > input:-webkit-autofill[type="file"] ~ label {
+.form-floating > .form-control:-webkit-autofill ~ label, .form-group .form-floating > input:-webkit-autofill[type="file"] ~ label, .frame-type-felogin_login .form-floating > input:-webkit-autofill[type="text"] ~ label, .frame-type-felogin_login .form-floating > input:-webkit-autofill[type="password"] ~ label {
   color: rgba(var(--bs-body-color-rgb), 0.65);
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
@@ -2764,7 +2786,8 @@ textarea.form-control-lg {
   width: 100%;
 }
 
-.input-group > .form-control, .form-group .input-group > input[type="file"],
+.input-group > .form-control, .form-group .input-group > input[type="file"], .frame-type-felogin_login .input-group > input[type="text"],
+.frame-type-felogin_login .input-group > input[type="password"],
 .input-group > .form-select,
 .input-group > .form-floating {
   position: relative;
@@ -2773,7 +2796,8 @@ textarea.form-control-lg {
   min-width: 0;
 }
 
-.input-group > .form-control:focus, .form-group .input-group > input:focus[type="file"],
+.input-group > .form-control:focus, .form-group .input-group > input:focus[type="file"], .frame-type-felogin_login .input-group > input:focus[type="text"],
+.frame-type-felogin_login .input-group > input:focus[type="password"],
 .input-group > .form-select:focus,
 .input-group > .form-floating:focus-within {
   z-index: 5;
@@ -2803,7 +2827,8 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius);
 }
 
-.input-group-lg > .form-control, .form-group .input-group-lg > input[type="file"],
+.input-group-lg > .form-control, .form-group .input-group-lg > input[type="file"], .frame-type-felogin_login .input-group-lg > input[type="text"],
+.frame-type-felogin_login .input-group-lg > input[type="password"],
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn,
@@ -2813,7 +2838,8 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius-lg);
 }
 
-.input-group-sm > .form-control, .form-group .input-group-sm > input[type="file"],
+.input-group-sm > .form-control, .form-group .input-group-sm > input[type="file"], .frame-type-felogin_login .input-group-sm > input[type="text"],
+.frame-type-felogin_login .input-group-sm > input[type="password"],
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn,
@@ -2832,6 +2858,8 @@ textarea.form-control-lg {
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
 .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control,
 .form-group .input-group:not(.has-validation) > .form-floating:not(:last-child) > input[type="file"],
+.frame-type-felogin_login .input-group:not(.has-validation) > .form-floating:not(:last-child) > input[type="text"],
+.frame-type-felogin_login .input-group:not(.has-validation) > .form-floating:not(:last-child) > input[type="password"],
 .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -2841,6 +2869,8 @@ textarea.form-control-lg {
 .input-group.has-validation > .dropdown-toggle:nth-last-child(n + 4),
 .input-group.has-validation > .form-floating:nth-last-child(n + 3) > .form-control,
 .form-group .input-group.has-validation > .form-floating:nth-last-child(n + 3) > input[type="file"],
+.frame-type-felogin_login .input-group.has-validation > .form-floating:nth-last-child(n + 3) > input[type="text"],
+.frame-type-felogin_login .input-group.has-validation > .form-floating:nth-last-child(n + 3) > input[type="password"],
 .input-group.has-validation > .form-floating:nth-last-child(n + 3) > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -2852,7 +2882,8 @@ textarea.form-control-lg {
   border-bottom-left-radius: 0;
 }
 
-.input-group > .form-floating:not(:first-child) > .form-control, .form-group .input-group > .form-floating:not(:first-child) > input[type="file"],
+.input-group > .form-floating:not(:first-child) > .form-control, .form-group .input-group > .form-floating:not(:first-child) > input[type="file"], .frame-type-felogin_login .input-group > .form-floating:not(:first-child) > input[type="text"],
+.frame-type-felogin_login .input-group > .form-floating:not(:first-child) > input[type="password"],
 .input-group > .form-floating:not(:first-child) > .form-select {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -2888,7 +2919,9 @@ textarea.form-control-lg {
   display: block;
 }
 
-.was-validated .form-control:valid, .was-validated .form-group input:valid[type="file"], .form-group .was-validated input:valid[type="file"], .form-control.is-valid, .form-group input.is-valid[type="file"] {
+.was-validated .form-control:valid, .was-validated .form-group input:valid[type="file"], .form-group .was-validated input:valid[type="file"], .was-validated .frame-type-felogin_login input:valid[type="text"], .frame-type-felogin_login .was-validated input:valid[type="text"],
+.was-validated .frame-type-felogin_login input:valid[type="password"], .frame-type-felogin_login .was-validated input:valid[type="password"], .form-control.is-valid, .form-group input.is-valid[type="file"], .frame-type-felogin_login input.is-valid[type="text"],
+.frame-type-felogin_login input.is-valid[type="password"] {
   border-color: var(--bs-form-valid-border-color);
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%235cb85c' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -2897,7 +2930,9 @@ textarea.form-control-lg {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.was-validated .form-control:valid:focus, .was-validated .form-group input:valid:focus[type="file"], .form-group .was-validated input:valid:focus[type="file"], .form-control.is-valid:focus, .form-group input.is-valid:focus[type="file"] {
+.was-validated .form-control:valid:focus, .was-validated .form-group input:valid:focus[type="file"], .form-group .was-validated input:valid:focus[type="file"], .was-validated .frame-type-felogin_login input:valid:focus[type="text"], .frame-type-felogin_login .was-validated input:valid:focus[type="text"],
+.was-validated .frame-type-felogin_login input:valid:focus[type="password"], .frame-type-felogin_login .was-validated input:valid:focus[type="password"], .form-control.is-valid:focus, .form-group input.is-valid:focus[type="file"], .frame-type-felogin_login input.is-valid:focus[type="text"],
+.frame-type-felogin_login input.is-valid:focus[type="password"] {
   border-color: var(--bs-form-valid-border-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-success-rgb), 0.25);
 }
@@ -2953,7 +2988,9 @@ textarea.form-control-lg {
   margin-left: .5em;
 }
 
-.was-validated .input-group > .form-control:not(:focus):valid, .was-validated .form-group .input-group > input:not(:focus):valid[type="file"], .form-group .was-validated .input-group > input:not(:focus):valid[type="file"], .input-group > .form-control:not(:focus).is-valid, .form-group .input-group > input:not(:focus).is-valid[type="file"], .was-validated
+.was-validated .input-group > .form-control:not(:focus):valid, .was-validated .form-group .input-group > input:not(:focus):valid[type="file"], .form-group .was-validated .input-group > input:not(:focus):valid[type="file"], .was-validated .frame-type-felogin_login .input-group > input:not(:focus):valid[type="text"], .frame-type-felogin_login .was-validated .input-group > input:not(:focus):valid[type="text"],
+.was-validated .frame-type-felogin_login .input-group > input:not(:focus):valid[type="password"], .frame-type-felogin_login .was-validated .input-group > input:not(:focus):valid[type="password"], .input-group > .form-control:not(:focus).is-valid, .form-group .input-group > input:not(:focus).is-valid[type="file"], .frame-type-felogin_login .input-group > input:not(:focus).is-valid[type="text"],
+.frame-type-felogin_login .input-group > input:not(:focus).is-valid[type="password"], .was-validated
 .input-group > .form-select:not(:focus):valid,
 .input-group > .form-select:not(:focus).is-valid, .was-validated
 .input-group > .form-floating:not(:focus-within):valid,
@@ -2991,7 +3028,9 @@ textarea.form-control-lg {
   display: block;
 }
 
-.was-validated .form-control:invalid, .was-validated .form-group input:invalid[type="file"], .form-group .was-validated input:invalid[type="file"], .form-control.is-invalid, .form-group input.is-invalid[type="file"] {
+.was-validated .form-control:invalid, .was-validated .form-group input:invalid[type="file"], .form-group .was-validated input:invalid[type="file"], .was-validated .frame-type-felogin_login input:invalid[type="text"], .frame-type-felogin_login .was-validated input:invalid[type="text"],
+.was-validated .frame-type-felogin_login input:invalid[type="password"], .frame-type-felogin_login .was-validated input:invalid[type="password"], .form-control.is-invalid, .form-group input.is-invalid[type="file"], .frame-type-felogin_login input.is-invalid[type="text"],
+.frame-type-felogin_login input.is-invalid[type="password"] {
   border-color: var(--bs-form-invalid-border-color);
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23d9534f'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23d9534f' stroke='none'/%3e%3c/svg%3e");
@@ -3000,7 +3039,9 @@ textarea.form-control-lg {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.was-validated .form-control:invalid:focus, .was-validated .form-group input:invalid:focus[type="file"], .form-group .was-validated input:invalid:focus[type="file"], .form-control.is-invalid:focus, .form-group input.is-invalid:focus[type="file"] {
+.was-validated .form-control:invalid:focus, .was-validated .form-group input:invalid:focus[type="file"], .form-group .was-validated input:invalid:focus[type="file"], .was-validated .frame-type-felogin_login input:invalid:focus[type="text"], .frame-type-felogin_login .was-validated input:invalid:focus[type="text"],
+.was-validated .frame-type-felogin_login input:invalid:focus[type="password"], .frame-type-felogin_login .was-validated input:invalid:focus[type="password"], .form-control.is-invalid:focus, .form-group input.is-invalid:focus[type="file"], .frame-type-felogin_login input.is-invalid:focus[type="text"],
+.frame-type-felogin_login input.is-invalid:focus[type="password"] {
   border-color: var(--bs-form-invalid-border-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-danger-rgb), 0.25);
 }
@@ -3056,7 +3097,9 @@ textarea.form-control-lg {
   margin-left: .5em;
 }
 
-.was-validated .input-group > .form-control:not(:focus):invalid, .was-validated .form-group .input-group > input:not(:focus):invalid[type="file"], .form-group .was-validated .input-group > input:not(:focus):invalid[type="file"], .input-group > .form-control:not(:focus).is-invalid, .form-group .input-group > input:not(:focus).is-invalid[type="file"], .was-validated
+.was-validated .input-group > .form-control:not(:focus):invalid, .was-validated .form-group .input-group > input:not(:focus):invalid[type="file"], .form-group .was-validated .input-group > input:not(:focus):invalid[type="file"], .was-validated .frame-type-felogin_login .input-group > input:not(:focus):invalid[type="text"], .frame-type-felogin_login .was-validated .input-group > input:not(:focus):invalid[type="text"],
+.was-validated .frame-type-felogin_login .input-group > input:not(:focus):invalid[type="password"], .frame-type-felogin_login .was-validated .input-group > input:not(:focus):invalid[type="password"], .input-group > .form-control:not(:focus).is-invalid, .form-group .input-group > input:not(:focus).is-invalid[type="file"], .frame-type-felogin_login .input-group > input:not(:focus).is-invalid[type="text"],
+.frame-type-felogin_login .input-group > input:not(:focus).is-invalid[type="password"], .was-validated
 .input-group > .form-select:not(:focus):invalid,
 .input-group > .form-select:not(:focus).is-invalid, .was-validated
 .input-group > .form-floating:not(:focus-within):invalid,
@@ -13576,7 +13619,8 @@ fieldset.form-group > *:last-child {
   margin-top: 1rem;
 }
 
-.form-control, .form-group input[type="file"] {
+.form-control, .form-group input[type="file"], .frame-type-felogin_login input[type="text"],
+.frame-type-felogin_login input[type="password"] {
   display: block;
   width: 100%;
   padding: .375rem .75rem;
@@ -13586,7 +13630,6 @@ fieldset.form-group > *:last-child {
   color: #212529;
   background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -13594,7 +13637,8 @@ fieldset.form-group > *:last-child {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.form-control.error, .form-group input.error[type="file"] {
+.form-control.error, .form-group input.error[type="file"], .frame-type-felogin_login input.error[type="text"],
+.frame-type-felogin_login input.error[type="password"] {
   border-color: var(--bs-form-invalid-color);
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23d9534f'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23d9534f' stroke='none'/%3e%3c/svg%3e");
@@ -13603,7 +13647,8 @@ fieldset.form-group > *:last-child {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.form-control.error:focus, .form-group input.error:focus[type="file"] {
+.form-control.error:focus, .form-group input.error:focus[type="file"], .frame-type-felogin_login input.error:focus[type="text"],
+.frame-type-felogin_login input.error:focus[type="password"] {
   border-color: var(--bs-form-invalid-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-form-invalid-color), 0.25);
 }
