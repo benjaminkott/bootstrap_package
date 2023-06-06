@@ -4,9 +4,9 @@
             <div class="container">
                 <p class="visually-hidden" id="breadcrumb">{f:translate(key: 'breadcrumb', extensionName: 'bootstrap_package')}</p>
                 <ol class="breadcrumb">
-                    <f:for each="{breadcrumb}" as="item">
+                    <f:for each="{breadcrumb}" as="item" iteration="iterator">
                         <f:variable name="isCurrent" value="0" />
-                        <f:if condition="{item.current} && {breadcrumbExtendedValue} == ''">
+                        <f:if condition="{item.current} && {breadcrumbExtendedValue} == '' && {iterator.isLast}">
                             <f:variable name="isCurrent" value="1" />
                         </f:if>
                         <li class="breadcrumb-item{f:if(condition: isCurrent, then: ' active')}"{f:if(condition: isCurrent, then: ' aria-current="page"')}>
