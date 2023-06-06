@@ -30,7 +30,7 @@ renderables:
           text: '* Mandatory fields'
         type: StaticText
         identifier: mandatory
-        label: 'Your personal data'
+        label: ''
       -
         type: GridRow
         identifier: gridrow
@@ -39,7 +39,7 @@ renderables:
           -
             type: Fieldset
             identifier: fieldset-left
-            label: ''
+            label: 'Your personal data'
             properties:
               gridColumnClassAutoConfiguration:
                 viewPorts:
@@ -86,7 +86,7 @@ renderables:
           -
             type: Fieldset
             identifier: fieldset-right
-            label: ''
+            label: 'Your message'
             properties:
               gridColumnClassAutoConfiguration:
                 viewPorts:
