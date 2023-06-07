@@ -8,6 +8,19 @@
         <div class="accordion" id="accordion-{data.uid}">
             <f:for each="{records}" as="record" iteration="iteration">
                 <div class="accordion-item">
+                    <f:variable name="headerLevelAccordionHeader">
+                        <f:variable name="hadHeader">
+                            <f:if condition="{data.header}">
+                                <f:then>1</f:then>
+                                <f:else>0</f:else></f:if>
+                        </f:variable>
+                        <f:switch expression="{data.header_layout}">
+                            <f:case value="0">{2 + hadHeader}</f:case>
+                            <f:case value="6">6</f:case>
+                            <f:case value="100">2</f:case>
+                            <f:defaultCase>{data.header_layout + hadHeader}</f:defaultCase>
+                        </f:switch>
+                    </f:variable>
                     <h4 class="accordion-header" id="accordion-heading-{data.uid}-{record.data.uid}">
                         <button class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" type="button"
                             data-bs-toggle="collapse"
