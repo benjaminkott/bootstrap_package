@@ -4,6 +4,7 @@
 
     <f:if condition="{records}">
         <f:variable name="currentVariants" value="{variants}" />
+        <f:variable name="subitems_header_layout"><f:if condition="{data.subitems_header_layout}"><f:then>{data.subitems_header_layout}</f:then><f:else>4</f:else></f:if></f:variable>
         <div class="timeline">
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="timeline-item">
@@ -28,7 +29,7 @@
                             </time>
                         </div>
                         <div class="timeline-item-header">
-                            <h4 class="timeline-item-header-headline">{item.data.header}</h4>
+                            <h{subitems_header_layout} class="timeline-item-header-headline">{item.data.header}</h{subitems_header_layout}>
                         </div>
                         <f:if condition="{item.data.bodytext}">
                             <div class="timeline-item-text">

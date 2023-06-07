@@ -42,7 +42,7 @@ CREATE TABLE tt_content (
     background_color_class varchar(255) DEFAULT '' NOT NULL,
     background_image int(11) unsigned DEFAULT '0',
     background_image_options mediumtext,
-    subitems_header_layout int(11) unsigned DEFAULT '3' NOT NULL,
+    subitems_header_layout int(11) unsigned DEFAULT '4' NOT NULL,
 );
 
 

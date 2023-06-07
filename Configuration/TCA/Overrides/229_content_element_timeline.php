@@ -46,7 +46,7 @@ $GLOBALS['TCA']['tt_content']['types']['timeline'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_timeline_item,
+                subitems_header_layout,tx_bootstrappackage_timeline_item,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.options,
                 pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
