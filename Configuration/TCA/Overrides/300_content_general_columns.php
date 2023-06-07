@@ -260,10 +260,6 @@ $GLOBALS['TCA']['tt_content']['columns']['subitems_header_layout'] = [
                 [
                     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.5',
                     'value' => 5,
-                ],
-                [
-                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.6',
-                    'value' => 6,
                 ]
         ]
     ]

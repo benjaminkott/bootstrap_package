@@ -1083,9 +1083,7 @@
             <trans-unit id="subitems_header_layout.5">
                 <source>H5</source>
             </trans-unit>
-            <trans-unit id="subitems_header_layout.6">
-                <source>H6</source>
-            </trans-unit>
+
         </body>
     </file>
 </xliff>

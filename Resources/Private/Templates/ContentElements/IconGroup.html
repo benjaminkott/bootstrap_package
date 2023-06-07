@@ -3,7 +3,6 @@
 <f:section name="Main">
 
     <f:if condition="{records}">
-        <f:variable name="subitems_header_layout"><f:if condition="{data.subitems_header_layout}"><f:then>{data.subitems_header_layout}</f:then><f:else>4</f:else></f:if></f:variable>
         <div class="icongroup icongroup-align-{data.pi_flexform.align} icongroup-columns-{data.pi_flexform.columns} icongroup-iconposition-{data.pi_flexform.icon_position}">
             <f:for each="{records}" as="item" iteration="iteration">
                 <div class="icongroup-item">
@@ -13,11 +12,11 @@
                         </div>
                     </f:if>
                     <div class="icongroup-item-text">
-                        <h{subitems_header_layout} class="icongroup-item-text-header">
+                        <h{data.subitems_header_layout} class="icongroup-item-text-header">
                             <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
                                 {item.data.header}
                             </f:render>
-                        </h{subitems_header_layout}>
+                        </h{data.subitems_header_layout}>
                         <f:if condition="{item.data.subheader}">
                             <p class="icongroup-item-text-subheader">{item.data.subheader}</p>
                         </f:if>

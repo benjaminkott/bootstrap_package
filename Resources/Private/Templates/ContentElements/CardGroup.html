@@ -18,13 +18,15 @@
                             </div>
                         </f:if>
                         <div class="card-body">
-                            <h3 class="card-title">
+                            <h{data.subitems_header_layout} class="card-title">
                                 <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
                                     {item.data.header}
                                 </f:render>
-                            </h3>
+                            </h{data.subitems_header_layout}>
                             <f:if condition="{item.data.subheader}">
-                                <h4 class="card-subtitle">{item.data.subheader}</h4>
+                                <h{data.subitems_header_layout + 1} class="card-subtitle">
+                                    {item.data.subheader}
+                                </h{data.subitems_header_layout + 1}>
                             </f:if>
                             <f:if condition="{item.data.bodytext}">
                                 <f:format.html>{item.data.bodytext}</f:format.html>
