@@ -25,6 +25,12 @@
                 <source>To top</source>
             </trans-unit>
 
+            <trans-unit id="main-navigation.label">
+                <source>main navigation</source>
+            </trans-unit>
+            <trans-unit id="sub-navigation.label">
+                <source>subnavigation</source>
+            </trans-unit>
             <trans-unit id="breadcrumb">
                 <source>You are here:</source>
             </trans-unit>
