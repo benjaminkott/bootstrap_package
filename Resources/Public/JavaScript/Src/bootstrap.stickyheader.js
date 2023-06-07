@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
         ['scroll', 'resize', 'DOMContentLoaded'].forEach(function (e) {
             window.addEventListener(e, animateHeader);
         });
+        animateHeader();
     }
 
 });
