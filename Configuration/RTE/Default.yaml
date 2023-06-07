@@ -90,10 +90,14 @@ editor:
             - { name: "Warning", element: "span", attributes: { 'class': 'text-warning' } }
             - { name: "Danger", element: "span", attributes: { 'class': 'text-danger' } }
 
+        defaultContentLanguage: "en"
+        defaultLanguage: "en"
+        language_list: [ "en:English" ]
+
         toolbarGroups:
             - { name: styles, groups: [ format, styles ] }
             - { name: basicstyles, groups: [ basicstyles ] }
-            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align, bidi ] }
             - "/"
             - { name: links, groups: [ links ] }
             - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
@@ -118,6 +122,7 @@ editor:
             - bootstrappackage_columns
             - bootstrappackage_indent
             - bootstrappackage_table
+            - language
 
         removePlugins:
             - image
@@ -126,6 +131,8 @@ editor:
             - Anchor
             - Underline
             - Strike
+            - BidiLtr
+            - BidiRtl
 
 classesAnchor:
     page:
