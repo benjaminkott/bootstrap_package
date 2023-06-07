@@ -209,7 +209,7 @@ $footer-sections: map-merge(
         }
     }
     .sociallinks-link-label {
-        display: none;
+        @include visually-hidden();
     }
 }
 
