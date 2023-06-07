@@ -10,6 +10,40 @@
 defined('TYPO3') or die('Access denied.');
 
 // Adjust columns for generic usage
+$GLOBALS['TCA']['tt_content']['columns']['header_class'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.header_class',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['', ''],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1', 'h1'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 'h2'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 'h3'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 'h4'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 'h5']
+        ]
+    ],
+    'l10n_mode' => 'exclude',
+];
+$GLOBALS['TCA']['tt_content']['columns']['subheader_class'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.subheader_class',
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+            ['', ''],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1', 'h1'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 'h2'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 'h3'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 'h4'],
+            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 'h5']
+        ]
+    ],
+    'l10n_mode' => 'exclude',
+];
 $GLOBALS['TCA']['tt_content']['columns']['frame_layout'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
@@ -245,22 +279,10 @@ $GLOBALS['TCA']['tt_content']['columns']['subitems_header_layout'] = [
             'renderType' => 'selectSingle',
             'default' => 2,
             'items' => [
-                [
-                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.2',
-                    'value' => 2,
-                ],
-                [
-                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.3',
-                    'value' => 3,
-                ],
-                [
-                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.4',
-                    'value' => 4,
-                ],
-                [
-                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.5',
-                    'value' => 5,
-                ]
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 2],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 3],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 4],
+                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 5]
         ]
     ]
 ];

@@ -2,22 +2,22 @@
 <f:if condition="{subheader}">
     <f:switch expression="{layout}">
         <f:case value="1">
-            <h2 class="{class} {positionClass}">
+            <h2 class="{class} {displayClass} {positionClass}">
                 <span><f:format.htmlspecialchars doubleEncode="false">{subheader}</f:format.htmlspecialchars></span>
             </h2>
         </f:case>
         <f:case value="2">
-            <h3 class="{class} {positionClass}">
+            <h3 class="{class} {displayClass} {positionClass}">
                 <span><f:format.htmlspecialchars doubleEncode="false">{subheader}</f:format.htmlspecialchars></span>
             </h3>
         </f:case>
         <f:case value="3">
-            <h4 class="{class} {positionClass}">
+            <h4 class="{class} {displayClass} {positionClass}">
                 <span><f:format.htmlspecialchars doubleEncode="false">{subheader}</f:format.htmlspecialchars></span>
             </h4>
         </f:case>
         <f:case value="4">
-            <h5 class="{class} {positionClass}">
+            <h5 class="{class} {displayClass} {positionClass}">
                 <span><f:format.htmlspecialchars doubleEncode="false">{subheader}</f:format.htmlspecialchars></span>
             </h5>
         </f:case>
@@ -31,6 +31,7 @@
                 <f:render partial="Header/SubHeader" arguments="{
                     subheader: subheader,
                     class: class,
+                    displayClass: displayClass,
                     positionClass: positionClass,
                     layout: default}" />
             </f:if>
