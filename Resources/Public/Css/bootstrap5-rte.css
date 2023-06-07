@@ -16136,7 +16136,7 @@ textarea.form-control.error {
 
 .card-title {
   font-size: 1.35rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 .card-title a {
@@ -16144,7 +16144,7 @@ textarea.form-control.error {
 }
 
 .card-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: .5em;
 }
 
