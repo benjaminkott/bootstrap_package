@@ -8,7 +8,7 @@
         <f:render partial="Header/Logo" arguments="{_all}" />
         <f:if condition="{mainnavigation}">
             <f:render partial="Header/Toggle" arguments="{_all}" />
-            <nav id="mainnavigation" class="collapse navbar-collapse">
+            <nav aria-label="{f:translate(key: 'main-navigation.label', extensionName: 'bootstrap_package')}" id="mainnavigation" class="collapse navbar-collapse">
                 <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
                 <f:render partial="Navigation/MainNavigation" arguments="{_all}" />
                 <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
