@@ -592,6 +592,7 @@
             <trans-unit id="accordion.default_element">
                 <source>Default Element</source>
             </trans-unit>
+
             <trans-unit id="accordion_item">
                 <source>Accordion Item</source>
             </trans-unit>
@@ -723,6 +724,9 @@
                 <source>Image</source>
             </trans-unit>
 
+            <trans-unit id="icon_group_item">
+                <source>Icon Group Item</source>
+            </trans-unit>
             <trans-unit id="icon_group_item.tt_content">
                 <source>Icon Group</source>
             </trans-unit>
@@ -1066,9 +1070,6 @@
 
             <trans-unit id="subitems_header_layout">
                 <source>Items Header Type</source>
-            </trans-unit>
-            <trans-unit id="subitems_header_layout.1">
-                <source>H1</source>
             </trans-unit>
             <trans-unit id="subitems_header_layout.2">
                 <source>H2</source>
