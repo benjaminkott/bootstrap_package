@@ -237,6 +237,34 @@ $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
 );
 $GLOBALS['TCA']['tt_content']['columns']['frame_class']['onChange'] = 'reload';
 
+// Selector for header layout of subitems
+$GLOBALS['TCA']['tt_content']['columns']['subitems_header_layout'] = [
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 2,
+            'items' => [
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.2',
+                    'value' => 2,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.3',
+                    'value' => 3,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.4',
+                    'value' => 4,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.5',
+                    'value' => 5,
+                ]
+        ]
+    ]
+];
+
 // Add fields to default palettes
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
     --linebreak--,

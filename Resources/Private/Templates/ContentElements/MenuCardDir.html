@@ -25,16 +25,16 @@
                                 </div>
                             </f:if>
                             <f:if condition="{page.title}">
-                                <h3 class="card-title">
+                                <h{data.subitems_header_layout} class="card-title">
                                     <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
                                         <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.title}</f:format.crop>
                                     </a>
-                                </h3>
+                                </h{data.subitems_header_layout}>
                             </f:if>
                             <f:if condition="{page.data.subtitle}">
-                                <h4 class="card-subtitle">
+                                <h{data.subitems_header_layout + 1} class="card-subtitle">
                                     <f:format.crop maxCharacters="{settings.menucard.subtitle.crop}">{page.data.subtitle}</f:format.crop>
-                                </h4>
+                                </h{data.subitems_header_layout + 1}>
                             </f:if>
                             <f:if condition="{page.data.abstract}">
                                 <p class="card-text"><f:format.crop maxCharacters="{settings.menucard.abstract.crop}">{page.data.abstract}</f:format.crop></p>

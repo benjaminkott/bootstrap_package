@@ -18,7 +18,7 @@
                         </f:if>
                     </f:if>
                     <div class="filelink-body">
-                        <h4 class="filelink-heading">
+                        <h{data.subitems_header_layout} class="filelink-heading">
                             <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
                                 <f:if condition="{data.uploads_type} == 1">
                                     <span class="filelink-fileicon">
@@ -48,7 +48,7 @@
                             <f:if condition="{data.filelink_size}">
                                 <span class="filelink-filesize"><f:format.bytes value="{file.properties.size}" /></span>
                             </f:if>
-                        </h4>
+                        </h{data.subitems_header_layout}>
                         <f:if condition="{data.uploads_description}">
                             <f:if condition="{file.properties.description}">
                                 <p class="filelink-filedescription">{file.properties.description}</p>

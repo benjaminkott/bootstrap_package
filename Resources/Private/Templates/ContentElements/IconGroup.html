@@ -12,11 +12,11 @@
                         </div>
                     </f:if>
                     <div class="icongroup-item-text">
-                        <h4 class="icongroup-item-text-header">
+                        <h{data.subitems_header_layout} class="icongroup-item-text-header">
                             <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
                                 {item.data.header}
                             </f:render>
-                        </h4>
+                        </h{data.subitems_header_layout}>
                         <f:if condition="{item.data.subheader}">
                             <p class="icongroup-item-text-subheader">{item.data.subheader}</p>
                         </f:if>
