@@ -2,17 +2,17 @@
 <f:if condition="{header}">
     <f:switch expression="{layout}">
         <f:case value="1">
-            <h1 class="{class} {positionClass}">
+            <h1 class="{class} {displayClass} {positionClass}">
                 <f:link.typolink parameter="{link}"><span>{header}</span></f:link.typolink>
             </h1>
         </f:case>
         <f:case value="2">
-            <h2 class="{class} {positionClass}">
+            <h2 class="{class} {displayClass} {positionClass}">
                 <f:link.typolink parameter="{link}"><span>{header}</span></f:link.typolink>
             </h2>
         </f:case>
         <f:case value="3">
-            <h3 class="{class} {positionClass}">
+            <h3 class="{class} {displayClass} {positionClass}">
                 <f:link.typolink parameter="{link}"><span>{header}</span></f:link.typolink>
             </h3>
         </f:case>
@@ -22,12 +22,12 @@
             </h4>
         </f:case>
         <f:case value="5">
-            <h5 class="{class} {positionClass}">
+            <h5 class="{class} {displayClass} {positionClass}">
                 <f:link.typolink parameter="{link}"><span>{header}</span></f:link.typolink>
             </h5>
         </f:case>
         <f:case value="6">
-            <h6 class="{class} {positionClass}">
+            <h6 class="{class} {displayClass} {positionClass}">
                 <f:link.typolink parameter="{link}"><span>{header}</span></f:link.typolink>
             </h6>
         </f:case>
@@ -40,6 +40,7 @@
                     header: header,
                     layout: default,
                     class: class,
+                    displayClass: displayClass,
                     positionClass: positionClass,
                     link: link}" />
             </f:if>

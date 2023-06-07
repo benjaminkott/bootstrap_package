@@ -13,6 +13,8 @@ CREATE TABLE pages (
 -- Table structure for table 'tt_content'
 --
 CREATE TABLE tt_content (
+    header_class varchar(60) DEFAULT '' NOT NULL,
+    subheader_class varchar(60) DEFAULT '' NOT NULL,
     teaser text,
     aspect_ratio varchar(255) DEFAULT '1.3333333333333' NOT NULL,
     items_per_page int(11) unsigned DEFAULT '10',

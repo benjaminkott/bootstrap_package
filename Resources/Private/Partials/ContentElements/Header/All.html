@@ -6,6 +6,7 @@
                 header: data.header,
                 layout: data.header_layout,
                 class: settings.header.class,
+                displayClass: data.header_class,
                 positionClass: '{f:if(condition: data.header_position, then: \'text-{data.header_position}\')}',
                 link: data.header_link,
                 default: settings.header.defaultHeaderType}" />
@@ -13,6 +14,7 @@
                 subheader: data.subheader,
                 layout: data.header_layout,
                 class: settings.subheader.class,
+                displayClass: data.subheader_class,
                 positionClass: '{f:if(condition: data.header_position, then: \'text-{data.header_position}\')}',
                 default: settings.header.defaultHeaderType}" />
             <f:render partial="Header/Date" arguments="{

@@ -752,6 +752,12 @@
                 <source>Icon</source>
             </trans-unit>
 
+            <trans-unit id="field.header_class">
+                <source>Header Class</source>
+            </trans-unit>
+            <trans-unit id="field.subheader_class">
+                <source>Subheader Class</source>
+            </trans-unit>
             <trans-unit id="field.panel_class">
                 <source>Panel Class</source>
             </trans-unit>
@@ -962,6 +968,21 @@
             <trans-unit id="option.darker">
                 <source>Darker</source>
             </trans-unit>
+            <trans-unit id="option.h1">
+                <source>H1</source>
+            </trans-unit>
+            <trans-unit id="option.h2">
+                <source>H2</source>
+            </trans-unit>
+            <trans-unit id="option.h3">
+                <source>H3</source>
+            </trans-unit>
+            <trans-unit id="option.h4">
+                <source>H4</source>
+            </trans-unit>
+            <trans-unit id="option.h5">
+                <source>H5</source>
+            </trans-unit>
 
             <trans-unit id="ratio.16_9">
                 <source>16:9</source>
@@ -1070,18 +1091,6 @@
 
             <trans-unit id="subitems_header_layout">
                 <source>Items Header Type</source>
-            </trans-unit>
-            <trans-unit id="subitems_header_layout.2">
-                <source>H2</source>
-            </trans-unit>
-            <trans-unit id="subitems_header_layout.3">
-                <source>H3</source>
-            </trans-unit>
-            <trans-unit id="subitems_header_layout.4">
-                <source>H4</source>
-            </trans-unit>
-            <trans-unit id="subitems_header_layout.5">
-                <source>H5</source>
             </trans-unit>
 
         </body>
