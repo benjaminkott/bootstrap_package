@@ -75,14 +75,10 @@ plugin.bootstrap_package {
 
             # cat=bootstrap 5.x: styling/bp5_005/001; type=string; label=$link-color:
             link-color = $primary
-            # cat=bootstrap 5.x: styling/bp5_005/002; type=string; label=$link-decoration:
-            link-decoration = none
-            # cat=bootstrap 5.x: styling/bp5_005/003; type=string; label=$link-shade-percentage:
+            # cat=bootstrap 5.x: styling/bp5_005/002; type=string; label=$link-shade-percentage:
             link-shade-percentage = 20%
-            # cat=bootstrap 5.x: styling/bp5_005/004; type=string; label=$link-hover-color:
+            # cat=bootstrap 5.x: styling/bp5_005/003; type=string; label=$link-hover-color:
             link-hover-color = shift-color($link-color, $link-shade-percentage)
-            # cat=bootstrap 5.x: styling/bp5_005/005; type=string; label=$link-hover-decoration:
-            link-hover-decoration = underline
 
             # cat=bootstrap 5.x: styling/bp5_006/001; type=string; label=$font-family-sans-serif:
             font-family-sans-serif = "#{$google-webfont}", sans-serif
