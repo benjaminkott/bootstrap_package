@@ -3,16 +3,17 @@
 <f:section name="Main">
 
     <f:if condition="{files}">
+        <f:variable name="subitems_header_layout"><f:if condition="{data.subitems_header_layout}"><f:then>{data.subitems_header_layout}</f:then><f:else>4</f:else></f:if></f:variable>
         <ul class="audio-list">
             <f:for each="{files}" as="file">
                 <f:if condition="{file -> bk2k:file.isAudio()}">
                     <li class="audio-list-item">
-                        <h4 class="audio-heading">
+                        <h{subitems_header_layout} class="audio-heading">
                             <f:if condition="{file.properties.title}">
                                 <f:then>{file.properties.title}</f:then>
                                 <f:else>{file.properties.name}</f:else>
                             </f:if>
-                        </h4>
+                        </h{subitems_header_layout}>
                         <f:if condition="{file.properties.description}">
                             <p class="audio-description">{file.properties.description}</p>
                         </f:if>
