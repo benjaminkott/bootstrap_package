@@ -106,3 +106,10 @@ textarea.form-control.error {
         }
     }
 }
+.form-control:focus,
+.form-group input[type="file"]:focus,
+.frame-type-felogin_login input[type="text"]:focus,
+.frame-type-felogin_login input[type="password"]:focus {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+}

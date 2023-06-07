@@ -35,3 +35,8 @@ h6.awesome,
 .h6.awesome {
     @extend .display-6;
 }
+*:focus,
+*:focus-visible {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+}

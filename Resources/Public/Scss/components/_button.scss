@@ -16,3 +16,9 @@
         width: 1.25em;
     }
 }
+.btn:focus-visible,
+.cc-btn:focus-visible {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+    margin: 2px;
+}

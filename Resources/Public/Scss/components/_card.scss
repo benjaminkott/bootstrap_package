@@ -22,6 +22,10 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-img-top {
     overflow: hidden;
+    a:focus {
+        display: block;
+        margin: 4px;
+    }
     picture,
     img {
         width: 100%;

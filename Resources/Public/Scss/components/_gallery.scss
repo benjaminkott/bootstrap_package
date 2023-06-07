@@ -25,6 +25,11 @@ $gallery-gap: .5rem !default;
 }
 .gallery-item {
     width: calc((100% / var(--gallery-columns)) - (var(--gallery-gap) * (var(--gallery-columns) - 1)) / var(--gallery-columns));
+    a:focus {
+        border: 2px solid $white;
+        outline: 2px solid $black;
+        display: block;
+    }
     img,
     picture {
         width: 100%;

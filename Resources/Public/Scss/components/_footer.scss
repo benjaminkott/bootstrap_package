@@ -158,7 +158,7 @@ $footer-sections: map-merge(
 // Footer Language
 // --------------------------------------------------
 .footer-language {
-    overflow: hidden;
+    overflow: visible;
     .language-menu {
         margin: 0;
         list-style: none;

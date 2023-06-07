@@ -424,6 +424,12 @@
         max-height: map-get($navbar-heights, xs) - 30;
     }
 }
+
+// Accessibility
+.nav-link:focus-visible {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+}
 @media (min-width: $grid-float-breakpoint) {
     .navbar {
         transition: all .27s cubic-bezier(0, 0, .58, 1) 0s;

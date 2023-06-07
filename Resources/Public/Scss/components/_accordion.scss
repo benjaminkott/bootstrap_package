@@ -11,6 +11,10 @@ $accordion-content-gap:     $spacer !default;
     flex-wrap: wrap;
     gap: $accordion-content-gap;
 }
+.accordion-button:focus {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+}
 .accordion-content-item {
     order: 1;
     width: 100%;

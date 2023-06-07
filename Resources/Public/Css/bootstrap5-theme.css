@@ -13598,6 +13598,12 @@ fieldset:disabled .cc-btn {
   }
 }
 
+*:focus,
+*:focus-visible {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
+}
+
 .form-group {
   margin-bottom: 1rem;
 }
@@ -13651,6 +13657,15 @@ textarea.form-control.error {
 
 .has-error .help-block.error, .has-error .help-block.success {
   display: block;
+}
+
+.form-control:focus, .form-group input:focus[type="file"], .frame-type-felogin_login input:focus[type="text"],
+.frame-type-felogin_login input:focus[type="password"],
+.form-group input[type="file"]:focus,
+.frame-type-felogin_login input[type="text"]:focus,
+.frame-type-felogin_login input[type="password"]:focus {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
 }
 
 .embed-responsive {
@@ -13739,6 +13754,13 @@ textarea.form-control.error {
   display: inline-block;
   height: 1.25em;
   width: 1.25em;
+}
+
+.btn:focus-visible, .cc-btn:focus-visible,
+.cc-btn:focus-visible {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
+  margin: 2px;
 }
 
 .navbar-mainnavigation {
@@ -14461,6 +14483,11 @@ textarea.form-control.error {
 
 .navbar-transition .navbar-brand-image img {
   max-height: 40px;
+}
+
+.nav-link:focus-visible {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
 }
 
 @media (min-width: 992px) {
@@ -15485,7 +15512,7 @@ textarea.form-control.error {
 }
 
 .footer-language {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .footer-language .language-menu {
@@ -16038,6 +16065,11 @@ textarea.form-control.error {
   gap: 1rem;
 }
 
+.accordion-button:focus {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
+}
+
 .accordion-content-item {
   order: 1;
   width: 100%;
@@ -16129,6 +16161,11 @@ textarea.form-control.error {
 
 .card-img-top {
   overflow: hidden;
+}
+
+.card-img-top a:focus {
+  display: block;
+  margin: 4px;
 }
 
 .card-img-top picture,
@@ -16510,6 +16547,12 @@ figure .caption {
 
 .gallery-item {
   width: calc((100% / var(--gallery-columns)) - (var(--gallery-gap) * (var(--gallery-columns) - 1)) / var(--gallery-columns));
+}
+
+.gallery-item a:focus {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
+  display: block;
 }
 
 .gallery-item img,
@@ -17414,7 +17457,7 @@ blockquote footer:before {
 }
 
 .sociallinks {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .sociallinks-list {
@@ -17468,6 +17511,11 @@ blockquote footer:before {
 
 nav > .pagination {
   margin-bottom: 0;
+}
+
+.page-link:focus {
+  border: 2px solid #ffffff;
+  outline: 2px solid #000000;
 }
 
 .scroll-top {

@@ -4,3 +4,7 @@
 nav > .pagination {
     margin-bottom: 0;
 }
+.page-link:focus {
+    border: 2px solid $white;
+    outline: 2px solid $black;
+}
