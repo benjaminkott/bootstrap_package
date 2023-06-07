@@ -64,26 +64,7 @@ $GLOBALS['TCA']['tt_content']['types']['audio'] = array_replace_recursive(
         ',
         'columnsOverrides' => [
             'assets' => [
-                'config' => [
-                    'filter' => [
-                        0 => [
-                            'parameters' => [
-                                'allowedFileExtensions' => 'mp3'
-                            ]
-                        ]
-                    ],
-                    'overrideChildTca' => [
-                        'columns' => [
-                            'uid_local' => [
-                                'config' => [
-                                    'appearance' => [
-                                        'elementBrowserAllowed' => 'mp3'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
+                'config' => \BK2K\BootstrapPackage\Utility\TcaUtility::getConfigForFileExtensions(['mp3']),
             ]
         ]
     ]
