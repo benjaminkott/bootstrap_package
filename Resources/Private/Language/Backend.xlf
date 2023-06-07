@@ -592,7 +592,9 @@
             <trans-unit id="accordion.default_element">
                 <source>Default Element</source>
             </trans-unit>
-
+            <trans-unit id="accordion.subitems_header_layout">
+                <source>Accordion Items Header Layout</source>
+            </trans-unit>
             <trans-unit id="accordion_item">
                 <source>Accordion Item</source>
             </trans-unit>
@@ -1066,6 +1068,24 @@
             </trans-unit>
             <trans-unit id="container.column.middle_right">
                 <source>Middle Right</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.1">
+                <source>H1</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.2">
+                <source>H2</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.3">
+                <source>H3</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.4">
+                <source>H4</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.5">
+                <source>H5</source>
+            </trans-unit>
+            <trans-unit id="subitems_header_layout.6">
+                <source>H6</source>
             </trans-unit>
         </body>
     </file>

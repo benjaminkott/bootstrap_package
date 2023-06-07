@@ -44,7 +44,7 @@ $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_bootstrappackage_accordion_item,
+                subitems_header_layout,tx_bootstrappackage_accordion_item,
             --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion.options,
                 pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
@@ -88,7 +88,43 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     'mode' => 'select',
                 ]
             ]
+        ],
+        // Selector for header layout of subitems
+        'subitems_header_layout' => [
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion.subitems_header_layout',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'default' => 3,
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.1',
+                        'value' => 1,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.2',
+                        'value' => 2,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.3',
+                        'value' => 3,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.4',
+                        'value' => 4,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.5',
+                        'value' => 5,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:subitems_header_layout.6',
+                        'value' => 6,
+                    ]
+                ],
+            ],
         ]
+
     ]
 );
 
