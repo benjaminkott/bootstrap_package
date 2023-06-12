@@ -7,12 +7,12 @@ $footer-sections: map-merge(
         'content': (
             'background':   $dark,
             'color':        color-contrast($dark),
-            'link-color':   $link-color
+            'link-color':   a11y-color($dark, $link-color)
         ),
         'meta': (
             'background':   $darker,
             'color':        color-contrast($darker),
-            'link-color':   $link-color
+            'link-color':   a11y-color($darker, $link-color)
         )
     ),
     $footer-sections
@@ -36,11 +36,16 @@ $footer-sections: map-merge(
 // --------------------------------------------------
 @each $name, $settings in $footer-sections {
     .footer-section-#{$name} {
-        background-color: #{map-get($settings, 'background')};
-        --frame-color: #{map-get($settings, 'color')};
-        --frame-background: #{map-get($settings, 'background')};
-        --frame-link-color: #{map-get($settings, 'link-color')};
-        --frame-link-hover-color: #{darken(map-get($settings, 'link-color'), 3%)};
+        $background: map-get($settings, 'background');
+        $color: map-get($settings, 'color');
+        $link-color: map-get($settings, 'link-color');
+        $link-hover-color: $link-color;
+
+        background: $background;
+        --frame-color: #{$color};
+        --frame-background: #{$background};
+        --frame-link-color: #{$link-color};
+        --frame-link-hover-color: #{$link-hover-color};
     }
 }
 

@@ -1,0 +1,35 @@
+@function a11y-color($background, $color) {
+    @if contrast-ratio($background, $color) >= $min-contrast-ratio {
+        @return $color;
+    }
+
+    $background-type: a11y-color-type($background);
+    $step: 2%;
+    @if $background-type == 'dark' {
+        $step: - $step;
+    }
+
+    $breakout: 0;
+    $previousColor: $color;
+    @while contrast-ratio($background, $color) < $min-contrast-ratio and $breakout == 0 {
+        $previousColor: $color;
+        $color: shift-color($color, $step);
+
+        @if ($color == $previousColor) {
+            $breakout: 1;
+        }
+    }
+
+    @return $color;
+}
+
+@function a11y-color-type($color) {
+    $light-contrast: contrast-ratio(#ffffff, $color);
+    $dark-contrast: contrast-ratio(#000000, $color);
+
+    @if $light-contrast > $dark-contrast {
+        @return "dark";
+    }
+
+    @return "light";
+}
