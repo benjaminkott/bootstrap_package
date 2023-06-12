@@ -20,10 +20,9 @@ window.addEventListener('DOMContentLoaded', function () {
                     if (navbar && targetOffset !== 0) {
                         targetOffset -= navbar.getBoundingClientRect().height;
                     }
-                    scroll({
-                        top: targetOffset,
-                        behavior: "smooth"
-                    });
+                    scroll({ top: targetOffset, behavior: "smooth" });
+                    target[0].setAttribute('tabindex', '-1');
+                    target[0].focus();
                     return false;
                 }
             }

@@ -1,0 +1,19 @@
+//
+// Skip link
+//
+.page-skip-link {
+    &:focus {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        right: 1rem;
+        background: $primary;
+        color: color-contrast($primary);
+        padding: 1rem;
+        border-radius: $border-radius;
+        border: 2px solid $darker;
+        outline: 2px solid $white;
+        outline-offset: 0;
+        z-index: $zindex-toast;
+    }
+}

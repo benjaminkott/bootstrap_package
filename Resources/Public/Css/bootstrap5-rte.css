@@ -17521,6 +17521,21 @@ nav > .pagination {
   opacity: 1;
 }
 
+.page-skip-link:focus {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  right: 1rem;
+  background: #577760;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 2px solid #212121;
+  outline: 2px solid #ffffff;
+  outline-offset: 0;
+  z-index: 1090;
+}
+
 iframe {
   border: 0;
 }
