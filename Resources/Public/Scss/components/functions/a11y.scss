@@ -14,22 +14,17 @@
     @while contrast-ratio($background, $color) < $min-contrast-ratio and $breakout == 0 {
         $previousColor: $color;
         $color: shift-color($color, $step);
-
         @if ($color == $previousColor) {
             $breakout: 1;
         }
     }
-
     @return $color;
 }
-
 @function a11y-color-type($color) {
     $light-contrast: contrast-ratio(#ffffff, $color);
     $dark-contrast: contrast-ratio(#000000, $color);
-
     @if $light-contrast > $dark-contrast {
         @return "dark";
     }
-
     @return "light";
 }

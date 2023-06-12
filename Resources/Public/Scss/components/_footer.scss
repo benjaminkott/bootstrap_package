@@ -40,7 +40,6 @@ $footer-sections: map-merge(
         $color: map-get($settings, 'color');
         $link-color: map-get($settings, 'link-color');
         $link-hover-color: $link-color;
-
         background: $background;
         --frame-color: #{$color};
         --frame-background: #{$background};
