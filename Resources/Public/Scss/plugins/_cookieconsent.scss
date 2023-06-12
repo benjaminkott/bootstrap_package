@@ -3,9 +3,9 @@
 // --------------------------------------------------
 $cookieconsent-zindex: 1080 !default;
 $cookieconsent-bg: #1b1b1b !default;
-$cookieconsent-color: #ffffff !default;
-$cookieconsent-link-color: $primary !default;
-$cookieconsent-button-bg: $primary !default;
+$cookieconsent-color: color-contrast($cookieconsent-bg) !default;
+$cookieconsent-link-color: a11y-color($cookieconsent-bg, $primary) !default;
+$cookieconsent-button-bg: a11y-color($cookieconsent-bg, $primary) !default;
 $cookieconsent-button-highlight-bg: transparent !default;
 
 //
