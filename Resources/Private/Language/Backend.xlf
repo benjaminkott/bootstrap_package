@@ -481,6 +481,12 @@
             <trans-unit id="carousel.transition.fade">
                 <source>Fade</source>
             </trans-unit>
+            <trans-unit id="carousel.autoplay">
+                <source>Autoplay</source>
+            </trans-unit>
+            <trans-unit id="carousel.autoplay.description">
+                <source>You can make your carousels autoplay on page load by activating this option. For accessibility reasons, we recommend avoiding the use of autoplaying carousels.</source>
+            </trans-unit>
             <trans-unit id="carousel.wrap">
                 <source>Wrap</source>
             </trans-unit>

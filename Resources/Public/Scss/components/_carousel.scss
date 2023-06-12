@@ -223,90 +223,38 @@ $carousel-item-layouts: map-merge(
 // Carousel Navigation
 // --------------------------------------------------
 .carousel {
+    container-type: inline-size;
     overflow: hidden;
-    .carousel-control {
-        width: 50px;
-        @include media-breakpoint-up(sm) {
-            width: 75px;
-        }
-        @include media-breakpoint-up(md) {
-            width: 100px;
-        }
-    }
-    .carousel-indicators {
-        li {
-            overflow: hidden;
-        }
-    }
-    .carousel-control,
-    .carousel-indicators {
-        @include transition(opacity .4s ease-in-out 0s);
-        z-index: 1;
-        opacity: 0;
-    }
-    &:focus-within,
-    &:hover {
-        .carousel-indicators,
-        .carousel-control {
-            opacity: 1;
-        }
-    }
     .carousel-control-icon {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        width: auto;
-        height: auto;
-        color: $body-color;
-        padding: 1rem;
-        background-color: $carousel-control-color;
-        @include transition(all .4s ease-in-out 0s);
-        &:before {
-            opacity: .25;
-            transform: rotate(45deg);
-            content: '';
-            width: .5rem;
-            height: .5rem;
-            display: block;
-            border-top: 1px solid currentColor;
-            border-right: 1px solid currentColor;
+        max-width: calc(100% - 20px);
+    }
+    .carousel-control {
+        width: 40px;
+        @container (min-width: 681px) {
+            width: 50px;
+        }
+        @container (min-width: 1361px) {
+            width: 90px;
         }
     }
-    .carousel-control:focus,
-    .carousel-control:hover {
-        .carousel-control-icon {
-            color: $primary;
-            &:before {
-                opacity: 1;
-            }
+    @container (max-width: 680px) {
+        .carousel-control-prev {
+            justify-content: start;
+        }
+        .carousel-control-next {
+            justify-content: end;
         }
     }
-    .carousel-control-prev .carousel-control-icon {
-        left: -100%;
-        &:before {
-            transform: rotate(225deg);
-        }
-    }
-    .carousel-control-next .carousel-control-icon {
-        right: -100%;
-        &:before {
-            transform: rotate(45deg);
-        }
-    }
-    &:focus-within,
-    &:hover {
-        .carousel-control-prev .carousel-control-icon {
-            left: 0;
-        }
-        .carousel-control-next .carousel-control-icon {
-            right: 0;
+    .carousel-indicators {
+        button {
+            overflow: hidden;
         }
     }
     .carousel-indicators-navigation {
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 0 ($grid-gutter-width / 2);
+        padding: .5rem ($grid-gutter-width / 2);
         margin: 0;
         width: 100%;
         z-index: 15;
@@ -315,9 +263,12 @@ $carousel-item-layouts: map-merge(
         background-color: rgba(0, 0, 0, .5);
         display: flex;
         justify-content: center;
-        > li {
+        > button {
+            color: inherit;
+            position: relative;
             overflow: visible;
-            padding: .75em;
+            padding: .5rem !important;
+            border: 0 !important;
             margin: 0;
             text-indent: 0;
             width: auto;
@@ -328,11 +279,11 @@ $carousel-item-layouts: map-merge(
                 content: '';
                 position: absolute;
                 top: auto;
-                bottom: 0;
-                left: .75em;
-                right: .75em;
+                bottom: calc(.5rem / 2 - 1px);
+                left: .5rem !important;
+                right: .5rem !important;
                 width: auto;
-                border-top: 1px solid $primary;
+                border-top: 2px solid $primary;
             }
             &:first-child {
                 padding-left: 0;

@@ -112,6 +112,10 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.accordion.js',
                 dest: '<%= paths.js %>Dist/bootstrap.accordion.min.js'
             },
+            bootstrapCarousel: {
+                src: '<%= paths.js %>Src/bootstrap.carousel.js',
+                dest: '<%= paths.js %>Dist/bootstrap.carousel.min.js'
+            },
             bootstrapLightbox: {
                 src: '<%= paths.js %>Src/bootstrap.lightbox.js',
                 dest: '<%= paths.js %>Dist/bootstrap.lightbox.min.js'
