@@ -338,8 +338,9 @@ page {
 
     includeJSFooterlibs {
         #### Contrib
-        photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.min.js
-        photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-ui-default.min.js
+        photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.umd.min.js
+        photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-lightbox.umd.min.js
+        photoswipe_caption = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-dynamic-caption-plugin.umd.min.js
 
         #### Custom Modules
         bootstrap_accordion = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.accordion.min.js

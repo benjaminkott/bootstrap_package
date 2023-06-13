@@ -33,6 +33,8 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
         $this->registerTagAttribute('rel', 'string', 'Specifies the relationship between the current document and the linked document', false);
 
         $this->registerArgument('caption', 'string', 'Specifies an caption text', false);
+        $this->registerArgument('lightbox-title', 'string', 'Specifies an title text', false);
+        $this->registerArgument('lightbox-caption', 'string', 'Specifies an caption text', false);
 
         $this->registerArgument('image', 'object', 'image', true);
         $this->registerArgument('crop', 'string|bool', 'overrule cropping of image (setting to FALSE disables the cropping set in FileReference)');
@@ -76,7 +78,8 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
             $this->tag->addAttribute('href', $imageUri);
             $this->tag->addAttribute('data-lightbox-width', $processedImage->getProperty('width') !== null ? strval($processedImage->getProperty('width')) : null);
             $this->tag->addAttribute('data-lightbox-height', $processedImage->getProperty('height') !== null ? strval($processedImage->getProperty('height')) : null);
-            $this->tag->addAttribute('data-lightbox-caption', isset($this->arguments['caption']) ? $this->arguments['caption'] : null);
+            $this->tag->addAttribute('data-lightbox-title', isset($this->arguments['lightbox-title']) ? $this->arguments['lightbox-title'] : (isset($this->arguments['title']) ? $this->arguments['title'] : null));
+            $this->tag->addAttribute('data-lightbox-caption', isset($this->arguments['lightbox-caption']) ? $this->arguments['lightbox-caption'] : (isset($this->arguments['caption']) ? $this->arguments['caption'] : null));
             $this->tag->setContent(strval($this->renderChildren()));
             $this->tag->forceClosingTag(true);
         } catch (ResourceDoesNotExistException $e) {

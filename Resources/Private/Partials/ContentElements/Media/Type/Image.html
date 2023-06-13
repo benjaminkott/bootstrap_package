@@ -15,8 +15,9 @@
                         maxWidth="{settings.lightbox.image.maxWidth}"
                         class="{settings.lightbox.cssClass}"
                         rel="{settings.lightbox.prefix}-{data.uid}"
-                        title="{file.properties.title}"
-                        caption="{file.properties.description}"
+                        title="{f:translate(key: 'lightbox.link.title', extensionName: 'bootstrap_package', arguments: '{0: file.properties.title}')}"
+                        lightbox-title="{file.properties.title}"
+                        lightbox-caption="{file.properties.description}"
                     >
                         <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
                     </bk2k:link.lightbox>
