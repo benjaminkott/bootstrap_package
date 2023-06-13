@@ -15248,18 +15248,11 @@ textarea.form-control.error {
   margin: 0;
 }
 
-.breadcrumb-link {
-  text-decoration: none;
-}
-
-.breadcrumb-link:hover {
-  text-decoration: underline;
-}
-
 .breadcrumb-link-title {
   display: inline-flex;
   align-items: center;
   gap: .25em;
+  text-decoration: inherit;
 }
 
 .subnav-nav {

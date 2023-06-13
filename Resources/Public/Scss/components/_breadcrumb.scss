@@ -20,14 +20,9 @@
         margin: 0;
     }
 }
-.breadcrumb-link {
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
-}
 .breadcrumb-link-title {
     display: inline-flex;
     align-items: center;
     gap: .25em;
+    text-decoration: inherit;
 }
