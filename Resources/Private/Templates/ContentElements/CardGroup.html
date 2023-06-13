@@ -12,16 +12,12 @@
                     <div class="card">
                         <f:if condition="{item.image.0}">
                             <div class="card-img-top">
-                                <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
-                                    <f:render partial="Media/Rendering/Image" arguments="{file: item.image.0, data: data, settings: settings, variants: variants}" />
-                                </f:render>
+                                <f:render partial="Media/Rendering/Image" arguments="{file: item.image.0, data: data, settings: settings, variants: variants}" />
                             </div>
                         </f:if>
                         <div class="card-body">
                             <h{data.subitems_header_layout} class="card-title">
-                                <f:render section="LinkWrap" arguments="{link: item.data.link, linkTitle: item.data.header}" contentAs="content">
-                                    {item.data.header}
-                                </f:render>
+                                {item.data.header}
                             </h{data.subitems_header_layout}>
                             <f:if condition="{item.data.subheader}">
                                 <h{data.subitems_header_layout + 1} class="card-subtitle">

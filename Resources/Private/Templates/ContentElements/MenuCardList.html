@@ -13,9 +13,7 @@
                     <div class="card">
                         <f:if condition="{page.files.0}">
                             <div class="card-img-top">
-                                <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
-                                    <f:render partial="Media/Rendering/Image" arguments="{file: page.files.0, data: page.data, settings: settings, variants: variants}" />
-                                </a>
+                                <f:render partial="Media/Rendering/Image" arguments="{file: page.files.0, data: page.data, settings: settings, variants: variants}" />
                             </div>
                         </f:if>
                         <div class="card-body">
@@ -26,9 +24,7 @@
                             </f:if>
                             <f:if condition="{page.title}">
                                 <h{data.subitems_header_layout} class="card-title">
-                                    <a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} title="{page.title}" data-toggle="tooltip">
-                                        <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.title}</f:format.crop>
-                                    </a>
+                                    <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.title}</f:format.crop>
                                 </h{data.subitems_header_layout}>
                             </f:if>
                             <f:if condition="{page.data.subtitle}">
