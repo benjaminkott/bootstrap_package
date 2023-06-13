@@ -73,7 +73,7 @@ class CompileService
                     && isset($settings['file']['info']['extension'])
                     && $parser->supports($settings['file']['info']['extension'])
                 ) {
-                    if ($configuration['overrideParserVariables']) {
+                    if ((bool) ($configuration['overrideParserVariables'] ?? false)) {
                         $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
                     }
                     try {
