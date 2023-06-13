@@ -96,7 +96,15 @@ module.exports = function(grunt) {
             bootstrappackageicon: {
                 src: '<%= paths.fonts %>bootstrappackageicon.css',
                 dest: '<%= paths.fonts %>bootstrappackageicon.min.css'
-            }
+            },
+            photoswipe: {
+                src: '<%= paths.contrib %>/photoswipe/photoswipe.css',
+                dest: '<%= paths.contrib %>/photoswipe/photoswipe.css'
+            },
+            photoswipedynamiccaptionplugin: {
+                src: '<%= paths.contrib %>/photoswipe/photoswipe-dynamic-caption-plugin.css',
+                dest: '<%= paths.contrib %>/photoswipe/photoswipe-dynamic-caption-plugin.css'
+            },
         },
         uglify: {
             options: {
@@ -238,21 +246,23 @@ module.exports = function(grunt) {
                     {
                         cwd: '<%= paths.node %>photoswipe/dist/',
                         src: [
-                            'photoswipe.min.js',
-                            'photoswipe-ui-default.min.js'
+                            'umd/photoswipe-lightbox.umd.min.js',
+                            'umd/photoswipe.umd.min.js',
+                            'photoswipe.css'
                         ],
                         dest: '<%= paths.contrib %>photoswipe/',
-                        expand: true
+                        expand: true,
+                        flatten: true,
                     },
                     {
-                        cwd: '<%= paths.node %>photoswipe/dist/default-skin/',
+                        cwd: '<%= paths.node %>photoswipe-dynamic-caption-plugin/',
                         src: [
-                            'default-skin.png',
-                            'default-skin.svg',
-                            'preloader.gif'
+                            'dist/photoswipe-dynamic-caption-plugin.umd.min.js',
+                            'photoswipe-dynamic-caption-plugin.css'
                         ],
-                        dest: '<%= paths.images %>PhotoSwipe/',
-                        expand: true
+                        dest: '<%= paths.contrib %>photoswipe/',
+                        expand: true,
+                        flatten: true,
                     }
                 ]
             },
@@ -386,7 +396,7 @@ module.exports = function(grunt) {
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['copy', 'modernizr']);
+    grunt.registerTask('update', ['copy', 'cssmin:photoswipe', 'cssmin:photoswipedynamiccaptionplugin', 'modernizr']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);

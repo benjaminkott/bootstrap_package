@@ -54,6 +54,10 @@
                 <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
             </trans-unit>
 
+            <trans-unit id="lightbox.link.title">
+                <source>Show larger version for: %s</source>
+            </trans-unit>
+
             <trans-unit id="contact.label">
                 <source>Contact</source>
             </trans-unit>

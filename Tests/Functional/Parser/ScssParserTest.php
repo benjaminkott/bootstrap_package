@@ -88,42 +88,11 @@ class ScssParserTest extends FunctionalTestCase
     {
         $compileService = GeneralUtility::makeInstance(CompileService::class);
         $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
-            'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss'
+            'typo3conf/ext/demo_package/Resources/Public/Scss/Path/theme.scss'
         );
         self::assertFileContains(
             $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
-        );
-        self::assertFileContains(
-            $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
-        );
-        self::assertFileContains(
-            $compiledFile,
-            'url("../../../../typo3conf/ext/bootstrap_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function sitepackageImagesAreUsedTest(): void
-    {
-        $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
-            'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss'
-        );
-        self::assertFileContains(
-            $compiledFile,
-            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.png")'
-        );
-        self::assertFileContains(
-            $compiledFile,
-            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/default-skin.svg")'
-        );
-        self::assertFileContains(
-            $compiledFile,
-            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/PhotoSwipe/preloader.gif")'
+            'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/Contrib/BootstrapPackage.svg")'
         );
     }
 
