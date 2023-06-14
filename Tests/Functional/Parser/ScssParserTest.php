@@ -12,7 +12,17 @@ namespace BK2K\BootstrapPackage\Tests\Functional\Parser;
 use BK2K\BootstrapPackage\Service\CompileService;
 use PHPUnit\Framework\ExpectationFailedException;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\EventDispatcher\NoopEventDispatcher;
+use TYPO3\CMS\Core\Http\ServerRequest;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\TypoScript\AST\AstBuilder;
+use TYPO3\CMS\Core\TypoScript\AST\Node\RootNode;
+use TYPO3\CMS\Core\TypoScript\FrontendTypoScript;
+use TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser;
+use TYPO3\CMS\Core\TypoScript\TemplateService;
+use TYPO3\CMS\Core\TypoScript\Tokenizer\LossyTokenizer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
@@ -55,14 +65,15 @@ class ScssParserTest extends FunctionalTestCase
      */
     public function scssParserCanCompileTest(string $inputFile): void
     {
+        $request = $this->buildRequest();
+        $GLOBALS['TSFE'] = $this->buildTsfe();
+
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = $compileService->getCompiledFile($inputFile);
+        $compiledFile = $compileService->getCompiledFile($request, $inputFile);
+
         self::assertFileExists(Environment::getPublicPath() . '/' . $compiledFile);
     }
 
-    /**
-     * @return array
-     */
     public static function scssParserCanCompileTestDataProvider(): array
     {
         return [
@@ -83,39 +94,63 @@ class ScssParserTest extends FunctionalTestCase
      */
     public function urlsAreRelativeToTempTest(): void
     {
+        $request = $this->buildRequest();
+        $GLOBALS['TSFE'] = $this->buildTsfe();
+
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = Environment::getPublicPath() . '/' . $compileService->getCompiledFile(
-            'typo3conf/ext/demo_package/Resources/Public/Scss/Path/theme.scss'
-        );
+        $compiledFile = $compileService->getCompiledFile($request, 'typo3conf/ext/demo_package/Resources/Public/Scss/Path/theme.scss');
+
         self::assertFileContains(
-            $compiledFile,
+            Environment::getPublicPath() . '/' . $compiledFile,
             'url("../../../../typo3conf/ext/demo_package/Resources/Public/Images/Contrib/BootstrapPackage.svg")'
         );
     }
 
     /**
      * @test
-     * @return void
      * @dataProvider scssParserCanCompileTestDataProvider
      */
     public function sourceMapsAreIncluded(string $file): void
     {
+        $request = $this->buildRequest('plugin.tx_bootstrappackage.settings.cssSourceMapping = 1');
+        $GLOBALS['TSFE'] = $this->buildTsfe('plugin.tx_bootstrappackage.settings.cssSourceMapping = 1');
+
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $tsfeBackup = $GLOBALS['TSFE'];
-        $GLOBALS['TSFE'] = $this->mockTSFEWithSourceMappingEnabled();
-        $compiledFile = $compileService->getCompiledFile($file);
+        $compiledFile = $compileService->getCompiledFile($request, $file);
         $mapFile = $compiledFile . '.map';
-        $GLOBALS['TSFE'] = $tsfeBackup;
+
         self::assertFileExists(Environment::getPublicPath() . '/' . $mapFile);
         self::assertFileContains(Environment::getPublicPath() . '/' . $compiledFile, '/*# sourceMappingURL=' . basename($mapFile));
     }
 
-    protected function mockTSFEWithSourceMappingEnabled(): \stdClass
+    protected function buildRequest(string $typoScriptString = ''): ServerRequest
     {
-        $tsfe = new \stdClass();
-        $tmpl = new \stdClass();
-        $tmpl->setup = ['plugin.' => ['tx_bootstrappackage.' => ['settings.' => ['cssSourceMapping' => true]]]];
-        $tsfe->tmpl = $tmpl;
-        return $tsfe;
+        $request = new ServerRequest();
+
+        if ((new Typo3Version())->getMajorVersion() >= 12) {
+            $lineStream = (new LossyTokenizer())->tokenize($typoScriptString);
+            $typoScriptAst = (new AstBuilder(new NoopEventDispatcher()))->build($lineStream, new RootNode());
+            $typoScriptAttribute = new FrontendTypoScript(new RootNode(), []);
+            $typoScriptAttribute->setSetupTree($typoScriptAst);
+            $typoScriptAttribute->setSetupArray($typoScriptAst->toArray());
+            $request = $request->withAttribute('frontend.typoscript', $typoScriptAttribute);
+        }
+
+        return $request;
+    }
+
+    protected function buildTsfe(string $typoScriptString = ''): TypoScriptFrontendController
+    {
+        $typoscriptFrontendcontroller = $this->getMockBuilder(TypoScriptFrontendController::class)->disableOriginalConstructor()->getMock();
+
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            $templateService = $this->getMockBuilder(TemplateService::class)->disableOriginalConstructor()->getMock();
+            $typoScriptParser = new TypoScriptParser();
+            $typoScriptParser->parse($typoScriptString);
+            $templateService->setup = $typoScriptParser->setup;
+            $typoscriptFrontendcontroller->tmpl = $templateService;
+        }
+
+        return $typoscriptFrontendcontroller;
     }
 }

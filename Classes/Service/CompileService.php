@@ -10,6 +10,8 @@
 namespace BK2K\BootstrapPackage\Service;
 
 use BK2K\BootstrapPackage\Parser\ParserInterface;
+use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -33,10 +35,10 @@ class CompileService
      * @return string|null
      * @throws \Exception
      */
-    public function getCompiledFile(string $file): ?string
+    public function getCompiledFile(ServerRequestInterface $request, string $file): ?string
     {
         $absoluteFile = GeneralUtility::getFileAbsFileName($file);
-        $configuration = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
+        $configuration = TypoScriptUtility::getSetup($request)['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
 
         // Ensure cache directory exists
         if (!file_exists(Environment::getPublicPath() . '/' . $this->tempDirectory)) {
@@ -74,7 +76,7 @@ class CompileService
                     && $parser->supports($settings['file']['info']['extension'])
                 ) {
                     if ((bool) ($configuration['overrideParserVariables'] ?? false)) {
-                        $settings['variables'] = $this->getVariablesFromConstants($settings['file']['info']['extension']);
+                        $settings['variables'] = $this->getVariablesFromConstants($request, $settings['file']['info']['extension']);
                     }
                     try {
                         return $parser->compile($file, $settings);
@@ -93,9 +95,9 @@ class CompileService
      * @param string $extension
      * @return array
      */
-    protected function getVariablesFromConstants(string $extension): array
+    protected function getVariablesFromConstants(ServerRequestInterface $request, string $extension): array
     {
-        $constants = $this->getConstants();
+        $constants = TypoScriptUtility::getConstants($request);
         $extension = strtolower($extension);
         $variables = [];
 
@@ -118,19 +120,6 @@ class CompileService
         }
 
         return $variables;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getConstants(): array
-    {
-        if ($GLOBALS['TSFE']->tmpl->flatSetup === null
-        || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-        || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
-        }
-        return $GLOBALS['TSFE']->tmpl->flatSetup;
     }
 
     /**
