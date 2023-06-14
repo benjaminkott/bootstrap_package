@@ -46,7 +46,7 @@
         "b13/container": "^2.0",
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.0.0",
+        "friendsofphp/php-cs-fixer": "^3.14",
         "friendsoftypo3/phpstan-typo3": "^0.9",
         "overtrue/phplint": "^3.2 || ^4.3 || ^5.3",
         "phpstan/phpstan": "^1.7",
