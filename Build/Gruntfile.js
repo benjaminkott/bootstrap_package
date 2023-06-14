@@ -202,7 +202,8 @@ module.exports = function(grunt) {
             icons: {
                 options: {
                     svgoPlugins: [{
-                        removeViewBox: false
+                        collapseGroups: false,
+                        removeViewBox: false,
                     }]
                 },
                 files: [
