@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
+          product-name="bootstrap_package">
+        <header/>
+        <body>
+
+            <trans-unit id="formEditor.elements.GridColumn.label">
+                <source>Grid: Column</source>
+            </trans-unit>
+            <trans-unit id="formEditor.elements.GridColumn.editor.label.label">
+                <source>Name (not visible within frontend)</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

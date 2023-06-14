@@ -37,8 +37,8 @@ renderables:
         label: ''
         renderables:
           -
-            type: Fieldset
-            identifier: fieldset-left
+            type: GridColumn
+            identifier: gridcolumn-left
             label: ''
             properties:
               gridColumnClassAutoConfiguration:
@@ -84,8 +84,8 @@ renderables:
                   -
                     identifier: EmailAddress
           -
-            type: Fieldset
-            identifier: fieldset-right
+            type: GridColumn
+            identifier: gridcolumn-right
             label: ''
             properties:
               gridColumnClassAutoConfiguration:
