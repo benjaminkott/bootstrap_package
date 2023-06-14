@@ -15477,10 +15477,6 @@ textarea.form-control.error {
   font-weight: bold;
 }
 
-.footer-language {
-  overflow: hidden;
-}
-
 .footer-language .language-menu {
   margin: 0;
   list-style: none;
@@ -17334,10 +17330,6 @@ blockquote footer:before {
   .thumbnail-menu-columns-4 {
     --thumbnailmenu-columns: 4;
   }
-}
-
-.sociallinks {
-  overflow: hidden;
 }
 
 .sociallinks-list {
