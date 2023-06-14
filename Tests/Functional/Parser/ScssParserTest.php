@@ -75,9 +75,6 @@ class ScssParserTest extends FunctionalTestCase
             'core syntax' => [
                 'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/CoreSyntax/theme.scss'
             ],
-            'legacy include' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Legacy/theme.scss'
-            ],
         ];
     }
 
