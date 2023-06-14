@@ -9,9 +9,8 @@
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
-use TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser;
-use TYPO3\CMS\Core\TypoScript\TypoScriptService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
@@ -48,13 +47,7 @@ class ConstantsProcessor implements DataProcessorInterface
             $key = 'page';
         }
 
-        // Collect variables
-        $flatConstants = $this->getFlatConstants($key);
-        $typoScriptParser = GeneralUtility::makeInstance(TypoScriptParser::class);
-        $typoScriptParser->parse($flatConstants);
-        $typoScriptArray = $typoScriptParser->setup;
-        $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
-        $constants = $typoScriptService->convertTypoScriptArrayToPlainArray($typoScriptArray);
+        $constants = $this->getConstantsByKey($cObj->getRequest(), $key);
 
         // Set the target variable
         $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
@@ -67,24 +60,13 @@ class ConstantsProcessor implements DataProcessorInterface
         return $processedData;
     }
 
-    /**
-     * @param string $key
-     * @return string
-     */
-    protected function getFlatConstants($key): string
+    protected function getConstantsByKey(ServerRequestInterface $request, string $prefix): array
     {
-        $flatvariables = '';
-        $prefix = $key . '.';
-        if ($GLOBALS['TSFE']->tmpl->flatSetup === null
-            || !is_array($GLOBALS['TSFE']->tmpl->flatSetup)
-            || count($GLOBALS['TSFE']->tmpl->flatSetup) === 0) {
-            $GLOBALS['TSFE']->tmpl->generateConfig();
-        }
-        foreach ($GLOBALS['TSFE']->tmpl->flatSetup as $constant => $value) {
-            if (strpos($constant, $prefix) === 0) {
-                $flatvariables .= substr($constant, strlen($prefix)) . ' = ' . $value . PHP_EOL;
+        return array_filter(
+            TypoScriptUtility::getConstants($request),
+            function (string $name) use ($prefix) {
+                return strpos($name, $prefix . '.') === 0;
             }
-        }
-        return $flatvariables;
+        );
     }
 }

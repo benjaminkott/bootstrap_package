@@ -39,7 +39,7 @@ class PreProcessHook
             $files = [];
             if (is_array($params[$key])) {
                 foreach ($params[$key] as $file => $settings) {
-                    $compiledFile = $this->getCompileService()->getCompiledFile($file);
+                    $compiledFile = $this->getCompileService()->getCompiledFile($GLOBALS['TYPO3_REQUEST'], $file);
                     if ($compiledFile !== null) {
                         $settings['file'] = $compiledFile;
                         $files[$compiledFile] = $settings;

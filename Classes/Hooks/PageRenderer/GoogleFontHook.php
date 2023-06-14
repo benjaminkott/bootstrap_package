@@ -13,7 +13,6 @@ namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 use BK2K\BootstrapPackage\Service\GoogleFontService;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Http\ApplicationType;
-use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -53,34 +52,12 @@ class GoogleFontHook
                 foreach ($params[$section] as $file => $settings) {
                     $cachedFile = $this->getGoogleFontService()->getCachedFile($file);
                     if ($cachedFile !== null) {
-                        $this->adjustTypoScriptCssConfiguration($include, $file, $cachedFile);
                         $settings['file'] = $cachedFile;
                         $files[$cachedFile] = $settings;
                     } else {
                         $files[$file] = $settings;
                     }
                     $params[$section] = $files;
-                }
-            }
-        }
-    }
-
-    /**
-     * @param string $include
-     * @param string $file
-     * @param string $cachedFile
-     */
-    protected function adjustTypoScriptCssConfiguration($include, $file, $cachedFile): void
-    {
-        $includeFilesConfiguration = $this->getTemplateService()->setup['page.'][$include . '.'];
-        if (is_array($includeFilesConfiguration) && count($includeFilesConfiguration) > 0) {
-            foreach ($includeFilesConfiguration as $includeKey => $includeFilename) {
-                if (substr($includeKey, -1) === '.') {
-                    continue;
-                }
-                if ($file === $includeFilename) {
-                    $this->getTemplateService()->setup['page.'][$include . '.'][$includeKey] = $cachedFile;
-                    break;
                 }
             }
         }
@@ -97,14 +74,5 @@ class GoogleFontHook
             $this->googleFontService = GeneralUtility::makeInstance(GoogleFontService::class);
         }
         return $this->googleFontService;
-    }
-
-    /**
-     * @return TemplateService
-     */
-    private function getTemplateService(): TemplateService
-    {
-        $frontendController = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.controller', $GLOBALS['TSFE']);
-        return $frontendController->tmpl;
     }
 }
