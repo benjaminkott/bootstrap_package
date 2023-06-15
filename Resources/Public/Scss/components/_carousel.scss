@@ -222,20 +222,32 @@ $carousel-item-layouts: map-merge(
 //
 // Carousel Navigation
 // --------------------------------------------------
+:root {
+    --carousel-control-width: 40px;
+}
 .carousel {
     container-type: inline-size;
     overflow: hidden;
+    @container (min-width: 681px) {
+        --carousel-control-width: 50px;
+    }
+    @container (min-width: 1361px) {
+        --carousel-control-width: 90px;
+    }
     .carousel-control-icon {
         max-width: calc(100% - 20px);
     }
     .carousel-control {
-        width: 40px;
-        @container (min-width: 681px) {
-            width: 50px;
+        width: var(--carousel-control-width);
+        &:focus {
+            .carousel-control-icon {
+                outline: 2px solid;
+            }
         }
-        @container (min-width: 1361px) {
-            width: 90px;
-        }
+    }
+    .carousel-control-icon {
+        border-radius: 2px;
+        background-size: calc(100% - 4px);
     }
     @container (max-width: 680px) {
         .carousel-control-prev {
@@ -246,8 +258,22 @@ $carousel-item-layouts: map-merge(
         }
     }
     .carousel-indicators {
+        align-items: center;
+        color: $carousel-caption-color;
         button {
+            border-radius: 2px;
             overflow: hidden;
+            color: inherit;
+            height: 4px;
+            &:focus {
+                outline-offset: 1px;
+                outline: 2px solid currentColor;
+            }
+            &.active {
+                height: 8px;
+                border-top-width: 8px;
+                border-bottom-width: 8px;
+            }
         }
     }
     .carousel-indicators-navigation {
@@ -259,12 +285,10 @@ $carousel-item-layouts: map-merge(
         width: 100%;
         z-index: 15;
         opacity: 1;
-        color: $carousel-caption-color;
         background-color: rgba(0, 0, 0, .5);
         display: flex;
         justify-content: center;
         > button {
-            color: inherit;
             position: relative;
             overflow: visible;
             padding: .5rem !important;
@@ -272,7 +296,7 @@ $carousel-item-layouts: map-merge(
             margin: 0;
             text-indent: 0;
             width: auto;
-            height: auto;
+            height: auto !important;
             background-color: transparent;
             cursor: pointer;
             &.active:before {
@@ -355,6 +379,10 @@ $carousel-item-layouts: map-merge(
         }
     }
 }
+.frame .carousel-item-type-text_and_image {
+    padding-left: calc(var(--carousel-control-width) + .25rem);
+    padding-right: calc(var(--carousel-control-width) + .25rem);
+}
 
 //
 // Type: Background Image
@@ -388,6 +416,10 @@ $carousel-item-layouts: map-merge(
             margin-bottom: 0;
         }
     }
+}
+.frame .carousel-item-type-call_to_action {
+    padding-left: calc(var(--carousel-control-width) + .25rem);
+    padding-right: calc(var(--carousel-control-width) + .25rem);
 }
 
 //

@@ -58,6 +58,10 @@
                 <source>Show larger version for: %s</source>
             </trans-unit>
 
+            <trans-unit id="carousel.indicator.title">
+                <source>Go to slide: %s</source>
+            </trans-unit>
+
             <trans-unit id="contact.label">
                 <source>Contact</source>
             </trans-unit>

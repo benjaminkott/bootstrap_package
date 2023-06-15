@@ -15766,9 +15766,25 @@ textarea.form-control.error {
   margin-bottom: 0;
 }
 
+:root {
+  --carousel-control-width: 40px;
+}
+
 .carousel {
   container-type: inline-size;
   overflow: hidden;
+}
+
+@container (min-width: 681px) {
+  .carousel {
+    --carousel-control-width: 50px;
+  }
+}
+
+@container (min-width: 1361px) {
+  .carousel {
+    --carousel-control-width: 90px;
+  }
 }
 
 .carousel .carousel-control-icon {
@@ -15776,19 +15792,16 @@ textarea.form-control.error {
 }
 
 .carousel .carousel-control {
-  width: 40px;
+  width: var(--carousel-control-width);
 }
 
-@container (min-width: 681px) {
-  .carousel .carousel-control {
-    width: 50px;
-  }
+.carousel .carousel-control:focus .carousel-control-icon {
+  outline: 2px solid;
 }
 
-@container (min-width: 1361px) {
-  .carousel .carousel-control {
-    width: 90px;
-  }
+.carousel .carousel-control-icon {
+  border-radius: 2px;
+  background-size: calc(100% - 4px);
 }
 
 @container (max-width: 680px) {
@@ -15800,8 +15813,27 @@ textarea.form-control.error {
   }
 }
 
+.carousel .carousel-indicators {
+  align-items: center;
+  color: #ffffff;
+}
+
 .carousel .carousel-indicators button {
+  border-radius: 2px;
   overflow: hidden;
+  color: inherit;
+  height: 4px;
+}
+
+.carousel .carousel-indicators button:focus {
+  outline-offset: 1px;
+  outline: 2px solid currentColor;
+}
+
+.carousel .carousel-indicators button.active {
+  height: 8px;
+  border-top-width: 8px;
+  border-bottom-width: 8px;
 }
 
 .carousel .carousel-indicators-navigation {
@@ -15813,14 +15845,12 @@ textarea.form-control.error {
   width: 100%;
   z-index: 15;
   opacity: 1;
-  color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
 }
 
 .carousel .carousel-indicators-navigation > button {
-  color: inherit;
   position: relative;
   overflow: visible;
   padding: .5rem !important;
@@ -15828,7 +15858,7 @@ textarea.form-control.error {
   margin: 0;
   text-indent: 0;
   width: auto;
-  height: auto;
+  height: auto !important;
   background-color: transparent;
   cursor: pointer;
 }
@@ -15915,6 +15945,11 @@ textarea.form-control.error {
   }
 }
 
+.frame .carousel-item-type-text_and_image {
+  padding-left: calc(var(--carousel-control-width) + .25rem);
+  padding-right: calc(var(--carousel-control-width) + .25rem);
+}
+
 .carousel-item-type-background_image a {
   display: block;
   position: absolute;
@@ -15942,6 +15977,11 @@ textarea.form-control.error {
 
 .carousel-item-type-call_to_action .carousel-box > *:last-child {
   margin-bottom: 0;
+}
+
+.frame .carousel-item-type-call_to_action {
+  padding-left: calc(var(--carousel-control-width) + .25rem);
+  padding-right: calc(var(--carousel-control-width) + .25rem);
 }
 
 .carousel-item-type-image .carousel-image {

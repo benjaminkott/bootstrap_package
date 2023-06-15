@@ -3,7 +3,14 @@
     <div class="carousel-indicators{f:if(condition: data.pi_flexform.show_nav_title,then:' carousel-indicators-navigation')}">
         <f:for each="{records}" as="item" iteration="iteration">
             <f:variable name="indicatorLabel">{f:if(condition: item.data.nav_title, then: item.data.nav_title, else: item.data.header)}</f:variable>
-            <button type="button" data-bs-target="#carousel-{data.uid}" data-bs-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst,then:'active')}" aria-current="true" aria-label="{indicatorLabel}">
+            <button
+                type="button"
+                data-bs-target="#carousel-{data.uid}"
+                data-bs-slide-to="{iteration.index}"
+                class="{f:if(condition: iteration.isFirst, then: 'active')}"
+                aria-current="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}"
+                aria-label="{f:translate(key: 'carousel.indicator.title', extensionName: 'bootstrap_package', arguments: '{0: indicatorLabel}')}"
+            >
                 <span>{indicatorLabel}</span>
             </button>
         </f:for>
