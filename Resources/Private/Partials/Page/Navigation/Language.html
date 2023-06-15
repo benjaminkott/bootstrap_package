@@ -11,14 +11,16 @@
             <f:for each="{languagenavigation}" as="item">
                 <li class="{f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'inactive')}">
                     <f:if condition="{item.available}">
-                        <f:then>
-                            <a href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
+                        <f:if condition="!{item.active}">
+                            <f:then>
+                                <a href="{item.link}" hreflang="{item.hreflang}"">
+                                    <span>{item.navigationTitle}</span>
+                                </a>
+                            </f:then>
+                            <f:else>
                                 <span>{item.navigationTitle}</span>
-                            </a>
-                        </f:then>
-                        <f:else>
-                            <span>{item.navigationTitle}</span>
-                        </f:else>
+                            </f:else>
+                        </f:if>
                     </f:if>
                 </li>
             </f:for>

@@ -15495,7 +15495,7 @@ textarea.form-control.error {
   }
 }
 
-.footer-language .language-menu .active a {
+.footer-language .language-menu .active {
   font-weight: bold;
 }
 
