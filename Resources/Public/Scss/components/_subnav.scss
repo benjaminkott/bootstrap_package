@@ -6,10 +6,10 @@ $subnav-line-height:          1.25 !default;
 $subnav-link-padding-x:       1rem !default;
 $subnav-link-padding-y:       .5rem !default;
 $subnav-border-color:         #e6e6e6 !default;
-$subnav-color:                rgba($black, .5) !default;
-$subnav-hover-color:          rgba($black, .7) !default;
+$subnav-color:                rgba($black, .55) !default;
+$subnav-hover-color:          rgba($black, .75) !default;
 $subnav-hover-bg:             #f2f2f2 !default;
-$subnav-active-color:         $link-color !default;
+$subnav-active-color:         a11y-color(#f2f2f2, $link-color) !default;
 $subnav-active-bg:            transparent !default;
 
 //
@@ -55,7 +55,7 @@ $subnav-active-bg:            transparent !default;
     display: flex;
     align-items: center;
     padding: $subnav-link-padding-y $subnav-link-padding-x;
-    color: inherit;
+    color: $subnav-color;
     border: 1px solid $subnav-border-color;
     transition: all .15s ease-in-out;
     text-decoration: none;
