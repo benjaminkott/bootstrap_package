@@ -55,4 +55,43 @@ class TypoScriptUtility
 
         return [];
     }
+
+    public static function getConstantsByPrefix(ServerRequestInterface $request, string $prefix, bool $stripPrefix = true): array
+    {
+        $constants = array_filter(
+            self::getConstants($request),
+            function (string $name) use ($prefix) {
+                return strpos($name, $prefix . '.') === 0;
+            },
+            ARRAY_FILTER_USE_KEY
+        );
+
+        if ($stripPrefix === false) {
+            return $constants;
+        }
+
+        $processedConstants = [];
+        foreach ($constants as $name => $value) {
+            $processedConstants[substr($name, strlen($prefix . '.'))] = $value;
+        }
+
+        return $processedConstants;
+    }
+
+    public static function unflatten(array $input): array
+    {
+        $output = [];
+        foreach ($input as $key => $value) {
+            $parts = explode('.', $key);
+            $nested = &$output;
+            while (count($parts) > 1) {
+                $nested = &$nested[array_shift($parts)];
+                if (!is_array($nested)) {
+                    $nested = [];
+                }
+            }
+            $nested[array_shift($parts)] = $value;
+        }
+        return $output;
+    }
 }

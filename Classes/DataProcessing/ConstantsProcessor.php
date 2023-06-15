@@ -47,7 +47,8 @@ class ConstantsProcessor implements DataProcessorInterface
             $key = 'page';
         }
 
-        $constants = $this->getConstantsByKey($cObj->getRequest(), $key);
+        $constants = TypoScriptUtility::getConstantsByPrefix($cObj->getRequest(), $key);
+        $constants = TypoScriptUtility::unflatten($constants);
 
         // Set the target variable
         $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
@@ -58,15 +59,5 @@ class ConstantsProcessor implements DataProcessorInterface
         }
 
         return $processedData;
-    }
-
-    protected function getConstantsByKey(ServerRequestInterface $request, string $prefix): array
-    {
-        return array_filter(
-            TypoScriptUtility::getConstants($request),
-            function (string $name) use ($prefix) {
-                return strpos($name, $prefix . '.') === 0;
-            }
-        );
     }
 }
