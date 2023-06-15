@@ -10,7 +10,6 @@
 namespace BK2K\BootstrapPackage\DataProcessing;
 
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
-use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
