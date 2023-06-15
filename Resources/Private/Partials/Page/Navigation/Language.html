@@ -1,20 +1,30 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:if condition="{languagenavigation}">
-    <ul id="language_menu" class="language-menu">
-        <f:for each="{languagenavigation}" as="item">
-            <li class="{f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'inactive')}">
-                <f:if condition="{item.available}">
-                    <f:then>
-                        <a href="{item.link}" hreflang="{item.hreflang}" title="{item.title}">
-                            <span>{item.navigationTitle}</span>
-                        </a>
-                    </f:then>
-                    <f:else>
-                        <span>{item.navigationTitle}</span>
-                    </f:else>
-                </f:if>
-            </li>
-        </f:for>
-    </ul>
+<f:variable name="counter" value="0" />
+<f:for each="{languagenavigation}" as="language">
+    <f:if condition="{language.available}">
+        <f:variable name="counter" value="{counter + 1}" />
+    </f:if>
+</f:for>
+<f:if condition="{counter} > 1">
+    <div class="footer-language">
+        <ul id="language_menu" class="language-menu">
+            <f:for each="{languagenavigation}" as="item">
+                <li class="{f:if(condition: item.active, then: 'active')} {f:if(condition: item.available, else: 'inactive')}">
+                    <f:if condition="{item.available}">
+                        <f:if condition="!{item.active}">
+                            <f:then>
+                                <a href="{item.link}" hreflang="{item.hreflang}"">
+                                    <span>{item.navigationTitle}</span>
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <span>{item.navigationTitle}</span>
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </div>
 </f:if>
 </html>
