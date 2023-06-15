@@ -1,35 +1,36 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
 <figure class="image">
+    <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
+    <f:if condition="{file.properties.description}">
+        <figcaption class="caption"><f:format.nl2br>{file.properties.description}</f:format.nl2br></figcaption>
+    </f:if>
     <f:if condition="{file.properties.link}">
         <f:then>
-            <f:link.typolink parameter="{file.properties.link}" title="{file.properties.title}">
-                <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
-            </f:link.typolink>
+            <f:link.typolink parameter="{file.properties.link}" />
         </f:then>
         <f:else>
             <f:if condition="{data.image_zoom}">
-                <f:then>
-                    <bk2k:link.lightbox
-                        image="{file}"
-                        maxHeight="{settings.lightbox.image.maxHeight}"
-                        maxWidth="{settings.lightbox.image.maxWidth}"
-                        class="{settings.lightbox.cssClass}"
-                        rel="{settings.lightbox.prefix}-{data.uid}"
-                        title="{f:translate(key: 'lightbox.link.title', extensionName: 'bootstrap_package', arguments: '{0: file.properties.title}')}"
-                        lightbox-title="{file.properties.title}"
-                        lightbox-caption="{file.properties.description}"
-                    >
-                        <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
-                    </bk2k:link.lightbox>
-                </f:then>
-                <f:else>
-                    <f:render partial="Media/Rendering/Image" arguments="{file: file, data: data, settings: settings, variants: variants}" />
-                </f:else>
+                <bk2k:link.lightbox
+                    image="{file}"
+                    maxHeight="{settings.lightbox.image.maxHeight}"
+                    maxWidth="{settings.lightbox.image.maxWidth}"
+                    class="{settings.lightbox.cssClass}"
+                    rel="{settings.lightbox.prefix}-{data.uid}"
+                    lightbox-title="{file.properties.title}"
+                    lightbox-alt="{file.properties.alternative}"
+                    lightbox-caption="{file.properties.description}"
+                >
+                    <f:if condition="{file.properties.title}">
+                        <f:then>
+                            {f:translate(key: 'lightbox.link.title.prefixed', extensionName: 'bootstrap_package', arguments: '{0: file.properties.title}')}
+                        </f:then>
+                        <f:else>
+                            {f:translate(key: 'lightbox.link.title', extensionName: 'bootstrap_package')}
+                        </f:else>
+                    </f:if>
+                </bk2k:link.lightbox>
             </f:if>
         </f:else>
-    </f:if>
-    <f:if condition="{file.properties.description}">
-        <figcaption class="caption"><f:format.nl2br>{file.properties.description}</f:format.nl2br></figcaption>
     </f:if>
 </figure>
 </html>

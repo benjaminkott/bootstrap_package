@@ -10,36 +10,36 @@ window.addEventListener('DOMContentLoaded', function () {
             let title = null;
             if ("lightboxTitle" in element.dataset && element.dataset.lightboxTitle !== '') {
                 title = element.dataset.lightboxTitle
-            } else if (element.hasAttribute('title') && element.getAttribute('title') !== '') {
-                title = element.getAttribute('title');
+            }
+            let alternative = null;
+            if ("lightboxAlt" in element.dataset && element.dataset.lightboxAlt !== '') {
+                alternative = element.dataset.lightboxAlt
             }
             let caption = null;
             if ("lightboxCaption" in element.dataset && element.dataset.lightboxCaption !== '') {
                 caption = element.dataset.lightboxCaption
-            } else if (element.parentNode.querySelector('figcaption') && element.parentNode.querySelector('figcaption').textContent !== '') {
-                caption = element.parentNode.querySelector('figcaption').textContent
-            }
-            if (caption) {
                 caption = caption.replace(/(?:\r\n|\r|\n)/g, '<br />');
             }
-            if (!title && !!caption) {
-                // If title is not given but caption is, swap properties to workaround an issue where photoswipe doesn't
-                // show the description
-                title = caption;
-                caption = null;
+
+            let imgElement = null;
+            if (element.querySelector('img')) {
+                imgElement = element.querySelector('img');
+            } else if (element.parentElement.querySelector('img')) {
+                imgElement = element.parentElement.querySelector('img');
             }
+
             let item = {
                 id: Array.from(document.querySelectorAll('a.lightbox[rel=' + gid + ']')).indexOf(element),
                 src: element.getAttribute('href'),
                 width: element.dataset.lightboxWidth,
                 height: element.dataset.lightboxHeight,
                 title: title,
+                alt: alternative,
                 caption: caption,
                 element: element,
+                imgElement: imgElement,
             };
-            if (element.querySelector('img')) {
-                item.msrc = element.querySelector('img').getAttribute('src');
-            }
+
             items.push(item);
         });
 
@@ -50,6 +50,12 @@ window.addEventListener('DOMContentLoaded', function () {
                 bgOpacity: 1,
                 showHideAnimationType: 'zoom',
                 pswpModule: PhotoSwipe
+            });
+            gallery.addFilter('thumbEl', (thumbEl, data, index) => {
+                if (data.imgElement) {
+                    return data.imgElement;
+                }
+                return thumbEl;
             });
             new PhotoSwipeDynamicCaption(gallery, {
                 type: 'auto',

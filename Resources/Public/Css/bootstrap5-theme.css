@@ -18332,6 +18332,26 @@ a.lightbox {
   cursor: zoom-in;
 }
 
+.image {
+  position: relative;
+}
+
+.image > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  outline: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+.image > a:focus {
+  outline-offset: 1px;
+  outline: 2px solid;
+}
+
 .pswp__dynamic-caption__title,
 .pswp__dynamic-caption__subtitle {
   word-wrap: break-word;

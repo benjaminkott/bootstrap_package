@@ -55,6 +55,9 @@
             </trans-unit>
 
             <trans-unit id="lightbox.link.title">
+                <source>Show larger version</source>
+            </trans-unit>
+            <trans-unit id="lightbox.link.title.prefixed">
                 <source>Show larger version for: %s</source>
             </trans-unit>
 
