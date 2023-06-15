@@ -12,11 +12,11 @@
     <div class="section section-default">
         <div class="container">
             <div class="section-row">
-                <div class="section-column subnav-wrap">
-                    <f:render partial="Navigation/Subnavigation" arguments="{_all}" />
-                </div>
                 <div class="section-column maincontent-wrap">
                     <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0', slide: '{theme.pagelayout.{pagelayout}.colPos.0.slide}'}" />
+                </div>
+                <div class="section-column subnav-wrap">
+                    <f:render partial="Navigation/Subnavigation" arguments="{_all}" />
                 </div>
             </div>
         </div>
