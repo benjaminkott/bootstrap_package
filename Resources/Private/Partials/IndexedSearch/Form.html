@@ -28,21 +28,47 @@
                 <f:form.submit name="search[submitButton]" value="{f:translate(key: 'form.submit')}" id="tx-indexedsearch-searchbox-button-submit" class="btn btn-primary" />
             </div>
         </div>
-        <f:if condition="{settings.displayAdvancedSearchLink}">
-            <p>
-                <f:if condition="{searchParams.extendedSearch}">
-                    <f:then>
-                        <f:link.action action="form" arguments="{search: {extendedSearch: 0}}">
-                            <f:translate key="form.linkToRegularSearch" />
-                        </f:link.action>
-                    </f:then>
-                    <f:else>
-                        <f:link.action action="form" arguments="{search: {extendedSearch: 1}}">
-                            <f:translate key="form.linkToAdvancedSearch" />
-                        </f:link.action>
-                    </f:else>
+
+        <f:if condition="{settings.displayAdvancedSearchLink} || {settings.displayRules}">
+            <div class="form-group">
+                <f:if condition="{settings.displayAdvancedSearchLink}">
+                    <f:if condition="{searchParams.extendedSearch}">
+                        <f:then>
+                            <f:link.action class="btn btn-secondary active" action="form" arguments="{search: {extendedSearch: 0}}">
+                                <f:translate key="form.linkToRegularSearch" />
+                            </f:link.action>
+                        </f:then>
+                        <f:else>
+                            <f:link.action class="btn btn-secondary" action="form" arguments="{search: {extendedSearch: 1}}">
+                                <f:translate key="form.linkToAdvancedSearch" />
+                            </f:link.action>
+                        </f:else>
+                    </f:if>
                 </f:if>
-            </p>
+                <f:if condition="{settings.displayRules}">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#rulesModal">
+                        <f:translate key="rules.headline" />
+                    </button>
+                    <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="searchRulesLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="searchRulesLabel">
+                                        <f:translate key="rules.headline" />
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <f:format.raw><f:translate key="rules.text" /></f:format.raw>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:if>
+            </div>
         </f:if>
 
         <f:if condition="{searchParams.extendedSearch}">
