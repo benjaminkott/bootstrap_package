@@ -16012,7 +16012,7 @@ textarea.form-control.error {
   order: 0;
 }
 
-.accordion-content-left .accordion-content-text {
+.accordion-content-right .accordion-content-text {
   order: 0;
 }
 
@@ -16055,7 +16055,7 @@ textarea.form-control.error {
   order: 0;
 }
 
-.tab-pane-content-left .tab-pane-content-text {
+.tab-pane-content-right .tab-pane-content-text {
   order: 0;
 }
 
