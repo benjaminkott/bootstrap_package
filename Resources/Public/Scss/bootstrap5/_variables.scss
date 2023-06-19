@@ -89,7 +89,6 @@ $grid-gutter-width:                 40px !default;
 //
 // Navbar
 // --------------------------------------------------
-$navbar-nav-link-padding-x:         1rem !default;
 $navbar-heights: (
     xs: 70px,
     sm: 70px,
@@ -97,6 +96,14 @@ $navbar-heights: (
     lg: 100px,
     xl: 110px,
     xxl: 110px
+) !default;
+$navbar-dropdown-columns: (
+    xs: 2,
+    sm: 2,
+    md: 4,
+    lg: 4,
+    xl: 6,
+    xxl: 6
 ) !default;
 
 //
@@ -124,6 +131,7 @@ $accordion-padding-x:               1.25rem !default;
 $accordion-body-padding-y:          $accordion-padding-x !default;
 $accordion-body-padding-x:          $accordion-padding-x !default;
 
+//
 // Components
 //
 $border-color:                      $gray-600 !default;

@@ -1,0 +1,57 @@
+//
+// Toggler
+// --------------------------------------------------
+.navbar-toggler {
+    padding: 0;
+    height: 34px;
+    width: 34px;
+    position: relative;
+    border: 0;
+    align-self: center;
+}
+.navbar-toggler-icon:after,
+.navbar-toggler-icon,
+.navbar-toggler-icon:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: none !important;
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    transition: all .3s ease-in;
+}
+.navbar-toggler-icon {
+    top: 50%;
+    left: 50%;
+    height: 0;
+    transform: translate(-50%, -50%);
+}
+.navbar-toggler-icon:before {
+    transition-delay: .1s;
+    transform: rotate(-45deg);
+    top: 0;
+}
+.navbar-toggler-icon:after {
+    transition-delay: .1s;
+    transform: rotate(45deg);
+    top: 0;
+}
+.navbar-toggler.collapsed {
+    .navbar-toggler-icon {
+        transition-delay: .2s;
+        height: 2px;
+    }
+    .navbar-toggler-icon:before {
+        transition-delay: 0;
+        transform: rotate(0);
+        top: -6px;
+    }
+    .navbar-toggler-icon:after {
+        transition-delay: 0;
+        transform: rotate(0);
+        top: 6px;
+    }
+}

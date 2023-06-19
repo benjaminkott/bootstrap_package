@@ -1,0 +1,49 @@
+//
+// Link
+// --------------------------------------------------
+.navbar-mainnavigation {
+    .nav-link {
+        flex-shrink: 1;
+        flex-grow: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .25em;
+        border-radius: 2px;
+        &:focus,
+        &:focus-visible {
+            outline: 2px solid;
+            box-shadow: none;
+        }
+    }
+    .nav-link-icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        svg,
+        img {
+            display: block;
+            margin: 0;
+        }
+    }
+    .nav-link-toggle {
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+    .nav-link-indicator {
+        &:before {
+            content: '';
+            display: block;
+            border-top: 1px solid currentColor;
+            border-left: 1px solid currentColor;
+            padding-top: .35em;
+            padding-left: .35em;
+            transform: rotate(-135deg);
+            transition: transform .3s ease;
+        }
+    }
+    .show {
+        > .nav-link-indicator:before {
+            transform: rotate(45deg);
+        }
+    }
+}

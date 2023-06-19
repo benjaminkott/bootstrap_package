@@ -1,0 +1,39 @@
+//
+// Transision
+// --------------------------------------------------
+.navbar-default-transition,
+.navbar-default-transition.navbar-transition {
+    @extend .navbar-default;
+}
+.navbar-inverse-transition,
+.navbar-inverse-transition.navbar-transition {
+    @extend .navbar-inverse;
+}
+.navbar-transition {
+    --mainnavigation-nav-height: #{map-get($navbar-heights, xs)};
+}
+@media (min-width: $grid-float-breakpoint) {
+    .navbar {
+        transition: all .27s cubic-bezier(0, 0, .58, 1) 0s;
+    }
+    .navbar-default-transition:not(.navbar-transition),
+    .navbar-inverse-transition:not(.navbar-transition) {
+        background: transparent !important;
+        box-shadow: none;
+        .navbar-nav > li {
+            > .nav-link {
+                --bs-nav-link-color: #ffffff;
+                --bs-nav-link-hover-color: #ffffff;
+                --bs-navbar-active-color: #ffffff;
+            }
+        }
+        .navbar-brand {
+            > .navbar-brand-logo-normal {
+                display: none;
+            }
+            > .navbar-brand-logo-inverted {
+                display: block;
+            }
+        }
+    }
+}

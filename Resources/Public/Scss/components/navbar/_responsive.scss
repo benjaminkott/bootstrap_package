@@ -1,0 +1,35 @@
+//
+// Breakpoint
+// Bootstrap 5 only allows breakpoints to be fixed at viewports this removes
+// a lot of flexibility, so we introduce the legacy float breakpoint again.
+//
+.navbar-mainnavigation {
+    .navbar-collapse {
+        @media (min-width: $grid-float-breakpoint) {
+            display: flex;
+        }
+    }
+    .nav-spacer {
+        display: none;
+        @media (min-width: $grid-float-breakpoint) {
+            display: block;
+            flex-grow: 1;
+        }
+    }
+}
+@media (min-width: $grid-float-breakpoint) {
+    .navbar-mainnavigation {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        .navbar-nav {
+            flex-direction: row;
+        }
+        > .container,
+        > .container-fluid {
+            flex-wrap: nowrap;
+        }
+        .navbar-toggler {
+            display: none;
+        }
+    }
+}

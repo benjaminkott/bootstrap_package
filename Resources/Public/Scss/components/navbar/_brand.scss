@@ -1,0 +1,29 @@
+//
+// Brand
+// --------------------------------------------------
+.navbar-mainnavigation {
+    .navbar-brand {
+        height: var(--mainnavigation-link-height);
+        margin: 0;
+    }
+    .navbar-brand-image {
+        position: relative;
+        padding: 0;
+        img {
+            position: relative;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: auto;
+            max-height: calc(var(--mainnavigation-nav-height) - 30px);
+            @media (min-width: $grid-float-breakpoint) {
+                max-height: calc(var(--mainnavigation-nav-height) * .65);
+            }
+        }
+        > .navbar-brand-logo-normal {
+            display: block;
+        }
+        > .navbar-brand-logo-inverted {
+            display: none;
+        }
+    }
+}
