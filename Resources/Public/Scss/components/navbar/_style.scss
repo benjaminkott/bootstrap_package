@@ -1,0 +1,14 @@
+//
+// Navigation Style
+// --------------------------------------------------
+.navbar-default {
+    @extend .bg-white;
+}
+.navbar-inverse {
+    @extend .navbar-dark;
+    @extend .bg-dark;
+    .dropdown-menu {
+        --#{$prefix}dropdown-color: var(--#{$prefix}gray-300);
+        --#{$prefix}dropdown-bg: var(--#{$prefix}dark);
+    }
+}

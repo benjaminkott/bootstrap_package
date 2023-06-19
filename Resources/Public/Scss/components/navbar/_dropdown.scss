@@ -1,0 +1,72 @@
+//
+// Dropdown
+// --------------------------------------------------
+.navbar-mainnavigation {
+    .navbar-nav {
+        width: 100%;
+        position: static;
+        &:before {
+            content: '';
+            height: 1rem;
+        }
+        .dropdown-menu {
+            --#{$prefix}dropdown-spacer: var(--mainnavigation-dropdown-spacer);
+            --#{$prefix}dropdown-padding-x: var(--mainnavigation-dropdown-padding-x);
+            --#{$prefix}dropdown-padding-y: var(--mainnavigation-dropdown-padding-y);
+            --#{$prefix}nav-link-padding-y: var(--mainnavigation-dropdown-link-padding-y);
+            --#{$prefix}nav-link-padding-x: var(--mainnavigation-dropdown-link-padding-x);
+        }
+    }
+    .dropdown-menu {
+        width: 100%;
+    }
+    .dropdown-nav {
+        padding: 0;
+        display: grid;
+        width: 100%;
+        gap: var(--mainnavigation-dropdown-column-spacing);
+        grid-template-columns: repeat(auto-fit, minmax(var(--mainnavigation-dropdown-column-min-width), 1fr));
+    }
+    .dropdown-menu-simple .dropdown-nav,
+    .dropdown-menu-mega .dropdown-nav {
+        --mainnavigation-dropdown-column-spacing: 1px;
+    }
+    .dropdown-menu-mega > .dropdown-nav {
+        --mainnavigation-dropdown-column-spacing: 1rem;
+        > .nav-item > .nav-link {
+            font-weight: bold;
+        }
+    }
+    .nav-style-simple {
+        position: relative;
+    }
+    .nav-style-mega {
+        .dropdown-menu {
+            @each $breakpoint, $container-max-width in $container-max-widths {
+                @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                    max-width: calc(#{$container-max-width} - var(--bs-gutter-x) + 2px);
+                }
+            }
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+    }
+    @media (min-width: $grid-float-breakpoint) {
+        .navbar-nav {
+            padding-top: 0;
+            &:before {
+                display: none;
+            }
+        }
+        .nav-style-simple {
+            .dropdown-menu {
+                width: auto;
+            }
+        }
+        .dropdown-menu {
+            position: absolute;
+        }
+    }
+}

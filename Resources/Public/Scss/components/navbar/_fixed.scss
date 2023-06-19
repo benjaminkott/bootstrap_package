@@ -1,0 +1,17 @@
+//
+// Position Fixed
+// --------------------------------------------------
+.navbar-mainnavigation {
+    position: relative;
+    &.navbar-fixed-top {
+        position: sticky;
+        top: 0;
+        z-index: $zindex-sticky;
+        max-height: 100vh;
+        overflow-y: auto;
+        @media (min-width: $grid-float-breakpoint) {
+            max-height: unset;
+            overflow: unset;
+        }
+    }
+}

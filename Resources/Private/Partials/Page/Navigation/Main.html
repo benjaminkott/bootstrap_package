@@ -4,7 +4,7 @@
 <f:variable name="headerClass">{headerClass}{f:if(condition: logo.normal, then:' navbar-has-image')}</f:variable>
 <f:variable name="headerClass">{headerClass}{f:if(condition: theme.navigation.type, else:' navbar-top', then:' navbar-{theme.navigation.type} navbar-fixed-{theme.navigation.type}')}</f:variable>
 <header id="page-header" class="{headerClass}">
-    <div class="container">
+    <div class="container container-mainnavigation">
         <f:render partial="Header/Logo" arguments="{_all}" />
         <f:if condition="{mainnavigation}">
             <f:render partial="Header/Toggle" arguments="{_all}" />

@@ -1,0 +1,41 @@
+//
+// Status
+// --------------------------------------------------
+.navbar-mainnavigation {
+    .nav-link:not(.nav-link-toggle) {
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+            border: 3px solid transparent;
+            border-left: 3px solid var(--mainnavigation-hightlight);
+            transform: translate(1px, -50%);
+        }
+        &:hover:before,
+        &:focus:before,
+        &:focus-visible:before {
+            opacity: .5;
+        }
+        &.show:before,
+        &.active:before {
+            opacity: .75;
+        }
+    }
+    @media (min-width: $grid-float-breakpoint) {
+        .nav-link.nav-link-main:before {
+            border: none;
+            transform: unset;
+            top: auto;
+            background: var(--mainnavigation-hightlight);
+            left: var(--mainnavigation-link-padding-x);
+            right: var(--mainnavigation-link-padding-x);
+            bottom: calc(var(--mainnavigation-link-padding-y) / 2);
+            height: 2px;
+            width: auto;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+//
+// Carousel Corrections
+// --------------------------------------------------
+.navbar {
+    + a,
+    + a + a,
+    + .main-section > a,
+    + .main-section > a + a {
+        + .carousel-fullscreen,
+        + .carousel-fullscreen .carousel-item {
+            @each $breakpoint in map-keys($navbar-heights) {
+                @include media-breakpoint-up($breakpoint) {
+                    height: calc(100vh - #{map-get($navbar-heights, $breakpoint)});
+                }
+            }
+        }
+    }
+}
+.navbar-fixed-top.navbar-default-transition,
+.navbar-fixed-top.navbar-inverse-transition {
+    + a,
+    + a + a,
+    + .main-section > a,
+    + .main-section > a + a {
+        + .carousel {
+            @each $breakpoint in map-keys($navbar-heights) {
+                @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
+                    margin-top: -#{map-get($navbar-heights, $breakpoint)};
+                }
+            }
+            .carousel-item {
+                @each $breakpoint in map-keys($navbar-heights) {
+                    @media (min-width: $grid-float-breakpoint) and (min-width: map-get($grid-breakpoints, $breakpoint)) {
+                        padding-top: calc(#{map-get($navbar-heights, $breakpoint)} / 2);
+                    }
+                }
+            }
+        }
+        + .carousel-fullscreen,
+        + .carousel-fullscreen .carousel-item {
+            @media (min-width: $grid-float-breakpoint) {
+                height: 100vh;
+            }
+        }
+    }
+}

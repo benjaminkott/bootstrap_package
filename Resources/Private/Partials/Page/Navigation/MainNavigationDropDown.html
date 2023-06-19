@@ -1,0 +1,32 @@
+<f:render section="dropdown" arguments="{data: data, items: items, theme: theme, level: 2}" />
+
+<f:section name="dropdown">
+    <f:if condition="{items}">
+        <ul class="dropdown-nav" data-level="{level}">
+            <f:variable name="level">{level + 1}</f:variable>
+            <f:for each="{items}" as="item">
+                <f:if condition="{item.spacer}">
+                    <f:then>
+                        <li class="nav-spacer" aria-hidden="true"></li>
+                    </f:then>
+                    <f:else>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-dropdown{f:if(condition: item.active, then:' active')}" href="{item.link}"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}">
+                                <f:if condition="{theme.navigation.dropdown.icon.enable} && {item.icon}">
+                                    <span class="nav-link-icon">
+                                        <bk2k:icon icon="{item.icon}" width="{theme.navigation.dropdown.icon.width}" height="{theme.navigation.dropdown.icon.height}" />
+                                    </span>
+                                </f:if>
+                                <span class="nav-link-text">
+                                    {item.title}
+                                    <f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if>
+                                </span>
+                            </a>
+                            <f:render section="dropdown" arguments="{data: data, items: item.children, theme: theme, level: level}" />
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:if>
+</f:section>
