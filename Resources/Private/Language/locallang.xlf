@@ -54,11 +54,11 @@
                 <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
             </trans-unit>
 
-            <trans-unit id="lightbox.link.title">
+            <trans-unit id="lightbox.screenreader.label">
                 <source>Show larger version</source>
             </trans-unit>
-            <trans-unit id="lightbox.link.title.prefixed">
-                <source>Show larger version for: %s</source>
+            <trans-unit id="lightbox.screenreader.alternative.prefix">
+                <source>Show larger version for:</source>
             </trans-unit>
 
             <trans-unit id="carousel.indicator.title">
