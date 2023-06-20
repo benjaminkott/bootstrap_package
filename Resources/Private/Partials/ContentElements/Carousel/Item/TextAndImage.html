@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:link.typolink parameter="{item.data.link}" additionalAttributes="{draggable:'false'}">
+<f:link.typolink parameter="{item.data.link}" additionalAttributes="{draggable:'false'}" class="carousel-content-link">
     <div class="carousel-content-inner">
         <div class="carousel-text">
             <h{item.data.header_layout} class="carousel-header{f:if(condition: item.data.header_class, then: ' {item.data.header_class}')}{f:if(condition: item.data.header_position, then: ' text-{item.data.header_position}')}"><f:format.htmlspecialchars doubleEncode="false">{item.data.header}</f:format.htmlspecialchars></h{item.data.header_layout}>

@@ -239,7 +239,7 @@ $carousel-item-layouts: map-merge(
     }
     .carousel-control {
         width: var(--carousel-control-width);
-        &:focus {
+        &:focus-visible {
             .carousel-control-icon {
                 outline: 2px solid;
             }
@@ -265,7 +265,7 @@ $carousel-item-layouts: map-merge(
             overflow: hidden;
             color: inherit;
             height: 4px;
-            &:focus {
+            &:focus-visible {
                 outline-offset: 1px;
                 outline: 2px solid currentColor;
             }
@@ -323,6 +323,18 @@ $carousel-item-layouts: map-merge(
             }
         }
     }
+    .carousel-content-link {
+        &:focus-visible {
+            outline: none;
+            &:before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                box-shadow: inset 0 0 0 1px #000000, inset 0 0 0 2px #ffffff;
+            }
+        }
+    }
 }
 
 //
@@ -330,7 +342,8 @@ $carousel-item-layouts: map-merge(
 // --------------------------------------------------
 .carousel-item-type-header {
     a[class=""],
-    a:not([class]) {
+    a:not([class]),
+    a.carousel-content-link {
         &,
         &:hover {
             color: var(--carousel-item-color);
@@ -351,6 +364,14 @@ $carousel-item-layouts: map-merge(
 // Type: Text
 // --------------------------------------------------
 .carousel-item-type-text {
+    a[class=""],
+    a:not([class]),
+    a.carousel-content-link {
+        &,
+        &:hover {
+            color: var(--carousel-item-color);
+        }
+    }
     .carousel-text-inner {
         margin: 0 auto;
         @include media-breakpoint-up(md) {
@@ -366,6 +387,14 @@ $carousel-item-layouts: map-merge(
 // Type: Text and Image
 // --------------------------------------------------
 .carousel-item-type-text_and_image {
+    a[class=""],
+    a:not([class]),
+    a.carousel-content-link {
+        &,
+        &:hover {
+            color: var(--carousel-item-color);
+        }
+    }
     .carousel-image {
         display: none;
         img {
