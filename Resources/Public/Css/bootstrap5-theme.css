@@ -14490,12 +14490,12 @@ textarea.form-control.error {
 @media (min-width: 992px) {
   .backendlayout-3_columns .maincontent-wrap {
     order: 2;
-    --section-gaps: 1;
+    --section-gaps: 2;
     --section-colspan: 6;
   }
   .backendlayout-3_columns .subcontent-wrap {
     order: 3;
-    --section-gaps: 1;
+    --section-gaps: 2;
     --section-colspan: 3;
   }
   .backendlayout-3_columns .maincontent-wrap + .subcontent-wrap {
