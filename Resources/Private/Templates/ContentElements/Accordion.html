@@ -9,7 +9,9 @@
             <f:for each="{records}" as="record" iteration="iteration">
                 <div class="accordion-item">
                     <h{data.subitems_header_layout} class="accordion-header" id="accordion-heading-{data.uid}-{record.data.uid}">
-                        <button class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}" type="button"
+                        <button
+                            class="accordion-button{f:if(condition: '{activeElement} == {record.data.uid}', else:' collapsed')}"
+                            type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#accordion-{data.uid}-{record.data.uid}"
                             data-bs-parent="#accordion-{data.uid}"
@@ -19,7 +21,12 @@
                             {record.data.header}
                         </button>
                     </h{data.subitems_header_layout}>
-                    <div id="accordion-{data.uid}-{record.data.uid}" class="accordion-collapse collapse{f:if(condition: '{activeElement} == {record.data.uid}', then: ' show')}" aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}" data-parent="#accordion-{data.uid}" data-bs-parent="#accordion-{data.uid}">
+                    <div
+                        id="accordion-{data.uid}-{record.data.uid}"
+                        class="accordion-collapse collapse{f:if(condition: '{activeElement} == {record.data.uid}', then: ' show')}"
+                        aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}"
+                        data-bs-parent="#accordion-{data.uid}"
+                        >
                         <div class="accordion-body">
                             <div class="accordion-content accordion-content-{record.data.mediaorient}">
                                 <f:if condition="{record.files}">
