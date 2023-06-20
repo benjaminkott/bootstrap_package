@@ -16625,12 +16625,16 @@ ul.list-inline > li {
   margin-bottom: .25em;
 }
 
+.filelink-heading-filename {
+  display: block;
+}
+
 .filelink-fileicon {
-  margin-right: .25rem;
+  font-size: 1.25rem;
 }
 
 .filelink-filesize {
-  margin-left: .5rem;
+  display: block;
   font-size: 80%;
 }
 
