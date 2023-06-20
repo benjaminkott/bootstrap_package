@@ -63,6 +63,18 @@ $subnav-active-bg:            transparent !default;
     .active > & {
         color: $subnav-active-color !important;
         background-color: $subnav-active-bg;
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            left: .4rem;
+            top: 50%;
+            opacity: .75;
+            transition: opacity .25s ease-in-out;
+            border: 4px solid transparent;
+            border-left: 4px solid $subnav-active-color;
+            transform: translate(0, -50%);
+        }
     }
     &:hover,
     &:focus {

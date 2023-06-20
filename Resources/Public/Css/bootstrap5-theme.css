@@ -6768,7 +6768,7 @@ fieldset:disabled .cc-btn {
   text-align: center;
   background: none;
   border: 0;
-  opacity: 0.5;
+  opacity: 0.8;
   transition: opacity 0.15s ease;
 }
 
@@ -14033,12 +14033,12 @@ textarea.form-control.error {
   top: 50%;
   opacity: 0;
   transition: opacity .25s ease-in-out;
-  border: 3px solid transparent;
-  border-left: 3px solid var(--mainnavigation-hightlight);
+  border: 4px solid transparent;
+  border-left: 4px solid var(--mainnavigation-hightlight);
   transform: translate(1px, -50%);
 }
 
-.navbar-mainnavigation .nav-link:not(.nav-link-toggle):hover:before, .navbar-mainnavigation .nav-link:not(.nav-link-toggle):focus:before, .navbar-mainnavigation .nav-link:not(.nav-link-toggle):focus-visible:before {
+.navbar-mainnavigation .nav-link:not(.nav-link-toggle):hover:before, .navbar-mainnavigation .nav-link:not(.nav-link-toggle):focus-visible:before {
   opacity: .5;
 }
 
@@ -15268,6 +15268,19 @@ textarea.form-control.error {
 .active > .subnav-link {
   color: #55755e !important;
   background-color: transparent;
+}
+
+.active > .subnav-link:before {
+  display: block;
+  content: '';
+  position: absolute;
+  left: .4rem;
+  top: 50%;
+  opacity: .75;
+  transition: opacity .25s ease-in-out;
+  border: 4px solid transparent;
+  border-left: 4px solid #55755e;
+  transform: translate(0, -50%);
 }
 
 .subnav-link:hover, .subnav-link:focus {
