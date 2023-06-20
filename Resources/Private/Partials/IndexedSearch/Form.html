@@ -150,15 +150,18 @@
                         <label for="tx-indexedsearch-selectbox-group" class="form-label">
                             <f:translate key="form.style" />
                         </label>
-                        <div class="input-group">
-                            <f:form.select name="search[group]" options="{allGroups}" value="{searchParams.group}" id="tx-indexedsearch-selectbox-group" class="form-select" />
-                            <f:if condition="{settings.blind.extResume} == 0">
-                                <div class="input-group-text">
-                                    <f:form.checkbox class="form-check-input mt-0" name="search[extResume]" id="tx_indexedsearch_extResume" checked="{searchParams.extResume}" value="1" />
-                                </span>
-                            </f:if>
-                        </div>
+                        <f:form.select name="search[group]" options="{allGroups}" value="{searchParams.group}" id="tx-indexedsearch-selectbox-group" class="form-select" />
                     </div>
+                    <f:if condition="{settings.blind.extResume} == 0">
+                        <div class="col-12">
+                            <div class="form-check">
+                                <label for="tx_indexedsearch_extResume" class="form-check-label">
+                                    <f:translate key="form.extResume" />
+                                </label>
+                                <f:form.checkbox class="form-check-input" name="search[extResume]" id="tx_indexedsearch_extResume" checked="{searchParams.extResume}" value="1" />
+                            </div>
+                        </div>
+                    </f:if>
                 </f:if>
             </f:if>
         </div>
