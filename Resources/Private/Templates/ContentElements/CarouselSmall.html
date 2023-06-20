@@ -8,6 +8,8 @@
             data-bs-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}"
             data-bs-ride="{f:if(condition:data.pi_flexform.autoplay,then:'carousel',else:'false')}"
             {f:if(condition: data.pi_flexform.interval, then: 'data-bs-interval="{data.pi_flexform.interval}"')}
+            role="region"
+            aria-roledescription="carousel"
         >
             <f:render partial="Carousel/Control/Indicator" arguments="{_all}" />
             <div class="carousel-inner">
@@ -22,7 +24,14 @@
                         <f:if condition="{item.data.background_color}"><f:variable name="itemStyle">{itemStyle} --carousel-item-background: {item.data.background_color};</f:variable></f:if>
                         <f:if condition="{item.data.text_color}"><f:variable name="itemStyle">{itemStyle} --carousel-item-color: {item.data.text_color};</f:variable></f:if>
                     </f:if>
-                    <div class="{itemClass}" aria-current="{f:if(condition: iteration.isFirst, then:'true', else: 'false')}" data-itemno="{iteration.index}" style="{itemStyle}">
+                    <div
+                        class="{itemClass}"
+                        aria-current="{f:if(condition: iteration.isFirst, then:'true', else: 'false')}"
+                        data-itemno="{iteration.index}"
+                        style="{itemStyle}"
+                        role="group"
+                        aria-roledescription="slide"
+                        >
                         <f:render partial="Carousel/General/BackgroundImage" arguments="{_all}" />
                         <div class="carousel-content">
                             <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
