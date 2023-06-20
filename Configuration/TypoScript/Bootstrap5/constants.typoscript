@@ -14,29 +14,6 @@ plugin.bootstrap_package {
     settings {
         scss {
 
-            # cat=bootstrap 5.x: styling/bp5_001/001; type=string; label=$white:
-            white = #ffffff
-            # cat=bootstrap 5.x: styling/bp5_001/002; type=string; label=$gray-100:
-            gray-100 = #f8f8f8
-            # cat=bootstrap 5.x: styling/bp5_001/003; type=string; label=$gray-200:
-            gray-200 = #e9e9e9
-            # cat=bootstrap 5.x: styling/bp5_001/004; type=string; label=$gray-300:
-            gray-300 = #dedede
-            # cat=bootstrap 5.x: styling/bp5_001/005; type=string; label=$gray-400:
-            gray-400 = #cecece
-            # cat=bootstrap 5.x: styling/bp5_001/006; type=string; label=$gray-500:
-            gray-500 = #ababab
-            # cat=bootstrap 5.x: styling/bp5_001/007; type=string; label=$gray-600:
-            gray-600 = #6c6c6c
-            # cat=bootstrap 5.x: styling/bp5_001/008; type=string; label=$gray-700:
-            gray-700 = #494949
-            # cat=bootstrap 5.x: styling/bp5_001/009; type=string; label=$gray-800:
-            gray-800 = #313131
-            # cat=bootstrap 5.x: styling/bp5_001/010; type=string; label=$gray-900:
-            gray-900 = #212121
-            # cat=bootstrap 5.x: styling/bp5_001/011; type=string; label=$black:
-            black = #000000
-
             # cat=bootstrap 5.x: styling/bp5_002/001; type=string; label=$primary:
             primary = #577760
             # cat=bootstrap 5.x: styling/bp5_002/002; type=string; label=$secondary:
