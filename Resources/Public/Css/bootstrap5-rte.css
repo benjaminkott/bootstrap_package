@@ -13849,6 +13849,10 @@ textarea.form-control.error {
   margin: 0;
 }
 
+.navbar-mainnavigation .navbar-brand:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .navbar-mainnavigation .navbar-brand-image {
   position: relative;
   padding: 0;
@@ -13886,7 +13890,7 @@ textarea.form-control.error {
   border-radius: 2px;
 }
 
-.navbar-mainnavigation .nav-link:focus, .navbar-mainnavigation .nav-link:focus-visible {
+.navbar-mainnavigation .nav-link:focus-visible {
   outline: 2px solid;
   box-shadow: none;
 }

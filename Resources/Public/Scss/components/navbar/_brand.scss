@@ -3,6 +3,9 @@
 // --------------------------------------------------
 .navbar-mainnavigation {
     .navbar-brand {
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
         height: var(--mainnavigation-link-height);
         margin: 0;
     }
