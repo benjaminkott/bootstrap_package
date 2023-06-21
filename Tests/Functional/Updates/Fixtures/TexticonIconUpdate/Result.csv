@@ -1,0 +1,4 @@
+"tt_content",,,,
+,uid,pid,icon,icon_set
+,1,1,EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/demo.svg,EXT:bootstrap_package/Resources/Public/Images/Icons/Glyphicons/
+,2,1,EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/demo.svg,EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/
