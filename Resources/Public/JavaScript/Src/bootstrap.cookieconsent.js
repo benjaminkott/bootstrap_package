@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     if (document.getElementById('cookieconsent')) {
         // Default Options
-        var cookieConsentOptions = {
+        const cookieConsentOptions = {
             layout: 'basic',
             layouts: {
                 'basic': '<div class="cc-container">{{messagelink}}{{compliance}}</div>',
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', function () {
         };
 
         // Supported Options
-        var cookieConsentSupportedOptions = [
+        const cookieConsentSupportedOptions = [
             'layout',
             'cookie.expiryDays',
             'content.header',
@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', function () {
         ];
 
         // Functions
-        var cookieConsentFunctions = {};
+        const cookieConsentFunctions = {};
         cookieConsentFunctions.updateCookieConsentOptions = function (options, path, value) {
             stack = path.split('.');
             while (stack.length > 1) {
@@ -77,10 +77,9 @@ window.addEventListener('DOMContentLoaded', function () {
         }
 
         // Settings
-        settings = document.querySelectorAll('[data-cookieconsent-setting]');
-        for (i = 0; i < settings.length; ++i) {
-            setting = settings[i].dataset.cookieconsentSetting;
-            value = settings[i].dataset.cookieconsentValue;
+        document.querySelectorAll('[data-cookieconsent-setting]').forEach(function (element) {
+            const setting = element.dataset.cookieconsentSetting;
+            let value = element.dataset.cookieconsentValue;
             if (parseInt(value, 10) == value) {
                 value = parseInt(value, 10);
             }
@@ -98,55 +97,45 @@ window.addEventListener('DOMContentLoaded', function () {
                     );
                 }
             }
-            settings[i].parentNode.removeChild(settings[i]);
-        }
-        delete settings;
+            element.remove();
+        });
 
         // Events
         cookieConsentOptions.onPopupOpen = function () {
-            var eventOpen = document.createEvent('Event');
-            eventOpen.initEvent('bk2k.cookie.popupopen', true, true);
+            const eventOpen = new Event('bk2k.cookie.popupopen', { bubbles: true, cancelable: true });
             window.dispatchEvent(eventOpen);
-            var type = this.options.type;
-            if (type == "info" || type == "opt-out") {
-                var event = document.createEvent('Event');
-                event.initEvent('bk2k.cookie.enable', true, true);
+            const type = this.options.type;
+            if (type === "info" || type === "opt-out") {
+                const event = new Event('bk2k.cookie.enable', { bubbles: true, cancelable: true });
                 window.dispatchEvent(event);
             }
         };
-        cookieConsentOptions.onPopupClose = function () {
-            var event = document.createEvent('Event');
-            event.initEvent('bk2k.cookie.popupclose', true, true);
+        cookieConsentOptions.onPopupClose = function() {
+            const event = new Event('bk2k.cookie.popupclose', { bubbles: true, cancelable: true });
             window.dispatchEvent(event);
         };
-        cookieConsentOptions.onInitialise = function (status) {
-            var didConsent = this.hasConsented();
-            var event = document.createEvent('Event');
-            if (didConsent) {
-                event.initEvent('bk2k.cookie.enable', true, true);
-                window.dispatchEvent(event);
+        cookieConsentOptions.onInitialise = function () {
+            let eventName = 'bk2k.cookie.disable';
+            if (this.hasConsented()) {
+                eventName = 'bk2k.cookie.enable';
             }
-            if (!didConsent) {
-                event.initEvent('bk2k.cookie.disable', true, true);
-                window.dispatchEvent(event);
-            }
+            const event = new Event(eventName, { bubbles: true, cancelable: true });
+            window.dispatchEvent(event);
         };
-        cookieConsentOptions.onStatusChange = function (status, chosenBefore) {
-            var type = this.options.type;
-            var didConsent = this.hasConsented();
-            var event = document.createEvent('Event');
-            if (didConsent && type == 'opt-in') {
-                event.initEvent('bk2k.cookie.enable', true, true);
+        cookieConsentOptions.onStatusChange = function () {
+            const type = this.options.type;
+            const didConsent = this.hasConsented();
+            if (didConsent && type === 'opt-in') {
+                const event = new Event('bk2k.cookie.enable', { bubbles: true, cancelable: true });
                 window.dispatchEvent(event);
             }
-            if (!didConsent && (type == 'opt-in' || type == 'opt-out')) {
-                event.initEvent('bk2k.cookie.disable', true, true);
+            if (!didConsent && (type === 'opt-in' || type === 'opt-out')) {
+                const event = new Event('bk2k.cookie.disable', { bubbles: true, cancelable: true });
                 window.dispatchEvent(event);
             }
         };
         cookieConsentOptions.onRevokeChoice = function () {
-            var event = document.createEvent('Event');
-            event.initEvent('bk2k.cookie.revoke', true, true);
+            const event = new Event('bk2k.cookie.revoke', { bubbles: true, cancelable: true });
             window.dispatchEvent(event);
         };
 
