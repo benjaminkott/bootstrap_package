@@ -1,0 +1,7 @@
+"tt_content",,,,
+,uid,pid,frame_class,frame_options
+,1,1,default,ruler-before
+,2,1,default,ruler-after
+,3,1,default,"indent-left,indent-right"
+,4,1,default,indent-left
+,5,1,default,indent-right
