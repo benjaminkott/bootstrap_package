@@ -8,14 +8,15 @@
     --section-columns: 12;
     --section-colspan: 12;
     --section-gaps: 0;
-    --section-gap: #{$grid-gutter-width};
+    --section-gap-y: 0;
+    --section-gap-x: #{$grid-gutter-width};
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: var(--section-gap);
+    gap: var(--section-gap-y) var(--section-gap-x);
 }
 .section-column {
-    width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
+    width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap-x) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
     &-half {
         @include media-breakpoint-up('sm') {
             --section-gaps: 1;

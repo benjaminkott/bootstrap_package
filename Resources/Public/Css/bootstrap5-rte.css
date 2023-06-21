@@ -14586,15 +14586,16 @@ textarea.form-control.error {
   --section-columns: 12;
   --section-colspan: 12;
   --section-gaps: 0;
-  --section-gap: 40px;
+  --section-gap-y: 0;
+  --section-gap-x: 40px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: var(--section-gap);
+  gap: var(--section-gap-y) var(--section-gap-x);
 }
 
 .section-column {
-  width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
+  width: calc(100% / var(--section-columns) * var(--section-colspan) - (var(--section-gap-x) * var(--section-gaps) / var(--section-columns) * var(--section-colspan)));
 }
 
 @media (min-width: 576px) {
