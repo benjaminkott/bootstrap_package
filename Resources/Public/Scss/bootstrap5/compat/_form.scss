@@ -20,89 +20,13 @@ fieldset.form-group {
     margin-top: $spacer;
 }
 
-//
-// Inputs
-// --------------------------------------------------
-.control-label {
-    @extend .form-label;
-}
-.form-control {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #ffffff;
-    background-clip: padding-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-.form-check-label {
-    input[type="checkbox"],
-    input[type="radio"] {
-        @extend .form-check-input;
-    }
-}
-.radio {
-    @extend .form-check;
-}
-
 // FE Login
-
-// added for compliance with color contrast of border-radius
-// should be improved when fe_login fluid templates implemented globally
+// Added for compliance with color contrast of border-radius
+// Should be improved when fe_login fluid templates implemented globally
+// --------------------------------------------------
 .frame-type-felogin_login {
     input[type="text"],
     input[type="password"] {
         @extend .form-control;
-    }
-}
-
-//
-// Validation & Help
-// --------------------------------------------------
-.help-block {
-    @extend .form-text;
-    &.error {
-        @extend .invalid-feedback;
-    }
-    &.success {
-        @extend .valid-feedback;
-    }
-}
-$compat-form-invalid-validation-state: map-get($form-validation-states, "invalid");
-$compat-form-invalid-validation-state-color: map-get($compat-form-invalid-validation-state, "color");
-$compat-form-invalid-validation-state-icon: map-get($compat-form-invalid-validation-state, "icon");
-.form-control.error {
-    border-color: $compat-form-invalid-validation-state-color;
-    @if $enable-validation-icons {
-        padding-right: $input-height-inner;
-        background-image: escape-svg($compat-form-invalid-validation-state-icon);
-        background-repeat: no-repeat;
-        background-position: right $input-height-inner-quarter center;
-        background-size: $input-height-inner-half $input-height-inner-half;
-    }
-    &:focus {
-        border-color: $compat-form-invalid-validation-state-color;
-        box-shadow: 0 0 0 $input-focus-width rgba($compat-form-invalid-validation-state-color, .25);
-    }
-}
-textarea.form-control.error {
-    @if $enable-validation-icons {
-        padding-right: $input-height-inner;
-        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
-    }
-}
-.has-error {
-    .help-block {
-        &.error,
-        &.success {
-            display: block;
-        }
     }
 }
