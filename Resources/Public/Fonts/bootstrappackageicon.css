@@ -4,6 +4,7 @@
 url("./bootstrappackageicon.woff2?d97e585912a7b078b7fbc39f8bd34e21") format("woff2"),
 url("./bootstrappackageicon.woff?d97e585912a7b078b7fbc39f8bd34e21") format("woff"),
 url("./bootstrappackageicon.ttf?d97e585912a7b078b7fbc39f8bd34e21") format("truetype");
+    font-display: swap;
 }
 
 .bootstrappackageicon::before {
