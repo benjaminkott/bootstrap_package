@@ -1,17 +1,22 @@
-# FRONTEND LOGIN
-plugin.tx_felogin_pi1 {
-    wrapContentInBaseClass = 0
-    welcomeMessage_stdWrap.wrap = <p>|</p>
-    logoutMessage_stdWrap.wrap = <p>|</p>
-    errorMessage_stdWrap.wrap = <p class="text-danger">|</p>
-    successMessage_stdWrap.wrap = <p class="text-success">|</p>
-    cookieWarning_stdWrap.wrap = <p class="text-warning">|</p>
-    forgotMessage_stdWrap.wrap = <p>|</p>
-    forgotErrorMessage_stdWrap.wrap = <p class="text-danger">|</p>
-    forgotResetMessageEmailSentMessage_stdWrap.wrap = <p class="text-success">|</p>
-    changePasswordNotValidMessage_stdWrap.wrap = <p class="text-danger">|</p>
-    changePasswordTooShortMessage_stdWrap.wrap = <p class="text-danger">|</p>
-    changePasswordNotEqualMessage_stdWrap.wrap = <p class="text-danger">|</p>
-    changePasswordMessage_stdWrap.wrap = <p>|</p>
-    changePasswordDoneMessage_stdWrap.wrap = <p class="text-success">|</p>
+########################
+#### FRONTEND LOGIN ####
+########################
+
+@import 'EXT:felogin/Configuration/TypoScript/setup.typoscript'
+
+plugin.tx_felogin_login {
+    view {
+        templateRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Templates/Felogin/
+            21 = {$plugin.bootstrap_package.view.templateRootPath}Felogin/
+        }
+        partialRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Partials/Felogin/
+            21 = {$plugin.bootstrap_package.view.partialRootPath}Felogin/
+        }
+        layoutRootPaths {
+            20 = EXT:bootstrap_package/Resources/Private/Layouts/Felogin/
+            21 = {$plugin.bootstrap_package.view.layoutRootPath}Felogin/
+        }
+    }
 }
