@@ -141,10 +141,16 @@ abstract class AbstractUpdate
             $result = $queryBuilder->executeQuery();
         } else {
             /** @var Result $result */
+            /** @phpstan-ignore-next-line */
             $result = $queryBuilder->execute();
         }
 
-        return $result->fetchAllAssociative();
+        /** @phpstan-ignore-next-line */
+        if (method_exists($result, 'fetchAllAssociative')) {
+            return $result->fetchAllAssociative(); /** @phpstan-ignore-line */
+        }
+
+        return $result->fetchAll(\PDO::FETCH_ASSOC); /** @phpstan-ignore-line */
     }
 
     protected function updateRecord(int $uid, array $values): void
