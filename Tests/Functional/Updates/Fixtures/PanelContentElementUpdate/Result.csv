@@ -1,0 +1,8 @@
+"tt_content",,,,,
+,uid,pid,CType,layout,panel_class
+,1,1,panel,0,default
+,2,1,panel,0,primary
+,3,1,panel,0,success
+,4,1,panel,0,info
+,5,1,panel,0,warning
+,6,1,panel,0,danger

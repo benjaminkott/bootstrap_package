@@ -1,0 +1,12 @@
+"tt_content",,,,
+,uid,pid,section_frame,frame_class
+,1,1,0,default
+,2,1,0,ruler-before
+,3,1,0,ruler-after
+,4,1,0,indent
+,5,1,0,indent-left
+,6,1,0,indent-right
+,7,1,0,well
+,8,1,0,jumbotron
+,9,1,0,none
+,10,1,0,custom-100
