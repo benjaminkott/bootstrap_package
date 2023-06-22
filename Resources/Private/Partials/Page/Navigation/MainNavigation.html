@@ -30,7 +30,7 @@
                             </f:if>
                             <span class="nav-link-text">
                                 {item.title}
-                                <f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if>
+                                <f:if condition="{item.current}"> <span class="visually-hidden">({f:translate(key: 'navigation.link.screenreader.current', extensionName: 'bootstrap_package')})</span></f:if>
                             </span>
                         </a>
                         <f:if condition="{item.children}">

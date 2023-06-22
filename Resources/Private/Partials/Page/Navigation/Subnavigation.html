@@ -26,7 +26,7 @@
                                         <bk2k:icon icon="{item.icon}" width="{theme.subnavigation.icon.width}" height="{theme.subnavigation.icon.height}" />
                                     </span>
                                 </f:if>
-                                <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">(current)</span></f:if></span>
+                                <span class="subnav-link-text">{item.title}<f:if condition="{item.current}"> <span class="visually-hidden">({f:translate(key: 'navigation.link.screenreader.current', extensionName: 'bootstrap_package')})</span></f:if></span>
                             </a>
                             <f:if condition="{item.children}">
                                 <f:render section="SubnavigationItem" arguments="{menu: item.children, theme: theme}" />

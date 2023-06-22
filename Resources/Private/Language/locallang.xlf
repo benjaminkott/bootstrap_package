@@ -29,6 +29,10 @@
                 <source>To top</source>
             </trans-unit>
 
+            <trans-unit id="navigation.link.screenreader.current">
+                <source>current</source>
+            </trans-unit>
+
             <trans-unit id="main-navigation.label">
                 <source>Main navigation</source>
             </trans-unit>
