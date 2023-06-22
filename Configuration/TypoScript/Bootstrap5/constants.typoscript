@@ -26,11 +26,11 @@ plugin.bootstrap_package {
             # cat=bootstrap 5.x: styling/bp5_002/005; type=string; label=$default:
             default = #eaebec
             # cat=bootstrap 5.x: styling/bp5_002/006; type=string; label=$success:
-            success = #5cb85c
+            success = #3A833A
             # cat=bootstrap 5.x: styling/bp5_002/007; type=string; label=$info:
-            info = #319fc0
+            info = #287F9A
             # cat=bootstrap 5.x: styling/bp5_002/008; type=string; label=$warning:
-            warning = #f0ad4e
+            warning = #a4660e
             # cat=bootstrap 5.x: styling/bp5_002/009; type=string; label=$danger:
             danger = #d4403a
             # cat=bootstrap 5.x: styling/bp5_002/010; type=string; label=$lighter:
