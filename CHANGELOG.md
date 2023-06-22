@@ -1,3 +1,131 @@
+# 14.0.0
+
+## BREAKING
+
+- 2bceb149 [!!!][TASK] Move main tag to contain all relevant content
+- d721e1ac [!!!][TASK] Optimize Card links (#1372)
+- b224a40e [!!!][TASK] Make carousel accessible
+
+## FEATURE
+
+- 9132b048 [FEATURE] Introduce dedicated gridcolumn element
+- c37afe30 [FEATURE] Allow display class on all default content headers (#1366)
+- 671acf60 [FEATURE] Make header level for child items configurable by the editor (#1353)
+
+## TASK
+
+- d369f9af [TASK] Add v14 to readme
+- 60f68f01 [TASK] Set next version to v14.0.0
+- f0ec1806 [TASK] Add tests for update scripts (#1388)
+- b1269590 [TASK] Add display: swap to iconfont
+- c00384ff [TASK] Drop obsolete form compat overrides
+- f3a37727 [TASK] Remove deprecations from cookieconsent
+- 50cf3082 [TASK] Add skip to page footer
+- c942e01b [TASK] Remove obsolete data-parent
+- 354a87c0 [TASK] Optimize file downloads
+- 39ed5cd9 [TASK] Split input border and general border colors
+- 8dc41eab [TASK] Add role and roledescription to carousel
+- f453860f [TASK] Replace aria-roledescription with aria-label on lightbox
+- 63101284 [TASK] Add label to extended resume form field of indexed search
+- cd882682 [TASK] Add indicator to subnav and enhance mainnav version
+- 95ab34ae [TASK] Show outlines in navigation only on focus-visible
+- 5f313916 [TASK] Make focus visible for carousel links
+- ca6df9f6 [TASK] Simplify lightbox
+- ec4d6134 [TASK] Remove obsolete intrinsicsize attribute (#1380)
+- 2775146d [TASK] Make main navigation more accessible (#1385)
+- 4814d8f4 [TASK] Finetune color contrast on subnav
+- a2608626 [TASK] Render subnavigation after content
+- 077a7650 [TASK] Do not wrap images directly with links
+- c918a8ae [TASK] Optimize Carousel
+- 8698ff99 [TASK] Optimize indexed search form
+- 99bcab40 [TASK] Modernize typoscript setup and constant access (#1379)
+- 44d99188 [TASK] Enable functional tests for v12 (#1219)
+- f392b795 [TASK] Drop legacy path include test
+- dd93e18c [TASK] Set dev env to 8.2
+- fe79501f [TASK] Update php-cs-fixer
+- 2ab06cf6 [TASK] Update lightbox and modernize rendering (#1378)
+- 97cd5520 [TASK] Change default cookieconsent to include header
+- 2bceb149 [!!!][TASK] Move main tag to contain all relevant content
+- d721e1ac [!!!][TASK] Optimize Card links (#1372)
+- 8e36778d [TASK] Removed header tags from all headings for accessibility reason... (#1370)
+- a3e9899e [TASK] Add aria-hidden to social-media icons
+- b224a40e [!!!][TASK] Make carousel accessible
+- ad7004d5 [TASK] Move Registering of Icons to ServiceContainer  (#1374)
+- 028f56de [TASK] Add a11y color calculation tools to scss and adjust colors slightly
+- 50a46c0c [TASK] Expose social link labels to constant editor and improve label rendering for screen reader (#1361)
+- fe802783 [TASK] Add aria-labels for main and sub navigation (#1363)
+- a776db59 [TASK] Drop link decoration settings from constant editor
+- 955656cc [TASK] Underline links in content by default (#1357)
+- 3af07f58 [TASK] Fix border color contrast of form inputs (#1360)
+- 0c663eec [TASK] Use buttons for "allow" and "dismiss" in cookie consent (#1349)
+- 0ae2c793 [TASK] replace nav tag with div tag in custom element tab (#1350)
+- bdd775c2 [TASK] Rename mandatory field label (#1356)
+- 37415612 [TASK] Only use aria-current for the last item in breadcrumb (#1359)
+- 6958b74d [TASK] Add meaningful label to each second field in a group in extended search form (#1351)
+- edebd6e0 [TASK] Duplicate css class removed (#1345)
+- a6096e54 [TASK] Switched forms template variant to version2 (#1338)
+- 34c6b0e3 [TASK] Resize cookiee consent header to 1.5rem
+- d0d0a89d [TASK] Remove role navigation and role main
+- 84158b75 [TASK] Overwrite default cookie consent configuration
+- 3383109d [TASK] Add aria-hidden attributes for decorative icons (#1336)
+- 344fef87 [TASK] Update bundled scssphp to v1.11.0
+- e75e83e3 [TASK] Update popper.js and some build deps
+- 89c2228b [TASK] Update to Bootstrap 5.3.0
+
+## BUGFIX
+
+- f9daa32c [BUGFIX] Make screenreader current label translatable
+- a03a700a [BUGFIX] Align sitemap behavior with core
+- fed7f268 [BUGFIX] Remove unwanted vertical gap on sections
+- 82626f3a [BUGFIX] Drop obsolete felogin config
+- f589ba07 [BUGFIX] Correct scroll position and prevent click if target exists on site
+- 6c63f70b [BUGFIX] Correct column gap count for 3 column layout
+- d40cf768 [BUGFIX] Correct media position in accordion and tab items (#1384)
+- ab2c2c99 [BUGFIX] Restore search rules functionality
+- fb628591 [BUGFIX] Correct search form classes
+- 24a7bf76 [BUGFIX] CGL
+- 32a9bc61 [BUGFIX] Unflatten typoscript constants in dataprocessor
+- def5d84d [BUGFIX] Optimize gridcolumn svg
+- 4cfef651 [BUGFIX] Avoid clipping on social links and footer language menu
+- fb437ab3 [BUGFIX] Use contextual icon color for system information icon (#1377)
+- f9813bb5 [BUGFIX] Correct generated css
+- 80c745d7 [BUGFIX] Correct path to photoswipe assets
+- 25792ec3 [BUGFIX] Fix access to overrideParserVariables
+- f4fb0a5b [BUGFIX] Inherit link styling on breadcrumbs (#1373)
+- 26da9080 [BUGFIX] Improve visibility of skip to content link on focus (#1367)
+- 92c32149 [BUGFIX] Add missing subitems_header_layout to card group
+- e124fb58 [BUGFIX] SCSS linting
+- c2a22ed4 [BUGFIX] Calculate foreground colors for cookie consent
+- 13ce41cb [BUGFIX] Handle allowed file extensions for TYPO3 v12 (#1365)
+- 86b24843 [BUGFIX] Fix Sticky Header (#1362)
+- 5c26d81b [BUGFIX] Source mapping is now public path agnostic (#1352)
+- 87d5f049 [BUGFIX] Fix missing spaces in the output of content elements (#1343)
+- e60c1dcb [BUGFIX] Make carousel controls visible on focus
+- 5ffa09cc [BUGFIX] Add title to social links
+- 7d4e95ca [BUGFIX] Avoid text-muted for unavailable languages
+- 55ca8360 [BUGFIX] Undefined array keys in Compile Service
+
+## MISC
+
+- e61fdea2 [DOCS] How to build frontend files for contribution (#1341)
+- acf2ac0f [DOCS] Adjust Templates for PRs and Issues (#1342)
+
+## Contributors
+
+- Benjamin Kott
+- Eike Starkmann
+- Elias Häußler
+- Elias Häußler
+- Felix Althaus
+- Lina Wolf
+- Oliver Thiele
+- Simon Praetorius
+- Sven Jürgens
+- Uwe
+- jwundermann
+- schmigotzki
+- undkonsorten
+
 # 13.0.2
 
 ## TASK
