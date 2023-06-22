@@ -32,7 +32,7 @@ plugin.bootstrap_package {
             # cat=bootstrap 5.x: styling/bp5_002/008; type=string; label=$warning:
             warning = #f0ad4e
             # cat=bootstrap 5.x: styling/bp5_002/009; type=string; label=$danger:
-            danger = #d9534f
+            danger = #d4403a
             # cat=bootstrap 5.x: styling/bp5_002/010; type=string; label=$lighter:
             lighter = $gray-100
             # cat=bootstrap 5.x: styling/bp5_002/011; type=string; label=$light:
