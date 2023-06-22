@@ -31,6 +31,7 @@ CREATE TABLE tt_content (
     icon_type varchar(60) DEFAULT 'default' NOT NULL,
     icon_color varchar(255) DEFAULT '' NOT NULL,
     icon_background varchar(255) DEFAULT '' NOT NULL,
+    external_media_title varchar(255) DEFAULT '' NOT NULL,
     external_media_source varchar(1024) DEFAULT '' NOT NULL,
     external_media_ratio varchar(10) DEFAULT '' NOT NULL,
     tx_bootstrappackage_card_group_item int(11) unsigned DEFAULT '0',

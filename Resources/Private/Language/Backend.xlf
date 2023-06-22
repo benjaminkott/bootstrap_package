@@ -771,6 +771,9 @@
             <trans-unit id="external_media">
                 <source>External Media</source>
             </trans-unit>
+            <trans-unit id="field.external_media_title">
+                <source>External Media Title</source>
+            </trans-unit>
             <trans-unit id="field.external_media_source">
                 <source>External Media Source</source>
             </trans-unit>
