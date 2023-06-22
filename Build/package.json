@@ -5,7 +5,7 @@
   "readme": "../README.rst",
   "homepage": "http://www.bk2k.info",
   "author": "Benjamin Kott",
-  "version": "12.0.7",
+  "version": "12.0.8",
   "license": "MIT",
   "devDependencies": {
     "@popperjs/core": "^2.11.5",
