@@ -1,3 +1,65 @@
+# 13.0.3
+
+## TASK
+
+- 2fbfd0c0 [TASK] Add tests for update scripts (#1388)
+- d08447ae [TASK] Add display: swap to iconfont
+- acbc2ee6 [TASK] Add label to extended resume form field of indexed search
+- 029df1d0 [TASK] Remove obsolete intrinsicsize attribute (#1380)
+- 9579cf7f [TASK] Optimize indexed search form
+- 2f078474 [TASK] Enable functional tests for v12 (#1219)
+- 61640d1e [TASK] Drop legacy path include test
+- 37ce7eb1 [TASK] Set dev env to 8.2
+- 22fd5cb7 [TASK] Update php-cs-fixer
+- 618ce0ee [TASK] Add aria-hidden to social-media icons
+- e8ed7295 [TASK] Move Registering of Icons to ServiceContainer  (#1374)
+- 9eeb6486 [TASK] Add aria-labels for main and sub navigation (#1363)
+- 70b2e188 [TASK] Drop link decoration settings from constant editor
+- 968ea224 [TASK] Only use aria-current for the last item in breadcrumb (#1359)
+- 13eb6dcd [TASK] Add meaningful label to each second field in a group in extended search form (#1351)
+- 8247f48e [TASK] Duplicate css class removed (#1345)
+- ada51882 [TASK] Add aria-hidden attributes for decorative icons (#1336)
+- 344fef87 [TASK] Update bundled scssphp to v1.11.0
+- e75e83e3 [TASK] Update popper.js and some build deps
+- 89c2228b [TASK] Update to Bootstrap 5.3.0
+
+## BUGFIX
+
+- e6f69713 [BUGFIX] Make screenreader current label translatable
+- 08cb3706 [BUGFIX] Align sitemap behavior with core
+- 5181da79 [BUGFIX] Remove unwanted vertical gap on sections
+- 1657d99c [BUGFIX] Correct scroll position and prevent click if target exists on site
+- d4f9792e [BUGFIX] Correct column gap count for 3 column layout
+- a45f0187 [BUGFIX] Drop obsolete felogin config
+- cb43c6c8 [BUGFIX] Correct media position in accordion and tab items (#1384)
+- 4d8b8436 [BUGFIX] Restore search rules functionality
+- 5f208050 [BUGFIX] Correct search form classes
+- 160319f0 [BUGFIX] Use contextual icon color for system information icon (#1377)
+- 3d96d245 [BUGFIX] Correct path to photoswipe assets
+- 002dd8fc [BUGFIX] Fix access to overrideParserVariables
+- 4128f24a [BUGFIX] Handle allowed file extensions for TYPO3 v12 (#1365)
+- 9ce3b0b1 [BUGFIX] Fix Sticky Header (#1362)
+- 52a834fd [BUGFIX] Source mapping is now public path agnostic (#1352)
+- 0187b254 [BUGFIX] Fix missing spaces in the output of content elements (#1343)
+- 5ffa09cc [BUGFIX] Add title to social links
+- 7d4e95ca [BUGFIX] Avoid text-muted for unavailable languages
+- 55ca8360 [BUGFIX] Undefined array keys in Compile Service
+
+## Contributors
+
+- Benjamin Kott
+- Eike Starkmann
+- Elias Häußler
+- Felix Althaus
+- Lina Wolf
+- Oliver Thiele
+- Simon Praetorius
+- Sven Jürgens
+- Uwe
+- jwundermann
+- schmigotzki
+- undkonsorten
+
 # 13.0.2
 
 ## TASK

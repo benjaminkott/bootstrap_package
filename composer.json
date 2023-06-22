@@ -76,7 +76,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "13.0.x-dev"
+            "dev-BP_13_0": "13.0.x-dev"
         },
         "typo3/cms": {
             "extension-key": "bootstrap_package",
