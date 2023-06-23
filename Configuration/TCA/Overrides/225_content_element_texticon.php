@@ -106,6 +106,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconItems',
                 'fieldWizard' => [
                     'selectIcons' => [
+                        'renderType' => 'iconWizard',
                         'disabled' => false,
                     ],
                 ],

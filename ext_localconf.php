@@ -142,3 +142,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\Bootstr
 
 // Register "bk2k" as global fluid namespace
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
+
+// Register "icon" wizard
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [
+    'nodeName' => 'iconWizard',
+    'priority' => 40,
+    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class
+];
