@@ -334,6 +334,7 @@ return [
                 ],
                 'fieldWizard' => [
                     'selectIcons' => [
+                        'renderType' => 'iconWizard',
                         'disabled' => false,
                     ],
                 ],

@@ -186,3 +186,10 @@ foreach ($icons as $icon) {
         ['source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/' . $icon . '.svg']
     );
 }
+
+// Register "icon" wizard
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [
+    'nodeName' => 'iconWizard',
+    'priority' => 40,
+    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class
+];
