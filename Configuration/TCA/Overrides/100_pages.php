@@ -69,6 +69,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 ],
                 'fieldWizard' => [
                     'selectIcons' => [
+                        'renderType' => 'iconWizard',
                         'disabled' => false,
                     ],
                 ],
