@@ -1,3 +1,17 @@
+# 13.0.4
+
+## TASK
+
+- 96b3a914 [TASK] Improve icon selector performance in backend (#1392)
+
+## BUGFIX
+
+- f02e24bc [BUGFIX] Correct docs for overrideParserVariables
+
+## Contributors
+
+- Benjamin Kott
+
 # 13.0.3
 
 ## TASK
