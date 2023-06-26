@@ -40,7 +40,7 @@ class IconService
         $iconItems[] = [
             'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.none',
             0,
-            'EXT:bootstrap_package/Resources/Public/Images/Icons/none.jpg'
+            'EXT:bootstrap_package/Resources/Public/Images/Icons/none.svg'
         ];
 
         $iconSetField = $configuration['config']['itemsProcConfig']['iconSetField'] ?? 'icon_set';
