@@ -1,3 +1,21 @@
+# 14.0.1
+
+## TASK
+
+- dc4723ee [TASK] Improve icon selector performance in backend (#1392)
+- 35de69f6 [TASK] Add new external media field to assign an iframe title (#1296) (#1371)
+
+## BUGFIX
+
+- 223d9a31 [BUGFIX] Correct docs for overrideParserVariables
+- 25be2791 [BUGFIX] Slightly increase contrast for succes, info, warning
+- 3f68d295 [BUGFIX] Slightly increase contrast for danger color
+
+## Contributors
+
+- Benjamin Kott
+- schmigotzki
+
 # 14.0.0
 
 ## BREAKING
