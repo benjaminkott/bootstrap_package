@@ -1,3 +1,13 @@
+# 12.0.10
+
+## BUGFIX
+
+- 55483400 [BUGFIX] Make IconWizard compatible with v11
+
+## Contributors
+
+- Benjamin Kott
+
 # 12.0.9
 
 ## TASK
