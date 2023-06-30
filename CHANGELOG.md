@@ -1,3 +1,15 @@
+# 14.0.2
+
+## BUGFIX
+
+- 7773f962 [BUGFIX] PHPStan
+- f410d58c [BUGFIX] Correct position of subnav left
+- 582e01ad [BUGFIX] Make IconWizard compatible with v11
+
+## Contributors
+
+- Benjamin Kott
+
 # 14.0.1
 
 ## TASK
