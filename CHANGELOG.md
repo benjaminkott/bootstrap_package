@@ -1,3 +1,13 @@
+# 13.0.5
+
+## BUGFIX
+
+- 9c7bbe6f [BUGFIX] Make IconWizard compatible with v11
+
+## Contributors
+
+- Benjamin Kott
+
 # 13.0.4
 
 ## TASK
