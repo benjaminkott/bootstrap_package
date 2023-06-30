@@ -102,6 +102,14 @@
             --section-colspan: 9;
         }
     }
+    .backendlayout-subnavigation_left {
+        .subnav-wrap {
+            order: 1;
+        }
+        .maincontent-wrap {
+            order: 2;
+        }
+    }
     .backendlayout-subnavigation_right {
         .subnav-wrap {
             order: 2;
