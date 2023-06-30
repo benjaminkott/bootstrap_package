@@ -14,6 +14,7 @@ namespace BK2K\BootstrapPackage\Form\FieldWizard;
 use BK2K\BootstrapPackage\Service\IconService;
 use TYPO3\CMS\Backend\Form\AbstractNode;
 use TYPO3\CMS\Backend\Form\Utility\FormEngineUtility;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class IconWizard extends AbstractNode
@@ -32,6 +33,14 @@ class IconWizard extends AbstractNode
         $selectItems = $parameterArray['fieldConf']['config']['items'];
         $selectItemCounter = 0;
         foreach ($selectItems as $item) {
+            if ((new Typo3Version())->getMajorVersion() < 12) {
+                $item = [
+                    'label' => $item[0] ?? '',
+                    'value' => $item[1] ?? '',
+                    'icon' => $item[2] ?? '',
+                ];
+            }
+
             if ($item['value'] === '--div--') {
                 continue;
             }
@@ -64,16 +73,33 @@ class IconWizard extends AbstractNode
 
         $html = [];
         if (count($selectIcons) > 0) {
-            $html[] = '<div class="t3js-forms-select-single-icons form-wizard-icon-list">';
-            foreach ($selectIcons as $i => $selectIcon) {
-                $active = $selectIcon['active'] ? ' active' : '';
-                $html[] = '<div class="form-wizard-icon-list-item">';
-                $html[] =   '<a class="' . $active . '" href="#" title="' . htmlspecialchars($selectIcon['title'], ENT_COMPAT, 'UTF-8', false) . '" data-select-index="' . htmlspecialchars((string)$selectIcon['index']) . '">';
-                $html[] =       $selectIcon['icon'];
-                $html[] =   '</a>';
+            if ((new Typo3Version())->getMajorVersion() < 12) {
+                $html[] = '<div class="t3js-forms-select-single-icons icon-list">';
+                $html[] =    '<div class="row">';
+                foreach ($selectIcons as $selectIcon) {
+                    $active = $selectIcon['active'] ? ' active' : '';
+                    $html[] =   '<div class="col col-auto item' . $active . '">';
+                    if (is_array($selectIcon)) {
+                        $html[] = '<a href="#" title="' . htmlspecialchars($selectIcon['title'], ENT_COMPAT, 'UTF-8', false) . '" data-select-index="' . htmlspecialchars((string)$selectIcon['index']) . '">';
+                        $html[] =   $selectIcon['icon'];
+                        $html[] = '</a>';
+                    }
+                    $html[] =   '</div>';
+                }
+                $html[] =    '</div>';
+                $html[] = '</div>';
+            } else {
+                $html[] = '<div class="t3js-forms-select-single-icons form-wizard-icon-list">';
+                foreach ($selectIcons as $selectIcon) {
+                    $active = $selectIcon['active'] ? ' active' : '';
+                    $html[] = '<div class="form-wizard-icon-list-item">';
+                    $html[] =   '<a class="' . $active . '" href="#" title="' . htmlspecialchars($selectIcon['title'], ENT_COMPAT, 'UTF-8', false) . '" data-select-index="' . htmlspecialchars((string)$selectIcon['index']) . '">';
+                    $html[] =       $selectIcon['icon'];
+                    $html[] =   '</a>';
+                    $html[] = '</div>';
+                }
                 $html[] = '</div>';
             }
-            $html[] = '</div>';
         }
 
         $result['html'] = implode(LF, $html);
