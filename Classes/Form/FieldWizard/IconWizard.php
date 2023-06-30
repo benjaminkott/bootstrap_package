@@ -79,11 +79,9 @@ class IconWizard extends AbstractNode
                 foreach ($selectIcons as $selectIcon) {
                     $active = $selectIcon['active'] ? ' active' : '';
                     $html[] =   '<div class="col col-auto item' . $active . '">';
-                    if (is_array($selectIcon)) {
-                        $html[] = '<a href="#" title="' . htmlspecialchars($selectIcon['title'], ENT_COMPAT, 'UTF-8', false) . '" data-select-index="' . htmlspecialchars((string)$selectIcon['index']) . '">';
-                        $html[] =   $selectIcon['icon'];
-                        $html[] = '</a>';
-                    }
+                    $html[] = '<a href="#" title="' . htmlspecialchars($selectIcon['title'], ENT_COMPAT, 'UTF-8', false) . '" data-select-index="' . htmlspecialchars((string)$selectIcon['index']) . '">';
+                    $html[] =   $selectIcon['icon'];
+                    $html[] = '</a>';
                     $html[] =   '</div>';
                 }
                 $html[] =    '</div>';
