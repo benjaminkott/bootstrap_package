@@ -69,7 +69,9 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = array_replace_recursive(
         ',
         'columnsOverrides' => [
             'assets' => [
-                'config' => \BK2K\BootstrapPackage\Utility\TcaUtility::getConfigForFileExtensions(['youtube', 'vimeo']),
+                'config' => [
+                    'allowed' => ['youtube', 'vimeo']
+                ],
             ]
         ]
     ]

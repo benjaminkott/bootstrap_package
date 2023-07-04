@@ -109,52 +109,22 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
     'exclude' => true,
     'displayCond' => 'FIELD:frame_class:!=:none',
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image',
-    'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-        'background_image',
-        [
-            'appearance' => [
-                'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-            ],
-            'overrideChildTca' => [
-                'types' => [
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
-                        'showitem' => '
-                            --palette--;;filePalette
-                        '
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                        'showitem' => '
-                            --palette--;;filePalette
-                        '
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                        'showitem' => '
-                            crop,
-                            --palette--;;filePalette
-                        '
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                        'showitem' => '
-                            --palette--;;filePalette
-                        '
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                        'showitem' => '
-                            --palette--;;filePalette
-                        '
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-                        'showitem' => '
-                            --palette--;;filePalette
-                        '
-                    ],
+    'config' => [
+        'type' => 'file',
+        'allowed' => 'common-image-types',
+        'minitems' => 0,
+        'maxitems' => 1,
+        'appearance' => [
+            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+        ],
+        'overrideChildTca' => [
+            'types' => [
+                \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                    'showitem' => 'crop,--palette--;;filePalette'
                 ],
             ],
-            'minitems' => 0,
-            'maxitems' => 1,
         ],
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-    ),
+    ],
     'l10n_mode' => 'exclude',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['background_image_options'] = [

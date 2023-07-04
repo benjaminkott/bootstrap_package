@@ -65,7 +65,9 @@ $GLOBALS['TCA']['tt_content']['types']['csv'] = array_replace_recursive(
         ',
         'columnsOverrides' => [
             'media' => [
-                'config' => \BK2K\BootstrapPackage\Utility\TcaUtility::getConfigForFileExtensions(['csv']),
+                'config' => [
+                    'allowed' => ['csv'],
+                ]
             ]
         ]
     ]
