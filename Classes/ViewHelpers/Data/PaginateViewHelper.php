@@ -10,7 +10,6 @@
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
 use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
@@ -112,15 +111,10 @@ class PaginateViewHelper extends AbstractViewHelper
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
-        if ((new Typo3Version())->getMajorVersion() < 12) {
-            /** @var StandaloneView $view */
-            $view = GeneralUtility::makeInstance(StandaloneView::class);
-        } else {
-            $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create();
-            $context->setRequest($renderingContext->getRequest());
-            /** @var StandaloneView $view */
-            $view = GeneralUtility::makeInstance(StandaloneView::class, $context);
-        }
+        $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create();
+        $context->setRequest($renderingContext->getRequest());
+        /** @var StandaloneView $view */
+        $view = GeneralUtility::makeInstance(StandaloneView::class, $context);
 
         $layoutRootPaths = [];
         $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
