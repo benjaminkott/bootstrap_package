@@ -31,7 +31,7 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
-        "scssphp/scssphp": "^1.8.1",
+        "scssphp/scssphp": "^1.11",
         "typo3/cms-backend": "^12.4 || 13.*.*@dev",
         "typo3/cms-core": "^12.4 || 13.*.*@dev",
         "typo3/cms-extbase": "^12.4 || 13.*.*@dev",
@@ -43,16 +43,16 @@
         "typo3/cms-seo": "^12.4 || 13.*.*@dev"
     },
     "require-dev": {
-        "b13/container": "^2.0",
+        "b13/container": "^2.2",
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.14",
+        "friendsofphp/php-cs-fixer": "^3.20",
         "friendsoftypo3/phpstan-typo3": "^0.9",
-        "overtrue/phplint": "^3.2 || ^4.3 || ^5.3",
-        "phpstan/phpstan": "^1.7",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.1",
-        "phpstan/phpstan-strict-rules": "^1.2",
+        "overtrue/phplint": "^9.0",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
+        "phpstan/phpstan-phpunit": "^1.3",
+        "phpstan/phpstan-strict-rules": "^1.5",
         "typo3/cms-belog": "^12.4 || 13.*.*@dev",
         "typo3/cms-felogin": "^12.4 || 13.*.*@dev",
         "typo3/cms-filelist": "^12.4 || 13.*.*@dev",
@@ -62,7 +62,7 @@
         "typo3/cms-lowlevel": "^12.4 || 13.*.*@dev",
         "typo3/cms-tstemplate": "^12.4 || 13.*.*@dev",
         "typo3/cms-workspaces": "^12.4 || 13.*.*@dev",
-        "typo3/testing-framework": "^7.0.0 || ^8.0.0"
+        "typo3/testing-framework": "^8.0.0"
     },
     "config": {
         "bin-dir": ".build/bin",
