@@ -30,6 +30,9 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'security' => [
+            'ignorePageTypeRestriction' => true
+        ],
         'typeicon_column' => 'item_type',
         'typeicon_classes' => [
             'default' => 'content-bootstrappackage-carousel-item',
