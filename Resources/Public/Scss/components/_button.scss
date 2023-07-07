@@ -16,3 +16,17 @@
         width: 1.25em;
     }
 }
+
+//
+// Accessible focus styles
+//
+.btn {
+    --#{$prefix}btn-focus-ring-contrast-color: #ffffff;
+    --#{$prefix}btn-focus-ring-color: #000000;
+}
+.btn:focus-visible {
+    box-shadow:
+        var(--bs-btn-box-shadow),
+        0 0 0 2px var(--#{$prefix}btn-focus-ring-contrast-color),
+        0 0 0 4px var(--#{$prefix}btn-focus-ring-color);
+}
