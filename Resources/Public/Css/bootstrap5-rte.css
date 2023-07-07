@@ -15363,10 +15363,6 @@ fieldset.form-group > *:last-child {
   margin-bottom: .5rem;
 }
 
-.footer-meta {
-  overflow: hidden;
-}
-
 .footer-meta .meta-menu {
   margin: 0;
   list-style: none;
