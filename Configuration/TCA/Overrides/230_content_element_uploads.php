@@ -15,11 +15,3 @@ defined('TYPO3') or die('Access denied.');
     'Configuration/TsConfig/Page/ContentElement/Element/Uploads.tsconfig',
     'Bootstrap Package Content Element: File Links'
 );
-
-// Add additional fields
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    'subitems_header_layout',
-    'uploads',
-    'before:media'
-);
