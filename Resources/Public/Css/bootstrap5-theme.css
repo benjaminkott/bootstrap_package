@@ -13668,6 +13668,15 @@ fieldset.form-group > *:last-child {
   width: 1.25em;
 }
 
+.btn, .cc-btn {
+  --bs-btn-focus-ring-contrast-color: #ffffff;
+  --bs-btn-focus-ring-color: #000000;
+}
+
+.btn:focus-visible, .cc-btn:focus-visible {
+  box-shadow: var(--bs-btn-box-shadow), 0 0 0 2px var(--bs-btn-focus-ring-contrast-color), 0 0 0 4px var(--bs-btn-focus-ring-color);
+}
+
 .navbar-mainnavigation {
   --mainnavigation-nav-height: 70px;
   --mainnavigation-hightlight: #577760;
