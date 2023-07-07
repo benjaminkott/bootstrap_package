@@ -17602,6 +17602,7 @@ iframe {
 .cc-header {
   font-weight: bold;
   font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 .cc-link,
@@ -17655,10 +17656,10 @@ iframe {
 
 .cc-container {
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   margin: 0 auto;
+  gap: 1rem;
   --bs-gutter-x: 40px;
   --bs-gutter-y: 0;
   width: 100%;
@@ -17751,14 +17752,8 @@ iframe {
   line-height: 1.25rem;
 }
 
-.cc-floating > .cc-container > .cc-link,
-.cc-floating > .cc-link {
-  margin-bottom: 1rem;
-}
-
 .cc-floating .cc-message {
   display: block;
-  margin-bottom: 1rem;
 }
 
 .cc-window.cc-floating .cc-compliance {

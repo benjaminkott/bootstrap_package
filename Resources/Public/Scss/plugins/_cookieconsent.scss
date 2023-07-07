@@ -85,6 +85,7 @@ $cookieconsent-button-highlight-bg: transparent !default;
 .cc-header {
     font-weight: bold;
     font-size: 1.5rem;
+    margin-bottom: 0;
 }
 .cc-link,
 .cc-close,
@@ -142,10 +143,10 @@ $cookieconsent-button-highlight-bg: transparent !default;
 // --------------------------------------------------
 .cc-container {
     width: 100%;
-    overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
     margin: 0 auto;
+    gap: 1rem;
     @include make-container();
     @each $breakpoint, $container-max-width in $container-max-widths {
         @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -206,13 +207,8 @@ $cookieconsent-button-highlight-bg: transparent !default;
     line-height: 1.25rem;
 }
 .cc-floating {
-    > .cc-container > .cc-link,
-    > .cc-link {
-        margin-bottom: 1rem;
-    }
     .cc-message {
         display: block;
-        margin-bottom: 1rem;
     }
 }
 .cc-window {
