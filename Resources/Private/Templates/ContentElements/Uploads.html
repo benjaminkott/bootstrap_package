@@ -5,6 +5,17 @@
     <f:if condition="{files}">
         <ul class="filelink-list">
             <f:for each="{files}" as="file" iteration="fileIterator">
+                <f:variable name="fileTitle">
+                    <f:if condition="{file.properties.title}">
+                        <f:then>
+                            {file.properties.title} ({f:format.case(value: file.properties.extension, mode: 'lower')})
+                        </f:then>
+                        <f:else>
+                            {file.properties.name}
+                        </f:else>
+                    </f:if>
+                </f:variable>
+                <f:variable name="fileTitle">{fileTitle -> f:format.trim()}</f:variable>
                 <li class="filelink-item">
                     <f:if condition="{data.uploads_type} == 1">
                         <div class="filelink-media">
@@ -35,7 +46,7 @@
                         <f:if condition="{file -> bk2k:file.isImage()} || {file -> bk2k:file.isMedia()}">
                             <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                                 <div class="filelink-media">
-                                    <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
+                                    <a href="{file.publicUrl}" title="{fileTitle}"{f:if(condition: data.target, then: ' target="{data.target}"')}>
                                         <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
                                     </a>
                                 </div>
@@ -45,16 +56,8 @@
                     <div class="filelink-body">
                         <div class="filelink-heading">
                             <span class="filelink-filename">
-                                <a href="{file.publicUrl}"{f:if(condition: file.properties.title, then: ' title="{file.properties.title}"')}{f:if(condition: data.target, then: ' target="{data.target}"')}>
-                                    <f:if condition="{file.properties.title}">
-                                        <f:then>
-                                            {file.properties.title}
-                                            ({f:format.case(value: file.properties.extension, mode: 'lower')})
-                                        </f:then>
-                                        <f:else>
-                                            {file.properties.name}
-                                        </f:else>
-                                    </f:if>
+                                <a href="{file.publicUrl}" title="{fileTitle}"{f:if(condition: data.target, then: ' target="{data.target}"')}>
+                                    {fileTitle}
                                 </a>
                             </span>
                             <f:if condition="{data.filelink_size}">
