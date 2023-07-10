@@ -1,3 +1,21 @@
+# 14.0.3
+
+## TASK
+
+- 637fe97d [TASK] Streamline link titles in file uploads
+
+## BUGFIX
+
+- e1eee66b [BUGFIX] Filenames are no headlines
+- 99b466fd [BUGFIX] Avoid clipping of footer meta menu focus styles
+- 50f2e126 [BUGFIX] Update cookie consent styling
+- f27c6494 [BUGFIX] Force button focus styles to be accessible
+- 86b218fc [BUGFIX] Correct search result markup
+
+## Contributors
+
+- Benjamin Kott
+
 # 14.0.2
 
 ## BUGFIX
