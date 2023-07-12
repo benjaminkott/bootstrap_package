@@ -29,4 +29,9 @@ fieldset.form-group {
     input[type="password"] {
         @extend .form-control;
     }
+    input[type="submit"] {
+        margin-top: 1rem;
+        @extend .btn;
+        @extend .btn-primary;
+    }
 }

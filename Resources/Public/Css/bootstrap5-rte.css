@@ -13826,11 +13826,6 @@ fieldset.form-group > *:last-child {
   border-radius: 2px;
 }
 
-.navbar-mainnavigation .nav-link:focus-visible {
-  outline: 2px solid;
-  box-shadow: none;
-}
-
 .navbar-mainnavigation .nav-link-icon {
   flex-grow: 0;
   flex-shrink: 0;
@@ -14380,6 +14375,11 @@ fieldset.form-group > *:last-child {
   .navbar-inverse-transition:not(.navbar-transition) .navbar-brand > .navbar-brand-logo-inverted {
     display: block;
   }
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid;
+  box-shadow: none;
 }
 
 @media (min-width: 992px) {
@@ -15970,6 +15970,21 @@ fieldset.form-group > *:last-child {
   .accordion-content-left .accordion-content-item {
     width: calc(50% - (1rem / 2));
   }
+}
+
+.accordion-button {
+  --bs-accordion-btn-focus-ring-contrast-color: #ffffff;
+  --bs-accordion-btn-focus-ring-color: #000000;
+}
+
+.accordion-button:focus-visible {
+  z-index: 3;
+  border-color: var(--bs-accordion-btn-focus-border-color);
+  outline: 0;
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+  --bs-accordion-btn-focus-box-shadow:
+        0 0 0 2px var(--bs-accordion-btn-focus-ring-contrast-color),
+        0 0 0 4px var(--bs-accordion-btn-focus-ring-color);
 }
 
 .tab-navigation {

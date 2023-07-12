@@ -1,0 +1,14 @@
+//
+// Accessible focus styles
+//
+.form-check-input:focus-visible,
+.form-select:focus-visible,
+.form-control:focus-visible {
+    --#{$prefix}input-focus-ring-contrast-color: #ffffff;
+    --#{$prefix}input-focus-ring-color: #000000;
+    outline: 0;
+    box-shadow:
+        $input-focus-box-shadow,
+        0 0 0 2px var(--#{$prefix}input-focus-ring-contrast-color),
+        0 0 0 4px var(--#{$prefix}input-focus-ring-color);
+}
