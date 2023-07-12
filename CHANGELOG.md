@@ -1,3 +1,18 @@
+# 14.0.4
+
+## TASK
+
+- bd111903 [TASK] Force accessible focus styles
+- bcb93af6 [TASK] Use legacy set attribute instead of internal attribute
+
+## BUGFIX
+
+- 5747f861 [BUGFIX] Explicitly set title for image
+
+## Contributors
+
+- Benjamin Kott
+
 # 14.0.3
 
 ## TASK
