@@ -17573,6 +17573,15 @@ iframe {
   }
 }
 
+:root {
+  --cookieconsent-zindex: 1080;
+  --cookieconsent-bg: #1b1b1b;
+  --cookieconsent-color: #ffffff;
+  --cookieconsent-link-color: #6f8b78;
+  --cookieconsent-button-bg: #6f8b78;
+  --cookieconsent-button-highlight-bg: transparent;
+}
+
 .cc-window {
   opacity: 1;
   transition: opacity 1s ease;
@@ -17618,7 +17627,7 @@ iframe {
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
-  z-index: 1080;
+  z-index: var(--cookieconsent-zindex);
 }
 
 .cc-window.cc-static {
@@ -17663,14 +17672,9 @@ iframe {
 }
 
 .cc-link {
-  opacity: .8;
   display: inline-block;
   padding: .2rem 0;
   text-decoration: underline;
-}
-
-.cc-link:hover {
-  opacity: 1;
 }
 
 .cc-link:active, .cc-link:visited {
@@ -17896,14 +17900,19 @@ iframe {
 
 .cc-window,
 .cc-revoke {
-  color: #ffffff;
-  background-color: #1b1b1b;
+  color: var(--cookieconsent-color);
+  background-color: var(--cookieconsent-bg);
 }
 
 .cc-link,
 .cc-link:active,
 .cc-link:visited {
-  color: #6f8b78;
+  color: var(--cookieconsent-link-color);
+}
+
+.cc-link:hover,
+.cc-link:focus {
+  color: color-mix(in srgb, var(--cookieconsent-link-color), var(--cookieconsent-color) 25%);
 }
 
 .cc-btn {
