@@ -47,7 +47,13 @@
                             <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
                                 <div class="filelink-media">
                                     <a href="{file.publicUrl}" title="{fileTitle}"{f:if(condition: data.target, then: ' target="{data.target}"')}>
-                                        <f:media file="{file}" width="{settings.uploads.preview.width}" height="{settings.uploads.preview.height}" alt="{file.properties.alternative}" />
+                                        <f:media
+                                            file="{file}"
+                                            title="{fileTitle}"
+                                            width="{settings.uploads.preview.width}"
+                                            height="{settings.uploads.preview.height}"
+                                            alt="{file.properties.alternative}"
+                                        />
                                     </a>
                                 </div>
                             </f:if>
