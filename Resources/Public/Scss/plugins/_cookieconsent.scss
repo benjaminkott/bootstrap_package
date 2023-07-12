@@ -7,6 +7,14 @@ $cookieconsent-color: color-contrast($cookieconsent-bg) !default;
 $cookieconsent-link-color: a11y-color($cookieconsent-bg, $primary) !default;
 $cookieconsent-button-bg: a11y-color($cookieconsent-bg, $primary) !default;
 $cookieconsent-button-highlight-bg: transparent !default;
+:root {
+    --cookieconsent-zindex: #{$cookieconsent-zindex};
+    --cookieconsent-bg: #{$cookieconsent-bg};
+    --cookieconsent-color: #{$cookieconsent-color};
+    --cookieconsent-link-color: #{$cookieconsent-link-color};
+    --cookieconsent-button-bg: #{$cookieconsent-button-bg};
+    --cookieconsent-button-highlight-bg: #{$cookieconsent-button-highlight-bg};
+}
 
 //
 // Animation
@@ -55,7 +63,7 @@ $cookieconsent-button-highlight-bg: transparent !default;
     overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
-    z-index: $cookieconsent-zindex;
+    z-index: var(--cookieconsent-zindex);
 }
 .cc-window {
     &.cc-static {
@@ -93,13 +101,9 @@ $cookieconsent-button-highlight-bg: transparent !default;
     cursor: pointer;
 }
 .cc-link {
-    opacity: .8;
     display: inline-block;
     padding: .2rem 0;
     text-decoration: underline;
-    &:hover {
-        opacity: 1;
-    }
     &:active,
     &:visited {
         color: initial;
@@ -305,13 +309,17 @@ $cookieconsent-button-highlight-bg: transparent !default;
 // --------------------------------------------------
 .cc-window,
 .cc-revoke {
-    color: $cookieconsent-color;
-    background-color: $cookieconsent-bg;
+    color: var(--cookieconsent-color);
+    background-color: var(--cookieconsent-bg);
 }
 .cc-link,
 .cc-link:active,
 .cc-link:visited {
-    color: $cookieconsent-link-color;
+    color: var(--cookieconsent-link-color);
+}
+.cc-link:hover,
+.cc-link:focus {
+    color: color-mix(in srgb, var(--cookieconsent-link-color), var(--cookieconsent-color) 25%);
 }
 .cc-btn {
     @include button-variant($cookieconsent-button-bg, $cookieconsent-button-bg);
