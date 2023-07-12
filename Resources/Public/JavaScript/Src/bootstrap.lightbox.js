@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             });
             gallery.on('firstUpdate', () => {
-                gallery.pswp.element.ariaModal = true;
+                gallery.pswp.element.setAttribute('aria-modal', true);
                 gallery.pswp.scrollWrap.ariaLabel = 'carousel';
                 gallery.pswp.scrollWrap.removeAttribute('aria-roledescription');
             });
