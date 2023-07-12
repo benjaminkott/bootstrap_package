@@ -56,6 +56,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'renderType' => 'selectSingle',
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconSetItems',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'nav_icon_identifier' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.icon',
@@ -74,6 +75,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                     ],
                 ],
             ],
+            'l10n_mode' => 'exclude',
         ],
         'nav_icon' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:pages.nav_icon',
@@ -94,6 +96,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'minitems' => 0,
                 'maxitems' => 1,
             ],
+            'l10n_mode' => 'exclude',
         ],
         'thumbnail' => [
             'exclude' => true,

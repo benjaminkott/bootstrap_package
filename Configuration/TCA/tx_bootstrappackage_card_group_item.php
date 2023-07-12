@@ -262,6 +262,7 @@ return [
                 'renderType' => 'selectSingle',
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconSetItems',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'link_icon_identifier' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:card_group_item.link_icon_identifier',
@@ -280,6 +281,7 @@ return [
                     ],
                 ],
             ],
+            'l10n_mode' => 'exclude',
         ],
         'link_icon' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:card_group_item.link_icon',
@@ -300,6 +302,7 @@ return [
                 'minitems' => 0,
                 'maxitems' => 1,
             ],
+            'l10n_mode' => 'exclude',
         ],
         'link_class' => [
             'exclude' => true,

@@ -201,6 +201,7 @@ return [
                 'renderType' => 'selectSingle',
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconSetItems',
             ],
+            'l10n_mode' => 'exclude',
         ],
         'icon_identifier' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item.icon_identifier',
@@ -219,6 +220,7 @@ return [
                     ],
                 ],
             ],
+            'l10n_mode' => 'exclude',
         ],
         'icon_file' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline_item.icon_file',
@@ -239,6 +241,7 @@ return [
                 'minitems' => 0,
                 'maxitems' => 1,
             ],
+            'l10n_mode' => 'exclude',
         ],
         'image' => [
             'exclude' => true,
