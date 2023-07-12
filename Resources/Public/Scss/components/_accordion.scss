@@ -47,3 +47,20 @@ $accordion-content-gap:     $spacer !default;
         }
     }
 }
+
+//
+// Accessible focus styles
+//
+.accordion-button {
+    --#{$prefix}accordion-btn-focus-ring-contrast-color: #ffffff;
+    --#{$prefix}accordion-btn-focus-ring-color: #000000;
+}
+.accordion-button:focus-visible {
+    z-index: 3;
+    border-color: var(--#{$prefix}accordion-btn-focus-border-color);
+    outline: 0;
+    box-shadow: var(--#{$prefix}accordion-btn-focus-box-shadow);
+    --bs-accordion-btn-focus-box-shadow:
+        0 0 0 2px var(--#{$prefix}accordion-btn-focus-ring-contrast-color),
+        0 0 0 4px var(--#{$prefix}accordion-btn-focus-ring-color);
+}
