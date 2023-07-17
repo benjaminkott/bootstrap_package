@@ -34,7 +34,7 @@
                         >
                         <f:render partial="Carousel/General/BackgroundImage" arguments="{_all}" />
                         <div class="carousel-content">
-                            <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
+                            <f:render partial="Carousel/Item/{item.data.item_type -> f:format.upperCamelCase()}" arguments="{_all}" />
                         </div>
                     </div>
                 </f:for>

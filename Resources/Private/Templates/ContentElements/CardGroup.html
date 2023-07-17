@@ -36,7 +36,7 @@
                                 </f:if>
                             </f:variable>
                             <div class="card-footer">
-                                <f:link.typolink parameter="{item.data.link}" class="btn btn-{item.data.link_class}" title="{linkTitle -> bk2k:format.trim()}">
+                                <f:link.typolink parameter="{item.data.link}" class="btn btn-{item.data.link_class}" title="{linkTitle -> f:format.trim()}">
                                     <f:if condition="{item.linkIcon}">
                                         <span class="btn-icon">
                                             <bk2k:icon icon="{item.linkIcon}" />
@@ -59,7 +59,7 @@
 
     <f:if condition="{link}">
         <f:then>
-            <f:link.typolink parameter="{link}" title="{linkTitle -> bk2k:format.trim()}">{content -> f:format.raw()}</f:link.typolink>
+            <f:link.typolink parameter="{link}" title="{linkTitle -> f:format.trim()}">{content -> f:format.raw()}</f:link.typolink>
         </f:then>
         <f:else>
             {content -> f:format.raw()}

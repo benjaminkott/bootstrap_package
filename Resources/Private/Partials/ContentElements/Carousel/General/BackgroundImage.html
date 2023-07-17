@@ -31,7 +31,7 @@
                         </f:if>
                         <f:variable name="variantStyle">{variantStyle} <f:if condition="{mediaQuery}">@media {mediaQuery} { </f:if>#{backgroundImageIdentifier} { background-image: url('{f:uri.image(image: backgroundImageObject, cropVariant: name, maxWidth: sizeWidth)}'); }<f:if condition="{mediaQuery}"> }</f:if></f:variable>
                     </f:for>
-                    <f:variable name="styles" value="{variantStyle -> bk2k:format.trim()} {styles}"/>
+                    <f:variable name="styles" value="{variantStyle -> f:format.trim()} {styles}"/>
                 </f:if>
             </f:for>
             <bk2k:condition.classExists class="TYPO3\CMS\Fluid\ViewHelpers\Security\NonceViewHelper">
