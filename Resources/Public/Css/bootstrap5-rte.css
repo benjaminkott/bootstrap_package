@@ -13791,7 +13791,7 @@ fieldset.form-group > *:last-child {
 .navbar-mainnavigation .navbar-nav {
   gap: var(--mainnavigation-nav-spacing-y) var(--mainnavigation-nav-spacing-x);
   line-height: var(--mainnavigation-link-line-height);
-  --bs-nav-link-font-size: var(--mainnavigation-nav-font-size);
+  --bs-nav-link-font-size: var(--mainnavigation-link-font-size);
   --bs-nav-link-padding-y: var(--mainnavigation-link-padding-y);
   --bs-nav-link-padding-x: var(--mainnavigation-link-padding-x);
 }
