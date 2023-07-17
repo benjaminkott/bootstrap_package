@@ -39,7 +39,7 @@
     .navbar-nav {
         gap: var(--mainnavigation-nav-spacing-y) var(--mainnavigation-nav-spacing-x);
         line-height: var(--mainnavigation-link-line-height);
-        --#{$prefix}nav-link-font-size: var(--mainnavigation-nav-font-size);
+        --#{$prefix}nav-link-font-size: var(--mainnavigation-link-font-size);
         --#{$prefix}nav-link-padding-y: var(--mainnavigation-link-padding-y);
         --#{$prefix}nav-link-padding-x: var(--mainnavigation-link-padding-x);
     }
