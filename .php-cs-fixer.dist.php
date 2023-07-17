@@ -40,7 +40,7 @@ return (new PhpCsFixer\Config())
             ]
         ],
         'no_leading_import_slash' => true,
-        'no_trailing_comma_in_singleline_array' => true,
+        'no_trailing_comma_in_singleline' => true,
         'no_singleline_whitespace_before_semicolons' => true,
         'no_unused_imports' => true,
         'concat_space' => ['spacing' => 'one'],
@@ -54,7 +54,7 @@ return (new PhpCsFixer\Config())
         'no_blank_lines_after_phpdoc' => true,
         'array_syntax' => ['syntax' => 'short'],
         'whitespace_after_comma_in_array' => true,
-        'function_typehint_space' => true,
+        'type_declaration_spaces' => true,
         'single_line_comment_style' => true,
         'no_alias_functions' => true,
         'lowercase_cast' => true,
