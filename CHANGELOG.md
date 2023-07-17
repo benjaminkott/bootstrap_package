@@ -1,3 +1,13 @@
+# 14.0.6
+
+## BUGFIX
+
+- c0a8ab4a [BUGFIX] Cleanup release...
+
+## Contributors
+
+- Benjamin Kott
+
 # 14.0.5
 
 ## TASK
@@ -2154,7 +2164,7 @@
 - 914a4254 [BUGFIX] Add composer self-update to travis
 - da8c97d0 [BUGFIX] Correct indention
 - 1e798736 [BUGFIX] Use correct assignment for TypoScript value
-- b8d89b14 [BUGFIX] Make class.ext_update.php work on PHP
+- b8d89b14 [BUGFIX] Make class.ext_update.php work on PHP 
 - 1cf9b927 [BUGFIX] There is no boostrap package
 
 ## MISC
@@ -2377,7 +2387,7 @@
 - c29b6227 [TASK] Update oyejorge/less.php to 1.7.0.3
 - 35b81ccf [TASK] Remove automatic cache clearing - fixes #126
 - 7e746fd6 [TASK] Add slack to contact and communication
-- 29b666b5 [TASK] replaced  with
+- 29b666b5 [TASK] replaced  with 
 - 761bd5c7 [TASK] Add admin panel config to typoscript constants
 - 88139537 [TASK] Update changelog in documentation
 
