@@ -4,7 +4,7 @@
 <f:section name="Main">
 
     <div class="contentcontainer" data-container-identifier="{data.CType}">
-        <f:render partial="Container/Rendering/{data.CType -> f:format.upperCamelCase()}" arguments="{_all}" />
+        <f:render partial="Container/Rendering/{data.CType -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
     </div>
 
 </f:section>
