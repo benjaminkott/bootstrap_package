@@ -11,7 +11,7 @@ a.lightbox {
     cursor: zoom-in;
 }
 .image > a {
-    display: inline-block;
+    display: block;
     &:focus-visible,
     &:focus {
         outline-offset: 1px;

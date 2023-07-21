@@ -18334,7 +18334,7 @@ a.lightbox {
 }
 
 .image > a {
-  display: inline-block;
+  display: block;
 }
 
 .image > a:focus-visible, .image > a:focus {
