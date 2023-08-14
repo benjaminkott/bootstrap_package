@@ -1,3 +1,19 @@
+# 14.0.7
+
+## TASK
+
+- f066dffc [TASK] Update ddev config
+
+## BUGFIX
+
+- bc90ce27 [BUGFIX] Correct title attribute in external media preview
+- 6f11bdfc [BUGFIX] Prevent array offset access on non existing keys
+- d73c677c [BUGFIX] Use block styling for image links instead of inline-block
+
+## Contributors
+
+- Benjamin Kott
+
 # 14.0.6
 
 ## BUGFIX
