@@ -1,0 +1,24 @@
+page {
+    10 {
+        dataProcessing {
+            1692697283 = BK2K\BootstrapPackage\DataProcessing\SkiplinkProcessor
+            1692697283 {
+                entries {
+                    mainnavigation {
+                        label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:skiptomainnavigation
+                        section = mainnavigation
+                    }
+                    content {
+                        label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:skiptomaincontent
+                        section = page-content
+                    }
+                    footer {
+                        label = LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:skiptopagefooter
+                        section = page-footer
+                    }
+                }
+                as = skiplinks
+            }
+        }
+    }
+}
