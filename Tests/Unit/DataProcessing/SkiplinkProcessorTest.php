@@ -28,13 +28,17 @@ class SkiplinkProcessorTest extends UnitTestCase
         $this->container = new Container();
 
         if ((new Typo3Version())->getMajorVersion() >= 12) {
+            /** @phpstan-ignore-next-line */
             $dataProcessorRegistryMock = $this->getMockBuilder(DataProcessorRegistry::class)->disableOriginalConstructor()->getMock();
+            /** @phpstan-ignore-next-line */
             $dataProcessorRegistryMock->method('getDataProcessor')->willReturn(null);
+            /** @phpstan-ignore-next-line */
             $this->contentDataProcessor = new ContentDataProcessor(
                 $this->container,
                 $dataProcessorRegistryMock
             );
         } else {
+            /** @phpstan-ignore-next-line */
             $this->contentDataProcessor = new ContentDataProcessor(
                 $this->container
             );
