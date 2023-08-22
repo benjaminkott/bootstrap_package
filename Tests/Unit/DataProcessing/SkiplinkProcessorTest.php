@@ -10,8 +10,8 @@
 namespace BK2K\BootstrapPackage\Tests\Unit\DataProcessing;
 
 use BK2K\BootstrapPackage\DataProcessing\SkiplinkProcessor;
-use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\DependencyInjection\Container;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\DataProcessing\DataProcessorRegistry;
@@ -21,18 +21,24 @@ class SkiplinkProcessorTest extends UnitTestCase
 {
     protected ContentDataProcessor $contentDataProcessor;
     protected Container $container;
-    protected MockObject&DataProcessorRegistry $dataProcessorRegistryMock;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->container = new Container();
-        $this->dataProcessorRegistryMock = $this->getMockBuilder(DataProcessorRegistry::class)->disableOriginalConstructor()->getMock();
-        $this->dataProcessorRegistryMock->method('getDataProcessor')->willReturn(null);
-        $this->contentDataProcessor = new ContentDataProcessor(
-            $this->container,
-            $this->dataProcessorRegistryMock
-        );
+
+        if ((new Typo3Version())->getMajorVersion() >= 12) {
+            $dataProcessorRegistryMock = $this->getMockBuilder(DataProcessorRegistry::class)->disableOriginalConstructor()->getMock();
+            $dataProcessorRegistryMock->method('getDataProcessor')->willReturn(null);
+            $this->contentDataProcessor = new ContentDataProcessor(
+                $this->container,
+                $dataProcessorRegistryMock
+            );
+        } else {
+            $this->contentDataProcessor = new ContentDataProcessor(
+                $this->container
+            );
+        }
     }
 
     /**
