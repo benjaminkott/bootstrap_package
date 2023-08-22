@@ -1,0 +1,9 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{skiplinks}">
+    <f:for each="{skiplinks}" as="link">
+        <a class="visually-hidden-focusable page-skip-link" href="#{link.section}">
+            <span><f:translate key="{link.label}" /></span>
+        </a>
+    </f:for>
+</f:if>
+</html>

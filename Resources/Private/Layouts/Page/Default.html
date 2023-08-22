@@ -4,13 +4,7 @@
 
     <f:render partial="DropIn/Page/PageBefore" arguments="{_all}" />
     <f:render partial="Structure/CookieConsent" arguments="{_all}" />
-
-    <a class="visually-hidden-focusable page-skip-link" href="#page-content">
-        <span>{f:translate(key: 'skiptomaincontent', extensionName: 'bootstrap_package')}</span>
-    </a>
-    <a class="visually-hidden-focusable page-skip-link" href="#page-footer">
-        <span>{f:translate(key: 'skiptopagefooter', extensionName: 'bootstrap_package')}</span>
-    </a>
+    <f:render partial="Structure/Skiplink" arguments="{_all}" />
 
     <f:render partial="Navigation/Main" arguments="{_all}" />
     <f:render section="Border" optional="true" />
