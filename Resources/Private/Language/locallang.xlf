@@ -5,6 +5,10 @@
         <header/>
         <body>
 
+            <trans-unit id="skiptomainnavigation">
+                <source>Skip to main navigation</source>
+            </trans-unit>
+
             <trans-unit id="skiptomaincontent">
                 <source>Skip to main content</source>
             </trans-unit>

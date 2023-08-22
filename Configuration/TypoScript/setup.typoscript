@@ -355,6 +355,7 @@ page {
 
 # COMPONENTS
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/setup.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/Skiplink/setup.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/setup.typoscript'
 
 
