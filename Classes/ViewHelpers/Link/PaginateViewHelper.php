@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Link;
 
+use TYPO3\CMS\Extbase\Mvc\Request;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
@@ -39,7 +40,10 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         $paginationPage = (int) $this->arguments['paginationPage'];
         $section = isset($this->arguments['section']) ? (string)$this->arguments['section'] : '';
 
-        $arguments = [];
+        /** @var Request $request */
+        $request = $this->renderingContext->getRequest();
+        $arguments = $request->getQueryParams();
+        unset($arguments['paginate'], $arguments['cHash']);
         if ($paginationPage > 1) {
             $arguments['paginate'][$paginationId]['page'] = $paginationPage;
         }
