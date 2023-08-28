@@ -56,8 +56,8 @@ prototypes:
     formEditor:
       translationFiles:
         1686735592: 'EXT:bootstrap_package/Resources/Private/Language/FormGridColumn.xlf'
-      dynamicRequireJsModules:
+      dynamicJavaScriptModules:
         additionalViewModelModules:
-          1686735592: 'TYPO3/CMS/BootstrapPackage/Backend/FormEditor/GridColumnViewModel'
+          1686735592: '@bk2k/bootstrap-package/backend/form-editor/grid-column-view-model.js'
       formEditorPartials:
         FormElement-GridColumn: Stage/Fieldset
