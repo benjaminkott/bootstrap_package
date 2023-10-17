@@ -6,28 +6,24 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
-                </TCEforms>
+                <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
                 <type>array</type>
                 <el>
                     <default_tab>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.default_tab
-                            </label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <foreign_table>tx_bootstrappackage_tab_item</foreign_table>
-                                <foreign_table_where>AND tx_bootstrappackage_tab_item.tt_content = ###THIS_UID###</foreign_table_where>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0"></numIndex>
-                                        <numIndex index="1">0</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab.default_tab
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <foreign_table>tx_bootstrappackage_tab_item</foreign_table>
+                            <foreign_table_where>AND tx_bootstrappackage_tab_item.tt_content = ###THIS_UID###</foreign_table_where>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0"></numIndex>
+                                    <numIndex index="1">0</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </default_tab>
                 </el>
             </ROOT>
