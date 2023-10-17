@@ -21,6 +21,11 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 final class FrameClassUpdateTest extends FunctionalTestCase
 {
+    protected array $coreExtensionsToLoad = [
+        'seo',
+        'rte_ckeditor',
+    ];
+
     protected array $testExtensionsToLoad = [
         'typo3conf/ext/bootstrap_package'
     ];
