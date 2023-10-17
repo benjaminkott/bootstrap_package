@@ -6,62 +6,56 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
-                </TCEforms>
+                <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
                 <type>array</type>
                 <el>
                     <align>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align</label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <default>left</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.left</numIndex>
-                                        <numIndex index="1">left</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.center</numIndex>
-                                        <numIndex index="1">center</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.right</numIndex>
-                                        <numIndex index="1">right</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <default>left</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.left</numIndex>
+                                    <numIndex index="1">left</numIndex>
+                                </numIndex>
+                                <numIndex index="1" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.center</numIndex>
+                                    <numIndex index="1">center</numIndex>
+                                </numIndex>
+                                <numIndex index="2" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.align.right</numIndex>
+                                    <numIndex index="1">right</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </align>
                     <columns>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.columns</label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <default>2</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">1</numIndex>
-                                        <numIndex index="1">1</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">2</numIndex>
-                                        <numIndex index="1">2</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2" type="array">
-                                        <numIndex index="0">3</numIndex>
-                                        <numIndex index="1">3</numIndex>
-                                    </numIndex>
-                                    <numIndex index="3" type="array">
-                                        <numIndex index="0">4</numIndex>
-                                        <numIndex index="1">4</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card.columns</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <default>2</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">1</numIndex>
+                                    <numIndex index="1">1</numIndex>
+                                </numIndex>
+                                <numIndex index="1" type="array">
+                                    <numIndex index="0">2</numIndex>
+                                    <numIndex index="1">2</numIndex>
+                                </numIndex>
+                                <numIndex index="2" type="array">
+                                    <numIndex index="0">3</numIndex>
+                                    <numIndex index="1">3</numIndex>
+                                </numIndex>
+                                <numIndex index="3" type="array">
+                                    <numIndex index="0">4</numIndex>
+                                    <numIndex index="1">4</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </columns>
                 </el>
             </ROOT>

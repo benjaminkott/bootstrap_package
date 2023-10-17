@@ -6,85 +6,73 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
-                </TCEforms>
+                <sheetTitle>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:settings</sheetTitle>
                 <type>array</type>
                 <el>
                     <autoplay>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay</label>
-                            <config>
-                                <type>check</type>
-                                <default>0</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay.description</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay</label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay.description</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </autoplay>
                     <interval>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval
-                            </label>
-                            <config>
-                                <type>input</type>
-                                <size>8</size>
-                                <default>5000</default>
-                                <eval>required,int</eval>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval
+                        </label>
+                        <config>
+                            <type>input</type>
+                            <size>8</size>
+                            <default>5000</default>
+                            <eval>required,int</eval>
+                        </config>
                     </interval>
                     <transition>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition
-                            </label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <default>fade</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</numIndex>
-                                        <numIndex index="1">fade</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</numIndex>
-                                        <numIndex index="1">slide</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <default>fade</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</numIndex>
+                                    <numIndex index="1">fade</numIndex>
+                                </numIndex>
+                                <numIndex index="1" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</numIndex>
+                                    <numIndex index="1">slide</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </transition>
                     <wrap>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>
-                            <config>
-                                <type>check</type>
-                                <default>1</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap</label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </wrap>
                     <show_nav_title>
-                        <TCEforms>
-                            <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title</label>
-                            <config>
-                                <type>check</type>
-                                <default>0</default>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title.description</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title</label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title.description</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
                     </show_nav_title>
                 </el>
             </ROOT>
