@@ -1,0 +1,1539 @@
+sitecreator:
+  title: "Demo"
+  description: ""
+  pages:
+    -
+      id: "NEW_PAGEROOT"
+      title: "Boostrap Package - Demo"
+      is_siteroot: 1
+      abstract: "Bootstrap Package is the most advanced theme for TYPO3."
+      description: "Bootstrap Package delivers a full configured frontend theme for TYPO3, based on the Bootstrap CSS Framework. The goal of this package is to give an advanced example of how modern templating in TYPO3 CMS can be handled nicely without depending on third party extensions. Bootstrap Package comes with a fully configurable Frontend via TypoScript. This includes the TypoScript Constant Editor."
+      backend_layout: pagets__default
+      backend_layout_next_level: pagets__default
+      templates:
+        -
+          title: "+root"
+          root: 1
+          clear: 3
+          constants: "
+            page.theme.meta.enable = 1\n
+            page.theme.meta.navigationType = directory\n
+            page.theme.meta.navigationValue = NEW_PAGEFOOTER\n
+            \n
+            page.theme.socialmedia.channels.twitter.url = https://twitter.com/benjaminkott\n
+            page.theme.socialmedia.channels.github.url = https://github.com/benjaminkott/bootstrap_package\n
+            \n
+            page.theme.cookieconsent.position = bottom-right\n
+          "
+          include_static_file: "
+            EXT:bootstrap_package/Configuration/TypoScript
+          "
+      contentBlocks:
+        -
+          CType: carousel
+          frame_class: none
+          tx_bootstrappackage_carousel_item:
+            -
+              item_type: header
+              header: "Bootstrap Package delivers a full configured theme for TYPO3, based on the Bootstrap CSS Framework."
+              header_layout: 1
+              header_class: h2
+              header_position: center
+              link: t3://page?uid=NEW_PAGEROOT
+            -
+              item_type: text
+              header: "Bootstrap Package delivers a full configured theme for TYPO3, based on the Bootstrap CSS Framework."
+              header_layout: 1
+              header_class: h2
+              bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer laoreet, velit vitae eleifend consequat, nunc libero euismod velit, ut semper tortor dolor vitae augue. Curabitur a libero tellus. In tristique cursus velit, id convallis lectus iaculis sed.</p>"
+            -
+              item_type: call_to_action
+              header: "Call to Action"
+              header_layout: 1
+              header_class: h2
+              bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer laoreet, velit vitae eleifend consequat, nunc libero euismod velit, ut semper tortor dolor vitae augue. Curabitur a libero tellus. In tristique cursus velit, id convallis lectus iaculis sed.</p>"
+              button_text: "Go somewhere"
+              link: t3://page?uid=NEW_PAGEROOT
+            -
+              item_type: text_and_image
+              header: "Text and Image"
+              header_layout: 1
+              header_class: h2
+              bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer laoreet, velit vitae eleifend consequat, nunc libero euismod velit, ut semper tortor dolor vitae augue. Curabitur a libero tellus. In tristique cursus velit, id convallis lectus iaculis sed.</p>"
+              link: t3://page?uid=NEW_PAGEROOT
+            -
+              item_type: image
+              header: "Image"
+              link: t3://page?uid=NEW_PAGEROOT
+            -
+              item_type: html
+              header: "HTML"
+              bodytext: "<p>RAW RAW RAW</p>"
+        -
+          CType: icon_group
+          header_layout: 100
+          pi_flexform:
+            data:
+              sDEF:
+                lDEF:
+                  align:
+                    vDEF: left
+                  columns:
+                    vDEF: 3
+                  icon_position:
+                    vDEF: left-top
+          background_color_class: primary
+          tx_bootstrappackage_icon_group_item:
+            -
+              header: "Start browsing"
+              bodytext: "
+                <p>Start browsing to learn why TYPO3 CMS is the most powerful open source content management system.</p>
+                <p><a class=\"btn btn-default\" href=\"t3://page?uid=NEW_PAGEFEATURES\">Features</a>&nbsp;<a class=\"btn btn-default\" href=\"t3://page?uid=NEW_PAGECUSTOMIZING\">Customizing</a></p>
+              "
+            -
+              header: "Examples"
+              bodytext: "
+                <p>Don't hesitate and discover the&nbsp;large selection of our pre-configured page layouts and content elements.</p>
+                <p><a class=\"btn btn-default\" href=\"t3://page?uid=NEW_PAGEPAGES\">Pages</a>&nbsp;<a class=\"btn btn-default\" href=\"t3://page?uid=NEW_PAGECONTENTELEMENTS\">Content Elements</a></p>
+              "
+            -
+              header: "Start browsing"
+              bodytext: "
+                <p>The TYPO3 Bootstrap Package is open source. It's hosted, developed, and maintained on GitHub.</p>
+                <p><a class=\"btn btn-default\" href=\"https://github.com/benjaminkott/bootstrap_package\" rel=\"noopener\" target=\"_blank\" title=\"btn-primary\">View the GitHub project</a></p>
+              "
+        -
+          header: "Unlimited Opportunities"
+          CType: textpic
+          header_layout: 2
+          imageorient: 126
+          bodytext: "
+            <p>
+              The Bootstrap Package closes the gap between content management systems and the usual&nbsp;website-builder solution,
+              by providing sophisticated enterprise content management through TYPO3 and the flexibility of a modern website builder.
+            </p>
+            <p>
+              Extensive configuration options allow you to adapt the theme completely to your own needs. A sophisticated system of
+              additional page layouts and content elements in conjunction with extended setting options for background colors and
+              background images no longer sets any limits to the design options for their content.
+            </p>
+          "
+        -
+          header: "Get the TYPO3 Bootstrap Package today."
+          header_layout: 2
+          header_position: center
+          bodytext: "
+            <p class=\"lead text-center\">
+              <strong>The TYPO3 Bootstrap Package is the most comprehensive theme available for TYPO3.</strong>
+              It uses only best practices recommended by the TYPO3 core team and
+              is therefore always state-of-the-art and compatible with all current versions.
+            </p>
+          "
+          background_color_class: light
+          frame_class: indent
+        -
+          header: "Download"
+          header_position: center
+          header_layout: 100
+          CType: card_group
+          background_color_class: light
+          frame_class: indent
+          pi_flexform:
+            data:
+              sDEF:
+                lDEF:
+                  align:
+                    vDEF: left
+                  columns:
+                    vDEF: 2
+          tx_bootstrappackage_card_group_item:
+            -
+              header: "TYPO3 Extension Repository"
+              bodytext: "<p>Download the integration directly from your TYPO3 backend, or get the package from the Official TYPO3 Extension Repository (TER).</p>"
+              link: "https://extensions.typo3.org/extension/bootstrap_package/"
+              link_title: "Download from TER"
+              link_class: primary
+            -
+              header: "Composer"
+              bodytext: "<p>If you have installed TYPO3 with composer it couldn't be easier. Just require the package <strong>bk2k/bootstrap-package</strong> and you are ready to start.</p>"
+              link: "https://packagist.org/packages/bk2k/bootstrap-package"
+              link_title: "Get from Packagist"
+              link_class: primary
+        -
+          header: "Related Links"
+          header_layout: 3
+          colPos: 10
+          bodytext: "
+            <ul class=\"list-unstyled\">
+              <li><a href=\"https://github.com/benjaminkott/bootstrap_package\" rel=\"noopener\" target=\"_blank\">GitHub</a></li>
+              <li><a href=\"https://packagist.org/packages/bk2k/bootstrap-package\" rel=\"noopener\" target=\"_blank\">Packagist</a></li>
+              <li><a href=\"https://extensions.typo3.org/extension/bootstrap_package/\" rel=\"noopener\" target=\"_blank\">Extension Repository</a></li>
+              <li><a href=\"https://www.sitepackagebuilder.com/\" rel=\"noopener\" target=\"_blank\">Sitepackage Builder</a></li>
+            </ul>
+          "
+        -
+          header: "Powered by"
+          header_layout: 3
+          colPos: 11
+          bodytext: "
+            <p><a href=\"http://typo3.org/\" rel=\"noopener\" target=\"_blank\" title=\"TYPO3 Open Source CMS\"><strong>TYPO3</strong> Enterprise Open Source CMS</a></p>
+          "
+        -
+          header: "Social Networks"
+          header_layout: 3
+          colPos: 12
+          bodytext: "
+            <ul class=\"list-unstyled\">
+              <li><a href=\"https://twitter.com/benjaminkott\" rel=\"noopener\" target=\"_blank\" title=\"Benjamin Kott on Twitter\">Twitter</a></li>
+              <li><a href=\"https://www.facebook.com/benjaminkott\" rel=\"noopener\" target=\"_blank\" title=\"Benjamin Kott on Facebook\">Facebook</a></li>
+              <li><a href=\"https://www.xing.com/profile/Benjamin_Kott2\" rel=\"noopener\" target=\"_blank\" title=\"Benjamin Kott on Xing\">Xing</a></li>
+            </ul>
+          "
+      pages:
+        -
+          doktype: 4
+          title: "Home"
+          shortcut: "NEW_PAGEROOT"
+          shortcutMode: 0
+        -
+          doktype: 199
+          title: "Spacer"
+        -
+          id: "NEW_PAGECUSTOMIZING"
+          title: "Customizings"
+          contentBlocks:
+            -
+              CType: text
+              colPos: 0
+              background_color_class: none
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: primary
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: secondary
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: tertiary
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: quaternary
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: light
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+            -
+              CType: text
+              colPos: 0
+              background_color_class: dark
+              header: Lorem ipsum dolor sit amet
+              bodytext: "
+                <p>Aenean fringilla lobortis pellentesque. Sed aliquam varius libero, eget porttitor nisl placerat vel. Aenean sit amet dui sed tortor hendrerit gravida.</p>
+                <p><a href=\"https://www.bootstrap-package.com\" target=\"_blank\">Bootstrap Package</a></p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-link\">Link</a>
+                </p>
+                <p>
+                  <a href=\"#\" class=\"btn btn-outline-primary\">Primary</a>
+                  <a href=\"#\" class=\"btn btn-outline-secondary\">Secondary</a>
+                  <a href=\"#\" class=\"btn btn-outline-tertiary\">Tertiary</a>
+                  <a href=\"#\" class=\"btn btn-outline-quaternary\">Quaternary</a>
+                  <a href=\"#\" class=\"btn btn-outline-success\">Success</a>
+                  <a href=\"#\" class=\"btn btn-outline-danger\">Danger</a>
+                  <a href=\"#\" class=\"btn btn-outline-warning\">Warning</a>
+                  <a href=\"#\" class=\"btn btn-outline-info\">Info</a>
+                  <a href=\"#\" class=\"btn btn-outline-light\">Light</a>
+                  <a href=\"#\" class=\"btn btn-outline-dark\">Dark</a>
+                  <a href=\"#\" class=\"btn btn-outline-link\">Link</a>
+                </p>
+                <p>
+                  <span class=\"badge text-bg-primary\">Primary</span>
+                  <span class=\"badge text-bg-secondary\">Secondary</span>
+                  <span class=\"badge text-bg-tertiary\">Tertiary</span>
+                  <span class=\"badge text-bg-quaternary\">Quaternary</span>
+                  <span class=\"badge text-bg-success\">Success</span>
+                  <span class=\"badge text-bg-danger\">Danger</span>
+                  <span class=\"badge text-bg-warning\">Warning</span>
+                  <span class=\"badge text-bg-info\">Info</span>
+                  <span class=\"badge text-bg-light\">Light</span>
+                  <span class=\"badge text-bg-dark\">Dark</span>
+                </p>
+              "
+        -
+          id: "NEW_PAGEFEATURES"
+          title: "Features"
+        -
+          id: "NEW_PAGEPAGES"
+          title: "Pages"
+          pages:
+            -
+              title: "Default"
+            -
+              title: "2 Columns"
+            -
+              title: "2 Columns 25/75"
+            -
+              title: "2 Columns 50/50"
+            -
+              title: "2 Columns, Offset Right"
+            -
+              title: "3 Columns"
+            -
+              title: "Simple"
+            -
+              title: "Subnavigation, Left"
+            -
+              title: "Subnavigation, Left and 2 Columns"
+            -
+              title: "Subnavigation, Right"
+            -
+              title: "Subnavigation, Right and 2 Columns"
+            -
+              title: "Feature"
+            -
+              title: "Startpage"
+        -
+          id: "NEW_PAGECONTENTELEMENTS"
+          title: "Content Examples"
+          backend_layout: pagets__subnavigation_right
+          backend_layout_next_level: pagets__subnavigation_right
+          pages:
+            -
+              title: "Text"
+              pages:
+                -
+                  id: "NEW_PAGERICHTEXT"
+                  title: "Rich Text"
+                  contentBlocks:
+                    -
+                      header: "TYPO3's Built-in Rich Text Editor"
+                      bodytext: "
+                        <p class=\"lead\">
+                          TYPO3 ships with the CKEditor (<a href=\"http://ckeditor.com/\">ckeditor.com</a>) as there
+                          <strong><em>sophisticated</em></strong>&nbsp;built-in rich text editor (RTE).&nbsp;This editor contains all
+                          of the features one would expect from an Enterprise CMS, and is highly configurable and extendable to fit
+                          every project out there.
+                        </p>
+                      "
+                    -
+                      header: "Multicolumn"
+                      bodytext: "
+                        <div class=\"text-column\">
+                          <p>
+                            Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Etiam rhoncus. Vestibulum ullamcorper
+                            mauris at ligula. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Praesent porttitor,
+                            nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.Quisque id mi.&nbsp;Nullam
+                            quis ante.&nbsp; In ac felis quis tortor malesuada pretium.Nulla facilisi. Donec posuere vulputate arcu. Nunc
+                            nulla. Quisque ut nisi. Ut id nisl quis enim dignissim sagittis.Phasellus viverra nulla ut metus varius
+                            laoreet. Donec mi odio, faucibus at.
+                          </p>
+                        </div>
+                      "
+                    -
+                      header: "Boxed Content"
+                      bodytext: "
+                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi.</p>
+                        <div class=\"well\">
+                          <p>Nullam cursus lacinia erat. In auctor lobortis lacus. Vivamus consectetuer hendrerit lacus. Pellentesque commodo eros a enim. Suspendisse feugiat.</p>
+                        </div>
+                        <p>Praesent vestibulum dapibus nibh. Fusce fermentum. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.</p>
+                      "
+                    -
+                      header: "Indented Blocks"
+                      bodytext: "
+                        <p>Curabitur nisi. Ut tincidunt tincidunt erat. Nullam sagittis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Sed fringilla mauris sit amet nibh.</p>
+                        <div class=\"text-indent\">
+                        <p>Phasellus dolor. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Donec vitae sapien ut libero venenatis faucibus. In hac habitasse platea dictumst. Ut non enim eleifend felis pretium feugiat.Phasellus a est. Vestibulum volutpat pretium libero. Duis leo. Cras non dolor. Nullam dictum felis eu pede mollis pretium.</p>
+                        </div>
+                        <p>Integer tincidunt. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Phasellus accumsan cursus velit. Fusce fermentum. Nullam accumsan lorem in dui.</p>
+                      "
+                    -
+                      header: "Buttons"
+                      bodytext: "
+                        <ul class=\"list-inline\">
+                          <li><a class=\"btn btn-default\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Default</a></li>
+                          <li><a class=\"btn btn-primary\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Primary</a></li>
+                          <li><a class=\"btn btn-secondary\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Secondary</a></li>
+                          <li><a class=\"btn btn-info\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Info</a></li>
+                          <li><a class=\"btn btn-warning\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Warning</a></li>
+                          <li><a class=\"btn btn-success\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Success</a></li>
+                          <li><a class=\"btn btn-danger\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Danger</a></li>
+                        </ul>
+                        <ul class=\"list-inline\">
+                          <li><a class=\"btn btn-outline-default\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Default</a></li>
+                          <li><a class=\"btn btn-outline-primary\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Primary</a></li>
+                          <li><a class=\"btn btn-outline-secondary\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Secondary</a></li>
+                          <li><a class=\"btn btn-outline-info\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Info</a></li>
+                          <li><a class=\"btn btn-outline-warning\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Warning</a></li>
+                          <li><a class=\"btn btn-outline-success\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Success</a></li>
+                          <li><a class=\"btn btn-outline-danger\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Danger</a></li>
+                        </ul>
+                      "
+                    -
+                      header: "Contextual Styling"
+                      bodytext: "
+                        <ul class=\"list-inline\">
+                          <li><span class=\"text-muted\">Muted</span></li>
+                          <li><span class=\"text-primary\">Primary</span></li>
+                          <li><span class=\"text-secondary\">Secondary</span></li>
+                          <li><span class=\"text-info\">Info</span></li>
+                          <li><span class=\"text-warning\">Warning</span></li>
+                          <li><span class=\"text-success\">Success</span></li>
+                          <li><span class=\"text-danger\">Danger</span></li>
+                        </ul>
+                      "
+                    -
+                      header: "Examples of Rich Text Content Elements"
+                      bodytext: "
+                        <p><strong>Continuous text:</strong> text, optional in <strong>bold</strong> or <em>italic</em> or in a combination of<em><strong> bold and italic</strong></em>.</p>
+                        <p><strong>Special characters can be used</strong>: @ © ® ¢ ¼ ½ ¾ § ± a² m³ Ω π µ γ β α H<sub>2</sub>O</p>
+                        <p><strong>Texts in foreign languages can be mixed on one page. </strong><br>The font has to be installed on the device though:</p>
+                        <p>
+                          cyrillic: Русская версия<br />
+                          chinese: 中文版<br />
+                          arabic: الْعَرَبيّة
+                        </p>
+                        <p class=\"text-center\">Centered text</p>
+                        <p class=\"text-right\">Text justified right</p>
+                      "
+                    -
+                      header: "Blockquote"
+                      bodytext: "
+                        <p>Aenean ante elit, elementum et, varius ut, condimentum ut, sem. Aenean ante neque, imperdiet sed, ultricies vitae, aliquam dictum, arcu. Aenean arcu est, semper vitae, euismod quis, vehicula eu, risus.</p>
+                        <blockquote>
+                          <p>Aenean ante elit, elementum et, varius ut, condimentum ut, sem. Aenean ante neque, imperdiet sed, ultricies vitae, aliquam dictum, arcu. Aenean arcu est, semper vitae, euismod quis, vehicula eu, risus.</p>
+                        </blockquote>
+                        <p>Aenean ante elit, elementum et, varius ut, condimentum ut, sem. Aenean ante neque, imperdiet sed, ultricies vitae, aliquam dictum, arcu. Aenean arcu est, semper vitae, euismod quis, vehicula eu, risus.</p>
+                      "
+                    -
+                      header: "Lists"
+                      bodytext: "
+                        <p><strong>Bulleted list:</strong></p>
+                        <ul>
+                          <li>first level</li>
+                          <li>first level
+                            <ul>
+                              <li>second level</li>
+                              <li>second level
+                                <ul>
+                                  <li>third level</li>
+                                  <li>third level</li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <p><strong>Ordered list:</strong></p>
+                        <ol>
+                          <li>first level</li>
+                          <li>first level
+                            <ol>
+                              <li>second level</li>
+                              <li>second level
+                                <ol>
+                                  <li>third level</li>
+                                  <li>third level</li>
+                                </ol>
+                              </li>
+                            </ol>
+                          </li>
+                        </ol>
+                      "
+                    -
+                      header: "Links"
+                      bodytext: "
+                        <p>You can insert <a class=\"link-page\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">internal links</a> (links to pages within the website), <a class=\"link-external\" href=\"http://typo3.org\">external links</a> (links to external sites) or <a class=\"link-mail\" href=\"mailto:test@test.net\">e-mail links</a> (links that open the user's email client when clicked).</p>
+                        <p>Additional link stylings:</p>
+                        <ul>
+                          <li><a class=\"link-arrow\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Arrow</a></li>
+                          <li><a class=\"link-page\" href=\"t3://page?uid=NEW_PAGERICHTEXT\">Page</a></li>
+                          <li><a class=\"link-file\" href=\"#\">File</a></li>
+                          <li><a class=\"link-folder\" href=\"#\">Folder</a></li>
+                          <li><a class=\"link-mail\" href=\"mailto:john.doe@example.com\">E-Mail&nbsp;</a></li>
+                        </ul>
+                      "
+                    -
+                      header: "Tables"
+                      bodytext: "
+                        <table class=\"table table-bordered table-hover\">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>FirstName</th>
+                              <th>LastName</th>
+                              <th>Username</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class=\"success\">
+                              <td>1</td>
+                              <td>Benjamin</td>
+                              <td>Kott</td>
+                              <td>@benjaminkott</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>John</td>
+                              <td>Doe</td>
+                              <td>-</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Larry</td>
+                              <td>the Bird</td>
+                              <td>@twitter</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      "
+                    -
+                      header: "Address"
+                      bodytext: "
+                        <address class=\"address\">
+                          <p class=\"address-title\"><strong>John Doe</strong></p>
+                          <p class=\"address-address\">Street<br>Zip &amp; City</p>
+                          <p class=\"address-phone\">+49 1234 456-7890</p>
+                          <p class=\"address-fax\">+49 1234 456-7891</p>
+                          <p class=\"address-email\">john.doe@example.com</p>
+                          <p class=\"address-www\">www.example.com</p>
+                        </address>
+                      "
+                -
+                  id: NEW_PAGEHEADERS
+                  title: "Headers"
+                  contentBlocks:
+                    -
+                      CType: header
+                      header: Header 1. level
+                      header_layout: 1
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 2. level
+                      header_layout: 2
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 3. level
+                      header_layout: 3
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 4. level
+                      header_layout: 4
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 5. level
+                      header_layout: 5
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 1. level (with link)
+                      header_layout: 1
+                      header_link: t3://page?uid=NEW_PAGEHEADERS
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 2. level (with link)
+                      header_layout: 2
+                      header_link: t3://page?uid=NEW_PAGEHEADERS
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 3. level (with link)
+                      header_layout: 3
+                      header_link: t3://page?uid=NEW_PAGEHEADERS
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 4. level (with link)
+                      header_layout: 4
+                      header_link: t3://page?uid=NEW_PAGEHEADERS
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 5. level (with link)
+                      header_layout: 5
+                      header_link: t3://page?uid=NEW_PAGEHEADERS
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 1. level (center)
+                      header_layout: 1
+                      header_position: center
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 2. level (center)
+                      header_layout: 2
+                      header_position: center
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 3. level (center)
+                      header_layout: 3
+                      header_position: center
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 4. level (center)
+                      header_layout: 4
+                      header_position: center
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 5. level (center)
+                      header_layout: 5
+                      header_position: center
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 1. level (right)
+                      header_layout: 1
+                      header_position: right
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 2. level (right)
+                      header_layout: 2
+                      header_position: right
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 3. level (right)
+                      header_layout: 3
+                      header_position: right
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 4. level (right)
+                      header_layout: 4
+                      header_position: right
+                      subheader: Subheader
+                    -
+                      CType: header
+                      header: Header 5. level (right)
+                      header_layout: 5
+                      header_position: right
+                      subheader: Subheader
+                -
+                  title: "Bullet List"
+                -
+                  title: "Text with Teaser"
+                  contentBlocks:
+                    -
+                      header: Nulla porta sapien interdum nibh pellentesque
+                      CType: textteaser
+                      teaser: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis fermentum justo, at malesuada urna accumsan sit amet.
+                      bodytext: "
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis nibh venenatis, finibus sapien id, fringilla dolor. Aenean euismod arcu nec enim feugiat maximus. Aenean mollis eros eget elementum vulputate. Mauris fringilla magna quis condimentum mattis. Proin quis lacus non elit mollis viverra sed vel orci. Aenean aliquam elit sit amet est efficitur, eget pharetra est sodales. Sed at nulla pellentesque felis maximus faucibus sit amet ut augue. Nunc blandit, ex at facilisis maximus, arcu tellus fringilla purus, non cursus nibh diam sit amet velit. Maecenas efficitur mauris accumsan, elementum urna sit amet, scelerisque orci. Aliquam pulvinar aliquet lectus, at volutpat elit convallis non. Nam eu leo nibh. Praesent a ligula at urna tempor molestie luctus in metus.</p>
+                        <p>Nam ac quam ac libero malesuada commodo ut ac eros. Fusce ullamcorper laoreet ligula. In augue urna, fermentum eu iaculis ut, tristique eget lacus. Ut nec gravida turpis. Nam id commodo nisi. Phasellus tortor ante, molestie sed nisl ac, tincidunt sagittis justo. Nunc non nibh non magna consectetur viverra a vitae lacus. Duis dignissim odio feugiat, ornare massa ut, molestie velit. Aliquam erat volutpat. Integer nisi ligula, placerat eu ex quis, dignissim gravida arcu. In nec consectetur lorem. Aliquam sit amet risus tellus. Vivamus pellentesque, velit et fermentum dignissim, orci augue rhoncus ligula, ut sodales sem nulla vel nibh. Praesent ac risus tellus. Integer placerat efficitur elit, ut malesuada purus posuere non. Morbi sed dolor et ante sodales varius eget sed eros.</p>
+                        <p>Mauris id ipsum ut felis porttitor euismod. Morbi non venenatis augue. Vivamus euismod vehicula arcu. Morbi et sem nisl. Praesent non quam non massa aliquet ultricies gravida vel nisl. Pellentesque ultrices sem vel dui facilisis, ac porta orci elementum. Fusce cursus, velit auctor scelerisque iaculis, ipsum risus luctus est, non fringilla nisi mi et mauris. Quisque ac urna condimentum, pretium augue porta, laoreet nisl. Sed a neque egestas leo pretium malesuada. Sed sollicitudin ornare leo sed elementum.</p>
+                      "
+                -
+                  title: "Text and Icon"
+                  contentBlocks:
+                    -
+                      header: "Text and Icon - Left - Default - Default"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Right - Default - Default"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: right
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Top - Default - Default"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: top
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Left - Square - Default"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_type: square
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Left - Circle - Default"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_type: circle
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Left - Default - Medium"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_size: medium
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Left - Default - Large"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_size: large
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                    -
+                      header: "Text and Icon - Left - Default - Awesome"
+                      CType: texticon
+                      bodytext: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi odio, lacinia ac rutrum vitae, consequat eget quam. Curabitur ornare ipsum fringilla quam cursus, at condimentum sapien commodo. Mauris ac sagittis neque. Ut est sem, venenatis eget velit vitae, pellentesque vehicula nunc. Aliquam risus magna, rutrum vel pharetra eget, luctus id arcu. Cras vitae nunc pulvinar, tristique ipsum vitae, elementum magna. Praesent blandit ante ac placerat tincidunt. Vestibulum et elit arcu. Mauris sit amet libero non risus feugiat mattis vitae ac metus.</p>"
+                      icon_position: left
+                      icon_size: awesome
+                      icon_set: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/"
+                      icon: "EXT:bootstrap_package/Resources/Public/Images/Icons/Ionicons/earth.svg"
+                -
+                  title: "Text in Columns"
+                  contentBlocks:
+                    -
+                      header: Phasellus pellentesque malesuada nibh
+                      CType: textcolumn
+                      subheader: Proin quis nibh venenatis, finibus sapien id, fringilla dolor.
+                      bodytext: "
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis nibh venenatis, finibus sapien id, fringilla dolor. Aenean euismod arcu nec enim feugiat maximus. Aenean mollis eros eget elementum vulputate. Mauris fringilla magna quis condimentum mattis. Proin quis lacus non elit mollis viverra sed vel orci. Aenean aliquam elit sit amet est efficitur, eget pharetra est sodales. Sed at nulla pellentesque felis maximus faucibus sit amet ut augue. Nunc blandit, ex at facilisis maximus, arcu tellus fringilla purus, non cursus nibh diam sit amet velit. Maecenas efficitur mauris accumsan, elementum urna sit amet, scelerisque orci. Aliquam pulvinar aliquet lectus, at volutpat elit convallis non. Nam eu leo nibh. Praesent a ligula at urna tempor molestie luctus in metus.</p>
+                        <p>Nam ac quam ac libero malesuada commodo ut ac eros. Fusce ullamcorper laoreet ligula. In augue urna, fermentum eu iaculis ut, tristique eget lacus. Ut nec gravida turpis. Nam id commodo nisi. Phasellus tortor ante, molestie sed nisl ac, tincidunt sagittis justo. Nunc non nibh non magna consectetur viverra a vitae lacus. Duis dignissim odio feugiat, ornare massa ut, molestie velit. Aliquam erat volutpat. Integer nisi ligula, placerat eu ex quis, dignissim gravida arcu. In nec consectetur lorem. Aliquam sit amet risus tellus. Vivamus pellentesque, velit et fermentum dignissim, orci augue rhoncus ligula, ut sodales sem nulla vel nibh. Praesent ac risus tellus. Integer placerat efficitur elit, ut malesuada purus posuere non. Morbi sed dolor et ante sodales varius eget sed eros.</p>
+                        <p>Mauris id ipsum ut felis porttitor euismod. Morbi non venenatis augue. Vivamus euismod vehicula arcu. Morbi et sem nisl. Praesent non quam non massa aliquet ultricies gravida vel nisl. Pellentesque ultrices sem vel dui facilisis, ac porta orci elementum. Fusce cursus, velit auctor scelerisque iaculis, ipsum risus luctus est, non fringilla nisi mi et mauris. Quisque ac urna condimentum, pretium augue porta, laoreet nisl. Sed a neque egestas leo pretium malesuada. Sed sollicitudin ornare leo sed elementum.</p>
+                      "
+                -
+                  title: "List Group"
+                  contentBlocks:
+                    -
+                      header: List Group Example
+                      CType: listgroup
+                      bodytext: "
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit\n
+                        Maecenas blandit mauris vitae vehicula volutpat\n
+                        Duis feugiat risus efficitur ligula condimentum tempus\n
+                        Curabitur eget quam in ipsum tincidunt pulvinar ut a eros\n
+                        Nam placerat erat sit amet euismod fermentum\n
+                      "
+                -
+                  title: "Panel"
+                  contentBlocks:
+                    -
+                      header: "Panel"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      header: "Panel - Default"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: default
+                    -
+                      header: "Panel - Primary"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: primary
+                    -
+                      header: "Panel - Success"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: success
+                    -
+                      header: "Panel - Info"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: info
+                    -
+                      header: "Panel - Warning"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: warning
+                    -
+                      header: "Panel - Danger"
+                      CType: panel
+                      bodytext: "
+                        <p>
+                          Sed semper orci non elementum condimentum. Fusce at urna consectetur, sodales dolor accumsan, convallis neque.
+                          Mauris varius urna vel facilisis laoreet. Nulla cursus consequat vehicula. Donec dignissim, augue sit amet dapibus
+                          interdum, odio eros laoreet mi, id egestas dui felis eget tortor. Class aptent taciti sociosqu ad litora torquent
+                          per conubia nostra, per inceptos himenaeos. Pellentesque lobortis efficitur finibus. Nulla facilisi.
+                        </p>
+                      "
+                      panel_class: danger
+                -
+                  title: "Table"
+                  contentBlocks:
+                    -
+                      header: "Basic"
+                      CType: table
+                      table_header_position: 1
+                      bodytext: "
+                        Title 1|Title 2|Title 3\n
+                        Row 1|Row 1|Row 1\n
+                        Row 2|Row 2|Row 2\n
+                        Row 3|Row 3|Row 3\n
+                        Row 4|Row 4|Row 4\n
+                      "
+                    -
+                      header: "Striped rows"
+                      CType: table
+                      table_class: striped
+                      table_header_position: 1
+                      bodytext: "
+                        Title 1|Title 2|Title 3\n
+                        Row 1|Row 1|Row 1\n
+                        Row 2|Row 2|Row 2\n
+                        Row 3|Row 3|Row 3\n
+                        Row 4|Row 4|Row 4\n
+                      "
+                    -
+                      header: "Bordered"
+                      CType: table
+                      table_class: bordered
+                      table_header_position: 1
+                      bodytext: "
+                        Title 1|Title 2|Title 3\n
+                        Row 1|Row 1|Row 1\n
+                        Row 2|Row 2|Row 2\n
+                        Row 3|Row 3|Row 3\n
+                        Row 4|Row 4|Row 4\n
+                      "
+                    -
+                      header: "Condensed"
+                      CType: table
+                      table_class: condensed
+                      table_header_position: 1
+                      bodytext: "
+                        Title 1|Title 2|Title 3\n
+                        Row 1|Row 1|Row 1\n
+                        Row 2|Row 2|Row 2\n
+                        Row 3|Row 3|Row 3\n
+                        Row 4|Row 4|Row 4\n
+                      "
+                -
+                  title: "Quote"
+                  contentBlocks:
+                    -
+                      header: "Quote"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      header: "W3C HTML5 specification"
+                      CType: quote
+                      quote_source: "W3C HTML5 specification"
+                      quote_link: "http://w3c.github.io/html/grouping-content.html#the-blockquote-element"
+                      bodytext: "The blockquote element represents a section that is quoted from another source."
+            -
+              title: "Media"
+              pages:
+                -
+                  title: "Audio"
+                -
+                  id: NEW_PAGECARDGROUP
+                  title: "Card Group"
+                  contentBlocks:
+                    -
+                      header: "Card Group"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      header: "Cards in 2 Columns"
+                      CType: card_group
+                      pi_flexform:
+                        data:
+                          sDEF:
+                            lDEF:
+                              align:
+                                vDEF: left
+                              columns:
+                                vDEF: 2
+                      tx_bootstrappackage_card_group_item:
+                        -
+                          header: "Card title"
+                          subheader: "Card subtitle"
+                          bodytext: "Some quick example text to build on the card title and make up the bulk of the card's content."
+                          link: "t3://page?uid=NEW_PAGECARDGROUP"
+                          link_title: "Go somewhere"
+                          link_class: primary
+                        -
+                          header: "Card title"
+                          subheader: "Card subtitle"
+                          bodytext: "Some quick example text to build on the card title and make up the bulk of the card's content."
+                          link: "t3://page?uid=NEW_PAGECARDGROUP"
+                          link_title: "Go somewhere"
+                          link_class: primary
+                -
+                  title: "Icon Group"
+                -
+                  title: "Gallery"
+                -
+                  title: "Text and Images"
+                  contentBlocks:
+                    -
+                      header: "Position: Beside text, left"
+                      CType: textpic
+                      imageorient: 126
+                      bodytext: "
+                        <p>Nam aliquam, lorem nec dapibus feugiat, ipsum quam laoreet arcu, sed ullamcorper augue augue vitae magna.</p>
+                        <p>Hambiam est lectus, interdum id, accumsan a, blandit quis, mauris placerat sit amet, nibh. Lacus lectus est mattis vel, pharetra sit amet. Nam laoreet, erat ac laoreet euismod, sapien felis pretium libero, semper euismod mauris metus quis tortor.</p>
+                      "
+                    -
+                      header: "Position: Beside text, right"
+                      CType: textpic
+                      imageorient: 125
+                      bodytext: "
+                        <p>Nam aliquam, lorem nec dapibus feugiat, ipsum quam laoreet arcu, sed ullamcorper augue augue vitae magna.</p>
+                        <p>Hambiam est lectus, interdum id, accumsan a, blandit quis, mauris placerat sit amet, nibh. Lacus lectus est mattis vel, pharetra sit amet. Nam laoreet, erat ac laoreet euismod, sapien felis pretium libero, semper euismod mauris metus quis tortor.</p>
+                      "
+                    -
+                      header: "Position: Above"
+                      CType: textpic
+                      imageorient: 0
+                      bodytext: "
+                        <p>Nam aliquam, lorem nec dapibus feugiat, ipsum quam laoreet arcu, sed ullamcorper augue augue vitae magna.</p>
+                        <p>Hambiam est lectus, interdum id, accumsan a, blandit quis, mauris placerat sit amet, nibh. Lacus lectus est mattis vel, pharetra sit amet. Nam laoreet, erat ac laoreet euismod, sapien felis pretium libero, semper euismod mauris metus quis tortor.</p>
+                      "
+                    -
+                      header: "Position: Below"
+                      CType: textpic
+                      imageorient: 8
+                      bodytext: "
+                        <p>Nam aliquam, lorem nec dapibus feugiat, ipsum quam laoreet arcu, sed ullamcorper augue augue vitae magna.</p>
+                        <p>Hambiam est lectus, interdum id, accumsan a, blandit quis, mauris placerat sit amet, nibh. Lacus lectus est mattis vel, pharetra sit amet. Nam laoreet, erat ac laoreet euismod, sapien felis pretium libero, semper euismod mauris metus quis tortor.</p>
+                      "
+                -
+                  title: "Text and Media"
+                -
+                  title: "File downloads"
+                -
+                  title: "Images"
+                -
+                  title: "Media"
+                -
+                  title: "External Media"
+            -
+              title: "Interactive"
+              pages:
+                -
+                  title: "Accordion"
+                  contentBlocks:
+                    -
+                      header: "Accordions"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      CType: accordion
+                      tx_bootstrappackage_accordion_item:
+                        -
+                          header: "Media Left"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: left
+                        -
+                          header: "Media Right"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: right
+                        -
+                          header: "Media Top"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: top
+                        -
+                          header: "Media Bottom"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: bottom
+                -
+                  title: "Carousel"
+                -
+                  title: "Tab"
+                  contentBlocks:
+                    -
+                      header: "Tab"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      CType: tab
+                      tx_bootstrappackage_tab_item:
+                        -
+                          header: "Media Left"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: left
+                        -
+                          header: "Media Right"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: right
+                        -
+                          header: "Media Top"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: top
+                        -
+                          header: "Media Bottom"
+                          bodytext: "
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus lorem ut efficitur ultrices. Aliquam efficitur ante non molestie sodales. Nunc ullamcorper tempus diam, ac pretium urna vestibulum sed. Nam placerat nulla in fermentum sagittis. Curabitur eget sapien nec quam egestas faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a augue sed tellus laoreet porta nec sit amet urna. Duis finibus metus commodo tortor auctor ullamcorper ac sed urna. Praesent interdum, velit ut bibendum vulputate, elit augue congue eros, at egestas nunc arcu non sem. In malesuada semper neque cursus sagittis. Morbi ac risus eu risus mollis ornare consequat eu leo.</p>
+                            <p>Donec lacinia pretium enim, non tristique urna dignissim non. Fusce volutpat, arcu et iaculis lobortis, erat neque rutrum mauris, eu cursus nulla ante in ipsum. Vestibulum sagittis dictum turpis in placerat. Sed mollis finibus nulla sit amet dapibus. Donec blandit, nibh et ultrices efficitur, ligula justo mollis elit, a tincidunt diam neque gravida dolor. Vivamus a turpis sed magna eleifend elementum. Nullam pretium tincidunt mattis. Sed vel felis turpis. Integer sit amet turpis quam. Duis in dapibus augue. In cursus rhoncus velit ut hendrerit. Quisque sit amet est quis quam mattis venenatis. Aliquam diam purus, venenatis ut malesuada ut, venenatis eu sem. Proin a velit dui. In tempus lorem et neque interdum placerat.</p>
+                          "
+                          mediaorient: bottom
+                -
+                  title: "Timeline"
+                  contentBlocks:
+                    -
+                      header: "Timeline"
+                      bodytext: "<p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus turpis nisi, eleifend laoreet ipsum rutrum eu. Vivamus lorem tellus, fermentum eu vulputate vitae, facilisis ut metus.&nbsp;</p>"
+                    -
+                      header: "Milestones"
+                      CType: timeline
+                      tx_bootstrappackage_timeline_item:
+                        -
+                          date: "2018-09-27 00:00:00"
+                          header: "10.0.0 - Major release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>8.7.0 - 9.5.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/10.0.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2017-12-12 00:00:00"
+                          header: "9.1.0 - Maintenance release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>8.7.0 - 9.5.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/9.1.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2017-11-30 00:00:00"
+                          header: "9.0.0 - Major Release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>8.7.0 - 9.0.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/9.0.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2017-04-04 00:00:00"
+                          header: "8.0.0 - Major Release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>8.7.0 - 9.0.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/8.0.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2017-02-17 00:00:00"
+                          header: "7.1.0 - Maintenance release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>7.6.2 - 8.5.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/7.1.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2016-03-08 00:00:00"
+                          header: "7.0.0 - Major release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>7.6.2 - 7.99.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/7.0.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+                        -
+                          date: "2014-03-20 00:00:00"
+                          header: "6.2.0 - Initial Release"
+                          bodytext: "
+                            <p>
+                              Supports:&nbsp;<strong>6.2.14 - 7.99.99</strong><br>
+                              <a href=\"https://github.com/benjaminkott/bootstrap_package/releases/tag/6.2.0\">Detailed information on GitHub.</a>
+                            </p>
+                          "
+            -
+              title: "Social Media"
+              pages:
+                -
+                  title: "Social Links"
+                  contentBlocks:
+                    -
+                      header: "Social Links"
+                      CType: social_links
+            -
+              title: "Form elements"
+              pages:
+                -
+                  title: "Forms"
+                  pages:
+                    -
+                      title: "Thank You"
+                -
+                  title: "Login"
+                -
+                  title: "Search"
+            -
+              id: NEW_PAGEMENUS
+              title: "Menu's"
+              pages:
+                -
+                  title: "Abstract"
+                -
+                  title: "Cards"
+                  contentBlocks:
+                    -
+                      CType: menu_card_dir
+                      pages: NEW_PAGEMENUS
+                -
+                  title: "Categorized"
+                -
+                  title: "Pages"
+                -
+                  title: "Recently Updated"
+                -
+                  title: "Related Pages"
+                -
+                  title: "Sections"
+                -
+                  title: "Sitemap"
+            -
+              title: "Special elements"
+              pages:
+            -
+              title: "And more..."
+              pages:
+                -
+                  title: "Frames"
+                  contentBlocks:
+                    -
+                      header: "Content-specific Layouts"
+                      frame_class: ruler-after
+                      space_after_class: medium
+                      bodytext: "
+                        <p class=\"lead\">
+                          Frames are centrally configured layouts for different content elements.
+                          Frames can be used, for example, to allow a content editor to apply a
+                          specific background image and/or color to specific content elements
+                          throughout the website.
+                        </p>
+                      "
+                    -
+                      header: "Ruler before"
+                      frame_class: ruler-before
+                      bodytext: "<p>You can set a rulers before or after each content element.</p>"
+                    -
+                      header: "Ruler after"
+                      frame_class: ruler-after
+                      space_after_class: medium
+                      bodytext: "<p>Here the ruler is positioned after the element.</p>"
+                    -
+                      header: "Ruler after coloured"
+                      frame_class: ruler-after
+                      background_color_class: "primary"
+                      bodytext: "<p>Here the ruler is positioned after the element.</p>"
+                    -
+                      header: "Ruler before coloured"
+                      background_color_class: primary
+                      bodytext: "<p>You can set a rulers before or after each content element.</p>"
+                    -
+                      header: "Indent"
+                      frame_class: indent
+                      bodytext: "<p>Donec volutpat pulvinar enim tincidunt sagittis. Duis rutrum enim leo. Maecenas euismod congue blandit? Aliquam et auctor sapien. Phasellus ut pellentesque tellus. Sed ac libero vitae quam porttitor viverra. Nullam neque libero, luctus suscipit ultricies in, tincidunt ac justo?</p>"
+                    -
+                      header: "Indent left"
+                      frame_class: indent-left
+                      bodytext: "<p>Donec volutpat pulvinar enim tincidunt sagittis. Duis rutrum enim leo. Maecenas euismod congue blandit? Aliquam et auctor sapien. Phasellus ut pellentesque tellus. Sed ac libero vitae quam porttitor viverra. Nullam neque libero, luctus suscipit ultricies in, tincidunt ac justo?</p>"
+                    -
+                      header: "Indent right"
+                      frame_class: indent-right
+                      bodytext: "<p>Donec volutpat pulvinar enim tincidunt sagittis. Duis rutrum enim leo. Maecenas euismod congue blandit? Aliquam et auctor sapien. Phasellus ut pellentesque tellus. Sed ac libero vitae quam porttitor viverra. Nullam neque libero, luctus suscipit ultricies in, tincidunt ac justo?</p>"
+                    -
+                      header: "Coloured Backgrounds (light)"
+                      background_color_class: light
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (dark)"
+                      background_color_class: dark
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (primary)"
+                      background_color_class: primary
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "If the same backgrounds follow each other, the distance between the elements is reduced."
+                      background_color_class: primary
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (secondary)"
+                      background_color_class: secondary
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (light)"
+                      frame_layout: embedded
+                      background_color_class: light
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (dark)"
+                      frame_layout: embedded
+                      background_color_class: dark
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (primary)"
+                      frame_layout: embedded
+                      background_color_class: primary
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                    -
+                      header: "Coloured Backgrounds (secondary)"
+                      frame_layout: embedded
+                      background_color_class: secondary
+                      bodytext: "<p>Duis luctus, enim commodo auctor sodales, mi dui facilisis elit, a lobortis quam lacus nec velit. Nam pharetra, augue quis tristique consequat, arcu orci tincidunt dolor, et vehicula nulla risus vel nisi? Maecenas vel ligula lorem. Pellentesque ullamcorper dolor non justo faucibus eleifend. Sed nec sapien vel massa vulputate vehicula eget eu nisl.</p>"
+                -
+                  title: "Images with links"
+                -
+                  title: "Any language, any character"
+        -
+          title: "404"
+          nav_hide: true
+        -
+          id: "NEW_PAGELEGAL"
+          title: "Legal"
+          nav_hide: true
+        -
+          id: "NEW_PAGEPRIVACY"
+          title: "Privacy"
+          nav_hide: true
+        -
+          id: "NEW_PAGEFOOTER"
+          doktype: 254
+          title: "Footer"
+          pages:
+            -
+              doktype: 4
+              title: "Imprint"
+              shortcut: "NEW_PAGELEGAL"
+              shortcut_mode: 0
+            -
+              doktype: 4
+              title: "Privacy"
+              shortcut: "NEW_PAGEPRIVACY"
+              shortcut_mode: 0
