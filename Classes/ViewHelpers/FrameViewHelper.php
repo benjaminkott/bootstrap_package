@@ -46,6 +46,7 @@ class FrameViewHelper extends AbstractViewHelper
         $this->registerArgument('frameClass', 'string', '', false, 'default');
         $this->registerArgument('frameAttributes', 'array', 'Additional tag attributes. They will be added directly to the resulting HTML tag.', false, []);
         $this->registerArgument('type', 'string', '', false, 'default');
+        $this->registerArgument('listType', 'string', 'Type of plugin');
         $this->registerArgument('size', 'string', '', false, 'default');
         $this->registerArgument('height', 'string', '', false, 'default');
         $this->registerArgument('layout', 'string', '', false, 'default');
@@ -72,6 +73,7 @@ class FrameViewHelper extends AbstractViewHelper
     ) {
         $configuration = $arguments;
         $configuration['type'] = trim((string) $configuration['type']) !== '' ? trim($configuration['type']) : 'default';
+        $configuration['listType'] = trim((string) $configuration['listType']);
         $configuration['frameClass'] = trim((string) $configuration['frameClass']) !== '' ? trim($configuration['frameClass']) : 'default';
         $configuration['frameAttributes'] = isset($configuration['frameAttributes']) && is_array($configuration['frameAttributes']) ? $configuration['frameAttributes'] : [];
         $configuration['size'] = trim((string) $configuration['size']) !== '' ? trim($configuration['size']) : 'default';
@@ -89,6 +91,9 @@ class FrameViewHelper extends AbstractViewHelper
         $classes[] = 'frame';
         $classes[] = 'frame-' . $configuration['frameClass'];
         $classes[] = 'frame-type-' . $configuration['type'];
+        if ($configuration['listType']) {
+            $classes[] = 'frame-type-list-' . $configuration['listType'];
+        }
         $classes[] = 'frame-layout-' . $configuration['layout'];
         $classes[] = 'frame-size-' . $configuration['size'];
         $classes[] = 'frame-height-' . $configuration['height'];

@@ -19,6 +19,7 @@
 <bk2k:frame
     id="c{data.uid}"
     type="{data.CType}"
+    listType="{f:if(condition: '{data.CType} == \"list\"', then: data.list_type)}"
     size="default"
     layout="{data.frame_layout}"
     frameClass="{data.frame_class}"
