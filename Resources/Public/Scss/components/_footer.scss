@@ -161,24 +161,9 @@ $footer-sections: map-merge(
 // Footer Language
 // --------------------------------------------------
 .footer-language {
-    .language-menu {
-        margin: 0;
-        list-style: none;
-        padding-left: 0;
-        @include media-breakpoint-up('sm') {
-            margin-left: -.5em;
-            margin-right: -.5em;
-            > li {
-                display: inline-block;
-                padding-left: .5em;
-                padding-right: .5em;
-            }
-        }
+    ul {
         .active a {
             font-weight: bold;
-        }
-        .inactive {
-            opacity: .5;
         }
     }
 }
