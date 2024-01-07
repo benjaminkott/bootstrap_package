@@ -163,7 +163,7 @@ $footer-sections: map-merge(
 .footer-language {
     ul {
         .active a {
-            font-weight: bold;
+            font-weight: $font-weight-bold;
         }
     }
 }
