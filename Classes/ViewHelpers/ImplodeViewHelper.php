@@ -27,7 +27,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  * <bk2k:implode data="{array}" as="string">{string}</bk2k:implode>
  *
  * Example: Returns result string
- * <bk2k:implode data"{array}" />
+ * <bk2k:implode data="{array}" />
  */
 class ImplodeViewHelper extends AbstractViewHelper
 {
