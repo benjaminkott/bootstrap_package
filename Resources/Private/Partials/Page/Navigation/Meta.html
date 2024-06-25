@@ -1,10 +1,10 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{metanavigation}">
-    <ul id="meta_menu" class="meta-menu">
+    <ul class="list-inline">
         <f:for each="{metanavigation}" as="item" iteration="metaiteration">
-            <li{f:if(condition: item.active, then:' class="active"')}>
-                <a href="{item.link}"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}">
-                    <span>{item.title}</span>
+            <li class="list-inline-item{f:if(condition: item.active, then:' active')}">
+                <a href="{item.link}"{f:if(condition: item.target, then: ' target="{item.target}"')} title="{item.title}">
+                    {item.title}
                 </a>
             </li>
         </f:for>
