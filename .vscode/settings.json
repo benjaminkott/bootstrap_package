@@ -5,5 +5,8 @@
     },
     "markdownlint.config": {
         "MD013": true
+    },
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook": "file:///home/benjaminkott/projects/bootstrap_package/Classes/SiteCreator/Resources/Sites/Demo/site.yaml"
     }
 }
