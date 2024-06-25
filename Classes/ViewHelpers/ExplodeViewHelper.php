@@ -25,7 +25,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  * <bk2k:explode data="{array}" delimiter=" " as="items"><f:debug>{items}</f:debug></bk2k:explode>
  *
  * Example: Assigns variable named items with the resulting array
- * <bk2k:explode data"{string}" delimiter=" " />
+ * <bk2k:explode data="{string}" delimiter=" " />
  * <f:debug>{items}</f:debug>
  */
 class ExplodeViewHelper extends AbstractViewHelper
