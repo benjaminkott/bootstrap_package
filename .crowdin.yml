@@ -1,0 +1,9 @@
+files:
+  - source: /Resources/Private/Language/Backend.xlf
+    translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
+  - source: /Resources/Private/Language/ExtConfTemplate.xlf
+    translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
+  - source: /Resources/Private/Language/FormGridColumn.xlf
+    translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
+  - source: /Resources/Private/Language/locallang*.xlf
+    translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
