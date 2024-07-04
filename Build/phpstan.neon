@@ -7,10 +7,10 @@ includes:
 
 parameters:
 	level: 8
-	checkMissingIterableValueType: false
 	reportUnmatchedIgnoredErrors: false
 
 	ignoreErrors:
+		- identifier: missingType.iterableValue
 		- "#Casting to string something that's already string.#"
 		- "#^Call to an undefined method TYPO3Fluid\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContextInterface\\:\\:getRequest\\(\\)\\.$#"
 
