@@ -365,7 +365,6 @@ config {
     pageTitleFirst = 1
     pageTitleSeparator = -
     pageTitleSeparator.noTrimWrap = | | |
-    linkVars = L(int)
     prefixLocalAnchors = {$config.prefixLocalAnchors}
     doctype = html5
     removeDefaultJS = {$config.removeDefaultJS}
@@ -376,10 +375,6 @@ config {
     index_externals = 1
     index_metatags = 1
     headerComment = {$config.headerComment}
-
-    // Language Settings
-    sys_language_overlay = 1
-    sys_language_mode = content_fallback
 
     // Compression and Concatenation of CSS and JS Files
     compressJs = {$config.compressJs}
