@@ -34,6 +34,7 @@
                     <f:variable name="styles" value="{variantStyle -> f:format.trim()} {styles}"/>
                 </f:if>
             </f:for>
+            <f:comment><!-- check for TYPO3 version instead of class name --></f:comment>
             <bk2k:condition.classExists class="TYPO3\CMS\Fluid\ViewHelpers\Security\NonceViewHelper">
                 <f:then>
                     <f:render partial="Carousel/General/BackgroundImageStyleNonce" arguments="{_all}" />
