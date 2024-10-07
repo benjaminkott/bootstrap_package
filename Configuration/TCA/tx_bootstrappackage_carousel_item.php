@@ -282,8 +282,7 @@ return [
                     ],
                 ],
                 'default' => 'header',
-                'authMode' => $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'] ?? 'explicitAllow',
-                'authMode_enforce' => 'strict'
+                'authMode' => 'explicitAllow',
             ],
             'l10n_mode' => 'exclude',
         ],
