@@ -3,7 +3,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.markdownlint": "explicit"
     },
-    "markdownlint.config": {
-        "MD013": true
-    }
+    "intelephense.environment.includePaths": [
+        ".build/vendor"
+    ]
 }
