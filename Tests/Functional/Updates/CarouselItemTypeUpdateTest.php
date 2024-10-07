@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace T3G\AgencyPack\Blog\Tests\Functional\Updates;
+namespace BK2K\BootstrapPackage\Tests\Functional\Updates;
 
 use BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;

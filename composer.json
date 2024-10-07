@@ -62,7 +62,7 @@
         "typo3/cms-lowlevel": "^12.4 || 13.*.*@dev",
         "typo3/cms-tstemplate": "^12.4 || 13.*.*@dev",
         "typo3/cms-workspaces": "^12.4 || 13.*.*@dev",
-        "typo3/testing-framework": "^8.0.0"
+        "typo3/testing-framework": "^8.2.2"
     },
     "config": {
         "bin-dir": ".build/bin",
