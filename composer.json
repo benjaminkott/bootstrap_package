@@ -45,8 +45,8 @@
     "require-dev": {
         "b13/container": "^2.2",
         "bk2k/demo-package": "@dev",
-        "bk2k/extension-helper": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.20",
+        "bk2k/extension-helper": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.64",
         "friendsoftypo3/phpstan-typo3": "^0.9",
         "overtrue/phplint": "^9.0",
         "phpstan/phpstan": "^1.10",
