@@ -31,7 +31,7 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
-        "scssphp/scssphp": "^1.11",
+        "scssphp/scssphp": "^1.13",
         "typo3/cms-backend": "^12.4 || 13.*.*@dev",
         "typo3/cms-core": "^12.4 || 13.*.*@dev",
         "typo3/cms-extbase": "^12.4 || 13.*.*@dev",
@@ -45,8 +45,8 @@
     "require-dev": {
         "b13/container": "^2.2",
         "bk2k/demo-package": "@dev",
-        "bk2k/extension-helper": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.20",
+        "bk2k/extension-helper": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.64",
         "friendsoftypo3/phpstan-typo3": "^0.9",
         "overtrue/phplint": "^9.0",
         "phpstan/phpstan": "^1.10",
@@ -62,7 +62,7 @@
         "typo3/cms-lowlevel": "^12.4 || 13.*.*@dev",
         "typo3/cms-tstemplate": "^12.4 || 13.*.*@dev",
         "typo3/cms-workspaces": "^12.4 || 13.*.*@dev",
-        "typo3/testing-framework": "^8.0.0"
+        "typo3/testing-framework": "^8.2.2"
     },
     "config": {
         "bin-dir": ".build/bin",
