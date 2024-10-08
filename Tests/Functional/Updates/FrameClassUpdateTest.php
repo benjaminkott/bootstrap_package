@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace BK2K\BootstrapPackage\Tests\Functional\Updates;
 
 use BK2K\BootstrapPackage\Updates\FrameClassUpdate;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
@@ -30,18 +31,14 @@ final class FrameClassUpdateTest extends FunctionalTestCase
         'typo3conf/ext/bootstrap_package'
     ];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function noUpdateNecessaryTest(): void
     {
         $subject = new FrameClassUpdate();
         self::assertFalse($subject->updateNecessary());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function updateTest(): void
     {
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
