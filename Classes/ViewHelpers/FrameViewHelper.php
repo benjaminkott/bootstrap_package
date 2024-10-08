@@ -17,17 +17,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * FrameViewHelper
  */
 class FrameViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
@@ -59,18 +55,11 @@ class FrameViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
-     * @throws \Exception
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $configuration = $arguments;
+    public function render()
+    {
+        $configuration = $this->arguments;
         $configuration['type'] = trim((string) $configuration['type']) !== '' ? trim($configuration['type']) : 'default';
         $configuration['frameClass'] = trim((string) $configuration['frameClass']) !== '' ? trim($configuration['frameClass']) : 'default';
         $configuration['frameAttributes'] = isset($configuration['frameAttributes']) && is_array($configuration['frameAttributes']) ? $configuration['frameAttributes'] : [];
@@ -131,7 +120,7 @@ class FrameViewHelper extends AbstractViewHelper
         $backgroundImageOptions['behaviour'] = isset($configuration['backgroundImageOptions']['behaviour']) ? $configuration['backgroundImageOptions']['behaviour'] : 'cover';
         $backgroundImageOptions['parallax'] = isset($configuration['backgroundImageOptions']['parallax']) ? (bool) $configuration['backgroundImageOptions']['parallax'] : false;
         $backgroundImageOptions['fade'] = isset($configuration['backgroundImageOptions']['fade']) ? (bool) $configuration['backgroundImageOptions']['fade'] : false;
-        $backgroundImageOptions['filter'] = isset($configuration['backgroundImageOptions']['filter']) && trim($configuration['backgroundImageOptions']['filter']) !== '' ? $configuration['backgroundImageOptions']['filter'] : null;
+        $backgroundImageOptions['filter'] = isset($configuration['backgroundImageOptions']['filter']) && trim($configuration['backgroundImageOptions']['filter']) !== '' ? (string) $configuration['backgroundImageOptions']['filter'] : null;
 
         // Background Image Classes
         $backgroundImageClasses = [];
@@ -143,7 +132,7 @@ class FrameViewHelper extends AbstractViewHelper
         if ($backgroundImageOptions['fade']) {
             $backgroundImageClasses[] = 'frame-backgroundimage-fade';
         }
-        if ($backgroundImageOptions['filter']) {
+        if ($backgroundImageOptions['filter'] !== null) {
             $backgroundImageClasses[] = 'frame-backgroundimage-' . $backgroundImageOptions['filter'];
         }
 
@@ -174,7 +163,7 @@ class FrameViewHelper extends AbstractViewHelper
                     'classes' => $backgroundImageClasses,
                 ],
                 'variants' => $configuration['variants'],
-                'content' => $renderChildrenClosure(),
+                'content' => $this->renderChildren(),
                 'frameAttributes' => GeneralUtility::implodeAttributes($configuration['frameAttributes'], true)
             ]
         );

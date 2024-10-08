@@ -10,17 +10,13 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use BK2K\BootstrapPackage\Utility\SvgUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * InlineSvgViewHelper
  */
 class InlineSvgViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
@@ -43,22 +39,15 @@ class InlineSvgViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
-     * @throws \Exception
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $src = (string)$arguments['src'];
-        $image = $arguments['image'];
-        $width = $arguments['width'] ? (int) $arguments['width'] : null;
-        $height = $arguments['height'] ? (int) $arguments['height'] : null;
-        $class = $arguments['class'] ? (string) $arguments['class'] : null;
+    public function render()
+    {
+        $src = (string)$this->arguments['src'];
+        $image = $this->arguments['image'];
+        $width = isset($this->arguments['width']) ? (int) $this->arguments['width'] : null;
+        $height = isset($this->arguments['height']) ? (int) $this->arguments['height'] : null;
+        $class = isset($this->arguments['class']) ? (string) $this->arguments['class'] : null;
 
         return SvgUtility::getInlineSvg($src, $image, $width, $height, $class);
     }
