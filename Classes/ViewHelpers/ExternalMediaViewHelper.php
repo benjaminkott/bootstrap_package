@@ -11,17 +11,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use BK2K\BootstrapPackage\Utility\ExternalMediaUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * ExternalMediaViewHelper
  */
 class ExternalMediaViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
@@ -46,21 +42,15 @@ class ExternalMediaViewHelper extends AbstractViewHelper
      * be extracted the embed code will be returned, else the content of the
      * ViewHelper will be displayed.
      *
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $variableProvider = $renderingContext->getVariableProvider();
+    public function render()
+    {
+        $variableProvider = $this->renderingContext->getVariableProvider();
         $externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);
-        $externalMedia = $externalMediaUtility->getEmbedCode($arguments['url'], $arguments['class'], $arguments['title']);
+        $externalMedia = $externalMediaUtility->getEmbedCode($this->arguments['url'], $this->arguments['class'], $this->arguments['title']);
         $variableProvider->add('externalMedia', $externalMedia);
-        $content = $renderChildrenClosure();
+        $content = $this->renderChildren();
         $variableProvider->remove('externalMedia');
         return $content;
     }

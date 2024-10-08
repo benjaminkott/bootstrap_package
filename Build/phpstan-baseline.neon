@@ -23,11 +23,6 @@ parameters:
 			path: ../Classes/Utility/ExternalMediaUtility.php
 
 		-
-			message: "#^Call to deprecated function libxml_disable_entity_loader\\(\\)\\.$#"
-			count: 2
-			path: ../Classes/Utility/SvgUtility.php
-
-		-
 			message: "#^Variable property access on SimpleXMLElement\\.$#"
 			count: 2
 			path: ../Classes/Utility/SvgUtility.php

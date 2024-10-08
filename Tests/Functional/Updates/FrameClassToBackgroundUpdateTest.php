@@ -9,9 +9,10 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace T3G\AgencyPack\Blog\Tests\Functional\Updates;
+namespace BK2K\BootstrapPackage\Tests\Functional\Updates;
 
 use BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
@@ -28,18 +29,14 @@ final class FrameClassToBackgroundUpdateTest extends FunctionalTestCase
         'typo3conf/ext/bootstrap_package'
     ];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function noUpdateNecessaryTest(): void
     {
         $subject = new FrameClassToBackgroundUpdate();
         self::assertFalse($subject->updateNecessary());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function updateTest(): void
     {
         $subject = new FrameClassToBackgroundUpdate();

@@ -11,17 +11,13 @@ namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * ImageInfoViewHelper
  */
 class ImageInfoViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var array<string, int|string>
      */
@@ -46,15 +42,12 @@ class ImageInfoViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
+    public function render()
     {
-        $src = $arguments['src'];
-        $property = $arguments['property'];
+        $src = $this->arguments['src'];
+        $property = $this->arguments['property'];
 
         if (!array_key_exists($property, self::$supportedProperties)) {
             throw new \InvalidArgumentException('The value of property is invalid. Valid properties are: width, height, type, origFile or origFile_mtime');
