@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace BK2K\BootstrapPackage\Tests\Functional\Updates;
 
 use BK2K\BootstrapPackage\Updates\TexticonTypeUpdate;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
@@ -28,18 +29,14 @@ final class TexticonTypeUpdateTest extends FunctionalTestCase
         'typo3conf/ext/bootstrap_package'
     ];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function noUpdateNecessaryTest(): void
     {
         $subject = new TexticonTypeUpdate();
         self::assertFalse($subject->updateNecessary());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function updateTest(): void
     {
         $subject = new TexticonTypeUpdate();

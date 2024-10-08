@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace BK2K\BootstrapPackage\Tests\Functional\Updates;
 
 use BK2K\BootstrapPackage\Updates\TexticonSizeUpdate;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
@@ -28,18 +29,14 @@ final class TexticonSizeUpdateTest extends FunctionalTestCase
         'typo3conf/ext/bootstrap_package'
     ];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function noUpdateNecessaryTest(): void
     {
         $subject = new TexticonSizeUpdate();
         self::assertFalse($subject->updateNecessary());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function updateTest(): void
     {
         $subject = new TexticonSizeUpdate();
