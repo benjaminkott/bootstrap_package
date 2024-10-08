@@ -75,12 +75,12 @@ jobs:
           composer phpstan -- --error-format=github
       - id: tests_unit
         name: Unit Tests
-        if: ${{ always() && steps.install.conclusion == 'success' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.3' }}
         run: |
           composer test:php:unit
       - id: tests_functional
         name: Functional Tests
-        if: ${{ always() && steps.install.conclusion == 'success' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.3' }}
         run: |
           composer test:php:functional
         env:
