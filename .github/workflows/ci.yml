@@ -18,18 +18,20 @@ jobs:
       max-parallel: 4
       matrix:
         typo3: ['^12']
-        php: ['8.1', '8.2']
-        mysql: ['8.0']
+        php: ['8.2', '8.3']
+        include:
+          - typo3: '^12'
+            php: '8.1'
 
     steps:
       - id: checkout
         name: Checkout Code
         uses: actions/checkout@v4
       - id: setup_mysql
-        name: Set up MySQL ${{ matrix.mysql }}
+        name: Set up MySQL 8.0
         uses: mirromutth/mysql-action@v1.1
         with:
-          mysql version: ${{ matrix.mysql }}
+          mysql version: 8.0
           mysql root password: 'root'
       - id: setup_php
         name: Set up PHP ${{ matrix.php }}
