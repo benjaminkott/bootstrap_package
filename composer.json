@@ -31,7 +31,7 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
-        "scssphp/scssphp": "^1.11",
+        "scssphp/scssphp": "^1.13",
         "typo3/cms-backend": "^12.4 || 13.*.*@dev",
         "typo3/cms-core": "^12.4 || 13.*.*@dev",
         "typo3/cms-extbase": "^12.4 || 13.*.*@dev",
