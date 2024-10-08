@@ -24,7 +24,7 @@ jobs:
     steps:
       - id: checkout
         name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - id: setup_mysql
         name: Set up MySQL ${{ matrix.mysql }}
         uses: mirromutth/mysql-action@v1.1
@@ -43,7 +43,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
           echo "timestamp=$(date +"%s")" >> $GITHUB_OUTPUT
       - name: Cache Composer dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache-vars.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.typo3 }}-${{ steps.composer-cache-vars.outputs.timestamp }}
@@ -92,9 +92,9 @@ jobs:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install
@@ -120,7 +120,7 @@ jobs:
     if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request' && (github.repository == 'benjaminkott/bootstrap_package')
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up PHP Version 7.4
         uses: shivammathur/setup-php@v2
         with:
