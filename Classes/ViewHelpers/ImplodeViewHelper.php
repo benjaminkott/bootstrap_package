@@ -29,13 +29,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class ImplodeViewHelper extends AbstractViewHelper
 {
-    /**
-     * Initialize arguments.
-     *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('data', 'array', 'Input array', false);

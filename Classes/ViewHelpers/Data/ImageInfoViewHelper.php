@@ -29,13 +29,7 @@ class ImageInfoViewHelper extends AbstractViewHelper
         'origFile_mtime' => 'origFile_mtime',
     ];
 
-    /**
-     * Initialize arguments.
-     *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('src', 'string', 'Path to a file');
         $this->registerArgument('property', 'string', 'Possible values: width, height, type, origFile, origFile_mtime');
