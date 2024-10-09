@@ -56,7 +56,7 @@
         "typo3/cms-belog": "^12.4 || 13.*.*@dev",
         "typo3/cms-felogin": "^12.4 || 13.*.*@dev",
         "typo3/cms-filelist": "^12.4 || 13.*.*@dev",
-        "typo3/cms-form": "^12.4 || 13.*.*@dev",
+        "typo3/cms-form": "^12.4.5 || 13.*.*@dev",
         "typo3/cms-indexed-search": "^12.4 || 13.*.*@dev",
         "typo3/cms-info": "^12.4 || 13.*.*@dev",
         "typo3/cms-lowlevel": "^12.4 || 13.*.*@dev",
