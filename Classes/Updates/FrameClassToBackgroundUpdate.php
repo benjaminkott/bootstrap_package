@@ -38,7 +38,7 @@ class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWiza
      */
     protected $mapping = [
         'well' => 'light',
-        'jumbotron' => 'primary'
+        'jumbotron' => 'primary',
     ];
 
     public function updateNecessary(): bool
@@ -62,7 +62,7 @@ class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWiza
                     (int) $record['uid'],
                     [
                         $this->field => 'default',
-                        'background_color_class' => $newValue
+                        'background_color_class' => $newValue,
                     ]
                 );
             }

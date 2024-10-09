@@ -33,7 +33,7 @@ class TexticonIconUpdate extends AbstractUpdate implements UpgradeWizardInterfac
         $queryBuilder = $this->createQueryBuilder();
         $criteria = [
             $this->createLikeCriteria($queryBuilder, 'icon', 'Glyphicons%'),
-            $this->createLikeCriteria($queryBuilder, 'icon', 'Ionicons%')
+            $this->createLikeCriteria($queryBuilder, 'icon', 'Ionicons%'),
         ];
         $records = $this->getRecordsByCriteria($queryBuilder, $criteria, AbstractUpdate::CONDITION_OR);
 
@@ -45,7 +45,7 @@ class TexticonIconUpdate extends AbstractUpdate implements UpgradeWizardInterfac
         $queryBuilder = $this->createQueryBuilder();
         $criteria = [
             $this->createLikeCriteria($queryBuilder, 'icon', 'Glyphicons%'),
-            $this->createLikeCriteria($queryBuilder, 'icon', 'Ionicons%')
+            $this->createLikeCriteria($queryBuilder, 'icon', 'Ionicons%'),
         ];
         $records = $this->getRecordsByCriteria($queryBuilder, $criteria, AbstractUpdate::CONDITION_OR);
 

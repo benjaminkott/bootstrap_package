@@ -54,7 +54,7 @@ class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizard
                 (int) $record['uid'],
                 [
                     'layout' => (string) 0,
-                    'bullets_type' => (string) $this->mapValues(intval($record['layout']))
+                    'bullets_type' => (string) $this->mapValues(intval($record['layout'])),
                 ]
             );
         }
@@ -65,7 +65,7 @@ class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizard
     protected function mapValues(int $layout): int
     {
         $mapping = [
-            110 => 1
+            110 => 1,
         ];
         if (array_key_exists($layout, $mapping)) {
             return $mapping[$layout];

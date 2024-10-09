@@ -38,7 +38,7 @@ class AccordionMediaOrientUpdate extends AbstractUpdate implements UpgradeWizard
      */
     protected $mapping = [
         0 => 'left',
-        1 => 'right'
+        1 => 'right',
     ];
 
     public function updateNecessary(): bool

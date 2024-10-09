@@ -25,7 +25,7 @@ class GoogleFontHook
      */
     protected $includeMapping = [
         'includeCSSLibs' => 'cssLibs',
-        'includeCSS' => 'cssFiles'
+        'includeCSS' => 'cssFiles',
     ];
 
     /**

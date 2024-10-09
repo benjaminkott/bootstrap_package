@@ -41,7 +41,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
         'ruler-after' => 'ruler-after',
         'indent' => 'indent-left,indent-right',
         'indent-left' => 'indent-left',
-        'indent-right' => 'indent-right'
+        'indent-right' => 'indent-right',
     ];
 
     public function updateNecessary(): bool
@@ -65,7 +65,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
                     (int) $record['uid'],
                     [
                         $this->field => 'default',
-                        'frame_options' => $newValue
+                        'frame_options' => $newValue,
                     ]
                 );
             }

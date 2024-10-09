@@ -22,7 +22,7 @@ class ExternalMediaUtility
     protected array $mediaProvider = [
         'youtube',
         'youtu',
-        'vimeo'
+        'vimeo',
     ];
 
     /**
@@ -44,7 +44,7 @@ class ExternalMediaUtility
             if ($embedUrl !== null) {
                 $attributes = [
                     'src' => $embedUrl,
-                    'frameborder' => '0'
+                    'frameborder' => '0',
                 ];
                 if ($title !== null && trim($title) !== '') {
                     $attributes['title'] = trim($title);

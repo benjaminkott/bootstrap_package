@@ -57,7 +57,7 @@ class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInte
     {
         $mapping = [
             'textandimage' => 'text_and_image',
-            'backgroundimage' => 'background_image'
+            'backgroundimage' => 'background_image',
         ];
         if (array_key_exists($type, $mapping)) {
             return $mapping[$type];

@@ -97,9 +97,9 @@ class SkiplinkProcessorTest extends UnitTestCase
                             'section' => 'mainnavigation',
                             'priority' => 100,
                         ],
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ];
     }
 }

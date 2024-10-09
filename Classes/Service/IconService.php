@@ -27,7 +27,7 @@ class IconService
         foreach ($iconProviders as $iconProvider) {
             $iconSets[] = [
                 $iconProvider->getName(),
-                $iconProvider->getIdentifier()
+                $iconProvider->getIdentifier(),
             ];
         }
 
@@ -40,7 +40,7 @@ class IconService
         $iconItems[] = [
             'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.none',
             0,
-            'EXT:bootstrap_package/Resources/Public/Images/Icons/none.svg'
+            'EXT:bootstrap_package/Resources/Public/Images/Icons/none.svg',
         ];
 
         $iconSetField = $configuration['config']['itemsProcConfig']['iconSetField'] ?? 'icon_set';
@@ -52,7 +52,7 @@ class IconService
                 $iconItems[] = [
                     $icon->getName(),
                     $icon->getIdentifier(),
-                    $icon->getPreviewImage()
+                    $icon->getPreviewImage(),
                 ];
             }
         }

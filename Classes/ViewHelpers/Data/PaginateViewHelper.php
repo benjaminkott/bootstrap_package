@@ -60,7 +60,7 @@ class PaginateViewHelper extends AbstractViewHelper
                 'itemsPerPage' => 10,
                 'insertAbove' => false,
                 'insertBelow' => true,
-                'section' => ''
+                'section' => '',
             ];
             ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
 
@@ -80,7 +80,7 @@ class PaginateViewHelper extends AbstractViewHelper
                 'id' => $id,
                 'paginator' => $paginator,
                 'pagination' => $pagination,
-                'configuration' => $configuration
+                'configuration' => $configuration,
             ]);
             $paginationRendered = $paginationView->render();
 

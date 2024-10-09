@@ -61,7 +61,7 @@ class CsvFileProcessor extends FilesProcessor
                             $fieldDelimiter,
                             $fieldEnclosure,
                             $maximumColumns
-                        )
+                        ),
                     ];
                 }
             }

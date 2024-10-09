@@ -147,5 +147,5 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\Boo
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [
     'nodeName' => 'iconWizard',
     'priority' => 40,
-    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class
+    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class,
 ];

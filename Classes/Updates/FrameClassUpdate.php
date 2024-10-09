@@ -52,7 +52,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
                 (int) $record['uid'],
                 [
                     'section_frame' => '0',
-                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame']))
+                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame'])),
                 ]
             );
         }
@@ -71,7 +71,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
             12 => 'indent-right',
             20 => 'well',
             21 => 'jumbotron',
-            66 => 'none'
+            66 => 'none',
         ];
         if (array_key_exists($sectionFrame, $mapping)) {
             return $mapping[$sectionFrame];

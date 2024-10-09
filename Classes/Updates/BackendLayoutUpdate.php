@@ -42,7 +42,7 @@ class BackendLayoutUpdate extends AbstractUpdate implements UpgradeWizardInterfa
         'pagets__default_subnavigation_right' => 'pagets__subnavigation_right',
         'pagets__default_subnavigation_right_2_columns' => 'pagets__subnavigation_right_2_columns',
         'pagets__default_subnavigation_left' => 'pagets__subnavigation_left',
-        'pagets__default_subnavigation_left_2_columns' => 'pagets__subnavigation_left_2_columns'
+        'pagets__default_subnavigation_left_2_columns' => 'pagets__subnavigation_left_2_columns',
     ];
 
     public function updateNecessary(): bool
@@ -71,7 +71,7 @@ class BackendLayoutUpdate extends AbstractUpdate implements UpgradeWizardInterfa
                 (int) $record['uid'],
                 [
                     'backend_layout' => $this->mapValues(strval($record['backend_layout'])),
-                    'backend_layout_next_level' => $this->mapValues(strval($record['backend_layout_next_level']))
+                    'backend_layout_next_level' => $this->mapValues(strval($record['backend_layout_next_level'])),
                 ]
             );
         }

@@ -39,7 +39,7 @@ class TexticonTypeUpdate extends AbstractUpdate implements UpgradeWizardInterfac
     protected $mapping = [
         0 => 'default',
         1 => 'square',
-        2 => 'circle'
+        2 => 'circle',
     ];
 
     public function updateNecessary(): bool

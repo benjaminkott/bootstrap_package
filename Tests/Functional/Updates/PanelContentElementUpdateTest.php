@@ -26,7 +26,7 @@ final class PanelContentElementUpdateTest extends FunctionalTestCase
     ];
 
     protected array $testExtensionsToLoad = [
-        'typo3conf/ext/bootstrap_package'
+        'typo3conf/ext/bootstrap_package',
     ];
 
     #[Test]

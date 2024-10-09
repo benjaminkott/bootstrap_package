@@ -158,7 +158,7 @@ class FrameViewHelper extends AbstractViewHelper
                 ],
                 'variants' => $configuration['variants'],
                 'content' => $this->renderChildren(),
-                'frameAttributes' => GeneralUtility::implodeAttributes($configuration['frameAttributes'], true)
+                'frameAttributes' => GeneralUtility::implodeAttributes($configuration['frameAttributes'], true),
             ]
         );
 

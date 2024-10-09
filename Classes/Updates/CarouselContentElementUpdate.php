@@ -48,7 +48,7 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
                 (int) $record['uid'],
                 [
                     'layout' => $this->resetLayout(intval($record['layout'])),
-                    'CType' => $this->mapValues(intval($record['layout']))
+                    'CType' => $this->mapValues(intval($record['layout'])),
                 ]
             );
         }
@@ -68,7 +68,7 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
     {
         $mapping = [
             110 => 'carousel_small',
-            120 => 'carousel_fullscreen'
+            120 => 'carousel_fullscreen',
         ];
         if (array_key_exists($layout, $mapping)) {
             return $mapping[$layout];

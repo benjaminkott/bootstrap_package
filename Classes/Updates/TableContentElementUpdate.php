@@ -54,7 +54,7 @@ class TableContentElementUpdate extends AbstractUpdate implements UpgradeWizardI
                 (int) $record['uid'],
                 [
                     'layout' => '0',
-                    'table_class' => $this->mapValues(intval($record['layout']))
+                    'table_class' => $this->mapValues(intval($record['layout'])),
                 ]
             );
         }
