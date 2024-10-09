@@ -14022,11 +14022,8 @@ fieldset.form-group > *:last-child {
   .navbar-mainnavigation .nav-link.nav-link-main:before {
     border: none;
     transform: unset;
-    top: auto;
+    inset: auto var(--mainnavigation-link-padding-x) calc(var(--mainnavigation-link-padding-y) / 2) var(--mainnavigation-link-padding-x);
     background: var(--mainnavigation-hightlight);
-    left: var(--mainnavigation-link-padding-x);
-    right: var(--mainnavigation-link-padding-x);
-    bottom: calc(var(--mainnavigation-link-padding-y) / 2);
     height: 2px;
     width: auto;
   }
@@ -15815,10 +15812,7 @@ fieldset.form-group > *:last-child {
 .carousel .carousel-indicators-navigation > button.active:before {
   content: '';
   position: absolute;
-  top: auto;
-  bottom: calc(.5rem / 2 - 1px);
-  left: .5rem !important;
-  right: .5rem !important;
+  inset: auto 0.5rem calc(.5rem / 2 - 1px);
   width: auto;
   border-top: 2px solid #577760;
 }
@@ -16855,10 +16849,7 @@ blockquote footer:before {
 .timeline-item-marker:after, .timeline-item-marker:before,
 .timeline-item-icon:after,
 .timeline-item-icon:before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 1;
   content: '';
   position: absolute;

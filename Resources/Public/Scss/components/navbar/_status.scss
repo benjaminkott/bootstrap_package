@@ -28,11 +28,8 @@
         .nav-link.nav-link-main:before {
             border: none;
             transform: unset;
-            top: auto;
+            inset: auto var(--mainnavigation-link-padding-x) calc(var(--mainnavigation-link-padding-y) / 2) var(--mainnavigation-link-padding-x);
             background: var(--mainnavigation-hightlight);
-            left: var(--mainnavigation-link-padding-x);
-            right: var(--mainnavigation-link-padding-x);
-            bottom: calc(var(--mainnavigation-link-padding-y) / 2);
             height: 2px;
             width: auto;
         }
