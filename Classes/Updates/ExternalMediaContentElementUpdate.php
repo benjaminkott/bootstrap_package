@@ -10,12 +10,11 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * ExternalMediaContentElementUpdate
- */
+#[UpgradeWizard(ExternalMediaContentElementUpdate::class)]
 class ExternalMediaContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**

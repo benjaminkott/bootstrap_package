@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * TexticonSizeUpdate
- */
+#[UpgradeWizard(TexticonSizeUpdate::class)]
 class TexticonSizeUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
