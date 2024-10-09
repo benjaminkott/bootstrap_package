@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?e678184791932ff3efaa4f2d1ea07822#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?e678184791932ff3efaa4f2d1ea07822") format("woff2"),
-url("./bootstrappackageicon.woff?e678184791932ff3efaa4f2d1ea07822") format("woff"),
-url("./bootstrappackageicon.ttf?e678184791932ff3efaa4f2d1ea07822") format("truetype");
+    src: url("./bootstrappackageicon.eot?14d0e7efab52314f20df27d9398e0d03#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?14d0e7efab52314f20df27d9398e0d03") format("woff2"),
+url("./bootstrappackageicon.woff?14d0e7efab52314f20df27d9398e0d03") format("woff"),
+url("./bootstrappackageicon.ttf?14d0e7efab52314f20df27d9398e0d03") format("truetype");
     font-display: swap;
 }
 
@@ -29,9 +29,9 @@ url("./bootstrappackageicon.ttf?e678184791932ff3efaa4f2d1ea07822") format("truet
 .bootstrappackageicon-googleplus::before { content: "\f107"; }
 .bootstrappackageicon-instagram::before { content: "\f108"; }
 .bootstrappackageicon-linkedin::before { content: "\f109"; }
-.bootstrappackageicon-twitter::before { content: "\f10a"; }
 .bootstrappackageicon-vimeo::before { content: "\f10b"; }
 .bootstrappackageicon-xing::before { content: "\f10c"; }
 .bootstrappackageicon-youtube::before { content: "\f10d"; }
 .bootstrappackageicon-vk::before { content: "\f10e"; }
 .bootstrappackageicon-rss::before { content: "\f10f"; }
+.bootstrappackageicon-x::before { content: "\f110"; }
