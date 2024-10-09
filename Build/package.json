@@ -19,7 +19,6 @@
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "grunt-stylelint": "^0.18.0",
-    "modernizr": "^3.12.0",
     "node-sass": "^9.0.0",
     "photoswipe": "^5.3.7",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",

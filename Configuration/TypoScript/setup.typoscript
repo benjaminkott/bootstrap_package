@@ -330,12 +330,6 @@ page {
         bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
     }
 
-    includeJSLibs {
-        modernizr = EXT:bootstrap_package/Resources/Public/Contrib/modernizr/modernizr.min.js
-        modernizr.forceOnTop = 1
-        modernizr.async = 1
-    }
-
     includeJSFooterlibs {
         #### Contrib
         photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.umd.min.js
