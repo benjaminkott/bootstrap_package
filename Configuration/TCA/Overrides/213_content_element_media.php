@@ -26,10 +26,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['media'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media',
-        'media',
-        'mimetypes-x-content-multimedia',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media',
+        'value' => 'media',
+        'icon' => 'mimetypes-x-content-multimedia',
+        'group' => 'bootstrap_package',
     ],
     'listgroup',
     'after'
@@ -70,9 +70,9 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = array_replace_recursive(
         'columnsOverrides' => [
             'assets' => [
                 'config' => [
-                    'allowed' => ['youtube', 'vimeo']
+                    'allowed' => ['youtube', 'vimeo'],
                 ],
-            ]
-        ]
+            ],
+        ],
     ]
 );

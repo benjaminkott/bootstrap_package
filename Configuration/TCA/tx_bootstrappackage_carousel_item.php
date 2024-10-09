@@ -13,7 +13,6 @@ return [
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
         'type' => 'item_type',
         'delete' => 'deleted',
@@ -31,7 +30,7 @@ return [
             'endtime' => 'endtime',
         ],
         'security' => [
-            'ignorePageTypeRestriction' => true
+            'ignorePageTypeRestriction' => true,
         ],
         'typeicon_column' => 'item_type',
         'typeicon_classes' => [
@@ -42,8 +41,8 @@ return [
             'text' => 'content-bootstrappackage-carousel-item-text',
             'text_and_image' => 'content-bootstrappackage-carousel-item-textandimage',
             'background_image' => 'content-bootstrappackage-carousel-item-backgroundimage',
-            'html' => 'content-bootstrappackage-carousel-item-html'
-        ]
+            'html' => 'content-bootstrappackage-carousel-item-html',
+        ],
     ],
     'types' => [
         '1' => [
@@ -55,7 +54,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'header' => [
             'showitem' => '
@@ -72,7 +71,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'text' => [
             'showitem' => '
@@ -89,7 +88,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'call_to_action' => [
             'showitem' => '
@@ -107,7 +106,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'image' => [
             'showitem' => '
@@ -124,7 +123,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'text_and_image' => [
             'showitem' => '
@@ -143,7 +142,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'background_image' => [
             'showitem' => '
@@ -158,7 +157,7 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
         'html' => [
             'showitem' => '
@@ -178,21 +177,21 @@ return [
             'columnsOverrides' => [
                 'bodytext' => [
                     'config' => [
-                        'enableRichtext' => false
-                    ]
-                ]
-            ]
+                        'enableRichtext' => false,
+                    ],
+                ],
+            ],
         ],
     ],
     'palettes' => [
         '1' => [
-            'showitem' => ''
+            'showitem' => '',
         ],
         'access' => [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
-            '
+            ',
         ],
         'header' => [
             'showitem' => '
@@ -205,7 +204,7 @@ return [
                 subheader_class,
                 --linebreak--,
                 header_position,
-            '
+            ',
         ],
         'general' => [
             'showitem' => '
@@ -213,12 +212,12 @@ return [
                 item_type;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType_formlabel,
                 --linebreak--,
                 layout,
-            '
+            ',
         ],
         'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item
-            '
+            ',
         ],
         // hidden but needs to be included all the time, so sys_language_uid is set correctly
         'hiddenLanguagePalette' => [
@@ -246,39 +245,39 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
-                        'header',
-                        'content-bootstrappackage-carousel-item-header'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.header',
+                        'value' => 'header',
+                        'icon' => 'content-bootstrappackage-carousel-item-header',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.text',
-                        'text',
-                        'content-bootstrappackage-carousel-item-text'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.text',
+                        'value' => 'text',
+                        'icon' => 'content-bootstrappackage-carousel-item-text',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction',
-                        'call_to_action',
-                        'content-bootstrappackage-carousel-item-calltoaction'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.calltoaction',
+                        'value' => 'call_to_action',
+                        'icon' => 'content-bootstrappackage-carousel-item-calltoaction',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.image',
-                        'image',
-                        'content-bootstrappackage-carousel-item-image'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.image',
+                        'value' => 'image',
+                        'icon' => 'content-bootstrappackage-carousel-item-image',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
-                        'text_and_image',
-                        'content-bootstrappackage-carousel-item-textandimage'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.textandimage',
+                        'value' => 'text_and_image',
+                        'icon' => 'content-bootstrappackage-carousel-item-textandimage',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
-                        'background_image',
-                        'content-bootstrappackage-carousel-item-backgroundimage'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.backgroundimage',
+                        'value' => 'background_image',
+                        'icon' => 'content-bootstrappackage-carousel-item-backgroundimage',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
-                        'html',
-                        'content-bootstrappackage-carousel-item-html'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type.html',
+                        'value' => 'html',
+                        'icon' => 'content-bootstrappackage-carousel-item-html',
                     ],
                 ],
                 'default' => 'header',
@@ -292,44 +291,35 @@ return [
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
-                    ]
-                ]
-            ]
+            ],
         ],
         'starttime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
-                'default' => 0
+                'type' => 'datetime',
+                'default' => 0,
             ],
             'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
+            'l10n_display' => 'defaultAsReadonly',
         ],
         'endtime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
             ],
             'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
+            'l10n_display' => 'defaultAsReadonly',
         ],
         'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => ['type' => 'language']
+            'config' => ['type' => 'language'],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -339,19 +329,19 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        '',
-                        0
-                    ]
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_bootstrappackage_carousel_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_carousel_item.pid=###CURRENT_PID### AND tx_bootstrappackage_carousel_item.sys_language_uid IN (-1,0)',
-                'default' => 0
-            ]
+                'default' => 0,
+            ],
         ],
         'l10n_diffsource' => [
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'layout' => [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.layout',
@@ -360,15 +350,36 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['custom', 'custom'],
-                    ['primary', 'primary'],
-                    ['secondary', 'secondary'],
-                    ['tertiary', 'tertiary'],
-                    ['quaternary', 'quaternary'],
-                    ['light', 'light'],
-                    ['dark', 'dark']
+                    [
+                        'label' => 'custom',
+                        'value' => 'custom',
+                    ],
+                    [
+                        'label' => 'primary',
+                        'value' => 'primary',
+                    ],
+                    [
+                        'label' => 'secondary',
+                        'value' => 'secondary',
+                    ],
+                    [
+                        'label' => 'tertiary',
+                        'value' => 'tertiary',
+                    ],
+                    [
+                        'label' => 'quaternary',
+                        'value' => 'quaternary',
+                    ],
+                    [
+                        'label' => 'light',
+                        'value' => 'light',
+                    ],
+                    [
+                        'label' => 'dark',
+                        'value' => 'dark',
+                    ],
                 ],
-                'default' => 'secondary'
+                'default' => 'secondary',
             ],
             'l10n_mode' => 'exclude',
         ],
@@ -376,19 +387,9 @@ return [
             'exclude' => 1,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
+                'type' => 'link',
                 'size' => 50,
-                'max' => 1024,
-                'eval' => 'trim',
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link',
-                        ],
-                    ],
-                ],
-                'softref' => 'typolink'
+                'appearance' => ['browserTitle' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.link'],
             ],
         ],
         'header' => [
@@ -397,7 +398,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 50,
-                'eval' => 'trim,required'
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'header_layout' => [
@@ -408,23 +410,23 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'H1',
-                        '1'
+                        'label' => 'H1',
+                        'value' => '1',
                     ],
                     [
-                        'H2',
-                        '2'
+                        'label' => 'H2',
+                        'value' => '2',
                     ],
                     [
-                        'H3',
-                        '3'
+                        'label' => 'H3',
+                        'value' => '3',
                     ],
                     [
-                        'H4',
-                        '4'
+                        'label' => 'H4',
+                        'value' => '4',
                     ],
                 ],
-                'default' => '1'
+                'default' => '1',
             ],
             'l10n_mode' => 'exclude',
         ],
@@ -436,24 +438,24 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.default',
-                        ''
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.default',
+                        'value' => '',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.center',
-                        'center'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.center',
+                        'value' => 'center',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.right',
-                        'right'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.right',
+                        'value' => 'right',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.left',
-                        'left'
-                    ]
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header_position.left',
+                        'value' => 'left',
+                    ],
                 ],
-                'default' => ''
-            ]
+                'default' => '',
+            ],
         ],
         'header_class' => [
             'exclude' => true,
@@ -462,13 +464,31 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 'none'],
-                    ['h1', 'h1'],
-                    ['h2', 'h2'],
-                    ['h3', 'h3'],
-                    ['h4', 'h4'],
-                    ['h5', 'h5']
-                ]
+                    [
+                        'label' => '',
+                        'value' => 'none',
+                    ],
+                    [
+                        'label' => 'h1',
+                        'value' => 'h1',
+                    ],
+                    [
+                        'label' => 'h2',
+                        'value' => 'h2',
+                    ],
+                    [
+                        'label' => 'h3',
+                        'value' => 'h3',
+                    ],
+                    [
+                        'label' => 'h4',
+                        'value' => 'h4',
+                    ],
+                    [
+                        'label' => 'h5',
+                        'value' => 'h5',
+                    ],
+                ],
             ],
             'l10n_mode' => 'exclude',
         ],
@@ -478,7 +498,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 50,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'subheader_layout' => [
@@ -489,19 +509,19 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'H2',
-                        '2'
+                        'label' => 'H2',
+                        'value' => '2',
                     ],
                     [
-                        'H3',
-                        '3'
+                        'label' => 'H3',
+                        'value' => '3',
                     ],
                     [
-                        'H4',
-                        '4'
+                        'label' => 'H4',
+                        'value' => '4',
                     ],
                 ],
-                'default' => '2'
+                'default' => '2',
             ],
             'l10n_mode' => 'exclude',
         ],
@@ -512,13 +532,31 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 'none'],
-                    ['h1', 'h1'],
-                    ['h2', 'h2'],
-                    ['h3', 'h3'],
-                    ['h4', 'h4'],
-                    ['h5', 'h5']
-                ]
+                    [
+                        'label' => '',
+                        'value' => 'none',
+                    ],
+                    [
+                        'label' => 'h1',
+                        'value' => 'h1',
+                    ],
+                    [
+                        'label' => 'h2',
+                        'value' => 'h2',
+                    ],
+                    [
+                        'label' => 'h3',
+                        'value' => 'h3',
+                    ],
+                    [
+                        'label' => 'h4',
+                        'value' => 'h4',
+                    ],
+                    [
+                        'label' => 'h5',
+                        'value' => 'h5',
+                    ],
+                ],
             ],
             'l10n_mode' => 'exclude',
         ],
@@ -528,7 +566,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 50,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'bodytext' => [
@@ -540,7 +578,7 @@ return [
                 'cols' => '80',
                 'rows' => '5',
                 'softref' => 'typolink_tag,email[subst],url',
-                'enableRichtext' => true
+                'enableRichtext' => true,
             ],
         ],
         'button_text' => [
@@ -548,8 +586,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'max' => 255
-            ]
+                'max' => 255,
+            ],
         ],
         'image' => [
             'exclude' => true,
@@ -575,8 +613,7 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.text_color',
             'displayCond' => 'FIELD:layout:=:custom',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'colorpicker',
+                'type' => 'color',
                 'default' => '#FFFFFF',
             ],
             'l10n_mode' => 'exclude',
@@ -586,8 +623,7 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.background_color',
             'displayCond' => 'FIELD:layout:=:custom',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'colorpicker',
+                'type' => 'color',
                 'default' => '#333333',
             ],
             'l10n_mode' => 'exclude',
@@ -606,7 +642,7 @@ return [
                 'overrideChildTca' => [
                     'types' => [
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                            'showitem' => 'crop,--palette--;;filePalette'
+                            'showitem' => 'crop,--palette--;;filePalette',
                         ],
                     ],
                 ],
@@ -623,6 +659,6 @@ return [
                 ],
             ],
             'l10n_mode' => 'exclude',
-        ]
+        ],
     ],
 ];
