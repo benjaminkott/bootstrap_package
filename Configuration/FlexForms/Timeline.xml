@@ -17,12 +17,12 @@
                             <renderType>selectSingle</renderType>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.desc</numIndex>
-                                    <numIndex index="1">date desc</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.desc</label>
+                                    <value>date desc</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.asc</numIndex>
-                                    <numIndex index="1">date asc</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:timeline.sorting.asc</label>
+                                    <value>date asc</value>
                                 </numIndex>
                             </items>
                         </config>

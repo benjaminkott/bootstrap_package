@@ -28,12 +28,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
      */
     protected $tagName = 'a';
 
-    /**
-     * Initialize arguments
-     *
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerUniversalTagAttributes();

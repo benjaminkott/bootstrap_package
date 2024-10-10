@@ -10,12 +10,11 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * CarouselItemTypeUpdate
- */
+#[UpgradeWizard(CarouselItemTypeUpdate::class)]
 class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -57,7 +56,7 @@ class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInte
     {
         $mapping = [
             'textandimage' => 'text_and_image',
-            'backgroundimage' => 'background_image'
+            'backgroundimage' => 'background_image',
         ];
         if (array_key_exists($type, $mapping)) {
             return $mapping[$type];

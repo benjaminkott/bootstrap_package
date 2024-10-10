@@ -9,9 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * ImplodeViewHelper.
@@ -27,19 +25,11 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  * <bk2k:implode data="{array}" as="string">{string}</bk2k:implode>
  *
  * Example: Returns result string
- * <bk2k:implode data"{array}" />
+ * <bk2k:implode data="{array}" />
  */
 class ImplodeViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
-    /**
-     * Initialize arguments.
-     *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('data', 'array', 'Input array', false);
@@ -48,28 +38,22 @@ class ImplodeViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $data = $arguments['data'] ?? $renderChildrenClosure();
+    public function render()
+    {
+        $data = $this->arguments['data'] ?? $this->renderChildren();
         if (!is_array($data)) {
             return '';
         }
 
-        $result = implode($arguments['delimiter'], $data);
-        if ($arguments['as'] !== null) {
-            $variableProvider = $renderingContext->getVariableProvider();
-            $variableProvider->add($arguments['as'], $result);
-            if ($arguments['data'] !== null && $renderChildrenClosure() !== null) {
-                $content = $renderChildrenClosure();
-                $variableProvider->remove($arguments['as']);
+        $result = implode($this->arguments['delimiter'], $data);
+        if ($this->arguments['as'] !== null) {
+            $variableProvider = $this->renderingContext->getVariableProvider();
+            $variableProvider->add($this->arguments['as'], $result);
+            if ($this->arguments['data'] !== null && $this->renderChildren() !== null) {
+                $content = $this->renderChildren();
+                $variableProvider->remove($this->arguments['as']);
                 return $content;
             }
             return '';

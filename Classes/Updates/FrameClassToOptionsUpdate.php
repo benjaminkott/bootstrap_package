@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * FrameClassToOptionsUpdate
- */
+#[UpgradeWizard(FrameClassToOptionsUpdate::class)]
 class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -41,7 +40,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
         'ruler-after' => 'ruler-after',
         'indent' => 'indent-left,indent-right',
         'indent-left' => 'indent-left',
-        'indent-right' => 'indent-right'
+        'indent-right' => 'indent-right',
     ];
 
     public function updateNecessary(): bool
@@ -65,7 +64,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
                     (int) $record['uid'],
                     [
                         $this->field => 'default',
-                        'frame_options' => $newValue
+                        'frame_options' => $newValue,
                     ]
                 );
             }

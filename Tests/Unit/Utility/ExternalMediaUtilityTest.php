@@ -41,70 +41,70 @@ class ExternalMediaUtilityTest extends UnitTestCase
                 null,
                 null,
                 null,
-                null
+                null,
             ],
             'empty string' => [
                 '',
                 '',
                 '',
-                null
+                null,
             ],
             // url variants
             'www.youtube.com' => [
                 'https://www.youtube.com/watch?v=zpOVYePk6mM',
                 null,
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
             'youtube.com' => [
                 'https://youtube.com/watch?v=zpOVYePk6mM',
                 null,
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
             'www.youtu.be' => [
                 'https://www.youtu.be/zpOVYePk6mM',
                 null,
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
             'youtu.de' => [
                 'https://youtu.be/zpOVYePk6mM',
                 null,
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
             'vimeo' => [
                 'https://vimeo.com/143018597',
                 null,
                 null,
-                '<iframe src="https://player.vimeo.com/video/143018597" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://player.vimeo.com/video/143018597" frameborder="0" allowfullscreen></iframe>',
             ],
             // class
             'with class' => [
                 'https://www.youtube.com/watch?v=zpOVYePk6mM',
                 'demo',
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" class="demo" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" class="demo" allowfullscreen></iframe>',
             ],
             'with class empty' => [
                 'https://www.youtube.com/watch?v=zpOVYePk6mM',
                 ' ',
                 null,
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
             // title
             'with title' => [
                 'https://www.youtube.com/watch?v=zpOVYePk6mM',
                 null,
                 'demo',
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" title="demo" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" title="demo" allowfullscreen></iframe>',
             ],
             'with title empty' => [
                 'https://www.youtube.com/watch?v=zpOVYePk6mM',
                 null,
                 ' ',
-                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>'
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
             ],
         ];
     }

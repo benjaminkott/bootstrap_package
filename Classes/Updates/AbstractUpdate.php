@@ -11,6 +11,7 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Updates;
 
 use BK2K\BootstrapPackage\Updates\Criteria\CreaterThanCriteria;
+use BK2K\BootstrapPackage\Updates\Criteria\CriteriaInterface;
 use BK2K\BootstrapPackage\Updates\Criteria\EqualStringCriteria;
 use BK2K\BootstrapPackage\Updates\Criteria\InCriteria;
 use BK2K\BootstrapPackage\Updates\Criteria\LikeCriteria;
@@ -63,7 +64,7 @@ abstract class AbstractUpdate
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class
+            DatabaseUpdatedPrerequisite::class,
         ];
     }
 
@@ -125,9 +126,9 @@ abstract class AbstractUpdate
         $queryBuilder->select('*');
         $queryBuilder->from($this->table);
         if ($condition === self::CONDITION_AND) {
-            $queryBuilder->where(...$criteria);
+            $queryBuilder->where(...array_map(static fn (CriteriaInterface $criterion): string => (string)$criterion, $criteria));
         } else {
-            $queryBuilder->orWhere(...$criteria);
+            $queryBuilder->orWhere(...array_map(static fn (CriteriaInterface $criterion): string => (string)$criterion, $criteria));
         }
 
         $result = $queryBuilder->executeQuery();
@@ -139,7 +140,7 @@ abstract class AbstractUpdate
     {
         $queryBuilder = $this->createQueryBuilder();
         $queryBuilder->update($this->table)
-            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)));
+            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)));
 
         foreach ($values as $field => $value) {
             $queryBuilder->set($field, $value);

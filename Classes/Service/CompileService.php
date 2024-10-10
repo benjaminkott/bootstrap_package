@@ -50,7 +50,7 @@ class CompileService
             'file' => [
                 'absolute' => $absoluteFile,
                 'relative' => $file,
-                'info' => pathinfo($absoluteFile)
+                'info' => pathinfo($absoluteFile),
             ],
             'cache' => [
                 'tempDirectory' => $this->tempDirectory,
@@ -59,9 +59,9 @@ class CompileService
             'options' => [
                 'override' => (bool) ($configuration['overrideParserVariables'] ?? false),
                 'sourceMap' => (bool) ($configuration['cssSourceMapping'] ?? false),
-                'compress' => true
+                'compress' => true,
             ],
-            'variables' => []
+            'variables' => [],
         ];
 
         // Parser

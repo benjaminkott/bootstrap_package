@@ -24,20 +24,6 @@ module.exports = function(grunt) {
     });
 
     /**
-     * Grunt task for modernizr
-     */
-    grunt.registerMultiTask("modernizr", "Respond to your user’s browser features.", function () {
-        var options = this.options(),
-            done = this.async(),
-            modernizr = require("modernizr"),
-            dest = this.data.dest;
-        modernizr.build(options, function(output) {
-            grunt.file.write(dest, output);
-            done();
-        });
-    });
-
-    /**
      * Grunt task for webfonts
      */
     grunt.registerMultiTask('webfont', 'Grunt task to run npm scripts', function () {
@@ -111,10 +97,6 @@ module.exports = function(grunt) {
                 output: {
                     comments: false
                 }
-            },
-            modernizr: {
-                src: '<%= paths.contrib %>modernizr/modernizr.min.js',
-                dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
             },
             bootstrapAccordion: {
                 src: '<%= paths.js %>Src/bootstrap.accordion.js',
@@ -344,40 +326,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        modernizr: {
-            main: {
-                'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
-                'options': {
-                    'options': [
-                        'domPrefixes',
-                        'prefixes',
-                        'addTest',
-                        'hasEvent',
-                        'mq',
-                        'prefixedCSSValue',
-                        'testAllProps',
-                        'testProp',
-                        'testStyles',
-                        'setClasses'
-                    ],
-                    'feature-detects': [
-                        'custom-elements',
-                        'history',
-                        'pointerevents',
-                        'postmessage',
-                        'webgl',
-                        'websockets',
-                        'css/animations',
-                        'css/columns',
-                        'css/flexbox',
-                        'elem/picture',
-                        'img/sizes',
-                        'img/srcset',
-                        'workers/webworkers'
-                    ]
-                }
-            }
-        }
     });
 
     /**
@@ -393,7 +341,7 @@ module.exports = function(grunt) {
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['copy', 'cssmin:photoswipe', 'cssmin:photoswipedynamiccaptionplugin', 'modernizr']);
+    grunt.registerTask('update', ['copy', 'cssmin:photoswipe', 'cssmin:photoswipedynamiccaptionplugin']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
