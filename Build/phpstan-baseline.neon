@@ -10,14 +10,6 @@ parameters:
 			path: ../Classes/Hooks/PageRenderer/GoogleFontHook.php
 
 		-
-			message: """
-				#^Fetching deprecated class constant PARAM_STR_ARRAY of class TYPO3\\\\CMS\\\\Core\\\\Database\\\\Connection\\:
-				Use \\{@see ArrayParameterType\\:\\:STRING\\} instead\\.$#
-			"""
-			count: 1
-			path: ../Classes/Updates/Criteria/InCriteria.php
-
-		-
 			message: "#^Variable method call on \\$this\\(BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\)\\.$#"
 			count: 1
 			path: ../Classes/Utility/ExternalMediaUtility.php

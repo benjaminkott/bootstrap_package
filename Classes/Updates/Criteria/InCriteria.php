@@ -10,7 +10,7 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates\Criteria;
 
-use TYPO3\CMS\Core\Database\Connection;
+use Doctrine\DBAL\ArrayParameterType;
 
 class InCriteria extends AbstractCriteria implements CriteriaInterface
 {
@@ -36,7 +36,7 @@ class InCriteria extends AbstractCriteria implements CriteriaInterface
             $this->getField(),
             $this->queryBuilder->createNamedParameter(
                 $this->getValues(),
-                Connection::PARAM_STR_ARRAY
+                ArrayParameterType::STRING
             )
         );
     }
