@@ -9,7 +9,6 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
-use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
@@ -43,14 +42,9 @@ class PaginateViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        /** @var RenderingContext $renderingContext */
         $renderingContext = $this->renderingContext;
-
-        /** @var ServerRequestInterface|null $request */
-        $request = $renderingContext->getRequest();
-
-        /** @phpstan-ignore-next-line */
-        if ($request instanceof ServerRequestInterface) {
+        if ($renderingContext instanceof RenderingContext && $renderingContext->getRequest() !== null) {
+            $request = $renderingContext->getRequest();
             $objects = $this->arguments['objects'];
             if (!($objects instanceof QueryResultInterface || is_array($objects))) {
                 throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);

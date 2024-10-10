@@ -9,12 +9,9 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Link;
 
-use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Http\ApplicationType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
-use TYPO3\CMS\Extbase\Mvc\RequestInterface as ExtbaseRequestInterface;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder as ExtbaseUriBuilder;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Typolink\LinkFactory;
@@ -47,20 +44,9 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
             $arguments['paginate'][$paginationId]['page'] = $paginationPage;
         }
 
-        /** @var RenderingContext $renderingContext */
         $renderingContext = $this->renderingContext;
-        $request = $renderingContext->getRequest();
-
-        if ($request instanceof ExtbaseRequestInterface) {
-            $uriBuilder = GeneralUtility::makeInstance(ExtbaseUriBuilder::class);
-            $uriBuilder->reset()
-                ->setRequest($request)
-                ->setSection($section)
-                ->setArguments($arguments);
-            return $this->renderLink($uriBuilder->build());
-        }
-
-        if ($request instanceof ServerRequestInterface) {
+        if ($renderingContext instanceof RenderingContext && $renderingContext->getRequest() !== null) {
+            $request = $renderingContext->getRequest();
             $applicationType = ApplicationType::fromRequest($request);
             if ($applicationType->isFrontend()) {
                 try {
