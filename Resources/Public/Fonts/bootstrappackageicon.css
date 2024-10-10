@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?14d0e7efab52314f20df27d9398e0d03#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?14d0e7efab52314f20df27d9398e0d03") format("woff2"),
-url("./bootstrappackageicon.woff?14d0e7efab52314f20df27d9398e0d03") format("woff"),
-url("./bootstrappackageicon.ttf?14d0e7efab52314f20df27d9398e0d03") format("truetype");
+    src: url("./bootstrappackageicon.eot?ccfc0b7a6e08c5c9d79d03ae58eb0fe3#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("woff2"),
+url("./bootstrappackageicon.woff?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("woff"),
+url("./bootstrappackageicon.ttf?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("truetype");
     font-display: swap;
 }
 
@@ -35,3 +35,5 @@ url("./bootstrappackageicon.ttf?14d0e7efab52314f20df27d9398e0d03") format("truet
 .bootstrappackageicon-vk::before { content: "\f10e"; }
 .bootstrappackageicon-rss::before { content: "\f10f"; }
 .bootstrappackageicon-x::before { content: "\f110"; }
+.bootstrappackageicon-telegram::before { content: "\f10a"; }
+.bootstrappackageicon-threads::before { content: "\f111"; }

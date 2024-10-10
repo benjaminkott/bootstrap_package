@@ -187,69 +187,81 @@ page {
             enable = 1
             channels {
                 facebook {
-                    # cat=bootstrap package: social media/165/01_facebook_label; type=string; label=Facebook Label: Insert the label
+                    # cat=bootstrap package: social media/165/facebook_label; type=string; label=Facebook Label: Insert the label
                     label = Facebook
-                    # cat=bootstrap package: social media/165/01_facebook_url; type=string; label=Facebook Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/facebook_url; type=string; label=Facebook Url: Insert the full account url
                     url =
                 }
                 x {
-                    # cat=bootstrap package: social media/165/02_x_label; type=string; label=X: Insert the label
+                    # cat=bootstrap package: social media/165/x_label; type=string; label=X: Insert the label
                     label = X
-                    # cat=bootstrap package: social media/165/02_x_url; type=string; label=X: Insert the full account url
+                    # cat=bootstrap package: social media/165/x_url; type=string; label=X: Insert the full account url
+                    url =
+                }
+                threads {
+                    # cat=bootstrap package: social media/165/threads_label; type=string; label=Threads Label: Insert the label
+                    label = Threads
+                    # cat=bootstrap package: social media/165/threads_url; type=string; label=Threads Url: Insert the full account url
+                    url =
+                }
+                telegram {
+                    # cat=bootstrap package: social media/165/telegram_label; type=string; label=Telegram Label: Insert the label
+                    label = Telegram
+                    # cat=bootstrap package: social media/165/telegram_url; type=string; label=Telegram Url: Insert the full account url
                     url =
                 }
                 instagram {
-                    # cat=bootstrap package: social media/165/03_instagram_label; type=string; label=Instagram Label: Insert the label
+                    # cat=bootstrap package: social media/165/instagram_label; type=string; label=Instagram Label: Insert the label
                     label = Instagram
-                    # cat=bootstrap package: social media/165/03_instagram_url; type=string; label=Instagram Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/instagram_url; type=string; label=Instagram Url: Insert the full account url
                     url =
                 }
                 github {
-                    # cat=bootstrap package: social media/165/04_github_label; type=string; label=GitHub Label: Insert the label
+                    # cat=bootstrap package: social media/165/github_label; type=string; label=GitHub Label: Insert the label
                     label = GitHub
-                    # cat=bootstrap package: social media/165/04_github_url; type=string; label=GitHub Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/github_url; type=string; label=GitHub Url: Insert the full account url
                     url =
                 }
                 googleplus {
-                    # cat=bootstrap package: social media/165/05_googleplus_label; type=string; label=Google+ Label: Insert the label
+                    # cat=bootstrap package: social media/165/googleplus_label; type=string; label=Google+ Label: Insert the label
                     label = Google+
-                    # cat=bootstrap package: social media/165/05_googleplus_url; type=string; label=Google+ Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/googleplus_url; type=string; label=Google+ Url: Insert the full account url
                     url =
                 }
                 linkedin {
-                    # cat=bootstrap package: social media/165/06_linkedin_label; type=string; label=LinkedIn Label: Insert the label
+                    # cat=bootstrap package: social media/165/linkedin_label; type=string; label=LinkedIn Label: Insert the label
                     label = LinkedIn
-                    # cat=bootstrap package: social media/165/06_linkedin_url; type=string; label=LinkedIn Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/linkedin_url; type=string; label=LinkedIn Url: Insert the full account url
                     url =
                 }
                 xing {
-                    # cat=bootstrap package: social media/165/07_xing_label; type=string; label=Xing Label: Insert the label
+                    # cat=bootstrap package: social media/165/xing_label; type=string; label=Xing Label: Insert the label
                     label = Xing
-                    # cat=bootstrap package: social media/165/07_xing_url; type=string; label=Xing Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/xing_url; type=string; label=Xing Url: Insert the full account url
                     url =
                 }
                 youtube {
-                    # cat=bootstrap package: social media/165/08_youtube_label; type=string; label=YouTube Label: Insert label
+                    # cat=bootstrap package: social media/165/youtube_label; type=string; label=YouTube Label: Insert label
                     label = YouTube
-                    # cat=bootstrap package: social media/165/08_youtube_url; type=string; label=YouTube Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/youtube_url; type=string; label=YouTube Url: Insert the full account url
                     url =
                 }
                 vk {
-                    # cat=bootstrap package: social media/165/09_vk_label; type=string; label=VK Label: Insert label
+                    # cat=bootstrap package: social media/165/vk_label; type=string; label=VK Label: Insert label
                     label = VK
-                    # cat=bootstrap package: social media/165/09_vk_url; type=string; label=VK Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/vk_url; type=string; label=VK Url: Insert the full account url
                     url =
                 }
                 vimeo {
-                    # cat=bootstrap package: social media/165/10_vimeo_label; type=string; label=Vimeo Label: Insert label
+                    # cat=bootstrap package: social media/165/vimeo_label; type=string; label=Vimeo Label: Insert label
                     label = Vimeo
-                    # cat=bootstrap package: social media/165/10_vimeo_url; type=string; label=Vimeo Url: Insert the full account url
+                    # cat=bootstrap package: social media/165/vimeo_url; type=string; label=Vimeo Url: Insert the full account url
                     url =
                 }
                 rss {
-                    # cat=bootstrap package: social media/165/11_rss_label; type=string; label=RSS Label: Insert label
+                    # cat=bootstrap package: social media/165/rss_label; type=string; label=RSS Label: Insert label
                     label = RSS
-                    # cat=bootstrap package: social media/165/11_rss_url; type=string; label=RSS Url: Insert the full url
+                    # cat=bootstrap package: social media/165/rss_url; type=string; label=RSS Url: Insert the full url
                     url =
                 }
             }
