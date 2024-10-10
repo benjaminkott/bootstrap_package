@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 5
       matrix:
-        typo3: ['^12']
+        typo3: ['^12', '^13', '13.4.x-dev']
         php: ['8.2', '8.3']
         include:
           - typo3: '^12'
