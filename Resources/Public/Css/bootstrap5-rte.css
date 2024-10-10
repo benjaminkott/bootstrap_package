@@ -16906,7 +16906,7 @@ blockquote footer:before {
 .timeline-item-image .caption {
   font-size: .8em;
   padding: 0.5rem 1.5rem;
-  color: color-yiq(#f2f2f2);
+  color: #000000;
   background-color: #f2f2f2;
 }
 

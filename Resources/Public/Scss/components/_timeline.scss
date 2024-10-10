@@ -136,7 +136,7 @@ $timeline-path-opacity: .25 !default;
     .caption {
         font-size: .8em;
         padding: .5rem $timeline-item-padding;
-        color: color-yiq($timeline-item-caption-bg);
+        color: color-contrast($timeline-item-caption-bg);
         background-color: $timeline-item-caption-bg;
     }
 }
