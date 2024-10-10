@@ -31,7 +31,6 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerUniversalTagAttributes();
 
         $this->registerArgument('paginationId', 'string', 'id', true);
         $this->registerArgument('paginationPage', 'int', 'page', true);
