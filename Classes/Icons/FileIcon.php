@@ -61,7 +61,7 @@ class FileIcon extends AbstractIcon
 
             $processingInstructions = [
                 'width' => $width . 'c',
-                'height' => $height . 'c'
+                'height' => $height . 'c',
             ];
             $processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
             $imageUri = $imageService->getImageUri($processedImage);

@@ -107,6 +107,7 @@ lib.parseFunc_RTE {
             callRecursive = 1
         }
         article < .div
+        address < .div
         aside < .div
         figure < .div
         blockquote < .div

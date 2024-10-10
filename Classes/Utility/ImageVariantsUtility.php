@@ -31,27 +31,27 @@ class ImageVariantsUtility
     protected static $defaultVariants = [
         'default' => [
             'breakpoint' => 1400,
-            'width' => 1280
+            'width' => 1280,
         ],
         'xlarge' => [
             'breakpoint' => 1200,
-            'width' => 1100
+            'width' => 1100,
         ],
         'large' => [
             'breakpoint' => 992,
-            'width' => 920
+            'width' => 920,
         ],
         'medium' => [
             'breakpoint' => 768,
-            'width' => 680
+            'width' => 680,
         ],
         'small' => [
             'breakpoint' => 576,
-            'width' => 500
+            'width' => 500,
         ],
         'extrasmall' => [
-            'width' => 374
-        ]
+            'width' => 374,
+        ],
     ];
 
     /**

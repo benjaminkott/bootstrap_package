@@ -19,8 +19,8 @@
                             <foreign_table_where>AND tx_bootstrappackage_accordion_item.tt_content = ###THIS_UID###</foreign_table_where>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">None</numIndex>
-                                    <numIndex index="1">0</numIndex>
+                                    <label>None</label>
+                                    <value>0</value>
                                 </numIndex>
                             </items>
                         </config>

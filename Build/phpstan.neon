@@ -13,6 +13,8 @@ parameters:
 		- identifier: missingType.iterableValue
 		- "#Casting to string something that's already string.#"
 		- "#^Call to an undefined method TYPO3Fluid\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContextInterface\\:\\:getRequest\\(\\)\\.$#"
+		- "#^Call to deprecated method registerUniversalTagAttributes\\(\\) of class TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\AbstractTagBasedViewHelper\\:\nWill log deprecation in v4, will be removed in v5\\. No longer necessary since arbitrary arguments are allowed\\.$#"
+		- "#^Call to deprecated method registerTagAttribute\\(\\) of class TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\AbstractTagBasedViewHelper\\:\nWill log deprecation in v4, will be removed in v5\\. No longer necessary since arbitrary arguments are allowed\\.$#"
 
 	paths:
 	- %currentWorkingDirectory%/Classes/

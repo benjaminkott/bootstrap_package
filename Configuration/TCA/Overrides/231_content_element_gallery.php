@@ -26,10 +26,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['gallery'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery',
-        'gallery',
-        'content-bootstrappackage-gallery',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery',
+        'value' => 'gallery',
+        'icon' => 'content-bootstrappackage-gallery',
+        'group' => 'bootstrap_package',
     ],
     'external_media',
     'after'
@@ -66,7 +66,7 @@ $GLOBALS['TCA']['tt_content']['types']['gallery'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
-        '
+        ',
     ]
 );
 

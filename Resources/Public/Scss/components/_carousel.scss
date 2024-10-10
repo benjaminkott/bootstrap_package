@@ -302,10 +302,7 @@ $carousel-item-layouts: map-merge(
             &.active:before {
                 content: '';
                 position: absolute;
-                top: auto;
-                bottom: calc(.5rem / 2 - 1px);
-                left: .5rem !important;
-                right: .5rem !important;
+                inset: auto .5rem calc(.5rem / 2 - 1px);
                 width: auto;
                 border-top: 2px solid $primary;
             }

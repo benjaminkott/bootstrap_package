@@ -10,9 +10,7 @@
 namespace BK2K\BootstrapPackage\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * ExplodeViewHelper.
@@ -30,20 +28,12 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  */
 class ExplodeViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
     protected $escapeOutput = false;
 
-    /**
-     * Initialize arguments.
-     *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('data', 'string', 'The input string', false);
@@ -52,28 +42,22 @@ class ExplodeViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $data = $arguments['data'] ?? $renderChildrenClosure();
+    public function render()
+    {
+        $data = $this->arguments['data'] ?? $this->renderChildren();
         if (!is_string($data)) {
             return '';
         }
 
-        $variableProvider = $renderingContext->getVariableProvider();
-        $items = GeneralUtility::trimExplode($arguments['delimiter'], $data);
-        $variableProvider->add($arguments['as'], $items);
+        $variableProvider = $this->renderingContext->getVariableProvider();
+        $items = GeneralUtility::trimExplode($this->arguments['delimiter'], $data);
+        $variableProvider->add($this->arguments['as'], $items);
 
-        if ($arguments['data'] !== null && $renderChildrenClosure() !== null) {
-            $content = $renderChildrenClosure();
-            $variableProvider->remove($arguments['as']);
+        if ($this->arguments['data'] !== null && $this->renderChildren() !== null) {
+            $content = $this->renderChildren();
+            $variableProvider->remove($this->arguments['as']);
             return $content;
         }
 

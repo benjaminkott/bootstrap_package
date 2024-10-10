@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * TabMediaOrientUpdate
- */
+#[UpgradeWizard(TabMediaOrientUpdate::class)]
 class TabMediaOrientUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -38,7 +37,7 @@ class TabMediaOrientUpdate extends AbstractUpdate implements UpgradeWizardInterf
      */
     protected $mapping = [
         0 => 'left',
-        1 => 'right'
+        1 => 'right',
     ];
 
     public function updateNecessary(): bool

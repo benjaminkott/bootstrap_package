@@ -26,10 +26,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
-        'listgroup',
-        'content-bootstrappackage-listgroup',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
+        'value' => 'listgroup',
+        'icon' => 'content-bootstrappackage-listgroup',
+        'group' => 'bootstrap_package',
     ],
     'icon_group',
     'after'
@@ -66,8 +66,8 @@ $GLOBALS['TCA']['tt_content']['types']['listgroup'] = array_replace_recursive(
                 'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.bulletlist_formlabel',
                 'config' => [
                     'wrap' => 'off',
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ]
 );

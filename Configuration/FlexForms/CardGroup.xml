@@ -17,16 +17,16 @@
                             <default>left</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.left</numIndex>
-                                    <numIndex index="1">left</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.left</label>
+                                    <value>left</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.center</numIndex>
-                                    <numIndex index="1">center</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.center</label>
+                                    <value>center</value>
                                 </numIndex>
                                 <numIndex index="2" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.right</numIndex>
-                                    <numIndex index="1">right</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.card_group.align.right</label>
+                                    <value>right</value>
                                 </numIndex>
                             </items>
                         </config>
@@ -39,20 +39,20 @@
                             <default>2</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">1</numIndex>
-                                    <numIndex index="1">1</numIndex>
+                                    <label>1</label>
+                                    <value>1</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">2</numIndex>
-                                    <numIndex index="1">2</numIndex>
+                                    <label>2</label>
+                                    <value>2</value>
                                 </numIndex>
                                 <numIndex index="2" type="array">
-                                    <numIndex index="0">3</numIndex>
-                                    <numIndex index="1">3</numIndex>
+                                    <label>3</label>
+                                    <value>3</value>
                                 </numIndex>
                                 <numIndex index="3" type="array">
-                                    <numIndex index="0">4</numIndex>
-                                    <numIndex index="1">4</numIndex>
+                                    <label>4</label>
+                                    <value>4</value>
                                 </numIndex>
                             </items>
                         </config>

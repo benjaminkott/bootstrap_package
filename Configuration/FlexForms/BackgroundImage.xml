@@ -17,12 +17,12 @@
                             <default></default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.cover</numIndex>
-                                    <numIndex index="1">cover</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.cover</label>
+                                    <value>cover</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.pattern</numIndex>
-                                    <numIndex index="1">pattern</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.behaviour.pattern</label>
+                                    <value>pattern</value>
                                 </numIndex>
                             </items>
                         </config>
@@ -34,7 +34,7 @@
                             <default>0</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.parallax.description</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.parallax.description</label>
                                 </numIndex>
                             </items>
                         </config>
@@ -46,7 +46,7 @@
                             <default>0</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.fade.description</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.fade.description</label>
                                 </numIndex>
                             </items>
                         </config>
@@ -59,20 +59,20 @@
                             <default></default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.none</numIndex>
-                                    <numIndex index="1"></numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.none</label>
+                                    <value></value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.blur</numIndex>
-                                    <numIndex index="1">blur</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.blur</label>
+                                    <value>blur</value>
                                 </numIndex>
                                 <numIndex index="2" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.grayscale</numIndex>
-                                    <numIndex index="1">grayscale</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.grayscale</label>
+                                    <value>grayscale</value>
                                 </numIndex>
                                 <numIndex index="3" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.sepia</numIndex>
-                                    <numIndex index="1">sepia</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.background_image.filter.sepia</label>
+                                    <value>sepia</value>
                                 </numIndex>
                             </items>
                         </config>

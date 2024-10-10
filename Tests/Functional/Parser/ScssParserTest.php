@@ -10,6 +10,8 @@
 namespace BK2K\BootstrapPackage\Tests\Functional\Parser;
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\ExpectationFailedException;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\EventDispatcher\NoopEventDispatcher;
@@ -55,10 +57,8 @@ class ScssParserTest extends FunctionalTestCase
         }
     }
 
-    /**
-     * @test
-     * @dataProvider scssParserCanCompileTestDataProvider
-     */
+    #[DataProvider('scssParserCanCompileTestDataProvider')]
+    #[Test]
     public function scssParserCanCompileTest(string $inputFile): void
     {
         $request = $this->buildRequest();
@@ -72,20 +72,18 @@ class ScssParserTest extends FunctionalTestCase
     {
         return [
             'direct include' => [
-                'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss'
+                'inputFile' => 'typo3conf/ext/bootstrap_package/Resources/Public/Scss/bootstrap5/theme.scss',
             ],
             'relative include from symlinked package' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss'
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/Relative/theme.scss',
             ],
             'core syntax' => [
-                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/CoreSyntax/theme.scss'
+                'inputFile' => 'typo3conf/ext/demo_package/Resources/Public/Scss/CoreSyntax/theme.scss',
             ],
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function urlsAreRelativeToTempTest(): void
     {
         $request = $this->buildRequest();
@@ -98,15 +96,13 @@ class ScssParserTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     * @dataProvider scssParserCanCompileTestDataProvider
-     */
-    public function sourceMapsAreIncluded(string $file): void
+    #[DataProvider('scssParserCanCompileTestDataProvider')]
+    #[Test]
+    public function sourceMapsAreIncluded(string $inputFile): void
     {
         $request = $this->buildRequest('plugin.tx_bootstrappackage.settings.cssSourceMapping = 1');
         $compileService = GeneralUtility::makeInstance(CompileService::class);
-        $compiledFile = $compileService->getCompiledFile($request, $file);
+        $compiledFile = $compileService->getCompiledFile($request, $inputFile);
         $mapFile = $compiledFile . '.map';
 
         self::assertFileExists(Environment::getPublicPath() . '/' . $mapFile);
@@ -118,7 +114,8 @@ class ScssParserTest extends FunctionalTestCase
         $request = new ServerRequest();
         $lineStream = (new LossyTokenizer())->tokenize($typoScriptString);
         $typoScriptAst = (new AstBuilder(new NoopEventDispatcher()))->build($lineStream, new RootNode());
-        $typoScriptAttribute = new FrontendTypoScript(new RootNode(), []);
+        /** @phpstan-ignore-next-line */
+        $typoScriptAttribute = new FrontendTypoScript(new RootNode(), [], [], []);
         $typoScriptAttribute->setSetupTree($typoScriptAst);
         $typoScriptAttribute->setSetupArray($typoScriptAst->toArray());
         $request = $request->withAttribute('frontend.typoscript', $typoScriptAttribute);

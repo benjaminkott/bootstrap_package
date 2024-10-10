@@ -77,10 +77,7 @@ $timeline-path-opacity: .25 !default;
     }
     &:after,
     &:before {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: 1;
         content: '';
         position: absolute;

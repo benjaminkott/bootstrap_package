@@ -26,10 +26,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio',
-        'audio',
-        'content-audio',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio',
+        'value' => 'audio',
+        'icon' => 'content-audio',
+        'group' => 'bootstrap_package',
     ],
     'accordion',
     'after'
@@ -67,8 +67,8 @@ $GLOBALS['TCA']['tt_content']['types']['audio'] = array_replace_recursive(
             'assets' => [
                 'config' => [
                     'allowed' => ['mp3'],
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ]
 );

@@ -26,10 +26,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
-        'panel',
-        'content-panel',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
+        'value' => 'panel',
+        'icon' => 'content-panel',
+        'group' => 'bootstrap_package',
     ],
     'menu_thumbnail_dir',
     'after'
@@ -66,10 +66,10 @@ $GLOBALS['TCA']['tt_content']['types']['panel'] = array_replace_recursive(
             'bodytext' => [
                 'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
                 'config' => [
-                    'enableRichtext' => true
-                ]
-            ]
-        ]
+                    'enableRichtext' => true,
+                ],
+            ],
+        ],
     ]
 );
 
@@ -83,19 +83,58 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default', 'default'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary', 'primary'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.secondary', 'secondary'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.tertiary', 'tertiary'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.quaternary', 'quaternary'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success', 'success'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info', 'info'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning', 'warning'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.danger', 'danger'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.lighter', 'lighter'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.light', 'light'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.dark', 'dark'],
-                    ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.darker', 'darker'],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.default',
+                        'value' => 'default',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.primary',
+                        'value' => 'primary',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.secondary',
+                        'value' => 'secondary',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.tertiary',
+                        'value' => 'tertiary',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.quaternary',
+                        'value' => 'quaternary',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.success',
+                        'value' => 'success',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.info',
+                        'value' => 'info',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.warning',
+                        'value' => 'warning',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.danger',
+                        'value' => 'danger',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.lighter',
+                        'value' => 'lighter',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.light',
+                        'value' => 'light',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.dark',
+                        'value' => 'dark',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.darker',
+                        'value' => 'darker',
+                    ],
                 ],
             ],
         ],

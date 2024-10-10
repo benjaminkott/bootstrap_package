@@ -15,19 +15,19 @@ $defaultCropSettings = [
     'allowedAspectRatios' => [
         '16:9' => [
             'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.16_9',
-            'value' => 16 / 9
+            'value' => 16 / 9,
         ],
         '4:3' => [
             'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.4_3',
-            'value' => 4 / 3
+            'value' => 4 / 3,
         ],
         '1:1' => [
             'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.1_1',
-            'value' => 1.0
+            'value' => 1.0,
         ],
         'NaN' => [
             'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.free',
-            'value' => 0.0
+            'value' => 0.0,
         ],
     ],
     'selectedRatio' => 'NaN',
@@ -36,7 +36,7 @@ $defaultCropSettings = [
         'y' => 0.0,
         'width' => 1.0,
         'height' => 1.0,
-    ]
+    ],
 ];
 $xlargeCropSettings = $defaultCropSettings;
 $xlargeCropSettings['title'] = 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.xlarge';

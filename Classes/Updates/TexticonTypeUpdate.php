@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * TexticonTypeUpdate
- */
+#[UpgradeWizard(TexticonTypeUpdate::class)]
 class TexticonTypeUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -39,7 +38,7 @@ class TexticonTypeUpdate extends AbstractUpdate implements UpgradeWizardInterfac
     protected $mapping = [
         0 => 'default',
         1 => 'square',
-        2 => 'circle'
+        2 => 'circle',
     ];
 
     public function updateNecessary(): bool

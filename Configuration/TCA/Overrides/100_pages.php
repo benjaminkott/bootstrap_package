@@ -66,7 +66,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'renderType' => 'selectSingle',
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconItems',
                 'itemsProcConfig' => [
-                    'iconSetField' => 'nav_icon_set'
+                    'iconSetField' => 'nav_icon_set',
                 ],
                 'fieldWizard' => [
                     'selectIcons' => [
@@ -89,7 +89,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'overrideChildTca' => [
                     'types' => [
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                            'showitem' => '--palette--;;filePalette'
+                            'showitem' => '--palette--;;filePalette',
                         ],
                     ],
                 ],
@@ -112,7 +112,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                             'showitem' => '
                                 --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette
-                            '
+                            ',
                         ],
                     ],
                 ],

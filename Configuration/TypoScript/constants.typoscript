@@ -192,10 +192,10 @@ page {
                     # cat=bootstrap package: social media/165/01_facebook_url; type=string; label=Facebook Url: Insert the full account url
                     url =
                 }
-                twitter {
-                    # cat=bootstrap package: social media/165/02_twitter_label; type=string; label=Twitter Label: Insert the label
-                    label = Twitter
-                    # cat=bootstrap package: social media/165/02_twitter_url; type=string; label=Twitter Url: Insert the full account url
+                x {
+                    # cat=bootstrap package: social media/165/02_x_label; type=string; label=X: Insert the label
+                    label = X
+                    # cat=bootstrap package: social media/165/02_x_url; type=string; label=X: Insert the full account url
                     url =
                 }
                 instagram {

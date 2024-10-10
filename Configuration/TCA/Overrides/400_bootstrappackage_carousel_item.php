@@ -16,8 +16,8 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
             'config' => [
                 'renderType' => 't3editor',
                 'wrap' => 'off',
-                'format' => 'html'
-            ]
-        ]
+                'format' => 'html',
+            ],
+        ],
     ];
 }

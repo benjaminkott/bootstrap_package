@@ -10,21 +10,14 @@
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
 use BK2K\BootstrapPackage\Utility\ImageVariantsUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
  * ImageVariantsViewHelper
  */
 class ImageVariantsViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
-    /**
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('as', 'string', 'Name of variable to create.', true);
@@ -36,18 +29,12 @@ class ImageVariantsViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $variants = ImageVariantsUtility::getImageVariants($arguments['variants'] ?? null, $arguments['multiplier'] ?? null, $arguments['gutters'] ?? null, $arguments['corrections'] ?? null, $arguments['aspectRatio'] ?? null);
-        $renderingContext->getVariableProvider()->add($arguments['as'], $variants);
+    public function render()
+    {
+        $variants = ImageVariantsUtility::getImageVariants($this->arguments['variants'] ?? null, $this->arguments['multiplier'] ?? null, $this->arguments['gutters'] ?? null, $this->arguments['corrections'] ?? null, $this->arguments['aspectRatio'] ?? null);
+        $this->renderingContext->getVariableProvider()->add($this->arguments['as'], $variants);
         return '';
     }
 }
