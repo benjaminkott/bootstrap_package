@@ -12,26 +12,6 @@ parameters:
 			path: ../Classes/Utility/SvgUtility.php
 
 		-
-			message: "#^Call to method getFlatSettings\\(\\) on an unknown class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\FrontendTypoScript\\.$#"
-			count: 1
-			path: ../Classes/Utility/TypoScriptUtility.php
-
-		-
-			message: "#^Call to method getSetupArray\\(\\) on an unknown class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\FrontendTypoScript\\.$#"
-			count: 1
-			path: ../Classes/Utility/TypoScriptUtility.php
-
-		-
-			message: "#^Class TYPO3\\\\CMS\\\\Core\\\\TypoScript\\\\FrontendTypoScript not found\\.$#"
-			count: 2
-			path: ../Classes/Utility/TypoScriptUtility.php
-
-		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: ../Classes/Utility/TypoScriptUtility.php
-
-		-
 			message: "#^Return type \\(mixed\\) of method BK2K\\\\BootstrapPackage\\\\ViewHelpers\\\\File\\\\IsAudioViewHelper\\:\\:renderStatic\\(\\) should be covariant with return type \\(string\\) of method TYPO3Fluid\\\\Fluid\\\\Core\\\\ViewHelper\\\\ViewHelperInterface\\:\\:renderStatic\\(\\)$#"
 			count: 1
 			path: ../Classes/ViewHelpers/File/IsAudioViewHelper.php
