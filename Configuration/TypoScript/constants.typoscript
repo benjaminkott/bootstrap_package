@@ -222,12 +222,6 @@ page {
                     # cat=bootstrap package: social media/165/github_url; type=string; label=GitHub Url: Insert the full account url
                     url =
                 }
-                googleplus {
-                    # cat=bootstrap package: social media/165/googleplus_label; type=string; label=Google+ Label: Insert the label
-                    label = Google+
-                    # cat=bootstrap package: social media/165/googleplus_url; type=string; label=Google+ Url: Insert the full account url
-                    url =
-                }
                 linkedin {
                     # cat=bootstrap package: social media/165/linkedin_label; type=string; label=LinkedIn Label: Insert the label
                     label = LinkedIn

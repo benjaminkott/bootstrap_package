@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?ccfc0b7a6e08c5c9d79d03ae58eb0fe3#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("woff2"),
-url("./bootstrappackageicon.woff?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("woff"),
-url("./bootstrappackageicon.ttf?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("truetype");
+    src: url("./bootstrappackageicon.eot?4d1930063dfa4e6f6e35d7b3a5016ac7#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?4d1930063dfa4e6f6e35d7b3a5016ac7") format("woff2"),
+url("./bootstrappackageicon.woff?4d1930063dfa4e6f6e35d7b3a5016ac7") format("woff"),
+url("./bootstrappackageicon.ttf?4d1930063dfa4e6f6e35d7b3a5016ac7") format("truetype");
     font-display: swap;
 }
 
@@ -26,7 +26,6 @@ url("./bootstrappackageicon.ttf?ccfc0b7a6e08c5c9d79d03ae58eb0fe3") format("truet
 .bootstrappackageicon-file-video::before { content: "\f104"; }
 .bootstrappackageicon-file::before { content: "\f105"; }
 .bootstrappackageicon-github::before { content: "\f106"; }
-.bootstrappackageicon-googleplus::before { content: "\f107"; }
 .bootstrappackageicon-instagram::before { content: "\f108"; }
 .bootstrappackageicon-linkedin::before { content: "\f109"; }
 .bootstrappackageicon-vimeo::before { content: "\f10b"; }
