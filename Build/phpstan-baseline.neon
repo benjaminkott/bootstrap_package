@@ -37,31 +37,6 @@ parameters:
 			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
 
 		-
-			message: "#^Access to constant Extend on an unknown class TYPO3\\\\CMS\\\\Core\\\\Security\\\\ContentSecurityPolicy\\\\MutationMode\\.$#"
-			count: 1
-			path: ../Configuration/ContentSecurityPolicies.php
-
-		-
-			message: "#^Access to constant nonceProxy on an unknown class TYPO3\\\\CMS\\\\Core\\\\Security\\\\ContentSecurityPolicy\\\\SourceKeyword\\.$#"
-			count: 1
-			path: ../Configuration/ContentSecurityPolicies.php
-
-		-
-			message: "#^Call to static method frontend\\(\\) on an unknown class TYPO3\\\\CMS\\\\Core\\\\Security\\\\ContentSecurityPolicy\\\\Scope\\.$#"
-			count: 1
-			path: ../Configuration/ContentSecurityPolicies.php
-
-		-
-			message: "#^Instantiated class TYPO3\\\\CMS\\\\Core\\\\Security\\\\ContentSecurityPolicy\\\\Mutation not found\\.$#"
-			count: 1
-			path: ../Configuration/ContentSecurityPolicies.php
-
-		-
-			message: "#^Instantiated class TYPO3\\\\CMS\\\\Core\\\\Security\\\\ContentSecurityPolicy\\\\MutationCollection not found\\.$#"
-			count: 1
-			path: ../Configuration/ContentSecurityPolicies.php
-
-		-
 			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
 			count: 1
 			path: ../Tests/Packages/demo_package/ext_emconf.php
