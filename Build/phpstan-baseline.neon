@@ -1,22 +1,2 @@
 parameters:
 	ignoreErrors:
-
-		-
-			message: "#^Variable method call on \\$this\\(BK2K\\\\BootstrapPackage\\\\Utility\\\\ExternalMediaUtility\\)\\.$#"
-			count: 1
-			path: ../Classes/Utility/ExternalMediaUtility.php
-
-		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
-			count: 2
-			path: ../Classes/Utility/SvgUtility.php
-
-		-
-			message: "#^Implicit array creation is not allowed \\- variable \\$EM_CONF might not exist\\.$#"
-			count: 1
-			path: ../Tests/Packages/demo_package/ext_emconf.php
-
-		-
-			message: "#^Variable \\$_EXTKEY might not be defined\\.$#"
-			count: 1
-			path: ../Tests/Packages/demo_package/ext_emconf.php

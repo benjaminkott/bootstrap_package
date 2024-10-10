@@ -40,6 +40,7 @@ class ExternalMediaUtility
         // Get method
         $method = $this->getMethod($url);
         if ($method !== null) {
+            /** @phpstan-ignore-next-line */
             $embedUrl = $this->{$method}($url);
             if ($embedUrl !== null) {
                 $attributes = [

@@ -99,7 +99,9 @@ class SvgUtility
     protected static function setAttribute(\SimpleXMLElement $element, string $attribute, ?string $value): \SimpleXMLElement
     {
         if ($value !== null) {
+            /** @phpstan-ignore-next-line */
             if (isset($element->attributes()->$attribute)) {
+                /** @phpstan-ignore-next-line */
                 $element->attributes()->$attribute = $value;
             } else {
                 $element->addAttribute($attribute, $value);
