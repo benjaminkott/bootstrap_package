@@ -18,38 +18,6 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
     \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
 );
 
-// PageTS
-
-// Add Content Elements
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsContentElements')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
-}
-
-// Add BackendLayouts for the BackendLayout DataProvider
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsBackendLayouts')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
-}
-
-// RTE
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsRTE')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig">');
-}
-
-// TCADefaults
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCADefaults')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCADefaults.tsconfig">');
-}
-
-// TCEMAIN
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEMAIN')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig">');
-}
-
-// TCEFORM
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEFORM')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig">');
-}
-
 // Register custom EXT:form configuration
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
