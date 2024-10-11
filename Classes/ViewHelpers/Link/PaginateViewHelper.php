@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Link;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Http\ApplicationType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
@@ -16,6 +17,7 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Typolink\LinkFactory;
 use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
 class PaginateViewHelper extends AbstractTagBasedViewHelper
@@ -45,8 +47,8 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         }
 
         $renderingContext = $this->renderingContext;
-        if ($renderingContext instanceof RenderingContext && $renderingContext->getRequest() !== null) {
-            $request = $renderingContext->getRequest();
+        $request = $this->getRequestFromRenderingContext($renderingContext);
+        if ($request !== null) {
             $applicationType = ApplicationType::fromRequest($request);
             if ($applicationType->isFrontend()) {
                 try {
@@ -76,7 +78,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         );
     }
 
-    private function renderLink(string $uri): string
+    protected function renderLink(string $uri): string
     {
         $content = strval($this->renderChildren());
         if (trim($uri) === '') {
@@ -87,5 +89,17 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         $this->tag->setContent($content);
         $this->tag->forceClosingTag(true);
         return $this->tag->render();
+    }
+
+    protected function getRequestFromRenderingContext(RenderingContextInterface $renderingContext): ?ServerRequestInterface
+    {
+        if ($renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            return $renderingContext->getAttribute(ServerRequestInterface::class);
+        } elseif ($renderingContext instanceof RenderingContext) {
+            /** @phpstan-ignore-next-line */
+            return $renderingContext->getRequest();
+        }
+
+        return null;
     }
 }
