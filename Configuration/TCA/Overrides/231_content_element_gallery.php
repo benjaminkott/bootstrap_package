@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['gallery'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery.description',
         'value' => 'gallery',
         'icon' => 'content-bootstrappackage-gallery',
         'group' => 'bootstrap_package',

@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['listgroup'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.listgroup.description',
         'value' => 'listgroup',
         'icon' => 'content-bootstrappackage-listgroup',
         'group' => 'bootstrap_package',

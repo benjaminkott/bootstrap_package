@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['panel'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.panel.description',
         'value' => 'panel',
         'icon' => 'content-panel',
         'group' => 'bootstrap_package',

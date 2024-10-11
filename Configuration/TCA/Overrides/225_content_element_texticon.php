@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['texticon'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.texticon.description',
         'value' =>'texticon',
         'icon' => 'content-bootstrappackage-texticon',
         'group' => 'bootstrap_package',

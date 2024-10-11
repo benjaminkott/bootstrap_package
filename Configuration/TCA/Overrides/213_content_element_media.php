@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['media'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.media.description',
         'value' => 'media',
         'icon' => 'mimetypes-x-content-multimedia',
         'group' => 'bootstrap_package',

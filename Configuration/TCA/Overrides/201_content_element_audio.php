@@ -27,9 +27,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['audio'] ?? false)) {
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.audio.description',
         'value' => 'audio',
         'icon' => 'content-audio',
         'group' => 'bootstrap_package',
+
     ],
     'accordion',
     'after'

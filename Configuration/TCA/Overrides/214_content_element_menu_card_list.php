@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'] ?? false)
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.card_list.description',
         'value' => 'menu_card_list',
         'icon' => 'content-bootstrappackage-menu-card',
         'group' => 'bootstrap_package',

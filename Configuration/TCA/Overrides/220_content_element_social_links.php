@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['social_links'] ?? false)) 
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links.description',
         'value' => 'social_links',
         'icon' => 'content-bootstrappackage-social-links',
         'group' => 'bootstrap_package',

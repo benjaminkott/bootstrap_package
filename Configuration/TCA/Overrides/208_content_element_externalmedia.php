@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['external_media'] ?? false)
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.external_media.description',
         'value' => 'external_media',
         'icon' => 'content-bootstrappackage-externalmedia',
         'group' => 'bootstrap_package',

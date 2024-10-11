@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_list'] ?? f
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:menu.thumbnail_list.description',
         'value' => 'menu_thumbnail_list',
         'icon' => 'content-menu-thumbnail',
         'group' => 'bootstrap_package',

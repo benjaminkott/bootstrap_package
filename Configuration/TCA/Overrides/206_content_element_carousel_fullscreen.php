@@ -27,6 +27,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] ?? f
     'CType',
     [
         'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen.description',
         'value' => 'carousel_fullscreen',
         'icon' => 'content-bootstrappackage-carousel',
         'group' => 'bootstrap_package',
