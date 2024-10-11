@@ -25,10 +25,10 @@
                         <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval
                         </label>
                         <config>
-                            <type>input</type>
+                            <type>number</type>
                             <size>8</size>
                             <default>5000</default>
-                            <eval>required,int</eval>
+                            <required>true</required>
                         </config>
                     </interval>
                     <transition>
