@@ -2,25 +2,6 @@ parameters:
 	ignoreErrors:
 		-
 			message: """
-				#^Call to deprecated method getRequest\\(\\) of class TYPO3\\\\CMS\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContext\\:
-				since TYPO3 v13, will be removed in TYPO3 v14\\.
-				            Use \\$renderingContext\\-\\>hasAttribute\\(ServerRequestInterface\\:\\:class\\) and
-				            \\$renderingContext\\-\\>getAttribute\\(ServerRequestInterface\\:\\:class\\) instead\\.$#
-			"""
-			count: 3
-			path: ../Classes/ViewHelpers/Data/PaginateViewHelper.php
-
-		-
-			message: """
-				#^Call to deprecated method setRequest\\(\\) of class TYPO3\\\\CMS\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContext\\:
-				since TYPO3 v13, will be removed in TYPO3 v14\\.
-				            Use RenderingContextFactory\\-\\>create\\(\\$pathArray, \\$request\\) instead\\.$#
-			"""
-			count: 1
-			path: ../Classes/ViewHelpers/Data/PaginateViewHelper.php
-
-		-
-			message: """
 				#^Fetching class constant class of deprecated class TYPO3\\\\CMS\\\\Fluid\\\\View\\\\StandaloneView\\:
 				\\: since TYPO3 v13, will be removed in v14\\. Use ext\\:core ViewFactoryInterface instead\\.$#
 			"""
@@ -74,26 +55,6 @@ parameters:
 			"""
 			count: 1
 			path: ../Classes/ViewHelpers/FrameViewHelper.php
-
-		-
-			message: """
-				#^Call to deprecated method getRequest\\(\\) of class TYPO3\\\\CMS\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContext\\:
-				since TYPO3 v13, will be removed in TYPO3 v14\\.
-				            Use \\$renderingContext\\-\\>hasAttribute\\(ServerRequestInterface\\:\\:class\\) and
-				            \\$renderingContext\\-\\>getAttribute\\(ServerRequestInterface\\:\\:class\\) instead\\.$#
-			"""
-			count: 2
-			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
-
-		-
-			message: """
-				#^Call to deprecated method getRequest\\(\\) of class TYPO3\\\\CMS\\\\Fluid\\\\Core\\\\Rendering\\\\RenderingContext\\:
-				since TYPO3 v13, will be removed in TYPO3 v14\\.
-				            Use \\$renderingContext\\-\\>hasAttribute\\(ServerRequestInterface\\:\\:class\\) and
-				            \\$renderingContext\\-\\>getAttribute\\(ServerRequestInterface\\:\\:class\\) instead\\.$#
-			"""
-			count: 2
-			path: ../Classes/ViewHelpers/TypoScript/ConstantViewHelper.php
 
 		-
 			message: """

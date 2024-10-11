@@ -9,6 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
@@ -20,6 +21,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
 use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -43,8 +45,8 @@ class PaginateViewHelper extends AbstractViewHelper
     public function render(): string
     {
         $renderingContext = $this->renderingContext;
-        if ($renderingContext instanceof RenderingContext && $renderingContext->getRequest() !== null) {
-            $request = $renderingContext->getRequest();
+        $request = $this->getRequestFromRenderingContext($renderingContext);
+        if ($request !== null) {
             $objects = $this->arguments['objects'];
             if (!($objects instanceof QueryResultInterface || is_array($objects))) {
                 throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
@@ -69,7 +71,7 @@ class PaginateViewHelper extends AbstractViewHelper
             }
             $pagination = new SimplePagination($paginator);
 
-            $paginationView = $this->getTemplateObject($renderingContext);
+            $paginationView = $this->getTemplateObject($renderingContext, $request);
             $paginationView->assignMultiple([
                 'id' => $id,
                 'paginator' => $paginator,
@@ -97,12 +99,17 @@ class PaginateViewHelper extends AbstractViewHelper
         );
     }
 
-    protected function getTemplateObject(RenderingContext $renderingContext): StandaloneView
+    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): StandaloneView
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
-        $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create();
-        $context->setRequest($renderingContext->getRequest());
+        /** @phpstan-ignore-next-line */
+        $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create([], $request);
+        if ((new \ReflectionMethod(RenderingContextFactory::class, 'create'))->getNumberOfParameters() === 1) {
+            /** @phpstan-ignore-next-line */
+            $context->setRequest($request);
+        }
+
         /** @var StandaloneView $view */
         $view = GeneralUtility::makeInstance(StandaloneView::class, $context);
 
@@ -142,5 +149,17 @@ class PaginateViewHelper extends AbstractViewHelper
         $configurationManager = GeneralUtility::getContainer()->get(ConfigurationManager::class);
 
         return $configurationManager;
+    }
+
+    protected function getRequestFromRenderingContext(RenderingContextInterface $renderingContext): ?ServerRequestInterface
+    {
+        if ($renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            return $renderingContext->getAttribute(ServerRequestInterface::class);
+        } elseif ($renderingContext instanceof RenderingContext) {
+            /** @phpstan-ignore-next-line */
+            return $renderingContext->getRequest();
+        }
+
+        return null;
     }
 }
