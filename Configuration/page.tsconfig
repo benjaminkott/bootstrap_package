@@ -1,0 +1,29 @@
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsContentElements')]
+    # Add Content Elements
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig'
+[end]
+
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsBackendLayouts')]
+    # Add BackendLayouts for the BackendLayout DataProvider
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig'
+[end]
+
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsRTE')]
+    # RTE
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig'
+[end]
+
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsTCADefaults')]
+    # TCADefaults
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/TCADefaults.tsconfig'
+[end]
+
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsTCEMAIN')]
+    # TCEMAIN
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig'
+[end]
+
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsTCEFORM')]
+    # TCEFORM
+    @import 'EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig'
+[end]
