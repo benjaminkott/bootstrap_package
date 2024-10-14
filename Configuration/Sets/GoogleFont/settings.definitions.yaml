@@ -1,0 +1,27 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.google-font:
+    label: 'Google Font'
+    parent: BootstrapPackage
+
+settings:
+
+  page.theme.googleFont.enable:
+    label: 'Enable'
+    category: BootstrapPackage.google-font
+    type: bool
+    default: true
+
+  page.theme.googleFont.font:
+    label: 'Font'
+    category: BootstrapPackage.google-font
+    type: string
+    default: 'Source Sans Pro'
+
+  page.theme.googleFont.weight:
+    label: 'Font Weights'
+    description: 'Comma separated list of font weights'
+    category: BootstrapPackage.google-font
+    type: string
+    default: '300,400,700'

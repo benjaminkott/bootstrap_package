@@ -1,0 +1,9 @@
+name: bootstrap-package/full
+label: 'Bootstrap Package: Full Package'
+dependencies:
+  - bootstrap-package/bootstrap-5
+  - bootstrap-package/content-elements
+  - bootstrap-package/cookie-consent
+  - bootstrap-package/google-font
+  - bootstrap-package/google-tag-manager
+  - bootstrap-package/skiplink

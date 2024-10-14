@@ -1,0 +1,22 @@
+config {
+    absRefPrefix = auto
+    no_cache = {$config.no_cache}
+    pageTitleFirst = 1
+    pageTitleSeparator = -
+    pageTitleSeparator.noTrimWrap = | | |
+    doctype = html5
+    removeDefaultJS = {$config.removeDefaultJS}
+    admPanel = {$config.admPanel}
+    debug = 0
+    sendCacheHeaders = {$config.sendCacheHeaders}
+    index_enable = 1
+    index_externals = 1
+    index_metatags = 1
+    headerComment = {$config.headerComment}
+
+    // Compression and Concatenation of CSS and JS Files
+    compressJs = {$config.compressJs}
+    compressCss = {$config.compressCss}
+    concatenateJs = {$config.concatenateJs}
+    concatenateCss = {$config.concatenateCss}
+}

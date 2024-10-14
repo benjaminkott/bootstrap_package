@@ -1,0 +1,14 @@
+# CUSTOM SUBCATEGORIES
+# customsubcategory=161=Font
+page {
+    theme {
+        googleFont {
+            # cat=bootstrap package: google font/161/1_enable; type=boolean; label=Enable
+            enable = 1
+            # cat=bootstrap package: google font/161/2_font; type=options[Lora=Lora, Merriweather=Merriweather, Nunito=Nunito, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Quattrocento=Quattrocento, Ubuntu=Ubuntu]; label=Font
+            font = Source Sans Pro
+            # cat=bootstrap package: google font/161/3_weight; type=string; label=Font Weights: Comma separated list of font weights
+            weight = 300,400,700
+        }
+    }
+}

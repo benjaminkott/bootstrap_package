@@ -1,0 +1,20 @@
+plugin.tx_bootstrappackage {
+    view {
+        templateRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Templates/
+            1 = {$plugin.bootstrap_package.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Partials/
+            1 = {$plugin.bootstrap_package.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Layouts/
+            1 = {$plugin.bootstrap_package.view.layoutRootPath}
+        }
+    }
+    settings {
+        overrideParserVariables = {$plugin.bootstrap_package.settings.overrideParserVariables}
+        cssSourceMapping = {$plugin.bootstrap_package.settings.cssSourceMapping}
+    }
+}
