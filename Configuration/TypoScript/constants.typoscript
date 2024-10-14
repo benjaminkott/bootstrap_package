@@ -48,15 +48,6 @@ page {
     }
 
     theme {
-        googleFont {
-            # cat=bootstrap package: google font/161/1_enable; type=boolean; label=Enable
-            enable = 1
-            # cat=bootstrap package: google font/161/2_font; type=options[Lora=Lora, Merriweather=Merriweather, Nunito=Nunito, Raleway=Raleway, Roboto=Roboto, Source Sans Pro=Source Sans Pro, Quattrocento=Quattrocento, Ubuntu=Ubuntu]; label=Font
-            font = Source Sans Pro
-            # cat=bootstrap package: google font/161/3_weight; type=string; label=Font Weights: Comma separated list of font weights
-            weight = 300,400,700
-        }
-
         navigation {
             # cat=bootstrap package: navigation/151/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
             style = default
@@ -309,8 +300,6 @@ config {
     concatenateCss = 1
     # cat=bootstrap package: config/150/170; type=boolean; label=Admin Panel
     admPanel = 1
-    # cat=bootstrap package: config/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
-    prefixLocalAnchors = all
     # cat=bootstrap package: config/150/190; type=string; label=Header Comment
     headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/
     # cat=bootstrap package: config/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
@@ -344,6 +333,7 @@ plugin.bootstrap_package.view {
 
 # COMPONENTS
 @import 'EXT:bootstrap_package/Configuration/TypoScript/CookieConsent/constants.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleFont/constants.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/constants.typoscript'
 
 # FRAMEWORK

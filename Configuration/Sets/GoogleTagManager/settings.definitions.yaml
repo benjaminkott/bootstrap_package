@@ -1,0 +1,15 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.google-tag-manager:
+    label: 'Google Tag Manager'
+    parent: BootstrapPackage
+
+settings:
+
+  page.tracking.google.tagManagerContainerId:
+    label: 'Container-ID'
+    description: 'Google Tag Manager Container ID'
+    category: BootstrapPackage.google-tag-manager
+    type: string
+    default: ''

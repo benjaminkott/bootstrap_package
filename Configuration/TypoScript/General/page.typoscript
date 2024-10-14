@@ -1,0 +1,324 @@
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = {$page.favicon.file}
+
+    bodyTagCObject = COA
+    bodyTagCObject {
+        10 = TEXT
+        10.data = TSFE:id
+        10.noTrimWrap = | id="p|"|
+        20 =< lib.page.class
+        20.stdWrap.noTrimWrap = | class="|"|
+        wrap = <body|>
+    }
+
+    headerData {
+        // Flip ahead browsing for IE10/11
+        // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
+        10 = HMENU
+        10 {
+            special = browse
+            special {
+                items = prev|next
+            }
+            1 = TMENU
+            1.NO {
+                allWrap = <link rel="prev" href="|"> |*| <link rel="next" href="|">
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = field:uid
+                        returnLast = url
+                    }
+                }
+            }
+        }
+    }
+
+    10 = FLUIDTEMPLATE
+    10 {
+        # Template names will be generated automatically by converting the applied
+        # backend_layout, there is no explicit mapping necessary anymore.
+        #
+        # BackendLayout Key
+        # subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        #
+        # Backend Record
+        # uid: 1 -> 1.html
+        #
+        # Database Entry
+        # value: -1 -> None.html
+        # value: pagets__subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        templateName = TEXT
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
+        }
+
+        templateRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Templates/Page/
+            1 = {$page.fluidtemplate.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Partials/Page/
+            1 = {$page.fluidtemplate.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+            1 = {$page.fluidtemplate.layoutRootPath}
+        }
+
+        dataProcessing {
+            1 = BK2K\BootstrapPackage\DataProcessing\ConstantsProcessor
+            1 {
+                as = theme
+                key = page.theme
+            }
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                levels = 3
+                includeSpacer = 1
+                as = mainnavigation
+                dataProcessing {
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
+                        as = icon
+                        if {
+                            isTrue.stdWrap.cObject = COA
+                            isTrue.stdWrap.cObject {
+                                10 = TEXT
+                                10.value = 1
+                                10.if.isTrue = {$page.theme.navigation.icon.enable}
+                                20 = TEXT
+                                20.value = 1
+                                20.if.isTrue = {$page.theme.navigation.dropdown.icon.enable}
+                            }
+                        }
+                    }
+                }
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                entryLevel = 1
+                levels = 2
+                expandAll = 0
+                includeSpacer = 1
+                as = subnavigation
+                dataProcessing {
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
+                        as = icon
+                        if {
+                            isTrue = {$page.theme.subnavigation.icon.enable}
+                        }
+                    }
+                }
+            }
+            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            30 {
+                special = rootline
+                special.range = 0|-1
+                includeNotInMenu = 1
+                as = breadcrumb
+                if {
+                    value = {$page.theme.breadcrumb.enableLevel}
+                    value {
+                        insertData = 1
+                        prioriCalc = 1
+                        stdWrap.wrap = |-1
+                    }
+                    isGreaterThan {
+                        data = level
+                    }
+                }
+                dataProcessing {
+                    1628754217 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1628754217 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
+                        as = icon
+                    }
+                }
+            }
+            40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            40 {
+                languages = {$page.theme.language.languageValue}
+                as = languagenavigation
+            }
+            50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            50 {
+                special = {$page.theme.meta.navigationType}
+                special.value = {$page.theme.meta.navigationValue}
+                includeNotInMenu = {$page.theme.meta.includeNotInMenu}
+                as = metanavigation
+                if {
+                    isTrue = {$page.theme.meta.navigationValue}
+                }
+            }
+            1629126321 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            1629126321 {
+                special = {$page.theme.footernavigation.navigationType}
+                special.value = {$page.theme.footernavigation.navigationValue}
+                includeNotInMenu = {$page.theme.footernavigation.includeNotInMenu}
+                levels = {$page.theme.footernavigation.levels}
+                as = footernavigation
+                if {
+                    isTrue = {$page.theme.footernavigation.navigationValue}
+                }
+                dataProcessing {
+                    1629202464 = BK2K\BootstrapPackage\DataProcessing\IconsDataProcessor
+                    1629202464 {
+                        iconSet.field = nav_icon_set
+                        iconIdentifier.field = nav_icon_identifier
+                        iconFileFieldName = nav_icon
+                        as = icon
+                    }
+                }
+            }
+            1553883874 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+            1553883874 {
+                files {
+                    normal = {$page.logo.file}
+                    inverted = {$page.logo.fileInverted}
+                }
+                as = logo
+            }
+        }
+
+        settings {
+            logo {
+                height = {$page.logo.height}
+                width = {$page.logo.width}
+                linktitle = {$page.logo.linktitle}
+            }
+        }
+
+        variables {
+            pageTitle = TEXT
+            pageTitle.data = page:title
+            siteTitle = TEXT
+            siteTitle.data = siteLanguage:websiteTitle//site:websiteTitle//site:identifier
+            rootPage = TEXT
+            rootPage.data = leveluid:0
+            pagelayout = TEXT
+            pagelayout {
+                data = pagelayout
+                replacement.10 {
+                    search = pagets__
+                    replace =
+                }
+                ifEmpty = default
+            }
+            logoAlt = COA
+            logoAlt {
+                10 = TEXT
+                10 {
+                    data = siteLanguage:websiteTitle//site:websiteTitle//site:identifier
+                    noTrimWrap = || logo|
+                    if.isFalse = {$page.logo.alt}
+                }
+                20 = TEXT
+                20 {
+                    value = {$page.logo.alt}
+                    if.isTrue = {$page.logo.alt}
+                }
+            }
+            # BreadcrumbExtendedValue should be used to display the title of a
+            # single record. For example the title of a news record.
+            breadcrumbExtendedValue = COA
+            breadcrumbExtendedValue {
+            }
+        }
+
+        stdWrap.replacement {
+            1 {
+                search = http://###BACKEND_URL###/
+                replace.typolink {
+                    parameter = typo3/
+                    returnLast = url
+                }
+            }
+            2 {
+                search = ###FRONTEND_URL###
+                replace.typolink {
+                    parameter.data = leveluid:0
+                    returnLast = url
+                }
+            }
+            3 {
+                search = ###CURRENTYEAR###
+                replace {
+                    data = date:U
+                    strftime = %Y
+                }
+            }
+            4 {
+                search = ###SPACE###
+                replace {
+                    char = 32
+                }
+            }
+        }
+    }
+
+    meta {
+        viewport = {$page.meta.viewport}
+        robots = {$page.meta.robots}
+        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+
+        X-UA-Compatible = {$page.meta.compatible}
+        X-UA-Compatible {
+            attribute = http-equiv
+        }
+
+        # Google
+        google = {$page.meta.google}
+        google-site-verification = {$page.meta.google-site-verification}
+    }
+
+    includeCSSLibs {
+        googlewebfont = https://fonts.googleapis.com/css?display=swap&family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
+        googlewebfont {
+            external = 1
+            disableCompression = 1
+            excludeFromConcatenation = 1
+            if {
+                isTrue = {$page.theme.googleFont.enable}
+            }
+        }
+        bootstrappackageicon = EXT:bootstrap_package/Resources/Public/Fonts/bootstrappackageicon.min.css
+    }
+
+    includeJSFooterlibs {
+        #### Contrib
+        photoswipe_core = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe.umd.min.js
+        photoswipe_ui = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-lightbox.umd.min.js
+        photoswipe_caption = EXT:bootstrap_package/Resources/Public/Contrib/photoswipe/photoswipe-dynamic-caption-plugin.umd.min.js
+
+        #### Custom Modules
+        bootstrap_accordion = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.accordion.min.js
+        bootstrap_popover = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.popover.min.js
+        bootstrap_stickyheader = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.stickyheader.min.js
+        bootstrap_smoothscroll = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.smoothscroll.min.js
+        bootstrap_lightbox = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.lightbox.min.js
+        bootstrap_navbar = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/bootstrap.navbar.min.js
+    }
+}

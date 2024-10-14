@@ -1,0 +1,182 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.scss:
+    label: 'SCSS'
+    parent: BootstrapPackage
+  BootstrapPackage.scss.colors:
+    label: 'Colors'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.contrast:
+    label: 'Contrast'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.body:
+    label: 'Body'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.links:
+    label: 'Links'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.fonts:
+    label: 'Fonts'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.options:
+    label: 'Options'
+    parent: BootstrapPackage.scss
+
+settings:
+
+  # Colors
+  plugin.bootstrap_package.settings.scss.primary:
+    label: '$primary'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#577760'
+
+  plugin.bootstrap_package.settings.scss.secondary:
+    label: '$secondary'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#514553'
+
+  plugin.bootstrap_package.settings.scss.tertiary:
+    label: '$tertiary'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#758c7f'
+
+  plugin.bootstrap_package.settings.scss.quaternary:
+    label: '$quaternary'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#2d1e2f'
+
+  plugin.bootstrap_package.settings.scss.default:
+    label: '$default'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#eaebec'
+
+  plugin.bootstrap_package.settings.scss.success:
+    label: '$success'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#3A833A'
+
+  plugin.bootstrap_package.settings.scss.info:
+    label: '$info'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#287F9A'
+
+  plugin.bootstrap_package.settings.scss.warning:
+    label: '$warning'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#a4660e'
+
+  plugin.bootstrap_package.settings.scss.danger:
+    label: '$danger'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '#d4403a'
+
+  plugin.bootstrap_package.settings.scss.lighter:
+    label: '$lighter'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '$gray-100'
+
+  plugin.bootstrap_package.settings.scss.light:
+    label: '$light'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '$gray-200'
+
+  plugin.bootstrap_package.settings.scss.dark:
+    label: '$dark'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '$gray-800'
+
+  plugin.bootstrap_package.settings.scss.darker:
+    label: '$darker'
+    category: BootstrapPackage.scss.colors
+    type: string
+    default: '$gray-900'
+
+  # Contrast
+  plugin.bootstrap_package.settings.scss.min-contrast-ratio:
+    label: '$min-contrast-ratio'
+    category: BootstrapPackage.scss.contrast
+    type: number
+    default: 4.5
+
+  # Body
+  plugin.bootstrap_package.settings.scss.body-bg:
+    label: '$body-bg'
+    category: BootstrapPackage.scss.body
+    type: string
+    default: '$white'
+
+  plugin.bootstrap_package.settings.scss.body-color:
+    label: '$body-color'
+    category: BootstrapPackage.scss.body
+    type: string
+    default: '$gray-900'
+
+  # Links
+  plugin.bootstrap_package.settings.scss.link-color:
+    label: '$link-color'
+    category: BootstrapPackage.scss.links
+    type: string
+    default: '$primary'
+
+  plugin.bootstrap_package.settings.scss.link-shade-percentage:
+    label: '$link-shade-percentage'
+    category: BootstrapPackage.scss.links
+    type: string
+    default: '20%'
+
+  plugin.bootstrap_package.settings.scss.link-hover-color:
+    label: '$link-shade-percentage'
+    category: BootstrapPackage.scss.links
+    type: string
+    default: 'shift-color($link-color, $link-shade-percentage)'
+
+  # Fonts
+  plugin.bootstrap_package.settings.scss.font-family-sans-serif:
+    label: '$font-family-sans-serif'
+    category: BootstrapPackage.scss.fonts
+    type: string
+    default: '"#{$google-webfont}", sans-serif'
+
+  plugin.bootstrap_package.settings.scss.font-family-monospace:
+    label: '$font-family-monospace'
+    category: BootstrapPackage.scss.fonts
+    type: string
+    default: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+
+  # Options
+  plugin.bootstrap_package.settings.scss.enable-rounded:
+    label: '$enable-rounded'
+    category: BootstrapPackage.scss.options
+    type: bool
+    default: true
+
+  plugin.bootstrap_package.settings.scss.enable-shadows:
+    label: '$enable-shadows'
+    category: BootstrapPackage.scss.options
+    type: bool
+    default: true
+
+  plugin.bootstrap_package.settings.scss.enable-gradients:
+    label: '$enable-gradients'
+    category: BootstrapPackage.scss.options
+    type: bool
+    default: false
+
+  plugin.bootstrap_package.settings.scss.enable-transitions:
+    label: '$enable-transitions'
+    category: BootstrapPackage.scss.options
+    type: bool
+    default: true

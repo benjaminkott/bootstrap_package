@@ -1,0 +1,13 @@
+page {
+    includeCSSLibs {
+        googlewebfont = https://fonts.googleapis.com/css?display=swap&family={$page.theme.googleFont.font}:{$page.theme.googleFont.weight}
+        googlewebfont {
+            external = 1
+            disableCompression = 1
+            excludeFromConcatenation = 1
+            if {
+                isTrue = {$page.theme.googleFont.enable}
+            }
+        }
+    }
+}
