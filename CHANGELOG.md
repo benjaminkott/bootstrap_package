@@ -1,3 +1,121 @@
+# 15.0.0
+
+## BREAKING
+
+- 73d459cd [!!!][TASK] Allow v13 and drop v11 support
+
+## FEATURE
+
+- 205e17b6 [FEATURE] Add threads and telegram to social media - fixes #1517
+
+## TASK
+
+- 01ed74bd [TASK] Add set support for TYPO3 v13 (#1521)
+- 32c1e1d3 [TASK] Migrate carousel interal to type number
+- cdab5786 [TASK] Avoid deprecated calls to get request in ViewHelpers (#1520)
+- d87feed0 [TASK] Avoid deprecated INCLUDE_TYPOSCRIPT (#1519)
+- ca6bd80a [TASK] Avoid deprecated EMU::addPageTSConfig() (#1518)
+- f65c7bef [TASK] Add descriptions to content element registration
+- ffd27231 [TASK] Allow installation of TYPO3 v13 (#1512)
+- 376bf5f5 [TASK] Cleanup constant viewhelper
+- 901dfb41 [TASK] Move ignoring phpstan to usages
+- 0c6fb2be [TASK] Add phpmyadmin to ddev
+- b574acac [TASK] Drop google plus
+- 9d2cd59e [TASK] Drop leftover phpstan ignores in Is* ViewHelpers
+- df3330c6 [TASK] Cleanup pagination Pagination ViewHelpers
+- f3b07542 [TASK] Drop obsolte phpstan ignores for ContentSecurityPolicies
+- 56c5c0a2 [TASK] Drop leftover phpstan ignores of ScssParserTest
+- 6952284a [TASK] Drop leftover phpstan ignores of TypoScriptUtility
+- 59576f0d [TASK] Cleanup GoogleFontHook
+- 6efbddc8 [TASK] Drop usage of deprecated Connection::PARAM_STR_ARRAY
+- 6bf598f3 [TASK] Remove deprecated attribute registrations for TagBasedViewHelper
+- 3988f668 [TASK] Register upgrade wizards via attribute
+- 024543df [TASK] Cleanup flexforms
+- b7bf7e12 [TASK] Add trailing comma in multiline fixer rule
+- 82e09327 [TASK] Cleanup TCA
+- a9754755 [TASK] Remove obsolete settings from demo ext_emconf
+- 487f6c2a [TASK] Add return type void to initializeArguments
+- a75309ae [TASK] Set lowest supported version to 12.4
+- 59f2da05 [TASK] Use currentColor in systeminformation icon
+- e2956c2f [TASK] Replace twitter with x
+- d83517cb [TASK] Upgrade frontend dependencies
+- dba66892 [TASK] Upgrade stylelint to v16
+- b6f45a9e [TASK] Drop modernizr
+- 803a14c6 [TASK] Run functional and unit tests only on latest PHP version (#1515)
+- 22941858 [TASK] Cleanup SvgUtility
+- 62a32fd3 [TASK] Update extension-helper and php-cs-fixer
+- 248d65fc [TASK] Update CI builds to include php 8.3
+- ff450ec3 [TASK] Update github actions to latest version
+- c106703a [TASK] Cleanup tests (#1514)
+- 7ae6542a [TASK] Use node 20 in ci
+- 87cc012e [TASK] Update bundled scssphp to 1.13.0
+- 2603055d [TASK] Drop ExtensionConfiguration checks
+- 3b286e33 [TASK] Make AbstractUpdate v13 compatible
+- 12f22ab6 [TASK] Remove fallback to $GLOBALS['TSFE']
+- 82b6685d [TASK] Remove fallback for authMode
+- cb8940d7 [TASK] Drop deprecated renderStatic
+- 66880ab9 [TASK] Add .build/vendor to intelephense include path
+- 8789636a [TASK] Update vscode config
+- 9a84ab1c [TASK] Add Crowdin configuration file (#1488)
+- 9ea91d33 [TASK] PHP Stan Corrections
+- 6f3e3c2b [TASK] Remove deprecated TCEforms flexform XML element (#1434)
+- 1462f2fa [TASK] Migrate grid column view element to esm (#1419)
+- e11054bf [TASK] Add skiplink to mainnavigation (#1416)
+- f7b757e0 [TASK] Update ddev config
+- 817dc1c3 [TASK] Update phpcsfixer
+- d355cebc [TASK] Drop usage of custom trim viewhelper
+- aa4d9d6b [TASK] Cleanup color usages in cookie consent
+- 2eee06a4 [TASK] Make icons non translatable
+- 4790f8ec [TASK] Force accessible focus styles
+- a5c39a42 [TASK] Use legacy set attribute instead of internal attribute
+- 6f32e3a1 [TASK] Streamline link titles in file uploads
+- 9e5ba72d [TASK] Raise dependencies
+- ef542aba [TASK] Use control section in tca to allow custom tables on standard pages
+- 24d46fc7 [TASK] Add TYPO3 v13 to readme
+- c2e14e7d [TASK] Set next version to 15
+- f964fad5 [TASK] Remove fallback in scss parser test
+- a8ac2f5c [TASK] Remove fallbacks in paginate view helper
+- 64ea7726 [TASK] Remove fallback in iconwizard
+- 17a6bed2 [TASK] Migrate media fields to file
+- 73d459cd [!!!][TASK] Allow v13 and drop v11 support
+
+## BUGFIX
+
+- 8b51cb79 [BUGFIX] Replace legacy color-yiq with color-contrast - fixes #1511
+- 6ffb9d4b [BUGFIX] Remove leftover ignored errors from phpstan
+- 3feaae78 [BUGFIX] data undefined in IconsDataProcessor (#1452)
+- 2ed9ddd5 [BUGFIX] Fix JavaScript error when cookieconsent.min.js is blocked by secure browser (#1453)
+- d0b8e5b5 [BUGFIX] Remove outdated language settings (#1494)
+- 8bce06dc [BUGFIX] Add missing display class in header template - fixes #1508
+- a792a6bf [BUGFIX] Add missing configuration for address tag in RTE (#1513)
+- 29b8dfa1 [BUGFIX] Correct namespace for tests
+- 6325cbb8 [BUGFIX] Correct viewhelper documentation (#1476)
+- 9125f1f2 [BUGFIX] Add missing core extension requirements to functionals (#1435)
+- 2e9703ba [BUGFIX] Correct title attribute in external media preview
+- 7dbbf216 [BUGFIX] Prevent array offset access on non existing keys
+- 7c6459bd [BUGFIX] Use block styling for image links instead of inline-block
+- d4c4a1b8 [BUGFIX] Correct css variable usage
+- 1a75e051 [BUGFIX] Correct upper camel case viewhelper usage
+- 1c265530 [BUGFIX] Add missing compiled css
+- f4345a7b [BUGFIX] Explicitly set title for image
+- 76155e01 [BUGFIX] Filenames are no headlines
+- ac8f1b01 [BUGFIX] Avoid clipping of footer meta menu focus styles
+- d37d22ec [BUGFIX] Update cookie consent styling
+- 98db5ffa [BUGFIX] Force button focus styles to be accessible
+- a39fc134 [BUGFIX] Correct search result markup
+
+## Contributors
+
+- Benjamin Kott
+- Christian Kuhn
+- Garvin Hicking
+- Lina Wolf
+- Peter Kraume
+- Rafał Jania
+- Stephan Kellermayr
+- Uwe
+- jokumer
+
 # 14.0.2
 
 ## BUGFIX
