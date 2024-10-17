@@ -67,4 +67,71 @@ categories:
   BootstrapPackage.settings:
     label: 'Settings'
     parent: BootstrapPackage
+  BootstrapPackage.cookie-consent:
+    label: 'Cookie Consent'
+    parent: BootstrapPackage
+  BootstrapPackage.google-font:
+    label: 'Google Font'
+    parent: BootstrapPackage
+  BootstrapPackage.google-tag-manager:
+    label: 'Google Tag Manager'
+    parent: BootstrapPackage
+  BootstrapPackage.content-elements:
+    label: 'Content Elements'
+    parent: BootstrapPackage
+  BootstrapPackage.content-elements.templates:
+    label: 'Templates'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.header:
+    label: 'Header'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.subheader:
+    label: 'Subheader'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.lightbox:
+    label: 'Lightbox'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.media:
+    label: 'Media'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.gallery:
+    label: 'Gallery'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.menu-thumbnail:
+    label: 'Menu Thumbnail'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.menu-card:
+    label: 'Menu Card'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.text-and-icon:
+    label: 'Text and Icon'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.timeline:
+    label: 'Timeline'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.uploads:
+    label: 'Uploads'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.scss:
+    label: 'SCSS'
+    parent: BootstrapPackage
+  BootstrapPackage.scss.colors:
+    label: 'Colors'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.contrast:
+    label: 'Contrast'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.body:
+    label: 'Body'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.links:
+    label: 'Links'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.fonts:
+    label: 'Fonts'
+    parent: BootstrapPackage.scss
+  BootstrapPackage.scss.options:
+    label: 'Options'
+    parent: BootstrapPackage.scss
 
+settings: []
