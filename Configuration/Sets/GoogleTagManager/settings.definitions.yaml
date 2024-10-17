@@ -1,8 +1,3 @@
-categories:
-  BootstrapPackage.google-tag-manager:
-    label: 'Google Tag Manager'
-    parent: BootstrapPackage
-
 settings:
 
   page.tracking.google.tagManagerContainerId:
