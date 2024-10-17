@@ -1,4 +1,6 @@
 name: bootstrap-package/ext-form
 label: 'Bootstrap Package: EXT:form integration'
+dependencies:
+  - bootstrap-package/base
 optionalDependencies:
   - typo3/form

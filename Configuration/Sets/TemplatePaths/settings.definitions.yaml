@@ -1,0 +1,58 @@
+settings:
+
+  # Template Page
+  page.fluidtemplate.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/Page/'
+
+  page.fluidtemplate.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/Page/'
+
+  page.fluidtemplate.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Page/'
+
+  # Template Block
+  plugin.bootstrap_package_blocks.view.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/Blocks/'
+
+  plugin.bootstrap_package_blocks.view.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/Blocks/'
+
+  plugin.bootstrap_package_blocks.view.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Blocks/'
+
+  # Template Plugin
+  plugin.bootstrap_package.view.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/'
+
+  plugin.bootstrap_package.view.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/'
+
+  plugin.bootstrap_package.view.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/'
