@@ -1,6 +1,3 @@
-# DEPENDENCIES
-@import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
-
 # HELPER
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
 @import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'

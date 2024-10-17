@@ -1,0 +1,4 @@
+name: bootstrap-package/ext-indexed-search
+label: 'Bootstrap Package: EXT:indexed_search integration'
+optionalDependencies:
+  - typo3/indexed-search

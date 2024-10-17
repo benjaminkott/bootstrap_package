@@ -3,7 +3,6 @@ includes:
 	- %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-strict-rules/rules.neon
 	- %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-deprecation-rules/rules.neon
 	- %currentWorkingDirectory%/.build/vendor/friendsoftypo3/phpstan-typo3/extension.neon
-	- %currentWorkingDirectory%/Build/phpstan-baseline-v13.neon
 
 parameters:
 	level: 8

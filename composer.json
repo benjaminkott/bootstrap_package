@@ -80,6 +80,9 @@
         },
         "typo3/cms": {
             "extension-key": "bootstrap_package",
+            "Package": {
+                "serviceProvider": "BK2K\\BootstrapPackage\\ServiceProvider"
+            },
             "web-dir": ".build/public"
         }
     },
@@ -115,8 +118,11 @@
         "changelog": [
             "extension-helper changelog:create"
         ],
-        "phpstan": [
-            "phpstan analyze --configuration Build/phpstan.neon"
+        "phpstan-v12": [
+            "phpstan analyze --configuration Build/phpstan-v12.neon"
+        ],
+        "phpstan-v13": [
+            "phpstan analyze --configuration Build/phpstan-v13.neon"
         ],
         "phpstan:baseline": [
             "phpstan analyze --configuration Build/phpstan.neon --generate-baseline Build/phpstan-baseline.neon"
