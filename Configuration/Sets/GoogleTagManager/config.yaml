@@ -1,3 +1,5 @@
 name: bootstrap-package/google-tag-manager
 label: 'Bootstrap Package: Google Tag Manager'
 hidden: true
+dependencies:
+  - bootstrap-package/base

@@ -1,28 +1,3 @@
-categories:
-  BootstrapPackage:
-    label: 'Bootstrap Package'
-  BootstrapPackage.scss:
-    label: 'SCSS'
-    parent: BootstrapPackage
-  BootstrapPackage.scss.colors:
-    label: 'Colors'
-    parent: BootstrapPackage.scss
-  BootstrapPackage.scss.contrast:
-    label: 'Contrast'
-    parent: BootstrapPackage.scss
-  BootstrapPackage.scss.body:
-    label: 'Body'
-    parent: BootstrapPackage.scss
-  BootstrapPackage.scss.links:
-    label: 'Links'
-    parent: BootstrapPackage.scss
-  BootstrapPackage.scss.fonts:
-    label: 'Fonts'
-    parent: BootstrapPackage.scss
-  BootstrapPackage.scss.options:
-    label: 'Options'
-    parent: BootstrapPackage.scss
-
 settings:
 
   # Colors

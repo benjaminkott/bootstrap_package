@@ -7,3 +7,8 @@ dependencies:
   - bootstrap-package/google-font
   - bootstrap-package/google-tag-manager
   - bootstrap-package/skiplink
+  # optional dependencies added by ServiceProvider
+  # - bootstrap-package/ext-form
+  # - bootstrap-package/ext-indexed-search
+  # - bootstrap-package/ext-seo-sitemap
+  # - bootstrap-package/ext-container
