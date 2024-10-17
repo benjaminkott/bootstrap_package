@@ -1,0 +1,3 @@
+includes:
+	- %currentWorkingDirectory%/Build/phpstan.neon
+	- %currentWorkingDirectory%/Build/phpstan-baseline-v13.neon

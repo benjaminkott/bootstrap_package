@@ -68,11 +68,16 @@ jobs:
         if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer cgl:ci
-      - id: phpstan
+      - id: phpstan-v12
         name: PHPStan
-        if: ${{ always() && steps.install.conclusion == 'success' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.typo3 == '^12' }}
         run: |
-          composer phpstan -- --error-format=github
+          composer phpstan-v12 -- --error-format=github
+      - id: phpstan-v13
+        name: PHPStan
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.typo3 != '^12' }}
+        run: |
+          composer phpstan-v13 -- --error-format=github
       - id: tests_unit
         name: Unit Tests
         if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.3' }}

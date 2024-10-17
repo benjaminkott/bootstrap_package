@@ -1,0 +1,4 @@
+name: bootstrap-package/ext-seo
+label: 'Bootstrap Package: EXT:seo integration'
+dependencies:
+  - typo3/seo-sitemap

@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined static method TYPO3\\\\CMS\\\\Core\\\\Package\\\\AbstractServiceProvider\\:\\:configureSetCollector\\(\\)\\.$#"
+			count: 1
+			path: ../Classes/ServiceProvider.php
+
+		-
+			message: "#^Class TYPO3\\\\CMS\\\\Core\\\\Site\\\\Set\\\\SetCollector not found\\.$#"
+			count: 1
+			path: ../Classes/ServiceProvider.php
+
+		-
+			message: "#^Instantiated class TYPO3\\\\CMS\\\\Core\\\\Site\\\\Set\\\\SetDefinition not found\\.$#"
+			count: 1
+			path: ../Classes/ServiceProvider.php
+
+		-
+			message: "#^Method BK2K\\\\BootstrapPackage\\\\ServiceProvider\\:\\:configureSetCollector\\(\\) has invalid return type TYPO3\\\\CMS\\\\Core\\\\Site\\\\Set\\\\SetCollector\\.$#"
+			count: 1
+			path: ../Classes/ServiceProvider.php
+
+		-
+			message: "#^Parameter \\$setCollector of method BK2K\\\\BootstrapPackage\\\\ServiceProvider\\:\\:configureSetCollector\\(\\) has invalid type TYPO3\\\\CMS\\\\Core\\\\Site\\\\Set\\\\SetCollector\\.$#"
+			count: 1
+			path: ../Classes/ServiceProvider.php
