@@ -1,6 +1,4 @@
 categories:
-  BootstrapPackage:
-    label: 'Bootstrap Package'
   BootstrapPackage.google-tag-manager:
     label: 'Google Tag Manager'
     parent: BootstrapPackage

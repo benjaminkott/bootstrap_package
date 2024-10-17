@@ -1,0 +1,6 @@
+name: bootstrap-package/base
+label: 'Bootstrap Package: Base'
+hidden: true
+dependencies:
+  - bootstrap-package/categories
+  - bootstrap-package/template-paths

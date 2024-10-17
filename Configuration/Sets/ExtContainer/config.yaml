@@ -1,2 +1,4 @@
 name: bootstrap-package/ext-container
 label: 'Bootstrap Package: EXT:container integration'
+dependencies:
+  - bootstrap-package/base

@@ -1,0 +1,5 @@
+name: bootstrap-package/template-paths
+label: 'Bootstrap Package: Template Paths'
+hidden: true
+dependencies:
+  - bootstrap-package/categories
