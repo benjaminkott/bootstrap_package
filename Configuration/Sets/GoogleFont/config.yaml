@@ -1,3 +1,5 @@
 name: bootstrap-package/google-font
 label: 'Bootstrap Package: Google Font'
 hidden: true
+dependencies:
+  - bootstrap-package/base
