@@ -43,7 +43,7 @@
         "typo3/cms-seo": "^13.4 || 13.*.*@dev  || 14.*.*@dev || 14.*.*"
     },
     "require-dev": {
-        "b13/container": "^2.3 || dev-task/dev-main",
+        "b13/container": "^3.0 || dev-master",
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.64",
@@ -62,7 +62,7 @@
         "typo3/cms-lowlevel": "^13.4 || 13.*.*@dev || 14.*.*@dev",
         "typo3/cms-tstemplate": "^13.4 || 13.*.*@dev || 14.*.*@dev",
         "typo3/cms-workspaces": "^13.4 || 13.*.*@dev || 14.*.*@dev",
-        "typo3/testing-framework": "^8.2.3"
+        "typo3/testing-framework": "^9.0.0 || dev-main"
     },
     "config": {
         "bin-dir": ".build/bin",
