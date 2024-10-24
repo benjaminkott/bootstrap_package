@@ -14,6 +14,8 @@ use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
@@ -23,6 +25,7 @@ use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\View\ViewInterface as FluidStandaloneViewInterface;
 
 /**
  * PaginateViewHelper
@@ -33,6 +36,10 @@ class PaginateViewHelper extends AbstractViewHelper
      * @var bool
      */
     protected $escapeOutput = false;
+
+    public function __construct(protected ViewFactoryInterface $viewFactory)
+    {
+    }
 
     public function initializeArguments(): void
     {
@@ -78,7 +85,7 @@ class PaginateViewHelper extends AbstractViewHelper
                 'pagination' => $pagination,
                 'configuration' => $configuration,
             ]);
-            $paginationRendered = $paginationView->render();
+            $paginationRendered = $paginationView->render('Paginate/Index');
 
             $variableProvider = $renderingContext->getVariableProvider();
             $variableProvider->add('paginator', $paginator);
@@ -99,7 +106,7 @@ class PaginateViewHelper extends AbstractViewHelper
         );
     }
 
-    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): StandaloneView
+    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): FluidStandaloneViewInterface
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
@@ -135,10 +142,13 @@ class PaginateViewHelper extends AbstractViewHelper
             }
         }
 
-        $view->setLayoutRootPaths($layoutRootPaths);
-        $view->setPartialRootPaths($partialRootPaths);
-        $view->setTemplateRootPaths($templateRootPaths);
-        $view->setTemplate('Paginate/Index');
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: $templateRootPaths,
+            partialRootPaths: $partialRootPaths,
+            layoutRootPaths: $layoutRootPaths,
+            request: $request,
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
 
         return $view;
     }
