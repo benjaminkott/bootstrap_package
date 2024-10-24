@@ -126,7 +126,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 ],
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
                             'showitem' => '--palette--;;filePalette',
                         ],
                     ],

@@ -88,7 +88,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 ],
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
                             'showitem' => '--palette--;;filePalette',
                         ],
                     ],
@@ -108,7 +108,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'maxitems' => 1,
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
                             'showitem' => '
                                 --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette

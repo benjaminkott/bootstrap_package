@@ -11,6 +11,7 @@ namespace BK2K\BootstrapPackage\ViewHelpers\File;
 
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
@@ -29,7 +30,7 @@ class IsAudioViewHelper extends AbstractViewHelper
             && ($file instanceof FileReference || $file instanceof File)
             && (
                 in_array($file->getExtension(), $allowedFileExtensions, true)
-                || $file->getType() === File::FILETYPE_AUDIO
+                || $file->getType() === FileType::AUDIO->value
             )
         ) {
             return true;
