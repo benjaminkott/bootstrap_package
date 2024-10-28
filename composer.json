@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1.0",
+        "php": ">=8.2.0",
         "ext-PDO": "*",
         "ext-dom": "*",
         "ext-filter": "*",
@@ -33,7 +33,7 @@
         "ext-simplexml": "*",
         "scssphp/scssphp": "^1.13",
         "typo3/cms-backend": "^13.4 || 13.*.*@dev || 14.*.*@dev || 14.*.*",
-        "typo3/cms-core": "^13.4 || 13.*.*@dev || 14.*.*@dev || 14.*.*",
+        "typo3/cms-core": "14.0.x-dev",
         "typo3/cms-extbase": "^13.4 || 13.*.*@dev || 14.*.*@dev || 14.*.*",
         "typo3/cms-extensionmanager": "^13.4 || 13.*.*@dev || 14.*.*@dev || 14.*.*",
         "typo3/cms-fluid": "^13.4 || 13.*.*@dev || 14.*.*@dev || 14.*.*",
@@ -43,7 +43,7 @@
         "typo3/cms-seo": "^13.4 || 13.*.*@dev  || 14.*.*@dev || 14.*.*"
     },
     "require-dev": {
-        "b13/container": "^3.0 || dev-master",
+        "b13/container": "^3.0 || dev-task/dev-main",
         "bk2k/demo-package": "@dev",
         "bk2k/extension-helper": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.64",
