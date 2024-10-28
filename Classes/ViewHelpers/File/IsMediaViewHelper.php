@@ -26,16 +26,11 @@ class IsMediaViewHelper extends AbstractViewHelper
         $allowedFileExtensions = $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext'] ?? '';
         $allowedFileExtensions = GeneralUtility::trimExplode(',', $allowedFileExtensions);
 
-        if (is_object($file)
+        return is_object($file)
             && ($file instanceof FileReference || $file instanceof File)
             && (
                 in_array($file->getExtension(), $allowedFileExtensions, true)
                 || $file->getType() === FileType::VIDEO->value
-            )
-        ) {
-            return true;
-        }
-
-        return false;
+            );
     }
 }
