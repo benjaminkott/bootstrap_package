@@ -17,12 +17,12 @@ use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\View\ViewInterface as FluidStandaloneViewInterface;
 
 /**
  * FrameViewHelper
@@ -34,9 +34,9 @@ class FrameViewHelper extends AbstractViewHelper
      */
     protected $escapeOutput = false;
 
-    public function __construct(protected ViewFactoryInterface $viewFactory)
-    {
-    }
+    public function __construct(
+        protected readonly ViewFactoryInterface $viewFactory,
+    ) {}
 
     public function initializeArguments(): void
     {
@@ -174,7 +174,7 @@ class FrameViewHelper extends AbstractViewHelper
         return $view->render('Frame/Index');
     }
 
-    protected function getTemplateObject(): FluidStandaloneViewInterface
+    protected function getTemplateObject(): ViewInterface
     {
         $setup = static::getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
@@ -200,15 +200,12 @@ class FrameViewHelper extends AbstractViewHelper
             }
         }
 
-        $viewFactoryData = new ViewFactoryData(
+        return $this->viewFactory->create(new ViewFactoryData(
             templateRootPaths: $templateRootPaths,
             partialRootPaths: $partialRootPaths,
             layoutRootPaths: $layoutRootPaths,
             request: $this->getRequestFromRenderingContext($this->renderingContext),
-        );
-        $view = $this->viewFactory->create($viewFactoryData);
-
-        return $view;
+        ));
     }
 
     protected static function getConfigurationManager(): ConfigurationManagerInterface
