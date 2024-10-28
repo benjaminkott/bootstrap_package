@@ -36,7 +36,8 @@ class FrameViewHelper extends AbstractViewHelper
 
     public function __construct(
         protected readonly ViewFactoryInterface $viewFactory,
-    ) {}
+    ) {
+    }
 
     public function initializeArguments(): void
     {
