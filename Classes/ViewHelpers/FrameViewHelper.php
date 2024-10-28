@@ -14,9 +14,11 @@ use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -162,10 +164,10 @@ class FrameViewHelper extends AbstractViewHelper
             ]
         );
 
-        return $view->render();
+        return $view->render('Frame/Index');
     }
 
-    protected static function getTemplateObject(): StandaloneView
+    protected static function getTemplateObject(): ViewInterface
     {
         $setup = static::getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
@@ -191,14 +193,12 @@ class FrameViewHelper extends AbstractViewHelper
             }
         }
 
-        /** @var StandaloneView $view */
-        $view = GeneralUtility::makeInstance(StandaloneView::class);
-        $view->setLayoutRootPaths($layoutRootPaths);
-        $view->setPartialRootPaths($partialRootPaths);
-        $view->setTemplateRootPaths($templateRootPaths);
-        $view->setTemplate('Frame/Index');
-
-        return $view;
+        return GeneralUtility::makeInstance(ViewFactoryInterface::class)
+            ->create(new ViewFactoryData(
+                templateRootPaths: $templateRootPaths,
+                partialRootPaths: $partialRootPaths,
+                layoutRootPaths: $layoutRootPaths,
+            ));
     }
 
     protected static function getConfigurationManager(): ConfigurationManagerInterface

@@ -14,13 +14,15 @@ use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
@@ -78,7 +80,7 @@ class PaginateViewHelper extends AbstractViewHelper
                 'pagination' => $pagination,
                 'configuration' => $configuration,
             ]);
-            $paginationRendered = $paginationView->render();
+            $paginationRendered = $paginationView->render('Paginate/Index');
 
             $variableProvider = $renderingContext->getVariableProvider();
             $variableProvider->add('paginator', $paginator);
@@ -99,7 +101,7 @@ class PaginateViewHelper extends AbstractViewHelper
         );
     }
 
-    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): StandaloneView
+    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): ViewInterface
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
@@ -109,9 +111,6 @@ class PaginateViewHelper extends AbstractViewHelper
             /** @phpstan-ignore-next-line */
             $context->setRequest($request);
         }
-
-        /** @var StandaloneView $view */
-        $view = GeneralUtility::makeInstance(StandaloneView::class, $context);
 
         $layoutRootPaths = [];
         $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
@@ -135,12 +134,12 @@ class PaginateViewHelper extends AbstractViewHelper
             }
         }
 
-        $view->setLayoutRootPaths($layoutRootPaths);
-        $view->setPartialRootPaths($partialRootPaths);
-        $view->setTemplateRootPaths($templateRootPaths);
-        $view->setTemplate('Paginate/Index');
-
-        return $view;
+        return GeneralUtility::makeInstance(ViewFactoryInterface::class)
+            ->create(new ViewFactoryData(
+                templateRootPaths: $templateRootPaths,
+                partialRootPaths: $partialRootPaths,
+                layoutRootPaths: $layoutRootPaths,
+            ));
     }
 
     protected function getConfigurationManager(): ConfigurationManagerInterface
