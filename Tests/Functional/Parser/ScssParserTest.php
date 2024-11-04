@@ -114,7 +114,7 @@ class ScssParserTest extends FunctionalTestCase
         $request = new ServerRequest();
         $lineStream = (new LossyTokenizer())->tokenize($typoScriptString);
         $typoScriptAst = (new AstBuilder(new NoopEventDispatcher()))->build($lineStream, new RootNode());
-        /** @phpstan-ignore-next-line */
+
         $typoScriptAttribute = new FrontendTypoScript(new RootNode(), [], [], []);
         $typoScriptAttribute->setSetupTree($typoScriptAst);
         $typoScriptAttribute->setSetupArray($typoScriptAst->toArray());
