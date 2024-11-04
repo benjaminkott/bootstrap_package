@@ -21,7 +21,6 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
@@ -108,13 +107,6 @@ class PaginateViewHelper extends AbstractViewHelper
     protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): ViewInterface
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
-
-        /** @phpstan-ignore-next-line */
-        $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create([], $request);
-        if ((new \ReflectionMethod(RenderingContextFactory::class, 'create'))->getNumberOfParameters() === 1) {
-            /** @phpstan-ignore-next-line */
-            $context->setRequest($request);
-        }
 
         $layoutRootPaths = [];
         $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
