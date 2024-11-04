@@ -12,7 +12,6 @@ namespace BK2K\BootstrapPackage\ViewHelpers\TypoScript;
 
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
