@@ -13,7 +13,7 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'templates',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-13.4.99',
+            'typo3' => '12.4.5-13.4.99',
             'rte_ckeditor' => '12.4.0-13.4.99',
             'seo' => '12.4.0-13.4.99',
         ],
