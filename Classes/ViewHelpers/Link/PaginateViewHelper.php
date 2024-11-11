@@ -13,7 +13,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Http\ApplicationType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Typolink\LinkFactory;
 use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
@@ -95,9 +94,6 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
     {
         if ($renderingContext->hasAttribute(ServerRequestInterface::class)) {
             return $renderingContext->getAttribute(ServerRequestInterface::class);
-        } elseif ($renderingContext instanceof RenderingContext) {
-            /** @phpstan-ignore-next-line */
-            return $renderingContext->getRequest();
         }
 
         return null;
