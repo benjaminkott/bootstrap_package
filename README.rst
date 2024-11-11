@@ -2,6 +2,10 @@
    :alt: Latest Stable Version
    :target: https://extensions.typo3.org/extension/bootstrap_package/
 
+.. image:: https://img.shields.io/badge/TYPO3-13-orange.svg
+   :alt: TYPO3 13
+   :target: https://get.typo3.org/version/13
+
 .. image:: https://img.shields.io/badge/TYPO3-12-orange.svg
    :alt: TYPO3 12
    :target: https://get.typo3.org/version/12
@@ -53,6 +57,7 @@ Compatibility
    :header-rows: 1
 
    * -
+     - v14
      - v13
      - v12
      - v11
@@ -61,7 +66,18 @@ Compatibility
      - v8
      - v7
 
+   * - BP 16.x
+     - ✔️
+     - ✔️
+     -
+     -
+     -
+     -
+     -
+     -
+
    * - BP 15.x
+     -
      - ✔️
      - ✔️
      -
@@ -72,6 +88,7 @@ Compatibility
 
    * - BP 14.x
      -
+     -
      - ✔️
      - ✔️
      -
@@ -80,6 +97,7 @@ Compatibility
      -
 
    * - BP 13.x
+     -
      -
      - ✔️
      - ✔️
@@ -91,6 +109,7 @@ Compatibility
    * - BP 12.x
      -
      -
+     -
      - ✔️
      - ✔️
      -
@@ -98,6 +117,7 @@ Compatibility
      -
 
    * - BP 11.x
+     -
      -
      -
      -
@@ -111,11 +131,13 @@ Compatibility
      -
      -
      -
+     -
      - ✔️
      - ✔️
      -
 
    * - BP 7.x
+     -
      -
      -
      -
