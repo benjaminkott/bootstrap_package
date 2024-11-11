@@ -1,2 +1,4 @@
 name: bootstrap-package/content-elements
 label: 'Bootstrap Package: Content Elements'
+dependencies:
+  - bootstrap-package/base

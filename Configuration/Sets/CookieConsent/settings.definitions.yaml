@@ -1,10 +1,3 @@
-categories:
-  BootstrapPackage:
-    label: 'Bootstrap Package'
-  BootstrapPackage.cookie-consent:
-    label: 'Cookie Consent'
-    parent: BootstrapPackage
-
 settings:
 
   page.theme.cookieconsent.enable:
