@@ -102,10 +102,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-autoload-dump": [
-            "[ -d .build/public/_assets ] || mkdir -p .build/public/typo3conf/ext/",
-            "[ -d .build/public/_assets ] || [ -L .build/public/typo3conf/ext/bootstrap_package ] || ln -snvf ../../../../. .build/public/typo3conf/ext/bootstrap_package"
-        ],
         "cgl": [
             "php-cs-fixer --diff -v fix"
         ],
