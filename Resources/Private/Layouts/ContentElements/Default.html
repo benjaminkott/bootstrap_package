@@ -6,13 +6,15 @@
     <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{columnConfig.multiplier}" gutters="{columnConfig.gutters}" corrections="{columnConfig.corrections}" />
 </f:if>
 
+<f:variable name="colPos" value="{data.colPos}" />
 <f:if condition="{containerContext}">
-    <f:for each="{containerContext}" as="context">
+    <f:for each="{containerContext}" as="context" reverse="1">
         <f:variable name="containerConfig">{settings.responsiveimages.container.{context.CType}}</f:variable>
-        <f:variable name="containerColumnConfig">{containerConfig.{data.colPos}}</f:variable>
+        <f:variable name="containerColumnConfig">{containerConfig.{colPos}}</f:variable>
         <f:if condition="{containerColumnConfig}">
             <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{containerColumnConfig.multiplier}" gutters="{containerColumnConfig.gutters}" corrections="{containerColumnConfig.corrections}" />
         </f:if>
+        <f:variable name="colPos" value="{context.colPos}" />
     </f:for>
 </f:if>
 
