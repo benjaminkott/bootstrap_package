@@ -69,11 +69,11 @@
 }
 .texticon-left .texticon-icon {
     float: left;
-    margin-left: -1 * calc($grid-gutter-width / 2);
+    margin-left: calc( -1 * ($grid-gutter-width / 2));
 }
 .texticon-right .texticon-icon {
     float: right;
-    margin-right: -1 * calc($grid-gutter-width / 2);
+    margin-right: calc( -1 * ($grid-gutter-width / 2));
 }
 .texticon-left .texticon-content,
 .texticon-right .texticon-content {
