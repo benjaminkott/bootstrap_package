@@ -41,7 +41,7 @@ $timeline-path-opacity: .25 !default;
         position: absolute;
         top: 0;
         bottom: 0;
-        left: ($timeline-icon-size / 2);
+        left: calc($timeline-icon-size / 2);
         transform: translate(-50%, 0);
         border-left: $timeline-path-border;
         opacity: $timeline-path-opacity;
@@ -50,7 +50,7 @@ $timeline-path-opacity: .25 !default;
 .timeline-item {
     position: relative;
     &:not(:first-child) {
-        margin-top: ($timeline-item-spacing / 2);
+        margin-top: calc($timeline-item-spacing / 2);
     }
 }
 .timeline-item-inner {
@@ -98,13 +98,13 @@ $timeline-path-opacity: .25 !default;
     z-index: 3;
     position: absolute;
     top: 50%;
-    left: -($timeline-icon-size / 2);
+    left: - calc($timeline-icon-size / 2);
     width: $timeline-marker-size;
     height: $timeline-marker-size;
     transform: translate(-50%, -50%);
 }
 .timeline-item-icon {
-    left: -($timeline-icon-size / 2);
+    left: - calc($timeline-icon-size / 2);
     width: $timeline-icon-size;
     height: $timeline-icon-size;
     border-radius: $timeline-icon-border-radius;

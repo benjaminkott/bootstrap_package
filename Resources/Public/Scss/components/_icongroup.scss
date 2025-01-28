@@ -1,7 +1,7 @@
 //
 // Variables
 // --------------------------------------------------
-$icongroup-margin: ($grid-gutter-width / 2) !default;
+$icongroup-margin: calc($grid-gutter-width / 2) !default;
 $icongroup-icon-size: 40px !default;
 $icongroup-item-width: 50% !default;
 

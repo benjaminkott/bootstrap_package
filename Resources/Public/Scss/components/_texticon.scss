@@ -63,17 +63,17 @@
     .texticon-icon {
         position: relative;
         min-height: 1px;
-        padding-left: ($grid-gutter-width / 2);
-        padding-right: ($grid-gutter-width / 2);
+        padding-left: calc($grid-gutter-width / 2);
+        padding-right: calc($grid-gutter-width / 2);
     }
 }
 .texticon-left .texticon-icon {
     float: left;
-    margin-left: -1 * ($grid-gutter-width / 2);
+    margin-left: -1 * calc($grid-gutter-width / 2);
 }
 .texticon-right .texticon-icon {
     float: right;
-    margin-right: -1 * ($grid-gutter-width / 2);
+    margin-right: -1 * calc($grid-gutter-width / 2);
 }
 .texticon-left .texticon-content,
 .texticon-right .texticon-content {
