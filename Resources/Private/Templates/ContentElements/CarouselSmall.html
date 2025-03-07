@@ -32,6 +32,7 @@
                         role="group"
                         aria-roledescription="slide"
                         >
+                        <f:variable name="carouselType">carousel_small</f:variable>
                         <f:render partial="Carousel/General/BackgroundImage" arguments="{_all}" />
                         <div class="carousel-content">
                             <f:render partial="Carousel/Item/{item.data.item_type -> bk2k:format.upperCamelCase()}" arguments="{_all}" />
