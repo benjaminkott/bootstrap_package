@@ -605,7 +605,7 @@ settings:
     label: 'Template Root Path'
     category: BootstrapPackage.templates.page
     type: string
-    default: 'EXT:bootstrap_package/Resources/Private/Partials/Page/'
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Page/'
 
   # Template Block
   plugin.bootstrap_package_blocks.view.layoutRootPath:
@@ -624,7 +624,7 @@ settings:
     label: 'Template Root Path'
     category: BootstrapPackage.templates.block
     type: string
-    default: 'EXT:bootstrap_package/Resources/Private/Partials/Blocks/'
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Blocks/'
 
   # Template Plugin
   plugin.bootstrap_package.view.layoutRootPath:
@@ -643,7 +643,7 @@ settings:
     label: 'Template Root Path'
     category: BootstrapPackage.templates.plugin
     type: string
-    default: 'EXT:bootstrap_package/Resources/Private/Partials/'
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/'
 
   # Settings
   plugin.bootstrap_package.settings.cssSourceMapping:
