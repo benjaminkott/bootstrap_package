@@ -38,7 +38,7 @@ class FalViewHelper extends AbstractViewHelper
     public function render()
     {
         $variableProvider = $this->renderingContext->getVariableProvider();
-        if (is_array($this->arguments['data']) && $this->arguments['data']['uid'] && $this->arguments['data'][$this->arguments['field']]) {
+        if (is_array($this->arguments['data']) && isset($this->arguments['data']['uid']) && isset($this->arguments['data'][$this->arguments['field']])) {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $items = $fileRepository->findByRelation(
                 $this->arguments['table'],

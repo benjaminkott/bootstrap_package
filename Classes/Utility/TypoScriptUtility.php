@@ -19,12 +19,12 @@ class TypoScriptUtility
 {
     public static function getSetup(ServerRequestInterface $request): array
     {
-        return $request->getAttribute('frontend.typoscript')->getSetupArray();
+        return $request->getAttribute('frontend.typoscript')?->getSetupArray() ?? [];
     }
 
     public static function getConstants(ServerRequestInterface $request): array
     {
-        return $request->getAttribute('frontend.typoscript')->getFlatSettings();
+        return $request->getAttribute('frontend.typoscript')?->getFlatSettings() ?? [];
     }
 
     public static function getConstantsByPrefix(ServerRequestInterface $request, string $prefix, bool $stripPrefix = true): array

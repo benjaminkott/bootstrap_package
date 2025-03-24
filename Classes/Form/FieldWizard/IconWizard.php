@@ -76,7 +76,7 @@ class IconWizard extends AbstractNode
             $html[] = '</div>';
         }
 
-        $result['html'] = implode(LF, $html);
+        $result['html'] = implode(chr(10), $html);
         return $result;
     }
 }
