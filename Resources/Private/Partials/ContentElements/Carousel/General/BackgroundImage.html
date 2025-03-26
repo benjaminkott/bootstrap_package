@@ -9,7 +9,7 @@
     <div class="carousel-backgroundimage-container">
         <div id="{backgroundImageIdentifier}" class="{backgroundImageClasses}">
             <f:variable name="styles" value=""/>
-            <f:variable name="imageConfig">{settings.responsiveimages.contentelements.carousel.background_image}</f:variable>
+            <f:variable name="imageConfig">{settings.responsiveimages.contentelements.{data.CType}.background_image}</f:variable>
             <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
             <f:for each="{variants}" key="name" as="variant">
                 <f:variable name="breakpoint">{variant.breakpoint as integer}</f:variable>
