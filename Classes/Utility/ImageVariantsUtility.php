@@ -21,6 +21,7 @@ class ImageVariantsUtility
     protected static $allowedVariantProperties = [
         'breakpoint',
         'width',
+        'height',
         'aspectRatio',
         'sizes',
     ];
