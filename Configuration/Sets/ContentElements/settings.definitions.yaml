@@ -164,37 +164,37 @@ settings:
     default: true
 
   # Gallery
-  plugin.bootstrap_package_contentelements.gallery.columns.1:
+  plugin.bootstrap_package_contentelements.gallery.columns.1.class:
     label: 'Item CSS Class for 1 column'
     category: BootstrapPackage.content-elements.gallery
     type: string
     default: 'gallery-item-size-1'
 
-  plugin.bootstrap_package_contentelements.gallery.columns.2:
+  plugin.bootstrap_package_contentelements.gallery.columns.2.class:
     label: 'Item CSS Class for 2 columns'
     category: BootstrapPackage.content-elements.gallery
     type: string
     default: 'gallery-item-size-2'
 
-  plugin.bootstrap_package_contentelements.gallery.columns.3:
+  plugin.bootstrap_package_contentelements.gallery.columns.3.class:
     label: 'Item CSS Class for 3 columns'
     category: BootstrapPackage.content-elements.gallery
     type: string
     default: 'gallery-item-size-3'
 
-  plugin.bootstrap_package_contentelements.gallery.columns.4:
+  plugin.bootstrap_package_contentelements.gallery.columns.4.class:
     label: 'Item CSS Class for 4 columns'
     category: BootstrapPackage.content-elements.gallery
     type: string
     default: 'gallery-item-size-4'
 
-  plugin.bootstrap_package_contentelements.gallery.columns.5:
+  plugin.bootstrap_package_contentelements.gallery.columns.5.class:
     label: 'Item CSS Class for 5 columns'
     category: BootstrapPackage.content-elements.gallery
     type: string
     default: 'gallery-item-size-5'
 
-  plugin.bootstrap_package_contentelements.gallery.columns.6:
+  plugin.bootstrap_package_contentelements.gallery.columns.6.class:
     label: 'Item CSS Class for 6 columns'
     category: BootstrapPackage.content-elements.gallery
     type: string
