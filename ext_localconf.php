@@ -72,3 +72,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [
     'priority' => 40,
     'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class,
 ];
+
+// SiteCreator
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \BK2K\BootstrapPackage\SiteCreator\Hooks\SiteCreatorHook::class;
