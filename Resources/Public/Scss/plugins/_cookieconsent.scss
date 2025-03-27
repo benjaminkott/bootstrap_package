@@ -2,6 +2,8 @@
 // Variables
 // --------------------------------------------------
 $cookieconsent-zindex: 1080 !default;
+$cookieconsent-padding: 2rem !default;
+$cookieconsent-space: 20px !default;
 $cookieconsent-bg: #1b1b1b !default;
 $cookieconsent-color: color-contrast($cookieconsent-bg) !default;
 $cookieconsent-link-color: a11y-color($cookieconsent-bg, $primary) !default;
@@ -9,6 +11,8 @@ $cookieconsent-button-bg: a11y-color($cookieconsent-bg, $primary) !default;
 $cookieconsent-button-highlight-bg: transparent !default;
 :root {
     --cookieconsent-zindex: #{$cookieconsent-zindex};
+    --cookieconsent-padding: #{$cookieconsent-padding};
+    --cookieconsent-space: #{$cookieconsent-space};
     --cookieconsent-bg: #{$cookieconsent-bg};
     --cookieconsent-color: #{$cookieconsent-color};
     --cookieconsent-link-color: #{$cookieconsent-link-color};
@@ -71,15 +75,15 @@ $cookieconsent-button-highlight-bg: transparent !default;
     }
     &.cc-floating {
         .cc-container {
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding-left: var(--cookieconsent-padding);
+            padding-right: var(--cookieconsent-padding);
         }
         padding: 2rem 0;
         max-width: 380px;
         flex-direction: column;
     }
     &.cc-banner {
-        padding: ($grid-gutter-width / 2) 0;
+        padding: var(--cookieconsent-padding) 0;
         width: 100%;
         flex-direction: row;
     }
@@ -196,16 +200,16 @@ $cookieconsent-button-highlight-bg: transparent !default;
     }
 }
 .cc-top {
-    top: ($grid-gutter-width / 2);
+    top: var(--cookieconsent-space);
 }
 .cc-left {
-    left: ($grid-gutter-width / 2);
+    left: var(--cookieconsent-space);
 }
 .cc-right {
-    right: ($grid-gutter-width / 2);
+    right: var(--cookieconsent-space);
 }
 .cc-bottom {
-    bottom: ($grid-gutter-width / 2);
+    bottom: var(--cookieconsent-space);
 }
 .cc-message {
     line-height: 1.25rem;
@@ -285,7 +289,7 @@ $cookieconsent-button-highlight-bg: transparent !default;
             }
         }
         &.cc-floating {
-            padding: ($grid-gutter-width / 2);
+            padding: var(--cookieconsent-padding);
             max-width: none;
             .cc-container {
                 padding: 0;
