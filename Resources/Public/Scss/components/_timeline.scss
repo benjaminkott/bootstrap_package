@@ -12,6 +12,7 @@ $timeline-item-date-size: .8rem !default;
 $timeline-item-color: $body-color !default;
 $timeline-item-bg: #ffffff !default;
 $timeline-item-caption-bg: #f2f2f2 !default;
+$timeline-item-caption-color: color-contrast($timeline-item-caption-bg) !default;
 
 $timeline-icon-color: $body-color !default;
 $timeline-icon-bg: #ffffff !default;
@@ -34,33 +35,59 @@ $timeline-path-opacity: .25 !default;
 // Component
 // --------------------------------------------------
 .timeline {
-    padding-left: $timeline-icon-size;
+    --timeline-item-spacing: #{$timeline-item-spacing};
+    --timeline-item-padding: #{$timeline-item-padding};
+    --timeline-item-border: #{$timeline-item-border};
+    --timeline-item-border-radius: #{$timeline-item-border-radius};
+    --timeline-item-shadow: #{$timeline-item-shadow};
+    --timeline-item-headline-color: #{$timeline-item-headline-color};
+    --timeline-item-headline-size: #{$timeline-item-headline-size};
+    --timeline-item-date-size: #{$timeline-item-date-size};
+    --timeline-item-color: #{$timeline-item-color};
+    --timeline-item-bg: #{$timeline-item-bg};
+    --timeline-item-caption-color: #{$timeline-item-caption-color};
+    --timeline-item-caption-bg: #{$timeline-item-caption-bg};
+    --timeline-icon-color: #{$timeline-icon-color};
+    --timeline-icon-bg: #{$timeline-icon-bg};
+    --timeline-icon-size: #{$timeline-icon-size};
+    --timeline-icon-space: #{$timeline-icon-space};
+    --timeline-icon-border: #{$timeline-icon-border};
+    --timeline-icon-border-radius: #{$timeline-icon-border-radius};
+    --timeline-icon-border-opacity: #{$timeline-icon-border-opacity};
+    --timeline-marker-size: #{$timeline-marker-size};
+    --timeline-marker-bg: #{$timeline-marker-bg};
+    --timeline-marker-border: #{$timeline-marker-border};
+    --timeline-marker-border-radius: #{$timeline-marker-border-radius};
+    --timeline-marker-border-opacity: #{$timeline-marker-border-opacity};
+    --timeline-path-border: #{$timeline-path-border};
+    --timeline-path-opacity: #{$timeline-path-opacity};
+    padding-left: var(--timeline-icon-size);
     position: relative;
     &:before {
         content: '';
         position: absolute;
         top: 0;
         bottom: 0;
-        left: ($timeline-icon-size / 2);
+        left: calc(var(--timeline-icon-size) / 2);
         transform: translate(-50%, 0);
-        border-left: $timeline-path-border;
-        opacity: $timeline-path-opacity;
+        border-left: var(--timeline-path-border);
+        opacity: var(--timeline-path-opacity);
     }
 }
 .timeline-item {
     position: relative;
     &:not(:first-child) {
-        margin-top: ($timeline-item-spacing / 2);
+        margin-top: calc(var(--timeline-item-spacing) / 2);
     }
 }
 .timeline-item-inner {
     overflow: hidden;
-    margin-left: $timeline-item-spacing;
-    background-color: $timeline-item-bg;
-    border: $timeline-item-border;
-    border-radius: $timeline-item-border-radius;
-    box-shadow: $timeline-item-shadow;
-    padding: $timeline-item-padding;
+    margin-left: var(--timeline-item-spacing);
+    background-color: var(--timeline-item-bg);
+    border: var(--timeline-item-border);
+    border-radius: var(--timeline-item-border-radius);
+    box-shadow: var(--timeline-item-shadow);
+    padding: var(--timeline-item-padding);
 }
 .timeline-item-marker,
 .timeline-item-icon {
@@ -68,8 +95,8 @@ $timeline-path-opacity: .25 !default;
     &:before,
     span {
         background-clip: content-box;
-        border: $timeline-marker-border;
-        border-radius: $timeline-marker-border-radius;
+        border: var(--timeline-marker-border);
+        border-radius: var(--timeline-marker-border-radius);
     }
     &:after,
     span {
@@ -83,10 +110,10 @@ $timeline-path-opacity: .25 !default;
         position: absolute;
     }
     &:before {
-        opacity: $timeline-marker-border-opacity;
+        opacity: var(--timeline-marker-border-opacity);
     }
     &:after {
-        background-color: $timeline-marker-bg;
+        background-color: var(--timeline-marker-bg);
     }
     span {
         display: block;
@@ -98,26 +125,26 @@ $timeline-path-opacity: .25 !default;
     z-index: 3;
     position: absolute;
     top: 50%;
-    left: -($timeline-icon-size / 2);
-    width: $timeline-marker-size;
-    height: $timeline-marker-size;
+    left: calc(var(--timeline-icon-size) / 2 * -1);
+    width: var(--timeline-marker-size);
+    height: var(--timeline-marker-size);
     transform: translate(-50%, -50%);
 }
 .timeline-item-icon {
-    left: -($timeline-icon-size / 2);
-    width: $timeline-icon-size;
-    height: $timeline-icon-size;
-    border-radius: $timeline-icon-border-radius;
+    left: calc(var(--timeline-icon-size) / 2 * -1);
+    width: var(--timeline-icon-size);
+    height: var(--timeline-icon-size);
+    border-radius: var(--timeline-icon-border-radius);
     &:before {
-        border: $timeline-icon-border;
+        border: var(--timeline-icon-border);
     }
     &:after {
-        background-color: $timeline-icon-bg;
+        background-color: var(--timeline-icon-bg);
     }
     span {
-        color: $timeline-icon-color;
+        color: var(--timeline-icon-color);
         display: block;
-        padding: $timeline-icon-space;
+        padding: var(--timeline-icon-space);
     }
     svg {
         position: relative;
@@ -127,22 +154,22 @@ $timeline-path-opacity: .25 !default;
     }
 }
 .timeline-item-image {
-    margin: -$timeline-item-padding;
-    margin-bottom: $timeline-item-padding;
+    margin: calc(var(--timeline-item-padding) * -1);
+    margin-bottom: var(--timeline-item-padding);
     img {
         width: 100%;
         height: auto;
     }
     .caption {
         font-size: .8em;
-        padding: .5rem $timeline-item-padding;
-        color: color-contrast($timeline-item-caption-bg);
-        background-color: $timeline-item-caption-bg;
+        padding: .5rem var(--timeline-item-padding);
+        color: var(--timeline-item-caption-color);
+        background-color: var(--timeline-item-caption-bg);
     }
 }
 .timeline-item-header-headline {
-    font-size: $timeline-item-headline-size;
-    color: $timeline-item-headline-color;
+    font-size: var(--timeline-item-headline-size);
+    color: var(--timeline-item-headline-color);
 }
 .timeline-item-header:last-child,
 .timeline-item-text {
@@ -152,10 +179,10 @@ $timeline-path-opacity: .25 !default;
 }
 .timeline-item-date,
 .timeline-item-text {
-    color: $timeline-item-color;
+    color: var(--timeline-item-color);
 }
 .timeline-item-date {
-    font-size: $timeline-item-date-size;
+    font-size: var(--timeline-item-date-size);
     text-transform: uppercase;
 }
 
@@ -172,7 +199,7 @@ $timeline-path-opacity: .25 !default;
     .timeline-item {
         width: 50%;
         &:not(:first-child) {
-            margin-top: -$timeline-item-spacing;
+            margin-top: calc(var(--timeline-item-spacing) * -1);
         }
     }
     .timeline-item-marker {
@@ -182,12 +209,12 @@ $timeline-path-opacity: .25 !default;
     }
     .timeline-item-inner {
         margin-left: 0;
-        margin-right: calc(#{$timeline-item-spacing} + #{$timeline-icon-size} / 2);
+        margin-right: calc(var(--timeline-item-spacing) + var(--timeline-icon-size) / 2);
     }
     .timeline-item:nth-child(even) {
         margin-left: 50%;
         .timeline-item-inner {
-            margin-left: calc(#{$timeline-item-spacing} + #{$timeline-icon-size} / 2);
+            margin-left: calc(var(--timeline-item-spacing) + var(--timeline-icon-size) / 2);
             margin-right: 0;
         }
         .timeline-item-marker {

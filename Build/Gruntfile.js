@@ -1,4 +1,4 @@
-const sass = require('node-sass');
+const sass = require('sass');
 const fantasticon = require('fantasticon');
 
 module.exports = function(grunt) {
@@ -160,7 +160,7 @@ module.exports = function(grunt) {
                 implementation: sass,
                 outputStyle: 'expanded',
                 precision: 8,
-                sourceMap: false
+                sourceMap: false,
             },
             bootstrap5_theme: {
                 files: {

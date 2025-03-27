@@ -19,7 +19,7 @@
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "grunt-stylelint": "^0.20.1",
-    "node-sass": "^9.0.0",
+    "sass": "^1.86.0",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "postcss-scss": "^4.0.9",
