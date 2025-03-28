@@ -4,14 +4,11 @@ imports:
     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
 
 editor:
-    externalPlugins:
-        bootstrappackage_table:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
-
     config:
         importModules:
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/address-plugin.js', exports: ['BootstrapPackageAddress'] }
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/box-plugin.js', exports: ['BootstrapPackageBox'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/table-plugin.js', exports: ['BootstrapPackageTablePlugin'] }
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-column-plugin.js', exports: ['BootstrapPackageTextColumn'] }
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-indent-plugin.js', exports: ['BootstrapPackageTextIndent'] }
 
@@ -112,7 +109,6 @@ editor:
         extraPlugins:
             - justify
             - autolink
-            - bootstrappackage_table
 
         removePlugins:
             - image
