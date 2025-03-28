@@ -18,10 +18,9 @@ editor:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
             - { name: "Small", element: "small" }
 
-            - { name: "Table", element: "table", attributes: { 'class': 'table' } }
-            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
-            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
-            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-condensed' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table-condensed' } }
 
             - { name: "Row Active", element: "tr", attributes: { 'class': 'table-active' } }
             - { name: "Row Success", element: "tr", attributes: { 'class': 'table-success' } }
