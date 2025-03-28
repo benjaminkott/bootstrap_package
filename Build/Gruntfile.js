@@ -126,10 +126,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
                 dest: '<%= paths.js %>Dist/bootstrap.cookieconsent.min.js'
             },
-            ckeditor_table: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
-            }
         },
         removesourcemap: {
             contrib: {
