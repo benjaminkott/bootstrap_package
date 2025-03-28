@@ -11,6 +11,10 @@ return [
     'dependencies' => [
         'core',
         'form',
+        'rte_ckeditor',
+    ],
+    'tags' => [
+        'backend.form',
     ],
     'imports' => [
         '@bk2k/bootstrap-package/' => 'EXT:bootstrap_package/Resources/Public/JavaScript/ESM/',
