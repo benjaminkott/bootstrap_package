@@ -126,10 +126,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
                 dest: '<%= paths.js %>Dist/bootstrap.cookieconsent.min.js'
             },
-            ckeditor_box: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
-            },
             ckeditor_columns: {
                 src: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
                 dest: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.min.js'
