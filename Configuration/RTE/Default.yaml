@@ -5,8 +5,6 @@ imports:
 
 editor:
     externalPlugins:
-        bootstrappackage_columns:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
         bootstrappackage_indent:
             resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
         bootstrappackage_table:
@@ -16,6 +14,7 @@ editor:
         importModules:
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/address-plugin.js', exports: ['BootstrapPackageAddress'] }
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/box-plugin.js', exports: ['BootstrapPackageBox'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-column-plugin.js', exports: ['BootstrapPackageTextColumn'] }
 
         contentsCss: "EXT:bootstrap_package/Resources/Public/Css/bootstrap5-rte.min.css"
 
@@ -100,7 +99,7 @@ editor:
             - { name: editing, groups: [ spellchecker ] }
             - { name: insert, groups: [ insert ] }
             - { name: tools, groups: [ table, specialchar ] }
-            - { name: bootstrappackage, groups: [ address, box ] }
+            - { name: bootstrappackage, groups: [ address, box, textColumn ] }
             - { name: document, groups: [ mode ] }
 
         format_tags: "p;h1;h2;h3;h4;h5;pre"
@@ -114,7 +113,6 @@ editor:
         extraPlugins:
             - justify
             - autolink
-            - bootstrappackage_columns
             - bootstrappackage_indent
             - bootstrappackage_table
 
