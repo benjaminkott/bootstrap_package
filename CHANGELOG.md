@@ -1,3 +1,30 @@
+# 15.0.1
+
+## TASK
+
+- 5cf6ae2d [TASK] Raise ci node version to 22
+- 905220dd [TASK] Migrate from node-sass to sass
+
+## BUGFIX
+
+- e8de10ba [BUGFIX] Drop base table class
+- deb5ba4a [BUGFIX] Migrate Table CKEditor plugin
+- 1056a391 [BUGFIX] Migrate Text Indent CKEditor plugin
+- 15bb7f31 [BUGFIX] Migrate Text Columns CKEditor plugin
+- c9c4bbc8 [BUGFIX] Migrate Box CKEditor plugin
+- a9bd7cdf [BUGFIX] Migrate Address CKEditor plugin
+- cf951913 [BUGFIX] Do not render empty image galleries for textpic above and below (#1442)
+- a90e3fc6 [BUGFIX] Respect carousel type specific responsive image settings (#1552)
+- 4600e4d6 [BUGFIX] Correct settings defaults for templateRootPaths (#1553)
+- b6c2badd [BUGFIX] Correct settings definition for gallery class settings - #1541
+
+## Contributors
+
+- Benjamin Kott
+- Johannes Quack
+- T. Legat
+- Uwe
+
 # 15.0.0
 
 ## BREAKING
