@@ -1,1 +1,1 @@
-@import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleTagManager/setup.typoscript'
+@import 'EXT:bootstrap_package/Configuration/TypoScript/GoogleFont/setup.typoscript'
