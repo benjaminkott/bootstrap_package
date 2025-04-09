@@ -2,8 +2,8 @@ mod.wizards.newContentElement.wizardItems.media {
     elements {
         image {
             iconIdentifier = content-image
-            title = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_title
-            description = LLL:EXT:backend/Resources/Private/Language/locallang_db_new_content_el.xlf:common_imagesOnly_description
+            title = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.image
+            description = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.image.description
             tt_content_defValues {
                 CType = image
             }
