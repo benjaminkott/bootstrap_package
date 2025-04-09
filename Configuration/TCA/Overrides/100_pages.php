@@ -18,6 +18,13 @@ defined('TYPO3') or die('Access denied.');
     'Bootstrap Package: Backend Layouts'
 );
 
+// RTE
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    'bootstrap_package',
+    'Configuration/TsConfig/Page/RTE.tsconfig',
+    'Bootstrap Package: RTE'
+);
+
 // TCEMAIN
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'bootstrap_package',
@@ -32,16 +39,11 @@ defined('TYPO3') or die('Access denied.');
     'Bootstrap Package: TCEFORM'
 );
 
-// Content Elements
+// Content Elements DONE
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'bootstrap_package',
     'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
     'Bootstrap Package: All Content Elements'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Categories.tsconfig',
-    'Bootstrap Package: Categories for Content Elements'
 );
 
 // Register fields

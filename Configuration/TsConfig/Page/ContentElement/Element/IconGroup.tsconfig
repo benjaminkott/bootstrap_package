@@ -1,13 +1,1 @@
-mod.wizards.newContentElement.wizardItems.media {
-    elements {
-        icon_group {
-            iconIdentifier = content-bootstrappackage-icon-group
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.icon_group.description
-            tt_content_defValues {
-                CType = icon_group
-            }
-        }
-    }
-    show := addToList(icon_group)
-}
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/PageTsConfig/Elements/IconGroup.tsconfig'

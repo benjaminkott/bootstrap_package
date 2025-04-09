@@ -1,8 +1,1 @@
-TCEMAIN {
-    permissions {
-        groupid = 1
-        user = show, editcontent, edit, new, delete
-        group = show, editcontent, edit, new, delete
-        everybody =
-    }
-}
+@import 'EXT:bootstrap_package/Configuration/Sets/Full/PageTsConfig/TCEMAIN.tsconfig'
