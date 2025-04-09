@@ -1,5 +1,1 @@
-RTE {
-    default {
-        preset = bootstrap
-    }
-}
+@import 'EXT:bootstrap_package/Configuration/Sets/RTE/page.tsconfig'

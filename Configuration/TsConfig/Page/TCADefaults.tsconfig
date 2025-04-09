@@ -1,5 +1,1 @@
-TCAdefaults {
-    tt_content {
-        imagecols = 1
-    }
-}
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/PageTsConfig/TCADefaults.tsconfig'
