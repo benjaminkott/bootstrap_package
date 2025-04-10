@@ -1,3 +1,16 @@
+# 15.0.2
+
+## BUGFIX
+
+- 4fffb57c [BUGFIX] Correct spelling in folder name for Bootstrap 5 Set - fixes #1561
+- 124407bb [BUGFIX] Correct Google Fonts TypoScript path in site set (#1560)
+- 493e840f [BUGFIX] Move pagets to their respected site sets
+
+## Contributors
+
+- Benjamin Kott
+- Uwe W.
+
 # 15.0.1
 
 ## TASK
