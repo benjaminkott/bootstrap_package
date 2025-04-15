@@ -274,8 +274,8 @@ page {
         viewport = width=device-width, initial-scale=1, minimum-scale=1
         # cat=bootstrap package: meta data/120/110; type=string; label=robots
         robots = index,follow
-        # cat=bootstrap package: meta data/120/120; type=string; label=apple-mobile-web-app-capable
-        apple-mobile-web-app-capable = no
+        # cat=bootstrap package: meta data/120/120; type=string; label=mobile-web-app-capable
+        mobile-web-app-capable = no
         # cat=bootstrap package: meta data/120/130; type=string; label=compatible
         compatible = IE=edge
         # cat=bootstrap package: meta data/120/140; type=string; label=google
