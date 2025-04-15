@@ -191,9 +191,9 @@ class ImageVariantsUtility
      */
     protected static function processMultiplier(array $variants, array $multiplier): array
     {
-        foreach ($multiplier as $variant => $value) {
-            if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
-                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] * (float) $value);
+        foreach ($variants as $key => $variant) {
+            if (isset($variant['width'])) {
+                $variants[$key]['width'] = (int) ceil($variant['width'] * (float) ($multiplier[$key] ?? $multiplier['default'] ?? 1));
             }
         }
         return $variants;
