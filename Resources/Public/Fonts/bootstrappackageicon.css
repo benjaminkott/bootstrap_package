@@ -36,3 +36,7 @@ url("./bootstrappackageicon.ttf?4d1930063dfa4e6f6e35d7b3a5016ac7") format("truet
 .bootstrappackageicon-x::before { content: "\f110"; }
 .bootstrappackageicon-telegram::before { content: "\f10a"; }
 .bootstrappackageicon-threads::before { content: "\f111"; }
+.bootstrappackageicon-bluesky::before { content: "\f112"; }
+.bootstrappackageicon-mastodon::before { content: "\f113"; }
+.bootstrappackageicon-researchgate::before { content: "\f114"; }
+.bootstrappackageicon-whatsapp::before { content: "\f115"; }

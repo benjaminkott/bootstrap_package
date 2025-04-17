@@ -189,6 +189,18 @@ page {
                     # cat=bootstrap package: social media/165/x_url; type=string; label=X: Insert the full account url
                     url =
                 }
+                bluesky {
+                    # cat=bootstrap package: social media/165/bluesky_label; type=string; label=Bluesky Label: Insert the label
+                    label = Bluesky
+                    # cat=bootstrap package: social media/165/bluesky_url; type=string; label=Bluesky Url: Insert the full account url
+                    url =
+                }
+                mastodon {
+                    # cat=bootstrap package: social media/165/mastodon_label; type=string; label=Mastodon Label: Insert the label
+                    label = Mastodon
+                    # cat=bootstrap package: social media/165/mastodon_url; type=string; label=Mastodon Url: Insert the full account url
+                    url =
+                }
                 threads {
                     # cat=bootstrap package: social media/165/threads_label; type=string; label=Threads Label: Insert the label
                     label = Threads
@@ -201,6 +213,12 @@ page {
                     # cat=bootstrap package: social media/165/telegram_url; type=string; label=Telegram Url: Insert the full account url
                     url =
                 }
+                whatsapp {
+                    # cat=bootstrap package: social media/165/whatsapp_label; type=string; label=Whatsapp Label: Insert the label
+                    label = Whatsapp
+                    # cat=bootstrap package: social media/165/whatsapp_url; type=string; label=Whatsapp Url: Insert the full account url
+                    url =
+                }
                 instagram {
                     # cat=bootstrap package: social media/165/instagram_label; type=string; label=Instagram Label: Insert the label
                     label = Instagram
@@ -211,6 +229,12 @@ page {
                     # cat=bootstrap package: social media/165/github_label; type=string; label=GitHub Label: Insert the label
                     label = GitHub
                     # cat=bootstrap package: social media/165/github_url; type=string; label=GitHub Url: Insert the full account url
+                    url =
+                }
+                researchgate {
+                    # cat=bootstrap package: social media/165/researchgate_label; type=string; label=Research Gate Label: Insert the label
+                    label = Research Gate
+                    # cat=bootstrap package: social media/165/researchgate_url; type=string; label=Research Gate Url: Insert the full account url
                     url =
                 }
                 linkedin {

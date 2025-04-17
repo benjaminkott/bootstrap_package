@@ -458,6 +458,32 @@ settings:
     type: string
     default: ''
 
+  page.theme.socialmedia.channels.bluesky.label:
+    label: 'Bluesky Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Bluesky'
+
+  page.theme.socialmedia.channels.bluesky.url:
+    label: 'Bluesky Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.mastodon.label:
+    label: 'Mastodon Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Mastodon'
+
+  page.theme.socialmedia.channels.mastodon.url:
+    label: 'Mastodon Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
   page.theme.socialmedia.channels.threads.label:
     label: 'Threads Label'
     category: BootstrapPackage.socialmedia
@@ -484,6 +510,19 @@ settings:
     type: string
     default: ''
 
+  page.theme.socialmedia.channels.whatsapp.label:
+    label: 'Whatsapp Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Whatsapp'
+
+  page.theme.socialmedia.channels.whatsapp.url:
+    label: 'Whatsapp Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
   page.theme.socialmedia.channels.instagram.label:
     label: 'Instagram Label'
     category: BootstrapPackage.socialmedia
@@ -505,6 +544,19 @@ settings:
 
   page.theme.socialmedia.channels.github.url:
     label: 'GitHub Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.researchgate.label:
+    label: 'Research Gate Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Research Gate'
+
+  page.theme.socialmedia.channels.researchgate.url:
+    label: 'Research Gate Url'
     description: 'Insert the full account url'
     category: BootstrapPackage.socialmedia
     type: string
