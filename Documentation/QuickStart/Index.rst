@@ -33,8 +33,8 @@ elements that are not supported by these system extensions.
 Make sure you have a root page
 ==============================
 
-Create a new page or edit an existing one and set this as *root page*. You can
-find this option in the :ref:`Edit Page <t3editors:pages-properties>` mode filed
+Create a new page or edit an existing one and set this as *root page*. This is done by turning on the option
+:guilabel:`Use as Root Page` in the :ref:`Edit Page <t3editors:pages-properties>` 
 under :guilabel:`Behavior > Miscellaneous`.
 
 
@@ -50,17 +50,17 @@ General
 Options
 -------
 
-* Clear constants and setup by checking the boxes.
-* Clear the predefined TypoScript setup from the text box if any.
-* Use this template as root-level template by checking the box.
+* Clear constants and setup by checking their boxes.
+* Clear the predefined TypoScript setup from its text box if any.
+* Use this template as root-level template by checking the Rootlevel box.
 
 Includes
 --------
 
-Include static (from extensions)
+Include TypoScript sets
 
 * Bootstrap Package (required)
 
-Static Template Files from TYPO3 Extensions
+Loading order of TypoScript sets
 
-* Include before all static templates if root flag is set
+* Default (include before if root flag is set)
