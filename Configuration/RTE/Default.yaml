@@ -13,7 +13,14 @@ editor:
             - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-indent-plugin.js', exports: ['BootstrapPackageTextIndent'] }
 
         contentsCss: "EXT:bootstrap_package/Resources/Public/Css/bootstrap5-rte.min.css"
-
+        table:
+          contentToolbar:
+          - "tableColumn"
+          - "tableRow"
+          - "mergeTableCells"
+          - "tableProperties"
+          - "tableCellProperties"
+          - "toggleTableCaption"
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
             - { name: "Small", element: "small" }
