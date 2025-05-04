@@ -50,7 +50,7 @@ General
 Options
 -------
 
-* Clear constants and setup by checking their boxes.
+* Uncheck the clear constants and setup boxes because the site sets must be usable.
 * Clear the predefined TypoScript setup from its text box if any.
 * Use this template as root-level template by checking the Rootlevel box.
 
