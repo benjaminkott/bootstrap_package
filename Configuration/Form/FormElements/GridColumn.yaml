@@ -52,7 +52,6 @@ prototypes:
         implementationClassName: TYPO3\CMS\Form\Domain\Model\FormElements\Section
         renderingOptions:
           _isCompositeFormElement: true
-          _isSection: true
     formEditor:
       translationFiles:
         1686735592: 'EXT:bootstrap_package/Resources/Private/Language/FormGridColumn.xlf'
