@@ -1,1 +1,1 @@
-@import 'EXT:bootstrap_package/Configuration/BackendLayouts/PageTsConfig/BackendLayouts/subnavigation_right.tsconfig'
+@import 'EXT:bootstrap_package/Configuration/Sets/BackendLayouts/PageTsConfig/BackendLayouts/subnavigation_right.tsconfig'

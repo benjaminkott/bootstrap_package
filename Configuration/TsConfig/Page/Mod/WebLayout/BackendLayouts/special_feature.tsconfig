@@ -1,1 +1,1 @@
-@import 'EXT:bootstrap_package/Configuration/BackendLayouts/PageTsConfig/BackendLayouts/special_feature.tsconfig'
+@import 'EXT:bootstrap_package/Configuration/Sets/BackendLayouts/PageTsConfig/BackendLayouts/special_feature.tsconfig'
