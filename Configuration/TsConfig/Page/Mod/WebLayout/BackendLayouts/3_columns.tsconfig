@@ -1,1 +1,1 @@
-@import 'EXT:bootstrap_package/Configuration/BackendLayouts/PageTsConfig/BackendLayouts/3_columns.tsconfig'
+@import 'EXT:bootstrap_package/Configuration/Sets/BackendLayouts/PageTsConfig/BackendLayouts/3_columns.tsconfig'
