@@ -18,6 +18,13 @@ defined('TYPO3') or die('Access denied.');
     'Bootstrap Package: Backend Layouts'
 );
 
+// RTE
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
+    'bootstrap_package',
+    'Configuration/TsConfig/Page/RTE.tsconfig',
+    'Bootstrap Package: RTE'
+);
+
 // TCEMAIN
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'bootstrap_package',
@@ -32,16 +39,11 @@ defined('TYPO3') or die('Access denied.');
     'Bootstrap Package: TCEFORM'
 );
 
-// Content Elements
+// Content Elements DONE
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'bootstrap_package',
     'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
     'Bootstrap Package: All Content Elements'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Categories.tsconfig',
-    'Bootstrap Package: Categories for Content Elements'
 );
 
 // Register fields
@@ -66,7 +68,7 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'renderType' => 'selectSingle',
                 'itemsProcFunc' => 'BK2K\BootstrapPackage\Service\IconService->getIconItems',
                 'itemsProcConfig' => [
-                    'iconSetField' => 'nav_icon_set'
+                    'iconSetField' => 'nav_icon_set',
                 ],
                 'fieldWizard' => [
                     'selectIcons' => [
@@ -88,8 +90,8 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 ],
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                            'showitem' => '--palette--;;filePalette'
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
+                            'showitem' => '--palette--;;filePalette',
                         ],
                     ],
                 ],
@@ -108,11 +110,11 @@ $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
                 'maxitems' => 1,
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
                             'showitem' => '
                                 --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette
-                            '
+                            ',
                         ],
                     ],
                 ],

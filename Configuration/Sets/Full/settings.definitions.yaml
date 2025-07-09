@@ -1,0 +1,758 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.logo:
+    label: 'Logo'
+    parent: BootstrapPackage
+  BootstrapPackage.favicon:
+    label: 'Favicon'
+    parent: BootstrapPackage
+  BootstrapPackage.templates:
+    label: 'Templates'
+    parent: BootstrapPackage
+  BootstrapPackage.templates.page:
+    label: 'Pages'
+    parent: BootstrapPackage.templates
+  BootstrapPackage.templates.block:
+    label: 'Block'
+    parent: BootstrapPackage.templates
+  BootstrapPackage.templates.plugin:
+    label: 'Plugin'
+    parent: BootstrapPackage.templates
+  BootstrapPackage.navigation:
+    label: 'Navigation'
+    parent: BootstrapPackage
+  BootstrapPackage.navigation.main:
+    label: 'Main'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.dropdown:
+    label: 'Dropdown'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.sub:
+    label: 'Subnavigation'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.breadcrumb:
+    label: 'Breadcrumb'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.meta:
+    label: 'Meta'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.footer:
+    label: 'Footer'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.navigation.language:
+    label: 'Language'
+    parent: BootstrapPackage.navigation
+  BootstrapPackage.contact:
+    label: 'Contact'
+    parent: BootstrapPackage
+  BootstrapPackage.contact.data:
+    label: 'Data'
+    parent: BootstrapPackage.contact
+  BootstrapPackage.contact.button:
+    label: 'Button'
+    parent: BootstrapPackage.contact
+  BootstrapPackage.copyright:
+    label: 'Copyright'
+    parent: BootstrapPackage
+  BootstrapPackage.socialmedia:
+    label: 'Social Media'
+    parent: BootstrapPackage
+  BootstrapPackage.meta:
+    label: 'Meta'
+    parent: BootstrapPackage
+  BootstrapPackage.config:
+    label: 'Config'
+    parent: BootstrapPackage
+  BootstrapPackage.settings:
+    label: 'Settings'
+    parent: BootstrapPackage
+
+settings:
+
+  # Logo
+  page.logo.file:
+    label: 'Logo'
+    description: 'Leave blank to use website title from template instead'
+    category: BootstrapPackage.logo
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.svg'
+
+  page.logo.fileInverted:
+    label: 'Logo Inverted'
+    description: 'Leave blank to use website title from template instead'
+    category: BootstrapPackage.logo
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Public/Images/BootstrapPackageInverted.svg'
+
+  page.logo.height:
+    label: 'Height'
+    category: BootstrapPackage.logo
+    type: number
+    default: 52
+
+  page.logo.width:
+    label: 'Width'
+    category: BootstrapPackage.logo
+    type: number
+    default: 180
+
+  page.logo.alt:
+    label: 'Alternative text'
+    description: 'Text of the alt attribute of the logo image (default: "<website title> logo"'
+    category: BootstrapPackage.logo
+    type: string
+    default: ''
+
+  page.logo.linktitle:
+    label: 'Link title'
+    description: 'Title of the link attribute of the logo image'
+    category: BootstrapPackage.logo
+    type: string
+    default: ''
+
+  # Favicon
+  page.favicon.file:
+    label: 'Favicon'
+    category: BootstrapPackage.favicon
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Public/Icons/favicon.ico'
+
+  # Navigation
+  page.theme.navigation.style:
+    label: 'Navigation Style'
+    category: BootstrapPackage.navigation.main
+    type: string
+    enum:
+      'default': 'Default'
+      'default-transition': 'Default Transition'
+      'inverse': 'Inverse'
+      'inverse-transition': 'Inverse Transition'
+    default: 'default'
+
+  page.theme.navigation.type:
+    label: 'Navigation Style'
+    category: BootstrapPackage.navigation.main
+    type: string
+    enum:
+      '': 'Default'
+      'top': 'Fixed'
+    default: ''
+
+  page.theme.navigation.icon.enable:
+    label: 'Navigation Icon Enable'
+    category: BootstrapPackage.navigation.main
+    type: bool
+    default: true
+
+  page.theme.navigation.icon.width:
+    label: 'Navigation Icon Width'
+    category: BootstrapPackage.navigation.main
+    type: int
+    default: 20
+
+  page.theme.navigation.icon.height:
+    label: 'Navigation Icon Height'
+    category: BootstrapPackage.navigation.main
+    type: int
+    default: 20
+
+  # Dropdown
+  page.theme.navigation.dropdown.icon.enable:
+    label: 'Dropdown Icon Enable'
+    category: BootstrapPackage.navigation.dropdown
+    type: bool
+    default: true
+
+  page.theme.navigation.dropdown.icon.width:
+    label: 'Dropdown Icon Height'
+    category: BootstrapPackage.navigation.dropdown
+    type: int
+    default: 16
+
+  page.theme.navigation.dropdown.icon.height:
+    label: 'Dropdown Icon Height'
+    category: BootstrapPackage.navigation.dropdown
+    type: int
+    default: 16
+
+  # Subnavigation
+  page.theme.subnavigation.icon.enable:
+    label: 'SubNavigation Icon Enable'
+    category: BootstrapPackage.navigation.sub
+    type: bool
+    default: true
+
+  page.theme.subnavigation.icon.width:
+    label: 'SubNavigation Icon Height'
+    category: BootstrapPackage.navigation.sub
+    type: int
+    default: 16
+
+  page.theme.subnavigation.icon.height:
+    label: 'SubNavigation Icon Height'
+    category: BootstrapPackage.navigation.sub
+    type: int
+    default: 16
+
+  # Breadcrumb
+  page.theme.breadcrumb.enable:
+    label: 'Enable'
+    category: BootstrapPackage.navigation.breadcrumb
+    type: bool
+    default: true
+
+  page.theme.breadcrumb.enableLevel:
+    label: 'Show menu level if greater or equal to this value'
+    category: BootstrapPackage.navigation.breadcrumb
+    type: int
+    default: 2
+
+  page.theme.breadcrumb.icon.enable:
+    label: 'Breadcrumb Icon Enable'
+    category: BootstrapPackage.navigation.breadcrumb
+    type: bool
+    default: true
+
+  page.theme.breadcrumb.icon.width:
+    label: 'Breadcrumb Icon Height'
+    category: BootstrapPackage.navigation.breadcrumb
+    type: int
+    default: 16
+
+  page.theme.breadcrumb.icon.height:
+    label: 'Breadcrumb Icon Height'
+    category: BootstrapPackage.navigation.breadcrumb
+    type: int
+    default: 16
+
+  # Meta
+  page.theme.meta.enable:
+    label: 'Enable'
+    category: BootstrapPackage.navigation.meta
+    type: bool
+    default: true
+
+  page.theme.meta.navigationValue:
+    label: 'Values'
+    description: 'Comma separated list of page uids'
+    category: BootstrapPackage.navigation.meta
+    type: string
+    default: ''
+
+  page.theme.meta.navigationType:
+    label: 'Type'
+    category: BootstrapPackage.navigation.meta
+    type: string
+    enum:
+      'list': 'List'
+      'directory': 'Directory'
+    default: 'list'
+
+  page.theme.meta.includeNotInMenu:
+    label: 'Include items not in menu'
+    category: BootstrapPackage.navigation.meta
+    type: bool
+    default: true
+
+  # Footer
+  page.theme.footernavigation.enable:
+    label: 'Enable'
+    category: BootstrapPackage.navigation.footer
+    type: bool
+    default: true
+
+  page.theme.footernavigation.navigationValue:
+    label: 'Values'
+    description: 'Comma separated list of page uids'
+    category: BootstrapPackage.navigation.footer
+    type: string
+    default: ''
+
+  page.theme.footernavigation.navigationType:
+    label: 'Type'
+    category: BootstrapPackage.navigation.footer
+    type: string
+    enum:
+      'list': 'List'
+      'directory': 'Directory'
+    default: 'list'
+
+  page.theme.footernavigation.includeNotInMenu:
+    label: 'Include items not in menu'
+    category: BootstrapPackage.navigation.footer
+    type: bool
+    default: true
+
+  page.theme.footernavigation.levels:
+    label: 'Levels'
+    category: BootstrapPackage.navigation.footer
+    type: int
+    default: 2
+
+  page.theme.footernavigation.icon.enable:
+    label: 'Footer Icon Enable'
+    category: BootstrapPackage.navigation.footer
+    type: bool
+    default: true
+
+  page.theme.footernavigation.icon.width:
+    label: 'Footer Icon Height'
+    category: BootstrapPackage.navigation.footer
+    type: int
+    default: 16
+
+  page.theme.footernavigation.icon.height:
+    label: 'Footer Icon Height'
+    category: BootstrapPackage.navigation.footer
+    type: int
+    default: 16
+
+  # Language
+  page.theme.language.enable:
+    label: 'Enable'
+    category: BootstrapPackage.navigation.language
+    type: bool
+    default: true
+
+  page.theme.language.languageValue:
+    label: 'Language Navigation'
+    description: 'Comma separated list of language uids or set to "auto" to load all enabled system languages'
+    category: BootstrapPackage.navigation.language
+    type: string
+    default: 'auto'
+
+  # Contact
+  page.theme.contact.enable:
+    label: 'Enable'
+    category: BootstrapPackage.contact
+    type: bool
+    default: false
+
+  page.theme.contact.label:
+    label: 'Label'
+    category: BootstrapPackage.contact
+    type: string
+    default: 'LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:contact.label'
+
+  # Contact Data
+  page.theme.contact.data.title:
+    label: 'Title'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.addressLine1:
+    label: 'Address Line 1'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.addressLine2:
+    label: 'Address Line 2'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.addressLine3:
+    label: 'Address Line 3'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.country:
+    label: 'Country'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.phone:
+    label: 'Phone'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.fax:
+    label: 'Fax'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.email:
+    label: 'Email'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  page.theme.contact.data.www:
+    label: 'WWW'
+    category: BootstrapPackage.contact.data
+    type: string
+    default: ''
+
+  # Contact Button
+  page.theme.contact.button.pageUid:
+    label: 'Page Uid'
+    category: BootstrapPackage.contact.button
+    type: int
+    default: 0
+
+  page.theme.contact.button.label:
+    label: 'Page Uid'
+    category: BootstrapPackage.contact.button
+    type: string
+    default: 'LLL:EXT:bootstrap_package/Resources/Private/Language/locallang.xlf:contact.button.label'
+
+  page.theme.contact.button.colorClass:
+    label: 'Class'
+    category: BootstrapPackage.contact.button
+    type: string
+    enum:
+      'primary': 'primary'
+      'secondary': 'secondary'
+    default: 'primary'
+
+  # Copyright
+  page.theme.copyright.enable:
+    label: 'Enable'
+    category: BootstrapPackage.copyright
+    type: bool
+    default: true
+
+  page.theme.copyright.text:
+    label: 'Text'
+    category: BootstrapPackage.copyright
+    type: string
+    default: 'Running with <a href="http://www.typo3.org" rel="noopener" target="_blank">TYPO3</a> and <a href="https://www.bootstrap-package.com" rel="noopener" target="_blank">Bootstrap Package</a>.'
+
+  # Social Media
+  page.theme.socialmedia.enable:
+    label: 'Enable'
+    category: BootstrapPackage.socialmedia
+    type: bool
+    default: true
+
+  page.theme.socialmedia.channels.facebook.label:
+    label: 'Facebook Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Facebook'
+
+  page.theme.socialmedia.channels.facebook.url:
+    label: 'Facebook Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.x.label:
+    label: 'X Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'X'
+
+  page.theme.socialmedia.channels.x.url:
+    label: 'X Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.threads.label:
+    label: 'Threads Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Threads'
+
+  page.theme.socialmedia.channels.threads.url:
+    label: 'Threads Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.telegram.label:
+    label: 'Telegram Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Telegram'
+
+  page.theme.socialmedia.channels.telegram.url:
+    label: 'Telegram Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.instagram.label:
+    label: 'Instagram Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Instagram'
+
+  page.theme.socialmedia.channels.instagram.url:
+    label: 'Instagram Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.github.label:
+    label: 'GitHub Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'GitHub'
+
+  page.theme.socialmedia.channels.github.url:
+    label: 'GitHub Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.linkedin.label:
+    label: 'LinkedIn Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'LinkedIn'
+
+  page.theme.socialmedia.channels.linkedin.url:
+    label: 'LinkedIn Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.xing.label:
+    label: 'Xing Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Xing'
+
+  page.theme.socialmedia.channels.xing.url:
+    label: 'Xing Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.youtube.label:
+    label: 'YouTube Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'YouTube'
+
+  page.theme.socialmedia.channels.youtube.url:
+    label: 'YouTube Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.vk.label:
+    label: 'VK Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'VK'
+
+  page.theme.socialmedia.channels.vk.url:
+    label: 'VK Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.vimeo.label:
+    label: 'Vimeo Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Vimeo'
+
+  page.theme.socialmedia.channels.vimeo.url:
+    label: 'Vimeo Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  page.theme.socialmedia.channels.rss.label:
+    label: 'RSS Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'RSS'
+
+  page.theme.socialmedia.channels.rss.url:
+    label: 'RSS Url'
+    description: 'Insert the full account url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
+  # Template Page
+  page.fluidtemplate.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/Page/'
+
+  page.fluidtemplate.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/Page/'
+
+  page.fluidtemplate.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.page
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Page/'
+
+  # Template Block
+  plugin.bootstrap_package_blocks.view.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/Blocks/'
+
+  plugin.bootstrap_package_blocks.view.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/Blocks/'
+
+  plugin.bootstrap_package_blocks.view.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.block
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/Blocks/'
+
+  # Template Plugin
+  plugin.bootstrap_package.view.layoutRootPath:
+    label: 'Layout Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/'
+
+  plugin.bootstrap_package.view.partialRootPath:
+    label: 'Partial Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/'
+
+  plugin.bootstrap_package.view.templateRootPath:
+    label: 'Template Root Path'
+    category: BootstrapPackage.templates.plugin
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/'
+
+  # Settings
+  plugin.bootstrap_package.settings.cssSourceMapping:
+    label: 'CSS source mapping'
+    description: 'Create a CSS source map useful to debug CSS in browser developer tools. Note: CSS compression will be disabled.'
+    category: BootstrapPackage.settings
+    type: bool
+    default: false
+
+  plugin.bootstrap_package.settings.overrideParserVariables:
+    label: 'Override Parser Variables'
+    description: 'If enabled the variables defined in your SCSS files will be overridden with the ones defined as Site Settings'
+    category: BootstrapPackage.settings
+    type: bool
+    default: true
+
+  # Meta
+  page.meta.viewport:
+    label: 'viewport'
+    category: BootstrapPackage.meta
+    type: string
+    default: 'width=device-width, initial-scale=1, minimum-scale=1'
+
+  page.meta.robots:
+    label: 'robots'
+    category: BootstrapPackage.meta
+    type: string
+    default: 'index,follow'
+
+  page.meta.apple-mobile-web-app-capable:
+    label: 'apple-mobile-web-app-capable'
+    category: BootstrapPackage.meta
+    type: string
+    default: 'no'
+
+  page.meta.compatible:
+    label: 'compatible'
+    category: BootstrapPackage.meta
+    type: string
+    default: 'IE=edge'
+
+  page.meta.google:
+    label: 'google'
+    category: BootstrapPackage.meta
+    type: string
+    default: 'notranslate'
+
+  page.meta.google-site-verification:
+    label: 'google-site-verification'
+    category: BootstrapPackage.meta
+    type: string
+    default: ''
+
+  # Config
+  config.no_cache:
+    label: 'No Cache'
+    category: BootstrapPackage.config
+    type: bool
+    default: false
+
+  config.removeDefaultJS:
+    label: 'Remove default JavaScript'
+    category: BootstrapPackage.config
+    type: string
+    enum:
+      '0': 'Do not remove'
+      '1': 'Remove'
+      'external': 'Move to external file'
+    default: '0'
+
+  config.compressJs:
+    label: 'Compress JavaScript'
+    category: BootstrapPackage.config
+    type: bool
+    default: true
+
+  config.compressCss:
+    label: 'Compress CSS'
+    category: BootstrapPackage.config
+    type: bool
+    default: true
+
+  config.concatenateJs:
+    label: 'Concatenate JavaScript'
+    category: BootstrapPackage.config
+    type: bool
+    default: true
+
+  config.concatenateCss:
+    label: 'Concatenate CSS'
+    category: BootstrapPackage.config
+    type: bool
+    default: true
+
+  config.admPanel:
+    label: 'Admin Panel'
+    category: BootstrapPackage.config
+    type: bool
+    default: true
+
+  config.headerComment:
+    label: 'Header Comment'
+    category: BootstrapPackage.config
+    type: string
+    default: 'Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com/'
+
+  config.sendCacheHeaders:
+    label: 'Send cache headers'
+    description: 'Allow appropriate caching by transparent proxies and browser clients'
+    category: BootstrapPackage.config
+    type: bool
+    default: true

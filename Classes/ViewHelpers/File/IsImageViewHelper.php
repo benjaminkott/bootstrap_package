@@ -11,40 +11,26 @@ namespace BK2K\BootstrapPackage\ViewHelpers\File;
 
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 class IsImageViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     * @return mixed
+     * @return bool
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $file = $renderChildrenClosure();
+    public function render()
+    {
+        $file = $this->renderChildren();
         $allowedFileExtensions = $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] ?? '';
         $allowedFileExtensions = GeneralUtility::trimExplode(',', $allowedFileExtensions);
 
-        if (is_object($file)
+        return is_object($file)
             && ($file instanceof FileReference || $file instanceof File)
             && (
                 in_array($file->getExtension(), $allowedFileExtensions, true)
-                || $file->getType() === File::FILETYPE_IMAGE
-            )
-        ) {
-            return true;
-        }
-
-        return false;
+                || $file->getType() === FileType::IMAGE->value
+            );
     }
 }

@@ -1,1 +1,1 @@
-@import 'EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts/*.tsconfig'
+@import 'EXT:bootstrap_package/Configuration/Sets/BackendLayouts/PageTsConfig/BackendLayouts.tsconfig'

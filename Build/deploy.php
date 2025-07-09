@@ -54,14 +54,14 @@ set('shared_dirs', [
     'config',
     'web/fileadmin',
     'web/typo3temp',
-    'web/uploads'
+    'web/uploads',
 ]);
 set('shared_files', [
     'composer.json',
     'web/.htaccess',
     'web/typo3conf/AdditionalConfiguration.php',
     'web/typo3conf/LocalConfiguration.php',
-    'web/typo3conf/PackageStates.php'
+    'web/typo3conf/PackageStates.php',
 ]);
 
 // Set Writeable files
@@ -70,7 +70,7 @@ set('writable_dirs', [
     'web/fileadmin',
     'web/typo3temp',
     'web/typo3conf',
-    'web/uploads'
+    'web/uploads',
 ]);
 
 // Misc

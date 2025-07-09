@@ -11,10 +11,14 @@ declare(strict_types=1);
 namespace BK2K\BootstrapPackage\ViewHelpers\TypoScript;
 
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * ConstantViewHelper
+ *
+ * {bk2k:typoScript.constant(constant: 'identifier')}
  */
 class ConstantViewHelper extends AbstractViewHelper
 {
@@ -31,7 +35,25 @@ class ConstantViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        $constant = $this->arguments['constant'] ?? '';
-        return TypoScriptUtility::getConstants($this->renderingContext->getRequest())[$constant] ?? '';
+        $renderingContext = $this->renderingContext;
+        $request = $this->getRequestFromRenderingContext($renderingContext);
+        if ($request !== null) {
+            $constant = $this->arguments['constant'] ?? '';
+            return TypoScriptUtility::getConstants($request)[$constant] ?? '';
+        }
+
+        throw new \RuntimeException(
+            'ViewHelper bk2k:typoScript.constant needs a request implementing ServerRequestInterface.',
+            1639819269
+        );
+    }
+
+    protected function getRequestFromRenderingContext(RenderingContextInterface $renderingContext): ?ServerRequestInterface
+    {
+        if ($renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            return $renderingContext->getAttribute(ServerRequestInterface::class);
+        }
+
+        return null;
     }
 }

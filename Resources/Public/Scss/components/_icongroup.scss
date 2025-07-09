@@ -1,17 +1,19 @@
 //
 // Variables
 // --------------------------------------------------
-$icongroup-margin: ($grid-gutter-width / 2) !default;
+$icongroup-margin: calc(#{$grid-gutter-width} / 2) !default;
 $icongroup-icon-size: 40px !default;
-$icongroup-item-width: 50% !default;
 
 //
 // Component
 // --------------------------------------------------
 .icongroup {
+    --icongroup-gap: #{$grid-gutter-width};
+    --icongroup-space: calc(var(--icongroup-gap) / 2);
+    --icongroup-icon-size: #{$icongroup-icon-size};
     display: flex;
     flex-wrap: wrap;
-    margin: -$icongroup-margin !important;
+    gap: var(--icongroup-gap);
 }
 
 //
@@ -45,8 +47,6 @@ $icongroup-item-width: 50% !default;
         align-items: flex-start;
     }
     .icongroup-item-icon {
-        margin-left: $icongroup-margin;
-        margin-right: 0;
         order: 1;
     }
 }
@@ -55,19 +55,16 @@ $icongroup-item-width: 50% !default;
         align-items: center;
     }
     .icongroup-item-icon {
-        margin-left: $icongroup-margin;
-        margin-right: 0;
         order: 1;
     }
 }
 .icongroup-iconposition-above,
 .icongroup-iconposition-below {
     .icongroup-item {
-        flex-wrap: wrap;
+        flex-direction: column;
     }
     .icongroup-item-text {
-        margin-top: $icongroup-margin;
-        width: 100%;
+        text-align: center;
     }
     .icongroup-item-icon {
         margin-left: auto;
@@ -75,9 +72,6 @@ $icongroup-item-width: 50% !default;
     }
 }
 .icongroup-iconposition-below {
-    .icongroup-item-text {
-        margin-bottom: $icongroup-margin;
-    }
     .icongroup-item-icon {
         order: 1;
     }
@@ -90,13 +84,12 @@ $icongroup-item-width: 50% !default;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin: $icongroup-margin;
+    gap: var(--icongroup-space);
     width: 100%;
 }
 .icongroup-item-icon {
     flex-shrink: 0;
-    width: $icongroup-icon-size;
-    margin-right: $icongroup-margin;
+    width: var(--icongroup-icon-size);
     svg {
         display: block;
         width: 100%;
@@ -128,24 +121,24 @@ $icongroup-item-width: 50% !default;
 .icongroup-columns-2 {
     .icongroup-item {
         @include media-breakpoint-up('sm') {
-            width: calc(100% / 2 - #{$icongroup-margin} * 2);
+            width: calc((100% - var(--icongroup-gap)) / 2);
         }
     }
 }
 .icongroup-columns-3 {
     .icongroup-item {
         @include media-breakpoint-up('md') {
-            width: calc(100% / 3 - #{$icongroup-margin} * 2);
+            width: calc((100% - var(--icongroup-gap) * 2) / 3);
         }
     }
 }
 .icongroup-columns-4 {
     .icongroup-item {
         @include media-breakpoint-up('sm') {
-            width: calc(100% / 2 - #{$icongroup-margin} * 2);
+            width: calc((100% - var(--icongroup-gap)) / 2);
         }
         @include media-breakpoint-up('xl') {
-            width: calc(100% / 4 - #{$icongroup-margin} * 2);
+            width: calc((100% - var(--icongroup-gap) * 3) / 4);
         }
     }
 }

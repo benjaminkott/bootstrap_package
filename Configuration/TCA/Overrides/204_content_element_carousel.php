@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
-        'carousel',
-        'content-bootstrappackage-carousel',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel.description',
+        'value' => 'carousel',
+        'icon' => 'content-bootstrappackage-carousel',
+        'group' => 'bootstrap_package',
     ],
     'card_group',
     'after'
@@ -62,7 +63,7 @@ $GLOBALS['TCA']['tt_content']['types']['carousel'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
     ]
 );
 

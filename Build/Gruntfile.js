@@ -1,4 +1,4 @@
-const sass = require('node-sass');
+const sass = require('sass');
 const fantasticon = require('fantasticon');
 
 module.exports = function(grunt) {
@@ -20,20 +20,6 @@ module.exports = function(grunt) {
                 counter++;
                 if (counter >= files.length) done(true);
             });
-        });
-    });
-
-    /**
-     * Grunt task for modernizr
-     */
-    grunt.registerMultiTask("modernizr", "Respond to your user’s browser features.", function () {
-        var options = this.options(),
-            done = this.async(),
-            modernizr = require("modernizr"),
-            dest = this.data.dest;
-        modernizr.build(options, function(output) {
-            grunt.file.write(dest, output);
-            done();
         });
     });
 
@@ -112,10 +98,6 @@ module.exports = function(grunt) {
                     comments: false
                 }
             },
-            modernizr: {
-                src: '<%= paths.contrib %>modernizr/modernizr.min.js',
-                dest: '<%= paths.contrib %>modernizr/modernizr.min.js'
-            },
             bootstrapAccordion: {
                 src: '<%= paths.js %>Src/bootstrap.accordion.js',
                 dest: '<%= paths.js %>Dist/bootstrap.accordion.min.js'
@@ -144,26 +126,6 @@ module.exports = function(grunt) {
                 src: '<%= paths.js %>Src/bootstrap.cookieconsent.js',
                 dest: '<%= paths.js %>Dist/bootstrap.cookieconsent.min.js'
             },
-            ckeditor_address: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Address/plugin.min.js'
-            },
-            ckeditor_box: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Box/plugin.min.js'
-            },
-            ckeditor_columns: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Columns/plugin.min.js'
-            },
-            ckeditor_indent: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Indent/plugin.min.js'
-            },
-            ckeditor_table: {
-                src: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.js',
-                dest: '<%= paths.resources %>Public/CKEditor/Plugins/Table/plugin.min.js'
-            }
         },
         removesourcemap: {
             contrib: {
@@ -178,7 +140,7 @@ module.exports = function(grunt) {
                 implementation: sass,
                 outputStyle: 'expanded',
                 precision: 8,
-                sourceMap: false
+                sourceMap: false,
             },
             bootstrap5_theme: {
                 files: {
@@ -344,40 +306,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        modernizr: {
-            main: {
-                'dest': '<%= paths.contrib %>modernizr/modernizr.min.js',
-                'options': {
-                    'options': [
-                        'domPrefixes',
-                        'prefixes',
-                        'addTest',
-                        'hasEvent',
-                        'mq',
-                        'prefixedCSSValue',
-                        'testAllProps',
-                        'testProp',
-                        'testStyles',
-                        'setClasses'
-                    ],
-                    'feature-detects': [
-                        'custom-elements',
-                        'history',
-                        'pointerevents',
-                        'postmessage',
-                        'webgl',
-                        'websockets',
-                        'css/animations',
-                        'css/columns',
-                        'css/flexbox',
-                        'elem/picture',
-                        'img/sizes',
-                        'img/srcset',
-                        'workers/webworkers'
-                    ]
-                }
-            }
-        }
     });
 
     /**
@@ -393,7 +321,7 @@ module.exports = function(grunt) {
     /**
      * Grunt update task
      */
-    grunt.registerTask('update', ['copy', 'cssmin:photoswipe', 'cssmin:photoswipedynamiccaptionplugin', 'modernizr']);
+    grunt.registerTask('update', ['copy', 'cssmin:photoswipe', 'cssmin:photoswipedynamiccaptionplugin']);
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);

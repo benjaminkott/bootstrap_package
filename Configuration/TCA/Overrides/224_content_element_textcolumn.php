@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn',
-        'textcolumn',
-        'content-text-columns',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.textcolumn.description',
+        'value' =>'textcolumn',
+        'icon' => 'content-text-columns',
+        'group' => 'bootstrap_package',
     ],
     'tab',
     'after'
@@ -65,9 +66,9 @@ $GLOBALS['TCA']['tt_content']['types']['textcolumn'] = array_replace_recursive(
             'bodytext' => [
                 'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
                 'config' => [
-                    'enableRichtext' => true
-                ]
-            ]
-        ]
+                    'enableRichtext' => true,
+                ],
+            ],
+        ],
     ]
 );

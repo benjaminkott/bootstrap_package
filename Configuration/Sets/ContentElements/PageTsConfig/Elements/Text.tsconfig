@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        text {
+            iconIdentifier = content-text
+            title = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.text
+            description = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.text.description
+            tt_content_defValues {
+                CType = text
+            }
+        }
+    }
+    show := addToList(text)
+}

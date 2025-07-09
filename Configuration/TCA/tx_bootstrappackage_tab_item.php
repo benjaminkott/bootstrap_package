@@ -14,7 +14,6 @@ return [
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item',
         'delete' => 'deleted',
         'versioningWS' => true,
@@ -31,10 +30,10 @@ return [
             'endtime' => 'endtime',
         ],
         'security' => [
-            'ignorePageTypeRestriction' => true
+            'ignorePageTypeRestriction' => true,
         ],
         'typeicon_classes' => [
-            'default' => 'content-bootstrappackage-tab-item'
+            'default' => 'content-bootstrappackage-tab-item',
         ],
     ],
     'types' => [
@@ -49,35 +48,35 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
-            '
+            ',
         ],
     ],
     'palettes' => [
         '1' => [
-            'showitem' => ''
+            'showitem' => '',
         ],
         'access' => [
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel
-            '
+            ',
         ],
         'general' => [
             'showitem' => '
                 tt_content
-            '
+            ',
         ],
         'mediaposition' => [
             'showitem' => '
                 mediaorient,
                 imagecols,
                 image_zoom,
-            '
+            ',
         ],
         'visibility' => [
             'showitem' => '
                 hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item
-            '
+            ',
         ],
         // hidden but needs to be included all the time, so sys_language_uid is set correctly
         'hiddenLanguagePalette' => [
@@ -104,44 +103,35 @@ return [
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
-                    ]
-                ]
-            ]
+            ],
         ],
         'starttime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
-                'default' => 0
+                'type' => 'datetime',
+                'default' => 0,
             ],
             'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
+            'l10n_display' => 'defaultAsReadonly',
         ],
         'endtime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
             ],
             'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
+            'l10n_display' => 'defaultAsReadonly',
         ],
         'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => ['type' => 'language']
+            'config' => ['type' => 'language'],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -151,19 +141,19 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        '',
-                        0
-                    ]
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_bootstrappackage_tab_item',
                 'foreign_table_where' => 'AND tx_bootstrappackage_tab_item.pid=###CURRENT_PID### AND tx_bootstrappackage_tab_item.sys_language_uid IN (-1,0)',
-                'default' => 0
-            ]
+                'default' => 0,
+            ],
         ],
         'l10n_diffsource' => [
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'header' => [
             'exclude' => true,
@@ -171,7 +161,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 50,
-                'eval' => 'trim,required'
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'bodytext' => [
@@ -183,7 +174,7 @@ return [
                 'cols' => '80',
                 'rows' => '15',
                 'softref' => 'typolink_tag,email[subst],url',
-                'enableRichtext' => true
+                'enableRichtext' => true,
             ],
         ],
         'media' => [
@@ -198,12 +189,12 @@ return [
                 ],
                 'overrideChildTca' => [
                     'types' => [
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
                             'showitem' => '
                                 --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette',
                         ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                        \TYPO3\CMS\Core\Resource\FileType::VIDEO->value => [
                             'showitem' => '
                                 --palette--;;videoOverlayPalette,
                                 --palette--;;filePalette',
@@ -220,25 +211,25 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
-                        'left'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.left',
+                        'value' => 'left',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.top',
-                        'top'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.top',
+                        'value' => 'top',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
-                        'right'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.right',
+                        'value' => 'right',
                     ],
                     [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.bottom',
-                        'bottom'
+                        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.mediaorient.bottom',
+                        'value' => 'bottom',
                     ],
                 ],
                 'default' => 'left',
             ],
-            'l10n_mode' => 'exclude'
+            'l10n_mode' => 'exclude',
         ],
         'imagecols' => [
             'exclude' => true,
@@ -248,46 +239,41 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        '1',
-                        1
+                        'label' => '1',
+                        'value' => 1,
                     ],
                     [
-                        '2',
-                        2
+                        'label' => '2',
+                        'value' => 2,
                     ],
                     [
-                        '3',
-                        3
+                        'label' => '3',
+                        'value' => 3,
                     ],
                     [
-                        '4',
-                        4
+                        'label' => '4',
+                        'value' => 4,
                     ],
                     [
-                        '5',
-                        5
+                        'label' => '5',
+                        'value' => 5,
                     ],
                     [
-                        '6',
-                        6
-                    ]
+                        'label' => '6',
+                        'value' => 6,
+                    ],
                 ],
-                'default' => 2
+                'default' => 2,
             ],
-            'l10n_mode' => 'exclude'
+            'l10n_mode' => 'exclude',
         ],
         'image_zoom' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tab_item.image_zoom',
             'config' => [
                 'type' => 'check',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                    ]
-                ],
-            ]
-        ]
+                'renderType' => 'checkboxToggle',
+            ],
+        ],
     ],
 ];

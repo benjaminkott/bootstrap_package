@@ -1,13 +1,1 @@
-mod.wizards.newContentElement.wizardItems.media {
-    elements {
-        gallery {
-            iconIdentifier = content-bootstrappackage-gallery
-            title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery
-            description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.gallery.description
-            tt_content_defValues {
-                CType = gallery
-            }
-        }
-    }
-    show := addToList(gallery)
-}
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/PageTsConfig/Elements/Gallery.tsconfig'

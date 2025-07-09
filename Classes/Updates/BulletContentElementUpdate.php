@@ -10,12 +10,11 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * BulletContentElementUpdate
- */
+#[UpgradeWizard(BulletContentElementUpdate::class)]
 class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -54,7 +53,7 @@ class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizard
                 (int) $record['uid'],
                 [
                     'layout' => (string) 0,
-                    'bullets_type' => (string) $this->mapValues(intval($record['layout']))
+                    'bullets_type' => (string) $this->mapValues(intval($record['layout'])),
                 ]
             );
         }
@@ -65,7 +64,7 @@ class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizard
     protected function mapValues(int $layout): int
     {
         $mapping = [
-            110 => 1
+            110 => 1,
         ];
         if (array_key_exists($layout, $mapping)) {
             return $mapping[$layout];

@@ -10,5 +10,5 @@
 return [
     'typoscript' => [
         \BK2K\BootstrapPackage\ExpressionLanguage\ConditionProvider::class,
-    ]
+    ],
 ];

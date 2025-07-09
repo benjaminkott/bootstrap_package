@@ -39,8 +39,8 @@ class ScssCompilerTest extends UnitTestCase
         return [
             'Calculation' => [
                 'Fixtures/Calculation/Input.scss',
-                'Fixtures/Calculation/Output.css'
-            ]
+                'Fixtures/Calculation/Output.css',
+            ],
         ];
     }
 }

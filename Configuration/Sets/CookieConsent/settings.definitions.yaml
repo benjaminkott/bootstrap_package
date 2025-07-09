@@ -1,0 +1,99 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.cookie-consent:
+    label: 'Cookie Consent'
+    parent: BootstrapPackage
+
+settings:
+
+  page.theme.cookieconsent.enable:
+    label: 'Enable Cookie Consent'
+    description: 'For more information about this solution please head over to https://cookieconsent.insites.com/'
+    category: BootstrapPackage.cookie-consent
+    type: bool
+    default: true
+
+  page.theme.cookieconsent.layout:
+    label: 'Layout'
+    category: BootstrapPackage.cookie-consent
+    type: string
+    enum:
+      'basic': 'Basic'
+      'basic-close': 'Basic Close'
+      'basic-header': 'Basic Header'
+    default: 'basic-header'
+
+  page.theme.cookieconsent.position:
+    label: 'Position'
+    description: 'If you specify "top" or "bottom", we assume that a full width "banner" is required. If however you specify a horizontal direction, we assume that a corner popup is required (which we call "floating").'
+    category: BootstrapPackage.cookie-consent
+    type: string
+    enum:
+      'top': 'Banner Top'
+      'bottom': 'Banner Bottom'
+      'top-left': 'Floating Top Left'
+      'top-right': 'Floating Top Right'
+      'bottom-left': 'Floating Bottom Left'
+      'bottom-right': 'Floating Bottom Right'
+    default: 'bottom'
+
+  page.theme.cookieconsent.static:
+    label: 'Static Position'
+    description: 'The popup uses position fixed to stay in one place on the screen despite any scroll bars. This option makes the popup position static so it displays at the top of the page. A height animation has also been added by default so the popup doesn’t make the page jump, but gradually grows and fades in.'
+    category: BootstrapPackage.cookie-consent
+    type: bool
+    default: false
+
+  page.theme.cookieconsent.content.href:
+    label: 'Privacy Police'
+    description: 'Insert a full Link to the privacy police page or a page uid from your current TYPO3 System.'
+    category: BootstrapPackage.cookie-consent
+    type: string
+    default: ''
+
+  page.theme.cookieconsent.revokable:
+    label: 'Revokable'
+    description: 'If set true, revoke button is displayed every time. If false, revoke button is only displayed for advanced compliance options (opt-in and opt-out) and in countries that require revokable consent. The latter can be disabled by regionalLaw.'
+    category: BootstrapPackage.cookie-consent
+    type: bool
+    default: false
+
+  page.theme.cookieconsent.location:
+    label: 'Location Detection'
+    description: 'Location is simply a tool for getting the two letter country code that the user is in.'
+    category: BootstrapPackage.cookie-consent
+    type: bool
+    default: false
+
+  page.theme.cookieconsent.law.countryCode:
+    label: 'Country Code'
+    description: 'Rather than getting the country code from the location services, you can hard code a particular country into the tool.'
+    category: BootstrapPackage.cookie-consent
+    type: string
+    default: ''
+
+  page.theme.cookieconsent.law.regionalLaw:
+    label: 'Regional Law'
+    description: 'If false, then we only enable the popup if the country has the cookie law. We ignore all other country specific rules.'
+    category: BootstrapPackage.cookie-consent
+    type: bool
+    default: true
+
+  page.theme.cookieconsent.type:
+    label: 'Compliance'
+    description: 'The informal confirmation does not require any further adjustments to your JavaScript. The Opt-In and Opt-Out options are not out-of-the-box solutions, manual adjustments to your software are necessary. For your support we provide the events bk2k.cookie.enable, bk2k.cookie.disable and bk2k.cookie.revoke. These events allow you to let your application react to them and to set or remove cookies accordingly. The cookie that contains the current status is called cookieconsent_status.'
+    category: BootstrapPackage.cookie-consent
+    type: string
+    enum:
+      'info': 'Informal'
+      'opt-in': 'Opt-In'
+      'opt-out': 'Opt-Out'
+    default: 'info'
+
+  page.theme.cookieconsent.cookie.expiryDays:
+    label: 'Expiry Days'
+    description: 'The cookies expire date, specified in days (specify -1 for no expiry)'
+    category: BootstrapPackage.cookie-consent
+    type: number
+    default: 365

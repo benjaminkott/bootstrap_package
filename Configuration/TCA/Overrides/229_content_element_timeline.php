@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['timeline'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline',
-        'timeline',
-        'content-bootstrappackage-timeline',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.timeline.description',
+        'value' =>'timeline',
+        'icon' => 'content-bootstrappackage-timeline',
+        'group' => 'bootstrap_package',
     ],
     'textteaser',
     'after'
@@ -63,7 +64,7 @@ $GLOBALS['TCA']['tt_content']['types']['timeline'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
     ]
 );
 
@@ -85,13 +86,13 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                     'expandSingle' => true,
                     'enabledControls' => [
                         'localize' => true,
-                    ]
+                    ],
                 ],
                 'behaviour' => [
                     'mode' => 'select',
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ]
 );
 

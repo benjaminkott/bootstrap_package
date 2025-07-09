@@ -86,8 +86,8 @@ access yet, you can register at `my.typo3.org`_.
 .. _my.typo3.org: https://my.typo3.org/about-mytypo3org/slack
 
 
-Twitter
-=======
+X
+=
 
 If you have any questions about this project or just want to talk:
-Send a tweet `@benjaminkott <https://twitter.com/benjaminkott>`_.
+Send a tweet `@benjaminkott <https://x.com/benjaminkott>`_.

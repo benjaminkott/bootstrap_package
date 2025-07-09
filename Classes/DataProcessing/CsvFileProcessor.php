@@ -9,9 +9,7 @@
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
-use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Core\Resource\ProcessedFile;
 use TYPO3\CMS\Core\Utility\CsvUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\DataProcessing\FilesProcessor;
@@ -46,8 +44,7 @@ class CsvFileProcessor extends FilesProcessor
         unset($processedData[$targetVariableName]);
 
         foreach ($files as $key => $value) {
-            if (is_object($value) && ($value instanceof FileReference || $value instanceof File)) {
-                /** @var ProcessedFile $value */
+            if (is_object($value) && $value instanceof FileReference) {
                 if ($value->getExtension() !== 'csv') {
                     unset($files[$key]);
                 } else {
@@ -61,13 +58,14 @@ class CsvFileProcessor extends FilesProcessor
                             $fieldDelimiter,
                             $fieldEnclosure,
                             $maximumColumns
-                        )
+                        ),
                     ];
                 }
             }
         }
-        $files = array_values(array_filter($files));
-        $processedData[$targetVariableName] = $files;
+        $processedData[$targetVariableName] = array_values(array_filter($files, function ($file) {
+            return $file !== null && $file !== '';
+        }));
 
         return $processedData;
     }

@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * PanelContentElementUpdate
- */
+#[UpgradeWizard(PanelContentElementUpdate::class)]
 class PanelContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -49,7 +48,7 @@ class PanelContentElementUpdate extends AbstractUpdate implements UpgradeWizardI
                 [
                     'CType' => 'panel',
                     'layout' => '0',
-                    'panel_class' => $this->mapValues(intval($record['layout']))
+                    'panel_class' => $this->mapValues(intval($record['layout'])),
                 ]
             );
         }

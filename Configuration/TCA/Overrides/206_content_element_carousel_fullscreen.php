@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] ?? f
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen',
-        'carousel_fullscreen',
-        'content-bootstrappackage-carousel',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.carousel_fullscreen.description',
+        'value' => 'carousel_fullscreen',
+        'icon' => 'content-bootstrappackage-carousel',
+        'group' => 'bootstrap_package',
     ],
     'carousel_small',
     'after'
@@ -62,7 +63,7 @@ $GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] = array_replace_re
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
     ]
 );
 

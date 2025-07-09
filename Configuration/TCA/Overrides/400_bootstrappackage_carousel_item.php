@@ -9,15 +9,12 @@
 
 defined('TYPO3') or die('Access denied.');
 
-// Activate T3EDITOR if extension is activated
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
-    $GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['types']['html']['columnsOverrides'] = [
-        'bodytext' => [
-            'config' => [
-                'renderType' => 't3editor',
-                'wrap' => 'off',
-                'format' => 'html'
-            ]
-        ]
-    ];
-}
+$GLOBALS['TCA']['tx_bootstrappackage_carousel_item']['types']['html']['columnsOverrides'] = [
+    'bodytext' => [
+        'config' => [
+            'renderType' => 'codeEditor',
+            'wrap' => 'off',
+            'format' => 'html',
+        ],
+    ],
+];

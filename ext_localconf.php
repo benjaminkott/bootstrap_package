@@ -18,38 +18,6 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
     \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
 );
 
-// PageTS
-
-// Add Content Elements
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsContentElements')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/All.tsconfig">');
-}
-
-// Add BackendLayouts for the BackendLayout DataProvider
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsBackendLayouts')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">');
-}
-
-// RTE
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsRTE')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/RTE.tsconfig">');
-}
-
-// TCADefaults
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCADefaults')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCADefaults.tsconfig">');
-}
-
-// TCEMAIN
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEMAIN')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEMAIN.tsconfig">');
-}
-
-// TCEFORM
-if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disablePageTsTCEFORM')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TsConfig/Page/TCEFORM.tsconfig">');
-}
-
 // Register custom EXT:form configuration
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
@@ -95,51 +63,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/icons']['provid
 // Add default RTE configuration for bootstrap package
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
 
-// Extend TYPO3 upgrade wizards to handle bootstrap package specific upgrades
-if (isset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\TYPO3\CMS\Install\Updates\SectionFrameToFrameClassUpdate::class])) {
-    unset($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\TYPO3\CMS\Install\Updates\SectionFrameToFrameClassUpdate::class]);
-}
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\AccordionContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\AccordionMediaOrientUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\BackendLayoutUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\BulletContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\BulletContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\CarouselContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\CarouselItemTypeUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\CarouselItemLayoutUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\CarouselItemLayoutUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\ExternalMediaContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\ExternalMediaContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\FrameClassUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\FrameClassUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\FrameClassToBackgroundUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\FrameClassToOptionsUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\FrameClassToOptionsUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\ListGroupContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\ListGroupContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\PanelContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\PanelContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TabContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TabContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TabMediaOrientUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TableContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TableContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonContentElementUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TexticonContentElementUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonSizeUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TexticonSizeUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonTypeUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TexticonTypeUpdate::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\BK2K\BootstrapPackage\Updates\TexticonIconUpdate::class]
-    = \BK2K\BootstrapPackage\Updates\TexticonIconUpdate::class;
-
 // Register "bk2k" as global fluid namespace
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
 
@@ -147,5 +70,5 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\Boo
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [
     'nodeName' => 'iconWizard',
     'priority' => 40,
-    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class
+    'class' => \BK2K\BootstrapPackage\Form\FieldWizard\IconWizard::class,
 ];

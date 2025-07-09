@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.text {
+    elements {
+        header {
+            iconIdentifier = content-header
+            title = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.header
+            description = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.header.description
+            tt_content_defValues {
+                CType = header
+            }
+        }
+    }
+    show := addToList(header)
+}

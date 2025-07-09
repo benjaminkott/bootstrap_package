@@ -1,0 +1,6 @@
+RTE {
+    default {
+        preset = bootstrap
+    }
+}
+

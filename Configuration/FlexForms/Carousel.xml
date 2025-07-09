@@ -16,7 +16,7 @@
                             <default>0</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay.description</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.autoplay.description</label>
                                 </numIndex>
                             </items>
                         </config>
@@ -25,10 +25,10 @@
                         <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.interval
                         </label>
                         <config>
-                            <type>input</type>
+                            <type>number</type>
                             <size>8</size>
                             <default>5000</default>
-                            <eval>required,int</eval>
+                            <required>true</required>
                         </config>
                     </interval>
                     <transition>
@@ -40,12 +40,12 @@
                             <default>fade</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</numIndex>
-                                    <numIndex index="1">fade</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.fade</label>
+                                    <value>fade</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</numIndex>
-                                    <numIndex index="1">slide</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.transition.slide</label>
+                                    <value>slide</value>
                                 </numIndex>
                             </items>
                         </config>
@@ -57,7 +57,7 @@
                             <default>1</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.wrap.description</label>
                                 </numIndex>
                             </items>
                         </config>
@@ -69,7 +69,7 @@
                             <default>0</default>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title.description</numIndex>
+                                    <label>LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel.show_nav_title.description</label>
                                 </numIndex>
                             </items>
                         </config>

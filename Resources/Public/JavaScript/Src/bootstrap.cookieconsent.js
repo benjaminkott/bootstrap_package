@@ -140,8 +140,10 @@ window.addEventListener('DOMContentLoaded', function () {
         };
 
         // Initialize
-        cookieConsentOptions.container = document.getElementById('cookieconsent');
-        window.cookieconsent.initialise(cookieConsentOptions);
+        if (typeof window.cookieconsent.initialise === "function") {
+            cookieConsentOptions.container = document.getElementById('cookieconsent');
+            window.cookieconsent.initialise(cookieConsentOptions);
+        }
     }
 
 });

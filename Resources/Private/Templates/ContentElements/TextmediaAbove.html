@@ -4,9 +4,11 @@
 <f:section name="Main">
 
     <div class="textmedia textmedia-above">
-        <div class="textmedia-item textmedia-gallery">
-            <f:render partial="Media/Gallery" arguments="{_all}" />
-        </div>
+        <f:if condition="{files}">
+            <div class="textmedia-item textmedia-gallery">
+                <f:render partial="Media/Gallery" arguments="{_all}" />
+            </div>
+        </f:if>
         <div class="textmedia-item textmedia-text">
             <f:render partial="Header/All" arguments="{_all}" />
             <f:format.html>{data.bodytext}</f:format.html>

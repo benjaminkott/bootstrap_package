@@ -74,8 +74,8 @@ $carousel-item-layouts: map-merge(
 // --------------------------------------------------
 .carousel {
     .carousel-item {
-        padding-left: ($grid-gutter-width / 2);
-        padding-right: ($grid-gutter-width / 2);
+        padding-left: calc(#{$grid-gutter-width} / 2);
+        padding-right: calc(#{$grid-gutter-width} / 2);
         @include media-breakpoint-up(sm) {
             padding-left: 0;
             padding-right: 0;
@@ -280,7 +280,7 @@ $carousel-item-layouts: map-merge(
         left: 0;
         right: 0;
         bottom: 0;
-        padding: .5rem ($grid-gutter-width / 2);
+        padding: .5rem calc(#{$grid-gutter-width} / 2);
         margin: 0;
         width: 100%;
         z-index: 15;
@@ -302,10 +302,7 @@ $carousel-item-layouts: map-merge(
             &.active:before {
                 content: '';
                 position: absolute;
-                top: auto;
-                bottom: calc(.5rem / 2 - 1px);
-                left: .5rem !important;
-                right: .5rem !important;
+                inset: auto .5rem calc(.5rem / 2 - 1px);
                 width: auto;
                 border-top: 2px solid $primary;
             }

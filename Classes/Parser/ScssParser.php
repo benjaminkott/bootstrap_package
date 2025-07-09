@@ -178,8 +178,8 @@ class ScssParser extends AbstractParser
                 'etag' => md5($css),
                 'files' => $compilationResult->getIncludedFiles(),
                 'variables' => $settings['variables'],
-                'sourceMap' => $settings['options']['sourceMap']
-            ]
+                'sourceMap' => $settings['options']['sourceMap'],
+            ],
         ];
     }
 }

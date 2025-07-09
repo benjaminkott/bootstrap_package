@@ -21,7 +21,8 @@ class ConditionProvider extends AbstractProvider
     public function __construct()
     {
         $this->expressionLanguageVariables = [
-            'extension' => GeneralUtility::makeInstance(ExtensionWrapper::class)
+            'extension' => GeneralUtility::makeInstance(ExtensionWrapper::class),
+            'extensionConfiguration' => GeneralUtility::makeInstance(ExtensionConfigurationWrapper::class),
         ];
     }
 }

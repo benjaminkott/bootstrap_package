@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * FrameClassUpdate
- */
+#[UpgradeWizard(FrameClassUpdate::class)]
 class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -52,7 +51,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
                 (int) $record['uid'],
                 [
                     'section_frame' => '0',
-                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame']))
+                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame'])),
                 ]
             );
         }
@@ -71,7 +70,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
             12 => 'indent-right',
             20 => 'well',
             21 => 'jumbotron',
-            66 => 'none'
+            66 => 'none',
         ];
         if (array_key_exists($sectionFrame, $mapping)) {
             return $mapping[$sectionFrame];

@@ -14,13 +14,14 @@ use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -33,11 +34,12 @@ class PaginateViewHelper extends AbstractViewHelper
      */
     protected $escapeOutput = false;
 
-    /**
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
-     * @return void
-     */
-    public function initializeArguments()
+    public function __construct(
+        protected readonly ViewFactoryInterface $viewFactory,
+    ) {
+    }
+
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('id', 'string', 'Identifier of the pagination', true);
@@ -47,14 +49,9 @@ class PaginateViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        /** @var RenderingContext $renderingContext */
         $renderingContext = $this->renderingContext;
-
-        /** @var ServerRequestInterface|null $request */
-        $request = $renderingContext->getRequest();
-
-        /** @phpstan-ignore-next-line */
-        if ($request instanceof ServerRequestInterface) {
+        $request = $this->getRequestFromRenderingContext($renderingContext);
+        if ($request !== null) {
             $objects = $this->arguments['objects'];
             if (!($objects instanceof QueryResultInterface || is_array($objects))) {
                 throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
@@ -64,7 +61,7 @@ class PaginateViewHelper extends AbstractViewHelper
                 'itemsPerPage' => 10,
                 'insertAbove' => false,
                 'insertBelow' => true,
-                'section' => ''
+                'section' => '',
             ];
             ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
 
@@ -79,14 +76,14 @@ class PaginateViewHelper extends AbstractViewHelper
             }
             $pagination = new SimplePagination($paginator);
 
-            $paginationView = $this->getTemplateObject($renderingContext);
+            $paginationView = $this->getTemplateObject($renderingContext, $request);
             $paginationView->assignMultiple([
                 'id' => $id,
                 'paginator' => $paginator,
                 'pagination' => $pagination,
-                'configuration' => $configuration
+                'configuration' => $configuration,
             ]);
-            $paginationRendered = $paginationView->render();
+            $paginationRendered = $paginationView->render('Paginate/Index');
 
             $variableProvider = $renderingContext->getVariableProvider();
             $variableProvider->add('paginator', $paginator);
@@ -107,14 +104,9 @@ class PaginateViewHelper extends AbstractViewHelper
         );
     }
 
-    protected function getTemplateObject(RenderingContext $renderingContext): StandaloneView
+    protected function getTemplateObject(RenderingContextInterface $renderingContext, ServerRequestInterface $request): ViewInterface
     {
         $setup = $this->getConfigurationManager()->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
-
-        $context = GeneralUtility::makeInstance(RenderingContextFactory::class)->create();
-        $context->setRequest($renderingContext->getRequest());
-        /** @var StandaloneView $view */
-        $view = GeneralUtility::makeInstance(StandaloneView::class, $context);
 
         $layoutRootPaths = [];
         $layoutRootPaths[] = GeneralUtility::getFileAbsFileName('EXT:bootstrap_package/Resources/Private/Layouts/ViewHelpers/');
@@ -138,12 +130,12 @@ class PaginateViewHelper extends AbstractViewHelper
             }
         }
 
-        $view->setLayoutRootPaths($layoutRootPaths);
-        $view->setPartialRootPaths($partialRootPaths);
-        $view->setTemplateRootPaths($templateRootPaths);
-        $view->setTemplate('Paginate/Index');
-
-        return $view;
+        return $this->viewFactory->create(new ViewFactoryData(
+            templateRootPaths: $templateRootPaths,
+            partialRootPaths: $partialRootPaths,
+            layoutRootPaths: $layoutRootPaths,
+            request: $request,
+        ));
     }
 
     protected function getConfigurationManager(): ConfigurationManagerInterface
@@ -152,5 +144,14 @@ class PaginateViewHelper extends AbstractViewHelper
         $configurationManager = GeneralUtility::getContainer()->get(ConfigurationManager::class);
 
         return $configurationManager;
+    }
+
+    protected function getRequestFromRenderingContext(RenderingContextInterface $renderingContext): ?ServerRequestInterface
+    {
+        if ($renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            return $renderingContext->getAttribute(ServerRequestInterface::class);
+        }
+
+        return null;
     }
 }

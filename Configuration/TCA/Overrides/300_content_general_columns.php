@@ -17,13 +17,31 @@ $GLOBALS['TCA']['tt_content']['columns']['header_class'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['', ''],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1', 'h1'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 'h2'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 'h3'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 'h4'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 'h5']
-        ]
+            [
+                'label' => '',
+                'value' => '',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1',
+                'value' => 'h1',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2',
+                'value' => 'h2',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3',
+                'value' => 'h3',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4',
+                'value' => 'h4',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5',
+                'value' => 'h5',
+            ],
+        ],
     ],
     'l10n_mode' => 'exclude',
 ];
@@ -34,13 +52,31 @@ $GLOBALS['TCA']['tt_content']['columns']['subheader_class'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['', ''],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1', 'h1'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 'h2'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 'h3'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 'h4'],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 'h5']
-        ]
+            [
+                'label' => '',
+                'value' => '',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h1',
+                'value' => 'h1',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2',
+                'value' => 'h2',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3',
+                'value' => 'h3',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4',
+                'value' => 'h4',
+            ],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5',
+                'value' => 'h5',
+            ],
+        ],
     ],
     'l10n_mode' => 'exclude',
 ];
@@ -52,9 +88,15 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_layout'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['default', 'default'],
-            ['embedded', 'embedded']
-        ]
+            [
+                'label' => 'default',
+                'value' => 'default',
+            ],
+            [
+                'label' => 'embedded',
+                'value' => 'embedded',
+            ],
+        ],
     ],
     'l10n_mode' => 'exclude',
 ];
@@ -67,20 +109,20 @@ $GLOBALS['TCA']['tt_content']['columns']['frame_options'] = [
         'renderType' => 'selectCheckBox',
         'items' => [
             [
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_before',
-                'ruler-before'
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_before',
+                'value' => 'ruler-before',
             ],
             [
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_after',
-                'ruler-after'
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.ruler_after',
+                'value' => 'ruler-after',
             ],
             [
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_left',
-                'indent-left'
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_left',
+                'value' => 'indent-left',
             ],
             [
-                'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_right',
-                'indent-right'
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.frame_options.indent_right',
+                'value' => 'indent-right',
             ],
         ],
     ],
@@ -94,14 +136,35 @@ $GLOBALS['TCA']['tt_content']['columns']['background_color_class'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['none', 'none'],
-            ['primary', 'primary'],
-            ['secondary', 'secondary'],
-            ['tertiary', 'tertiary'],
-            ['quaternary', 'quaternary'],
-            ['light', 'light'],
-            ['dark', 'dark']
-        ]
+            [
+                'label' => 'none',
+                'value' => 'none',
+            ],
+            [
+                'label' => 'primary',
+                'value' => 'primary',
+            ],
+            [
+                'label' => 'secondary',
+                'value' => 'secondary',
+            ],
+            [
+                'label' => 'tertiary',
+                'value' => 'tertiary',
+            ],
+            [
+                'label' => 'quaternary',
+                'value' => 'quaternary',
+            ],
+            [
+                'label' => 'light',
+                'value' => 'light',
+            ],
+            [
+                'label' => 'dark',
+                'value' => 'dark',
+            ],
+        ],
     ],
     'l10n_mode' => 'exclude',
 ];
@@ -115,12 +178,12 @@ $GLOBALS['TCA']['tt_content']['columns']['background_image'] = [
         'minitems' => 0,
         'maxitems' => 1,
         'appearance' => [
-            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
         ],
         'overrideChildTca' => [
             'types' => [
-                \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                    'showitem' => 'crop,--palette--;;filePalette'
+                \TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
+                    'showitem' => 'crop,--palette--;;filePalette',
                 ],
             ],
         ],
@@ -146,8 +209,8 @@ $GLOBALS['TCA']['tt_content']['columns']['readmore_label'] = [
         'type' => 'input',
         'eval' => 'trim',
         'size' => 50,
-        'max' => 255
-    ]
+        'max' => 255,
+    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.teaser',
@@ -156,8 +219,8 @@ $GLOBALS['TCA']['tt_content']['columns']['teaser'] = [
         'type' => 'text',
         'softref' => 'typolink_tag',
         'cols' => '40',
-        'rows' => '3'
-    ]
+        'rows' => '3',
+    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item',
@@ -173,20 +236,19 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_bootstrappackage_carousel_item'] = 
             'expandSingle' => true,
             'enabledControls' => [
                 'localize' => true,
-            ]
+            ],
         ],
         'behaviour' => [
             'mode' => 'select',
-        ]
-    ]
+        ],
+    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['file_folder'] = [
     'exclude' => true,
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.file_folder',
     'config' => [
-        'type' => 'group',
-        'internal_type' => 'folder',
-    ]
+        'type' => 'folder',
+    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['aspect_ratio'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.aspect_ratio',
@@ -194,19 +256,25 @@ $GLOBALS['TCA']['tt_content']['columns']['aspect_ratio'] = [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.4_3', (string) (4/3)],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.16_9', (string) (16/9)],
-            ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.1_1', (string) (1/1)],
-        ]
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.4_3',
+                'value' => (string) (4/3)],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.16_9',
+                'value' => (string) (16/9)],
+            [
+                'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:ratio.1_1',
+                'value' => (string) (1/1),
+            ],
+        ],
     ],
     'l10n_mode' => 'exclude',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
     'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.items_per_page',
     'config' => [
-        'type' => 'input',
+        'type' => 'number',
         'size' => 2,
-        'eval' => 'trim,int',
         'range' => [
             'lower' => 1,
             'upper' => 50,
@@ -221,9 +289,9 @@ $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
     'tt_content',
     'imageorient',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.125',
-        (string) 125,
-        'content-bootstrappackage-beside-text-img-centered-right'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.125',
+        'value' => (string) 125,
+        'icon' => 'content-bootstrappackage-beside-text-img-centered-right',
     ],
     (string) 125,
     'after'
@@ -232,9 +300,9 @@ $GLOBALS['TCA']['tt_content']['columns']['items_per_page'] = [
     'tt_content',
     'imageorient',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.126',
-        (string) 126,
-        'content-bootstrappackage-beside-text-img-centered-left'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.imageorient.126',
+        'value' => (string) 126,
+        'icon' => 'content-bootstrappackage-beside-text-img-centered-left',
     ],
     (string) 126,
     'after'
@@ -249,12 +317,24 @@ $GLOBALS['TCA']['tt_content']['columns']['subitems_header_layout'] = [
             'renderType' => 'selectSingle',
             'default' => 2,
             'items' => [
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2', 2],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3', 3],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4', 4],
-                ['LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5', 5]
-        ]
-    ]
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h2',
+                    'value' => 2,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h3',
+                    'value' => 3,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h4',
+                    'value' => 4,
+                ],
+                [
+                    'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:option.h5',
+                    'value' => 5,
+                ],
+        ],
+    ],
 ];
 
 // Add fields to default palettes

@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.media {
+    elements {
+        uploads {
+            iconIdentifier = content-special-uploads
+            title = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.uploads
+            description = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.uploads.description
+            tt_content_defValues {
+                CType = uploads
+            }
+        }
+    }
+    show := addToList(uploads)
+}

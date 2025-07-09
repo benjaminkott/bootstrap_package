@@ -1,0 +1,320 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.content-elements:
+    label: 'Content Elements'
+    parent: BootstrapPackage
+  BootstrapPackage.content-elements.templates:
+    label: 'Templates'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.header:
+    label: 'Header'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.subheader:
+    label: 'Subheader'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.lightbox:
+    label: 'Lightbox'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.media:
+    label: 'Media'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.gallery:
+    label: 'Gallery'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.menu-thumbnail:
+    label: 'Menu Thumbnail'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.menu-card:
+    label: 'Menu Card'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.text-and-icon:
+    label: 'Text and Icon'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.timeline:
+    label: 'Timeline'
+    parent: BootstrapPackage.content-elements
+  BootstrapPackage.content-elements.uploads:
+    label: 'Uploads'
+    parent: BootstrapPackage.content-elements
+
+settings:
+
+  # Templates
+  plugin.bootstrap_package_contentelements.view.layoutRootPath:
+    label: 'Layout Root Path'
+    description: 'Path to layouts'
+    category: BootstrapPackage.content-elements.templates
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Layouts/ContentElement/'
+
+  plugin.bootstrap_package_contentelements.view.partialRootPath:
+    label: 'Partial Root Path'
+    description: 'Path to partials'
+    category: BootstrapPackage.content-elements.templates
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Partials/ContentElement/'
+
+  plugin.bootstrap_package_contentelements.view.templateRootPath:
+    label: 'Template Root Path'
+    description: 'Path to templates'
+    category: BootstrapPackage.content-elements.templates
+    type: string
+    default: 'EXT:bootstrap_package/Resources/Private/Templates/ContentElement/'
+
+  # Header
+  plugin.bootstrap_package_contentelements.header.defaultHeaderType:
+    label: 'Default Header type'
+    description: 'Enter the number of the header layout to be used by default [1-5]'
+    category: BootstrapPackage.content-elements.header
+    type: number
+    default: 2
+
+  plugin.bootstrap_package_contentelements.header.class:
+    label: 'Default Header class'
+    category: BootstrapPackage.content-elements.header
+    type: string
+    default: 'element-header'
+
+  plugin.bootstrap_package_contentelements.header.date.format:
+    label: 'Header date format'
+    category: BootstrapPackage.content-elements.header
+    type: string
+    default: '%B %e, %Y'
+
+  # Subheader
+  plugin.bootstrap_package_contentelements.subheader.class:
+    label: 'Default Subheader class'
+    category: BootstrapPackage.content-elements.subheader
+    type: string
+    default: 'element-subheader'
+
+  # Lightbox
+  plugin.bootstrap_package_contentelements.lightbox.cssClass:
+    label: 'CSS Class'
+    category: BootstrapPackage.content-elements.lightbox
+    type: string
+    default: 'lightbox'
+
+  plugin.bootstrap_package_contentelements.lightbox.prefix:
+    label: 'Group Prefix'
+    category: BootstrapPackage.content-elements.lightbox
+    type: string
+    default: 'lightbox-group'
+
+  plugin.bootstrap_package_contentelements.lightbox.image.maxHeight:
+    label: 'Max Image Hight'
+    category: BootstrapPackage.content-elements.lightbox
+    type: int
+    default: 1200
+
+  plugin.bootstrap_package_contentelements.lightbox.image.maxWidth:
+    label: 'Max Image Width'
+    category: BootstrapPackage.content-elements.lightbox
+    type: int
+    default: 1200
+
+  # Media
+  plugin.bootstrap_package_contentelements.media.additionalConfig.autoplay:
+    label: 'Autoplay'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.controls:
+    label: 'Controls'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: true
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.loop:
+    label: 'Loop'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.enablejsapi:
+    label: 'Enable JavaScript API'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: true
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.showinfo:
+    label: 'Show Info'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.relatedVideos:
+    label: 'Related Videos'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.modestbranding:
+    label: 'Modest Branding'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.media.additionalConfig.nocookie:
+    label: 'No Cookie'
+    category: BootstrapPackage.content-elements.media
+    type: bool
+    default: true
+
+  # Gallery
+  plugin.bootstrap_package_contentelements.gallery.columns.1.class:
+    label: 'Item CSS Class for 1 column'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-1'
+
+  plugin.bootstrap_package_contentelements.gallery.columns.2.class:
+    label: 'Item CSS Class for 2 columns'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-2'
+
+  plugin.bootstrap_package_contentelements.gallery.columns.3.class:
+    label: 'Item CSS Class for 3 columns'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-3'
+
+  plugin.bootstrap_package_contentelements.gallery.columns.4.class:
+    label: 'Item CSS Class for 4 columns'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-4'
+
+  plugin.bootstrap_package_contentelements.gallery.columns.5.class:
+    label: 'Item CSS Class for 5 columns'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-5'
+
+  plugin.bootstrap_package_contentelements.gallery.columns.6.class:
+    label: 'Item CSS Class for 6 columns'
+    category: BootstrapPackage.content-elements.gallery
+    type: string
+    default: 'gallery-item-size-6'
+
+  # Menu Thumbnail
+  plugin.bootstrap_package_contentelements.menu_thumbnail.title.crop:
+    label: 'Crop Title'
+    category: BootstrapPackage.content-elements.menu-thumbnail
+    type: int
+    default: 100
+
+  plugin.bootstrap_package_contentelements.menu_thumbnail.subtitle.crop:
+    label: 'Crop Subtitle'
+    category: BootstrapPackage.content-elements.menu-thumbnail
+    type: int
+    default: 100
+
+  # Menu Card
+  plugin.bootstrap_package_contentelements.menu_card.title.crop:
+    label: 'Crop Title'
+    category: BootstrapPackage.content-elements.menu-card
+    type: int
+    default: 100
+
+  plugin.bootstrap_package_contentelements.menu_card.subtitle.crop:
+    label: 'Crop Subtitle'
+    category: BootstrapPackage.content-elements.menu-card
+    type: int
+    default: 100
+
+  plugin.bootstrap_package_contentelements.menu_card.abstract.crop:
+    label: 'Crop Abstract'
+    category: BootstrapPackage.content-elements.menu-card
+    type: int
+    default: 250
+
+  plugin.bootstrap_package_contentelements.menu_card.icon.enable:
+    label: 'Enable Icon'
+    category: BootstrapPackage.content-elements.menu-card
+    type: bool
+    default: false
+
+  plugin.bootstrap_package_contentelements.menu_card.icon.height:
+    label: 'Icon Height'
+    category: BootstrapPackage.content-elements.menu-card
+    type: string
+    default: '32'
+
+  plugin.bootstrap_package_contentelements.menu_card.icon.width:
+    label: 'Icon Width'
+    category: BootstrapPackage.content-elements.menu-card
+    type: string
+    default: '32c'
+
+  # Text and Icon
+  plugin.bootstrap_package_contentelements.texticon.icon.default.height:
+    label: 'Default Icon Height'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '32'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.default.width:
+    label: 'Default Icon Width'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '32'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.medium.height:
+    label: 'Medium Icon Height'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '48'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.medium.width:
+    label: 'Medium Icon Width'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '48'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.large.height:
+    label: 'Large Icon Height'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '64'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.large.width:
+    label: 'Large Icon Width'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '64'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.awesome.height:
+    label: 'Awesome Icon Height'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '80'
+
+  plugin.bootstrap_package_contentelements.texticon.icon.awesome.width:
+    label: 'Awesome Icon Width'
+    category: BootstrapPackage.content-elements.text-and-icon
+    type: string
+    default: '80'
+
+  # Timeline
+  plugin.bootstrap_package_contentelements.timeline.date.format:
+    label: 'Date Format'
+    category: BootstrapPackage.content-elements.timeline
+    type: string
+    default: '%B %e, %Y - %H:%M'
+
+  # Uploads
+  plugin.bootstrap_package_contentelements.uploads.preview.height:
+    label: 'Preview Height'
+    category: BootstrapPackage.content-elements.uploads
+    type: string
+    default: '100c'
+
+  plugin.bootstrap_package_contentelements.uploads.preview.width:
+    label: 'Preview Width'
+    category: BootstrapPackage.content-elements.uploads
+    type: string
+    default: '100c'

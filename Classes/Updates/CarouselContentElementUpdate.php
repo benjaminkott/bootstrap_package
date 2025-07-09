@@ -10,12 +10,11 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * CarouselContentElementUpdate
- */
+#[UpgradeWizard(CarouselContentElementUpdate::class)]
 class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -48,7 +47,7 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
                 (int) $record['uid'],
                 [
                     'layout' => $this->resetLayout(intval($record['layout'])),
-                    'CType' => $this->mapValues(intval($record['layout']))
+                    'CType' => $this->mapValues(intval($record['layout'])),
                 ]
             );
         }
@@ -68,7 +67,7 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
     {
         $mapping = [
             110 => 'carousel_small',
-            120 => 'carousel_fullscreen'
+            120 => 'carousel_fullscreen',
         ];
         if (array_key_exists($layout, $mapping)) {
             return $mapping[$layout];

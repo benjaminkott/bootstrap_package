@@ -7,6 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
+/** @phpstan-ignore-next-line */
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Demo Package',
     'description' => '',
@@ -22,9 +23,6 @@ $EM_CONF[$_EXTKEY] = [
         ],
     ],
     'state' => 'stable',
-    'uploadfolder' => 0,
-    'createDirs' => '',
-    'clearCacheOnLoad' => 1,
     'author' => 'Benjamin Kott',
     'author_email' => 'info@bk2k.info',
     'author_company' => 'BK2K',

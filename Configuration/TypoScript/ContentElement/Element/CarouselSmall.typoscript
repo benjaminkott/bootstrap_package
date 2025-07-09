@@ -43,6 +43,7 @@ lib.contentElement.settings.responsiveimages.contentelements {
                 default = 1.5
                 xlarge = 1.5
                 large = 1.5
+                medium = 1.5
             }
         }
         text_and_image {

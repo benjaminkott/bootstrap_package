@@ -10,12 +10,11 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Updates;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-/**
- * FrameClassToBackgroundUpdate
- */
+#[UpgradeWizard(FrameClassToBackgroundUpdate::class)]
 class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
     /**
@@ -38,7 +37,7 @@ class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWiza
      */
     protected $mapping = [
         'well' => 'light',
-        'jumbotron' => 'primary'
+        'jumbotron' => 'primary',
     ];
 
     public function updateNecessary(): bool
@@ -62,7 +61,7 @@ class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWiza
                     (int) $record['uid'],
                     [
                         $this->field => 'default',
-                        'background_color_class' => $newValue
+                        'background_color_class' => $newValue,
                     ]
                 );
             }

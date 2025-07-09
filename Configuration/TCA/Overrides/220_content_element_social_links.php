@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['social_links'] ?? false)) 
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links',
-        'social_links',
-        'content-bootstrappackage-social-links',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.social_links.description',
+        'value' => 'social_links',
+        'icon' => 'content-bootstrappackage-social-links',
+        'group' => 'bootstrap_package',
     ],
     'quote',
     'after'
@@ -64,9 +65,9 @@ $GLOBALS['TCA']['tt_content']['types']['social_links'] = array_replace_recursive
             'bodytext' => [
                 'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
                 'config' => [
-                    'enableRichtext' => true
-                ]
-            ]
-        ]
+                    'enableRichtext' => true,
+                ],
+            ],
+        ],
     ]
 );

@@ -70,7 +70,7 @@ class IconsDataProcessor implements DataProcessorInterface
                 $cObj,
                 $contentObjectConfiguration,
                 ['references.' => ['fieldName' => $config['iconFileFieldName']]],
-                ['data' => $processedData['data']]
+                ['data' => $processedData['data'] ?? []]
             );
             if (isset($filesData['files'][0])) {
                 $file = $filesData['files'][0];

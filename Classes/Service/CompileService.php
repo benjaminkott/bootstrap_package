@@ -50,7 +50,7 @@ class CompileService
             'file' => [
                 'absolute' => $absoluteFile,
                 'relative' => $file,
-                'info' => pathinfo($absoluteFile)
+                'info' => pathinfo($absoluteFile),
             ],
             'cache' => [
                 'tempDirectory' => $this->tempDirectory,
@@ -59,9 +59,9 @@ class CompileService
             'options' => [
                 'override' => (bool) ($configuration['overrideParserVariables'] ?? false),
                 'sourceMap' => (bool) ($configuration['cssSourceMapping'] ?? false),
-                'compress' => true
+                'compress' => true,
             ],
-            'variables' => []
+            'variables' => [],
         ];
 
         // Parser
@@ -69,20 +69,21 @@ class CompileService
             && is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'])
         ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/css']['parser'] as $className) {
-                /** @var class-string<ParserInterface> $className */
-                $parser = GeneralUtility::makeInstance($className);
-                if ($parser instanceof ParserInterface
-                    && isset($settings['file']['info']['extension'])
-                    && $parser->supports($settings['file']['info']['extension'])
-                ) {
-                    if ((bool) ($configuration['overrideParserVariables'] ?? false)) {
-                        $settings['variables'] = $this->getVariablesFromConstants($request, $settings['file']['info']['extension']);
-                    }
-                    try {
-                        return $parser->compile($file, $settings);
-                    } catch (\Exception $e) {
-                        $this->clearCompilerCaches();
-                        throw $e;
+                if (class_exists($className)) {
+                    $parser = GeneralUtility::makeInstance($className);
+                    if ($parser instanceof ParserInterface
+                        && isset($settings['file']['info']['extension'])
+                        && $parser->supports($settings['file']['info']['extension'])
+                    ) {
+                        if ((bool) ($configuration['overrideParserVariables'] ?? false)) {
+                            $settings['variables'] = $this->getVariablesFromConstants($request, $settings['file']['info']['extension']);
+                        }
+                        try {
+                            return $parser->compile($file, $settings);
+                        } catch (\Exception $e) {
+                            $this->clearCompilerCaches();
+                            throw $e;
+                        }
                     }
                 }
             }

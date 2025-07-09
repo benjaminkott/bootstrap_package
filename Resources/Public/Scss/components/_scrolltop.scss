@@ -1,6 +1,7 @@
 //
 // Variables
 // --------------------------------------------------
+$scrolltop-space:       20px !default;
 $scrolltop-bg:          $gray-700 !default;
 $scrolltop-color:       #ffffff !default;
 $scrolltop-hover-bg:    $primary !default;
@@ -10,13 +11,19 @@ $scrolltop-hover-color: #ffffff !default;
 // Scrolltop
 // --------------------------------------------------
 .scroll-top {
+    --scrolltop-zindex: #{$zindex-sticky};
+    --scrolltop-space: #{$scrolltop-space};
+    --scrolltop-bg: #{$scrolltop-bg};
+    --scrolltop-color: #{$scrolltop-color};
+    --scrolltop-hover-bg: #{$scrolltop-hover-bg};
+    --scrolltop-hover-color: #{$scrolltop-hover-color};
     overflow: hidden;
     @include transition(all .3s ease-in-out);
-    z-index: $zindex-sticky;
-    background-color: $scrolltop-bg;
-    color: $scrolltop-color;
-    bottom: ($grid-gutter-width / 2);
-    right: ($grid-gutter-width / 2);
+    z-index: var(--scrolltop-zindex);
+    background-color: var(--scrolltop-bg);
+    color: var(--scrolltop-color);
+    bottom: var(--scrolltop-space);
+    right: var(--scrolltop-space);
     position: fixed;
     opacity: 0;
     width: 3em;
@@ -25,8 +32,8 @@ $scrolltop-hover-color: #ffffff !default;
     &:active,
     &:focus,
     &:hover {
-        color: $scrolltop-hover-color;
-        background-color: $scrolltop-hover-bg;
+        color: var(--scrolltop-hover-color);
+        background-color: var(--scrolltop-hover-bg);
     }
     .scroll-top-icon {
         transform: rotate(45deg);

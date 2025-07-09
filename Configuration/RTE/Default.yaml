@@ -4,29 +4,23 @@ imports:
     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
 
 editor:
-    externalPlugins:
-        bootstrappackage_address:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
-        bootstrappackage_box:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
-        bootstrappackage_columns:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
-        bootstrappackage_indent:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
-        bootstrappackage_table:
-            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
-
     config:
+        importModules:
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/address-plugin.js', exports: ['BootstrapPackageAddress'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/box-plugin.js', exports: ['BootstrapPackageBox'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/table-plugin.js', exports: ['BootstrapPackageTablePlugin'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-column-plugin.js', exports: ['BootstrapPackageTextColumn'] }
+            - { module: '@bk2k/bootstrap-package/rte_ckeditor/text-indent-plugin.js', exports: ['BootstrapPackageTextIndent'] }
+
         contentsCss: "EXT:bootstrap_package/Resources/Public/Css/bootstrap5-rte.min.css"
 
         stylesSet:
             - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
             - { name: "Small", element: "small" }
 
-            - { name: "Table", element: "table", attributes: { 'class': 'table' } }
-            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
-            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
-            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-condensed' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table-condensed' } }
 
             - { name: "Row Active", element: "tr", attributes: { 'class': 'table-active' } }
             - { name: "Row Success", element: "tr", attributes: { 'class': 'table-success' } }
@@ -100,6 +94,7 @@ editor:
             - { name: editing, groups: [ spellchecker ] }
             - { name: insert, groups: [ insert ] }
             - { name: tools, groups: [ table, specialchar ] }
+            - { name: bootstrappackage, groups: [ address, box, textColumn, textIndent ] }
             - { name: document, groups: [ mode ] }
 
         format_tags: "p;h1;h2;h3;h4;h5;pre"
@@ -113,11 +108,6 @@ editor:
         extraPlugins:
             - justify
             - autolink
-            - bootstrappackage_address
-            - bootstrappackage_box
-            - bootstrappackage_columns
-            - bootstrappackage_indent
-            - bootstrappackage_table
 
         removePlugins:
             - image

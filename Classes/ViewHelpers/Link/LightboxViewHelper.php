@@ -23,14 +23,9 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
      */
     protected $tagName = 'a';
 
-    /**
-     * @return void
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerUniversalTagAttributes();
-        $this->registerTagAttribute('rel', 'string', 'Specifies the relationship between the current document and the linked document', false);
 
         $this->registerArgument('caption', 'string', 'Specifies an caption text', false);
         $this->registerArgument('lightbox-title', 'string', 'Specifies an title text', false);

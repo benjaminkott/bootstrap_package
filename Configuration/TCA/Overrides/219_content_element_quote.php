@@ -26,10 +26,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['quote'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote',
-        'quote',
-        'content-quote',
-        'bootstrap_package'
+        'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote',
+        'description' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.quote.description',
+        'value' => 'quote',
+        'icon' => 'content-quote',
+        'group' => 'bootstrap_package',
     ],
     'panel',
     'after'
@@ -62,7 +63,7 @@ $GLOBALS['TCA']['tt_content']['types']['quote'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
     ]
 );
 
@@ -75,27 +76,17 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             'config' => [
                 'type' => 'input',
                 'size' => 50,
-                'max' => 255
-            ]
+                'max' => 255,
+            ],
         ],
         'quote_link' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
+                'type' => 'link',
                 'size' => 50,
-                'max' => 1024,
-                'eval' => 'trim',
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'title' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link',
-                        ],
-                    ],
-                ],
-                'softref' => 'typolink'
-            ]
+                'appearance' => ['browserTitle' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:quote.link'],
+            ],
         ],
     ]
 );
