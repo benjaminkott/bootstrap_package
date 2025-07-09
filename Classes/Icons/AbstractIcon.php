@@ -41,6 +41,16 @@ abstract class AbstractIcon implements IconInterface
     protected $width = 16;
 
     /**
+     * @var string
+     */
+    protected $title;
+    
+    /**
+     * @var string
+     */
+    protected $alt;
+    
+    /**
      * @param string $identifier
      * @return self
      */
@@ -128,6 +138,38 @@ abstract class AbstractIcon implements IconInterface
     public function getWidth(): int
     {
         return $this->width;
+    }
+
+    /**
+    * @param string title
+    * @return self
+    */
+    public function setTitle(string $title) {
+        $this->title = $title;
+        return $this;    
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTitle(): string|null {
+        return $this->title;
+    }
+
+        /**
+    * @param string alt
+    * @return self
+    */
+    public function setAlternative(string $alt) {
+        $this->alt = $alt;
+        return $this;    
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAlternative(): string|null {
+        return $this->alt;
     }
 
     /**
