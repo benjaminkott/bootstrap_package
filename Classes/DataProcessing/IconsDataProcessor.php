@@ -79,6 +79,8 @@ class IconsDataProcessor implements DataProcessorInterface
                     ->setIdentifier($file->getIdentifier())
                     ->setName($file->getName())
                     ->setPreviewImage($file->getPublicUrl())
+                    ->setTitle($file->getTitle())
+                    ->setAlternative($file->getAlternative)
                 ;
             }
         }
