@@ -54,12 +54,6 @@ if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disableCssProcess
         = \BK2K\BootstrapPackage\Hooks\PageRenderer\PreProcessHook::class . '->execute';
 }
 
-// Register icon provider
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/icons']['provider'][\BK2K\BootstrapPackage\Icons\IoniconsProvider::class]
-    = \BK2K\BootstrapPackage\Icons\IoniconsProvider::class;
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/icons']['provider'][\BK2K\BootstrapPackage\Icons\GlyphiconsProvider::class]
-    = \BK2K\BootstrapPackage\Icons\GlyphiconsProvider::class;
-
 // Add default RTE configuration for bootstrap package
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
 
