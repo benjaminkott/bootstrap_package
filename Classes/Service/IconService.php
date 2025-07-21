@@ -10,7 +10,9 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\Service;
 
+use BK2K\BootstrapPackage\Events\ModifyIconProvidersEvent;
 use BK2K\BootstrapPackage\Icons\IconProviderInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -18,6 +20,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class IconService
 {
+    protected EventDispatcherInterface $eventDispatcher;
+
+    public function __construct()
+    {
+        $this->eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
+    }
+
     public function getIconSetItems(array &$configuration): void
     {
         $iconSets = [];
@@ -84,6 +93,9 @@ class IconService
             }
         }
 
-        return $iconProviders;
+        /** @var ModifyIconProvidersEvent $event */
+        $event = $this->eventDispatcher->dispatch(new ModifyIconProvidersEvent($iconProviders));
+
+        return $event->getIconProviders();
     }
 }
