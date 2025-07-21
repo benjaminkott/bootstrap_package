@@ -1,28 +1,13 @@
 <?xml version="1.0"?>
-<phpunit
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-  backupGlobals="true"
-  colors="true"
-  convertErrorsToExceptions="true"
-  convertWarningsToExceptions="true"
-  forceCoversAnnotation="false"
-  processIsolation="false"
-  stopOnError="false"
-  stopOnFailure="false"
-  stopOnIncomplete="false"
-  stopOnSkipped="false"
-  verbose="false"
-  beStrictAboutTestsThatDoNotTestAnything="true"
->
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">../Classes/</directory>
-    </include>
-  </coverage>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd" backupGlobals="true" colors="true" processIsolation="false" stopOnError="false" stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" beStrictAboutTestsThatDoNotTestAnything="true" cacheDirectory=".phpunit.cache" requireCoverageMetadata="false">
   <testsuites>
     <testsuite name="bk2k-bootstrap-package-unit-tests">
       <directory>../Tests/Unit</directory>
     </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">../Classes/</directory>
+    </include>
+  </source>
 </phpunit>
