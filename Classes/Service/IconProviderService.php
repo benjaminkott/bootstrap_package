@@ -11,24 +11,23 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Service;
 
 use BK2K\BootstrapPackage\Events\ModifyIconProvidersEvent;
-use BK2K\BootstrapPackage\Icons\GlyphiconsProvider;
 use BK2K\BootstrapPackage\Icons\IconProviderInterface;
-use BK2K\BootstrapPackage\Icons\IoniconsProvider;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 
-final class IconProviderService
+final readonly class IconProviderService
 {
-    private array $iconProvidersToAdd = [
-        GlyphiconsProvider::class,
-        IoniconsProvider::class,
-    ];
+    public function __construct(
+        #[AutowireIterator('bootstrapPackage.iconProvider')]
+        private iterable $iconProviders
+    ) {
+    }
 
     public function __invoke(ModifyIconProvidersEvent $event): void
     {
         $iconProviders = $event->getIconProviders();
-        /** @var class-string<IconProviderInterface> $iconProvider */
-        foreach ($this->iconProvidersToAdd as $iconProvider) {
-            $iconProviders[] = GeneralUtility::makeInstance($iconProvider);
+        /** @var IconProviderInterface[] $iconProvider */
+        foreach ($this->iconProviders as $iconProvider) {
+            $iconProviders[] = $iconProvider;
         }
 
         $event->setIconProviders($iconProviders);

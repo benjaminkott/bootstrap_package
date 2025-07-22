@@ -16,7 +16,7 @@ services:
   BK2K\BootstrapPackage\Service\IconProviderService:
     tags:
       - name: event.listener
-        identifier: 'bk2k/bootstrap-package/add-icon-providers'
+        identifier: 'bk2k/bootstrap-package/modify-icon-providers'
         event: BK2K\BootstrapPackage\Events\ModifyIconProvidersEvent
 
   BK2K\BootstrapPackage\Backend\ToolbarItem\VersionToolbarItem:
