@@ -10,7 +10,6 @@
 namespace BK2K\BootstrapPackage\Tests\Unit\DataProcessing;
 
 use BK2K\BootstrapPackage\DataProcessing\SkiplinkProcessor;
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\DependencyInjection\Container;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
@@ -36,8 +35,11 @@ class SkiplinkProcessorTest extends UnitTestCase
         );
     }
 
-    #[DataProvider('getProcessDataProvider')]
-    public function testProcess(array $setup, array $expectation): void
+    /**
+     * @dataProvider getProcessDataProvider
+     * @test
+     */
+    public function process(array $setup, array $expectation): void
     {
         $contentObjectRendererStub = new ContentObjectRenderer();
         $config = [

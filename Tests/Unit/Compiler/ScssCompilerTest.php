@@ -9,7 +9,6 @@
 
 namespace BK2K\BootstrapPackage\Tests\Unit\Compiler;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use ScssPhp\ScssPhp\Compiler;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
@@ -18,8 +17,13 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class ScssCompilerTest extends UnitTestCase
 {
-    #[DataProvider('compileDataProvider')]
-    public function testCompile(string $file, string $expectedResultFile): void
+    /**
+     * @param string $file
+     * @param string $expectedResultFile
+     * @dataProvider compileDataProvider
+     * @test
+     */
+    public function compile(string $file, string $expectedResultFile): void
     {
         $scss = new Compiler();
         $resultCss = $scss->compileString((string) file_get_contents(__DIR__ . '/' . $file), $file)->getCss();
