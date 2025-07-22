@@ -1,24 +1,13 @@
 <?xml version="1.0"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
-         backupGlobals="true"
-         bootstrap="../.build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php"
-         colors="true"
-         stopOnError="false"
-         stopOnFailure="false"
-         stopOnIncomplete="false"
-         stopOnSkipped="false"
-         beStrictAboutTestsThatDoNotTestAnything="false"
-         cacheDirectory=".phpunit.cache"
-         requireCoverageMetadata="false">
-    <testsuites>
-        <testsuite name="bk2k-bootstrap-package-functional-tests">
-            <directory>../Tests/Functional</directory>
-        </testsuite>
-    </testsuites>
-    <source>
-        <include>
-            <directory suffix=".php">../Classes/</directory>
-        </include>
-    </source>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd" backupGlobals="true" bootstrap="../.build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php" colors="true" stopOnError="false" stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" beStrictAboutTestsThatDoNotTestAnything="false" cacheDirectory=".phpunit.cache" requireCoverageMetadata="false">
+  <testsuites>
+    <testsuite name="bk2k-bootstrap-package-functional-tests">
+      <directory>../Tests/Functional</directory>
+    </testsuite>
+  </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">../Classes/</directory>
+    </include>
+  </source>
 </phpunit>
