@@ -25,7 +25,7 @@ final readonly class IconProviderService
     public function __invoke(ModifyIconProvidersEvent $event): void
     {
         $iconProviders = $event->getIconProviders();
-        /** @var IconProviderInterface[] $iconProvider */
+        /** @var IconProviderInterface $iconProvider */
         foreach ($this->iconProviders as $iconProvider) {
             $iconProviders[] = $iconProvider;
         }
