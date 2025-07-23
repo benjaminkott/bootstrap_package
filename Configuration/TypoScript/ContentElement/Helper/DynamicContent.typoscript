@@ -69,10 +69,15 @@ lib.dynamicContent {
             field = pageUid
             ifEmpty.data = TSFE:id
         }
-        contentFromPid.cObject = TEXT
+        contentFromPid.cObject = RECORDS
         contentFromPid.cObject {
-            data = DB:pages:{register:pageUid}:content_from_pid
-            data.insertData = 1
+            tables = pages
+            source.data = register:pageUid
+
+            conf.pages = TEXT
+            conf.pages.field = content_from_pid
+
+            dontCheckPid = 1
         }
         wrap.cObject = TEXT
         wrap.cObject {
