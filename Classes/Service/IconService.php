@@ -89,7 +89,9 @@ class IconService
         ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/bootstrap-package/icons']['provider'] as $className) {
                 /** @var class-string<IconProviderInterface> $className */
-                $iconProviders[] = GeneralUtility::makeInstance($className);
+                /** @var IconProviderInterface $iconProvider */
+                $iconProvider = GeneralUtility::makeInstance($className);
+                $iconProviders[] = $iconProvider;
             }
         }
 

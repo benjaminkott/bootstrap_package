@@ -14,11 +14,11 @@ use BK2K\BootstrapPackage\Events\ModifyIconProvidersEvent;
 use BK2K\BootstrapPackage\Icons\IconProviderInterface;
 use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 
-final readonly class IconProviderService
+final class IconProviderService
 {
     public function __construct(
         #[AutowireIterator('bootstrapPackage.iconProvider')]
-        private iterable $iconProviders
+        private readonly iterable $iconProviders
     ) {
     }
 
