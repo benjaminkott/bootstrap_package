@@ -1,3 +1,24 @@
+# 15.0.3
+
+## FEATURE
+
+- 9bb0719c [FEATURE] Introduce event to modify icon providers (#1582)
+
+## TASK
+
+- 49679b12 [TASK] Fix PHPStan issue and PHP 8.1 compatibility (#1584)
+- 3b05a548 [TASK] Remove PHPUnit deprecations (#1583)
+
+## BUGFIX
+
+- 09f3cc89 [BUGFIX] Correct include paths old backend layout tsconfig includes
+- 84621cea [BUGFIX] Do not treat form element grid column as section
+
+## Contributors
+
+- Benjamin Kott
+- Marvin Buchmann
+
 # 15.0.2
 
 ## BUGFIX
