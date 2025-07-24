@@ -9,7 +9,7 @@ jobs:
   publish:
     name: Publish new version to TER
     if: startsWith(github.ref, 'refs/tags/') && (github.repository == 'benjaminkott/bootstrap_package')
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TYPO3_EXTENSION_KEY: ${{ secrets.TYPO3_EXTENSION_KEY }}
       TYPO3_API_TOKEN: ${{ secrets.TYPO3_API_TOKEN }}
