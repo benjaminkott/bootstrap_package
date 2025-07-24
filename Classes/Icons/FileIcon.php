@@ -54,6 +54,8 @@ class FileIcon extends AbstractIcon
             $image = $imageService->getImage('', $this->file, false);
             $height = $this->getHeight();
             $width = $this->getWidth();
+            $title = $this->getTitle();
+            $alt = $this->getAlternative();    
 
             if ($image->getExtension() === 'svg') {
                 return SvgUtility::getInlineSvg('', $image, $width, $height);
@@ -66,7 +68,7 @@ class FileIcon extends AbstractIcon
             $processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
             $imageUri = $imageService->getImageUri($processedImage);
 
-            return '<img loading="lazy" src="' . $imageUri . '" height="' . $height . '" width="' . $width . '" aria-hidden="true" />';
+            return '<img title="' . $title . '" alt=" . $alt . " loading="lazy" src="' . $imageUri . '" height="' . $height . '" width="' . $width . '" aria-hidden="true" />';
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist
             throw new \Exception($e->getMessage(), 1628773040, $e);
