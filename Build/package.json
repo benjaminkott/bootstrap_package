@@ -6,6 +6,10 @@
   "homepage": "http://www.bk2k.info",
   "author": "Benjamin Kott",
   "license": "MIT",
+  "engines": {
+    "node": "^22.0.0",
+    "npm": "^10.9.0"
+  },
   "devDependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap5": "npm:bootstrap@^5.3.3",
