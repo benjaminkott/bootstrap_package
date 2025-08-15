@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     /**
      * Grunt task to remove source map comment
      */
-    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemp comment from files', function() {
+    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemap comment from files', function() {
         var done = this.async(),
             files = this.filesSrc.filter(function (file) {
                 return grunt.file.isFile(file);
