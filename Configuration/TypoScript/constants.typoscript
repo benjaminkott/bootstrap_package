@@ -273,6 +273,12 @@ page {
                     # cat=bootstrap package: social media/165/rss_url; type=string; label=RSS Url: Insert the full url
                     url =
                 }
+                discord {
+                    # cat=bootstrap package: social media/165/discord_label; type=string; label=Discord Label: Insert the label
+                    label = Discord
+                    # cat=bootstrap package: social media/165/discord_url; type=string; label=Discord Url: Insert the full server url
+                    url =
+                }
             }
         }
 

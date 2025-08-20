@@ -640,6 +640,19 @@ settings:
     type: string
     default: ''
 
+  page.theme.socialmedia.channels.discord.label:
+    label: 'Discord Label'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: 'Discord'
+
+  page.theme.socialmedia.channels.discord.url:
+    label: 'Discord Url'
+    description: 'Insert the full server url'
+    category: BootstrapPackage.socialmedia
+    type: string
+    default: ''
+
   # Template Page
   page.fluidtemplate.layoutRootPath:
     label: 'Layout Root Path'
