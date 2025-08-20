@@ -18,7 +18,6 @@ $scrolltop-hover-color: #ffffff !default;
     --scrolltop-hover-bg: #{$scrolltop-hover-bg};
     --scrolltop-hover-color: #{$scrolltop-hover-color};
     overflow: hidden;
-    @include transition(all .3s ease-in-out);
     z-index: var(--scrolltop-zindex);
     background-color: var(--scrolltop-bg);
     color: var(--scrolltop-color);
@@ -28,6 +27,7 @@ $scrolltop-hover-color: #ffffff !default;
     opacity: 0;
     width: 3em;
     height: 3em;
+    @include transition(all .3s ease-in-out);
     @include border-radius(4px);
     &:active,
     &:focus,
