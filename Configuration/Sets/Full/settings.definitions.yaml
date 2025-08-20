@@ -673,8 +673,8 @@ settings:
     type: string
     default: 'index,follow'
 
-  page.meta.apple-mobile-web-app-capable:
-    label: 'apple-mobile-web-app-capable'
+  page.meta.mobile-web-app-capable:
+    label: 'mobile-web-app-capable'
     category: BootstrapPackage.meta
     type: string
     default: 'no'
