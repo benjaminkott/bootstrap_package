@@ -30,7 +30,7 @@
                     <f:variable name="srcset">{srcset}{sizeUrl} {sizeKey}{f:if(condition: iteration.isLast, else: ',')}</f:variable>
                 </f:for>
             </f:if>
-            <source data-variant="{name}" {f:if(condition: sizeHeight, then: 'data-width="{width}" data-height="{sizeHeight}"', else: 'data-maxwidth="{width}"')} {mediaQuery->f:format.raw()} srcset="{srcset}">
+            <source data-variant="{name}" {f:if(condition: sizeHeight, then: 'data-width="{width}" data-height="{sizeHeight}"', else: 'data-maxwidth="{width}"')} {mediaQuery -> f:format.raw()} srcset="{srcset}">
         </f:if>
     </f:for>
     <f:variable name="defaultWidth" value="{variants.default.width}" />
