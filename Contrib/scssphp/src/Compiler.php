@@ -3069,7 +3069,7 @@ class Compiler
                                 $divider = $this->reduce($divider, true);
                             }
 
-                            if ($divider instanceof Number && \intval($divider->getDimension()) && $divider->unitless()) {
+                            if ($divider instanceof Number && (int)($divider->getDimension()) && $divider->unitless()) {
                                 $revert = false;
                             }
                         }
@@ -3093,7 +3093,7 @@ class Compiler
                                                 $divider = $this->reduce($divider, true);
                                             }
 
-                                            if ($divider instanceof Number && \intval($divider->getDimension()) && $divider->unitless()) {
+                                            if ($divider instanceof Number && (int)($divider->getDimension()) && $divider->unitless()) {
                                                 $revert = false;
                                             }
                                         }
@@ -7572,11 +7572,11 @@ EOL;
     public function assertInteger($value, $varName = null)
     {
         $value = $this->assertNumber($value, $varName)->getDimension();
-        if (round($value - \intval($value), Number::PRECISION) > 0) {
+        if (round($value - (int)($value), Number::PRECISION) > 0) {
             throw SassScriptException::forArgument("$value is not an integer.", $varName);
         }
 
-        return intval($value);
+        return (int)($value);
     }
 
     /**

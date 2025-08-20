@@ -69,8 +69,8 @@ class BackendLayoutUpdate extends AbstractUpdate implements UpgradeWizardInterfa
             $this->updateRecord(
                 (int) $record['uid'],
                 [
-                    'backend_layout' => $this->mapValues(strval($record['backend_layout'])),
-                    'backend_layout_next_level' => $this->mapValues(strval($record['backend_layout_next_level'])),
+                    'backend_layout' => $this->mapValues((string)($record['backend_layout'])),
+                    'backend_layout_next_level' => $this->mapValues((string)($record['backend_layout_next_level'])),
                 ]
             );
         }
