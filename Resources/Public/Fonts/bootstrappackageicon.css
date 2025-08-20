@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?2d9dbddbaa4deb2a1cec95afcb1b65b0#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?2d9dbddbaa4deb2a1cec95afcb1b65b0") format("woff2"),
-url("./bootstrappackageicon.woff?2d9dbddbaa4deb2a1cec95afcb1b65b0") format("woff"),
-url("./bootstrappackageicon.ttf?2d9dbddbaa4deb2a1cec95afcb1b65b0") format("truetype");
+    src: url("./bootstrappackageicon.eot?743665d9b04ad478870bc28f05cbba60#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?743665d9b04ad478870bc28f05cbba60") format("woff2"),
+url("./bootstrappackageicon.woff?743665d9b04ad478870bc28f05cbba60") format("woff"),
+url("./bootstrappackageicon.ttf?743665d9b04ad478870bc28f05cbba60") format("truetype");
     font-display: swap;
 }
 
@@ -36,3 +36,7 @@ url("./bootstrappackageicon.ttf?2d9dbddbaa4deb2a1cec95afcb1b65b0") format("truet
 .bootstrappackageicon-x::before { content: "\f110"; }
 .bootstrappackageicon-telegram::before { content: "\f10a"; }
 .bootstrappackageicon-threads::before { content: "\f111"; }
+.bootstrappackageicon-bluesky::before { content: "\f112"; }
+.bootstrappackageicon-mastodon::before { content: "\f113"; }
+.bootstrappackageicon-researchgate::before { content: "\f114"; }
+.bootstrappackageicon-whatsapp::before { content: "\f115"; }

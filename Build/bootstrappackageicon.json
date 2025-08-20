@@ -14,5 +14,9 @@
     "rss": 61711,
     "x": 61712,
     "telegram": 61706,
-    "threads": 61713
+    "threads": 61713,
+    "bluesky": 61714,
+    "mastodon": 61715,
+    "researchgate": 61716,
+    "whatsapp": 61717
 }
