@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?743665d9b04ad478870bc28f05cbba60#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?743665d9b04ad478870bc28f05cbba60") format("woff2"),
-url("./bootstrappackageicon.woff?743665d9b04ad478870bc28f05cbba60") format("woff"),
-url("./bootstrappackageicon.ttf?743665d9b04ad478870bc28f05cbba60") format("truetype");
+    src: url("./bootstrappackageicon.eot?36f5a2a7c60a80be7a3f06137316fc7a#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?36f5a2a7c60a80be7a3f06137316fc7a") format("woff2"),
+url("./bootstrappackageicon.woff?36f5a2a7c60a80be7a3f06137316fc7a") format("woff"),
+url("./bootstrappackageicon.ttf?36f5a2a7c60a80be7a3f06137316fc7a") format("truetype");
     font-display: swap;
 }
 
@@ -40,3 +40,4 @@ url("./bootstrappackageicon.ttf?743665d9b04ad478870bc28f05cbba60") format("truet
 .bootstrappackageicon-mastodon::before { content: "\f113"; }
 .bootstrappackageicon-researchgate::before { content: "\f114"; }
 .bootstrappackageicon-whatsapp::before { content: "\f115"; }
+.bootstrappackageicon-discord::before { content: "\f107"; }
