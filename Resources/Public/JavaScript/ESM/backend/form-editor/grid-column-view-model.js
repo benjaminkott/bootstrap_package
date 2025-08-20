@@ -32,7 +32,7 @@ function subscribeEvents(formEditorApp) {
      */
     getPublisherSubscriber(formEditorApp).subscribe('view/stage/abstract/render/template/perform', function (topic, args) {
         if (args[0].get('type') === 'GridColumn') {
-            StageComponent.renderCheckboxTemplate(args[0], args[1]);
+            StageComponent.renderSimpleTemplate(args[0], args[1]);
         }
     });
 }

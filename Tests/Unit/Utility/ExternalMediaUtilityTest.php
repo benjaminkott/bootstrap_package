@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Tests\Unit\Utility;
 
 use BK2K\BootstrapPackage\Utility\ExternalMediaUtility;
+use PHPUnit\Framework\Attributes\DataProvider;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -17,15 +18,8 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class ExternalMediaUtilityTest extends UnitTestCase
 {
-    /**
-     * @param string $url
-     * @param string $class
-     * @param string $title
-     * @param string $expectedResult
-     * @dataProvider getEmbedCodeDataProvider
-     * @test
-     */
-    public function getEmbedCode(?string $url, ?string $class, ?string $title, $expectedResult): void
+    #[DataProvider('getEmbedCodeDataProvider')]
+    public function testGetEmbedCode(?string $url, ?string $class, ?string $title, ?string $expectedResult): void
     {
         self::assertSame($expectedResult, (new ExternalMediaUtility())->getEmbedCode($url, $class, $title));
     }
