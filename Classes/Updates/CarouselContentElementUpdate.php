@@ -46,8 +46,8 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
             $this->updateRecord(
                 (int) $record['uid'],
                 [
-                    'layout' => $this->resetLayout(intval($record['layout'])),
-                    'CType' => $this->mapValues(intval($record['layout'])),
+                    'layout' => $this->resetLayout((int)($record['layout'])),
+                    'CType' => $this->mapValues((int)($record['layout'])),
                 ]
             );
         }

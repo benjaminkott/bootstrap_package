@@ -45,7 +45,7 @@ class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInte
         foreach ($records as $record) {
             $this->updateRecord(
                 (int) $record['uid'],
-                ['item_type' => $this->mapValues(strval($record['item_type']))]
+                ['item_type' => $this->mapValues((string)($record['item_type']))]
             );
         }
 

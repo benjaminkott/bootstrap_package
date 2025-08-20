@@ -48,7 +48,7 @@ class PanelContentElementUpdate extends AbstractUpdate implements UpgradeWizardI
                 [
                     'CType' => 'panel',
                     'layout' => '0',
-                    'panel_class' => $this->mapValues(intval($record['layout'])),
+                    'panel_class' => $this->mapValues((int)($record['layout'])),
                 ]
             );
         }

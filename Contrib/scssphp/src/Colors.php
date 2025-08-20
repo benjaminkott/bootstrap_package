@@ -231,15 +231,15 @@ class Colors
 
                 if (
                     \count($rgb_str) == 3 &&
-                    ! isset($reverseColorTable[\intval($rgb_str[0])][\intval($rgb_str[1])][\intval($rgb_str[2])])
+                    ! isset($reverseColorTable[(int)($rgb_str[0])][(int)($rgb_str[1])][(int)($rgb_str[2])])
                 ) {
-                    $reverseColorTable[\intval($rgb_str[0])][\intval($rgb_str[1])][\intval($rgb_str[2])] = $name;
+                    $reverseColorTable[(int)($rgb_str[0])][(int)($rgb_str[1])][(int)($rgb_str[2])] = $name;
                 }
             }
         }
 
-        if (isset($reverseColorTable[\intval($r)][\intval($g)][\intval($b)])) {
-            return $reverseColorTable[\intval($r)][\intval($g)][\intval($b)];
+        if (isset($reverseColorTable[(int)($r)][(int)($g)][(int)($b)])) {
+            return $reverseColorTable[(int)($r)][(int)($g)][(int)($b)];
         }
 
         return null;

@@ -63,9 +63,9 @@ class SvgUtility
             // Override attributes
             $class = htmlspecialchars($class ?? '');
             $svgElement = self::setAttribute($svgElement, 'class', $class);
-            $width = intval($width) > 0 ? (string) intval($width) : null;
+            $width = (int)($width) > 0 ? (string) (int)($width) : null;
             $svgElement = self::setAttribute($svgElement, 'width', $width);
-            $height = intval($height) > 0 ? (string) intval($height) : null;
+            $height = (int)($height) > 0 ? (string) (int)($height) : null;
             $svgElement = self::setAttribute($svgElement, 'height', $height);
             $svgElement = self::setAttribute($svgElement, 'aria-hidden', 'true');
 

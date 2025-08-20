@@ -51,7 +51,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
                 (int) $record['uid'],
                 [
                     'section_frame' => '0',
-                    'frame_class' => $this->mapSectionFrame(intval($record['section_frame'])),
+                    'frame_class' => $this->mapSectionFrame((int)($record['section_frame'])),
                 ]
             );
         }

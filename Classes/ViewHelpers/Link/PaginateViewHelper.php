@@ -67,7 +67,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
                     $linkResult = $linkFactory->create('', $typolinkConfiguration, $contentObjectRenderer);
                     return $this->renderLink($linkResult->getUrl());
                 } catch (UnableToLinkException $e) {
-                    return strval($this->renderChildren());
+                    return (string)($this->renderChildren());
                 }
             }
         }
@@ -80,7 +80,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
 
     protected function renderLink(string $uri): string
     {
-        $content = strval($this->renderChildren());
+        $content = (string)($this->renderChildren());
         if (trim($uri) === '') {
             return $content;
         }
