@@ -1,3 +1,24 @@
+# 15.0.4
+
+## FEATURE
+
+- 8f9e374b [FEATURE] Add bluesky, discord, mastodon, researchgate and whatsapp to social media (#1564)
+
+## TASK
+
+- 9b5a1b2d [TASK] Use type cast (#1589)
+- 51400500 [TASK] Replace deprecated apple-mobile-web-app-capable with mobile-web-app-capable meta tag (#1563)
+- b75f9a99 [TASK] Format InlineViewHelper correctly (#1570)
+- ad2aa3f7 [TASK] Update node dependencies and bootstrap (#1587)
+- 0037e17d [TASK] Run publish on ubuntu-latest
+
+## Contributors
+
+- Benjamin Kott
+- Patrick Lenk
+- Simon Schaufelberger
+- Simon Woll
+
 # 15.0.3
 
 ## FEATURE
