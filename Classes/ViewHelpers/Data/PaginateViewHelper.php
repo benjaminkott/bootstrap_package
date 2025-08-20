@@ -53,7 +53,7 @@ class PaginateViewHelper extends AbstractViewHelper
         $request = $this->getRequestFromRenderingContext($renderingContext);
         if ($request !== null) {
             $objects = $this->arguments['objects'];
-            if (!($objects instanceof QueryResultInterface || is_array($objects))) {
+            if (!$objects instanceof QueryResultInterface && !is_array($objects)) {
                 throw new \UnexpectedValueException('Supplied file object type ' . get_class($objects) . ' must be QueryResultInterface or be an array.', 1623322979);
             }
 
