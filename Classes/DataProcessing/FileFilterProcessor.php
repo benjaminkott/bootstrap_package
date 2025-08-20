@@ -79,7 +79,7 @@ class FileFilterProcessor implements DataProcessorInterface
         $predefinedList = (string) $cObj->stdWrapValue('predefinedList', $processorConfiguration, 'image');
         $allowedFileExtensions = isset($predefinedLists[$predefinedList]) ? $predefinedLists[$predefinedList] : '';
         $allowedFileExtensions = GeneralUtility::trimExplode(',', (string) $cObj->stdWrapValue('allowedFileExtensions', $processorConfiguration, $allowedFileExtensions));
-        if (count($allowedFileExtensions) === 0) {
+        if ($allowedFileExtensions === []) {
             return $processedData;
         }
 
