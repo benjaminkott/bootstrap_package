@@ -355,10 +355,10 @@ $frame-backgrounds: map-merge(
 }
 .frame-backgroundimage-parallax {
     background-attachment: fixed;
+    background-repeat: no-repeat;
     @media (hover: none) {
         background-attachment: initial;
     }
-    background-repeat: no-repeat;
 }
 .frame-backgroundimage-blur {
     filter: blur(10px);

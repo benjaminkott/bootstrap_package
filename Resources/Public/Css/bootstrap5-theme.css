@@ -13306,7 +13306,6 @@ fieldset.form-group > *:last-child {
 }
 
 .navbar-mainnavigation {
-  --mainnavigation-nav-height: 70px;
   --mainnavigation-hightlight: #577760;
   --mainnavigation-nav-spacing-y: 1px;
   --mainnavigation-nav-spacing-x: .75em;
@@ -13315,16 +13314,17 @@ fieldset.form-group > *:last-child {
   --mainnavigation-link-padding-y: .5rem;
   --mainnavigation-link-padding-x: .75rem;
   --mainnavigation-link-height: calc((var(--mainnavigation-link-padding-y) * 2) + (var(--mainnavigation-link-line-height) * var(--mainnavigation-link-font-size)));
-  --mainnavigation-dropdown-spacer: 0;
   --mainnavigation-dropdown-column-spacing: 1px;
   --mainnavigation-dropdown-column-min-width: 220px;
   --mainnavigation-dropdown-padding-y: 1rem;
   --mainnavigation-dropdown-padding-x: 1rem;
   --mainnavigation-dropdown-link-padding-y: .2rem;
   --mainnavigation-dropdown-link-padding-x: .5rem;
+  --mainnavigation-dropdown-spacer: 0;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
   padding-top: calc((var(--mainnavigation-nav-height) - var(--mainnavigation-link-height)) / 2);
   padding-bottom: calc((var(--mainnavigation-nav-height) - var(--mainnavigation-link-height)) / 2);
+  --mainnavigation-nav-height: 70px;
 }
 @media (min-width: 576px) {
   .navbar-mainnavigation {
@@ -16717,7 +16717,6 @@ nav > .pagination {
   --scrolltop-hover-bg: #577760;
   --scrolltop-hover-color: #ffffff;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
   z-index: var(--scrolltop-zindex);
   background-color: var(--scrolltop-bg);
   color: var(--scrolltop-color);
@@ -16727,6 +16726,7 @@ nav > .pagination {
   opacity: 0;
   width: 3em;
   height: 3em;
+  transition: all 0.3s ease-in-out;
   border-radius: 4px;
 }
 @media (prefers-reduced-motion: reduce) {

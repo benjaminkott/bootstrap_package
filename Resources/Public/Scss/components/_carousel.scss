@@ -168,10 +168,10 @@ $carousel-item-layouts: map-merge(
     }
     .carousel-backgroundimage-parallax {
         background-attachment: fixed;
+        background-repeat: no-repeat;
         @media (hover: none) {
             background-attachment: initial;
         }
-        background-repeat: no-repeat;
     }
     .carousel-backgroundimage-blur {
         filter: blur(10px);
