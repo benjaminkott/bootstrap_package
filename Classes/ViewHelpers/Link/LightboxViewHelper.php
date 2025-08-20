@@ -72,12 +72,12 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
             $imageUri = $imageService->getImageUri($processedImage, isset($this->arguments['absolute']) ? $this->arguments['absolute'] : false);
 
             $this->tag->addAttribute('href', $imageUri);
-            $this->tag->addAttribute('data-lightbox-width', $processedImage->getProperty('width') !== null ? strval($processedImage->getProperty('width')) : null);
-            $this->tag->addAttribute('data-lightbox-height', $processedImage->getProperty('height') !== null ? strval($processedImage->getProperty('height')) : null);
+            $this->tag->addAttribute('data-lightbox-width', $processedImage->getProperty('width') !== null ? (string)($processedImage->getProperty('width')) : null);
+            $this->tag->addAttribute('data-lightbox-height', $processedImage->getProperty('height') !== null ? (string)($processedImage->getProperty('height')) : null);
             $this->tag->addAttribute('data-lightbox-title', isset($this->arguments['lightbox-title']) ? $this->arguments['lightbox-title'] : null);
             $this->tag->addAttribute('data-lightbox-alt', isset($this->arguments['lightbox-alt']) ? $this->arguments['lightbox-alt'] : null);
             $this->tag->addAttribute('data-lightbox-caption', isset($this->arguments['lightbox-caption']) ? $this->arguments['lightbox-caption'] : null);
-            $this->tag->setContent(strval($this->renderChildren()));
+            $this->tag->setContent((string)($this->renderChildren()));
             $this->tag->forceClosingTag(true);
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist

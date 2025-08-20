@@ -59,7 +59,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
         $records = $this->getRecordsByCriteria($queryBuilder, $criteria);
 
         foreach ($records as $record) {
-            if (null !== $newValue = $this->mapValues(strval($record[$this->field]))) {
+            if (null !== $newValue = $this->mapValues((string)($record[$this->field]))) {
                 $this->updateRecord(
                     (int) $record['uid'],
                     [
