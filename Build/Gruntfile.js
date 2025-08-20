@@ -1,12 +1,16 @@
 const sass = require('sass');
 const fantasticon = require('fantasticon');
+const sharp = require('sharp');
+const { optimize } = require('svgo');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = function(grunt) {
 
     /**
      * Grunt task to remove source map comment
      */
-    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemp comment from files', function() {
+    grunt.registerMultiTask('removesourcemap', 'Grunt task to remove sourcemap comment from files', function() {
         var done = this.async(),
             files = this.filesSrc.filter(function (file) {
                 return grunt.file.isFile(file);
@@ -40,6 +44,106 @@ module.exports = function(grunt) {
                 grunt.log.error(error);
             }
         );
+    });
+
+    /**
+     * Grunt task for image optimization using Sharp
+     */
+    grunt.registerMultiTask('optimizeImages', 'Optimize raster images using Sharp', function() {
+        var done = this.async(),
+            totalFiles = 0,
+            processedFiles = 0;
+
+        // Count total files first
+        this.files.forEach(function (file) {
+            totalFiles += file.src.length;
+        });
+
+        if (totalFiles === 0) {
+            done(true);
+            return;
+        }
+
+        this.files.forEach(function (file) {
+            file.src.forEach(async function (filepath) {
+                try {
+                    const ext = filepath.split('.').pop().toLowerCase();
+                    if (['png', 'jpg', 'jpeg', 'gif'].includes(ext)) {
+                        const tempPath = filepath + '.tmp';
+                        const sharpInstance = sharp(filepath);
+
+                        if (ext === 'png') {
+                            await sharpInstance.png({ compressionLevel: 9, progressive: true }).toFile(tempPath);
+                        } else if (['jpg', 'jpeg'].includes(ext)) {
+                            await sharpInstance.jpeg({ quality: 80, progressive: true }).toFile(tempPath);
+                        } else if (ext === 'gif') {
+                            await sharpInstance.gif({ progressive: true }).toFile(tempPath);
+                        }
+
+                        // Replace original with optimized version
+                        fs.copyFileSync(tempPath, filepath);
+                        fs.unlinkSync(tempPath);
+                        grunt.log.success('Optimized: ' + filepath);
+                    }
+                    processedFiles++;
+                    if (processedFiles >= totalFiles) done(true);
+                } catch (error) {
+                    grunt.log.error('Error optimizing ' + filepath + ': ' + error.message);
+                    processedFiles++;
+                    if (processedFiles >= totalFiles) done(false);
+                }
+            });
+        });
+    });
+
+    /**
+     * Grunt task for SVG optimization using SVGO
+     */
+    grunt.registerMultiTask('optimizeSVG', 'Optimize SVG images using SVGO', function() {
+        var done = this.async(),
+            totalFiles = 0,
+            processedFiles = 0;
+
+        // Count total files first
+        this.files.forEach(function (file) {
+            totalFiles += file.src.length;
+        });
+
+        if (totalFiles === 0) {
+            done(true);
+            return;
+        }
+
+        this.files.forEach(function (file) {
+            file.src.forEach(function (filepath) {
+                try {
+                    if (filepath.endsWith('.svg')) {
+                        const svgContent = grunt.file.read(filepath);
+                        const result = optimize(svgContent, {
+                            plugins: [
+                                {
+                                    name: 'preset-default',
+                                    params: {
+                                        overrides: {
+                                            removeViewBox: false,
+                                            collapseGroups: false
+                                        }
+                                    }
+                                }
+                            ]
+                        });
+                        grunt.file.write(filepath, result.data);
+                        grunt.log.success('Optimized SVG: ' + filepath);
+                    }
+                    processedFiles++;
+                    if (processedFiles >= totalFiles) done(true);
+                } catch (error) {
+                    grunt.log.error('Error optimizing SVG ' + filepath + ': ' + error.message);
+                    processedFiles++;
+                    if (processedFiles >= totalFiles) done(false);
+                }
+            });
+        });
     });
 
     /**
@@ -153,33 +257,44 @@ module.exports = function(grunt) {
                 }
             },
         },
-        imagemin: {
+        optimizeImages: {
             images: {
-                options: {
-                    svgoPlugins: [{
-                        removeViewBox: false
-                    }]
-                },
                 files: [
                     {
                         cwd: '<%= paths.images %>',
-                        src: ['**/*.{png,jpg,gif,svg}'],
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
                         dest: '<%= paths.images %>',
                         expand: true
                     }
                 ]
             },
             icons: {
-                options: {
-                    svgoPlugins: [{
-                        collapseGroups: false,
-                        removeViewBox: false,
-                    }]
-                },
                 files: [
                     {
                         cwd: '<%= paths.icons %>',
-                        src: ['**/*.{png,jpg,gif,svg}'],
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        dest: '<%= paths.icons %>',
+                        expand: true
+                    }
+                ]
+            }
+        },
+        optimizeSVG: {
+            images: {
+                files: [
+                    {
+                        cwd: '<%= paths.images %>',
+                        src: ['**/*.svg'],
+                        dest: '<%= paths.images %>',
+                        expand: true
+                    }
+                ]
+            },
+            icons: {
+                files: [
+                    {
+                        cwd: '<%= paths.icons %>',
+                        src: ['**/*.svg'],
                         dest: '<%= paths.icons %>',
                         expand: true
                     }
@@ -314,7 +429,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-stylelint');
 
@@ -325,9 +439,9 @@ module.exports = function(grunt) {
     grunt.registerTask('icon', ['webfont', 'cssmin:bootstrappackageicon']);
     grunt.registerTask('css', ['sass', 'cssmin']);
     grunt.registerTask('js', ['uglify', 'removesourcemap']);
-    grunt.registerTask('image', ['imagemin']);
+    grunt.registerTask('image', ['optimizeImages', 'optimizeSVG']);
     grunt.registerTask('lint', ['stylelint']);
-    grunt.registerTask('build', ['update', 'lint', 'webfont', 'css', 'js', 'image']);
+    grunt.registerTask('build', ['update', 'image', 'lint', 'webfont', 'css', 'js']);
     grunt.registerTask('default', ['build']);
 
 };

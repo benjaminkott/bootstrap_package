@@ -1,0 +1,109 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/200_content_element_accordion.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/203_content_element_card_group.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/204_content_element_carousel.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/205_content_element_carousel_small.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/206_content_element_carousel_fullscreen.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/210_content_element_icon_group.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/214_content_element_menu_card_list.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/215_content_element_menu_card_dir.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/216_content_element_menu_thumbnail_list.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/217_content_element_menu_thumbnail_dir.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/221_content_element_tab.php
+
+		-
+			message: '''
+				#^Call to deprecated method addPiFlexFormValue\(\) of class TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility\:
+				Will be removed in TYPO3 v15$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: ../Configuration/TCA/Overrides/229_content_element_timeline.php

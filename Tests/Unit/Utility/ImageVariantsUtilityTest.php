@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Tests\Unit\Utility;
 
 use BK2K\BootstrapPackage\Utility\ImageVariantsUtility;
+use PHPUnit\Framework\Attributes\DataProvider;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -17,13 +18,8 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class ImageVariantsUtilityTest extends UnitTestCase
 {
-    /**
-     * @param array $data
-     * @param array $expectedResult
-     * @dataProvider getImageVariantsTestDataProvider
-     * @test
-     */
-    public function getImageVariantsTest(array $data, array $expectedResult): void
+    #[DataProvider('getImageVariantsTestDataProvider')]
+    public function testGetImageVariantsTest(array $data, array $expectedResult): void
     {
         $variants = isset($data['variants']) ? $data['variants'] : null;
         $multiplier = isset($data['multiplier']) ? $data['multiplier'] : null;
@@ -930,13 +926,8 @@ class ImageVariantsUtilityTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @param array $data
-     * @param array $expectedResult
-     * @dataProvider getStackedImageVariantsTestDataProvider
-     * @test
-     */
-    public function getStackedImageVariantsTest(array $data, array $expectedResult): void
+    #[DataProvider('getStackedImageVariantsTestDataProvider')]
+    public function testGetStackedImageVariantsTest(array $data, array $expectedResult): void
     {
         $result = null;
         foreach ($data as $datasetKey => $datasetConfig) {
@@ -1039,13 +1030,8 @@ class ImageVariantsUtilityTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @param mixed $input
-     * @param bool $expectedResult
-     * @dataProvider isValidSizeKeyTestDataProvider
-     * @test
-     */
-    public function isValidSizeKeyTest($input, bool $expectedResult): void
+    #[DataProvider('isValidSizeKeyTestDataProvider')]
+    public function testIsValidSizeKeyTest(mixed $input, bool $expectedResult): void
     {
         $result = ImageVariantsUtility::isValidSizeKey($input);
         self::assertSame($expectedResult, $result);

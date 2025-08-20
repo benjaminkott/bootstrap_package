@@ -2,11 +2,6 @@
 // Main Navigation
 //
 .navbar-mainnavigation {
-    @each $breakpoint in map-keys($navbar-heights) {
-        @include media-breakpoint-up($breakpoint) {
-            --mainnavigation-nav-height: #{map-get($navbar-heights, $breakpoint)};
-        }
-    }
     --mainnavigation-hightlight: #{$primary};
     --mainnavigation-nav-spacing-y: 1px;
     --mainnavigation-nav-spacing-x: .75em;
@@ -15,22 +10,27 @@
     --mainnavigation-link-padding-y: .5rem;
     --mainnavigation-link-padding-x: .75rem;
     --mainnavigation-link-height: calc((var(--mainnavigation-link-padding-y) * 2) + (var(--mainnavigation-link-line-height) * var(--mainnavigation-link-font-size)));
-    @media (min-width: $grid-float-breakpoint) {
-        --mainnavigation-link-padding-x: .5em;
-    }
-    --mainnavigation-dropdown-spacer: 0;
-    @media (min-width: $grid-float-breakpoint) {
-        --mainnavigation-dropdown-spacer: .5rem;
-    }
     --mainnavigation-dropdown-column-spacing: 1px;
     --mainnavigation-dropdown-column-min-width: 220px;
     --mainnavigation-dropdown-padding-y: 1rem;
     --mainnavigation-dropdown-padding-x: 1rem;
     --mainnavigation-dropdown-link-padding-y: .2rem;
     --mainnavigation-dropdown-link-padding-x: .5rem;
+    --mainnavigation-dropdown-spacer: 0;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15);
     padding-top: calc((var(--mainnavigation-nav-height) - var(--mainnavigation-link-height)) / 2);
     padding-bottom: calc((var(--mainnavigation-nav-height) - var(--mainnavigation-link-height)) / 2);
+    @each $breakpoint in map-keys($navbar-heights) {
+        @include media-breakpoint-up($breakpoint) {
+            --mainnavigation-nav-height: #{map-get($navbar-heights, $breakpoint)};
+        }
+    }
+    @media (min-width: $grid-float-breakpoint) {
+        --mainnavigation-link-padding-x: .5em;
+    }
+    @media (min-width: $grid-float-breakpoint) {
+        --mainnavigation-dropdown-spacer: .5rem;
+    }
     .nav-item {
         display: flex;
         flex-wrap: wrap;

@@ -9,9 +9,12 @@
 
 namespace BK2K\BootstrapPackage\Icons;
 
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+
 /**
  * IconProviderInterface
  */
+#[AutoconfigureTag('bootstrapPackage.iconProvider')]
 interface IconProviderInterface
 {
     /**
