@@ -1,9 +1,9 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?36f5a2a7c60a80be7a3f06137316fc7a#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?36f5a2a7c60a80be7a3f06137316fc7a") format("woff2"),
-url("./bootstrappackageicon.woff?36f5a2a7c60a80be7a3f06137316fc7a") format("woff"),
-url("./bootstrappackageicon.ttf?36f5a2a7c60a80be7a3f06137316fc7a") format("truetype");
+    src: url("./bootstrappackageicon.eot?a70cd1eafe0cdb15d3b31f62a3d47e5e#iefix") format("embedded-opentype"),
+url("./bootstrappackageicon.woff2?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("woff2"),
+url("./bootstrappackageicon.woff?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("woff"),
+url("./bootstrappackageicon.ttf?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("truetype");
     font-display: swap;
 }
 
