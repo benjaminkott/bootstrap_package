@@ -47,7 +47,7 @@ class PaginateViewHelper extends AbstractViewHelper
         $this->registerArgument('configuration', 'array', 'configuration', false, ['itemsPerPage' => 10, 'insertAbove' => false, 'insertBelow' => true]);
     }
 
-    public function render(): mixed
+    public function render(): string
     {
         $renderingContext = $this->renderingContext;
         $request = $this->getRequestFromRenderingContext($renderingContext);
