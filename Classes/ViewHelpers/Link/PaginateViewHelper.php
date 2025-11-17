@@ -34,7 +34,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         $this->registerArgument('paginationPage', 'int', 'page', true);
     }
 
-    public function render(): mixed
+    public function render(): string
     {
         $paginationId = (string) $this->arguments['paginationId'];
         $paginationPage = (int) $this->arguments['paginationPage'];
