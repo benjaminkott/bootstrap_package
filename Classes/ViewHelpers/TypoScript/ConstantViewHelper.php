@@ -33,7 +33,7 @@ class ConstantViewHelper extends AbstractViewHelper
         $this->registerArgument('constant', 'string', 'TypoScript constant');
     }
 
-    public function render(): string
+    public function render(): mixed
     {
         $renderingContext = $this->renderingContext;
         $request = $this->getRequestFromRenderingContext($renderingContext);

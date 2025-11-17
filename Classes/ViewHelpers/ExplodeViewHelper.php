@@ -44,7 +44,7 @@ class ExplodeViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $data = $this->arguments['data'] ?? $this->renderChildren();
         if (!is_string($data)) {

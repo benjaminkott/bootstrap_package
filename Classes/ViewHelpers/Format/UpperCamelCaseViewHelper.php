@@ -19,7 +19,7 @@ class UpperCamelCaseViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         return str_replace(' ', '', ucwords(str_replace('_', ' ', strtolower($this->renderChildren()))));
     }

@@ -38,7 +38,7 @@ class ExternalMediaViewHelper extends AbstractViewHelper
      *
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $variableProvider = $this->renderingContext->getVariableProvider();
         $externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);

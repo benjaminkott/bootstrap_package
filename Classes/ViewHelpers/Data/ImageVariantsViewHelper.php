@@ -31,7 +31,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $variants = ImageVariantsUtility::getImageVariants($this->arguments['variants'] ?? null, $this->arguments['multiplier'] ?? null, $this->arguments['gutters'] ?? null, $this->arguments['corrections'] ?? null, $this->arguments['aspectRatio'] ?? null);
         $this->renderingContext->getVariableProvider()->add($this->arguments['as'], $variants);

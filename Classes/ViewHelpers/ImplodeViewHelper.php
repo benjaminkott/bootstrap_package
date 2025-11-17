@@ -40,7 +40,7 @@ class ImplodeViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $data = $this->arguments['data'] ?? $this->renderChildren();
         if (!is_array($data)) {

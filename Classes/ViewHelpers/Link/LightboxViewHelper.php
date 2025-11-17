@@ -44,7 +44,7 @@ class LightboxViewHelper extends AbstractTagBasedViewHelper
         $this->registerArgument('absolute', 'bool', 'Force absolute URL', false, false);
     }
 
-    public function render(): string
+    public function render(): mixed
     {
         try {
             $imageService = $this->getImageService();

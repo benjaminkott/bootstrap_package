@@ -20,7 +20,7 @@ class IsImageViewHelper extends AbstractViewHelper
     /**
      * @return bool
      */
-    public function render()
+    public function render(): mixed
     {
         $file = $this->renderChildren();
         $allowedFileExtensions = $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] ?? '';

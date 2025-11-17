@@ -35,7 +35,7 @@ class FalViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $variableProvider = $this->renderingContext->getVariableProvider();
         if (is_array($this->arguments['data']) && isset($this->arguments['data']['uid']) && isset($this->arguments['data'][$this->arguments['field']])) {
