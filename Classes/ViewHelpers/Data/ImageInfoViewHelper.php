@@ -38,7 +38,7 @@ class ImageInfoViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $src = $this->arguments['src'];
         $property = $this->arguments['property'];

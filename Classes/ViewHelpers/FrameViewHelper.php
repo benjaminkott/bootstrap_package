@@ -60,7 +60,7 @@ class FrameViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $configuration = $this->arguments;
         $configuration['type'] = trim((string) $configuration['type']) !== '' ? trim($configuration['type']) : 'default';

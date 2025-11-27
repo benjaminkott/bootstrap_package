@@ -31,7 +31,7 @@ class ImageVariantsViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $renderingContext = $this->renderingContext;
         if ($renderingContext === null) {

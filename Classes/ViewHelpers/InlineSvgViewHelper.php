@@ -35,7 +35,7 @@ class InlineSvgViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $src = (string)$this->arguments['src'];
         $image = $this->arguments['image'];

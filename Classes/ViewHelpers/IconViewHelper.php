@@ -32,7 +32,7 @@ class IconViewHelper extends AbstractViewHelper
     /**
      * @return string
      */
-    public function render()
+    public function render(): mixed
     {
         $icon = $this->arguments['icon'];
 
