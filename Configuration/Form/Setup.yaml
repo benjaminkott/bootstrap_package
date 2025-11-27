@@ -1,6 +1,3 @@
-imports:
-  - { resource: './FormElements/GridColumn.yaml' }
-
 TYPO3:
   CMS:
     Form:

@@ -123,9 +123,5 @@ return [
     'content-bootstrappackage-timeline-item' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         'source' => 'EXT:bootstrap_package/Resources/Public/Icons/ContentElements/timeline-item.svg',
-    ],
-    'form-bootstrappackage-gridcolumn' => [
-        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:bootstrap_package/Resources/Public/Icons/FormElements/gridcolumn.svg',
-    ],
+    ]
 ];
