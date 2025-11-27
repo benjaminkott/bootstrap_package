@@ -137,7 +137,7 @@ class ImageVariantsUtility
      */
     protected static function processVariants(array $variants): array
     {
-        $variants = count($variants) > 0 ? $variants : self::$defaultVariants;
+        $variants = $variants !== [] ? $variants : self::$defaultVariants;
         foreach ($variants as $variant => $properties) {
             if (!is_array($properties)) {
                 unset($variants[$variant]);
@@ -150,7 +150,8 @@ class ImageVariantsUtility
                 }
                 if ($key === 'sizes') {
                     continue;
-                } elseif ($key === 'aspectRatio') {
+                }
+                if ($key === 'aspectRatio') {
                     if (is_numeric($value) && $value > 0) {
                         $variants[$variant][$key] = (float) $value;
                     } else {
@@ -222,7 +223,7 @@ class ImageVariantsUtility
     protected static function processAspectRatio(array $variants, float $aspectRatio): array
     {
         if ($aspectRatio > 0) {
-            foreach ($variants as $variant => $value) {
+            foreach (array_keys($variants) as $variant) {
                 $variants[$variant]['aspectRatio'] = $aspectRatio;
             }
         }

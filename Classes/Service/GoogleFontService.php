@@ -61,9 +61,8 @@ class GoogleFontService
 
         if ($response->getStatusCode() >= 300) {
             return false;
-        } else {
-            $content = $response->getBody()->getContents();
         }
+        $content = $response->getBody()->getContents();
 
         // Ensure cache directory exists
         GeneralUtility::mkdir_deep($this->tempDirectory . '/' . $this->getCacheIdentifier($file));
@@ -81,9 +80,8 @@ class GoogleFontService
             $response = $requestFactory->request($fontFile);
             if ($response->getStatusCode() >= 300) {
                 continue;
-            } else {
-                $fontFileContent = $response->getBody()->getContents();
             }
+            $fontFileContent = $response->getBody()->getContents();
             file_put_contents($localFontFile, $fontFileContent);
             GeneralUtility::fixPermissions($localFontFile);
             $content = str_replace($fontFile, basename($fontFile), $content);

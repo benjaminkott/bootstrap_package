@@ -63,7 +63,7 @@ class IconWizard extends AbstractNode
         }
 
         $html = [];
-        if (count($selectIcons) > 0) {
+        if ($selectIcons !== []) {
             $html[] = '<div class="t3js-forms-select-single-icons form-wizard-icon-list">';
             foreach ($selectIcons as $selectIcon) {
                 $active = $selectIcon['active'] ? ' active' : '';

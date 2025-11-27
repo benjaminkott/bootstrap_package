@@ -105,7 +105,7 @@ class ScssParser extends AbstractParser
         // and the other one symlinked in e.g. `packages/`.
         // Since the PHP SCSS parser works on resolved real paths, the symlinked context is lost.
         $visualImportPath = dirname($absoluteFilename);
-        $scss->addImportPath(function ($url) use ($visualImportPath): ?string {
+        $scss->addImportPath(function (string $url) use ($visualImportPath): ?string {
             // Resolve potential back paths manually using PathUtility::getCanonicalPath,
             // but make sure we do not break out of TYPO3 application path using GeneralUtility::getFileAbsFileName
             // Also resolve EXT: paths if given

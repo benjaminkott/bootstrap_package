@@ -89,12 +89,7 @@ abstract class AbstractUpdate
     {
         $schemaManager = $this->getConnection()->createSchemaManager();
         $tableColumns = $schemaManager->listTableColumns($this->table);
-
-        if (array_key_exists($column, $tableColumns)) {
-            return true;
-        }
-
-        return false;
+        return array_key_exists($column, $tableColumns);
     }
 
     protected function createCreaterThanCriteria(QueryBuilder $queryBuilder, string $field, int $value): CreaterThanCriteria
