@@ -51,7 +51,7 @@ Build the frontend files
 ========================
 
 When you change any of the SCSS files, the combined and minified versions
-of the CSS have to be rebuild.
+of the CSS have to be rebuilt.
 
 You can run them like this:
 
@@ -62,7 +62,7 @@ You can run them like this:
    npm run build
 
 Then commit any changes to files in folder :file:`Resources/Public/Css`. If you
-ommit any of these steps the pipeline of the automatic checks fails for
+omit any of these steps the pipeline of the automatic checks fails for
 "build-frontend".
 
 
