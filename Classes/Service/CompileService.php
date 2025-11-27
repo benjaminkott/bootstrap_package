@@ -14,6 +14,7 @@ use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
  * This service handles the parsing of css files for the frontend.
@@ -116,6 +117,10 @@ class CompileService
         $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
         foreach ($constants as $constant => $value) {
             if (strpos($constant, $prefix) === 0) {
+                if (strpos($value, 'EXT:') === 0) {
+                    $publicResourcePath = PathUtility::getPublicResourceWebPath($value);
+                    $value = PathUtility::getCanonicalPath($publicResourcePath);
+                }
                 $variables[substr($constant, strlen($prefix))] = $value;
             }
         }
