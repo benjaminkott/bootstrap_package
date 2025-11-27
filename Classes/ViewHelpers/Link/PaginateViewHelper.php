@@ -46,6 +46,12 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         }
 
         $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:link.paginate needs a rendering context.',
+                1639819261
+            );
+        }
         $request = $this->getRequestFromRenderingContext($renderingContext);
         if ($request !== null) {
             $applicationType = ApplicationType::fromRequest($request);

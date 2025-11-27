@@ -1,0 +1,55 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/Data/ImageVariantsViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/Data/PaginateViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/ExplodeViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/ExternalMediaViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/FalViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/FrameViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/ImplodeViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/Link/PaginateViewHelper.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between TYPO3Fluid\\Fluid\\Core\\Rendering\\RenderingContextInterface and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../Classes/ViewHelpers/TypoScript/ConstantViewHelper.php

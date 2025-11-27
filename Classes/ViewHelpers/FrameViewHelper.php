@@ -200,11 +200,19 @@ class FrameViewHelper extends AbstractViewHelper
             }
         }
 
+        $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:frame needs a rendering context.',
+                1639819263
+            );
+        }
+
         return $this->viewFactory->create(new ViewFactoryData(
             templateRootPaths: $templateRootPaths,
             partialRootPaths: $partialRootPaths,
             layoutRootPaths: $layoutRootPaths,
-            request: $this->getRequestFromRenderingContext($this->renderingContext),
+            request: $this->getRequestFromRenderingContext($renderingContext),
         ));
     }
 

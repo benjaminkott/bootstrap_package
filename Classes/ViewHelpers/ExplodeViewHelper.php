@@ -46,12 +46,20 @@ class ExplodeViewHelper extends AbstractViewHelper
      */
     public function render()
     {
+        $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:explode needs a rendering context.',
+                1639819266
+            );
+        }
+
         $data = $this->arguments['data'] ?? $this->renderChildren();
         if (!is_string($data)) {
             return '';
         }
 
-        $variableProvider = $this->renderingContext->getVariableProvider();
+        $variableProvider = $renderingContext->getVariableProvider();
         $items = GeneralUtility::trimExplode($this->arguments['delimiter'], $data);
         $variableProvider->add($this->arguments['as'], $items);
 

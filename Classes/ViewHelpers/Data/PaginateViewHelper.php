@@ -50,6 +50,12 @@ class PaginateViewHelper extends AbstractViewHelper
     public function render(): string
     {
         $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:data.paginate needs a rendering context.',
+                1639819268
+            );
+        }
         $request = $this->getRequestFromRenderingContext($renderingContext);
         if ($request !== null) {
             $objects = $this->arguments['objects'];

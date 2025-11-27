@@ -37,7 +37,14 @@ class FalViewHelper extends AbstractViewHelper
      */
     public function render()
     {
-        $variableProvider = $this->renderingContext->getVariableProvider();
+        $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:fal needs a rendering context.',
+                1639819264
+            );
+        }
+        $variableProvider = $renderingContext->getVariableProvider();
         if (is_array($this->arguments['data']) && isset($this->arguments['data']['uid']) && isset($this->arguments['data'][$this->arguments['field']])) {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $items = $fileRepository->findByRelation(

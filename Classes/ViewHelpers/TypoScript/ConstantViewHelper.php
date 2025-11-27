@@ -36,6 +36,12 @@ class ConstantViewHelper extends AbstractViewHelper
     public function render(): string
     {
         $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:typoScript.constant needs a rendering context.',
+                1639819260
+            );
+        }
         $request = $this->getRequestFromRenderingContext($renderingContext);
         if ($request !== null) {
             $constant = $this->arguments['constant'] ?? '';
