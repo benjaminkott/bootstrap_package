@@ -306,11 +306,9 @@ page {
         robots = index,follow
         # cat=bootstrap package: meta data/120/120; type=string; label=mobile-web-app-capable
         mobile-web-app-capable = no
-        # cat=bootstrap package: meta data/120/130; type=string; label=compatible
-        compatible = IE=edge
-        # cat=bootstrap package: meta data/120/140; type=string; label=google
+        # cat=bootstrap package: meta data/120/130; type=string; label=google
         google = notranslate
-        # cat=bootstrap package: meta data/120/150; type=string; label=google-site-verification
+        # cat=bootstrap package: meta data/120/140; type=string; label=google-site-verification
         google-site-verification =
     }
 }
