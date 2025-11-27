@@ -67,11 +67,11 @@ class ImageVariantsUtility
         $variants = $variants !== null ? $variants : [];
         $variants = self::processVariants($variants);
         $variants = self::processResolutions($variants);
-        if ($gutters !== null) {
-            $variants = self::removeGutters($variants, $gutters);
-        }
         if ($multiplier !== null) {
             $variants = self::processMultiplier($variants, $multiplier);
+        }
+        if ($gutters !== null) {
+            $variants = self::removeGutters($variants, $gutters);
         }
         if ($corrections !== null) {
             $variants = self::processCorrections($variants, $corrections);
@@ -178,7 +178,7 @@ class ImageVariantsUtility
     {
         foreach ($gutters as $variant => $value) {
             if (is_numeric($value) && $value > 0 && isset($variants[$variant]['width'])) {
-                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - (float) $value);
+                $variants[$variant]['width'] = (int) ceil($variants[$variant]['width'] - ((float) $value / 2));
             }
         }
         return $variants;
