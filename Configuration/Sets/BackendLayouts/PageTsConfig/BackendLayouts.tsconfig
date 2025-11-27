@@ -1,2 +1,3 @@
-@import './BackendLayouts/'
-
+[!extensionConfiguration.isToggleEnabled('bootstrap_package', 'disablePageTsBackendLayouts')]
+    @import './BackendLayouts/'
+[end]
