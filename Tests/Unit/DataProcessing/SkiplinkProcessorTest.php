@@ -41,7 +41,7 @@ class SkiplinkProcessorTest extends UnitTestCase
     {
         $contentObjectRendererStub = $this->createMock(ContentObjectRenderer::class);
         $contentObjectRendererStub->method('stdWrapValue')->willReturnCallback(
-            fn(string $key, array $config): mixed => $config[$key] ?? ''
+            fn (string $key, array $config): mixed => $config[$key] ?? ''
         );
         $config = [
             'dataProcessing.' => [
