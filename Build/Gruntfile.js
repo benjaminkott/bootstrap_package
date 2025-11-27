@@ -125,8 +125,8 @@ module.exports = function(grunt) {
                                     name: 'preset-default',
                                     params: {
                                         overrides: {
-                                            removeViewBox: false,
-                                            collapseGroups: false
+                                            collapseGroups: false,
+                                            convertColors: false
                                         }
                                     }
                                 }
