@@ -42,15 +42,16 @@ class ContainerContextProcessor implements DataProcessorInterface
         return $processedData;
     }
 
-    public function getContainerContext(array $pageRecords, array $data, int $level = 1): array
+    public function getContainerContext(array $pageRecords, array $data): array
     {
         $containerContext = [];
         if (isset($data['tx_container_parent']) && isset($pageRecords[$data['tx_container_parent']])) {
             $parent = $pageRecords[$data['tx_container_parent']];
+            $parent['childColPos'] = $data['colPos'];
             $containerContext[] = $parent;
             $containerContext = array_merge(
                 $containerContext,
-                $this->getContainerContext($pageRecords, $parent, $level++)
+                $this->getContainerContext($pageRecords, $parent)
             );
         }
 
