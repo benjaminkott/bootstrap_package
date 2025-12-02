@@ -1,0 +1,100 @@
+categories:
+  BootstrapPackage:
+    label: 'Bootstrap Package'
+  BootstrapPackage.backendLayouts:
+    label: 'Backend Layouts'
+    parent: BootstrapPackage
+
+settings:
+
+  # Backend Layouts
+  backendlayout.default:
+    label: 'Enable Default Layout'
+    description: 'Enable the default backend layout with border, content before/after, main content and footer columns.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.simple:
+    label: 'Enable Simple Layout'
+    description: 'Enable the simple backend layout with border, content before/after and main content columns.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.2_columns:
+    label: 'Enable 2 Columns Layout'
+    description: 'Enable the 2 columns (75/25) backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.2_columns_25_75:
+    label: 'Enable 2 Columns 25/75 Layout'
+    description: 'Enable the 2 columns (25/75) backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.2_columns_50_50:
+    label: 'Enable 2 Columns 50/50 Layout'
+    description: 'Enable the 2 columns (50/50) backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.2_columns_offset_right:
+    label: 'Enable 2 Columns Offset Right Layout'
+    description: 'Enable the 2 columns offset right backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.3_columns:
+    label: 'Enable 3 Columns Layout'
+    description: 'Enable the 3 columns backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.special_feature:
+    label: 'Enable Special Feature Layout'
+    description: 'Enable the special feature backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.special_start:
+    label: 'Enable Special Start Layout'
+    description: 'Enable the special start backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.subnavigation_left:
+    label: 'Enable Subnavigation Left Layout'
+    description: 'Enable the subnavigation left backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.subnavigation_left_2_columns:
+    label: 'Enable Subnavigation Left 2 Columns Layout'
+    description: 'Enable the subnavigation left with 2 columns backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.subnavigation_right:
+    label: 'Enable Subnavigation Right Layout'
+    description: 'Enable the subnavigation right backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true
+
+  backendlayout.subnavigation_right_2_columns:
+    label: 'Enable Subnavigation Right 2 Columns Layout'
+    description: 'Enable the subnavigation right with 2 columns backend layout.'
+    category: BootstrapPackage.backendLayouts
+    type: bool
+    default: true

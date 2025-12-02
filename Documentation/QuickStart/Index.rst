@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+.. _quickstart:
+
 ===========
 Quick Start
 ===========
@@ -15,19 +17,17 @@ Follow these steps to get your Bootstrap package up and running quickly.
    :local:
 
 
-Disable default content rendering extensions
-============================================
+Disable default content rendering extension
+===========================================
 
-You do not need to have either `Fluid Styled Content`_ or `CSS Styled Content`_
-installed, we have currently marked both extensions as conflicting to avoid
-misconfiguration.
+You do not need to have `Fluid Styled Content`_ installed, we have marked this
+extension as conflicting to avoid misconfiguration.
 
 If you really know what you are doing, it is safe to use Core content rendering
 along with Bootstrap Package. But please note that we are adding more content
-elements that are not supported by these system extensions.
+elements that are not supported by this system extension.
 
 .. _Fluid Styled Content: https://extensions.typo3.org/extension/fluid_styled_content/
-.. _CSS Styled Content: https://extensions.typo3.org/extension/css_styled_content/
 
 
 Make sure you have a root page

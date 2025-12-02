@@ -14,13 +14,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['csv'] ?? false)) {
     $GLOBALS['TCA']['tt_content']['types']['csv'] = [];
 }
 
-// Add content element PageTSConfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Element/Csv.tsconfig',
-    'Bootstrap Package Content Element: CSV'
-);
-
 // Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',

@@ -14,13 +14,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['menu_card_list'] ?? false)
     $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = [];
 }
 
-// Add content element PageTSConfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Element/MenuCardList.tsconfig',
-    'Bootstrap Package Content Element: Menu Cards'
-);
-
 // Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',

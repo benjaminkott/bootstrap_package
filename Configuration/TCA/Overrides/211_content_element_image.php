@@ -9,13 +9,6 @@
 
 defined('TYPO3') or die('Access denied.');
 
-// Add content element PageTSConfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Element/Image.tsconfig',
-    'Bootstrap Package Content Element: Image'
-);
-
 // Add additional fields
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',

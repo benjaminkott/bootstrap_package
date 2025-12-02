@@ -14,13 +14,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['social_links'] ?? false)) 
     $GLOBALS['TCA']['tt_content']['types']['social_links'] = [];
 }
 
-// Add content element PageTSConfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Element/SocialLinks.tsconfig',
-    'Bootstrap Package Content Element: Social Links'
-);
-
 // Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',

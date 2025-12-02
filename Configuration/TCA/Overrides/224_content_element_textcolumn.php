@@ -14,13 +14,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['textcolumn'] ?? false)) {
     $GLOBALS['TCA']['tt_content']['types']['textcolumn'] = [];
 }
 
-// Add content element PageTSConfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/Element/Textcolumn.tsconfig',
-    'Bootstrap Package Content Element: Text in Columns'
-);
-
 // Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',

@@ -6,16 +6,30 @@
 Extension Configuration
 =======================
 
-Use the :ref:`Extension Manager <t3coreapi:extension-manager>` to adjust the
-Bootstrap Package to your needs.
+The Bootstrap Package provides extension configuration options that can be
+adjusted in the TYPO3 backend under :guilabel:`Admin Tools > Settings > Extension Configuration`.
 
-PageTsConfig
-============
 
-The Bootstrap Package has a lot of PageTsConfig defaults.
-In some cases it can be useful to deactivate some of them if you do not need
-them.
+Features
+========
 
-.. TODO:
-   All PageTsConfig properties should be listed here - as already done
-   with the sibling chapters "Image Rendering" and "TypoScript".
+.. confval:: disableCssProcessing
+   :name: extension-disableCssProcessing
+   :type: boolean
+   :default: false
+
+   Disable processing of CSS files.
+
+   .. warning::
+
+      If enabled, there will be no automatic processing of SCSS files in the
+      frontend. You will need to provide CSS files instead or handle the
+      processing of the SCSS files yourself.
+
+.. confval:: disableGoogleFontCaching
+   :name: extension-disableGoogleFontCaching
+   :type: boolean
+   :default: false
+
+   Disable local Google Font cache. If enabled, Google Fonts will not be cached
+   on the server.

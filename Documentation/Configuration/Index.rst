@@ -14,4 +14,4 @@ Configuration
 
    Extension/Index
    ImageRendering/Index
-   TypoScript/Index
+   Settings/Index

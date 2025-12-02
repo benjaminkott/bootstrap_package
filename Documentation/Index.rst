@@ -33,8 +33,8 @@ the Bootstrap CSS Framework.
 
 The goal of this package is also to give an advanced example of how modern
 templating in TYPO3 CMS can be handled nicely without depending on third party
-extensions. Bootstrap Package comes with a fully configurable Frontend via
-TypoScript. This includes the TypoScript Constant Editor.
+extensions. Bootstrap Package comes with a fully configurable frontend via
+Site Settings.
 
 ----
 
@@ -48,7 +48,6 @@ TypoScript. This includes the TypoScript Constant Editor.
    Installation/Index
    QuickStart/Index
    Configuration/Index
-   AdministratorManual/Index
    Contribution/Index
 
 .. Meta Menu

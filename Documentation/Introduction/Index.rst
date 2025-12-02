@@ -7,34 +7,51 @@ Introduction
 ============
 
 Bootstrap Package is a theme for TYPO3 CMS based on the
-`Bootstrap CSS Framework <https://getbootstrap.com/>`_ Version 5.1.
+`Bootstrap CSS Framework <https://getbootstrap.com/>`_.
 
 Features
 ========
 
-* Full configured TypoScript Setup provided as Static Template
-* Completely adjustable via TypoScript Constants
-* TYPO3 CMS rendering is adjusted to the needs of Bootstrap CSS Framework:
+* Full configured TypoScript Setup provided via Site Sets
+* Completely adjustable via Settings
+* Responsive image rendering with multiple variants
+* Built-in SCSS Parser
 
-  * Layouts for all Content Elements
-  * Section Frames
+  * All SCSS variables are configurable via Settings
+  * SCSS support in page.includeCSS property
 
 * Bootstrap specific Content Elements
 
   * Accordion
+  * Card Group
+  * Carousel (including Fullscreen and Small variants)
   * External Media
-  * Carousel
+  * Icon Group
   * List Group
+  * Panel
+  * Social Links
   * Tab
   * Text and Icon
+  * Text Columns
+  * Text Teaser
+  * Timeline
+  * Quote
 
-* Individual Page Layouts
-* Built-in Less Parser
+* Various Menu Content Elements
 
-  * All Variables are configurable via Constant Editor
-  * Less support in page.includeCSS property
+  * Card Menu
+  * Thumbnail Menu
+  * Section Menu
+  * and more
 
-* Backend Layouts via PageTsConfig
+* Multiple Backend Layouts
+
+  * Default, Simple
+  * 2 Columns (various variants)
+  * 3 Columns
+  * Subnavigation Left/Right
+  * Special Feature
+  * Special Start
 
 
 Screenshots

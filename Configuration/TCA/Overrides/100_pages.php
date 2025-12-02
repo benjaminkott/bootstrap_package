@@ -9,43 +9,6 @@
 
 defined('TYPO3') or die('Access denied.');
 
-// Register PageTS
-
-// BackendLayouts
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig',
-    'Bootstrap Package: Backend Layouts'
-);
-
-// RTE
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/RTE.tsconfig',
-    'Bootstrap Package: RTE'
-);
-
-// TCEMAIN
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/TCEMAIN.tsconfig',
-    'Bootstrap Package: TCEMAIN'
-);
-
-// TCEFORM
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/TCEFORM.tsconfig',
-    'Bootstrap Package: TCEFORM'
-);
-
-// Content Elements DONE
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-    'bootstrap_package',
-    'Configuration/TsConfig/Page/ContentElement/All.tsconfig',
-    'Bootstrap Package: All Content Elements'
-);
-
 // Register fields
 $GLOBALS['TCA']['pages']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['pages']['columns'],

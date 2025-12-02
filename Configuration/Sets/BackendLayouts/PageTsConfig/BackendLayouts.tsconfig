@@ -1,2 +1,51 @@
-@import './BackendLayouts/'
+[siteSetting("backendlayout.default", true) == true]
+    @import './BackendLayouts/default.tsconfig'
+[end]
 
+[siteSetting("backendlayout.simple", true) == true]
+    @import './BackendLayouts/simple.tsconfig'
+[end]
+
+[siteSetting("backendlayout.2_columns", true) == true]
+    @import './BackendLayouts/2_columns.tsconfig'
+[end]
+
+[siteSetting("backendlayout.2_columns_25_75", true) == true]
+    @import './BackendLayouts/2_columns_25_75.tsconfig'
+[end]
+
+[siteSetting("backendlayout.2_columns_50_50", true) == true]
+    @import './BackendLayouts/2_columns_50_50.tsconfig'
+[end]
+
+[siteSetting("backendlayout.2_columns_offset_right", true) == true]
+    @import './BackendLayouts/2_columns_offset_right.tsconfig'
+[end]
+
+[siteSetting("backendlayout.3_columns", true) == true]
+    @import './BackendLayouts/3_columns.tsconfig'
+[end]
+
+[siteSetting("backendlayout.special_feature", true) == true]
+    @import './BackendLayouts/special_feature.tsconfig'
+[end]
+
+[siteSetting("backendlayout.special_start", true) == true]
+    @import './BackendLayouts/special_start.tsconfig'
+[end]
+
+[siteSetting("backendlayout.subnavigation_left", true) == true]
+    @import './BackendLayouts/subnavigation_left.tsconfig'
+[end]
+
+[siteSetting("backendlayout.subnavigation_left_2_columns", true) == true]
+    @import './BackendLayouts/subnavigation_left_2_columns.tsconfig'
+[end]
+
+[siteSetting("backendlayout.subnavigation_right", true) == true]
+    @import './BackendLayouts/subnavigation_right.tsconfig'
+[end]
+
+[siteSetting("backendlayout.subnavigation_right_2_columns", true) == true]
+    @import './BackendLayouts/subnavigation_right_2_columns.tsconfig'
+[end]

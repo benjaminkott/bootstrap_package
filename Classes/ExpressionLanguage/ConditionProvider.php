@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the package bk2k/bootstrap-package.
@@ -23,6 +23,9 @@ class ConditionProvider extends AbstractProvider
         $this->expressionLanguageVariables = [
             'extension' => GeneralUtility::makeInstance(ExtensionWrapper::class),
             'extensionConfiguration' => GeneralUtility::makeInstance(ExtensionConfigurationWrapper::class),
+        ];
+        $this->expressionLanguageProviders = [
+            FunctionsProvider::class,
         ];
     }
 }
