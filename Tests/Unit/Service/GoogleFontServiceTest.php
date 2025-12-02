@@ -13,7 +13,6 @@ use BK2K\BootstrapPackage\Service\GoogleFontService;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class GoogleFontServiceTest extends UnitTestCase
