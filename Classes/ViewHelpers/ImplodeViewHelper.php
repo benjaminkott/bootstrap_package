@@ -49,7 +49,14 @@ class ImplodeViewHelper extends AbstractViewHelper
 
         $result = implode($this->arguments['delimiter'], $data);
         if ($this->arguments['as'] !== null) {
-            $variableProvider = $this->renderingContext->getVariableProvider();
+            $renderingContext = $this->renderingContext;
+            if ($renderingContext === null) {
+                throw new \RuntimeException(
+                    'ViewHelper bk2k:implode needs a rendering context.',
+                    1639819262
+                );
+            }
+            $variableProvider = $renderingContext->getVariableProvider();
             $variableProvider->add($this->arguments['as'], $result);
             if ($this->arguments['data'] !== null && $this->renderChildren() !== null) {
                 $content = $this->renderChildren();

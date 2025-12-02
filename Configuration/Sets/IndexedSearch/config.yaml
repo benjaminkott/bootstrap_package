@@ -1,0 +1,5 @@
+name: bootstrap-package/indexed-search
+label: 'Bootstrap Package: Indexed Search'
+hidden: true
+optionalDependencies:
+  - typo3/indexed-search

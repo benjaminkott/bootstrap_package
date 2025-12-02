@@ -40,7 +40,14 @@ class ExternalMediaViewHelper extends AbstractViewHelper
      */
     public function render()
     {
-        $variableProvider = $this->renderingContext->getVariableProvider();
+        $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:externalMedia needs a rendering context.',
+                1639819265
+            );
+        }
+        $variableProvider = $renderingContext->getVariableProvider();
         $externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);
         $externalMedia = $externalMediaUtility->getEmbedCode($this->arguments['url'], $this->arguments['class'], $this->arguments['title']);
         $variableProvider->add('externalMedia', $externalMedia);

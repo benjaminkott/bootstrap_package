@@ -39,7 +39,10 @@ class SkiplinkProcessorTest extends UnitTestCase
     #[DataProvider('getProcessDataProvider')]
     public function testProcess(array $setup, array $expectation): void
     {
-        $contentObjectRendererStub = new ContentObjectRenderer();
+        $contentObjectRendererStub = $this->createMock(ContentObjectRenderer::class);
+        $contentObjectRendererStub->method('stdWrapValue')->willReturnCallback(
+            fn (string $key, array $config): mixed => $config[$key] ?? ''
+        );
         $config = [
             'dataProcessing.' => [
                 '10' => SkiplinkProcessor::class,

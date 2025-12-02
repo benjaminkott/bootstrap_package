@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Bootstrap  v5.3.7 (https://getbootstrap.com/)
+ * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -549,6 +549,10 @@ legend + * {
 [type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
+}
+[type=search]::-webkit-search-cancel-button {
+  cursor: pointer;
+  filter: grayscale(1);
 }
 
 /* rtl:raw:
@@ -6550,6 +6554,7 @@ textarea.form-control-lg {
 .spinner-grow,
 .spinner-border {
   display: inline-block;
+  flex-shrink: 0;
   width: var(--bs-spinner-width);
   height: var(--bs-spinner-height);
   vertical-align: var(--bs-spinner-vertical-align);
@@ -13397,12 +13402,12 @@ fieldset.form-group > *:last-child {
   }
 }
 
+.navbar-mainnavigation .navbar-brand:focus:not(:focus-visible) {
+  outline: none;
+}
 .navbar-mainnavigation .navbar-brand {
   height: var(--mainnavigation-link-height);
   margin: 0;
-}
-.navbar-mainnavigation .navbar-brand:focus:not(:focus-visible) {
-  outline: none;
 }
 .navbar-mainnavigation .navbar-brand-image {
   position: relative;
@@ -14139,7 +14144,6 @@ fieldset.form-group > *:last-child {
   padding-bottom: var(--frame-spacing);
   color: var(--frame-color);
   background: var(--frame-background);
-  --frame-spacing: var(--frame-spacing-xs);
 }
 .frame a[class=""],
 .frame a:not([class]) {
@@ -14148,6 +14152,9 @@ fieldset.form-group > *:last-child {
 .frame a[class=""]:hover,
 .frame a:not([class]):hover {
   color: var(--frame-link-hover-color);
+}
+.frame {
+  --frame-spacing: var(--frame-spacing-xs);
 }
 @media (min-width: 576px) {
   .frame {
@@ -16173,16 +16180,6 @@ blockquote footer:before {
   padding: var(--timeline-item-padding);
 }
 
-.timeline-item-marker,
-.timeline-item-icon {
-  z-index: 3;
-  position: absolute;
-  top: 50%;
-  left: calc(var(--timeline-icon-size) / 2 * -1);
-  width: var(--timeline-marker-size);
-  height: var(--timeline-marker-size);
-  transform: translate(-50%, -50%);
-}
 .timeline-item-marker:after, .timeline-item-marker:before,
 .timeline-item-marker span,
 .timeline-item-icon:after,
@@ -16221,6 +16218,16 @@ blockquote footer:before {
   width: 100%;
   z-index: 2;
   position: relative;
+}
+.timeline-item-marker,
+.timeline-item-icon {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: calc(var(--timeline-icon-size) / 2 * -1);
+  width: var(--timeline-marker-size);
+  height: var(--timeline-marker-size);
+  transform: translate(-50%, -50%);
 }
 
 .timeline-item-icon {
@@ -16283,11 +16290,11 @@ blockquote footer:before {
 }
 
 @media (min-width: 768px) {
-  .timeline {
-    padding-left: 0;
-  }
   .timeline:before {
     left: 50%;
+  }
+  .timeline {
+    padding-left: 0;
   }
   .timeline-item {
     width: 50%;
@@ -16476,9 +16483,6 @@ blockquote footer:before {
   order: 2;
 }
 
-.text-column {
-  margin-bottom: 1rem;
-}
 .well .text-column {
   margin-bottom: 0;
 }
@@ -16487,6 +16491,9 @@ blockquote footer:before {
 }
 .text-column > *:last-child {
   margin-bottom: 0;
+}
+.text-column {
+  margin-bottom: 1rem;
 }
 @media (min-width: 576px) {
   .text-column {
@@ -16499,14 +16506,14 @@ blockquote footer:before {
   }
 }
 
-.text-indent {
-  margin-bottom: 1rem;
-}
 .text-indent > *:first-child {
   margin-top: 0;
 }
 .text-indent > *:last-child {
   margin-bottom: 0;
+}
+.text-indent {
+  margin-bottom: 1rem;
 }
 @media (min-width: 576px) {
   .text-indent {
@@ -16727,12 +16734,14 @@ nav > .pagination {
   width: 3em;
   height: 3em;
   transition: all 0.3s ease-in-out;
-  border-radius: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
   .scroll-top {
     transition: none;
   }
+}
+.scroll-top {
+  border-radius: 4px;
 }
 .scroll-top:active, .scroll-top:focus, .scroll-top:hover {
   color: var(--scrolltop-hover-color);
@@ -16911,14 +16920,14 @@ iframe {
 .cc-window.cc-static {
   position: static;
 }
+.cc-window.cc-floating .cc-container {
+  padding-left: var(--cookieconsent-padding);
+  padding-right: var(--cookieconsent-padding);
+}
 .cc-window.cc-floating {
   padding: 2rem 0;
   max-width: 380px;
   flex-direction: column;
-}
-.cc-window.cc-floating .cc-container {
-  padding-left: var(--cookieconsent-padding);
-  padding-right: var(--cookieconsent-padding);
 }
 .cc-window.cc-banner {
   padding: var(--cookieconsent-padding) 0;
