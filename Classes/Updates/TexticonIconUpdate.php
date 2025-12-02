@@ -49,7 +49,7 @@ class TexticonIconUpdate extends AbstractUpdate implements UpgradeWizardInterfac
         $records = $this->getRecordsByCriteria($queryBuilder, $criteria, AbstractUpdate::CONDITION_OR);
 
         foreach ($records as $record) {
-            $icon = explode('__', strval($record['icon']));
+            $icon = explode('__', (string)($record['icon']));
             $this->updateRecord(
                 (int) $record['uid'],
                 [

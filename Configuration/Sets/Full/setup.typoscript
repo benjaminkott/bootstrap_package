@@ -1,11 +1,8 @@
-# DEPENDENCIES
-@import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/setup.typoscript'
-
 # HELPER
-@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/Block.typoscript'
-@import 'EXT:bootstrap_package/Configuration/TypoScript/Helper/PageClass.typoscript'
+@import 'TypoScript/Helper/Block.typoscript'
+@import 'TypoScript/Helper/PageClass.typoscript'
 
 # GENERAL
-@import 'EXT:bootstrap_package/Configuration/TypoScript/General/page.typoscript'
-@import 'EXT:bootstrap_package/Configuration/TypoScript/General/plugin.typoscript'
-@import 'EXT:bootstrap_package/Configuration/TypoScript/General/config.typoscript'
+@import 'TypoScript/General/page.typoscript'
+@import 'TypoScript/General/plugin.typoscript'
+@import 'TypoScript/General/config.typoscript'

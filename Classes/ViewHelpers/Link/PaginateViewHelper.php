@@ -46,6 +46,12 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
         }
 
         $renderingContext = $this->renderingContext;
+        if ($renderingContext === null) {
+            throw new \RuntimeException(
+                'ViewHelper bk2k:link.paginate needs a rendering context.',
+                1639819261
+            );
+        }
         $request = $this->getRequestFromRenderingContext($renderingContext);
         if ($request !== null) {
             $applicationType = ApplicationType::fromRequest($request);
@@ -66,7 +72,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
                     $linkResult = $linkFactory->create('', $typolinkConfiguration, $contentObjectRenderer);
                     return $this->renderLink($linkResult->getUrl());
                 } catch (UnableToLinkException $e) {
-                    return strval($this->renderChildren());
+                    return (string)($this->renderChildren());
                 }
             }
         }
@@ -79,7 +85,7 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
 
     protected function renderLink(string $uri): string
     {
-        $content = strval($this->renderChildren());
+        $content = (string)($this->renderChildren());
         if (trim($uri) === '') {
             return $content;
         }

@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        typo3: ['^13', '14.0.x-dev']
+        typo3: ['^13', '^14.0']
         php: ['8.2', '8.3']
     steps:
       - id: checkout

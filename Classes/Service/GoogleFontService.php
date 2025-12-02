@@ -11,6 +11,8 @@ declare(strict_types = 1);
 namespace BK2K\BootstrapPackage\Service;
 
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Crypto\HashService;
 use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -20,42 +22,48 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class GoogleFontService
 {
     /**
-     * @var string
+     * Relative path from public directory for cached font files (must be web-accessible)
      */
-    protected $tempDirectory = 'typo3temp/assets/bootstrappackage/fonts';
+    protected const CACHE_DIRECTORY = 'typo3temp/assets/bootstrappackage/fonts';
+
+    protected const GOOGLE_FONTS_HOST = 'fonts.googleapis.com';
 
     /**
-     * @var string
+     * Allowed MIME types for font files
+     * @var list<string>
      */
-    protected $googleFontApiUrl = 'fonts.googleapis.com/css';
+    protected array $allowedFontMimeTypes = [
+        'font/woff',
+        'font/woff2',
+        'font/ttf',
+        'font/otf',
+        'application/font-woff',
+        'application/font-woff2',
+        'application/x-font-woff',
+        'application/x-font-ttf',
+        'application/x-font-otf',
+        'application/vnd.ms-fontobject',
+        'font/sfnt',
+    ];
 
-    /**
-     * @param string $file
-     * @return string|null
-     * @throws \Exception
-     */
-    public function getCachedFile(string $file): ?string
+    public function getCachedFile(string $url): ?string
     {
-        if (!$this->supports($file)) {
+        if (!$this->supports($url)) {
             return null;
         }
-        if ($this->isCached($file)) {
-            return $this->getCssFileCacheName($file);
+        if ($this->isCached($url)) {
+            return $this->getCssFileCacheName($url);
         }
-        return $this->cacheFile($file) ? $this->getCssFileCacheName($file) : null;
+        return $this->cacheUrl($url) ? $this->getCssFileCacheName($url) : null;
     }
 
-    /**
-     * @param string $file
-     * @return bool
-     */
-    protected function cacheFile(string $file): bool
+    protected function cacheUrl(string $url): bool
     {
         /** @var RequestFactory */
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
 
         /** @var ResponseInterface */
-        $response = $requestFactory->request($file, 'GET', [
+        $response = $requestFactory->request($url, 'GET', [
             'headers' => ['User-Agent' => 'Mozilla/5.0 Gecko/20100101 Firefox/94.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55'],
         ]);
 
@@ -64,54 +72,86 @@ class GoogleFontService
         }
         $content = $response->getBody()->getContents();
 
-        // Ensure cache directory exists
-        GeneralUtility::mkdir_deep($this->tempDirectory . '/' . $this->getCacheIdentifier($file));
+        $content = $response->getBody()->getContents();
 
-        // Find and Download font files
+        // Ensure cache directory exists
+        GeneralUtility::mkdir_deep($this->getAbsoluteCacheDirectory($url));
+
+        // Find and download font files
         $pattern = '%url\((.*?)\)%';
         preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
-        $fontFiles = [];
+        $fontUrls = [];
         foreach ($matches as $match) {
-            $fontFiles[$match[1]] = $match[1];
+            $fontUrls[$match[1]] = $match[1];
         }
-        foreach ($fontFiles as $fontFile) {
-            $localFontFile = $this->getCacheDirectory($file) . '/' . basename($fontFile);
+        foreach ($fontUrls as $fontUrl) {
+            if (!$this->isValidHttpsUrl($fontUrl)) {
+                continue;
+            }
+
             /** @var ResponseInterface */
-            $response = $requestFactory->request($fontFile);
+            $response = $requestFactory->request($fontUrl);
             if ($response->getStatusCode() >= 300) {
                 continue;
             }
+
+            // Validate MIME type of the response
+            if (!$this->isAllowedFontMimeType($response)) {
+                continue;
+            }
+
             $fontFileContent = $response->getBody()->getContents();
+            $localFontFile = $this->getAbsoluteCacheDirectory($url) . '/' . basename($fontUrl);
             file_put_contents($localFontFile, $fontFileContent);
             GeneralUtility::fixPermissions($localFontFile);
-            $content = str_replace($fontFile, basename($fontFile), $content);
+            $content = str_replace($fontUrl, basename($fontUrl), $content);
         }
 
-        // Save CSS File
-        $cacheFile = $this->getCacheDirectory($file) . '/' . 'webfont.css';
-        file_put_contents(GeneralUtility::getFileAbsFileName($cacheFile), $content);
+        // Save CSS file
+        $cacheFile = $this->getAbsoluteCacheDirectory($url) . '/webfont.css';
+        file_put_contents($cacheFile, $content);
         GeneralUtility::fixPermissions($cacheFile);
 
         return true;
     }
 
-    /**
-     * @param string $file
-     * @return bool
-     */
-    protected function supports(string $file): bool
+    protected function isValidHttpsUrl(string $url): bool
     {
-        return (bool) strpos($file, $this->googleFontApiUrl);
+        return filter_var($url, FILTER_VALIDATE_URL) !== false
+            && str_starts_with($url, 'https://');
     }
 
     /**
-     * @param string $file
-     * @return bool
+     * Check if the response has an allowed font MIME type
      */
-    protected function isCached(string $file): bool
+    protected function isAllowedFontMimeType(ResponseInterface $response): bool
     {
-        $cacheFile = $this->getCssFileCacheName($file);
-        $absoluteFile = GeneralUtility::getFileAbsFileName($cacheFile);
+        $contentType = $response->getHeaderLine('Content-Type');
+        if ($contentType === '') {
+            return false;
+        }
+
+        // Extract MIME type without charset or other parameters
+        $mimeType = strtolower(trim(explode(';', $contentType)[0]));
+
+        return in_array($mimeType, $this->allowedFontMimeTypes, true);
+    }
+
+    /**
+     * Check if the URL is a valid Google Fonts CSS API URL
+     */
+    protected function supports(string $url): bool
+    {
+        if (!$this->isValidHttpsUrl($url)) {
+            return false;
+        }
+
+        return parse_url($url, PHP_URL_HOST) === self::GOOGLE_FONTS_HOST;
+    }
+
+    protected function isCached(string $url): bool
+    {
+        $absoluteFile = $this->getAbsoluteCacheDirectory($url) . '/webfont.css';
 
         if (!file_exists($absoluteFile)) {
             return false;
@@ -119,7 +159,7 @@ class GoogleFontService
 
         // Discard cache after 24 hours
         if ((time() - (int) filemtime($absoluteFile)) > 86400) {
-            GeneralUtility::rmdir($this->getCacheDirectory($file));
+            GeneralUtility::rmdir($this->getAbsoluteCacheDirectory($url));
             return false;
         }
 
@@ -127,29 +167,31 @@ class GoogleFontService
     }
 
     /**
-     * @param string $file
-     * @return string
+     * Returns the relative path to the cached CSS file (for use in frontend)
      */
-    protected function getCssFileCacheName(string $file): string
+    protected function getCssFileCacheName(string $url): string
     {
-        return $this->getCacheDirectory($file) . '/' . 'webfont.css';
+        return $this->getCacheDirectory($url) . '/webfont.css';
     }
 
     /**
-     * @param string $file
-     * @return string
+     * Returns the relative cache directory path (for use in frontend URLs)
      */
-    protected function getCacheDirectory(string $file): string
+    protected function getCacheDirectory(string $url): string
     {
-        return $this->tempDirectory . '/' . $this->getCacheIdentifier($file);
+        return self::CACHE_DIRECTORY . '/' . $this->getCacheIdentifier($url);
     }
 
     /**
-     * @param string $file
-     * @return string
+     * Returns the absolute cache directory path (for file system operations)
      */
-    protected function getCacheIdentifier(string $file): string
+    protected function getAbsoluteCacheDirectory(string $url): string
     {
-        return hash('sha256', $file);
+        return Environment::getPublicPath() . '/' . $this->getCacheDirectory($url);
+    }
+
+    protected function getCacheIdentifier(string $url): string
+    {
+        return GeneralUtility::makeInstance(HashService::class)->hmac($url, 'GoogleFontService');
     }
 }

@@ -1,4 +1,5 @@
 includes:
+	- %currentWorkingDirectory%/Build/phpstan-baseline-13.neon
 	- %currentWorkingDirectory%/Build/phpstan-baseline-14.neon
 	- %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-phpunit/extension.neon
 	- %currentWorkingDirectory%/.build/vendor/phpstan/phpstan-strict-rules/rules.neon
