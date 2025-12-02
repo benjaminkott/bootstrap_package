@@ -1,3 +1,88 @@
+# 16.0.0
+
+## BREAKING
+
+- 081f488f [!!!][TASK] Migrate to Site Sets and remove obsolete PageTsConfig registrations
+- efae650a [!!!][TASK] Migrate TypoScript configuration to site sets
+- 3badc90e [!!!][TASK] Drop class exists viewhelper and use f:asset.css for background images
+
+## FEATURE
+
+- 144a1119 [FEATURE] Add bluesky, discord, mastodon, researchgate and whatsapp to social media (#1564)
+- 2fa4c7c8 [FEATURE] Introduce event to modify icon providers (#1582)
+
+## TASK
+
+- 081f488f [!!!][TASK] Migrate to Site Sets and remove obsolete PageTsConfig registrations
+- b6b50b23 [TASK] Update Quickstart Documentation to explain usage of Site Sets (#1567)
+- bb0ab6ae [TASK] Apply rector rules (#1590)
+- f263a505 [TASK] Drop obsolete IE related head meta tags (#1598)
+- b3be3060 [TASK] Modernize GoogleFontService for TYPO3 v13/v14 compatibility
+- efae650a [!!!][TASK] Migrate TypoScript configuration to site sets
+- c723fd23 [TASK] Update npm dependencies
+- c4fc5064 [TASK] Drop GridColumn element as it was introduced to core with v13
+- 81e7ede9 [TASK] Fix SkiplinkProcessorTest for TYPO3 v14 compatibility
+- db4e8d38 [TASK] Add renderingContext null checks for TYPO3 v14 compatibility
+- 9d7910b1 [TASK] Add deprecations to v14 ignore file
+- 17a256aa [TASK] Use ^v14.0 in pipeline
+- caffdc82 [TASK] Update php dependencies to allow v14
+- cd3c3608 [TASK] Use type cast (#1589)
+- e9dad971 [TASK] Replace deprecated apple-mobile-web-app-capable with mobile-web-app-capable meta tag (#1563)
+- 73d45800 [TASK] Format InlineViewHelper correctly (#1570)
+- 0fff5295 [TASK] Update node dependencies and bootstrap (#1587)
+- 5347a799 [TASK] Add ignore phpstan errors for deprecations in v14
+- f28a9ed6 [TASK] Allow workflow dispatch for publish
+- 6684c61d [TASK] Run publish on ubuntu-latest
+- a0a1cea4 [TASK] Remove PHPUnit deprecations (#1583)
+- 0be22c8b [TASK] Migrate usage of content element labels
+- 59c7e9d6 [TASK] Raise ci node version to 22
+- 0302b9ec [TASK] Migrate from node-sass to sass
+- 3badc90e [!!!][TASK] Drop class exists viewhelper and use f:asset.css for background images
+- f0fb5ca5 [TASK] Update php dependencies
+- ea0b95f6 [TASK] Drop phpstan ignore in ScssParserTest
+- bda19925 [TASK] Cleanup viewhelpers
+- 4f6bc9d1 [TASK] Drop v12 and allow v14@dev
+- 73e08ead [TASK] v13/v14 compatibility: Use \TYPO3\CMS\Core\Resource\FileType ENUM
+- 8693864f [TASK] Drop v12 fallback for codeEditor
+- 02c1cb65 [TASK] Drop autoload workaround
+
+## BUGFIX
+
+- 6b1b806a [BUGFIX] Fix responsive image config resolution for nested containers
+- 3930ca0f [BUGFIX] Remove leftovers
+- 6522d0b0 [BUGFIX] Remove google webfont from full as it is included via set
+- 565b17fd [BUGFIX] CGL
+- 7c408fe9 [BUGFIX] CGL
+- 7b7bb52c [BUGFIX] Correct include paths old backend layout tsconfig includes
+- df34fd31 [BUGFIX] Do not treat form element grid column as section
+- eb10f934 [BUGFIX] Correct spelling in folder name for Bootstrap 5 Set - fixes #1561
+- 4089deb4 [BUGFIX] Correct Google Fonts TypoScript path in site set (#1560)
+- e69c98ef [BUGFIX] Move pagets to their respected site sets
+- ae743d8d [BUGFIX] Drop base table class
+- 04b8e8c3 [BUGFIX] Migrate Table CKEditor plugin
+- c172fd4b [BUGFIX] Migrate Text Indent CKEditor plugin
+- 3fd0cc4b [BUGFIX] Migrate Text Columns CKEditor plugin
+- d33fb62c [BUGFIX] Migrate Box CKEditor plugin
+- 87163e70 [BUGFIX] Migrate Address CKEditor plugin
+- bda2c8eb [BUGFIX] Do not render empty image galleries for textpic above and below (#1442)
+- 17a90928 [BUGFIX] Respect carousel type specific responsive image settings (#1552)
+- bdfac42b [BUGFIX] Correct settings defaults for templateRootPaths (#1553)
+- 4d8fee06 [BUGFIX] Correct settings definition for gallery class settings - #1541
+- c57aa69b [BUGFIX] CGL
+- a04a042c [BUGFIX] Correct codeEditor check for v13
+
+## Contributors
+
+- Benjamin Kott
+- Franz Holzinger
+- Johannes Quack
+- Marvin Buchmann
+- Patrick Lenk
+- Simon Schaufelberger
+- Simon Woll
+- T. Legat
+- Uwe
+
 # 15.0.0
 
 ## BREAKING
