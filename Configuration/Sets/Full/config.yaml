@@ -9,3 +9,8 @@ dependencies:
   - bootstrap-package/google-tag-manager
   - bootstrap-package/rte
   - bootstrap-package/skiplink
+optionalDependencies:
+  - typo3/form
+  - typo3/seo-sitemap
+  - bootstrap-package/indexed-search
+  - bootstrap-package/container
