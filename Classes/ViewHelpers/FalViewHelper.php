@@ -52,12 +52,7 @@ class FalViewHelper extends AbstractViewHelper
                 $this->arguments['field'],
                 $this->arguments['data']['uid']
             );
-            $localizedId = null;
-            if (isset($this->arguments['data']['_LOCALIZED_UID'])) {
-                $localizedId = $this->arguments['data']['_LOCALIZED_UID'];
-            } elseif (isset($this->arguments['data']['_PAGES_OVERLAY_UID'])) {
-                $localizedId = $this->arguments['data']['_PAGES_OVERLAY_UID'];
-            }
+            $localizedId = $this->arguments['data']['_LOCALIZED_UID'] ?? null;
             $isTableLocalizable = (
                 isset($GLOBALS['TCA'][$this->arguments['table']]['ctrl']['languageField'])
                 && $GLOBALS['TCA'][$this->arguments['table']]['ctrl']['languageField'] !== ''

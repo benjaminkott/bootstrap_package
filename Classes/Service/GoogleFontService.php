@@ -70,6 +70,7 @@ class GoogleFontService
         if ($response->getStatusCode() >= 300) {
             return false;
         }
+        $content = $response->getBody()->getContents();
 
         $content = $response->getBody()->getContents();
 

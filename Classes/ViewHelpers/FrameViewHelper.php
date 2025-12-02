@@ -72,7 +72,7 @@ class FrameViewHelper extends AbstractViewHelper
         $configuration['backgroundColor'] = trim((string) $configuration['backgroundColor']) !== '' ? trim($configuration['backgroundColor']) : 'none';
         $configuration['spaceBefore'] = trim((string) $configuration['spaceBefore']) !== '' ? trim($configuration['spaceBefore']) : 'none';
         $configuration['spaceAfter'] = trim((string) $configuration['spaceAfter']) !== '' ? trim($configuration['spaceAfter']) : 'none';
-        $configuration['displayFrame'] = $configuration['frameClass'] !== 'none' ? true : false;
+        $configuration['displayFrame'] = $configuration['frameClass'] !== 'none';
         $configuration['variants'] = ImageVariantsUtility::getImageVariants($configuration['variants']);
 
         $identifier = $configuration['id'];
@@ -112,11 +112,7 @@ class FrameViewHelper extends AbstractViewHelper
                 $backgroundImageFile = $resourceFactory->retrieveFileOrFolderObject($configuration['backgroundImage']);
             }
         }
-        if ($backgroundImageFile !== null) {
-            $classes[] = 'frame-has-backgroundimage';
-        } else {
-            $classes[] = 'frame-no-backgroundimage';
-        }
+        $classes[] = $backgroundImageFile !== null ? 'frame-has-backgroundimage' : 'frame-no-backgroundimage';
 
         // Background Image Options
         $backgroundImageOptions = [];

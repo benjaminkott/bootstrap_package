@@ -57,7 +57,7 @@ class StaticFilesProcessor implements DataProcessorInterface
 
         // Get file objects
         $images = [];
-        if (count($files) !== 0) {
+        if ($files !== []) {
             $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
             foreach ($files as $key => $file) {
                 $absFilename = GeneralUtility::getFileAbsFileName($file);
