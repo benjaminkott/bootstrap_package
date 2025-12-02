@@ -38,29 +38,8 @@ Create a new page or edit an existing one and set this as *root page*. This is d
 under :guilabel:`Behavior > Miscellaneous`.
 
 
-Create a new template on the root page
-======================================
+Add the Bootstrap Package site set
+==================================
 
-General
--------
-
-* Template Title: You can name this as you like, for example "Bootstrap Package".
-* Website Title: This will be your website title visible in the frontend.
-
-Options
--------
-
-* Uncheck the clear constants and setup boxes because the site sets must be usable.
-* Clear the predefined TypoScript setup from its text box if any.
-* Use this template as root-level template by checking the Rootlevel box.
-
-Includes
---------
-
-Include TypoScript sets
-
-* Bootstrap Package (required)
-
-Loading order of TypoScript sets
-
-* Default (include before if root flag is set)
+When you create a root page, TYPO3 automatically creates a site configuration for it.
+Edit the site and add the "Bootstrap Package: Full Package" set to include all features needed for a quick start.
