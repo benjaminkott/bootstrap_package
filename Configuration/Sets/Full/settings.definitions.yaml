@@ -744,12 +744,6 @@ settings:
     type: string
     default: 'no'
 
-  page.meta.compatible:
-    label: 'compatible'
-    category: BootstrapPackage.meta
-    type: string
-    default: 'IE=edge'
-
   page.meta.google:
     label: 'google'
     category: BootstrapPackage.meta
