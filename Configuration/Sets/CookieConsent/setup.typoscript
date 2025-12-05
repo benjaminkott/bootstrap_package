@@ -1,4 +1,4 @@
-[{$page.theme.cookieconsent.enable} == 1]
+[siteSetting("page.theme.cookieconsent.enable", false) == true]
     page {
         includeJSFooterlibs {
             # COOKIE CONSENT
