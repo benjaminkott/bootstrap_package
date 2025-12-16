@@ -163,6 +163,12 @@ settings:
     type: bool
     default: true
 
+  plugin.bootstrap_package_contentelements.media.additionalAttributes.referrerpolicy:
+    label: 'Referrer Policy'
+    category: BootstrapPackage.content-elements.media
+    type: string
+    default: 'strict-origin-when-cross-origin'
+
   # Gallery
   plugin.bootstrap_package_contentelements.gallery.columns.1.class:
     label: 'Item CSS Class for 1 column'
