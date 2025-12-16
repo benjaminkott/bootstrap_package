@@ -93,6 +93,9 @@ lib.contentElement {
                 modestbranding = {$plugin.bootstrap_package_contentelements.media.additionalConfig.modestbranding}
                 no-cookie = {$plugin.bootstrap_package_contentelements.media.additionalConfig.nocookie}
             }
+            additionalAttributes {
+                referrerpolicy = {$plugin.bootstrap_package_contentelements.media.additionalAttributes.referrerpolicy}
+            }
         }
         gallery {
             columns {
