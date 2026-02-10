@@ -72,8 +72,6 @@ class GoogleFontService
         }
         $content = $response->getBody()->getContents();
 
-        $content = $response->getBody()->getContents();
-
         // Ensure cache directory exists
         GeneralUtility::mkdir_deep($this->getAbsoluteCacheDirectory($url));
 
@@ -117,7 +115,9 @@ class GoogleFontService
 
     protected function isValidHttpsUrl(string $url): bool
     {
-        return filter_var($url, FILTER_VALIDATE_URL) !== false
+        // as prior to TYPO3 v14 arguments were not encoded, and it's common to use whitespaces in Google font URLs,
+        // we'll replace them for now
+        return filter_var(str_replace(' ', '+', $url), FILTER_VALIDATE_URL) !== false
             && str_starts_with($url, 'https://');
     }
 
