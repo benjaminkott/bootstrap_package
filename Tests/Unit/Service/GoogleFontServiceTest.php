@@ -38,6 +38,14 @@ class GoogleFontServiceTest extends UnitTestCase
                 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
                 true,
             ],
+            'invalid but common Google Fonts URL with white space and css2' => [
+                'https://fonts.googleapis.com/css2?family=Open Sans:wght@400;700&display=swap',
+                true,
+            ],
+            'valid Google Fonts URL with encoded white space and css2' => [
+                'https://fonts.googleapis.com/css2?family=Open%20Sans:wght@400;700&display=swap',
+                true,
+            ],
             'HTTP URL rejected' => [
                 'http://fonts.googleapis.com/css?family=Roboto',
                 false,
