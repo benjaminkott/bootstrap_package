@@ -11,21 +11,6 @@
 }
 .navbar-transition {
     --mainnavigation-nav-height: #{map-get($navbar-heights, xs)};
-
-    // Compensate for navbar height reduction to keep document height stable.
-    // With position:sticky the navbar is in document flow — shrinking it changes
-    // the document height, causing scrollbar jumps and scroll-position oscillation
-    // in Chromium browsers (see #1424, #1468). Adding margin-bottom equal to the
-    // height difference keeps total document height constant.
-    @each $breakpoint in map-keys($navbar-heights) {
-        $default-height: map-get($navbar-heights, $breakpoint);
-        $transition-height: map-get($navbar-heights, xs);
-        @if $default-height != $transition-height {
-            @include media-breakpoint-up($breakpoint) {
-                margin-bottom: $default-height - $transition-height;
-            }
-        }
-    }
 }
 @media (min-width: $grid-float-breakpoint) {
     .navbar {
