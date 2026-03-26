@@ -47,8 +47,10 @@ abstract class AbstractParser implements ParserInterface
         $cacheIdentifier = $this->getCacheIdentifier($file, $settings);
         $cacheFile = $this->getCacheFile($cacheIdentifier, $settings['cache']['tempDirectory']);
         $cacheFileMeta = $this->getCacheFileMeta($cacheFile);
+        $absoluteCacheFile = GeneralUtility::getFileAbsFileName($cacheFile);
+        $absoluteCacheFileMeta = GeneralUtility::getFileAbsFileName($cacheFileMeta);
 
-        return file_exists($cacheFile) && file_exists($cacheFileMeta);
+        return file_exists($absoluteCacheFile) && file_exists($absoluteCacheFileMeta);
     }
 
     /**
@@ -59,9 +61,10 @@ abstract class AbstractParser implements ParserInterface
      */
     protected function needsCompile(string $cacheFile, string $cacheFileMeta, array $settings): bool
     {
-        $needCompilation = false;
-        $fileModificationTime = filemtime($cacheFile);
-        $metadata = unserialize((string) file_get_contents($cacheFileMeta), ['allowed_classes' => false]);
+        $absoluteCacheFile = GeneralUtility::getFileAbsFileName($cacheFile);
+        $absoluteCacheFileMeta = GeneralUtility::getFileAbsFileName($cacheFileMeta);
+        $fileModificationTime = filemtime($absoluteCacheFile);
+        $metadata = unserialize((string) file_get_contents($absoluteCacheFileMeta), ['allowed_classes' => false]);
 
         if (is_array($metadata) && is_array($metadata['files'])) {
             foreach ($metadata['files'] as $file) {
