@@ -23,7 +23,7 @@ class TableContentElementUpdate extends AbstractUpdate implements UpgradeWizardI
     protected $title = 'EXT:bootstrap_package: Migrate table content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

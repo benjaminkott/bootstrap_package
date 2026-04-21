@@ -23,7 +23,7 @@ class FrameClassToBackgroundUpdate extends AbstractUpdate implements UpgradeWiza
     protected $title = 'EXT:bootstrap_package: Migrate obsolete frame_class options to background color';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

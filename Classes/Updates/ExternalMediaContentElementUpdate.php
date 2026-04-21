@@ -23,7 +23,7 @@ class ExternalMediaContentElementUpdate extends AbstractUpdate implements Upgrad
     protected $title = 'EXT:bootstrap_package: Migrate external media content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

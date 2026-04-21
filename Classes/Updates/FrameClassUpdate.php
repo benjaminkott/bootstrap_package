@@ -23,7 +23,7 @@ class FrameClassUpdate extends AbstractUpdate implements UpgradeWizardInterface,
     protected $title = 'EXT:bootstrap_package: Migrate the field "section_frame" for all content elements to "frame_class"';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

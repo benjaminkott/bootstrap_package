@@ -23,7 +23,7 @@ class AccordionContentElementUpdate extends AbstractUpdate implements UpgradeWiz
     protected $title = 'EXT:bootstrap_package: Migrate accordion content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 
