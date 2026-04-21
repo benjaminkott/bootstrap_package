@@ -23,7 +23,7 @@ class PanelContentElementUpdate extends AbstractUpdate implements UpgradeWizardI
     protected $title = 'EXT:bootstrap_package: Migrate panel content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

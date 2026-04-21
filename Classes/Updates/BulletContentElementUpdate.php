@@ -23,7 +23,7 @@ class BulletContentElementUpdate extends AbstractUpdate implements UpgradeWizard
     protected $title = 'EXT:bootstrap_package: Migrate bullet content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

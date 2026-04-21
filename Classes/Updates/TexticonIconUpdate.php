@@ -23,7 +23,7 @@ class TexticonIconUpdate extends AbstractUpdate implements UpgradeWizardInterfac
     protected $title = 'EXT:bootstrap_package: Migrate text and icon identifier and name';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

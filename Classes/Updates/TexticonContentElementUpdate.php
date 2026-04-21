@@ -23,7 +23,7 @@ class TexticonContentElementUpdate extends AbstractUpdate implements UpgradeWiza
     protected $title = 'EXT:bootstrap_package: Migrate text and icon content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

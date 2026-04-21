@@ -17,18 +17,24 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        typo3: ['^13', '^14.0']
-        php: ['8.2', '8.3']
+        typo3: ['^13.4', '^14.3']
+        php: ['8.2', '8.3', '8.4', '8.5']
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     steps:
       - id: checkout
         name: Checkout Code
-        uses: actions/checkout@v4
-      - id: setup_mysql
-        name: Set up MySQL 8.0
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql version: 8.0
-          mysql root password: 'root'
+        uses: actions/checkout@v6
       - id: setup_php
         name: Set up PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -41,7 +47,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
           echo "timestamp=$(date +"%s")" >> $GITHUB_OUTPUT
       - name: Cache Composer dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ steps.composer-cache-vars.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.typo3 }}-${{ steps.composer-cache-vars.outputs.timestamp }}
@@ -71,12 +77,12 @@ jobs:
           composer phpstan -- --error-format=github
       - id: tests_unit
         name: Unit Tests
-        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.3' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.5' }}
         run: |
           composer test:php:unit
       - id: tests_functional
         name: Functional Tests
-        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.3' }}
+        if: ${{ always() && steps.install.conclusion == 'success' && matrix.php == '8.5' }}
         run: |
           composer test:php:functional
         env:
@@ -90,11 +96,11 @@ jobs:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
       - name: Install
         run: |
           cd Build
@@ -118,7 +124,7 @@ jobs:
     if: (github.ref == 'refs/heads/master') && github.event_name != 'pull_request' && (github.repository == 'benjaminkott/bootstrap_package')
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Set up PHP Version 7.4
         uses: shivammathur/setup-php@v2
         with:

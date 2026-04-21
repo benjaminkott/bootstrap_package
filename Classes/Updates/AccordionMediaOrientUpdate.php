@@ -23,7 +23,7 @@ class AccordionMediaOrientUpdate extends AbstractUpdate implements UpgradeWizard
     protected $title = 'EXT:bootstrap_package: Migrate media orientation of accordion content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tx_bootstrappackage_accordion_item';
 

@@ -23,7 +23,7 @@ class TexticonSizeUpdate extends AbstractUpdate implements UpgradeWizardInterfac
     protected $title = 'EXT:bootstrap_package: Migrate text and icon size options';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 
