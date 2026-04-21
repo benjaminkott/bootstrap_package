@@ -161,7 +161,7 @@ class ScssParser extends AbstractParser
         // Compile file. Second parameter is needed for source mapping
         // Suppress PHP 8.4 implicitly-nullable deprecations emitted by scssphp,
         // which TYPO3's error handler would otherwise promote to an exception.
-        set_error_handler(static fn() => true, E_DEPRECATED);
+        set_error_handler(static fn () => true, E_DEPRECATED);
         try {
             $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"', $absoluteFilename);
         } finally {
