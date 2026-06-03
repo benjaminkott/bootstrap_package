@@ -17,4 +17,3 @@ defined('TYPO3') or die('Access denied.');
     'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:theme_name',
     'after:default'
 );
-
