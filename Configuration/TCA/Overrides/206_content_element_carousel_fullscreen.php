@@ -60,3 +60,4 @@ $GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen'] = array_replace_re
     ]
 );
 
+$GLOBALS['TCA']['tt_content']['types']['carousel_fullscreen']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml';

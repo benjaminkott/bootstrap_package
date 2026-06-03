@@ -63,3 +63,4 @@ $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_rec
     ]
 );
 
+$GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuThumbnail.xml';

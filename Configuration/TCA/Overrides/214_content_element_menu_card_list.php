@@ -64,3 +64,4 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_list'] = array_replace_recursi
     ]
 );
 
+$GLOBALS['TCA']['tt_content']['types']['menu_card_list']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml';

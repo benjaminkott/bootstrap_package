@@ -89,3 +89,4 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     ]
 );
 
+$GLOBALS['TCA']['tt_content']['types']['icon_group']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/IconGroup.xml';

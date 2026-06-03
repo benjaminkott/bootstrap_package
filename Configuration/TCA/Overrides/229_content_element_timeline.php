@@ -89,3 +89,4 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     ]
 );
 
+$GLOBALS['TCA']['tt_content']['types']['timeline']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Timeline.xml';
