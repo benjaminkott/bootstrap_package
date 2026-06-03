@@ -64,9 +64,3 @@ $GLOBALS['TCA']['tt_content']['types']['menu_card_dir'] = array_replace_recursiv
     ]
 );
 
-// Add flexForms for content element configuration
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuCard.xml',
-    'menu_card_dir'
-);
