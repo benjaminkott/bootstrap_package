@@ -40,7 +40,7 @@
         "typo3/cms-frontend": "^14.3 || ^15.0.x-dev",
         "typo3/cms-install": "^14.3 || ^15.0.x-dev",
         "typo3/cms-rte-ckeditor": "^14.3 || ^15.0.x-dev",
-        "typo3/cms-seo": "^^14.3 || ^15.0.x-dev"
+        "typo3/cms-seo": "^14.3 || ^15.0.x-dev"
     },
     "require-dev": {
         "b13/container": "^3.1 || dev-master",
