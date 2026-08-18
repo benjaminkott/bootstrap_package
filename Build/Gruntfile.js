@@ -389,7 +389,6 @@ module.exports = function(grunt) {
                     inputDir: '../Resources/Public/Icons/BootstrapPackageIcon',
                     outputDir: '../Resources/Public/Fonts',
                     fontTypes: [
-                        'eot',
                         'woff2',
                         'woff',
                         'ttf'
@@ -413,7 +412,6 @@ module.exports = function(grunt) {
                     pathOptions: {
                         json:   './bootstrappackageicon.json',
                         css:    '../Resources/Public/Fonts/bootstrappackageicon.css',
-                        eot:    '../Resources/Public/Fonts/bootstrappackageicon.eot',
                         ttf:    '../Resources/Public/Fonts/bootstrappackageicon.ttf',
                         woff:   '../Resources/Public/Fonts/bootstrappackageicon.woff',
                         woff2:  '../Resources/Public/Fonts/bootstrappackageicon.woff2'
