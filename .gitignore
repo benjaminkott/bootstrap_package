@@ -7,3 +7,6 @@ nbproject
 
 config/
 var/
+
+# mcp
+.mcp.json
