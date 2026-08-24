@@ -1,0 +1,28 @@
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/TypoScript/Helper/DynamicContent.typoscript'
+
+config {
+    disableAllHeaderCode = 1
+    debug = 0
+}
+
+# How a single content element renders is not what these tests are about, so
+# the elements are reduced to their header to keep the assertions readable.
+lib.dynamicContent.20.renderObj = TEXT
+lib.dynamicContent.20.renderObj.field = header
+lib.dynamicContent.20.renderObj.wrap = [|]
+
+# No data is handed over, so lib.dynamicContent falls back to the current page.
+page = PAGE
+page {
+    typeNum = 0
+    10 < lib.dynamicContent
+}
+
+# The documented entry point: a data array handed over via <f:cObject>. The page
+# it names is deliberately not the page being requested.
+pageWithDataArray = PAGE
+pageWithDataArray {
+    typeNum = 1
+    10 = FLUIDTEMPLATE
+    10.file = EXT:bootstrap_package/Tests/Functional/TypoScript/Fixtures/DynamicContent/DynamicContent.html
+}

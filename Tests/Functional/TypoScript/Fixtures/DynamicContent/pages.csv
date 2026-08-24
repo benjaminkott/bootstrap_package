@@ -1,0 +1,5 @@
+"pages",,,,,,,
+,"uid","pid","sorting","doktype","slug","title","content_from_pid"
+,1,0,256,1,"/","Root",0
+,2,1,256,1,"/source","Source",0
+,3,1,512,1,"/target","Target",2
