@@ -81,11 +81,40 @@ class ScssParser extends AbstractParser
     }
 
     /**
+     * The scssphp version in use still declares implicitly nullable parameters,
+     * which PHP >= 8.4 reports as deprecation as soon as its classes are compiled.
+     * As TYPO3 promotes deprecations to exceptions, they are silenced for the whole
+     * compilation, while any other error is passed on to the previous error handler.
+     *
      * @param string $file
      * @param array $settings
      * @return array
      */
     protected function parseFile(string $file, array $settings): array
+    {
+        $previousErrorHandler = set_error_handler(
+            static function (int $severity, string $message, string $errorFile, int $errorLine) use (&$previousErrorHandler): bool {
+                if ($severity === E_DEPRECATED && str_contains($errorFile, 'scssphp')) {
+                    return true;
+                }
+                return $previousErrorHandler !== null
+                    && ($previousErrorHandler)($severity, $message, $errorFile, $errorLine) !== false;
+            }
+        );
+
+        try {
+            return $this->compileScss($file, $settings);
+        } finally {
+            restore_error_handler();
+        }
+    }
+
+    /**
+     * @param string $file
+     * @param array $settings
+     * @return array
+     */
+    protected function compileScss(string $file, array $settings): array
     {
         $scss = new Compiler();
         $scss->setOutputStyle(OutputStyle::COMPRESSED);
@@ -159,14 +188,7 @@ class ScssParser extends AbstractParser
         );
 
         // Compile file. Second parameter is needed for source mapping
-        // Suppress PHP 8.4 implicitly-nullable deprecations emitted by scssphp,
-        // which TYPO3's error handler would otherwise promote to an exception.
-        set_error_handler(static fn () => true, E_DEPRECATED);
-        try {
-            $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"', $absoluteFilename);
-        } finally {
-            restore_error_handler();
-        }
+        $compilationResult = $scss->compileString('@import "' . $absoluteFilename . '"', $absoluteFilename);
         $css = $compilationResult->getCss();
 
         // Fix paths in url() statements to be relative to temp directory
