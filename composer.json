@@ -45,7 +45,7 @@
     "require-dev": {
         "b13/container": "^3.1 || dev-master",
         "bk2k/demo-package": "@dev",
-        "bk2k/extension-helper": "^2.1",
+        "bk2k/extension-helper": "^2.2",
         "friendsofphp/php-cs-fixer": "^3.90",
         "overtrue/phplint": "^9.6",
         "phpstan/phpstan": "^2.1",
@@ -79,7 +79,13 @@
         },
         "typo3/cms": {
             "extension-key": "bootstrap_package",
-            "web-dir": ".build/public"
+            "web-dir": ".build/public",
+            "version": "16.0.0",
+            "Package": {
+                "providesPackages": {
+                    "scssphp/scssphp": "Contrib/scssphp"
+                }
+            }
         }
     },
     "autoload": {
