@@ -1,0 +1,5 @@
+"tt_content",,,,,,
+,"uid","pid","sorting","CType","colPos","header"
+,1,2,256,"text",0,"Content of source page"
+,2,3,256,"text",0,"Content of target page"
+,3,3,512,"text",1,"Content of target page in colPos 1"

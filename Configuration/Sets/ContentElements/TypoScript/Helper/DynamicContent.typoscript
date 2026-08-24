@@ -69,11 +69,6 @@ lib.dynamicContent {
             field = pageUid
             ifEmpty.data = TSFE:id
         }
-        contentFromPid.cObject = TEXT
-        contentFromPid.cObject {
-            data = DB:pages:{register:pageUid}:content_from_pid
-            data.insertData = 1
-        }
         wrap.cObject = TEXT
         wrap.cObject {
             field = wrap
@@ -81,6 +76,14 @@ lib.dynamicContent {
         elementWrap.cObject = TEXT
         elementWrap.cObject {
             field = elementWrap
+        }
+    }
+    6 = LOAD_REGISTER
+    6 {
+        contentFromPid.cObject = TEXT
+        contentFromPid.cObject {
+            data = DB:pages:{register:pageUid}:content_from_pid
+            data.insertData = 1
         }
     }
     20 = CONTENT
@@ -108,6 +111,7 @@ lib.dynamicContent {
         }
     }
     90 = RESTORE_REGISTER
+    95 = RESTORE_REGISTER
 }
 lib.dynamicContentSlide =< lib.dynamicContent
 lib.dynamicContentSlide.20.slide = -1
