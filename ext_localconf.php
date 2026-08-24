@@ -19,7 +19,12 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 // Register custom EXT:form configuration
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
+// TYPO3 v14.2 and above discover Configuration/Form/BootstrapPackage/config.yaml
+// on their own, and the TypoScript registration below raises a deprecation there.
+// @deprecated Drop together with TYPO3 v13 support.
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')
+    && (new \TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() < 14
+) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
         module.tx_form {
             settings {
