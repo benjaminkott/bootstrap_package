@@ -23,7 +23,7 @@ class CarouselContentElementUpdate extends AbstractUpdate implements UpgradeWiza
     protected $title = 'EXT:bootstrap_package: Migrate carousel content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

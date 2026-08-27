@@ -23,7 +23,7 @@ class TexticonTypeUpdate extends AbstractUpdate implements UpgradeWizardInterfac
     protected $title = 'EXT:bootstrap_package: Migrate text and icon type options';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

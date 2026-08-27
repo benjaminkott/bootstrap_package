@@ -11,28 +11,26 @@ namespace Deployer;
 
 require 'recipe/common.php';
 
-// TYPO3
-desc('Prepare Bootstrap Package');
+desc('Move the repository into the extension folder of the document root');
 task('typo3:prepare', function () {
-    run('rm -rf {{release_path}}/../tmp');
-    run('mkdir -p {{release_path}}/../tmp/extensions/bootstrap_package');
-    run('mv {{release_path}}/{,.[^.]}* {{release_path}}/../tmp/extensions/bootstrap_package');
-    run('mkdir -p {{release_path}}/extensions');
-    run('mv {{release_path}}/../tmp/extensions {{release_path}}');
-    run('rm -rf {{release_path}}/../tmp');
-});
-desc('Finish TYPO3 Deployment');
-task('typo3:finish', function () {
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 extension:setup');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 cache:flush');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 cache:warmup');
-    run('cd {{release_path}} && {{bin/php}} ./bin/typo3 upgrade:run');
+    cd('{{release_path}}');
+    run('mkdir -p extensions/bootstrap_package');
+    run('find . -mindepth 1 -maxdepth 1 -name extensions -prune -o -exec mv -t extensions/bootstrap_package {} +');
 });
 
-// Main
+desc('Finish TYPO3 Deployment');
+task('typo3:finish', function () {
+    cd('{{release_path}}');
+    run('{{bin/php}} ./bin/typo3 extension:setup');
+    run('{{bin/php}} ./bin/typo3 cache:flush');
+    run('{{bin/php}} ./bin/typo3 cache:warmup');
+    run('{{bin/php}} ./bin/typo3 upgrade:run');
+});
+
+desc('Deploy your project');
 task('deploy', [
     'deploy:info',
-    'deploy:prepare',
+    'deploy:setup',
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
@@ -42,14 +40,23 @@ task('deploy', [
     'deploy:symlink',
     'typo3:finish',
     'deploy:unlock',
-    'cleanup',
-])->desc('Deploy your project');
-after('deploy', 'success');
+    'deploy:cleanup',
+    'deploy:success',
+]);
 
 // If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
-// Shared Directories and Files
+// Deploy the branch that is checked out, not the default branch of the remote.
+set('branch', function () {
+    return runLocally('git rev-parse --abbrev-ref HEAD');
+});
+
+// The document root requires this package as dev-master from a path repository,
+// and composer reads that version from the git metadata of the release. Archiving
+// leaves none behind, which resolves the package as dev-main.
+set('update_code_strategy', 'clone');
+
 set('shared_dirs', [
     'config',
     'web/fileadmin',
@@ -63,8 +70,6 @@ set('shared_files', [
     'web/typo3conf/LocalConfiguration.php',
     'web/typo3conf/PackageStates.php',
 ]);
-
-// Set Writeable files
 set('writable_dirs', [
     'config',
     'web/fileadmin',
@@ -73,18 +78,13 @@ set('writable_dirs', [
     'web/uploads',
 ]);
 
-// Misc
-set('allow_anonymous_stats', false);
-
-// Hosts
 host(getenv('SSH_HOST'))
-    ->set('repository', 'https://github.com/benjaminkott/bootstrap_package')
-    ->user(getenv('SSH_USER'))
-    ->port('22')
-    ->set('keep_releases', '2')
-    ->set('bin/php', 'php')
-    ->set('deploy_path', '~/html/{{application}}')
+    ->setRemoteUser(getenv('SSH_USER'))
+    ->setPort(22)
+    ->setDeployPath('~/html/{{application}}')
     ->set('application', 'bootstrappackage')
-    ->set('ssh_type', 'native')
-    ->set('http_user', getenv('SSH_USER'))
-    ->set('bin/composer', 'composer');
+    ->set('repository', 'https://github.com/benjaminkott/bootstrap_package')
+    ->set('keep_releases', 2)
+    ->set('bin/php', 'php')
+    ->set('bin/composer', 'composer')
+    ->set('http_user', getenv('SSH_USER'));

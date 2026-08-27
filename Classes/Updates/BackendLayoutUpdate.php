@@ -23,7 +23,7 @@ class BackendLayoutUpdate extends AbstractUpdate implements UpgradeWizardInterfa
     protected $title = 'EXT:bootstrap_package: Migrate backend layouts';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'pages';
 

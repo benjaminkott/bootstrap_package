@@ -23,7 +23,7 @@ class TabMediaOrientUpdate extends AbstractUpdate implements UpgradeWizardInterf
     protected $title = 'EXT:bootstrap_package: Migrate media orientation of tab content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tx_bootstrappackage_tab_item';
 

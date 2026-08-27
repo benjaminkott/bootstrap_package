@@ -19,7 +19,12 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 // Register custom EXT:form configuration
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
+// TYPO3 v14.2 and above discover Configuration/Form/BootstrapPackage/config.yaml
+// on their own, and the TypoScript registration below raises a deprecation there.
+// @deprecated Drop together with TYPO3 v13 support.
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')
+    && (new \TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() < 14
+) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
         module.tx_form {
             settings {
@@ -58,7 +63,12 @@ if (!(bool) $extensionConfiguration->get('bootstrap_package', 'disableCssProcess
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bootstrap'] = 'EXT:bootstrap_package/Configuration/RTE/Default.yaml';
 
 // Register "bk2k" as global fluid namespace
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
+// TYPO3 v14.1 and above read the namespace from Configuration/Fluid/Namespaces.php
+// and stop evaluating TYPO3_CONF_VARS for it in TYPO3 v15.0.
+// @deprecated Drop together with TYPO3 v13 support.
+if ((new \TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() < 14) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['bk2k'][] = 'BK2K\\BootstrapPackage\\ViewHelpers';
+}
 
 // Register "icon" wizard
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1687516916] = [

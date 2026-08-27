@@ -1,7 +1,7 @@
 name: bootstrap-package
 type: typo3
 docroot: .build/public
-php_version: "8.2"
+php_version: "8.5"
 webserver_type: apache-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -20,7 +20,7 @@ web_environment:
     - typo3DatabaseName=t3func
     - typo3DatabasePassword=root
     - typo3DatabaseUsername=root
-nodejs_version: "16"
+nodejs_version: "24"
 corepack_enable: false
 
 # Key features of DDEV's config.yaml:

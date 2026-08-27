@@ -37,7 +37,7 @@ abstract class AbstractUpdate
     protected $description = '';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 
@@ -88,8 +88,7 @@ abstract class AbstractUpdate
     protected function tableHasColumn(string $column): bool
     {
         $schemaManager = $this->getConnection()->createSchemaManager();
-        $tableColumns = $schemaManager->listTableColumns($this->table);
-        return array_key_exists($column, $tableColumns);
+        return $schemaManager->introspectTableByUnquotedName($this->table)->hasColumn($column);
     }
 
     protected function createCreaterThanCriteria(QueryBuilder $queryBuilder, string $field, int $value): CreaterThanCriteria

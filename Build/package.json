@@ -7,7 +7,7 @@
   "author": "Benjamin Kott",
   "license": "MIT",
   "engines": {
-    "node": "^22.18.0",
+    "node": "^24.15.0",
     "npm": "^11.5.2"
   },
   "devDependencies": {
@@ -42,5 +42,9 @@
     "image": "./node_modules/.bin/grunt image",
     "js": "./node_modules/.bin/grunt js",
     "lint": "./node_modules/.bin/grunt lint"
+  },
+  "dependencies": {
+    "audit": "^0.0.6",
+    "fix": "^0.0.6"
   }
 }

@@ -208,16 +208,16 @@ lib.contentElement {
 }
 
 # CONTAINER CONFIG
-lib.contentContainer < lib.contentElement
+lib.contentContainer =< lib.contentElement
 lib.contentContainer {
     templateName = Container
     dataProcessing {
         1628519620 = B13\Container\DataProcessing\ContainerProcessor
     }
 }
-tt_content.container_1_columns < lib.contentContainer
-tt_content.container_2_columns < lib.contentContainer
-tt_content.container_2_columns_right < lib.contentContainer
-tt_content.container_2_columns_left < lib.contentContainer
-tt_content.container_3_columns < lib.contentContainer
-tt_content.container_4_columns < lib.contentContainer
+tt_content.container_1_columns =< lib.contentContainer
+tt_content.container_2_columns =< lib.contentContainer
+tt_content.container_2_columns_right =< lib.contentContainer
+tt_content.container_2_columns_left =< lib.contentContainer
+tt_content.container_3_columns =< lib.contentContainer
+tt_content.container_4_columns =< lib.contentContainer

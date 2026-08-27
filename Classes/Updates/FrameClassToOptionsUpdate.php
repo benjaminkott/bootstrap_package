@@ -23,7 +23,7 @@ class FrameClassToOptionsUpdate extends AbstractUpdate implements UpgradeWizardI
     protected $title = 'EXT:bootstrap_package: Migrate obsolete frame_class options to frame options';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

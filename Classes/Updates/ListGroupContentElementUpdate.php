@@ -23,7 +23,7 @@ class ListGroupContentElementUpdate extends AbstractUpdate implements UpgradeWiz
     protected $title = 'EXT:bootstrap_package: Migrate list group content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

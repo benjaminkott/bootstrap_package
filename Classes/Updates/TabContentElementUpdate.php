@@ -23,7 +23,7 @@ class TabContentElementUpdate extends AbstractUpdate implements UpgradeWizardInt
     protected $title = 'EXT:bootstrap_package: Migrate tab content element';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tt_content';
 

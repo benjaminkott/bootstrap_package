@@ -13,6 +13,8 @@ use BK2K\BootstrapPackage\Parser\ParserInterface;
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Site\Entity\Site;
+use TYPO3\CMS\Core\Site\Entity\SiteSettings;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -113,14 +115,32 @@ class CompileService
         }
 
         // Fetch settings
+        $site = $request->getAttribute('site');
+        $siteSettings = $site instanceof Site ? $site->getSettings() : null;
         $prefix = 'plugin.bootstrap_package.settings.' . $extension . '.';
         foreach ($constants as $constant => $value) {
             if (strpos($constant, $prefix) === 0) {
-                $variables[substr($constant, strlen($prefix))] = $value;
+                $variables[substr($constant, strlen($prefix))] = $this->normalizeVariable($constant, (string) $value, $siteSettings);
             }
         }
 
         return $variables;
+    }
+
+    /**
+     * Site settings are cast to string on their way into TypoScript constants,
+     * which turns a boolean `false` into an empty string. Parsers like scssphp
+     * read that as an unquoted string, which is truthy, so a disabled setting
+     * would silently be enabled. Settings declared as boolean are therefore
+     * handed over as the literals the parsers understand as booleans.
+     */
+    protected function normalizeVariable(string $constant, string $value, ?SiteSettings $siteSettings): string
+    {
+        if (!is_bool($siteSettings?->get($constant))) {
+            return $value;
+        }
+
+        return in_array(strtolower(trim($value)), ['', '0', 'false'], true) ? 'false' : 'true';
     }
 
     /**

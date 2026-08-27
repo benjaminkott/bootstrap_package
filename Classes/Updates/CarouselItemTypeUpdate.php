@@ -23,7 +23,7 @@ class CarouselItemTypeUpdate extends AbstractUpdate implements UpgradeWizardInte
     protected $title = 'EXT:bootstrap_package: Migrate carousel item types';
 
     /**
-     * @var string
+     * @var non-empty-string
      */
     protected $table = 'tx_bootstrappackage_carousel_item';
 
