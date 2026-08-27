@@ -52,6 +52,11 @@ set('branch', function () {
     return runLocally('git rev-parse --abbrev-ref HEAD');
 });
 
+// The document root requires this package as dev-master from a path repository,
+// and composer reads that version from the git metadata of the release. Archiving
+// leaves none behind, which resolves the package as dev-main.
+set('update_code_strategy', 'clone');
+
 set('shared_dirs', [
     'config',
     'web/fileadmin',
