@@ -132,10 +132,10 @@ jobs:
           tools: composer:v2
       - name: Download Deployer
         run: |
-          curl -LO https://deployer.org/deployer.phar;
-          sudo mv deployer.phar /usr/local/bin/dep;
-          sudo chmod +x /usr/local/bin/dep;
-          dep self-update;
+          curl -fLO https://github.com/deployphp/deployer/releases/download/v8.0.5/deployer.phar
+          sudo mv deployer.phar /usr/local/bin/dep
+          sudo chmod +x /usr/local/bin/dep
+          dep --version
       - name: Setup SSH Key
         env:
           SSH_AUTH_SOCK: /tmp/ssh-auth.sock
