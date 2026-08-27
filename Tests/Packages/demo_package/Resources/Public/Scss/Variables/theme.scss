@@ -1,0 +1,9 @@
+$enable-gradients: true !default;
+
+.demo {
+    @if $enable-gradients {
+        gradients: enabled;
+    } @else {
+        gradients: disabled;
+    }
+}
