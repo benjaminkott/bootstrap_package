@@ -1,0 +1,23 @@
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/TypoScript/Helper/ContentElement.typoscript'
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/TypoScript/Element/Textmedia.typoscript'
+
+config {
+    disableAllHeaderCode = 1
+    debug = 0
+}
+
+lib.contentElement.settings.media.additionalAttributes.referrerpolicy =
+
+page = PAGE
+page {
+    typeNum = 0
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = colPos = 0
+        }
+        renderObj < tt_content.textmedia
+    }
+}

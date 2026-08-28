@@ -1,3 +1,12 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:media class="embed-responsive-item" file="{file}" alt="{file.properties.alternative}" title="{file.properties.title}" additionalConfig="{settings.media.additionalConfig}" additionalAttributes="{settings.media.additionalAttributes}" />
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="isOnlineMedia" value="{file -> bk2k:file.isOnlineMedia()}" />
+<f:comment>
+    Online media renders as an iframe, a local video as a video tag. referrerpolicy
+    is defined on the iframe and not on the video element, so it is only handed over
+    for the former.
+</f:comment>
+<f:if condition="{isOnlineMedia} && {settings.media.additionalAttributes.referrerpolicy}">
+    <f:variable name="mediaAttributes" value="{referrerpolicy: settings.media.additionalAttributes.referrerpolicy}" />
+</f:if>
+<f:media class="embed-responsive-item" file="{file}" alt="{file.properties.alternative}" title="{file.properties.title}" additionalConfig="{settings.media.additionalConfig}" additionalAttributes="{mediaAttributes}" />
 </html>
