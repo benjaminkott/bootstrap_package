@@ -1,0 +1,6 @@
+"pages",,,,,
+,"uid","pid","sorting","doktype","slug","title"
+,1,0,256,1,"/","Referrer policy configured"
+,11,1,256,1,"/online-media","Online media"
+,12,1,512,1,"/local-video","Local video"
+,2,0,512,1,"/","Referrer policy empty"
