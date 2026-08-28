@@ -165,6 +165,7 @@ settings:
 
   plugin.bootstrap_package_contentelements.media.additionalAttributes.referrerpolicy:
     label: 'Referrer Policy'
+    description: 'Referrer policy handed to embedded online media, for example strict-origin-when-cross-origin or no-referrer. Empty leaves the referrer policy of the site in place.'
     category: BootstrapPackage.content-elements.media
     type: string
     default: 'strict-origin-when-cross-origin'
