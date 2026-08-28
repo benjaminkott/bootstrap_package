@@ -32,17 +32,19 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
 
         $this->registerArgument('paginationId', 'string', 'id', true);
         $this->registerArgument('paginationPage', 'int', 'page', true);
+        $this->registerArgument('section', 'string', 'section the link jumps to', false, '');
     }
 
     public function render(): string
     {
         $paginationId = (string) $this->arguments['paginationId'];
         $paginationPage = (int) $this->arguments['paginationPage'];
-        $section = isset($this->arguments['section']) ? (string)$this->arguments['section'] : '';
+        $section = (string) $this->arguments['section'];
 
         $arguments = [];
         if ($paginationPage > 1) {
-            $arguments['paginate'][$paginationId]['page'] = $paginationPage;
+            $arguments['paginate']['id'] = $paginationId;
+            $arguments['paginate']['page'] = $paginationPage;
         }
 
         $renderingContext = $this->renderingContext;
@@ -60,8 +62,11 @@ class PaginateViewHelper extends AbstractTagBasedViewHelper
                     $typolinkConfiguration = [];
                     $typolinkConfiguration['parameter'] = 'current';
                     $typolinkConfiguration['additionalParams'] = HttpUtility::buildQueryString($arguments, '&');
-                    $typolinkConfiguration['fragment'] = $section;
+                    $typolinkConfiguration['section'] = $section;
                     $typolinkConfiguration['addQueryString'] = '1';
+                    // A route enhancer turns the pagination into route arguments, which
+                    // would then be carried into every link built here.
+                    $typolinkConfiguration['addQueryString.'] = ['exclude' => 'paginate'];
 
                     /** @var ContentObjectRenderer $contentObjectRenderer */
                     $contentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
