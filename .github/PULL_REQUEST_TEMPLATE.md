@@ -36,7 +36,8 @@
 ## Checklist
 
 * [ ] Targets `master`
-* [ ] Commits are signed off (`git commit -s`)
+* [ ] Commits are signed off (`git commit -s`) — appreciated, not
+      required
 * [ ] Commit subjects follow `[BUGFIX|TASK|FEATURE] Subject`
 * [ ] `composer cgl` leaves the code unchanged
 * [ ] `composer phpstan` passes

@@ -78,20 +78,29 @@
 * A pull request is rebased onto `master`, never merged into — rebase
   again whenever `master` moved under it
 * Once it is merged, backport it: cherry-pick onto the release branches
-  it affects, one pull request per branch — check whether it applies
+  it affects, one pull request per branch — the squashed commit, or the
+  whole range where the merge was a rebase. Check whether it applies
   there, declared versions and tooling differ per branch
 * Release branches are named `BP_<major>_<minor>`
 
 ## Commits and PRs
 
-* PRs are always squash-merged into `[TYPE] Subject (#<PR number>)`,
-  e.g. `[TASK] Drop empty ext_tables.php files (#1641)`
+* A pull request whose commits are clean and separated — one concern
+  each, each of them green on its own — is rebase-merged and keeps them
+  with their authors and their subjects. Every other one is
+  squash-merged into `[TYPE] Subject (#<PR number>)`, e.g.
+  `[TASK] Drop empty ext_tables.php files (#1641)`; the squash appends
+  that number, a rebase does not, so a subject that has to carry it
+  says so itself
 * Types: `[BUGFIX]`, `[TASK]`, `[FEATURE]`; no issue number in the
   subject
 * Don't squash a PR branch yourself — the merge does it, original
   commits keep attribution
-* Every commit carries a `Signed-off-by:` trailer with the contributor's
-  name and mail from `git config` — commit with `git commit -s`
+* Every commit you write carries a `Signed-off-by:` trailer with your
+  name and mail from `git config` — commit with `git commit -s`. From an
+  outside contributor it is asked for and never a reason to reject a
+  pull request: a squash is signed by whoever merges, and a rebase
+  carries their commit as it stands
 
 ## Agent attribution
 
