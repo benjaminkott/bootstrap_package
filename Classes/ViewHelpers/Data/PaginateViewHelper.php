@@ -71,9 +71,12 @@ class PaginateViewHelper extends AbstractViewHelper
             ];
             ArrayUtility::mergeRecursiveWithOverrule($configuration, $this->arguments['configuration'], false);
 
-            $id = $this->arguments['id'];
+            $id = (string) $this->arguments['id'];
             $itemsPerPage = (int) $configuration['itemsPerPage'];
-            $currentPage = (int) ($request->getQueryParams()['paginate'][$id]['page'] ?? 1);
+            $paginate = $request->getQueryParams()['paginate'] ?? [];
+            $currentPage = (string) ($paginate['id'] ?? '') === $id
+                ? max(1, (int) ($paginate['page'] ?? 1))
+                : 1;
 
             if ($objects instanceof QueryResultInterface) {
                 $paginator = new QueryResultPaginator($objects, $currentPage, $itemsPerPage);

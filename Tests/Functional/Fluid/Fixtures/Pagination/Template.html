@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="first" value="{0: 'one', 1: 'two', 2: 'three', 3: 'four'}" />
+<f:variable name="second" value="{0: 'alpha', 1: 'beta', 2: 'gamma', 3: 'delta'}" />
+<div id="c1">
+    <bk2k:data.paginate id="gallery-1" objects="{first}" configuration="{itemsPerPage: 2, section: 'c1'}">
+        <f:for each="{paginator.paginatedItems}" as="item"><p>{item}</p></f:for>
+    </bk2k:data.paginate>
+</div>
+<div id="c2">
+    <bk2k:data.paginate id="gallery-2" objects="{second}" configuration="{itemsPerPage: 2, section: 'c2'}">
+        <f:for each="{paginator.paginatedItems}" as="item"><p>{item}</p></f:for>
+    </bk2k:data.paginate>
+</div>
+</html>

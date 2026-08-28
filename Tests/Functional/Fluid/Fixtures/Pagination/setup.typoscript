@@ -1,0 +1,13 @@
+config {
+    disableAllHeaderCode = 1
+    debug = 0
+}
+
+page = PAGE
+page {
+    typeNum = 0
+    10 = FLUIDTEMPLATE
+    10 {
+        file = EXT:bootstrap_package/Tests/Functional/Fluid/Fixtures/Pagination/Template.html
+    }
+}
