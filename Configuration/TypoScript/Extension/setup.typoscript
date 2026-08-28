@@ -8,10 +8,6 @@
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript'
 [end]
 
-[extension.isLoaded('indexed_search') == 1]
-    @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/IndexedSearch/setup.typoscript'
-[end]
-
 [extension.isLoaded('seo') == 1]
     @import 'EXT:bootstrap_package/Configuration/TypoScript/Extension/Seo/setup.typoscript'
 [end]
