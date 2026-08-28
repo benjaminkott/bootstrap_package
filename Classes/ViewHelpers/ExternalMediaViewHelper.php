@@ -29,6 +29,7 @@ class ExternalMediaViewHelper extends AbstractViewHelper
         $this->registerArgument('title', 'string', 'External media iframe title');
         $this->registerArgument('url', 'string', 'External media url');
         $this->registerArgument('class', 'string', 'CSS class rendered on the generated iframe code');
+        $this->registerArgument('referrerpolicy', 'string', 'Referrer policy rendered on the generated iframe code');
     }
 
     /**
@@ -49,7 +50,7 @@ class ExternalMediaViewHelper extends AbstractViewHelper
         }
         $variableProvider = $renderingContext->getVariableProvider();
         $externalMediaUtility = GeneralUtility::makeInstance(ExternalMediaUtility::class);
-        $externalMedia = $externalMediaUtility->getEmbedCode($this->arguments['url'], $this->arguments['class'], $this->arguments['title']);
+        $externalMedia = $externalMediaUtility->getEmbedCode($this->arguments['url'], $this->arguments['class'], $this->arguments['title'], $this->arguments['referrerpolicy']);
         $variableProvider->add('externalMedia', $externalMedia);
         $content = $this->renderChildren();
         $variableProvider->remove('externalMedia');

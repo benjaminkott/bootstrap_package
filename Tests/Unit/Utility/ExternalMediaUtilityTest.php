@@ -102,4 +102,34 @@ class ExternalMediaUtilityTest extends UnitTestCase
             ],
         ];
     }
+
+    #[DataProvider('getEmbedCodeWithReferrerPolicyDataProvider')]
+    public function testGetEmbedCodeWithReferrerPolicy(?string $referrerPolicy, ?string $expectedResult): void
+    {
+        self::assertSame(
+            $expectedResult,
+            (new ExternalMediaUtility())->getEmbedCode('https://www.youtube.com/watch?v=zpOVYePk6mM', null, null, $referrerPolicy)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public static function getEmbedCodeWithReferrerPolicyDataProvider(): array
+    {
+        return [
+            'with referrer policy' => [
+                'strict-origin-when-cross-origin',
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+            ],
+            'with referrer policy null' => [
+                null,
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
+            ],
+            'with referrer policy empty' => [
+                ' ',
+                '<iframe src="https://www.youtube-nocookie.com/embed/zpOVYePk6mM" frameborder="0" allowfullscreen></iframe>',
+            ],
+        ];
+    }
 }
