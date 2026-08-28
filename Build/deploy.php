@@ -18,6 +18,12 @@ task('typo3:prepare', function () {
     run('find . -mindepth 1 -maxdepth 1 -name extensions -prune -o -exec mv -t extensions/bootstrap_package {} +');
 });
 
+desc('Install the root .htaccess of the deployed TYPO3 version');
+task('typo3:htaccess', function () {
+    cd('{{release_path}}');
+    run('cp vendor/typo3/cms-install/Resources/Private/FolderStructureTemplateFiles/root-htaccess web/.htaccess');
+});
+
 desc('Finish TYPO3 Deployment');
 task('typo3:finish', function () {
     cd('{{release_path}}');
@@ -37,6 +43,7 @@ task('deploy', [
     'typo3:prepare',
     'deploy:shared',
     'deploy:vendors',
+    'typo3:htaccess',
     'deploy:symlink',
     'typo3:finish',
     'deploy:unlock',
@@ -65,7 +72,6 @@ set('shared_dirs', [
 ]);
 set('shared_files', [
     'composer.json',
-    'web/.htaccess',
     'web/typo3conf/AdditionalConfiguration.php',
     'web/typo3conf/LocalConfiguration.php',
     'web/typo3conf/PackageStates.php',
