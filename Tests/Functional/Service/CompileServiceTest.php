@@ -35,6 +35,7 @@ final class CompileServiceTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
     ];
 

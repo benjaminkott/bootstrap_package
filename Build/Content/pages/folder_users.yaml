@@ -1,0 +1,10 @@
+key: folder_users
+parent: root
+sorting: 120
+doktype: 254
+nav_hide: 1
+header: none
+en:
+  title: Frontend Users
+de:
+  title: Frontend-Benutzer

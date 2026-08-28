@@ -26,6 +26,7 @@ final class FormYamlConfigurationTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
         'form',
     ];

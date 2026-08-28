@@ -6,6 +6,7 @@
 ##   ddev branchery worktree:list                # overview
 ##   ddev branchery worktree:fork my-fix         # branch off from the current state
 ##   ddev branchery worktree:fork my-fix --from=other  # or from another worktree
+##   ddev branchery worktree:fork review --base=origin/main  # or at another commit
 ##   ddev branchery worktree:add 13.4            # check out an existing branch
 ##   ddev branchery worktree:php my-fix 8.4      # set the PHP version
 ##   ddev branchery worktree:pull my-fix         # bring the branch onto its remote
@@ -36,8 +37,6 @@ CONSOLE="/opt/branchery/bin/console"
 # The port docker-compose.branchery.yaml puts the interface on.
 INTERFACE_PORT="8041"
 
-die() { printf '\033[31m✗\033[0m %s\n' "$*" >&2; exit 1; }
-
 command="${1:-help}"
 shift || true
 
@@ -47,29 +46,27 @@ case "$command" in
         # opened -- and starts the project first if it is not running.
         ddev launch ":${INTERFACE_PORT}"
         ;;
-    help|-h|--help)
+    help|-h|--help|list)
         # "launch" is the one command the console does not have: opening a
-        # browser is the host's to do, so it is named here or nowhere.
-        printf 'The interface:\n\n  ddev branchery launch\n\n'
-        ddev exec --raw -s branchery -- php "$CONSOLE" list
+        # browser is the host's to do, so it is named here or nowhere. With
+        # arguments it is the console's own help or list that is asked for.
+        if [ $# -eq 0 ]; then
+            printf 'The interface:\n\n  ddev branchery launch\n\n'
+            ddev exec --raw -s branchery -- php "$CONSOLE" list
+        else
+            ddev exec --raw -s branchery -- php "$CONSOLE" "$command" "$@"
+        fi
         ;;
-    docs)
-        ddev exec --raw -s branchery -- php "$CONSOLE" docs "$@"
-        ;;
-    # What a command works on is part of its name: worktree:, database:, git:.
-    # Anything carrying a namespace is handed over as it stands rather than
-    # matched here -- a name the console does not have is refused there, by the
-    # one thing that knows what it does have, and a namespace added later needs
-    # no second place to be written down.
+    # Everything else is handed over as it stands rather than matched here -- a
+    # name the console does not have is refused there, by the one thing that
+    # knows what it does have, and a command added later needs no second place
+    # to be written down.
     #
     # Handed over as they stand: without --raw, "ddev exec" joins the arguments
     # into one line and has a shell in the container read it again, and a
     # branch called "feature/(foo)" is then a syntax error before the console
     # sees it.
-    *:*)
-        ddev exec --raw -s branchery -- php "$CONSOLE" "$command" "$@"
-        ;;
     *)
-        die "Unknown command '${command}'. Run 'ddev branchery help' for an overview."
+        ddev exec --raw -s branchery -- php "$CONSOLE" "$command" "$@"
         ;;
 esac

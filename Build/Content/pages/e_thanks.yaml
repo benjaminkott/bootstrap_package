@@ -1,0 +1,25 @@
+key: e_thanks
+parent: e_forms
+sorting: 10
+nav_hide: 1
+header: none
+en:
+  title: Thank you
+de:
+  title: Vielen Dank
+
+content:
+  - key: fo_thanks
+    type: panel
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    panel_class: success
+    en:
+      header: Thank you
+      bodytext: |-
+        <p>Your message has been sent. This page is the redirect target of the contact form; it is hidden from the navigation.</p><p><a class="btn btn-success" href="page:e_forms">Back to the forms</a></p>
+    de:
+      header: Vielen Dank
+      bodytext: |-
+        <p>Deine Nachricht wurde gesendet. Diese Seite ist das Weiterleitungsziel des Kontaktformulars; sie ist in der Navigation ausgeblendet.</p><p><a class="btn btn-success" href="page:e_forms">Zurück zu den Formularen</a></p>

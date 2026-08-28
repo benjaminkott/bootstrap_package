@@ -1,0 +1,25 @@
+key: c_thanks
+parent: contact
+sorting: 10
+nav_hide: 1
+header: none
+en:
+  title: Thank you
+de:
+  title: Vielen Dank
+
+content:
+  - key: ct_thanks
+    type: panel
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    panel_class: success
+    en:
+      header: Thank you
+      bodytext: |-
+        <p>Your message has been sent. We will get back to you.</p><p><a class="btn btn-success" href="page:root">Back to the start page</a></p>
+    de:
+      header: Vielen Dank
+      bodytext: |-
+        <p>Deine Nachricht wurde gesendet. Wir melden uns.</p><p><a class="btn btn-success" href="page:root">Zurück zur Startseite</a></p>

@@ -1,0 +1,26 @@
+base: /
+rootPageId: 1
+websiteTitle: 'Bootstrap Package'
+dependencies:
+  - bootstrap-package/full
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    locale: en_US.UTF-8
+    navigationTitle: English
+    hreflang: en-US
+    flag: us
+  -
+    title: Deutsch
+    enabled: true
+    languageId: 1
+    base: /de/
+    locale: de_DE.UTF-8
+    navigationTitle: Deutsch
+    hreflang: de-DE
+    flag: de
+    fallbackType: fallback
+    fallbacks: '0'

@@ -1,0 +1,24 @@
+key: folder_shared
+parent: root
+sorting: 100
+doktype: 254
+nav_hide: 1
+header: none
+en:
+  title: Shared Content
+de:
+  title: Geteilte Inhalte
+
+content:
+  - key: shared_notice
+    type: panel
+    frame_options: indent-left,indent-right
+    panel_class: tertiary
+    en:
+      header: A shared element
+      bodytext: |-
+        <p>This panel lives in the <em>Shared Content</em> folder and is inserted on other pages with the <em>Insert records</em> element. Edit it once, and every page that references it changes.</p>
+    de:
+      header: Ein geteiltes Element
+      bodytext: |-
+        <p>Dieses Panel liegt im Ordner <em>Geteilte Inhalte</em> und wird auf anderen Seiten mit dem Element <em>Datensätze einfügen</em> eingebunden. Einmal bearbeiten, und jede Seite, die es referenziert, ändert sich.</p>

@@ -1,0 +1,10 @@
+key: home
+parent: root
+sorting: 10
+doktype: 4
+shortcut_mode: 3
+header: none
+en:
+  title: Home
+de:
+  title: Startseite

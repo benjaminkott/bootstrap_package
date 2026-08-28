@@ -27,6 +27,7 @@ final class GlobalNamespaceTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
     ];
 

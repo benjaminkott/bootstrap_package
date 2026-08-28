@@ -11,7 +11,7 @@ services:
     #
     # Overridable for the one case that is not a release -- working on the add-on
     # itself. See tools/deploy.sh.
-    image: ${BRANCHERY_DOCKER_IMAGE:-ghcr.io/benjaminkott/ddev-branchery:v0.2.0}
+    image: ${BRANCHERY_DOCKER_IMAGE:-ghcr.io/benjaminkott/ddev-branchery:v0.3.0}
     restart: "no"
     # A process that collects what exits. The operations run as shells of their
     # own and end under a PID 1 that is a PHP server, which never waits for a

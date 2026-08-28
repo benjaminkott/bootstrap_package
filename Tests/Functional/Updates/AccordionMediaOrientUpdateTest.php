@@ -24,6 +24,7 @@ final class AccordionMediaOrientUpdateTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
     ];
 

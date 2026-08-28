@@ -1,0 +1,20 @@
+# SCSS variables the package has no setting definition for: any
+# plugin.bootstrap_package.settings.scss.* constant reaches the compiler.
+plugin.bootstrap_package.settings.scss {
+    font-size-base = 1.0625rem
+    headings-font-weight = 300
+    border-radius = .5rem
+    code-color = #57504C
+}
+
+# Dates in timelines and headers show the day, in the order of the language
+plugin.bootstrap_package_contentelements {
+    timeline.date.format = %B %e, %Y
+    header.date.format = %B %e, %Y
+}
+[siteLanguage("languageId") == 1]
+    plugin.bootstrap_package_contentelements {
+        timeline.date.format = %e. %B %Y
+        header.date.format = %e. %B %Y
+    }
+[END]
