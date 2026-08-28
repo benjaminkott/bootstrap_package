@@ -75,6 +75,8 @@
   `bugfix/indexed-search-pagination`
 * Every change goes to `master` first, always as a pull request, never
   as a direct push
+* A pull request is rebased onto `master`, never merged into — rebase
+  again whenever `master` moved under it
 * Once it is merged, backport it: cherry-pick onto the release branches
   it affects, one pull request per branch — check whether it applies
   there, declared versions and tooling differ per branch
