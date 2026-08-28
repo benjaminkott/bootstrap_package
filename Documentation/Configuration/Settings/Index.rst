@@ -27,6 +27,7 @@ Bootstrap Package provides the following Site Sets:
 * Bootstrap Package: Cookie Consent - Cookie consent banner integration
 * Bootstrap Package: Google Font - Google Fonts integration
 * Bootstrap Package: Google Tag Manager - Google Tag Manager integration
+* Bootstrap Package: Pagination - Speaking URLs for paginated elements
 * Bootstrap Package: RTE - Rich Text Editor configuration
 * Bootstrap Package: Skiplink - Accessibility skip links
 

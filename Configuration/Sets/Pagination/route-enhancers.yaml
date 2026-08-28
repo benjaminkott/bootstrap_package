@@ -1,0 +1,18 @@
+routeEnhancers:
+  BootstrapPackagePagination:
+    type: Plugin
+    namespace: 'paginate'
+    routePath: '/{id}/page-{page}'
+    static:
+      id: true
+    requirements:
+      # Identifiers the package builds out of a content element uid, e.g.
+      # "gallery-8793". Every value that matches becomes a page cache entry of
+      # its own, so widen it only as far as your own templates need.
+      id: '[a-z][a-z0-9]*-\d+'
+      page: '\d+'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '2'
+        end: '1000'
