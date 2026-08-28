@@ -14,6 +14,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '14.3.0-15.4.99',
+            'impexp' => '14.3.0-15.4.99',
             'rte_ckeditor' => '14.3.0-15.4.99',
             'seo' => '14.3.0-15.4.99',
         ],

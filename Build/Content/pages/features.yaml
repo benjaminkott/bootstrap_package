@@ -1,0 +1,61 @@
+key: features
+parent: root
+sorting: 20
+icon: ios-star
+header:
+  photo:
+    file: horizon/field-fog.jpg
+  side: right
+en:
+  title: Features
+  subtitle: Seven reasons
+  abstract: Seven reasons to build your next TYPO3 site on Bootstrap Package.
+de:
+  title: Funktionen
+  subtitle: 'Sieben Gründe'
+  abstract: 'Sieben Gründe, deine nächste TYPO3-Site auf dem Bootstrap Package aufzubauen.'
+thumbnail:
+  - file: features/page-layouts.jpg
+    alt: Aerial view of a modernist housing estate
+    alt.de: Luftaufnahme einer modernen Wohnsiedlung
+
+content:
+  - key: feat_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Seven reasons
+      bodytext: |-
+        <p class="lead">Bootstrap Package is not a starting point that leaves the real work to you. It is a finished frontend that you configure. Every feature below is shown on the page that describes it.</p>
+    de:
+      header: 'Sieben Gründe'
+      bodytext: |-
+        <p class="lead">Bootstrap Package ist kein Startpunkt, der dir die eigentliche Arbeit überlässt. Es ist ein fertiges Frontend, das du konfigurierst. Jede Funktion unten wird auf der Seite gezeigt, die sie beschreibt.</p>
+  - key: feat_menu
+    type: menu_card_dir
+    pages: page:features
+    subitems_header_layout: 3
+    space_after_class: large
+    background_color_class: none
+    en:
+      readmore_label: Learn more
+    de:
+      readmore_label: Mehr erfahren
+    options:
+      align: left
+      columns: 4
+  - key: feat_quote
+    type: quote
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      bodytext: The goal of this package is to give an advanced example of how modern templating in TYPO3 can be handled nicely – without depending on third-party extensions.
+      quote_source: From the project description, 2014
+    de:
+      bodytext: 'Das Ziel dieses Pakets ist ein anspruchsvolles Beispiel dafür, wie modernes Templating in TYPO3 sauber gelingt – ohne von Drittanbieter-Erweiterungen abzuhängen.'
+      quote_source: Aus der Projektbeschreibung, 2014

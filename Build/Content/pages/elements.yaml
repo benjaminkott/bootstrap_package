@@ -1,0 +1,63 @@
+key: elements
+parent: root
+sorting: 30
+icon: grid
+header:
+  photo:
+    file: horizon/coast.jpg
+  side: right
+en:
+  title: Content Elements
+  nav_title: Elements
+  subtitle: Every element, in use
+  abstract: Every content element the package ships, shown in use on five pages.
+de:
+  title: Inhaltselemente
+  nav_title: Elemente
+  subtitle: Jedes Element, im Einsatz
+  abstract: 'Jedes Inhaltselement des Pakets, im Einsatz gezeigt auf fünf Seiten.'
+thumbnail:
+  - file: interior/library-aisle.jpg
+    alt: A long library aisle of dark oak shelves
+    alt.de: Ein langer Bibliotheksgang mit dunklen Eichenregalen
+
+content:
+  - key: el_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Nothing here is custom-built
+      bodytext: |-
+        <p class="lead">Every element on these pages comes from the new content element wizard, arranged the way a real site would use it. The options each element offers are summarised at the end of its page.</p>
+    de:
+      header: Nichts hier ist eigens gebaut
+      bodytext: |-
+        <p class="lead">Jedes Element auf diesen Seiten kommt aus dem Wizard für neue Inhaltselemente, angeordnet, wie eine echte Site es nutzen würde. Die Optionen jedes Elements sind am Ende seiner Seite zusammengefasst.</p>
+  - key: el_menu
+    type: menu_card_dir
+    pages: page:elements
+    subitems_header_layout: 3
+    space_after_class: large
+    background_color_class: none
+    en:
+      readmore_label: Open
+    de:
+      readmore_label: 'Öffnen'
+    options:
+      align: left
+      columns: 3
+  - key: el_quote
+    type: quote
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      bodytext: A content element should be obvious to the editor and invisible to the visitor.
+      quote_source: Design principle of the package
+    de:
+      bodytext: 'Ein Inhaltselement sollte für den Redakteur offensichtlich und für den Besucher unsichtbar sein.'
+      quote_source: Gestaltungsprinzip des Pakets

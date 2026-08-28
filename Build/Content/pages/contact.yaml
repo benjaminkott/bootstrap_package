@@ -1,0 +1,58 @@
+key: contact
+parent: root
+sorting: 80
+backend_layout: pagets__2_columns_50_50
+icon: ios-email
+header:
+  photo:
+    file: pages/contact.jpg
+    crop: band-top
+  side: right
+en:
+  title: Contact
+  subtitle: Questions and ideas
+  abstract: Questions, ideas, bug reports – here is where they go.
+de:
+  title: Kontakt
+  subtitle: Fragen und Ideen
+  abstract: 'Fragen, Ideen, Fehlermeldungen – hier gehören sie hin.'
+thumbnail:
+  - file: pages/contact.jpg
+    alt: A row of steel letterboxes, one teal
+    alt.de: 'Eine Reihe Stahlbriefkästen, einer petrolfarben'
+
+content:
+  - key: ct_intro
+    type: textpic
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    imageorient: 8
+    en:
+      header: Where things go
+      bodytext: |-
+        <p class="lead">Bug reports and feature requests belong on <a href="https://github.com/benjaminkott/bootstrap_package/issues" target="_blank" rel="noopener">GitHub</a>, where everyone benefits from the answer.</p><p>For everything else there is the form on this page. It is the contact form the package ships – the recipient address is a setting of the element, so set yours before you go live.</p>
+    de:
+      header: Wohin damit
+      bodytext: |-
+        <p class="lead">Fehlermeldungen und Feature-Wünsche gehören auf <a href="https://github.com/benjaminkott/bootstrap_package/issues" target="_blank" rel="noopener">GitHub</a>, wo alle von der Antwort profitieren.</p><p>Für alles andere gibt es das Formular auf dieser Seite. Es ist das Kontaktformular aus dem Paket – die Empfängeradresse ist eine Einstellung des Elements, setze deine, bevor du live gehst.</p>
+    image:
+      - file: pages/contact.jpg
+        alt: A row of steel letterboxes, one teal
+        alt.de: 'Eine Reihe Stahlbriefkästen, einer petrolfarben'
+  - key: ct_form
+    type: form_formframework
+    column: right
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Write to us
+    de:
+      header: Schreib uns
+    form:
+      definition: EXT:bootstrap_package/Resources/Private/Forms/Contact.form.yaml
+      subject: 'Contact form: {subject}'
+      recipient: 'demo@example.com'
+      recipientName: Demo recipient
+      thanks: page:c_thanks

@@ -1,0 +1,153 @@
+key: about
+parent: root
+sorting: 70
+icon: ios-people
+header:
+  photo:
+    file: pages/about.jpg
+    crop: band-top
+  side: right
+en:
+  title: About
+  subtitle: Open source since 2014
+  abstract: Open source since 2014, built and maintained by the TYPO3 community.
+de:
+  title: 'Über das Projekt'
+  subtitle: Open Source seit 2014
+  abstract: Open Source seit 2014, gebaut und gepflegt von der TYPO3-Community.
+thumbnail:
+  - file: pages/about.jpg
+    alt: Wooden chairs in a circle in a bright hall
+    alt.de: 'Holzstühle im Kreis in einer hellen Halle'
+
+content:
+  - key: ab_hero
+    type: textpic
+    header_layout: 2
+    space_before_class: medium
+    space_after_class: large
+    imageorient: 125
+    imagewidth: 560
+    en:
+      header: Why does every project start by building the same frontend again?
+      bodytext: |-
+        <p class="lead">Bootstrap Package started in 2014 as the answer to that question.</p><p>It has been developed in the open ever since – by Benjamin Kott and dozens of contributors – and has shipped with every TYPO3 LTS since 6.2. Today it is one of the most installed TYPO3 extensions there is.</p>
+    de:
+      header: Warum beginnt jedes Projekt damit, dasselbe Frontend noch einmal zu bauen?
+      bodytext: |-
+        <p class="lead">Bootstrap Package begann 2014 als Antwort auf diese Frage.</p><p>Seitdem wird es offen entwickelt – von Benjamin Kott und Dutzenden Mitwirkenden – und wird seit TYPO3 6.2 mit jeder LTS ausgeliefert. Heute ist es eine der meistinstallierten TYPO3-Erweiterungen überhaupt.</p>
+    image:
+      - file: pages/about.jpg
+        alt: Wooden chairs in a circle in a bright hall
+        alt.de: 'Holzstühle im Kreis in einer hellen Halle'
+  - key: ab_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Twelve years in four steps
+      bodytext: |-
+        <p class="lead text-center">The short version of the changelog.</p>
+    de:
+      header: 'Zwölf Jahre in vier Schritten'
+      bodytext: |-
+        <p class="lead text-center">Die Kurzfassung des Changelogs.</p>
+  - key: ab_timeline
+    type: timeline
+    subitems_header_layout: 4
+    space_after_class: large
+    background_color_class: light
+    options:
+      sorting: date desc
+    children:
+      - date: '2014-03-20 00:00:00'
+        en:
+          header: First commit
+          bodytext: |-
+            <p>A sitepackage for TYPO3 6.2, built on Bootstrap 3.</p>
+        de:
+          header: Erster Commit
+          bodytext: |-
+            <p>Ein Sitepackage für TYPO3 6.2, gebaut auf Bootstrap 3.</p>
+        icon_file:
+          - file: icons/content-carousel.svg
+      - date: '2020-04-21 00:00:00'
+        en:
+          header: Bootstrap 4 and the compiler
+          bodytext: |-
+            <p>Version 11 moves the theme to Bootstrap 4 and compiles SCSS on the server.</p>
+        de:
+          header: Bootstrap 4 und der Compiler
+          bodytext: |-
+            <p>Version 11 bringt das Theme auf Bootstrap 4 und kompiliert SCSS auf dem Server.</p>
+        icon_file:
+          - file: icons/card-group.svg
+      - date: '2024-11-01 00:00:00'
+        en:
+          header: Site sets
+          bodytext: |-
+            <p>Version 15 delivers the frontend as TYPO3 site sets with settings instead of constants.</p>
+        de:
+          header: Site Sets
+          bodytext: |-
+            <p>Version 15 liefert das Frontend als TYPO3 Site Sets mit Settings statt Konstanten.</p>
+        icon_file:
+          - file: icons/timeline.svg
+      - date: '2026-09-19 00:00:00'
+        en:
+          header: This demo
+          bodytext: |-
+            <p>The package becomes a distribution: a complete, bilingual website arrives with the setup.</p>
+        de:
+          header: Diese Demo
+          bodytext: |-
+            <p>Das Paket wird zur Distribution: eine komplette, zweisprachige Website kommt mit dem Setup.</p>
+        icon_file:
+          - file: icons/gallery.svg
+  - key: ab_gallery
+    type: gallery
+    header_layout: 2
+    header_position: center
+    space_before_class: large
+    space_after_class: large
+    imagecols: 2
+    image_zoom: 1
+    aspect_ratio: '1.7777777777778'
+    items_per_page: 4
+    en:
+      header: Built in the open
+      subheader: Issues, pull requests and a contribution guide – the repository is where the work happens
+    de:
+      header: Offen gebaut
+      subheader: Issues, Pull Requests und ein Leitfaden zum Mitmachen – im Repository passiert die Arbeit
+    image:
+      - file: interior/empty-hall.jpg
+        alt: An empty concrete hall
+        alt.de: Eine leere Betonhalle
+      - file: interior/library-aisle.jpg
+        alt: A library aisle
+        alt.de: Ein Bibliotheksgang
+      - file: pages/get-started.jpg
+        alt: A workbench
+        alt.de: Eine Werkbank
+      - file: details/toolbox.jpg
+        alt: A toolbox
+        alt.de: Ein Werkzeugkasten
+  - key: ab_license
+    type: text
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: MIT licensed
+      bodytext: |-
+        <p class="text-center">Use it in personal, commercial and client projects, modify it, ship it – the only condition is to keep the license notice. Bootstrap itself is MIT licensed by its authors; the demo images on this site were generated for the project and may be replaced freely.</p><p class="text-center"><a class="btn btn-light" href="https://github.com/benjaminkott/bootstrap_package" target="_blank" rel="noopener">Source on GitHub</a> <a class="btn btn-outline-light" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/Contribution/Index.html" target="_blank" rel="noopener">Contribute</a></p>
+    de:
+      header: MIT-lizenziert
+      bodytext: |-
+        <p class="text-center">Nutze es in privaten, kommerziellen und Kundenprojekten, ändere es, liefere es aus – die einzige Bedingung ist, den Lizenzhinweis zu behalten. Bootstrap selbst ist von seinen Autoren MIT-lizenziert; die Demo-Bilder dieser Site wurden für das Projekt erzeugt und dürfen frei ersetzt werden.</p><p class="text-center"><a class="btn btn-light" href="https://github.com/benjaminkott/bootstrap_package" target="_blank" rel="noopener">Quellcode auf GitHub</a> <a class="btn btn-outline-light" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/Contribution/Index.html" target="_blank" rel="noopener">Mitmachen</a></p>

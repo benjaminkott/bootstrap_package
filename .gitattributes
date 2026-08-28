@@ -15,6 +15,10 @@ CLAUDE.md export-ignore
 .phplint.yml export-ignore
 .stylelintrc export-ignore
 
+# The exported demo data files are content-addressed by sha1 and must never be
+# touched by eol normalization - a rewritten byte breaks the sys_file checksum
+/Initialisation/data.xml.files/** binary
+
 # Enforce checkout with linux lf consistent over all plattforms
 *.xml text eol=lf
 *.html text eol=lf

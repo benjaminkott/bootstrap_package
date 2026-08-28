@@ -1,0 +1,78 @@
+key: l_2col_50_50
+parent: layouts
+sorting: 50
+backend_layout: pagets__2_columns_50_50
+header:
+  plain: true
+en:
+  title: '2 Columns 50/50'
+  subtitle: Backend layout 2_columns_50_50
+  abstract: Two columns of equal width.
+  keywords: layouts, columns
+de:
+  title: '2 Spalten 50/50'
+  subtitle: Backend-Layout 2_columns_50_50
+  abstract: Zwei gleich breite Spalten.
+thumbnail:
+  - file: layouts/2_columns_50_50.png
+    alt: Schematic of the 2 Columns 50/50 layout
+    alt.de: Schema des Layouts 2 Spalten 50/50
+
+content:
+  - key: l_2col_50_50_h
+    type: text
+    header_layout: 2
+    en:
+      header: The main column
+      bodytext: |-
+        <p class="lead">Two columns of equal width.</p><p>This text sits in the main column. Every other column of this layout holds a short note so you can see where it renders; the footer columns are inherited from the start page.</p>
+    de:
+      header: Die Hauptspalte
+      bodytext: |-
+        <p class="lead">Zwei gleich breite Spalten.</p><p>Dieser Text sitzt in der Hauptspalte. Jede andere Spalte dieses Layouts enthält eine kurze Notiz, damit du siehst, wo sie gerendert wird; die Footer-Spalten werden von der Startseite vererbt.</p>
+  - key: l_2col_50_50_before
+    type: text
+    column: before
+    header_layout: 3
+    frame_options: ruler-after,indent-left,indent-right
+    space_before_class: large
+    space_after_class: medium
+    en:
+      header: Content before the columns
+      bodytext: |-
+        <p>Full width, above the columns – the place for an introduction.</p>
+    de:
+      header: Inhalt vor den Spalten
+      bodytext: |-
+        <p>Volle Breite, über den Spalten – der Platz für eine Einleitung.</p>
+  - key: l_2col_50_50_after
+    type: text
+    column: after
+    header_layout: 3
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: Content after the columns
+      bodytext: |-
+        <p class="text-center">Full width, below the columns – the place for a call to action.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">All layouts</a></p>
+    de:
+      header: Inhalt nach den Spalten
+      bodytext: |-
+        <p class="text-center">Volle Breite, unter den Spalten – der Platz für eine Handlungsaufforderung.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">Alle Layouts</a></p>
+  - key: l_2col_50_50_c2
+    type: text
+    column: right
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Right column
+      bodytext: |-
+        <p>This column is called <em>right</em>.</p>
+    de:
+      header: Rechte Spalte
+      bodytext: |-
+        <p>Diese Spalte heißt <em>right</em>.</p>

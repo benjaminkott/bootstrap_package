@@ -28,6 +28,7 @@ final class DynamicContentTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
     ];
 

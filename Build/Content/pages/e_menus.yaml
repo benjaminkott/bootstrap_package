@@ -1,0 +1,275 @@
+key: e_menus
+parent: elements
+sorting: 40
+backend_layout: pagets__2_columns_50_50
+icon: navicon-round
+en:
+  title: Menus
+  subtitle: Fourteen ways to link pages
+  abstract: Cards, thumbnails, lists, sitemaps, categories – fourteen menu types, all pointing at real pages of this site.
+  keywords: menus, navigation
+de:
+  title: 'Menüs'
+  subtitle: Vierzehn Arten, Seiten zu verlinken
+  abstract: 'Cards, Thumbnails, Listen, Sitemaps, Kategorien – vierzehn Menütypen, alle zeigen auf echte Seiten dieser Site.'
+thumbnail:
+  - file: stairs/zigzag.jpg
+    alt: A zigzag staircase with dark railings
+    alt.de: 'Eine Zickzack-Treppe mit dunklen Geländern'
+
+content:
+  - key: mn_intro
+    type: text
+    column: before
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Fourteen ways to link pages
+      bodytext: |-
+        <p class="lead">Every menu below links to real pages of this site. Abstracts, subtitles, icons and thumbnails come from the page properties – write them once, every menu uses them.</p>
+    de:
+      header: Vierzehn Arten, Seiten zu verlinken
+      bodytext: |-
+        <p class="lead">Jedes Menü unten verlinkt echte Seiten dieser Site. Kurztexte, Untertitel, Icons und Vorschaubilder kommen aus den Seiteneigenschaften – einmal schreiben, jedes Menü nutzt sie.</p>
+  - key: mn_card_dir
+    type: menu_card_dir
+    column: before
+    pages: page:features
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    space_after_class: large
+    en:
+      header: The features, as cards
+      readmore_label: Read more
+    de:
+      header: Die Funktionen, als Cards
+      readmore_label: Weiterlesen
+    options:
+      align: left
+      columns: 4
+  - key: mn_thumb_dir
+    type: menu_thumbnail_dir
+    column: before
+    pages: page:layouts
+    header_layout: 2
+    subitems_header_layout: 5
+    header_position: center
+    space_before_class: large
+    space_after_class: large
+    background_color_class: light
+    en:
+      header: The layouts, as thumbnails
+    de:
+      header: Die Layouts, als Thumbnails
+    options:
+      align: left
+      columns: 4
+  - key: mn_card_list
+    type: menu_card_list
+    column: before
+    pages:
+      - page:e_text
+      - page:e_media
+      - page:e_interactive
+    header_layout: 2
+    subitems_header_layout: 4
+    space_before_class: large
+    en:
+      header: Selected pages, as cards
+      readmore_label: Open
+    de:
+      header: 'Ausgewählte Seiten, als Cards'
+      readmore_label: 'Öffnen'
+    options:
+      align: left
+      columns: 3
+  - key: mn_thumb_list
+    type: menu_thumbnail_list
+    column: before
+    pages:
+      - page:start
+      - page:about
+      - page:contact
+    header_layout: 2
+    subitems_header_layout: 5
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Selected pages, as thumbnails
+    de:
+      header: 'Ausgewählte Seiten, als Thumbnails'
+    options:
+      align: left
+      columns: 3
+  - key: mn_s2
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Plain lists
+      bodytext: |-
+        <p class="lead">Subpages, sections of a page, a sitemap – the menus that need no image.</p>
+    de:
+      header: Schlichte Listen
+      bodytext: |-
+        <p class="lead">Unterseiten, Abschnitte einer Seite, eine Sitemap – die Menüs, die kein Bild brauchen.</p>
+  - key: mn_abstract
+    type: menu_abstract
+    pages: page:features
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: The features, with abstracts
+    de:
+      header: Mit Kurztexten
+  - key: mn_subpages
+    type: menu_subpages
+    pages: page:elements
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Subpages of Content Elements
+    de:
+      header: Unterseiten von Inhaltselemente
+  - key: mn_section
+    type: menu_section
+    pages: page:e_menus
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Sections of this page
+    de:
+      header: Abschnitte dieser Seite
+  - key: mn_section_pages
+    type: menu_section_pages
+    pages: page:features
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Subpages with their sections
+    de:
+      header: Unterseiten mit ihren Abschnitten
+  - key: mn_s3
+    type: text
+    column: right
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Chosen or found
+      bodytext: |-
+        <p class="lead">Pages picked by hand – or found by category, by keyword, by date.</p>
+    de:
+      header: 'Gewählt oder gefunden'
+      bodytext: |-
+        <p class="lead">Seiten von Hand gewählt – oder gefunden nach Kategorie, Schlagwort, Datum.</p>
+  - key: mn_pages
+    type: menu_pages
+    column: right
+    pages:
+      - page:features
+      - page:elements
+      - page:layouts
+      - page:start
+      - page:about
+      - page:contact
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Selected pages
+    de:
+      header: 'Ausgewählte Seiten'
+  - key: mn_cat_pages
+    type: menu_categorized_pages
+    column: right
+    selected_categories: category:cat_feature
+    category_field: categories
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: 'Pages in the category “Feature”'
+    de:
+      header: 'Seiten in der Kategorie „Funktion“'
+  - key: mn_related
+    type: menu_related_pages
+    column: right
+    pages: page:f_images
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Pages related to Responsive Images, by keyword
+    de:
+      header: Seiten verwandt mit Responsive Bilder, nach Schlagwort
+  - key: mn_recent
+    type: menu_recently_updated
+    column: right
+    pages: page:root
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Recently updated
+    de:
+      header: Zuletzt aktualisiert
+  - key: mn_sitemap_pages
+    type: menu_sitemap_pages
+    column: right
+    pages:
+      - page:features
+      - page:elements
+    header_layout: 4
+    frame_options: indent-left,indent-right
+    en:
+      header: Sitemap of Features and Content Elements
+    de:
+      header: Sitemap von Funktionen und Inhaltselementen
+  - key: mn_sitemap
+    type: menu_sitemap
+    column: after
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: The whole site
+    de:
+      header: Die ganze Site
+  - key: mn_options
+    type: accordion
+    column: after
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: All options at a glance
+    de:
+      header: Alle Optionen auf einen Blick
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: Card and thumbnail menus
+          bodytext: |-
+            <p>One to four columns · left or centred · header level of the items · read-more label · image from the page thumbnail, icon from the page icon.</p>
+        de:
+          header: 'Card- und Thumbnail-Menüs'
+          bodytext: |-
+            <p>Eine bis vier Spalten · links oder zentriert · Überschriftenebene der Einträge · Weiterlesen-Beschriftung · Bild aus dem Seiten-Thumbnail, Icon aus dem Seiten-Icon.</p>
+      - en:
+          header: Sources
+          bodytext: |-
+            <p>Selected pages, subpages of a page, sections of a page, sitemap of the site or of selected pages, pages of a category, content of a category, related pages by keyword, recently updated pages.</p>
+        de:
+          header: Quellen
+          bodytext: |-
+            <p>Ausgewählte Seiten, Unterseiten einer Seite, Abschnitte einer Seite, Sitemap der Site oder ausgewählter Seiten, Seiten einer Kategorie, Inhalte einer Kategorie, verwandte Seiten nach Schlagwort, zuletzt aktualisierte Seiten.</p>

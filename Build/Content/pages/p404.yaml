@@ -1,0 +1,32 @@
+key: p404
+parent: root
+sorting: 90
+nav_hide: 1
+no_search: 1
+en:
+  title: Page not found
+  subtitle: The path ends here
+de:
+  title: Seite nicht gefunden
+  subtitle: Hier endet der Weg
+thumbnail:
+  - file: pages/404.jpg
+    alt: A concrete path ending at a wall with a small plant
+    alt.de: Ein Betonweg, der an einer Wand mit einer kleinen Pflanze endet
+
+content:
+  - key: nf_text
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: The page you were looking for has moved, or it never existed
+      bodytext: |-
+        <p class="text-center"><a class="btn btn-primary btn-lg" href="page:root">Back to the start page</a></p>
+    de:
+      header: Die gesuchte Seite ist umgezogen, oder es gab sie nie
+      bodytext: |-
+        <p class="text-center"><a class="btn btn-primary btn-lg" href="page:root">Zurück zur Startseite</a></p>

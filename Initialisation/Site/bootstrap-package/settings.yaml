@@ -1,0 +1,42 @@
+# Navigation: fixed top bar, solid – the page headers are light photographs
+page.theme.navigation.type: top
+page.theme.navigation.style: default
+page.theme.meta.enable: false
+page.theme.breadcrumb.enableLevel: 1
+
+# Cookie consent is a site set of its own; the demo explains it on the Integrations page
+page.theme.cookieconsent.enable: false
+
+# Footer contact block and social channels
+page.theme.contact.enable: false
+page.theme.contact.data.title: 'Bootstrap Package'
+page.theme.contact.data.addressLine1: 'A TYPO3 theme, built in the open'
+page.theme.contact.data.email: 'demo@example.com'
+page.theme.contact.data.www: 'https://www.bootstrap-package.com'
+page.theme.socialmedia.channels.github.url: 'https://github.com/benjaminkott/bootstrap_package'
+
+# Icons of the pages also appear in card menus
+plugin.bootstrap_package_contentelements.menu_card.icon.enable: true
+
+# Font: one family, four weights
+page.theme.googleFont.enable: true
+page.theme.googleFont.font: Manrope
+page.theme.googleFont.weight: '300,400,600,700'
+
+# Colours of the year 2026: Cloud Dancer ground, Transformative Teal accent, Silhouette and Midnight Garden for depth
+plugin.bootstrap_package.settings.scss.primary: '#19737A'
+plugin.bootstrap_package.settings.scss.secondary: '#57504C'
+plugin.bootstrap_package.settings.scss.tertiary: '#546F68'
+plugin.bootstrap_package.settings.scss.quaternary: '#39463C'
+plugin.bootstrap_package.settings.scss.default: '#CBBBA1'
+plugin.bootstrap_package.settings.scss.success: '#3A7449'
+plugin.bootstrap_package.settings.scss.info: '#2E6F8E'
+plugin.bootstrap_package.settings.scss.warning: '#8A5E15'
+plugin.bootstrap_package.settings.scss.danger: '#B04539'
+plugin.bootstrap_package.settings.scss.lighter: '#F8F7F4'
+plugin.bootstrap_package.settings.scss.light: '#E7E3DB'
+plugin.bootstrap_package.settings.scss.dark: '#3A3633'
+plugin.bootstrap_package.settings.scss.darker: '#2A2725'
+plugin.bootstrap_package.settings.scss.body-bg: '#F0EEE9'
+plugin.bootstrap_package.settings.scss.body-color: '#2A2725'
+plugin.bootstrap_package.settings.scss.enable-shadows: false

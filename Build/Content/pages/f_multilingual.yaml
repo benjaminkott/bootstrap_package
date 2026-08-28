@@ -1,0 +1,71 @@
+key: f_multilingual
+parent: features
+sorting: 60
+categories: category:cat_feature
+icon: earth
+header:
+  side: right
+en:
+  title: Multilingual
+  subtitle: English and German
+  abstract: This site runs in English and German. Connected translations, language menu and fallback are built in.
+  keywords: languages, translation
+de:
+  title: Mehrsprachig
+  subtitle: Englisch und Deutsch
+  abstract: 'Diese Site läuft auf Englisch und Deutsch. Verbundene Übersetzungen, Sprachmenü und Fallback sind eingebaut.'
+thumbnail:
+  - file: features/multilingual.jpg
+    alt: A stack of linen-bound books
+    alt.de: 'Ein Stapel leinengebundener Bücher'
+
+content:
+  - key: ml_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: This page is the proof
+      bodytext: |-
+        <p class="lead">Switch the language in the footer. Every page, every element and every image caption on this site exists in English and German. The translations are connected: each German element belongs to its English original, so editors see both side by side, and a page that is not translated yet falls back gracefully.</p>
+    de:
+      header: Diese Seite ist der Beweis
+      bodytext: |-
+        <p class="lead">Wechsle die Sprache im Footer. Jede Seite, jedes Element und jede Bildunterschrift dieser Site existiert auf Englisch und Deutsch. Die Übersetzungen sind verbunden: Jedes deutsche Element gehört zu seinem englischen Original, Redakteure sehen beide nebeneinander, und eine noch nicht übersetzte Seite fällt sauber zurück.</p>
+  - key: ml_pic
+    type: textpic
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    background_color_class: light
+    imageorient: 125
+    imagewidth: 520
+    en:
+      header: Any language, any character
+      bodytext: |-
+        <p>The font, the RTE and the templates handle whatever your content needs:</p><ul><li>Umlauts and sharp s: Äpfel, Öl, Übung, Straße</li><li>Accents: café, niño, Zürich, Gdańsk, İstanbul</li><li>Greek and Cyrillic: Καλημέρα, Добрый день</li><li>Chinese, Japanese, Korean: 你好, こんにちは, 안녕하세요</li><li>Right to left: مرحبا, שלום</li><li>Symbols: © ® ™ € £ ¥ – ✓ ★ ☺</li></ul>
+    de:
+      header: Jede Sprache, jedes Zeichen
+      bodytext: |-
+        <p>Schrift, RTE und Templates verarbeiten, was dein Content braucht:</p><ul><li>Umlaute und scharfes s: Äpfel, Öl, Übung, Straße</li><li>Akzente: café, niño, Zürich, Gdańsk, İstanbul</li><li>Griechisch und Kyrillisch: Καλημέρα, Добрый день</li><li>Chinesisch, Japanisch, Koreanisch: 你好, こんにちは, 안녕하세요</li><li>Rechts nach links: مرحبا, שלום</li><li>Symbole: © ® ™ € £ ¥ – ✓ ★ ☺</li></ul>
+    image:
+      - file: features/multilingual.jpg
+        alt: A stack of linen-bound books
+        alt.de: 'Ein Stapel leinengebundener Bücher'
+  - key: ml_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_integrations">Integrations →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_integrations">Integrationen →</a></p>

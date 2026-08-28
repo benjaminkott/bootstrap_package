@@ -1,0 +1,9 @@
+key: spacer
+parent: root
+sorting: 50
+doktype: 199
+header: none
+en:
+  title: Spacer
+de:
+  title: Spacer

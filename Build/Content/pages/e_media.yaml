@@ -1,0 +1,454 @@
+key: e_media
+parent: elements
+sorting: 20
+icon: images
+en:
+  title: Images & Media
+  subtitle: Images, galleries, video, downloads
+  abstract: Images beside text, image grids, galleries, video, audio, downloads, cards and icons – everything visual.
+  keywords: images, media, gallery
+de:
+  title: Bilder & Medien
+  subtitle: Bilder, Galerien, Video, Downloads
+  abstract: Bilder neben Text, Bildraster, Galerien, Video, Audio, Downloads, Cards und Icons – alles Visuelle.
+thumbnail:
+  - file: media/wind-turbine.jpg
+    alt: A wind turbine against an overcast sky
+    alt.de: Ein Windrad vor bedecktem Himmel
+
+content:
+  - key: md_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Every image, every screen
+      bodytext: |-
+        <p class="lead">Every image on this page is cropped, sized and lazy-loaded by the package. Upload once; the element does the rest.</p>
+    de:
+      header: Jedes Bild, jeder Bildschirm
+      bodytext: |-
+        <p class="lead">Jedes Bild auf dieser Seite wird vom Paket zugeschnitten, skaliert und verzögert geladen. Einmal hochladen; das Element macht den Rest.</p>
+  - key: md_grid
+    type: image
+    header_layout: 2
+    header_position: center
+    space_after_class: large
+    imagecols: 3
+    image_zoom: 1
+    en:
+      header: Materials
+      subheader: Nine images in a three-column grid, each opening in the lightbox
+    de:
+      header: Materialien
+      subheader: 'Neun Bilder in einem dreispaltigen Raster, jedes öffnet sich in der Lightbox'
+    image:
+      - file: gallery/material-concrete.jpg
+        alt: Board-formed concrete
+        alt.de: Sichtbeton
+      - file: gallery/material-oak.jpg
+        alt: Oiled dark oak
+        alt.de: 'Geölte Eiche'
+      - file: gallery/material-linen.jpg
+        alt: Undyed linen
+        alt.de: Leinen
+      - file: gallery/material-steel.jpg
+        alt: Brushed dark steel
+        alt.de: 'Gebürsteter Stahl'
+      - file: gallery/material-terrazzo.jpg
+        alt: Terrazzo
+        alt.de: Terrazzo
+      - file: gallery/material-moss.jpg
+        alt: Moss on stone
+        alt.de: Moos auf Stein
+      - file: facades/balconies.jpg
+        alt: Concrete balconies
+        alt.de: Betonbalkone
+      - file: facades/brick-pattern.jpg
+        alt: Brick relief
+        alt.de: Ziegelrelief
+      - file: facades/timber-cladding.jpg
+        alt: Timber cladding
+        alt.de: Holzverschalung
+  - key: md_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: The stairs series
+      bodytext: |-
+        <p class="lead text-center">Text and images: four staircases, each a study in lines, placed beside the text – right, left, and vertically centred.</p>
+    de:
+      header: Die Treppen-Serie
+      bodytext: |-
+        <p class="lead text-center">Text und Bilder: vier Treppenhäuser, jedes eine Studie in Linien, neben dem Text platziert – rechts, links und vertikal zentriert.</p>
+  - key: md_tp_1
+    type: textpic
+    header_layout: 3
+    background_color_class: light
+    imageorient: 25
+    imagewidth: 480
+    image_zoom: 1
+    en:
+      header: Spiral
+      bodytext: |-
+        <p>Seen from above, a spiral staircase is a single line that never ends. The image sits to the right of the text; on narrow screens it moves below.</p>
+    de:
+      header: Wendel
+      bodytext: |-
+        <p>Von oben gesehen ist eine Wendeltreppe eine einzige Linie, die nie endet. Das Bild sitzt rechts vom Text; auf schmalen Bildschirmen rutscht es darunter.</p>
+    image:
+      - file: stairs/spiral.jpg
+        alt: A spiral concrete staircase seen from above
+        alt.de: Eine Wendeltreppe aus Beton von oben
+  - key: md_tp_2
+    type: textpic
+    header_layout: 3
+    background_color_class: light
+    imageorient: 26
+    imagewidth: 480
+    image_zoom: 1
+    en:
+      header: Zigzag
+      bodytext: |-
+        <p>Dark steel railings against an off-white wall, folding back on themselves. This one is placed to the left – alternate the two down a page and you get the classic zigzag layout.</p>
+    de:
+      header: Zickzack
+      bodytext: |-
+        <p>Dunkle Stahlgeländer vor einer hellen Wand, in sich zurückgefaltet. Dieses ist links platziert – wechsle die beiden eine Seite hinunter ab, und du bekommst das klassische Zickzack-Layout.</p>
+    image:
+      - file: stairs/zigzag.jpg
+        alt: A zigzag staircase with dark railings
+        alt.de: 'Eine Zickzack-Treppe mit dunklen Geländern'
+  - key: md_tp_3
+    type: textpic
+    header_layout: 3
+    space_after_class: large
+    background_color_class: light
+    imageorient: 125
+    imagewidth: 480
+    image_zoom: 1
+    en:
+      header: Open flight
+      bodytext: |-
+        <p>A wide open stair in a bright hall. Here the image is vertically centred beside the text – the position for short text next to a tall image.</p>
+    de:
+      header: Freitreppe
+      bodytext: |-
+        <p>Eine breite offene Treppe in einer hellen Halle. Hier ist das Bild vertikal zentriert neben dem Text – die Position für kurzen Text neben einem hohen Bild.</p>
+    image:
+      - file: stairs/open-flight.jpg
+        alt: An open concrete stair in a bright hall
+        alt.de: Eine offene Betontreppe in einer hellen Halle
+  - key: md_strip
+    type: gallery
+    header_layout: 2
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: none
+    imagecols: 6
+    image_zoom: 1
+    aspect_ratio: '1'
+    items_per_page: 6
+    en:
+      header: Facades
+      subheader: A gallery cropped to squares, six across – click any of them
+    de:
+      header: Fassaden
+      subheader: Eine Galerie, quadratisch zugeschnitten, sechs nebeneinander – klick eines davon
+    image:
+      - file: gallery/material-steel.jpg
+        alt: Brushed dark steel
+        alt.de: 'Gebürsteter Stahl'
+      - file: gallery/material-terrazzo.jpg
+        alt: Terrazzo
+        alt.de: Terrazzo
+      - file: gallery/material-moss.jpg
+        alt: Moss on stone
+        alt.de: Moos auf Stein
+      - file: facades/balconies.jpg
+        alt: Concrete balconies
+        alt.de: Betonbalkone
+      - file: facades/brick-pattern.jpg
+        alt: Brick relief
+        alt.de: Ziegelrelief
+      - file: facades/timber-cladding.jpg
+        alt: Timber cladding
+        alt.de: Holzverschalung
+  - key: md_s3
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: Moving pictures
+      bodytext: |-
+        <p class="lead">Video from the file list or from YouTube and Vimeo, audio with the browser's own player.</p>
+    de:
+      header: Bewegte Bilder
+      bodytext: |-
+        <p class="lead">Video aus der Dateiliste oder von YouTube und Vimeo, Audio mit dem Player des Browsers.</p>
+  - key: md_textmedia
+    type: textmedia
+    header_layout: 3
+    imageorient: 25
+    imagewidth: 600
+    en:
+      header: TYPO3 in two minutes
+      bodytext: |-
+        <p>Text and media places a video beside the text the way text and images places a picture. This one is a YouTube video added as a media file; it loads through the privacy-friendly no-cookie domain.</p>
+    de:
+      header: TYPO3 in zwei Minuten
+      bodytext: |-
+        <p>Text und Medien platziert ein Video neben dem Text, wie Text und Bilder ein Bild platziert. Dieses ist ein als Mediendatei hinzugefügtes YouTube-Video; es lädt über die datenschutzfreundliche No-Cookie-Domain.</p>
+    assets:
+      - file: youtube/typo3_-_2020.youtube
+        title: TYPO3 – 2020
+  - key: md_external
+    type: external_media
+    external_media_source: 'https://www.youtube.com/watch?v=LMx4SmK4s0U'
+    external_media_ratio: '16by9'
+    header_layout: 3
+    space_before_class: medium
+    en:
+      header: What is TYPO3?
+      external_media_title: What is TYPO3?
+    de:
+      header: Was ist TYPO3?
+      external_media_title: Was ist TYPO3?
+  - key: md_audio
+    type: audio
+    header_layout: 3
+    space_before_class: medium
+    space_after_class: large
+    en:
+      header: Listen instead
+    de:
+      header: 'Oder anhören'
+    assets:
+      - file: audio/what-is-typo3.mp3
+        title: What is TYPO3?
+        title.de: Was ist TYPO3?
+  - key: md_s4
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Downloads
+      bodytext: |-
+        <p class="lead text-center">A list of files with thumbnail, size and description. The images of this site, ready to take.</p>
+    de:
+      header: Downloads
+      bodytext: |-
+        <p class="lead text-center">Eine Liste von Dateien mit Vorschaubild, Größe und Beschreibung. Die Bilder dieser Site, zum Mitnehmen.</p>
+  - key: md_uploads
+    type: uploads
+    filelink_size: 1
+    uploads_description: 1
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    background_color_class: light
+    uploads_type: 2
+    media:
+      - file: horizon/coast.jpg
+        alt: Coastline at low tide
+        alt.de: 'Küste bei Ebbe'
+        title: Coast
+        title.de: 'Küste'
+        description: 'Demo image, 2560 × 1097 pixels'
+        description.de: 'Demo-Bild, 2560 × 1097 Pixel'
+      - file: horizon/plateau.jpg
+        alt: High plateau
+        alt.de: Hochebene
+        title: Plateau
+        title.de: Hochebene
+        description: 'Demo image, 2560 × 1097 pixels'
+        description.de: 'Demo-Bild, 2560 × 1097 Pixel'
+      - file: csv/materials.csv
+        title: Materials table
+        title.de: Materialtabelle
+        description: A CSV file – the table element can read it directly
+        description.de: Eine CSV-Datei – das Tabellenelement kann sie direkt lesen
+  - key: md_s5
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: Cards and icons
+      bodytext: |-
+        <p class="lead">Card groups for teasers with an image, icon groups for facts without one.</p>
+    de:
+      header: Cards und Icons
+      bodytext: |-
+        <p class="lead">Card Groups für Teaser mit Bild, Icon Groups für Fakten ohne.</p>
+  - key: md_cards
+    type: card_group
+    options:
+      align: left
+      columns: 3
+    children:
+      - link: https://getbootstrap.com/docs/5.3/components/card/
+        link_class: primary
+        en:
+          header: Balconies
+          subheader: Repetition
+          bodytext: A regular grid of balconies. One of them painted teal, because a grid needs an exception.
+          link_title: Read more
+        de:
+          header: Balkone
+          subheader: Wiederholung
+          bodytext: 'Ein regelmäßiges Raster aus Balkonen. Einer petrolfarben, weil ein Raster eine Ausnahme braucht.'
+          link_title: Weiterlesen
+        image:
+          - file: facades/balconies.jpg
+            alt: Concrete balconies
+            alt.de: Betonbalkone
+      - link: https://getbootstrap.com/docs/5.3/components/card/
+        link_class: outline-primary
+        en:
+          header: Brick
+          subheader: Relief
+          bodytext: Bricks set in and out of the wall plane throw a pattern of shadows that changes with the light.
+          link_title: Read more
+        de:
+          header: Ziegel
+          subheader: Relief
+          bodytext: 'Vor- und zurückgesetzte Ziegel werfen ein Schattenmuster, das sich mit dem Licht ändert.'
+          link_title: Weiterlesen
+        image:
+          - file: facades/brick-pattern.jpg
+            alt: Brick relief
+            alt.de: Ziegelrelief
+      - link: https://getbootstrap.com/docs/5.3/components/card/
+        link_class: secondary
+        en:
+          header: Timber
+          subheader: Weathering
+          bodytext: Vertical boards turn silver-grey over the years. The colour palette of this site is borrowed from them.
+          link_title: Read more
+        de:
+          header: Holz
+          subheader: Verwitterung
+          bodytext: 'Vertikale Bretter werden über die Jahre silbergrau. Die Farbpalette dieser Site ist von ihnen geliehen.'
+          link_title: Weiterlesen
+        image:
+          - file: facades/timber-cladding.jpg
+            alt: Timber cladding
+            alt.de: Holzverschalung
+  - key: md_icons
+    type: icon_group
+    subitems_header_layout: 4
+    space_before_class: large
+    space_after_class: large
+    background_color_class: none
+    options:
+      align: center
+      columns: 4
+      icon_position: top
+    children:
+      - icon: ios-bolt
+        en:
+          header: Fast
+          bodytext: Compiled once, cached, served.
+        de:
+          header: Schnell
+          bodytext: Einmal kompiliert, gecacht, ausgeliefert.
+      - icon: ios-locked
+        en:
+          header: Secure
+          bodytext: Content security policy ready.
+        de:
+          header: Sicher
+          bodytext: 'Bereit für Content Security Policy.'
+      - icon: ios-eye
+        en:
+          header: Accessible
+          bodytext: Keyboard, screen reader, contrast.
+        de:
+          header: Barrierefrei
+          bodytext: Tastatur, Screenreader, Kontrast.
+      - icon: social-github
+        en:
+          header: Open
+          bodytext: MIT licensed, on GitHub.
+        de:
+          header: Offen
+          bodytext: MIT-lizenziert, auf GitHub.
+  - key: md_shortcut
+    type: shortcut
+    records: tt_content_record:shared_notice
+    space_before_class: large
+  - key: md_options
+    type: accordion
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: All options at a glance
+    de:
+      header: Alle Optionen auf einen Blick
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: Image, text and images, text and media
+          bodytext: |-
+            <p>One to eight columns · image width · lightbox · six positions for the image beside the text: above, below, left, right, and left or right vertically centred · crop variants per image.</p>
+        de:
+          header: Bild, Text und Bilder, Text und Medien
+          bodytext: |-
+            <p>Eine bis acht Spalten · Bildbreite · Lightbox · sechs Positionen für das Bild neben dem Text: oben, unten, links, rechts und links oder rechts vertikal zentriert · Zuschnitt-Varianten je Bild.</p>
+      - en:
+          header: Gallery
+          bodytext: |-
+            <p>Ratio 4:3, 16:9 or 1:1 · up to eight columns · pagination after a set number · images from the element or from a folder in the file list.</p>
+        de:
+          header: Galerie
+          bodytext: |-
+            <p>Verhältnis 4:3, 16:9 oder 1:1 · bis zu acht Spalten · Seitennavigation nach fester Anzahl · Bilder aus dem Element oder aus einem Ordner der Dateiliste.</p>
+      - en:
+          header: Video and audio
+          bodytext: |-
+            <p>Media and text and media: video files, YouTube or Vimeo as media files, audio files. External media: a YouTube or Vimeo URL, 16:9 or 4:3. Autoplay, controls, loop and the referrer policy are settings.</p>
+        de:
+          header: Video und Audio
+          bodytext: |-
+            <p>Medien und Text und Medien: Videodateien, YouTube oder Vimeo als Mediendateien, Audiodateien. Externe Medien: eine YouTube- oder Vimeo-URL, 16:9 oder 4:3. Autoplay, Steuerung, Schleife und die Referrer Policy sind Settings.</p>
+      - en:
+          header: File downloads
+          bodytext: |-
+            <p>Three renderings: plain list, with file type icon, with thumbnail · file size and description as switches · files from the element or from a file collection.</p>
+        de:
+          header: Datei-Downloads
+          bodytext: |-
+            <p>Drei Darstellungen: schlichte Liste, mit Dateityp-Icon, mit Vorschaubild · Dateigröße und Beschreibung als Schalter · Dateien aus dem Element oder aus einer Dateisammlung.</p>
+      - en:
+          header: Card group and icon group
+          bodytext: |-
+            <p>Card group: one to four columns, left or centred, button in any theme colour, filled or outlined. Icon group: one to four columns, icon above or beside the text, Ionicons, Glyphicons or your own SVG, optional link per item.</p>
+        de:
+          header: Card Group und Icon Group
+          bodytext: |-
+            <p>Card Group: eine bis vier Spalten, links oder zentriert, Button in jeder Theme-Farbe, gefüllt oder Outline. Icon Group: eine bis vier Spalten, Icon über oder neben dem Text, Ionicons, Glyphicons oder eigenes SVG, optionaler Link je Item.</p>
+      - en:
+          header: Insert records
+          bodytext: |-
+            <p>The element above the accordion is a shared panel from the Shared Content folder, inserted by reference. Edit it once, and every page that references it changes.</p>
+        de:
+          header: 'Datensätze einfügen'
+          bodytext: |-
+            <p>Das Element über dem Accordion ist ein geteiltes Panel aus dem Ordner Geteilte Inhalte, per Referenz eingefügt. Einmal bearbeiten, und jede Seite, die es referenziert, ändert sich.</p>

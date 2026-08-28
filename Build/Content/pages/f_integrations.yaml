@@ -1,0 +1,122 @@
+key: f_integrations
+parent: features
+sorting: 70
+categories: category:cat_feature
+icon: ios-cog
+header:
+  photo:
+    file: features/integrations.jpg
+    crop:
+      band:
+        offset: 0
+        x: 0.25
+        width: 0.75
+  side: right
+en:
+  title: Integrations
+  subtitle: Consent, fonts, tracking, search
+  abstract: 'Cookie consent, Google Fonts, Tag Manager, search and forms: configured, not coded.'
+  keywords: cookie consent, google font, tag manager, search, forms
+de:
+  title: Integrationen
+  subtitle: Consent, Fonts, Tracking, Suche
+  abstract: 'Cookie Consent, Google Fonts, Tag Manager, Suche und Formulare: konfiguriert, nicht programmiert.'
+thumbnail:
+  - file: features/integrations.jpg
+    alt: A row of cables plugged into an oak panel
+    alt.de: Eine Reihe Kabel, eingesteckt in ein Eichenpanel
+
+content:
+  - key: int_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Configured, not coded
+      bodytext: |-
+        <p class="lead">The pieces every site ends up needing are already wired in. Each is its own site set, each is switched on with a setting.</p>
+    de:
+      header: Konfiguriert, nicht programmiert
+      bodytext: |-
+        <p class="lead">Die Teile, die jede Site am Ende braucht, sind schon verdrahtet. Jedes ist ein eigenes Site Set, jedes wird mit einem Setting eingeschaltet.</p>
+  - key: int_icons
+    type: icon_group
+    subitems_header_layout: 4
+    space_after_class: large
+    background_color_class: none
+    options:
+      align: left
+      columns: 2
+      icon_position: left
+    children:
+      - icon: ios-locked
+        en:
+          header: Cookie consent
+          bodytext: 'A consent banner with position, layout, law and expiry as settings. Switched off on this demo so it does not cover the content; one setting turns it on.'
+        de:
+          header: Cookie Consent
+          bodytext: 'Ein Consent-Banner mit Position, Layout, Rechtsraum und Ablauf als Settings. Auf dieser Demo abgeschaltet, damit es den Inhalt nicht verdeckt; ein Setting schaltet es ein.'
+      - icon: ios-paper
+        en:
+          header: Google Fonts
+          bodytext: Name a family and the weights you use. The font is loaded with display swap and fed into the SCSS as the base family.
+        de:
+          header: Google Fonts
+          bodytext: Nenne eine Familie und die Schnitte, die du nutzt. Die Schrift wird mit display swap geladen und als Basisschrift ins SCSS gereicht.
+      - icon: ios-speedometer
+        en:
+          header: Google Tag Manager
+          bodytext: One setting for the container id. The snippet is placed correctly in head and body, and stays out until you set it.
+        de:
+          header: Google Tag Manager
+          bodytext: 'Ein Setting für die Container-ID. Das Snippet landet korrekt in head und body – und bleibt draußen, bis du es setzt.'
+      - icon: ios-search
+        en:
+          header: Indexed Search
+          bodytext: TYPO3's own search, with a styled form, result list and pagination that match the theme.
+        de:
+          header: Indexed Search
+          bodytext: TYPO3s eigene Suche, mit gestaltetem Formular, Ergebnisliste und Seitennavigation passend zum Theme.
+      - icon: ios-compose
+        en:
+          header: Forms
+          bodytext: 'The TYPO3 form framework renders with Bootstrap markup: grid rows, validation states, file uploads. A contact form is included.'
+        de:
+          header: Formulare
+          bodytext: 'Das TYPO3 Form Framework rendert mit Bootstrap-Markup: Grid-Zeilen, Validierungszustände, Datei-Uploads. Ein Kontaktformular ist dabei.'
+      - icon: ios-eye
+        en:
+          header: Accessibility
+          bodytext: Skip links, focus styles, ARIA on every interactive component and a contrast ratio the SCSS enforces for you.
+        de:
+          header: Barrierefreiheit
+          bodytext: 'Skip-Links, Fokus-Stile, ARIA an jeder interaktiven Komponente und ein Kontrastverhältnis, das das SCSS für dich durchsetzt.'
+  - key: int_social
+    type: social_links
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Follow the project
+      subheader: 'Set a URL per channel in the settings; only the channels you fill in are rendered'
+    de:
+      header: Dem Projekt folgen
+      subheader: 'Trage je Kanal eine URL in die Settings ein; nur gefüllte Kanäle werden gerendert'
+  - key: int_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:features">All features →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:features">Alle Funktionen →</a></p>

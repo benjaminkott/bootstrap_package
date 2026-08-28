@@ -1,0 +1,514 @@
+key: e_interactive
+parent: elements
+sorting: 30
+icon: ios-albums
+header: none
+en:
+  title: Interactive
+  subtitle: Carousels, accordion, tabs, timeline
+  abstract: Carousels in three sizes, accordion, tabs and a timeline – components that fold, slide and reveal.
+  keywords: accordion, tabs, carousel, timeline
+de:
+  title: Interaktiv
+  subtitle: Carousels, Accordion, Tabs, Timeline
+  abstract: 'Carousels in drei Größen, Accordion, Tabs und eine Timeline – Komponenten, die klappen, gleiten und enthüllen.'
+thumbnail:
+  - file: details/toolbox.jpg
+    alt: An open toolbox with tools in perfect order
+    alt.de: Ein offener Werkzeugkasten mit ordentlich sortiertem Werkzeug
+
+content:
+  - key: ia_hero
+    type: carousel_fullscreen
+    column: border
+    header_layout: 100
+    frame_class: none
+    en:
+      header: Interactive
+    options:
+      interval: 8000
+      transition: slide
+      wrap: 1
+      autoplay: 1
+    children:
+      - item_type: header
+        layout: custom
+        header_layout: '1'
+        header_position: center
+        subheader_layout: '3'
+        text_color: '#FFFFFF'
+        background_color: '#2A2725'
+        background_image_options:
+          fade: 1
+          parallax: 1
+        en:
+          header: Interactive
+          subheader: Carousels, accordion, tabs, timeline
+        de:
+          header: Interaktiv
+          subheader: Carousels, Accordion, Tabs, Timeline
+        background_image:
+          - file: interior/empty-hall.jpg
+            alt: Vast empty concrete hall with a skylight
+            alt.de: Weite leere Betonhalle mit Oberlicht
+      - item_type: call_to_action
+        layout: custom
+        header_layout: '2'
+        header_position: center
+        subheader_layout: '3'
+        link: 'page:e_interactive#crecord:ia_story'
+        text_color: '#FFFFFF'
+        background_color: '#2A2725'
+        background_image_options:
+          fade: 1
+          filter: grayscale
+        en:
+          header: This is the fullscreen carousel
+          subheader: The whole viewport, in the border column, with a grayscale filter on this slide
+          button_text: See the other two sizes
+        de:
+          header: Das ist das Fullscreen-Carousel
+          subheader: Der ganze Viewport, in der Border-Spalte, mit Graustufen-Filter auf dieser Folie
+          button_text: 'Die zwei anderen Größen ansehen'
+        background_image:
+          - file: interior/library-aisle.jpg
+            alt: A long library aisle
+            alt.de: Ein langer Bibliotheksgang
+  - key: ia_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Components that move
+      bodytext: |-
+        <p class="lead">Fold, slide, reveal – every one keyboard accessible, none of them needs jQuery.</p>
+    de:
+      header: Komponenten, die sich bewegen
+      bodytext: |-
+        <p class="lead">Klappen, gleiten, enthüllen – jede per Tastatur bedienbar, keine braucht jQuery.</p>
+  - key: ia_story
+    type: carousel
+    header_layout: 2
+    header_position: center
+    space_after_class: large
+    en:
+      header: A story in seven slides
+      subheader: The standard carousel – each slide a different item type
+    de:
+      header: Eine Geschichte in sieben Folien
+      subheader: Das Standard-Carousel – jede Folie ein anderer Item-Typ
+    options:
+      interval: 6000
+      transition: slide
+      wrap: 1
+      autoplay: 0
+      show_nav_title: 1
+    children:
+      - item_type: header
+        layout: custom
+        header_layout: '1'
+        text_color: '#2A2725'
+        background_color: '#E7E3DB'
+        en:
+          header: Somewhere on the coast
+          subheader: A headline slide on a background image
+          nav_title: Coast
+        de:
+          header: 'Irgendwo an der Küste'
+          subheader: 'Eine Überschriften-Folie auf einem Hintergrundbild'
+          nav_title: 'Küste'
+        background_image:
+          - file: horizon/coast.jpg
+            alt: Coastline at low tide
+            alt.de: 'Küste bei Ebbe'
+      - item_type: text
+        layout: quaternary
+        header_layout: '2'
+        en:
+          header: A plot
+          bodytext: |-
+            <p>A text slide on a colour layout: no image, just the theme colour and your words. Somebody bought a piece of land with a view.</p>
+          nav_title: Plot
+        de:
+          header: 'Ein Grundstück'
+          bodytext: |-
+            <p>Eine Text-Folie auf farbigem Layout: kein Bild, nur die Theme-Farbe und deine Worte. Jemand hat ein Stück Land mit Aussicht gekauft.</p>
+          nav_title: 'Grundstück'
+      - item_type: call_to_action
+        layout: custom
+        header_layout: '2'
+        link: page:layouts
+        text_color: '#2A2725'
+        background_color: '#E7E3DB'
+        en:
+          header: A plan
+          subheader: 'A call to action slide: text and a button'
+          button_text: See the layouts
+          nav_title: Plan
+        de:
+          header: Ein Plan
+          subheader: 'Eine Call-to-Action-Folie: Text und ein Button'
+          button_text: Die Layouts ansehen
+          nav_title: Plan
+        background_image:
+          - file: horizon/plateau.jpg
+            alt: High plateau
+            alt.de: Hochebene
+      - item_type: image
+        layout: light
+        header_layout: '2'
+        en:
+          header: The tools
+          subheader: 'An image slide: the picture in the foreground on a colour layout'
+          nav_title: Tools
+        de:
+          header: Das Werkzeug
+          subheader: 'Eine Bild-Folie: das Bild im Vordergrund auf farbigem Layout'
+          nav_title: Werkzeug
+        image:
+          - file: details/toolbox.jpg
+            alt: An open toolbox
+            alt.de: Ein offener Werkzeugkasten
+      - item_type: text_and_image
+        layout: primary
+        header_layout: '2'
+        en:
+          header: The materials
+          bodytext: |-
+            <p>A text-and-image slide: words on one side, a picture on the other. Oak for the drawers, steel for the hinges.</p>
+          nav_title: Materials
+        de:
+          header: Die Materialien
+          bodytext: |-
+            <p>Eine Text-und-Bild-Folie: Worte auf der einen Seite, ein Bild auf der anderen. Eiche für die Schubladen, Stahl für die Scharniere.</p>
+          nav_title: Materialien
+        image:
+          - file: details/apothecary-drawer.jpg
+            alt: An open drawer
+            alt.de: Eine offene Schublade
+      - item_type: background_image
+        layout: custom
+        header_layout: '2'
+        text_color: '#FFFFFF'
+        background_color: '#39463C'
+        background_image_options:
+          fade: 1
+          filter: sepia
+        en:
+          header: The house
+          subheader: A background image slide with a sepia filter
+          nav_title: House
+        de:
+          header: Das Haus
+          subheader: Eine Hintergrundbild-Folie mit Sepia-Filter
+          nav_title: Haus
+        background_image:
+          - file: phases/04-finished.jpg
+            alt: The finished building
+            alt.de: 'Das fertige Gebäude'
+      - item_type: html
+        layout: dark
+        en:
+          header: The end
+          bodytext: |-
+            <div class="container text-center py-5"><h2 class="display-5">The end</h2><p class="lead">An HTML slide renders whatever you put in it. <span class="badge bg-primary">badge</span> <span class="badge bg-tertiary">badge</span></p></div>
+          nav_title: End
+        de:
+          bodytext: |-
+            <div class="container text-center py-5"><h2 class="display-5">Ende</h2><p class="lead">Eine HTML-Folie rendert, was du hineinlegst. <span class="badge bg-primary">Badge</span> <span class="badge bg-tertiary">Badge</span></p></div>
+          nav_title: Ende
+  - key: ia_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Questions people ask
+      bodytext: |-
+        <p class="lead text-center">The accordion: collapsible sections with text and media, one of them open by default.</p>
+    de:
+      header: Fragen, die Leute stellen
+      bodytext: |-
+        <p class="lead text-center">Das Accordion: aufklappbare Abschnitte mit Text und Medien, einer davon standardmäßig offen.</p>
+  - key: ia_accordion
+    type: accordion
+    subitems_header_layout: 4
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    background_color_class: light
+    options:
+      default_element: 1
+    children:
+      - en:
+          header: Can I add the package to an existing site?
+          bodytext: |-
+            <p>Yes. Require it, then add <code>bootstrap-package/full</code> – or the individual sets – to the dependencies of your site configuration. The demo content is only imported when TYPO3 sets up a fresh installation.</p>
+        de:
+          header: 'Kann ich das Paket zu einer bestehenden Site hinzufügen?'
+          bodytext: |-
+            <p>Ja. Installieren, dann <code>bootstrap-package/full</code> – oder die einzelnen Sets – zu den Abhängigkeiten deiner Site-Konfiguration hinzufügen. Der Demo-Content wird nur importiert, wenn TYPO3 eine frische Installation einrichtet.</p>
+      - mediaorient: right
+        imagecols: 1
+        en:
+          header: Can I use my own templates?
+          bodytext: |-
+            <p>Every template, partial and layout can be overridden through the template root paths in the settings. Copy the one file you want to change; the rest keeps coming from the package.</p>
+        de:
+          header: Kann ich eigene Templates nutzen?
+          bodytext: |-
+            <p>Jedes Template, Partial und Layout lässt sich über die Template-Root-Pfade in den Settings überschreiben. Kopiere die eine Datei, die du ändern willst; der Rest kommt weiter aus dem Paket.</p>
+        media:
+          - file: details/apothecary-drawer.jpg
+            alt: An open drawer
+            alt.de: Eine offene Schublade
+      - mediaorient: top
+        imagecols: 3
+        en:
+          header: What happens on a major upgrade?
+          bodytext: |-
+            <p>Update the package with Composer, run the upgrade wizards. The package ships wizards that migrate its own content elements between versions.</p>
+        de:
+          header: Was passiert beim Major-Upgrade?
+          bodytext: |-
+            <p>Paket per Composer aktualisieren, Upgrade-Wizards ausführen. Das Paket bringt Wizards mit, die seine eigenen Inhaltselemente zwischen Versionen migrieren.</p>
+        media:
+          - file: gallery/material-concrete.jpg
+            alt: Board-formed concrete
+            alt.de: Sichtbeton
+          - file: gallery/material-oak.jpg
+            alt: Oiled dark oak
+            alt.de: 'Geölte Eiche'
+          - file: gallery/material-linen.jpg
+            alt: Undyed linen
+            alt.de: Leinen
+      - en:
+          header: Is it free?
+          bodytext: |-
+            <p>MIT licensed. Use it in personal, commercial and client projects.</p>
+        de:
+          header: Ist es kostenlos?
+          bodytext: |-
+            <p>MIT-lizenziert. Nutze es in privaten, kommerziellen und Kundenprojekten.</p>
+  - key: ia_tab
+    type: tab
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Who it is for
+    de:
+      header: 'Für wen es ist'
+    options:
+      default_tab: 1
+    children:
+      - mediaorient: right
+        imagecols: 1
+        en:
+          header: Editors
+          bodytext: |-
+            <p>Everything on this site was created with the elements in the new content element wizard. No developer touched a template.</p>
+        de:
+          header: Redakteure
+          bodytext: |-
+            <p>Alles auf dieser Site wurde mit den Elementen aus dem Wizard für neue Inhaltselemente erstellt. Kein Entwickler hat ein Template angefasst.</p>
+        media:
+          - file: gallery/material-linen.jpg
+            alt: Linen
+            alt.de: Leinen
+      - mediaorient: right
+        imagecols: 1
+        en:
+          header: Integrators
+          bodytext: |-
+            <p>Layouts, settings and sets are the tools. TypoScript and Fluid stay available when you want them, but you will rarely need them.</p>
+        de:
+          header: Integratoren
+          bodytext: |-
+            <p>Layouts, Settings und Sets sind die Werkzeuge. TypoScript und Fluid bleiben verfügbar, wenn du sie willst, aber du wirst sie selten brauchen.</p>
+        media:
+          - file: gallery/material-steel.jpg
+            alt: Steel
+            alt.de: Stahl
+      - mediaorient: right
+        imagecols: 1
+        en:
+          header: Developers
+          bodytext: |-
+            <p>Override any template through the template root paths, extend the SCSS through the theme file, add elements through the same registration the package uses.</p>
+        de:
+          header: Entwickler
+          bodytext: |-
+            <p>Überschreibe jedes Template über die Template-Root-Pfade, erweitere das SCSS über die Theme-Datei, ergänze Elemente über dieselbe Registrierung, die das Paket nutzt.</p>
+        media:
+          - file: gallery/material-concrete.jpg
+            alt: Concrete
+            alt.de: Beton
+  - key: ia_s3
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: How a house gets built
+      bodytext: |-
+        <p class="lead text-center">The timeline: dated entries with icon, image and text, sorted the way you choose.</p>
+    de:
+      header: Wie ein Haus entsteht
+      bodytext: |-
+        <p class="lead text-center">Die Timeline: datierte Einträge mit Icon, Bild und Text, sortiert wie du willst.</p>
+  - key: ia_timeline
+    type: timeline
+    subitems_header_layout: 4
+    space_after_class: large
+    background_color_class: light
+    options:
+      sorting: date asc
+    children:
+      - date: '2026-03-02 00:00:00'
+        icon: ios-box
+        en:
+          header: Foundation
+          bodytext: |-
+            <p>The slab is poured. Everything that follows stands on it.</p>
+        de:
+          header: Fundament
+          bodytext: |-
+            <p>Die Bodenplatte ist gegossen. Alles Weitere steht darauf.</p>
+        image:
+          - file: phases/01-foundation.jpg
+            alt: A concrete foundation slab
+            alt.de: Eine Betonbodenplatte
+      - date: '2026-04-13 00:00:00'
+        icon: cube
+        en:
+          header: Shell
+          bodytext: |-
+            <p>Walls and roof, openings where the windows will go.</p>
+        de:
+          header: Rohbau
+          bodytext: |-
+            <p>Wände und Dach, Öffnungen, wo die Fenster hinkommen.</p>
+        image:
+          - file: phases/02-shell.jpg
+            alt: A bare concrete shell
+            alt.de: Ein Rohbau aus Beton
+      - date: '2026-05-25 00:00:00'
+        icon: hammer
+        en:
+          header: Facade
+          bodytext: |-
+            <p>The timber cladding goes on, board by board.</p>
+        de:
+          header: Fassade
+          bodytext: |-
+            <p>Die Holzverschalung kommt dran, Brett für Brett.</p>
+        image:
+          - file: phases/03-facade.jpg
+            alt: Timber cladding half installed
+            alt.de: Halb montierte Holzverschalung
+      - date: '2026-07-06 00:00:00'
+        icon: checkmark-circled
+        en:
+          header: Finished
+          bodytext: |-
+            <p>A teal door, two young trees. Move in.</p>
+        de:
+          header: Fertig
+          bodytext: |-
+            <p>Eine petrolfarbene Tür, zwei junge Bäume. Einziehen.</p>
+        image:
+          - file: phases/04-finished.jpg
+            alt: The finished building with a teal door
+            alt.de: 'Das fertige Gebäude mit petrolfarbener Tür'
+  - key: ia_small
+    type: carousel_small
+    header_layout: 2
+    header_position: center
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: The small carousel
+      subheader: The compact size for sidebars and columns – three of the six colour layouts, fading
+    de:
+      header: Das kleine Carousel
+      subheader: 'Die kompakte Größe für Seitenleisten und Spalten – drei der sechs Farb-Layouts, überblendend'
+    options:
+      interval: 3000
+      transition: fade
+      wrap: 1
+      autoplay: 1
+    children:
+      - item_type: header
+        layout: primary
+        header_layout: '2'
+        header_position: center
+        en:
+          header: Primary
+          subheader: The primary layout
+        de:
+          subheader: Das Layout primary
+      - item_type: header
+        layout: light
+        header_layout: '2'
+        header_position: center
+        en:
+          header: Light
+          subheader: The light layout
+        de:
+          subheader: Das Layout light
+      - item_type: header
+        layout: quaternary
+        header_layout: '2'
+        header_position: center
+        en:
+          header: Quaternary
+          subheader: The quaternary layout
+        de:
+          subheader: Das Layout quaternary
+  - key: ia_options
+    type: accordion
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: All options at a glance
+    de:
+      header: Alle Optionen auf einen Blick
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: Carousel
+          bodytext: |-
+            <p>Three sizes: standard, small, fullscreen · seven item types: header, text, call to action, image, text and image, background image, HTML · layouts: six theme colours or custom with free text and background colours · per item: header level and position, subheader, navigation title, button, link · per carousel: interval, slide or fade, wrap, autoplay, titles in the navigation · background images with fade, parallax and filter.</p>
+        de:
+          header: Carousel
+          bodytext: |-
+            <p>Drei Größen: Standard, klein, Fullscreen · sieben Item-Typen: Überschrift, Text, Call to Action, Bild, Text und Bild, Hintergrundbild, HTML · Layouts: sechs Theme-Farben oder custom mit freier Text- und Hintergrundfarbe · je Item: Überschriftenebene und -position, Unterzeile, Navigationstitel, Button, Link · je Carousel: Intervall, Slide oder Fade, Endlosschleife, Autoplay, Titel in der Navigation · Hintergrundbilder mit Abdunklung, Parallax und Filter.</p>
+      - en:
+          header: Accordion and tabs
+          bodytext: |-
+            <p>Sections with text and media · media left, right, above or below the text, in one to six columns, with lightbox · one section or tab open by default · section titles at the header level you choose.</p>
+        de:
+          header: Accordion und Tabs
+          bodytext: |-
+            <p>Abschnitte mit Text und Medien · Medien links, rechts, über oder unter dem Text, in einer bis sechs Spalten, mit Lightbox · ein Abschnitt oder Tab standardmäßig offen · Abschnittstitel auf der Überschriftenebene deiner Wahl.</p>
+      - en:
+          header: Timeline
+          bodytext: |-
+            <p>Entries with date, header, text, an icon from the bundled sets or your own SVG, and an image · sorted by date ascending or descending.</p>
+        de:
+          header: Timeline
+          bodytext: |-
+            <p>Einträge mit Datum, Überschrift, Text, einem Icon aus den mitgelieferten Sets oder eigenem SVG, und einem Bild · nach Datum auf- oder absteigend sortiert.</p>

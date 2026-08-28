@@ -1,0 +1,104 @@
+key: e_forms
+parent: elements
+sorting: 50
+icon: ios-compose
+header:
+  photo:
+    file: details/toolbox.jpg
+    crop:
+      band:
+        offset: 0
+        x: 0
+        width: 0.85
+en:
+  title: Forms
+  subtitle: Contact form, login, search
+  abstract: A contact form, a login and a site search, all rendered with Bootstrap markup and validation states.
+  keywords: forms, login, search
+de:
+  title: Formulare
+  subtitle: Kontaktformular, Login, Suche
+  abstract: Ein Kontaktformular, ein Login und eine Site-Suche, alle mit Bootstrap-Markup gerendert.
+thumbnail:
+  - file: pages/contact.jpg
+    alt: A row of steel letterboxes, one teal
+    alt.de: 'Eine Reihe Stahlbriefkästen, einer petrolfarben'
+
+content:
+  - key: fo_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Forms that look like the site
+      bodytext: |-
+        <p class="lead">The TYPO3 form framework, the frontend login and the site search – each rendered with Bootstrap markup, validation states and the colours of the theme.</p>
+    de:
+      header: Formulare, die aussehen wie die Site
+      bodytext: |-
+        <p class="lead">Das TYPO3 Form Framework, das Frontend-Login und die Site-Suche – jedes gerendert mit Bootstrap-Markup, Validierungszuständen und den Farben des Themes.</p>
+  - key: fo_form
+    type: form_formframework
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    en:
+      header: Write to us
+    de:
+      header: Schreib uns
+    form:
+      definition: EXT:bootstrap_package/Resources/Private/Forms/Contact.form.yaml
+      subject: 'Contact form: {subject}'
+      recipient: 'demo@example.com'
+      recipientName: Demo recipient
+      thanks: page:e_thanks
+  - key: fo_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Login and search
+      bodytext: |-
+        <p class="lead text-center">Two more forms the package styles for you.</p>
+    de:
+      header: Login und Suche
+      bodytext: |-
+        <p class="lead text-center">Zwei weitere Formulare, die das Paket für dich gestaltet.</p>
+  - key: fo_login
+    type: felogin_login
+    frame_options: indent-left,indent-right
+    background_color_class: light
+    options:
+      showForgotPassword: 0
+      showPermaLogin: 1
+      pages: page:folder_users
+  - key: fo_search
+    type: indexedsearch_pi2
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    space_after_class: large
+    background_color_class: light
+    en:
+      header: Search this site
+    de:
+      header: Diese Site durchsuchen
+  - key: fo_note
+    type: panel
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    panel_class: warning
+    en:
+      header: Before you go live
+      bodytext: |-
+        <p>The recipient of the contact form is set in the element – this demo sends to demo@example.com. The form definition itself ships with the package and can be edited in the Forms module.</p>
+    de:
+      header: Bevor du live gehst
+      bodytext: |-
+        <p>Der Empfänger des Kontaktformulars wird im Element gesetzt – diese Demo sendet an demo@example.com. Die Formulardefinition selbst kommt mit dem Paket und lässt sich im Modul Formulare bearbeiten.</p>

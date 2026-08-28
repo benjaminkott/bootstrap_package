@@ -1,0 +1,289 @@
+key: root
+sorting: 10
+is_siteroot: 1
+backend_layout: pagets__special_start
+backend_layout_next_level: pagets__default
+header: none
+en:
+  title: Home
+  description: 'Bootstrap Package is the TYPO3 theme that ships everything: layouts, content elements, settings and this demo site.'
+de:
+  title: Startseite
+  description: 'Bootstrap Package ist das TYPO3-Theme, das alles mitbringt: Layouts, Inhaltselemente, Settings und diese Demo-Site.'
+
+content:
+  - key: home_hero
+    type: carousel
+    column: border
+    header_layout: 100
+    frame_class: none
+    en:
+      header: Bootstrap Package
+    options:
+      interval: 0
+      transition: fade
+      wrap: 0
+      autoplay: 0
+    children:
+      - item_type: text
+        layout: custom
+        header_layout: '1'
+        header_position: right
+        subheader_layout: '3'
+        text_color: '#2A2725'
+        background_color: '#E7E3DB'
+        en:
+          header: The TYPO3 theme that ships everything
+          subheader: One composer require away
+          bodytext: |-
+            <p class="lead text-end w-50 ms-auto">Layouts, content elements, settings and this demo site – imported by the TYPO3 setup.</p><p class="text-end"><a class="btn btn-primary btn-lg" href="page:features">See the features</a> <a class="btn btn-outline-primary btn-lg" href="page:start">Get started</a></p>
+        de:
+          header: Das TYPO3-Theme, das alles mitbringt
+          subheader: Ein composer require entfernt
+          bodytext: |-
+            <p class="lead text-end w-50 ms-auto">Layouts, Inhaltselemente, Settings und diese Demo-Site – importiert vom TYPO3-Setup.</p><p class="text-end"><a class="btn btn-primary btn-lg" href="page:features">Funktionen ansehen</a> <a class="btn btn-outline-primary btn-lg" href="page:start">Loslegen</a></p>
+        background_image:
+          - file: hero/station-hall.jpg
+            alt: Modern station concourse with wayfinding signs
+            alt.de: Moderne Bahnhofshalle mit Wegweisern
+            crop: '{"default":{"cropArea":{"x":0.25,"y":0,"width":0.75,"height":1},"selectedRatio":"NaN","focusArea":null},"xlarge":{"cropArea":{"x":0.25,"y":0,"width":0.75,"height":1},"selectedRatio":"NaN","focusArea":null},"large":{"cropArea":{"x":0.25,"y":0,"width":0.75,"height":1},"selectedRatio":"NaN","focusArea":null},"medium":{"cropArea":{"x":0.25,"y":0,"width":0.75,"height":1},"selectedRatio":"NaN","focusArea":null},"small":{"cropArea":{"x":0.625,"y":0,"width":0.375,"height":1},"selectedRatio":"NaN","focusArea":null},"extrasmall":{"cropArea":{"x":0.625,"y":0,"width":0.375,"height":1},"selectedRatio":"NaN","focusArea":null}}'
+  - key: home_t1
+    type: texticon
+    column: teaser1
+    icon_position: left
+    icon_size: medium
+    icon_type: default
+    icon: ios-bolt
+    header_layout: 3
+    en:
+      header: Ready to use
+      bodytext: |-
+        <p>Install, run the setup, done. TYPO3 imports this website for you – pages, images, languages and settings.</p><p><a href="page:f_ready">How the setup works</a></p>
+    de:
+      header: Sofort einsatzbereit
+      bodytext: |-
+        <p>Installieren, Setup ausführen, fertig. TYPO3 importiert diese Website für dich – Seiten, Bilder, Sprachen und Settings.</p><p><a href="page:f_ready">So funktioniert das Setup</a></p>
+  - key: home_t2
+    type: texticon
+    column: teaser2
+    icon_position: left
+    icon_size: medium
+    icon_type: default
+    icon: cube
+    header_layout: 3
+    en:
+      header: Built on Bootstrap 5
+      bodytext: |-
+        <p>Every content element is a Bootstrap component. Theme it through SCSS variables you set in the backend – the compiler is built in.</p><p><a href="page:f_design">Design &amp; Theming</a></p>
+    de:
+      header: Gebaut auf Bootstrap 5
+      bodytext: |-
+        <p>Jedes Inhaltselement ist eine Bootstrap-Komponente. Gestalte sie über SCSS-Variablen, die du im Backend setzt – der Compiler ist eingebaut.</p><p><a href="page:f_design">Design &amp; Theming</a></p>
+  - key: home_t3
+    type: texticon
+    column: teaser3
+    icon_position: left
+    icon_size: medium
+    icon_type: default
+    icon: social-github
+    header_layout: 3
+    en:
+      header: Open source since 2014
+      bodytext: |-
+        <p>MIT licensed, developed in the open on GitHub and shipped with every TYPO3 LTS since 6.2. Upgrade wizards carry your content to the next major.</p><p><a href="page:about">About the project</a></p>
+    de:
+      header: Open Source seit 2014
+      bodytext: |-
+        <p>MIT-lizenziert, offen auf GitHub entwickelt und mit jeder TYPO3-LTS seit 6.2 ausgeliefert. Upgrade-Wizards tragen deinen Content in die nächste Major-Version.</p><p><a href="page:about">Über das Projekt</a></p>
+  - key: home_s1
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Everything a site needs
+      bodytext: |-
+        <p class="lead text-center">Six things you would otherwise build yourself.</p>
+    de:
+      header: Alles, was eine Site braucht
+      bodytext: |-
+        <p class="lead text-center">Sechs Dinge, die du sonst selbst bauen würdest.</p>
+  - key: home_icons
+    type: icon_group
+    subitems_header_layout: 4
+    space_after_class: large
+    background_color_class: light
+    options:
+      align: center
+      columns: 3
+      icon_position: top
+    children:
+      - link: page:f_ready
+        icon: ios-cog
+        en:
+          header: Site sets
+          bodytext: The whole frontend as a TYPO3 site set. Depend on the full package or pick the sets you need.
+        de:
+          header: Site Sets
+          bodytext: Das ganze Frontend als TYPO3 Site Set. Nimm das volle Paket oder nur die Sets, die du brauchst.
+      - link: page:f_design
+        icon: code
+        en:
+          header: SCSS compiler
+          bodytext: Bootstrap is compiled on the server from the variables in your site settings. No build step, no node.
+        de:
+          header: SCSS-Compiler
+          bodytext: Bootstrap wird auf dem Server aus den Variablen deiner Site Settings kompiliert. Kein Build-Schritt, kein Node.
+      - link: page:f_images
+        icon: images
+        en:
+          header: Responsive images
+          bodytext: Six crop variants per image, rendered as srcset for every breakpoint, with lightbox and lazy loading.
+        de:
+          header: Responsive Bilder
+          bodytext: 'Sechs Zuschnitt-Varianten je Bild, gerendert als srcset für jeden Breakpoint, mit Lightbox und Lazy Loading.'
+      - link: page:elements
+        icon: grid
+        en:
+          header: '25+ content elements'
+          bodytext: Accordion, cards, carousel, tabs, timeline, galleries, menus – every one a Bootstrap component.
+        de:
+          header: '25+ Inhaltselemente'
+          bodytext: 'Accordion, Cards, Carousel, Tabs, Timeline, Galerien, Menüs – jedes eine Bootstrap-Komponente.'
+      - link: page:layouts
+        icon: ios-browsers
+        en:
+          header: '13 page layouts'
+          bodytext: From a single column to sub-navigation and feature pages. Every column has a name and a purpose.
+        de:
+          header: '13 Seitenlayouts'
+          bodytext: Von der einzelnen Spalte bis zu Subnavigation und Feature-Seiten. Jede Spalte hat einen Namen und einen Zweck.
+      - link: page:f_multilingual
+        icon: earth
+        en:
+          header: Multilingual
+          bodytext: Language menu, connected translations and fallbacks – this page is the proof.
+        de:
+          header: Mehrsprachig
+          bodytext: 'Sprachmenü, verbundene Übersetzungen und Fallbacks – diese Seite ist der Beweis.'
+  - key: home_s2
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: What's inside
+      bodytext: |-
+        <p class="lead">Three things to explore, one page each.</p>
+    de:
+      header: Was drin ist
+      bodytext: |-
+        <p class="lead">Drei Dinge zum Entdecken, je eine Seite.</p>
+  - key: home_cards
+    type: card_group
+    space_after_class: large
+    background_color_class: none
+    options:
+      align: left
+      columns: 3
+    children:
+      - link: page:elements
+        link_class: primary
+        en:
+          header: Content elements
+          subheader: For editors
+          bodytext: Text, media, interactive components, menus and forms. Every element shown in use, every option explained.
+          link_title: Browse the elements
+        de:
+          header: Inhaltselemente
+          subheader: 'Für Redakteure'
+          bodytext: 'Text, Medien, interaktive Komponenten, Menüs und Formulare. Jedes Element im Einsatz, jede Option erklärt.'
+          link_title: Elemente ansehen
+        image:
+          - file: facades/balconies.jpg
+            alt: Grid of concrete balconies, one with a teal railing
+            alt.de: 'Raster aus Betonbalkonen, einer mit petrolfarbenem Geländer'
+      - link: page:layouts
+        link_class: primary
+        en:
+          header: Page layouts
+          subheader: For integrators
+          bodytext: Thirteen backend layouts with named columns. Pick one per page or per subtree, no TypoScript involved.
+          link_title: See the layouts
+        de:
+          header: Seitenlayouts
+          subheader: 'Für Integratoren'
+          bodytext: Dreizehn Backend-Layouts mit benannten Spalten. Eines pro Seite oder pro Teilbaum, ganz ohne TypoScript.
+          link_title: Layouts ansehen
+        image:
+          - file: facades/brick-pattern.jpg
+            alt: Brick facade laid in a relief pattern
+            alt.de: Ziegelfassade in Reliefmuster
+      - link: page:f_design
+        link_class: primary
+        en:
+          header: Site settings
+          subheader: For everyone
+          bodytext: 'Logo, navigation, colours, fonts, cookie consent, tracking: more than a hundred settings, all in the Site Management module.'
+          link_title: Explore theming
+        de:
+          header: Site Settings
+          subheader: 'Für alle'
+          bodytext: 'Logo, Navigation, Farben, Schriften, Cookie Consent, Tracking: über hundert Settings, alle im Site-Management-Modul.'
+          link_title: Theming entdecken
+        image:
+          - file: facades/timber-cladding.jpg
+            alt: House clad in weathered vertical timber
+            alt.de: Haus mit verwitterter vertikaler Holzverschalung
+  - key: home_dark
+    type: text
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: Built for the long run
+      bodytext: |-
+        <p class="lead text-center">Bootstrap Package has shipped with every TYPO3 LTS since 6.2. When you upgrade, the included upgrade wizards migrate your content elements to the current structure – your editors never notice.</p><p class="text-center"><a class="btn btn-light btn-lg" href="page:start">Get started</a> <a class="btn btn-outline-light btn-lg" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Read the docs</a></p>
+    de:
+      header: 'Gebaut für die lange Strecke'
+      bodytext: |-
+        <p class="lead text-center">Bootstrap Package wird seit TYPO3 6.2 mit jeder LTS ausgeliefert. Beim Upgrade migrieren die mitgelieferten Upgrade-Wizards deine Inhaltselemente auf die aktuelle Struktur – deine Redakteure merken nichts davon.</p><p class="text-center"><a class="btn btn-light btn-lg" href="page:start">Loslegen</a> <a class="btn btn-outline-light btn-lg" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Doku lesen</a></p>
+  - key: footer1
+    type: text
+    column: footer1
+    header_layout: 4
+    en:
+      header: Bootstrap Package
+      bodytext: |-
+        <p>The TYPO3 theme based on Bootstrap 5. Free, open source, MIT licensed.</p><ul><li><a href="https://www.bootstrap-package.com" target="_blank" rel="noopener">bootstrap-package.com</a></li><li><a href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Documentation</a></li><li><a href="https://github.com/benjaminkott/bootstrap_package" target="_blank" rel="noopener">Source code on GitHub</a></li><li><a href="https://extensions.typo3.org/extension/bootstrap_package" target="_blank" rel="noopener">TYPO3 Extension Repository</a></li></ul>
+    de:
+      bodytext: |-
+        <p>Das TYPO3-Theme auf Basis von Bootstrap 5. Frei, Open Source, MIT-lizenziert.</p><ul><li><a href="https://www.bootstrap-package.com" target="_blank" rel="noopener">bootstrap-package.com</a></li><li><a href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Dokumentation</a></li><li><a href="https://github.com/benjaminkott/bootstrap_package" target="_blank" rel="noopener">Quellcode auf GitHub</a></li><li><a href="https://extensions.typo3.org/extension/bootstrap_package" target="_blank" rel="noopener">TYPO3 Extension Repository</a></li></ul>
+  - key: footer2
+    type: text
+    column: footer2
+    header_layout: 4
+    en:
+      header: Community
+      bodytext: |-
+        <ul><li><a href="https://github.com/benjaminkott/bootstrap_package/issues" target="_blank" rel="noopener">Report an issue</a></li><li><a href="https://github.com/benjaminkott/bootstrap_package/blob/master/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a></li><li><a href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/Contribution/Index.html" target="_blank" rel="noopener">Contribution guide</a></li><li><a href="https://typo3.org" target="_blank" rel="noopener">TYPO3 project</a></li></ul>
+    de:
+      bodytext: |-
+        <ul><li><a href="https://github.com/benjaminkott/bootstrap_package/issues" target="_blank" rel="noopener">Problem melden</a></li><li><a href="https://github.com/benjaminkott/bootstrap_package/blob/master/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a></li><li><a href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/Contribution/Index.html" target="_blank" rel="noopener">Mitmachen</a></li><li><a href="https://typo3.org" target="_blank" rel="noopener">TYPO3-Projekt</a></li></ul>
+  - key: footer3
+    type: text
+    column: footer3
+    header_layout: 4
+    en:
+      header: This site
+      bodytext: |-
+        <p>Everything you see here is demo content shipped with the package – built with the layouts and elements it provides, in two languages.</p><ul><li><a href="page:start">Get started</a></li><li><a href="page:about">About the project</a></li><li><a href="page:contact">Contact</a></li></ul>
+    de:
+      header: Diese Site
+      bodytext: |-
+        <p>Alles, was du hier siehst, ist Demo-Content aus dem Paket – gebaut mit seinen Layouts und Elementen, in zwei Sprachen.</p><ul><li><a href="page:start">Loslegen</a></li><li><a href="page:about">Über das Projekt</a></li><li><a href="page:contact">Kontakt</a></li></ul>

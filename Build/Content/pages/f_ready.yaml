@@ -1,0 +1,125 @@
+key: f_ready
+parent: features
+sorting: 10
+categories: category:cat_feature
+icon: ios-bolt
+header:
+  photo:
+    file: features/ready-to-use.jpg
+    crop: band-bottom
+en:
+  title: Ready to Use
+  subtitle: Two commands
+  abstract: Require the package, run the TYPO3 setup, done. Everything on this site was imported for you.
+  keywords: setup, installation, site sets
+de:
+  title: Sofort einsatzbereit
+  subtitle: Zwei Befehle
+  abstract: 'Paket installieren, TYPO3-Setup ausführen, fertig. Alles auf dieser Site wurde für dich importiert.'
+thumbnail:
+  - file: features/ready-to-use.jpg
+    alt: A key on a doorstep in front of an open door
+    alt.de: 'Ein Schlüssel auf einer Türschwelle vor einer offenen Tür'
+
+content:
+  - key: ready_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: From zero to website in two commands
+      bodytext: |-
+        <p class="lead">Bootstrap Package is a distribution: when TYPO3 sets itself up, it finds the demo content the package ships and imports it – the page tree, the images, both languages and the site configuration. What you are reading right now arrived that way.</p>
+    de:
+      header: Von null zur Website mit zwei Befehlen
+      bodytext: |-
+        <p class="lead">Bootstrap Package ist eine Distribution: Wenn TYPO3 sich einrichtet, findet es den Demo-Content, den das Paket mitbringt, und importiert ihn – den Seitenbaum, die Bilder, beide Sprachen und die Site-Konfiguration. Was du gerade liest, ist so angekommen.</p>
+  - key: ready_code
+    type: html
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    background_color_class: quaternary
+    en:
+      bodytext: |-
+        <pre class="mb-0 text-light fs-4"><code>composer require bk2k/bootstrap-package
+        vendor/bin/typo3 setup</code></pre>
+  - key: ready_s2
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: Site sets instead of TypoScript templates
+      bodytext: |-
+        <p class="lead">The frontend is delivered as TYPO3 site sets. Your site depends on <code>bootstrap-package/full</code> and gets everything – or you pick the sets you need and leave the rest out.</p>
+    de:
+      header: Site Sets statt TypoScript-Templates
+      bodytext: |-
+        <p class="lead">Das Frontend kommt als TYPO3 Site Sets. Deine Site hängt von <code>bootstrap-package/full</code> ab und bekommt alles – oder du wählst die Sets, die du brauchst, und lässt den Rest weg.</p>
+  - key: ready_list
+    type: listgroup
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    background_color_class: none
+    en:
+      bodytext: |-
+        Bootstrap 5 – the framework, compiled from your settings
+        Content Elements – every element on this site
+        Backend Layouts – the thirteen page layouts
+        RTE – a CKEditor preset that matches the theme
+        Cookie Consent – the banner, configurable per setting
+        Google Font – one setting, one font family
+        Google Tag Manager – the container id, nothing else
+        Pagination – shared pagination for galleries and lists
+        Indexed Search – styled search form and results
+        Skiplink – keyboard access to the content
+    de:
+      bodytext: |-
+        Bootstrap 5 – das Framework, kompiliert aus deinen Settings
+        Content Elements – jedes Element auf dieser Site
+        Backend Layouts – die dreizehn Seitenlayouts
+        RTE – ein CKEditor-Preset, das zum Theme passt
+        Cookie Consent – das Banner, per Setting konfigurierbar
+        Google Font – ein Setting, eine Schriftfamilie
+        Google Tag Manager – die Container-ID, sonst nichts
+        Pagination – gemeinsame Seitennavigation für Galerien und Listen
+        Indexed Search – gestaltetes Suchformular und Ergebnisse
+        Skiplink – Tastaturzugang zum Inhalt
+  - key: ready_pic
+    type: textpic
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    imageorient: 126
+    imagewidth: 560
+    en:
+      header: Then make it yours
+      bodytext: |-
+        <p class="lead">Open the backend, go to Site Management and look at the Settings tab. Every option the package knows is listed there with its description and default value.</p><p>Nothing on this site was configured anywhere else. Change the primary colour, save, reload – the whole site follows. <a href="page:f_design">See what else is a setting.</a></p>
+    de:
+      header: Dann mach sie zu deiner
+      bodytext: |-
+        <p class="lead">Öffne das Backend, gehe zu Site Management und schau in den Tab Settings. Jede Option, die das Paket kennt, steht dort mit Beschreibung und Standardwert.</p><p>Nichts auf dieser Site wurde woanders konfiguriert. Ändere die Primärfarbe, speichere, lade neu – die ganze Site folgt. <a href="page:f_design">Sieh, was sonst noch ein Setting ist.</a></p>
+    image:
+      - file: features/ready-to-use.jpg
+        alt: A key on a doorstep in front of an open door
+        alt.de: 'Ein Schlüssel auf einer Türschwelle vor einer offenen Tür'
+  - key: ready_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_design">Design & Theming →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_design">Design & Theming →</a></p>

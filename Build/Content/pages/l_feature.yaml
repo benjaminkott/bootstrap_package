@@ -1,0 +1,190 @@
+key: l_feature
+parent: layouts
+sorting: 120
+backend_layout: pagets__special_feature
+header:
+  plain: true
+en:
+  title: Special Feature
+  subtitle: Backend layout special_feature
+  abstract: The main column plus eight teaser slots in two rows of four, with a second main column between them.
+  keywords: layouts, columns
+de:
+  title: Feature-Seite
+  subtitle: Backend-Layout special_feature
+  abstract: 'Die Hauptspalte plus acht Teaser-Plätze in zwei Viererreihen, mit einer zweiten Hauptspalte dazwischen.'
+thumbnail:
+  - file: layouts/special_feature.png
+    alt: Schematic of the Special Feature layout
+    alt.de: Schema des Layouts Feature-Seite
+
+content:
+  - key: l_feature_h
+    type: text
+    header_layout: 2
+    en:
+      header: The main column
+      bodytext: |-
+        <p class="lead">The main column plus eight teaser slots in two rows of four, with a second main column between them.</p><p>This text sits in the main column. Every other column of this layout holds a short note so you can see where it renders; the footer columns are inherited from the start page.</p>
+    de:
+      header: Die Hauptspalte
+      bodytext: |-
+        <p class="lead">Die Hauptspalte plus acht Teaser-Plätze in zwei Viererreihen, mit einer zweiten Hauptspalte dazwischen.</p><p>Dieser Text sitzt in der Hauptspalte. Jede andere Spalte dieses Layouts enthält eine kurze Notiz, damit du siehst, wo sie gerendert wird; die Footer-Spalten werden von der Startseite vererbt.</p>
+  - key: l_feature_before
+    type: text
+    column: before
+    header_layout: 3
+    frame_options: ruler-after,indent-left,indent-right
+    space_before_class: large
+    space_after_class: medium
+    en:
+      header: Content before the columns
+      bodytext: |-
+        <p>Full width, above the columns – the place for an introduction.</p>
+    de:
+      header: Inhalt vor den Spalten
+      bodytext: |-
+        <p>Volle Breite, über den Spalten – der Platz für eine Einleitung.</p>
+  - key: l_feature_after
+    type: text
+    column: after
+    header_layout: 3
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: Content after the columns
+      bodytext: |-
+        <p class="text-center">Full width, below the columns – the place for a call to action.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">All layouts</a></p>
+    de:
+      header: Inhalt nach den Spalten
+      bodytext: |-
+        <p class="text-center">Volle Breite, unter den Spalten – der Platz für eine Handlungsaufforderung.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">Alle Layouts</a></p>
+  - key: l_feature_c30
+    type: text
+    column: special1
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 1
+      bodytext: |-
+        <p>This column is called <em>special1</em>.</p>
+    de:
+      header: Special 1
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special1</em>.</p>
+  - key: l_feature_c31
+    type: text
+    column: special2
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 2
+      bodytext: |-
+        <p>This column is called <em>special2</em>.</p>
+    de:
+      header: Special 2
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special2</em>.</p>
+  - key: l_feature_c32
+    type: text
+    column: special3
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 3
+      bodytext: |-
+        <p>This column is called <em>special3</em>.</p>
+    de:
+      header: Special 3
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special3</em>.</p>
+  - key: l_feature_c33
+    type: text
+    column: special4
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 4
+      bodytext: |-
+        <p>This column is called <em>special4</em>.</p>
+    de:
+      header: Special 4
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special4</em>.</p>
+  - key: l_feature_c4
+    type: text
+    column: main2
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Main column 2
+      bodytext: |-
+        <p>This column is called <em>main2</em>.</p>
+    de:
+      header: Hauptspalte 2
+      bodytext: |-
+        <p>Diese Spalte heißt <em>main2</em>.</p>
+  - key: l_feature_c34
+    type: text
+    column: special5
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 5
+      bodytext: |-
+        <p>This column is called <em>special5</em>.</p>
+    de:
+      header: Special 5
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special5</em>.</p>
+  - key: l_feature_c35
+    type: text
+    column: special6
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 6
+      bodytext: |-
+        <p>This column is called <em>special6</em>.</p>
+    de:
+      header: Special 6
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special6</em>.</p>
+  - key: l_feature_c36
+    type: text
+    column: special7
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 7
+      bodytext: |-
+        <p>This column is called <em>special7</em>.</p>
+    de:
+      header: Special 7
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special7</em>.</p>
+  - key: l_feature_c37
+    type: text
+    column: special8
+    header_layout: 4
+    frame_layout: embedded
+    background_color_class: light
+    en:
+      header: Special 8
+      bodytext: |-
+        <p>This column is called <em>special8</em>.</p>
+    de:
+      header: Special 8
+      bodytext: |-
+        <p>Diese Spalte heißt <em>special8</em>.</p>

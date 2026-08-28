@@ -1,0 +1,64 @@
+key: l_subleft
+parent: layouts
+sorting: 80
+backend_layout: pagets__subnavigation_left
+header:
+  plain: true
+en:
+  title: Subnavigation Left
+  subtitle: Backend layout subnavigation_left
+  abstract: A generated menu of the sibling pages on the left, the main column beside it.
+  keywords: layouts, columns
+de:
+  title: Subnavigation links
+  subtitle: Backend-Layout subnavigation_left
+  abstract: 'Ein generiertes Menü der Geschwisterseiten links, die Hauptspalte daneben.'
+thumbnail:
+  - file: layouts/subnavigation_left.png
+    alt: Schematic of the Subnavigation Left layout
+    alt.de: Schema des Layouts Subnavigation links
+
+content:
+  - key: l_subleft_h
+    type: text
+    header_layout: 2
+    en:
+      header: The main column
+      bodytext: |-
+        <p class="lead">A generated menu of the sibling pages on the left, the main column beside it.</p><p>This text sits in the main column. Every other column of this layout holds a short note so you can see where it renders; the footer columns are inherited from the start page.</p>
+    de:
+      header: Die Hauptspalte
+      bodytext: |-
+        <p class="lead">Ein generiertes Menü der Geschwisterseiten links, die Hauptspalte daneben.</p><p>Dieser Text sitzt in der Hauptspalte. Jede andere Spalte dieses Layouts enthält eine kurze Notiz, damit du siehst, wo sie gerendert wird; die Footer-Spalten werden von der Startseite vererbt.</p>
+  - key: l_subleft_before
+    type: text
+    column: before
+    header_layout: 3
+    frame_options: ruler-after,indent-left,indent-right
+    space_before_class: large
+    space_after_class: medium
+    en:
+      header: Content before the columns
+      bodytext: |-
+        <p>Full width, above the columns – the place for an introduction.</p>
+    de:
+      header: Inhalt vor den Spalten
+      bodytext: |-
+        <p>Volle Breite, über den Spalten – der Platz für eine Einleitung.</p>
+  - key: l_subleft_after
+    type: text
+    column: after
+    header_layout: 3
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: Content after the columns
+      bodytext: |-
+        <p class="text-center">Full width, below the columns – the place for a call to action.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">All layouts</a></p>
+    de:
+      header: Inhalt nach den Spalten
+      bodytext: |-
+        <p class="text-center">Volle Breite, unter den Spalten – der Platz für eine Handlungsaufforderung.</p><p class="text-center"><a class="btn btn-light" href="page:layouts">Alle Layouts</a></p>

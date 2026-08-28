@@ -29,6 +29,7 @@ final class BackendLayoutsTest extends FunctionalTestCase
         'seo',
         'rte_ckeditor',
         'extensionmanager',
+        'impexp',
         'install',
     ];
 

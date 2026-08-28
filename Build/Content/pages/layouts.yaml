@@ -1,0 +1,46 @@
+key: layouts
+parent: root
+sorting: 40
+backend_layout: pagets__subnavigation_right
+backend_layout_next_level: pagets__default
+icon: ios-browsers
+header:
+  photo:
+    file: stairs/open-flight.jpg
+  side: right
+en:
+  title: Layouts
+  subtitle: Thirteen page layouts
+  abstract: One page per backend layout. Each page uses the layout it describes.
+de:
+  title: Layouts
+  subtitle: Dreizehn Seitenlayouts
+  abstract: Eine Seite pro Backend-Layout. Jede Seite nutzt das Layout, das sie beschreibt.
+thumbnail:
+  - file: layouts/special_start.png
+    alt: Schematic of the start page layout
+    alt.de: Schema des Startseiten-Layouts
+
+content:
+  - key: lo_intro
+    type: text
+    header_layout: 2
+    en:
+      header: One page per layout
+      bodytext: |-
+        <p class="lead">Every page below uses the backend layout it describes, with a short note in each of its columns.</p><p>This overview uses <em>Subnavigation Right</em> – the menu beside it is generated from the subpages.</p>
+    de:
+      header: Eine Seite pro Layout
+      bodytext: |-
+        <p class="lead">Jede Seite unten nutzt das Backend-Layout, das sie beschreibt, mit einer kurzen Notiz in jeder ihrer Spalten.</p><p>Diese Übersicht nutzt <em>Subnavigation Right</em> – das Menü daneben entsteht aus den Unterseiten.</p>
+  - key: lo_menu
+    type: menu_card_dir
+    pages: page:layouts
+    subitems_header_layout: 4
+    en:
+      readmore_label: Open
+    de:
+      readmore_label: 'Öffnen'
+    options:
+      align: left
+      columns: 3

@@ -11,5 +11,10 @@ var/
 # mcp
 .mcp.json
 
+# agents
+.agents/
+.claude/
+.codex/
+
 # vscode settings
 .vscode/

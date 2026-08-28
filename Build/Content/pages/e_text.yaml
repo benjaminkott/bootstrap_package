@@ -1,0 +1,371 @@
+key: e_text
+parent: elements
+sorting: 10
+icon: document-text
+en:
+  title: Text & Typography
+  subtitle: Headlines, text, lists, tables, panels
+  abstract: Headlines, the editor, teasers, columns, lists, quotes, tables and panels – the elements that carry most of a site.
+  keywords: text, typography
+de:
+  title: Text & Typografie
+  subtitle: 'Überschriften, Text, Listen, Tabellen, Panels'
+  abstract: 'Überschriften, der Editor, Teaser, Spalten, Listen, Zitate, Tabellen und Panels – die Elemente, die den Großteil einer Site tragen.'
+thumbnail:
+  - file: gallery/material-linen.jpg
+    alt: Undyed linen weave
+    alt.de: 'Ungefärbtes Leinengewebe'
+
+content:
+  - key: tx_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Words first
+      bodytext: |-
+        <p class="lead">Most of a website is text. These are the elements that carry it – and the headline options every one of them shares.</p>
+    de:
+      header: Erst die Worte
+      bodytext: |-
+        <p class="lead">Der Großteil einer Website ist Text. Das sind die Elemente, die ihn tragen – und die Überschriften-Optionen, die alle gemeinsam haben.</p>
+  - key: tx_scale
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    en:
+      header: A headline for every level
+      bodytext: |-
+        <p>Every element has a header with the same options: six layouts from H1 to H5 plus hidden, three positions, a subheader, a date, a link and a class that renders one level but looks like another. The editor offers the same scale inside the text:</p><h1>Heading one, for the page</h1><h2>Heading two, for a section</h2><h3>Heading three, for a topic</h3><h4>Heading four, for a detail</h4><h5>Heading five, for a label</h5>
+    de:
+      header: 'Eine Überschrift für jede Ebene'
+      bodytext: |-
+        <p>Jedes Element hat eine Überschrift mit denselben Optionen: sechs Layouts von H1 bis H5 plus ausgeblendet, drei Positionen, eine Unterzeile, ein Datum, ein Link und eine Klasse, die eine Ebene rendert, aber wie eine andere aussieht. Der Editor bietet dieselbe Skala im Text:</p><h1>Überschrift eins, für die Seite</h1><h2>Überschrift zwei, für eine Sektion</h2><h3>Überschrift drei, für ein Thema</h3><h4>Überschrift vier, für ein Detail</h4><h5>Überschrift fünf, für ein Label</h5>
+  - key: tx_news
+    type: header
+    date: 1789768800
+    header_layout: 3
+    header_position: center
+    frame_options: ruler-before,ruler-after
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Version 16 released
+      header_link: https://github.com/benjaminkott/bootstrap_package/blob/master/CHANGELOG.md
+      subheader: A header element with a date and a link – the whole headline is clickable
+    de:
+      header: 'Version 16 veröffentlicht'
+      subheader: 'Ein Überschriften-Element mit Datum und Link – die ganze Überschrift ist klickbar'
+  - key: tx_text
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    en:
+      header: The editor
+      bodytext: |-
+        <p class="lead">The text element is the rich text editor. The preset that ships with the package offers what a page needs and hides what it does not.</p><p><strong>Bold</strong>, <em>italic</em>, <u>underline</u>, <s>strikethrough</s>, <sub>sub</sub> and <sup>super</sup>script, <code>inline code</code>, <abbr title="Bootstrap Package">abbreviations</abbr>, <a href="#">links</a> and <a class="btn btn-primary btn-sm" href="#">button links</a>. Lists, ordered and unordered, nested as deep as you need:</p><ul><li>Unordered lists</li><li>with nested items<ul><li>like this one</li></ul></li></ul><ol><li>Ordered lists</li><li>count for you</li></ol><blockquote><p>Blockquotes render with a quiet left border in the tertiary colour.</p></blockquote><p class="text-center">Text can be centred –</p><p class="text-end">– or aligned right.</p>
+    de:
+      header: Der Editor
+      bodytext: |-
+        <p class="lead">Das Textelement ist der Rich-Text-Editor. Das mitgelieferte Preset bietet, was eine Seite braucht, und versteckt, was sie nicht braucht.</p><p><strong>Fett</strong>, <em>kursiv</em>, <u>unterstrichen</u>, <s>durchgestrichen</s>, <sub>tief</sub>- und <sup>hoch</sup>gestellt, <code>Inline-Code</code>, <abbr title="Bootstrap Package">Abkürzungen</abbr>, <a href="#">Links</a> und <a class="btn btn-primary btn-sm" href="#">Button-Links</a>. Listen, geordnet und ungeordnet, so tief verschachtelt, wie du brauchst:</p><ul><li>Ungeordnete Listen</li><li>mit verschachtelten Einträgen<ul><li>wie diesem</li></ul></li></ul><ol><li>Geordnete Listen</li><li>zählen für dich</li></ol><blockquote><p>Zitate rendern mit einer ruhigen linken Linie in der Tertiärfarbe.</p></blockquote><p class="text-center">Text kann zentriert sein –</p><p class="text-end">– oder rechtsbündig.</p>
+  - key: tx_teaser
+    type: textteaser
+    header_layout: 2
+    space_before_class: large
+    en:
+      header: Text with teaser
+      teaser: The teaser is a short, prominent paragraph above the body text – for the one sentence a reader should not miss.
+      bodytext: |-
+        <p>Below it the body text continues as usual. Use it for section intros, product summaries or the answer before the explanation.</p>
+    de:
+      header: Text mit Teaser
+      teaser: 'Der Teaser ist ein kurzer, prominenter Absatz über dem Fließtext – für den einen Satz, den ein Leser nicht verpassen soll.'
+      bodytext: |-
+        <p>Darunter geht der Fließtext wie gewohnt weiter. Gut für Sektionseinstiege, Produktzusammenfassungen oder die Antwort vor der Erklärung.</p>
+  - key: tx_columns
+    type: textcolumn
+    header_layout: 2
+    frame_options: ruler-before
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Text in columns
+      bodytext: |-
+        <p>Long text reads better in columns. The text column element flows one body text across two columns and collapses to one on phones. Column breaks follow the browser: paragraphs are balanced automatically, so an editor never has to split the text by hand.</p><p>That keeps the element safe for content that changes often. Combine it with a ruler or a background colour and the section reads like a magazine spread – which is what this one does, with a ruler above.</p>
+    de:
+      header: Text in Spalten
+      bodytext: |-
+        <p>Langer Text liest sich in Spalten besser. Das Spaltenelement verteilt einen Fließtext auf zwei Spalten und wird auf dem Handy einspaltig. Die Spaltenumbrüche setzt der Browser: Absätze werden automatisch ausbalanciert, ein Redakteur muss den Text nie von Hand teilen.</p><p>Das macht das Element sicher für Inhalte, die sich oft ändern. Kombiniert mit einer Linie oder Hintergrundfarbe liest sich die Sektion wie eine Magazin-Doppelseite – genau das macht diese hier, mit einer Linie darüber.</p>
+  - key: tx_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Three ways to write
+      bodytext: |-
+        <p class="lead text-center">Text and icon: a text with an icon beside or above it, from two bundled icon sets or your own SVG.</p>
+    de:
+      header: Drei Arten zu schreiben
+      bodytext: |-
+        <p class="lead text-center">Text und Icon: ein Text mit einem Icon daneben oder darüber, aus zwei mitgelieferten Icon-Sets oder einem eigenen SVG.</p>
+  - key: tx_icon_1
+    type: texticon
+    icon_position: left
+    icon_type: default
+    icon_size: medium
+    icon_color: '#19737A'
+    icon: compose
+    header_layout: 3
+    background_color_class: light
+    en:
+      header: Write
+      bodytext: |-
+        <p>Editors write in the elements they know. The rich text editor, the headline options and the appearance tab are the same on every element.</p>
+    de:
+      header: Schreiben
+      bodytext: |-
+        <p>Redakteure schreiben in den Elementen, die sie kennen. Der Rich-Text-Editor, die Überschriften-Optionen und der Tab Erscheinungsbild sind auf jedem Element gleich.</p>
+  - key: tx_icon_2
+    type: texticon
+    icon_position: left
+    icon_type: default
+    icon_size: medium
+    icon_color: '#19737A'
+    icon: Glyphicons/leaf
+    header_layout: 3
+    background_color_class: light
+    en:
+      header: Structure
+      bodytext: |-
+        <p>Teasers, columns, lists and panels structure a page without touching a template. Every one is a Bootstrap component underneath.</p>
+    de:
+      header: Strukturieren
+      bodytext: |-
+        <p>Teaser, Spalten, Listen und Panels strukturieren eine Seite, ohne ein Template anzufassen. Jedes ist darunter eine Bootstrap-Komponente.</p>
+  - key: tx_icon_3
+    type: texticon
+    icon_position: left
+    icon_type: default
+    icon_size: medium
+    icon_color: '#19737A'
+    icon: Glyphicons/globe
+    header_layout: 3
+    space_after_class: large
+    background_color_class: light
+    en:
+      header: Publish
+      bodytext: |-
+        <p>Publish in every language your site speaks. Three icon sources: Ionicons, a Glyphicon here, or an SVG of your own uploaded to the file list.</p>
+    de:
+      header: 'Veröffentlichen'
+      bodytext: |-
+        <p>Veröffentliche in jeder Sprache, die deine Site spricht. Drei Icon-Quellen: Ionicons, ein Glyphicon hier, oder ein eigenes in die Dateiliste hochgeladenes SVG.</p>
+  - key: tx_s3
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: Lists and tables
+      bodytext: |-
+        <p class="lead">One line per item is all the bullet list, the list group and the table need – no HTML, no markup.</p>
+    de:
+      header: Listen und Tabellen
+      bodytext: |-
+        <p class="lead">Eine Zeile pro Eintrag ist alles, was Aufzählung, List Group und Tabelle brauchen – kein HTML, kein Markup.</p>
+  - key: tx_bullets
+    type: bullets
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    bullets_type: 1
+    en:
+      header: Four steps to a site
+      bodytext: |-
+        Create a TYPO3 project
+        Require the package
+        Run the setup
+        Make it yours in the settings
+    de:
+      header: Vier Schritte zur Site
+      bodytext: |-
+        Ein TYPO3-Projekt anlegen
+        Das Paket installieren
+        Das Setup ausführen
+        In den Settings zu deiner machen
+  - key: tx_listgroup
+    type: listgroup
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    en:
+      header: What the package ships
+      bodytext: |-
+        Thirteen backend layouts
+        Twenty-five content elements
+        Fourteen menu types
+        More than a hundred settings
+    de:
+      header: Was das Paket mitbringt
+      bodytext: |-
+        Dreizehn Backend-Layouts
+        Fünfundzwanzig Inhaltselemente
+        Vierzehn Menütypen
+        Mehr als hundert Settings
+  - key: tx_table
+    type: table
+    cols: 3
+    table_header_position: 1
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    space_after_class: large
+    table_class: striped
+    en:
+      header: Which element for which job
+      table_caption: 'The table element: striped, with a header row and a caption'
+      bodytext: |-
+        Element|Best for|Options
+        Text|Everything that is prose|Editor styles
+        Text with teaser|Intros and summaries|Teaser paragraph
+        Bullet list|Steps and short facts|Unordered, ordered, definitions
+        List group|Feature lists|–
+        Table|Data with a header|Striped, bordered, caption, footer row
+        Panel|A highlighted box|Thirteen colours
+    de:
+      header: 'Welches Element für welche Aufgabe'
+      table_caption: 'Das Tabellenelement: gestreift, mit Kopfzeile und Beschriftung'
+      bodytext: |-
+        Element|Am besten für|Optionen
+        Text|Alles, was Prosa ist|Editor-Stile
+        Text mit Teaser|Einstiege und Zusammenfassungen|Teaser-Absatz
+        Aufzählung|Schritte und kurze Fakten|Ungeordnet, geordnet, Definitionen
+        List Group|Feature-Listen|–
+        Tabelle|Daten mit Kopf|Gestreift, mit Rahmen, Beschriftung, Fußzeile
+        Panel|Eine hervorgehobene Box|Dreizehn Farben
+  - key: tx_quote
+    type: quote
+    quote_link: https://typo3.org
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      bodytext: The best interface is the one an editor never has to think about.
+      quote_source: A content editor, probably
+    de:
+      bodytext: 'Die beste Oberfläche ist die, über die ein Redakteur nie nachdenken muss.'
+      quote_source: Ein Redakteur, vermutlich
+  - key: tx_s4
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: none
+    en:
+      header: Panels
+      bodytext: |-
+        <p class="lead">A box with a coloured header and a body – thirteen colours, three of them below with the jobs they are made for.</p>
+    de:
+      header: Panels
+      bodytext: |-
+        <p class="lead">Eine Box mit farbigem Kopf und Inhalt – dreizehn Farben, drei davon unten mit den Aufgaben, für die sie gemacht sind.</p>
+  - key: tx_panel_info
+    type: panel
+    frame_options: indent-left,indent-right
+    panel_class: info
+    en:
+      header: Good to know
+      bodytext: |-
+        <p>The info panel is for the note a reader should see but not stumble over. Calm, noticeable, out of the way.</p>
+    de:
+      header: Gut zu wissen
+      bodytext: |-
+        <p>Das Info-Panel ist für den Hinweis, den ein Leser sehen, aber nicht darüber stolpern soll. Ruhig, auffällig, nicht im Weg.</p>
+  - key: tx_panel_success
+    type: panel
+    frame_options: indent-left,indent-right
+    panel_class: success
+    en:
+      header: Done
+      bodytext: |-
+        <p>Success for confirmations – the thank-you pages of the forms use it.</p>
+    de:
+      header: Erledigt
+      bodytext: |-
+        <p>Success für Bestätigungen – die Danke-Seiten der Formulare nutzen es.</p>
+  - key: tx_panel_warning
+    type: panel
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    panel_class: warning
+    en:
+      header: Before you go live
+      bodytext: |-
+        <p>Warning for the things people skip: the recipient address of the contact form, the tracking id, the privacy page.</p>
+    de:
+      header: Bevor du live gehst
+      bodytext: |-
+        <p>Warning für die Dinge, die man überspringt: die Empfängeradresse des Kontaktformulars, die Tracking-ID, die Datenschutzseite.</p>
+  - key: tx_options
+    type: accordion
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: All options at a glance
+    de:
+      header: Alle Optionen auf einen Blick
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: Header, on every element
+          bodytext: |-
+            <p>Layout H1–H5 or hidden · position left, centre, right · subheader · date · link · class override for header and subheader.</p>
+        de:
+          header: 'Überschrift, auf jedem Element'
+          bodytext: |-
+            <p>Layout H1–H5 oder ausgeblendet · Position links, mittig, rechts · Unterzeile · Datum · Link · Klassen-Override für Überschrift und Unterzeile.</p>
+      - en:
+          header: Text and icon
+          bodytext: |-
+            <p>Icon left, right or above the text · plain, square or circle · four sizes · free icon and background colours · Ionicons (600), Glyphicons (200) or your own SVG.</p>
+        de:
+          header: Text und Icon
+          bodytext: |-
+            <p>Icon links, rechts oder über dem Text · pur, quadratisch oder rund · vier Größen · freie Icon- und Hintergrundfarbe · Ionicons (600), Glyphicons (200) oder eigenes SVG.</p>
+      - en:
+          header: Lists and tables
+          bodytext: |-
+            <p>Bullet list: unordered, ordered or definition list. Table: up to nine columns, header row or header column, footer row, caption, striped or bordered, delimiter and enclosure of your choice – or fed from an uploaded CSV file with the CSV element.</p>
+        de:
+          header: Listen und Tabellen
+          bodytext: |-
+            <p>Aufzählung: ungeordnet, geordnet oder Definitionsliste. Tabelle: bis zu neun Spalten, Kopfzeile oder Kopfspalte, Fußzeile, Beschriftung, gestreift oder mit Rahmen, Trenn- und Umschließungszeichen nach Wahl – oder gespeist aus einer hochgeladenen CSV-Datei mit dem CSV-Element.</p>
+      - en:
+          header: Panel and quote
+          bodytext: |-
+            <p>Panel: default, primary, secondary, tertiary, quaternary, success, info, warning, danger, lighter, light, dark, darker. Quote: text, source and an optional link on the source.</p>
+        de:
+          header: Panel und Zitat
+          bodytext: |-
+            <p>Panel: default, primary, secondary, tertiary, quaternary, success, info, warning, danger, lighter, light, dark, darker. Zitat: Text, Quelle und ein optionaler Link auf die Quelle.</p>
+      - en:
+          header: HTML
+          bodytext: |-
+            <p>The HTML element renders its content as is – for the embed code or the snippet no other element covers.</p>
+        de:
+          header: HTML
+          bodytext: |-
+            <p>Das HTML-Element rendert seinen Inhalt unverändert – für den Embed-Code oder das Snippet, das kein anderes Element abdeckt.</p>

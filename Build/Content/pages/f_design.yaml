@@ -1,0 +1,141 @@
+key: f_design
+parent: features
+sorting: 20
+categories: category:cat_feature
+icon: wand
+header:
+  photo:
+    file: features/design-theming.jpg
+    crop: band-bottom
+  side: right
+en:
+  title: Design & Theming
+  subtitle: Colours, fonts, variables
+  abstract: Colours, fonts and every Bootstrap variable are site settings. The SCSS is compiled for you.
+  keywords: design, scss, colors, fonts
+de:
+  title: Design & Theming
+  subtitle: Farben, Schriften, Variablen
+  abstract: 'Farben, Schriften und jede Bootstrap-Variable sind Site Settings. Das SCSS wird für dich kompiliert.'
+thumbnail:
+  - file: features/design-theming.jpg
+    alt: Painted wooden boards fanned out like colour swatches
+    alt.de: 'Bemalte Holzbretter, aufgefächert wie Farbmuster'
+
+content:
+  - key: design_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Every Bootstrap variable is a setting
+      bodytext: |-
+        <p class="lead">Bootstrap Package compiles Bootstrap's SCSS on the server. The variables come from your site settings. Change <code>$primary</code> in the backend and every button, link and badge follows – no build pipeline, no node_modules, no deployment.</p>
+    de:
+      header: Jede Bootstrap-Variable ist ein Setting
+      bodytext: |-
+        <p class="lead">Bootstrap Package kompiliert das SCSS von Bootstrap auf dem Server. Die Variablen kommen aus deinen Site Settings. Ändere <code>$primary</code> im Backend, und jeder Button, Link und Badge folgt – keine Build-Pipeline, kein node_modules, kein Deployment.</p>
+  - key: design_pic
+    type: textpic
+    header_layout: 2
+    space_after_class: large
+    imageorient: 125
+    imagewidth: 560
+    en:
+      header: The palette of this site
+      subheader: Built from the 2026 colours of the year
+      bodytext: |-
+        <p>Pantone's Cloud Dancer is the page background, WGSN's Transformative Teal the accent, Benjamin Moore's Silhouette and Dunn-Edwards' Midnight Garden carry the depth. Six colours, seven settings, one site.</p>
+    de:
+      header: Die Palette dieser Site
+      subheader: Gebaut aus den Trendfarben 2026
+      bodytext: |-
+        <p>Pantones Cloud Dancer ist der Seitenhintergrund, WGSNs Transformative Teal der Akzent, Benjamin Moores Silhouette und Dunn-Edwards' Midnight Garden tragen die Tiefe. Sechs Farben, sieben Settings, eine Site.</p>
+    image:
+      - file: features/design-theming.jpg
+        alt: Painted wooden boards fanned out like colour swatches
+        alt.de: 'Bemalte Holzbretter, aufgefächert wie Farbmuster'
+  - key: design_table
+    type: table
+    cols: 3
+    table_header_position: 1
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    table_class: striped
+    en:
+      bodytext: |-
+        Setting|Value|Used for
+        primary|#19737A|Links, buttons, active states
+        secondary|#57504C|Secondary buttons, quiet emphasis
+        tertiary|#546F68|Icons, timeline, subtle accents
+        quaternary|#39463C|Footer, dark sections
+        default|#CBBBA1|Default buttons, card headers
+        body-bg|#F0EEE9|The page background
+        body-color|#2A2725|Text
+    de:
+      bodytext: |-
+        Setting|Wert|Verwendung
+        primary|#19737A|Links, Buttons, aktive Zustände
+        secondary|#57504C|Sekundäre Buttons, ruhige Hervorhebung
+        tertiary|#546F68|Icons, Timeline, dezente Akzente
+        quaternary|#39463C|Footer, dunkle Sektionen
+        default|#CBBBA1|Standard-Buttons, Card-Header
+        body-bg|#F0EEE9|Der Seitenhintergrund
+        body-color|#2A2725|Text
+  - key: design_buttons
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Colours in action
+      bodytext: |-
+        <p><a class="btn btn-primary" href="#">Primary</a> <a class="btn btn-secondary" href="#">Secondary</a> <a class="btn btn-tertiary" href="#">Tertiary</a> <a class="btn btn-default" href="#">Default</a> <a class="btn btn-light" href="#">Light</a> <a class="btn btn-success" href="#">Success</a> <a class="btn btn-info" href="#">Info</a> <a class="btn btn-warning" href="#">Warning</a> <a class="btn btn-danger" href="#">Danger</a></p><p><a class="btn btn-outline-primary" href="#">Outline primary</a> <a class="btn btn-outline-secondary" href="#">Outline secondary</a> <a class="btn btn-outline-default" href="#">Outline default</a></p><p>Every button is a plain link with a Bootstrap class, coloured by the settings above. The RTE offers them as link styles.</p>
+    de:
+      header: Farben in Aktion
+      bodytext: |-
+        <p><a class="btn btn-primary" href="#">Primary</a> <a class="btn btn-secondary" href="#">Secondary</a> <a class="btn btn-tertiary" href="#">Tertiary</a> <a class="btn btn-default" href="#">Default</a> <a class="btn btn-light" href="#">Light</a> <a class="btn btn-success" href="#">Success</a> <a class="btn btn-info" href="#">Info</a> <a class="btn btn-warning" href="#">Warning</a> <a class="btn btn-danger" href="#">Danger</a></p><p><a class="btn btn-outline-primary" href="#">Outline primary</a> <a class="btn btn-outline-secondary" href="#">Outline secondary</a> <a class="btn btn-outline-default" href="#">Outline default</a></p><p>Jeder Button ist ein einfacher Link mit einer Bootstrap-Klasse, eingefärbt durch die Settings oben. Der RTE bietet sie als Link-Stile an.</p>
+  - key: design_type
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    en:
+      header: Typography
+      bodytext: |-
+        <p>This site uses <strong>Manrope</strong>, loaded through the Google Font setting. Headings are light, body text regular, buttons and navigation semibold. One setting names the font, one lists the weights.</p><h1>Heading one, light</h1><h2>Heading two</h2><h3>Heading three</h3><h4>Heading four</h4><p>Body text at 17 pixels with generous line height. <a href="#">Links take the primary colour</a>, <code>code</code> stays monospaced, and <em>emphasis</em> and <strong>strong text</strong> render as you would expect.</p>
+    de:
+      header: Typografie
+      bodytext: |-
+        <p>Diese Site nutzt <strong>Manrope</strong>, geladen über das Google-Font-Setting. Überschriften sind leicht, Fließtext regular, Buttons und Navigation semibold. Ein Setting nennt die Schrift, eines die Schnitte.</p><h1>Überschrift eins, leicht</h1><h2>Überschrift zwei</h2><h3>Überschrift drei</h3><h4>Überschrift vier</h4><p>Fließtext in 17 Pixel mit großzügigem Zeilenabstand. <a href="#">Links tragen die Primärfarbe</a>, <code>Code</code> bleibt monospaced, und <em>Hervorhebung</em> und <strong>fetter Text</strong> rendern wie erwartet.</p>
+  - key: design_nav
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    en:
+      header: Logo, navigation, footer
+      bodytext: |-
+        <p>The logo (light and inverted), the navigation type and style, the breadcrumb, the meta navigation, the footer navigation, the copyright line and the social media channels are all settings too. The navigation on this site is the fixed <em>top</em> type in the <em>default</em> style; the <em>transition</em> styles go transparent over the page header until you scroll. The footer columns are written once on the start page and inherited by every subpage.</p>
+    de:
+      header: Logo, Navigation, Footer
+      bodytext: |-
+        <p>Das Logo (hell und invertiert), Typ und Stil der Navigation, die Breadcrumb, die Meta-Navigation, die Footer-Navigation, die Copyright-Zeile und die Social-Media-Kanäle sind ebenfalls Settings. Die Navigation dieser Site ist der fixierte Typ <em>top</em> im Stil <em>default</em>; die <em>transition</em>-Stile werden über dem Seitenkopf transparent, bis du scrollst. Die Footer-Spalten werden einmal auf der Startseite geschrieben und von jeder Unterseite geerbt.</p>
+  - key: design_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_images">Responsive Images →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_images">Responsive Bilder →</a></p>

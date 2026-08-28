@@ -1,0 +1,6 @@
+categories:
+  - key: cat_feature
+    en:
+      title: Feature
+    de:
+      title: Funktion

@@ -1,0 +1,191 @@
+key: f_frames
+parent: features
+sorting: 50
+categories: category:cat_feature
+icon: scissors
+header:
+  photo:
+    file: features/frames-spacing.jpg
+    crop:
+      band:
+        offset: 1
+        x: 0.35
+        width: 0.65
+  side: right
+en:
+  title: Frames & Spacing
+  subtitle: Frames, spacing, backgrounds
+  abstract: Every element carries its own frame, spacing and background. Rhythm without custom CSS.
+  keywords: frames, spacing, background
+de:
+  title: 'Rahmen & Abstände'
+  subtitle: 'Rahmen, Abstände, Hintergründe'
+  abstract: Jedes Element bringt Rahmen, Abstand und Hintergrund selbst mit. Rhythmus ohne eigenes CSS.
+thumbnail:
+  - file: features/frames-spacing.jpg
+    alt: Empty picture frames on a concrete wall
+    alt.de: Leere Bilderrahmen an einer Betonwand
+
+content:
+  - key: fr_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Rhythm without custom CSS
+      bodytext: |-
+        <p class="lead">Every content element carries the same appearance options: rulers and indents, space before and after, a background colour or an image with fade, parallax and filter. This page is built from one paragraph, repeated – only the appearance changes.</p>
+    de:
+      header: Rhythmus ohne eigenes CSS
+      bodytext: |-
+        <p class="lead">Jedes Inhaltselement trägt dieselben Erscheinungsbild-Optionen: Linien und Einrückungen, Abstand davor und danach, eine Hintergrundfarbe oder ein Bild mit Abdunklung, Parallax und Filter. Diese Seite ist aus einem Absatz gebaut, wiederholt – nur das Erscheinungsbild ändert sich.</p>
+  - key: fr_1
+    type: text
+    header_layout: 3
+    frame_options: ruler-before
+    space_before_class: medium
+    en:
+      header: Plain, with a ruler above
+      bodytext: |-
+        <p>Same paragraph, different appearance. A ruler before the element separates it from whatever came above without adding a box.</p>
+    de:
+      header: 'Schlicht, mit Linie darüber'
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Eine Linie vor dem Element trennt es vom Vorherigen, ohne eine Box zu bauen.</p>
+  - key: fr_2
+    type: text
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    en:
+      header: Indented on both sides
+      bodytext: |-
+        <p>Same paragraph, different appearance. Indents narrow the text column – a quiet way to give an introduction or a quote more air.</p>
+    de:
+      header: 'Beidseitig eingerückt'
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Einrückungen verschmälern die Textspalte – ein ruhiger Weg, einer Einleitung oder einem Zitat mehr Luft zu geben.</p>
+  - key: fr_3
+    type: text
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    background_color_class: light
+    en:
+      header: On a light background
+      bodytext: |-
+        <p>Same paragraph, different appearance. A background colour turns the element into a full-width section. Neighbouring elements with the same colour merge into one.</p>
+    de:
+      header: Auf hellem Hintergrund
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Eine Hintergrundfarbe macht das Element zur Sektion über die volle Breite. Benachbarte Elemente mit derselben Farbe verschmelzen zu einer.</p>
+  - key: fr_4
+    type: text
+    header_layout: 3
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: On a background image
+      bodytext: |-
+        <p>Same paragraph, different appearance. A background image with fade and parallax. The three filters – grayscale, sepia, blur – are one more select away.</p>
+    de:
+      header: Auf einem Hintergrundbild
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Ein Hintergrundbild mit Abdunklung und Parallax. Die drei Filter – Graustufen, Sepia, Weichzeichner – sind ein Select weiter.</p>
+    background_image_options:
+      fade: 1
+      parallax: 1
+    background_image:
+      - file: horizon/plateau.jpg
+  - key: fr_5
+    type: text
+    header_layout: 3
+    frame_layout: embedded
+    space_before_class: large
+    space_after_class: large
+    background_color_class: tertiary
+    en:
+      header: Embedded in the column
+      bodytext: |-
+        <p>Same paragraph, different appearance. The embedded layout keeps a coloured element inside the column instead of stretching it to the edges – a box, not a section.</p>
+    de:
+      header: In die Spalte eingebettet
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Das eingebettete Layout hält ein farbiges Element in der Spalte, statt es bis zu den Rändern zu ziehen – eine Box, keine Sektion.</p>
+  - key: fr_6
+    type: text
+    header_layout: 3
+    frame_options: ruler-after
+    space_before_class: large
+    space_after_class: extra-large
+    en:
+      header: With a ruler below and extra-large space
+      bodytext: |-
+        <p>Same paragraph, different appearance. Five steps of spacing before and after, from extra-small to extra-large, set the vertical rhythm of a page. No margin utilities to remember.</p>
+    de:
+      header: 'Mit Linie darunter und extra großem Abstand'
+      bodytext: |-
+        <p>Derselbe Absatz, anderes Erscheinungsbild. Fünf Stufen Abstand davor und danach, von extra klein bis extra groß, setzen den vertikalen Rhythmus einer Seite. Keine Margin-Klassen zum Merken.</p>
+  - key: fr_options
+    type: accordion
+    header_layout: 2
+    subitems_header_layout: 4
+    en:
+      header: All appearance options
+    de:
+      header: Alle Erscheinungsbild-Optionen
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: Frame
+          bodytext: |-
+            <p><strong>Frame:</strong> default or none. None drops the wrapper entirely – the way the page header sits under the navigation.<br><strong>Layout:</strong> default breaks out to full width for backgrounds; embedded stays inside the column.<br><strong>Options:</strong> ruler before, ruler after, indent left, indent right – combinable.</p>
+        de:
+          header: Rahmen
+          bodytext: |-
+            <p><strong>Rahmen:</strong> default oder none. None lässt den Wrapper ganz weg – so sitzt der Seitenkopf unter der Navigation.<br><strong>Layout:</strong> default bricht für Hintergründe auf volle Breite aus; embedded bleibt in der Spalte.<br><strong>Optionen:</strong> Linie davor, Linie danach, Einrückung links, Einrückung rechts – kombinierbar.</p>
+      - en:
+          header: Spacing
+          bodytext: |-
+            <p>Space before and space after, each in five steps: extra-small, small, medium, large, extra-large.</p>
+        de:
+          header: 'Abstände'
+          bodytext: |-
+            <p>Abstand davor und danach, je in fünf Stufen: extra klein, klein, mittel, groß, extra groß.</p>
+      - en:
+          header: Background
+          bodytext: |-
+            <p><strong>Colour:</strong> primary, secondary, tertiary, quaternary, light or dark – the text colour follows.<br><strong>Image:</strong> any image, with fade, parallax and a filter (grayscale, sepia, blur). Cropping variants apply as everywhere else.</p>
+        de:
+          header: Hintergrund
+          bodytext: |-
+            <p><strong>Farbe:</strong> primary, secondary, tertiary, quaternary, light oder dark – die Textfarbe folgt.<br><strong>Bild:</strong> jedes Bild, mit Abdunklung, Parallax und einem Filter (Graustufen, Sepia, Weichzeichner). Zuschnitt-Varianten gelten wie überall.</p>
+      - en:
+          header: Containers
+          bodytext: |-
+            <p>For layouts inside a column – two or three elements side by side, a card row – Bootstrap Package integrates with <em>b13/container</em>. Install it, enable the optional container set, and the grid containers appear in the wizard. Elements inside inherit every option above.</p>
+        de:
+          header: Container
+          bodytext: |-
+            <p>Für Layouts innerhalb einer Spalte – zwei oder drei Elemente nebeneinander, eine Card-Reihe – arbeitet Bootstrap Package mit <em>b13/container</em> zusammen. Installieren, das optionale Container-Set aktivieren, und die Grid-Container erscheinen im Wizard. Elemente darin erben jede Option von oben.</p>
+  - key: fr_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_multilingual">Multilingual →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_multilingual">Mehrsprachig →</a></p>

@@ -1,0 +1,86 @@
+key: f_layouts
+parent: features
+sorting: 40
+categories: category:cat_feature
+icon: ios-browsers
+header:
+  photo:
+    file: horizon/plateau.jpg
+  side: right
+en:
+  title: Page Layouts
+  subtitle: Thirteen layouts
+  abstract: Thirteen backend layouts, from a single column to a feature page with eight teaser slots.
+  keywords: layouts, columns, backend layout
+de:
+  title: Seitenlayouts
+  subtitle: Dreizehn Layouts
+  abstract: 'Dreizehn Backend-Layouts, von der einzelnen Spalte bis zur Feature-Seite mit acht Teaser-Plätzen.'
+thumbnail:
+  - file: features/page-layouts.jpg
+    alt: Aerial view of a modernist housing estate
+    alt.de: Luftaufnahme einer modernen Wohnsiedlung
+
+content:
+  - key: lay_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: Thirteen layouts, every column named
+      bodytext: |-
+        <p class="lead">A page layout is a set of named columns: a border above everything, content before and after the main column, optional side columns and three footer columns. Pick one per page or set it for a whole subtree.</p>
+    de:
+      header: Dreizehn Layouts, jede Spalte benannt
+      bodytext: |-
+        <p class="lead">Ein Seitenlayout ist ein Satz benannter Spalten: ein Border über allem, Inhalt vor und nach der Hauptspalte, optionale Seitenspalten und drei Footer-Spalten. Wähle eines pro Seite oder setze es für einen ganzen Teilbaum.</p>
+  - key: lay_menu
+    type: menu_card_dir
+    pages: page:layouts
+    subitems_header_layout: 4
+    space_after_class: large
+    background_color_class: none
+    en:
+      readmore_label: Open
+    de:
+      readmore_label: 'Öffnen'
+    options:
+      align: left
+      columns: 3
+  - key: lay_pic
+    type: textpic
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    background_color_class: light
+    imageorient: 126
+    imagewidth: 560
+    en:
+      header: Written once, shown everywhere
+      bodytext: |-
+        <p class="lead">The footer columns of the start page slide down to every page below it – which is why the footer of this page was written only once.</p><p>The page header above is the same trick: a small carousel in the border column of each page. Every layout page uses the layout it describes; <a href="page:layouts">see them all</a>.</p>
+    de:
+      header: 'Einmal geschrieben, überall gezeigt'
+      bodytext: |-
+        <p class="lead">Die Footer-Spalten der Startseite vererben sich auf jede Seite darunter – deshalb wurde der Footer dieser Seite nur einmal geschrieben.</p><p>Der Seitenkopf oben ist derselbe Kniff: ein kleines Carousel in der Border-Spalte jeder Seite. Jede Layout-Seite nutzt das Layout, das sie beschreibt; <a href="page:layouts">sieh sie alle</a>.</p>
+    image:
+      - file: features/page-layouts.jpg
+        alt: Aerial view of a modernist housing estate
+        alt.de: Luftaufnahme einer modernen Wohnsiedlung
+  - key: lay_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_frames">Frames & Spacing →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_frames">Rahmen & Abstände →</a></p>

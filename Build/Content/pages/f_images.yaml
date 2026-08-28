@@ -1,0 +1,131 @@
+key: f_images
+parent: features
+sorting: 30
+categories: category:cat_feature
+icon: images
+header:
+  photo:
+    file: cropping/teal-door.jpg
+en:
+  title: Responsive Images
+  subtitle: One upload, every screen
+  abstract: 'One upload, every screen: image variants per breakpoint, cropping per variant, lightbox and lazy loading.'
+  keywords: images, cropping, responsive
+de:
+  title: Responsive Bilder
+  subtitle: Ein Upload, jeder Bildschirm
+  abstract: 'Ein Upload, jeder Bildschirm: Bildvarianten je Breakpoint, Zuschnitt je Variante, Lightbox und Lazy Loading.'
+thumbnail:
+  - file: features/responsive-images.jpg
+    alt: A wall with openings of different sizes, the same tree behind each
+    alt.de: 'Eine Wand mit unterschiedlich großen Öffnungen, dahinter derselbe Baum'
+
+content:
+  - key: img_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: One image, every screen
+      bodytext: |-
+        <p class="lead">Upload one image. Bootstrap Package renders it as a <code>srcset</code> with a variant for every breakpoint, and each variant can carry its own crop: a wide 16:9 for large screens, a square for phones, a tight detail for the smallest.</p>
+    de:
+      header: Ein Bild, jeder Bildschirm
+      bodytext: |-
+        <p class="lead">Lade ein Bild hoch. Bootstrap Package rendert es als <code>srcset</code> mit einer Variante für jeden Breakpoint, und jede Variante kann ihren eigenen Zuschnitt tragen: ein breites 16:9 für große Bildschirme, ein Quadrat fürs Handy, ein enges Detail für die kleinsten.</p>
+  - key: img_crop
+    type: image
+    header_layout: 3
+    header_position: center
+    space_after_class: large
+    imagecols: 1
+    image_zoom: 1
+    en:
+      header: Resize this window
+      subheader: The same image, six crops – the door stays in the picture at every width
+    de:
+      header: 'Ändere die Fensterbreite'
+      subheader: 'Dasselbe Bild, sechs Zuschnitte – die Tür bleibt bei jeder Breite im Bild'
+    image:
+      - file: cropping/teal-door.jpg
+        alt: A teal door in a long pale wall
+        alt.de: 'Eine petrolfarbene Tür in einer langen hellen Wand'
+        crop: '{"default":{"cropArea":{"x":0,"y":0,"width":1,"height":1},"selectedRatio":"NaN","focusArea":null},"xlarge":{"cropArea":{"x":0,"y":0.08,"width":1,"height":0.84375},"selectedRatio":"16:9","focusArea":null},"large":{"cropArea":{"x":0.2,"y":0.05,"width":0.8,"height":0.9},"selectedRatio":"4:3","focusArea":null},"medium":{"cropArea":{"x":0.3333,"y":0,"width":0.6667,"height":1},"selectedRatio":"1:1","focusArea":null},"small":{"cropArea":{"x":0.45,"y":0.12,"width":0.5,"height":0.75},"selectedRatio":"1:1","focusArea":null},"extrasmall":{"cropArea":{"x":0.58,"y":0.15,"width":0.3,"height":0.45},"selectedRatio":"1:1","focusArea":null}}'
+  - key: img_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: Materials
+      bodytext: |-
+        <p class="lead text-center">A gallery crops every image to one ratio on the fly and opens it in a lightbox. Click any of the six.</p>
+    de:
+      header: Materialien
+      bodytext: |-
+        <p class="lead text-center">Eine Galerie schneidet jedes Bild live auf ein Verhältnis zu und öffnet es in einer Lightbox. Klick eines der sechs.</p>
+  - key: img_gallery
+    type: gallery
+    space_after_class: large
+    background_color_class: light
+    imagecols: 3
+    image_zoom: 1
+    aspect_ratio: '1.3333333333333'
+    items_per_page: 6
+    image:
+      - file: gallery/material-concrete.jpg
+        alt: Board-formed concrete
+        alt.de: Sichtbeton mit Schalungsstruktur
+      - file: gallery/material-oak.jpg
+        alt: Oiled dark oak
+        alt.de: 'Geölte dunkle Eiche'
+      - file: gallery/material-linen.jpg
+        alt: Undyed linen
+        alt.de: 'Ungefärbtes Leinen'
+      - file: gallery/material-steel.jpg
+        alt: Brushed dark steel
+        alt.de: 'Gebürsteter dunkler Stahl'
+      - file: gallery/material-terrazzo.jpg
+        alt: Terrazzo with green chips
+        alt.de: 'Terrazzo mit grünen Splittern'
+      - file: gallery/material-moss.jpg
+        alt: Moss on grey stone
+        alt.de: Moos auf grauem Stein
+  - key: img_pic
+    type: textpic
+    header_layout: 2
+    space_before_class: large
+    space_after_class: large
+    imageorient: 125
+    imagewidth: 560
+    en:
+      header: Editors crop, the package renders
+      bodytext: |-
+        <p class="lead">Crops are set in the image editor of the backend – the same one editors already know – once per variant, with the ratios 16:9, 4:3, 1:1 and free.</p><p>Every image can open in a lightbox with one checkbox. Images below the fold load lazily through the browser's native <code>loading="lazy"</code>. Widths, columns and lightbox limits are settings.</p>
+    de:
+      header: Redakteure schneiden zu, das Paket rendert
+      bodytext: |-
+        <p class="lead">Zuschnitte werden im Bildeditor des Backends gesetzt – demselben, den Redakteure schon kennen – einmal je Variante, mit den Verhältnissen 16:9, 4:3, 1:1 und frei.</p><p>Jedes Bild kann sich mit einer Checkbox in einer Lightbox öffnen. Bilder unterhalb des sichtbaren Bereichs laden verzögert über das native <code>loading="lazy"</code> des Browsers. Breiten, Spalten und Lightbox-Grenzen sind Settings.</p>
+    image:
+      - file: features/responsive-images.jpg
+        alt: A wall with openings of different sizes, the same tree behind each
+        alt.de: 'Eine Wand mit unterschiedlich großen Öffnungen, dahinter derselbe Baum'
+  - key: img_next
+    type: text
+    column: after
+    header_layout: 4
+    frame_options: ruler-before,indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Next
+      bodytext: |-
+        <p class="lead"><a href="page:f_layouts">Page Layouts →</a></p>
+    de:
+      header: Weiter
+      bodytext: |-
+        <p class="lead"><a href="page:f_layouts">Seitenlayouts →</a></p>

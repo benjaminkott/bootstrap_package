@@ -1,0 +1,171 @@
+key: start
+parent: root
+sorting: 60
+icon: ios-paperplane
+header:
+  photo:
+    file: pages/get-started.jpg
+    crop: band-top
+  side: right
+en:
+  title: Get Started
+  subtitle: Two commands
+  abstract: Two commands, one settings tab, and a page tree to make your own.
+de:
+  title: Loslegen
+  subtitle: Zwei Befehle
+  abstract: Zwei Befehle, ein Settings-Tab und ein Seitenbaum, den du dir zu eigen machst.
+thumbnail:
+  - file: pages/get-started.jpg
+    alt: An oak workbench with three hand tools
+    alt.de: Eine Eichen-Werkbank mit drei Handwerkzeugen
+
+content:
+  - key: st_intro
+    type: text
+    header_layout: 2
+    frame_options: indent-left,indent-right
+    space_before_class: medium
+    background_color_class: none
+    en:
+      header: From an empty directory to this website
+      bodytext: |-
+        <p class="lead">In the time it takes to make coffee. You need a web server with PHP, a database and Composer. TYPO3 takes care of the rest, and Bootstrap Package takes care of the frontend.</p>
+    de:
+      header: Vom leeren Verzeichnis zu dieser Website
+      bodytext: |-
+        <p class="lead">In der Zeit, die ein Kaffee braucht. Du brauchst einen Webserver mit PHP, eine Datenbank und Composer. TYPO3 kümmert sich um den Rest, Bootstrap Package um das Frontend.</p>
+  - key: st_steps
+    type: bullets
+    header_layout: 3
+    header_position: center
+    frame_options: indent-left,indent-right
+    bullets_type: 1
+    en:
+      header: Four steps
+      bodytext: |-
+        Create a TYPO3 project with Composer
+        Require bk2k/bootstrap-package
+        Run the TYPO3 setup – it imports this website for you
+        Open the backend, go to Site Management → Settings, and change the first thing you see
+    de:
+      header: Vier Schritte
+      bodytext: |-
+        Ein TYPO3-Projekt mit Composer anlegen
+        bk2k/bootstrap-package installieren
+        Das TYPO3-Setup ausführen – es importiert diese Website für dich
+        Backend öffnen, Site Management → Settings, und das Erste ändern, das du siehst
+  - key: st_code
+    type: html
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    background_color_class: quaternary
+    en:
+      bodytext: |-
+        <pre class="mb-0 text-light fs-5"><code>composer create-project typo3/cms-base-distribution my-site
+        cd my-site
+        composer require bk2k/bootstrap-package
+        vendor/bin/typo3 setup</code></pre>
+  - key: st_s2
+    type: text
+    header_layout: 2
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    background_color_class: light
+    en:
+      header: What you need
+      bodytext: |-
+        <p class="lead text-center">Nothing unusual.</p>
+    de:
+      header: Was du brauchst
+      bodytext: |-
+        <p class="lead text-center">Nichts Ungewöhnliches.</p>
+  - key: st_req
+    type: table
+    cols: 2
+    table_header_position: 1
+    frame_options: indent-left,indent-right
+    space_after_class: large
+    background_color_class: light
+    table_class: striped
+    en:
+      bodytext: |-
+        Component|Version
+        TYPO3|14.3 LTS or 15
+        PHP|8.2 or later, as required by your TYPO3 version
+        Database|MySQL 8, MariaDB 10.4+, PostgreSQL 10+ or SQLite
+        Composer|2.x
+        Image processing|ImageMagick or GraphicsMagick
+    de:
+      bodytext: |-
+        Komponente|Version
+        TYPO3|14.3 LTS oder 15
+        PHP|8.2 oder neuer, wie von deiner TYPO3-Version verlangt
+        Datenbank|MySQL 8, MariaDB 10.4+, PostgreSQL 10+ oder SQLite
+        Composer|2.x
+        Bildverarbeitung|ImageMagick oder GraphicsMagick
+  - key: st_faq
+    type: accordion
+    header_layout: 2
+    subitems_header_layout: 4
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: large
+    space_after_class: large
+    en:
+      header: Questions that usually come next
+    de:
+      header: Fragen, die danach meist kommen
+    options:
+      default_element: 0
+    children:
+      - en:
+          header: I already have a TYPO3 site. Can I add the package?
+          bodytext: |-
+            <p>Yes. Require it, then add <code>bootstrap-package/full</code> – or the individual sets – to the dependencies of your site configuration. The demo content is only imported when TYPO3 sets up a fresh installation; an existing site keeps its pages.</p>
+        de:
+          header: 'Ich habe schon eine TYPO3-Site. Kann ich das Paket ergänzen?'
+          bodytext: |-
+            <p>Ja. Installieren, dann <code>bootstrap-package/full</code> – oder die einzelnen Sets – zu den Abhängigkeiten deiner Site-Konfiguration hinzufügen. Der Demo-Content wird nur importiert, wenn TYPO3 eine frische Installation einrichtet; eine bestehende Site behält ihre Seiten.</p>
+      - en:
+          header: How do I get the demo content into an existing site?
+          bodytext: |-
+            <p>Through the Import/Export module or the console: <code>vendor/bin/typo3 impexp:import EXT:bootstrap_package/Initialisation/data.xml 0</code>. It adds a second page tree next to your own.</p>
+        de:
+          header: Wie bekomme ich den Demo-Content in eine bestehende Site?
+          bodytext: |-
+            <p>Über das Import/Export-Modul oder die Konsole: <code>vendor/bin/typo3 impexp:import EXT:bootstrap_package/Initialisation/data.xml 0</code>. Das legt einen zweiten Seitenbaum neben deinem an.</p>
+      - en:
+          header: Can I use my own templates?
+          bodytext: |-
+            <p>Every template, partial and layout can be overridden through the template root paths in the settings. Start by copying the one file you want to change; the rest keeps coming from the package and stays updatable.</p>
+        de:
+          header: Kann ich eigene Templates nutzen?
+          bodytext: |-
+            <p>Jedes Template, Partial und Layout lässt sich über die Template-Root-Pfade in den Settings überschreiben. Kopiere zuerst nur die eine Datei, die du ändern willst; der Rest kommt weiter aus dem Paket und bleibt aktualisierbar.</p>
+      - en:
+          header: What happens on a TYPO3 major upgrade?
+          bodytext: |-
+            <p>Update the package with Composer, run the upgrade wizards in the Install Tool. The package ships wizards that migrate its own content elements between versions, so your editors' work carries over.</p>
+        de:
+          header: Was passiert beim TYPO3-Major-Upgrade?
+          bodytext: |-
+            <p>Paket per Composer aktualisieren, Upgrade-Wizards im Install Tool ausführen. Das Paket bringt Wizards mit, die seine eigenen Inhaltselemente zwischen Versionen migrieren – die Arbeit deiner Redakteure bleibt erhalten.</p>
+  - key: st_docs
+    type: text
+    column: after
+    header_position: center
+    frame_options: indent-left,indent-right
+    space_before_class: extra-large
+    space_after_class: extra-large
+    background_color_class: quaternary
+    en:
+      header: The manual has the rest
+      bodytext: |-
+        <p class="text-center">Installation, every setting, the sets, image rendering and routing – on docs.typo3.org, versioned with the package.</p><p class="text-center"><a class="btn btn-light btn-lg" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Read the documentation</a></p>
+    de:
+      header: Den Rest hat das Handbuch
+      bodytext: |-
+        <p class="text-center">Installation, jedes Setting, die Sets, Bild-Rendering und Routing – auf docs.typo3.org, versioniert mit dem Paket.</p><p class="text-center"><a class="btn btn-light btn-lg" href="https://docs.typo3.org/p/bk2k/bootstrap-package/main/en-us/" target="_blank" rel="noopener">Dokumentation lesen</a></p>
