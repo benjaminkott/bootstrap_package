@@ -13,6 +13,7 @@ parameters:
 		- identifier: missingType.iterableValue
 		- identifier: cast.useless
 		- identifier: method.dynamicName
+		- identifier: property.dynamicName
 
 	paths:
 	- %currentWorkingDirectory%/Classes/

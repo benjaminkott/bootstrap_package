@@ -7,6 +7,13 @@ services:
   BK2K\BootstrapPackage\:
     resource: '../Classes/*'
 
+  BK2K\BootstrapPackage\Command\CreateSiteCommand:
+    tags:
+      - name: 'console.command'
+        command: 'bootstrappackage:createsite'
+        schedulable: false
+        description: Create Demo Site
+
   BK2K\BootstrapPackage\Service\BrandingService:
     tags:
       - name: event.listener
