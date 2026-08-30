@@ -60,9 +60,4 @@ $GLOBALS['TCA']['tt_content']['types']['carousel'] = array_replace_recursive(
     ]
 );
 
-// Add flexForms for content element configuration
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml',
-    'carousel'
-);
+$GLOBALS['TCA']['tt_content']['types']['carousel']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Carousel.xml';

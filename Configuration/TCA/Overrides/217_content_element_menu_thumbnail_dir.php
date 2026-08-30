@@ -63,9 +63,4 @@ $GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir'] = array_replace_rec
     ]
 );
 
-// Add flexForms for content element configuration
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuThumbnail.xml',
-    'menu_thumbnail_dir'
-);
+$GLOBALS['TCA']['tt_content']['types']['menu_thumbnail_dir']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/MenuThumbnail.xml';

@@ -89,9 +89,4 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     ]
 );
 
-// Add flexForms for content element configuration
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/Timeline.xml',
-    'timeline'
-);
+$GLOBALS['TCA']['tt_content']['types']['timeline']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/Timeline.xml';
