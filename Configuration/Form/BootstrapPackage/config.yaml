@@ -1,0 +1,6 @@
+name: bk2k/bootstrap-package
+label: 'Bootstrap Package'
+priority: 110
+
+imports:
+  - { resource: 'EXT:bootstrap_package/Configuration/Form/Setup.yaml' }

@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{pagination.allPageNumbers -> f:count()} > 1">
+    <nav aria-label="{f:translate(key: 'pagination.aria.label', extensionName: 'BootstrapPackage')}">
+        <ul class="pagination">
+
+            <f:if condition="{pagination.previousPageNumber}">
+                <li class="page-item page-item-previous">
+                    <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="BootstrapPackage" /></f:variable>
+                    <a href="#" class="page-link tx-indexedsearch-page-selector" aria-label="{ariaLabel}" data-prefix="tx_indexedsearch" data-pointer="{pagination.previousPageNumber - 1}" data-free-index-uid="{freeIndexUid}"><f:translate key="pagination.previous" extensionName="BootstrapPackage" /></a>
+                </li>
+            </f:if>
+
+            <f:for each="{pagination.allPageNumbers}" as="pageNumber">
+                <f:if condition="{pageNumber} == {searchParams.pointer + 1}">
+                    <f:then>
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.current.page" arguments="{0: pageNumber}" extensionName="BootstrapPackage" /></f:variable>
+                        <li class="page-item active">
+                            <a href="#" class="page-link tx-indexedsearch-page-selector" aria-label="{ariaLabel}" aria-current="page" data-prefix="tx_indexedsearch" data-pointer="{pageNumber - 1}" data-free-index-uid="{freeIndexUid}">{pageNumber}</a>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: pageNumber}" extensionName="BootstrapPackage" /></f:variable>
+                        <li class="page-item">
+                            <a href="#" class="page-link tx-indexedsearch-page-selector" aria-label="{ariaLabel}" data-prefix="tx_indexedsearch" data-pointer="{pageNumber - 1}" data-free-index-uid="{freeIndexUid}">{pageNumber}</a>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+
+            <f:if condition="{pagination.nextPageNumber}">
+                <li class="page-item page-item-next">
+                    <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.next" extensionName="BootstrapPackage" /></f:variable>
+                    <a href="#" class="page-link tx-indexedsearch-page-selector" aria-label="{ariaLabel}" data-prefix="tx_indexedsearch" data-pointer="{pagination.nextPageNumber - 1}" data-free-index-uid="{freeIndexUid}"><f:translate key="pagination.next" extensionName="BootstrapPackage" /></a>
+                </li>
+            </f:if>
+
+        </ul>
+    </nav>
+</f:if>
+</html>

@@ -1,4 +1,5 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:is="http://typo3.org/ns/TYPO3/CMS/IndexedSearch/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:asset.script identifier="indexed_search_pagination" src="EXT:indexed_search/Resources/Public/JavaScript/pagination.js" />
 <f:alias map="{sword: searchParams.sword}">
     <f:render partial="Form" arguments="{_all}" />
 </f:alias>
@@ -27,7 +28,9 @@
         <f:if condition="{result.count} > 0">
             <f:then>
                 <p>
-                    <is:pageBrowsingResults numberOfResults="{result.count}" currentPage="{searchParams.pointer}" resultsPerPage="{searchParams.numberOfResults}" />
+                    <f:sanitize.html>
+                        <f:translate key="displayResults" arguments="{0: result.pagination.startRecordNumber, 1: result.pagination.endRecordNumber, 2: result.count}" />
+                    </f:sanitize.html>
                     {result.sectionText}
                 </p>
                 <!-- render the anchor-links to the sections inside the displayed result rows -->
@@ -64,7 +67,7 @@
                         </f:else>
                     </f:if>
                 </f:for>
-                <is:pageBrowsing numberOfResults="{result.count}" maximumNumberOfResultPages="{settings.page_links}" currentPage="{searchParams.pointer}" resultsPerPage="{searchParams.numberOfResults}" />
+                <f:render partial="Pagination" arguments="{pagination: result.pagination, searchParams: searchParams, freeIndexUid: freeIndexUid}" />
             </f:then>
             <f:else>
                 <div class="alert alert-info">

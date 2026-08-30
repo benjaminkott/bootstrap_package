@@ -29,7 +29,7 @@ class ExternalMediaUtility
      * Get the embed code for the given url if possible
      * and add a css class on the iframe
      */
-    public function getEmbedCode(?string $url, ?string $class, ?string $title = null): ?string
+    public function getEmbedCode(?string $url, ?string $class, ?string $title = null, ?string $referrerPolicy = null): ?string
     {
         if ($url === null || $url === '') {
             return null;
@@ -51,6 +51,9 @@ class ExternalMediaUtility
                 }
                 if ($class !== null && trim($class) !== '') {
                     $attributes['class'] = trim($class);
+                }
+                if ($referrerPolicy !== null && trim($referrerPolicy) !== '') {
+                    $attributes['referrerpolicy'] = trim($referrerPolicy);
                 }
                 return '<iframe ' . GeneralUtility::implodeAttributes($attributes, true) . ' allowfullscreen></iframe>';
             }

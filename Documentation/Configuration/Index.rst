@@ -14,4 +14,5 @@ Configuration
 
    Extension/Index
    ImageRendering/Index
+   Routing/Index
    Settings/Index

@@ -23,6 +23,8 @@ final class PanelContentElementUpdateTest extends FunctionalTestCase
     protected array $coreExtensionsToLoad = [
         'seo',
         'rte_ckeditor',
+        'extensionmanager',
+        'install',
     ];
 
     protected array $testExtensionsToLoad = [

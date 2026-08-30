@@ -1,28 +1,50 @@
-# Pull Request
-
-## Related Issues
-
-* Closes #
-* Fixes # [bug]
-* Resolves # [feature/question]
-
-## Prerequisites
-
-* [ ] Changes have been tested on TYPO3 v11.5 LTS
-* [ ] Changes have been tested on TYPO3 v12.4 LTS
-* [ ] Changes have been tested on PHP 7.4
-* [ ] Changes have been tested on PHP 8.0
-* [ ] Changes have been tested on PHP 8.1
-* [ ] Changes have been tested on PHP 8.2
-* [ ] Changes have been checked for CGL compliance `php-cs-fixer fix`
-* [ ] CSS has been rebuilt (only if there are SCSS changes `cd Build; npm ci; npm run build`)
-
 ## Description
 
-[Description of changes proposed in this pull request]
+<!-- What does this change do, and why is it needed? -->
 
-## Steps to Validate
+## Type of change
 
-1. [First Step]
-2. [Second Step]
-3. [and so on...]
+* [ ] Bugfix
+* [ ] Task
+* [ ] Feature
+* [ ] Documentation
+
+## Related issues
+
+<!-- Closes #123, Fixes #456 — leave empty if there is none. -->
+
+## How to validate
+
+<!-- The steps a reviewer follows to see the change working. -->
+
+1.
+2.
+
+## AI assistance
+
+<!-- Working with an agent is welcome and never a reason to reject a
+     pull request. Every change is read and verified here either way;
+     we ask because it tells us where a change comes from and what
+     maturity to expect. Fill in what applies, or write "none" if this
+     is hand written. -->
+
+* Agent and version:
+* Model and effort/reasoning level:
+* Share written by the agent:
+* Reviewed and understood before pushing:
+
+## Checklist
+
+* [ ] Targets `master`
+* [ ] Commits are signed off (`git commit -s`) — appreciated, not
+      required
+* [ ] Commit subjects follow `[BUGFIX|TASK|FEATURE] Subject`
+* [ ] `composer cgl` leaves the code unchanged
+* [ ] `composer phpstan` passes
+* [ ] `composer test` passes
+* [ ] A bugfix comes with a test that fails without it — appreciated,
+      not required
+* [ ] Holds on every TYPO3 and PHP version declared in `composer.json`
+* [ ] Assets rebuilt and committed if SCSS, JavaScript or icons changed
+      (`npm --prefix Build ci && npm --prefix Build run build`)
+* [ ] Documentation updated if the change is user facing

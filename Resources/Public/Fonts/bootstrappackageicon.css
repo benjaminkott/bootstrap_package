@@ -1,7 +1,6 @@
 @font-face {
     font-family: "bootstrappackageicon";
-    src: url("./bootstrappackageicon.eot?a70cd1eafe0cdb15d3b31f62a3d47e5e#iefix") format("embedded-opentype"),
-url("./bootstrappackageicon.woff2?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("woff2"),
+    src: url("./bootstrappackageicon.woff2?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("woff2"),
 url("./bootstrappackageicon.woff?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("woff"),
 url("./bootstrappackageicon.ttf?a70cd1eafe0cdb15d3b31f62a3d47e5e") format("truetype");
     font-display: swap;

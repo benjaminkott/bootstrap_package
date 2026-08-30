@@ -338,13 +338,15 @@ $GLOBALS['TCA']['tt_content']['columns']['subitems_header_layout'] = [
 ];
 
 // Add fields to default palettes
-$GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] .= '
-    --linebreak--,
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'frames',
+    '--linebreak--,
     frame_layout,
     frame_options,
     --linebreak--,
     background_color_class,
     --linebreak--,
     background_image,
-    background_image_options,
-';
+    background_image_options'
+);
