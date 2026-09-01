@@ -61,10 +61,7 @@ class TypoScriptUtility
                     $nested = [];
                 }
             }
-            $lastPart = array_shift($parts);
-            if ($lastPart !== null) {
-                $nested[$lastPart] = $value;
-            }
+            $nested[array_shift($parts)] = $value;
         }
         return $output;
     }
