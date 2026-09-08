@@ -117,6 +117,16 @@ editor:
             - Underline
             - Strike
 
+        table:
+            defaultHeadings: { rows: 1 }
+            contentToolbar:
+                - tableColumn
+                - tableRow
+                - mergeTableCells
+                - tableProperties
+                - tableCellProperties
+                - toggleTableCaption
+
 classesAnchor:
     page:
         class: 'link-page'
