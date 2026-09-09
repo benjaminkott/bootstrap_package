@@ -44,7 +44,7 @@ final class FrameClassUpdateTest extends FunctionalTestCase
     public function updateTest(): void
     {
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-        $connection->executeQuery('ALTER TABLE tt_content ADD section_frame int(11) unsigned DEFAULT "0" NOT NULL;');
+        $connection->executeQuery('ALTER TABLE tt_content ADD section_frame int DEFAULT 0 NOT NULL;');
 
         $subject = new FrameClassUpdate();
         $this->importCSVDataSet(__DIR__ . '/Fixtures/FrameClassUpdate/Input.csv');
