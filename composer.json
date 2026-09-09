@@ -75,12 +75,12 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "16.0.x-dev"
+            "dev-BP_16_0": "16.0.x-dev"
         },
         "typo3/cms": {
             "extension-key": "bootstrap_package",
             "web-dir": ".build/public",
-            "version": "16.0.0",
+            "version": "16.0.1",
             "Package": {
                 "providesPackages": {
                     "scssphp/scssphp": "Contrib/scssphp"

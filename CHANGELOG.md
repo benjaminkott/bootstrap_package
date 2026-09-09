@@ -1,3 +1,61 @@
+# 16.0.1
+
+## FEATURE
+
+- 89e19255 [FEATURE] Make pagination routable
+
+## TASK
+
+- d711d906 [TASK] Run the functional tests on SQLite (#1664)
+- 55f753f2 [TASK] Make the FrameClassUpdate test run on SQLite
+- b7d55877 [TASK] Drop the dead null check in TypoScriptUtility
+- 3e76ea6e [TASK] Describe the referrer policy setting
+- f03fb614 [TASK] Add the referrer policy to external media
+- 7ceaf93f [TASK] Add referrerpolicy attribute to media
+- 295ae6e6 [TASK] Require pull requests to be rebased
+- 00e028ee [TASK] Deploy with Deployer 8
+- 7668f138 [TASK] Run deployment and publish on a supported PHP version
+- 1bbb41b7 [TASK] Update GitHub Actions to their current major versions
+- 0dfc9861 [TASK] Align DDEV Node version with the frontend build
+- b2404bce [TASK] Modernize pull request template
+- 1a0472aa [TASK] Add agent instructions
+- 7f79516b [TASK] Register global Fluid namespace through configuration file (#1640)
+- 888fb164 [TASK] Register EXT:form configuration through auto discovery (#1639)
+- 2d6c209b [TASK] Declare package metadata in composer.json (#1638)
+- 7363ef01 [TASK] Drop empty ext_tables.php files (#1641)
+- ad53c0bc [TASK] Exclude mcp
+- d2234387 [TASK] Raise compatibility to TYPO3 v14.3 and PHP 8.5 (#1623)
+
+## BUGFIX
+
+- a274a5e8 [BUGFIX] Ship the root .htaccess of the deployed TYPO3 version
+- 4e37c7ba [BUGFIX] Render the content of pages without a content source
+- bac4bd43 [BUGFIX] Restrict the referrer policy to online media
+- af031785 [BUGFIX] Render table cells containing "0" (#1613) (#1650)
+- 018bd45c [BUGFIX] Use absolute paths for SCSS cache file existence checks (#1621)
+- 994760a4 [BUGFIX] Keep the git metadata of a deployed release
+- a5667ed4 [BUGFIX] Hand boolean site settings to the parser as booleans (#1645)
+- d905f1f8 [BUGFIX] Replace removed pagination ViewHelpers in indexed_search (#1643)
+- 580aa7b8 [BUGFIX] Suppress scssphp deprecations raised on class load (#1637)
+- aa09c7d0 [BUGFIX] Resolve contentFromPid in a separate LOAD_REGISTER (#1636)
+- 43e8bb53 [BUGFIX] Use API to extend frames palette (#1627)
+- 504bc3e8 [BUGFIX] Drop EOT from icon font to fix reproducible build (#1635)
+- f251d7c4 [BUGFIX] CGL ...
+- bb99aa7e [BUGFIX] Suppress PHP 8.4 deprecations from scssphp compile
+- f108f855 [BUGFIX] Use references for container assignments
+- 2689e2f3 [BUGFIX] Google font caching (#1610)
+- e2880009 [BUGFIX] Fix Site Setting access in TypoScript condition
+
+## Contributors
+
+- Alexander Hahn
+- Benjamin Kott
+- Marvin Buchmann
+- Marvin Buchmann
+- Patrick Lenk
+- Rafael Kähm
+- Ralf Merz
+
 # 16.0.0
 
 ## BREAKING
