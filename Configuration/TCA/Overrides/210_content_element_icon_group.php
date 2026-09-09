@@ -89,9 +89,4 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     ]
 );
 
-// Add flexForms for content element configuration
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:bootstrap_package/Configuration/FlexForms/IconGroup.xml',
-    'icon_group'
-);
+$GLOBALS['TCA']['tt_content']['types']['icon_group']['columnsOverrides']['pi_flexform']['config']['ds'] = 'FILE:EXT:bootstrap_package/Configuration/FlexForms/IconGroup.xml';
