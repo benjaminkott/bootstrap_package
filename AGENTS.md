@@ -33,10 +33,13 @@
 
 ## Commands
 
-* `ddev start` · `ddev launch typo3` · `ddev composer …` (provides the
-  DB for functional tests)
-* `composer test` — lint + unit + functional; functional needs the DB →
+* `ddev start` · `ddev launch typo3` · `ddev composer …`
+* `composer test` — lint + unit + functional; the functional tests run
+  on SQLite and need no database server, only `pdo_sqlite` in PHP →
   `ddev composer test:php:functional`
+* Running them against MySQL instead means setting `typo3DatabaseDriver`
+  and the four `typo3Database*` connection variables yourself — nothing
+  in the repository sets them
 * `composer cgl:ci` (check) · `composer cgl` (rewrites)
 * `composer phpstan` — `Build/phpstan.neon`
 * `composer changelog` · `composer set-version`

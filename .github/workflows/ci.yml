@@ -19,18 +19,6 @@ jobs:
       matrix:
         typo3: ['^13.4', '^14.3']
         php: ['8.2', '8.3', '8.4', '8.5']
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
     steps:
       - id: checkout
         name: Checkout Code
@@ -87,10 +75,6 @@ jobs:
           composer test:php:functional
         env:
           COMPOSER_PROCESS_TIMEOUT: 1200
-          typo3DatabaseHost: 127.0.0.1
-          typo3DatabaseName: t3func
-          typo3DatabasePassword: root
-          typo3DatabaseUsername: root
 
   build-frontend:
     name: Build Frontend
