@@ -12,6 +12,9 @@
   beStrictAboutTestsThatDoNotTestAnything="false"
   cacheDirectory=".phpunit.cache"
   requireCoverageMetadata="false">
+  <php>
+    <env name="typo3DatabaseDriver" value="pdo_sqlite"/>
+  </php>
   <testsuites>
     <testsuite name="bk2k-bootstrap-package-functional-tests">
       <directory>../Tests/Functional</directory>
