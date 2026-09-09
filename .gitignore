@@ -10,3 +10,6 @@ var/
 
 # mcp
 .mcp.json
+
+# vscode settings
+.vscode/
