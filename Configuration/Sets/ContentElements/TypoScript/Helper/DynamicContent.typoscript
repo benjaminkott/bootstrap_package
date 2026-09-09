@@ -95,7 +95,9 @@ lib.dynamicContent {
             where = {#colPos}={register:colPos}
             where.insertData = 1
             pidInList.data = register:pageUid
+            # A page without a content source carries 0, which is no page to read from
             pidInList.override.data = register:contentFromPid
+            pidInList.override.if.isTrue.data = register:contentFromPid
         }
         slide = {register:slide}
         slide.insertData = 1
