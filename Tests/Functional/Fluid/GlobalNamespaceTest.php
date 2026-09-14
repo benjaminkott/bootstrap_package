@@ -13,7 +13,6 @@ namespace BK2K\BootstrapPackage\Tests\Functional\Fluid;
 
 use BK2K\BootstrapPackage\ViewHelpers\ImplodeViewHelper;
 use PHPUnit\Framework\Attributes\Test;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Fluid\Core\ViewHelper\ViewHelperResolverFactoryInterface;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -47,12 +46,8 @@ final class GlobalNamespaceTest extends FunctionalTestCase
     }
 
     #[Test]
-    public function namespaceIsNotRegisteredThroughGlobalsOnSupportingVersions(): void
+    public function namespaceIsNotRegisteredThroughGlobals(): void
     {
-        if ((new Typo3Version())->getMajorVersion() < 14) {
-            self::markTestSkipped('TYPO3 v13.4 has no Configuration/Fluid/Namespaces.php and still needs TYPO3_CONF_VARS');
-        }
-
         self::assertArrayNotHasKey(
             'bk2k',
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces'] ?? []

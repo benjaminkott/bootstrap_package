@@ -14,7 +14,6 @@ namespace BK2K\BootstrapPackage\Tests\Functional\Fluid;
 use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -131,9 +130,6 @@ final class PaginationTest extends FunctionalTestCase
     #[Test]
     public function theShippedSetRewritesPaginationLinks(): void
     {
-        if ((new Typo3Version())->getMajorVersion() < 14) {
-            self::markTestSkipped('Route enhancers in site sets need TYPO3 v14.1');
-        }
         $this->writeSite(['bootstrap-package/pagination']);
 
         $link = $this->pageLink($this->renderPage('/'), 'c2', '2');

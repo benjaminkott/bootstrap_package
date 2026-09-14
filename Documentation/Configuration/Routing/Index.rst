@@ -43,12 +43,6 @@ along:
 
    /gallery/tag-3?paginate%5Bid%5D=gallery-8793&paginate%5Bpage%5D=2&cHash=61450d52
 
-.. note::
-
-   Route enhancers travel with a site set as of TYPO3 v14.1. On TYPO3
-   v13.4 the set is loaded but its enhancer is not, and the definition
-   below has to be written into the site configuration by hand.
-
 The enhancer
 ------------
 
