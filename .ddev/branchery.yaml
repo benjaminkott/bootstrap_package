@@ -2,3 +2,14 @@
 profile: typo3-app
 docroot: .build/public
 bin: .build/bin
+
+# The uploads live below the docroot, and a worktree that takes the
+# project's data needs them to render its images.
+data:
+  from: source
+  needs:
+    - config/sites
+    - config/system/settings.php
+    - .build/public/fileadmin
+  addresses:
+    - config/sites
