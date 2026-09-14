@@ -10,7 +10,10 @@
 namespace BK2K\BootstrapPackage\Parser;
 
 use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\Node\Number;
 use ScssPhp\ScssPhp\OutputStyle;
+use ScssPhp\ScssPhp\Type;
+use ScssPhp\ScssPhp\ValueConverter;
 use ScssPhp\ScssPhp\Version;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -118,7 +121,7 @@ class ScssParser extends AbstractParser
     {
         $scss = new Compiler();
         $scss->setOutputStyle(OutputStyle::COMPRESSED);
-        $scss->addVariables($settings['variables']);
+        $scss->addVariables(array_map($this->toSassValue(...), $settings['variables']));
         if ($settings['options']['sourceMap']) {
             $scss->setSourceMap(Compiler::SOURCE_MAP_FILE);
             $scss->setSourceMapOptions([
@@ -171,7 +174,7 @@ class ScssParser extends AbstractParser
                 $relativeFilePath,
                 $absoluteBootstrapPackageThemePath,
                 $relativeBootstrapPackageThemePath
-            ) : string {
+            ) : array {
                 $marker = $args[0][1];
                 $args[0][1] = '';
                 $result = $scss->compileValue($args[0]);
@@ -183,8 +186,9 @@ class ScssParser extends AbstractParser
                     }
                     $result = substr($result, 0, 1) === '/' ? substr($result, 1) : $result;
                 }
-                return 'url(' . $marker . $result . $marker . ')';
-            }
+                return [Type::T_KEYWORD, 'url(' . $marker . $result . $marker . ')'];
+            },
+            ['url']
         );
 
         // Compile file. Second parameter is needed for source mapping
@@ -210,5 +214,20 @@ class ScssParser extends AbstractParser
                 'sourceMap' => $settings['options']['sourceMap'],
             ],
         ];
+    }
+
+    /**
+     * A variable is written as Sass source; what does not parse stands as
+     * the keyword it is, which is how the compiler read raw values itself.
+     *
+     * @return Number|array<mixed>
+     */
+    protected function toSassValue(string $value): Number|array
+    {
+        try {
+            return ValueConverter::parseValue($value);
+        } catch (\InvalidArgumentException) {
+            return [Type::T_KEYWORD, $value];
+        }
     }
 }
