@@ -10,7 +10,7 @@ declare(strict_types = 1);
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
-use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -34,16 +34,16 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 class FlexFormProcessor implements DataProcessorInterface
 {
     /**
-     * @var FlexFormService
+     * @var FlexFormTools
      */
-    protected $flexFormService;
+    protected $flexFormTools;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+        $this->flexFormTools = GeneralUtility::makeInstance(FlexFormTools::class);
     }
 
     /**
@@ -69,7 +69,7 @@ class FlexFormProcessor implements DataProcessorInterface
         if (!is_string($originalValue)) {
             return $processedData;
         }
-        $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
+        $flexformData = $this->flexFormTools->convertFlexFormContentToArray($originalValue);
 
         // Set the target variable
         $targetVariableName = (string) $cObj->stdWrapValue('as', $processorConfiguration);
