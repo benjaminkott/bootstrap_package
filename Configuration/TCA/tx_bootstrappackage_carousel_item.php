@@ -596,9 +596,7 @@ return [
             'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.background_image_options',
             'config' => [
                 'type' => 'flex',
-                'ds' => [
-                    'default' => 'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml',
-                ],
+                'ds' => 'FILE:EXT:bootstrap_package/Configuration/FlexForms/BackgroundImage.xml',
             ],
             'l10n_mode' => 'exclude',
         ],
