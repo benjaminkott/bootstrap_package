@@ -1,0 +1,77 @@
+#ddev-generated
+# Branchery as a service of its own -- like other DDEV add-ons. That way it
+# shows up in "ddev describe", is reachable through a port of its own, and
+# leaves the project's docroot and web server untouched.
+
+services:
+  branchery:
+    container_name: ddev-${DDEV_SITENAME}-branchery
+    # A published image and not a build of its own: the version a project runs is
+    # the tag it was given, so an update is "ddev add-on get" and a restart.
+    #
+    # Overridable for the one case that is not a release -- working on the add-on
+    # itself. See tools/deploy.sh.
+    image: ${BRANCHERY_DOCKER_IMAGE:-ghcr.io/benjaminkott/ddev-branchery:v0.2.0}
+    restart: "no"
+    # A process that collects what exits. The operations run as shells of their
+    # own and end under a PID 1 that is a PHP server, which never waits for a
+    # child -- so every operation the project ever ran was a zombie in its
+    # process table until the container was replaced.
+    init: true
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8040:80
+      - HTTPS_EXPOSE=8041:80
+      # That is where git, composer, the database clients and the PHP pools run.
+      - BRANCHERY_WEB_CONTAINER=ddev-${DDEV_SITENAME}-web
+      - BRANCHERY_PROJECT_ROOT=/var/www/html
+      - HOST_PROJECT_ROOT=${DDEV_APPROOT}
+      - DDEV_PROJECT=${DDEV_SITENAME}
+      # The addresses of the worktrees hang under the project's domain, which is
+      # the machine's to choose.
+      - DDEV_TLD=${DDEV_TLD}
+      # Which distribution the project lies in, where the developer works in WSL:
+      # an editor outside it reaches the checkout by a name that carries this and
+      # by no other, and nothing inside a container can read it. Empty everywhere
+      # else, and the addresses that need it are then not offered.
+      - WSL_DISTRO_NAME=${WSL_DISTRO_NAME:-}
+      # Files that are created should belong to the user on the host.
+      - BRANCHERY_UID=${DDEV_UID:-1000}
+      - BRANCHERY_GID=${DDEV_GID:-1000}
+      - PHP_CLI_SERVER_WORKERS=4
+    volumes:
+      # Data only: project and worktrees. The application lives in the image.
+      - ../:/var/www/html:rw
+      # Only used to run commands in the web container.
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /opt/branchery
+    command:
+      - bash
+      - /opt/branchery/bin/serve
+    # Asked of something the application answers from itself: most of the API is
+    # a process started in the web container, and a check going through the
+    # Docker socket every few seconds says nothing about whether this container
+    # is up. The interface is a static file this server hands out.
+    healthcheck:
+      test: ["CMD", "php", "-r", "exit(@file_get_contents('http://127.0.0.1/') !== false ? 0 : 1);"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    # What "ddev describe" prints in this row. The worktrees are written into
+    # this block while the project runs -- see App\Worktree\Description, named
+    # as a class because this file is read in the project it was copied into,
+    # where a path into this repository reaches nothing.
+    x-ddev:
+      describe-url-port: "Interface: ddev branchery launch"
+
+  # Git worktrees store absolute host paths, and inside the web container DDEV
+  # only offers the container one. Handed over here rather than in the project's
+  # config, because DDEV substitutes a compose file's variables and substitutes
+  # nothing in a config.*.yaml.
+  web:
+    environment:
+      - HOST_PROJECT_ROOT=${DDEV_APPROOT}

@@ -1,0 +1,4 @@
+# Written by Branchery. Rewritten on every install; edits do not survive.
+# One wildcard covers every worktree: <worktree>.bootstrap-package.ddev.site
+additional_hostnames:
+    - "*.bootstrap-package"
