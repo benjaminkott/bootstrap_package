@@ -9,8 +9,7 @@
 
 namespace BK2K\BootstrapPackage\ViewHelpers\Data;
 
-use TYPO3\CMS\Core\Page\AssetCollector;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use BK2K\BootstrapPackage\Service\ImageInfoService;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -18,16 +17,12 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class ImageInfoViewHelper extends AbstractViewHelper
 {
-    /**
-     * @var array<string, int|string>
-     */
-    protected static $supportedProperties = [
-        'width' => 0,
-        'height' => 1,
-        'type' => 3,
-        'origFile' => 'origFile',
-        'origFile_mtime' => 'origFile_mtime',
-    ];
+    private const SUPPORTED_PROPERTIES = ['width', 'height', 'type', 'origFile', 'origFile_mtime'];
+
+    public function __construct(
+        private readonly ImageInfoService $imageInfoService,
+    ) {
+    }
 
     public function initializeArguments(): void
     {
@@ -43,27 +38,20 @@ class ImageInfoViewHelper extends AbstractViewHelper
         $src = $this->arguments['src'];
         $property = $this->arguments['property'];
 
-        if (!array_key_exists($property, self::$supportedProperties)) {
+        if (!in_array($property, self::SUPPORTED_PROPERTIES, true)) {
             throw new \InvalidArgumentException('The value of property is invalid. Valid properties are: width, height, type, origFile or origFile_mtime');
         }
 
-        $assetCollector = self::getAssetCollector();
-        $mediaOnPage = $assetCollector->getMedia();
-
-        foreach ($mediaOnPage as $mediaName => $mediaData) {
-            if (strpos($src, $mediaName) !== false) {
-                return (string) $mediaData[self::$supportedProperties[$property]];
-            }
+        $processedFile = $this->imageInfoService->findByUri((string) $src);
+        if ($processedFile === null) {
+            return '';
         }
 
-        return '';
-    }
-
-    /**
-     * @return AssetCollector
-     */
-    protected static function getAssetCollector(): AssetCollector
-    {
-        return GeneralUtility::makeInstance(AssetCollector::class);
+        return match ($property) {
+            'width', 'height' => (string) $processedFile->getProperty($property),
+            'type' => $processedFile->getExtension(),
+            'origFile' => (string) $processedFile->getPublicUrl(),
+            'origFile_mtime' => (string) $processedFile->getOriginalFile()->getModificationTime(),
+        };
     }
 }

@@ -94,6 +94,19 @@ final class GalleryTest extends FunctionalTestCase
     }
 
     /**
+     * The dimensions come from the files processed during the request, which
+     * is the only source once the core stops reporting media to the asset
+     * collector.
+     */
+    #[Test]
+    public function theImageCarriesTheDimensionsOfTheProcessedFile(): void
+    {
+        $markup = $this->renderPage('/');
+
+        self::assertMatchesRegularExpression('~<img[^>]*src="[^"]*gallery-image-1[^"]*\.png"[^>]*width="[1-9][0-9]*" height="[1-9][0-9]*"~', $markup);
+    }
+
+    /**
      * The gallery hands its uid to the pagination as an identifier and as the
      * anchor of its own content element, so paging leads to the next images
      * instead of to the top of the page.
