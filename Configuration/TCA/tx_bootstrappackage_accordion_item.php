@@ -39,14 +39,14 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 header,
                 bodytext,
                 media,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition;mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
@@ -127,7 +127,7 @@ return [
                 'allowed' => 'common-media-types',
                 'disallowed' => ['mp3', 'wav', 'flac', 'opus'],
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [

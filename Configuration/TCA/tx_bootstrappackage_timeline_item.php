@@ -39,7 +39,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 date,
                 header,
                 bodytext,
@@ -48,8 +48,8 @@ return [
                 icon_file,
                 image,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
@@ -161,7 +161,7 @@ return [
                 'type' => 'file',
                 'allowed' => ['gif', 'png', 'svg'],
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [

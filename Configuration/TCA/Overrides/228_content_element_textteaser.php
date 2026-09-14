@@ -38,18 +38,18 @@ $GLOBALS['TCA']['tt_content']['types']['textteaser'] = array_replace_recursive(
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
+                --palette--;core.form.palettes:general;general,
+                --palette--;core.form.palettes:headers;headers,
                 teaser,
                 bodytext,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
+                --palette--;core.form.palettes:content_layout;frames,
+                --palette--;core.form.palettes:links_appearance;appearanceLinks,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                 --palette--;;language,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 --palette--;;hidden,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:access;access,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
                 categories,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
@@ -58,7 +58,7 @@ $GLOBALS['TCA']['tt_content']['types']['textteaser'] = array_replace_recursive(
         ',
         'columnsOverrides' => [
             'bodytext' => [
-                'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
+                'label' => 'frontend.db.tt_content:bodytext',
                 'config' => [
                     'enableRichtext' => true,
                 ],

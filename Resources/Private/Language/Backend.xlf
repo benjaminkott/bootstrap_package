@@ -506,6 +506,9 @@
             <trans-unit id="carousel_item.tt_content">
                 <source>Carousel</source>
             </trans-unit>
+            <trans-unit id="carousel_item.item_type">
+                <source>Type</source>
+            </trans-unit>
             <trans-unit id="carousel_item.layout">
                 <source>Layout</source>
             </trans-unit>

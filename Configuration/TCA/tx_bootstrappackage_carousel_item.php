@@ -47,18 +47,18 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
                 nav_title,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'header' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
                 nav_title,
                 text_color,
@@ -68,14 +68,14 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'text' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
                 nav_title,
                 bodytext,
@@ -85,14 +85,14 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'call_to_action' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
                 nav_title,
                 bodytext,
@@ -103,14 +103,14 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'image' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
                 nav_title,
                 image,
@@ -120,14 +120,14 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'text_and_image' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.header;header,
                 nav_title,
                 bodytext,
@@ -139,14 +139,14 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'background_image' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
                 nav_title,
                 background_color,
@@ -154,14 +154,14 @@ return [
                 background_image_options,
                 link,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
         ],
         'html' => [
             'showitem' => '
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                --palette--;core.form.palettes:general;general,
                 header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,
                 nav_title,
                 bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.html_formlabel,
@@ -170,8 +170,8 @@ return [
                 background_image,
                 background_image_options,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+                --palette--;core.form.palettes:visibility;visibility,
+                --palette--;core.form.palettes:access;access,
                 --palette--;;hiddenLanguagePalette,
             ',
             'columnsOverrides' => [
@@ -209,7 +209,7 @@ return [
         'general' => [
             'showitem' => '
                 tt_content,
-                item_type;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType_formlabel,
+                item_type;frontend.db.tt_content:type,
                 --linebreak--,
                 layout,
             ',
@@ -239,7 +239,7 @@ return [
             ],
         ],
         'item_type' => [
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type',
+            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:carousel_item.item_type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -579,7 +579,7 @@ return [
                 'minitems' => 0,
                 'maxitems' => 1,
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [
