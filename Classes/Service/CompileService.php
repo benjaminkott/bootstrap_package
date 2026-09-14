@@ -13,6 +13,8 @@ use BK2K\BootstrapPackage\Parser\ParserInterface;
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Package\Exception\UnknownPackageException;
+use TYPO3\CMS\Core\Package\PackageManager;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteSettings;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -39,7 +41,7 @@ class CompileService
      */
     public function getCompiledFile(ServerRequestInterface $request, string $file): ?string
     {
-        $absoluteFile = GeneralUtility::getFileAbsFileName($file);
+        $absoluteFile = $this->getAbsoluteFile($file);
         $configuration = TypoScriptUtility::getSetup($request)['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
 
         // Ensure cache directory exists
@@ -92,6 +94,24 @@ class CompileService
         }
 
         return null;
+    }
+
+    /**
+     * The compiler needs a file system path to follow the imports of a
+     * stylesheet, and getFileAbsFileName() deprecates resolving one from
+     * a package resource, so the package manager answers for those.
+     */
+    protected function getAbsoluteFile(string $file): string
+    {
+        if (str_starts_with($file, 'PKG:')) {
+            [, $packageName, $path] = explode(':', $file, 3);
+            try {
+                return GeneralUtility::makeInstance(PackageManager::class)->getPackage($packageName)->getPackagePath() . $path;
+            } catch (UnknownPackageException) {
+            }
+        }
+
+        return GeneralUtility::getFileAbsFileName($file);
     }
 
     /**
