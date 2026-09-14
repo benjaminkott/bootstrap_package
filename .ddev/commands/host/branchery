@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+## Description: Develop branches side by side (create, fork, provision, remove)
+## Usage: branchery [command] [args]
+## Example: |-
+##   ddev branchery launch                       # open the interface in the browser
+##   ddev branchery worktree:list                # overview
+##   ddev branchery worktree:fork my-fix         # branch off from the current state
+##   ddev branchery worktree:fork my-fix --from=other  # or from another worktree
+##   ddev branchery worktree:add 13.4            # check out an existing branch
+##   ddev branchery worktree:php my-fix 8.4      # set the PHP version
+##   ddev branchery worktree:pull my-fix         # bring the branch onto its remote
+##   ddev branchery worktree:restore my-fix      # back onto the branch it was made for
+##   ddev branchery worktree:discard my-fix      # drop what the branch carried alone
+##   ddev branchery worktree:provision my-fix    # run the provisioning again
+##   ddev branchery worktree:remove my-fix       # remove worktree, branch and database
+##   ddev branchery database:sync my-fix         # fetch the project's data again
+##   ddev branchery database:prune               # databases whose worktree is gone
+##   ddev branchery git:fetch                    # update a remote
+##   ddev branchery jobs:list                    # what is running right now
+##   ddev branchery jobs:show <id>               # how one operation stands
+##   ddev branchery docs [operations|configuration]  # read the manual
+##
+##   Every command that answers a question takes --format=json, and so does
+##   every operation. An operation also takes --detach, which
+##   hands it to the background and answers with the id -- "jobs:show <id>"
+##   says how it stands, "jobs:show <id> --wait" answers when it is over.
+##
+## Without a command this overview is printed; the rest drives the same logic
+## from the command line, executed inside the management container.
+
+set -euo pipefail
+
+#ddev-generated
+
+CONSOLE="/opt/branchery/bin/console"
+# The port docker-compose.branchery.yaml puts the interface on.
+INTERFACE_PORT="8041"
+
+die() { printf '\033[31m✗\033[0m %s\n' "$*" >&2; exit 1; }
+
+command="${1:-help}"
+shift || true
+
+case "$command" in
+    launch)
+        # "ddev launch" opens a URL the way the platform underneath wants it
+        # opened -- and starts the project first if it is not running.
+        ddev launch ":${INTERFACE_PORT}"
+        ;;
+    help|-h|--help)
+        # "launch" is the one command the console does not have: opening a
+        # browser is the host's to do, so it is named here or nowhere.
+        printf 'The interface:\n\n  ddev branchery launch\n\n'
+        ddev exec --raw -s branchery -- php "$CONSOLE" list
+        ;;
+    docs)
+        ddev exec --raw -s branchery -- php "$CONSOLE" docs "$@"
+        ;;
+    # What a command works on is part of its name: worktree:, database:, git:.
+    # Anything carrying a namespace is handed over as it stands rather than
+    # matched here -- a name the console does not have is refused there, by the
+    # one thing that knows what it does have, and a namespace added later needs
+    # no second place to be written down.
+    #
+    # Handed over as they stand: without --raw, "ddev exec" joins the arguments
+    # into one line and has a shell in the container read it again, and a
+    # branch called "feature/(foo)" is then a syntax error before the console
+    # sees it.
+    *:*)
+        ddev exec --raw -s branchery -- php "$CONSOLE" "$command" "$@"
+        ;;
+    *)
+        die "Unknown command '${command}'. Run 'ddev branchery help' for an overview."
+        ;;
+esac
