@@ -13,6 +13,7 @@ mod {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.border
+                                        identifier = border
                                         colPos = 3
                                         colspan = 12
                                     }
@@ -22,6 +23,7 @@ mod {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentbefore
+                                        identifier = contentbefore
                                         colPos = 8
                                         colspan = 12
                                     }
@@ -31,16 +33,19 @@ mod {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.left
+                                        identifier = left
                                         colPos = 1
                                         colspan = 3
                                     }
                                     2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.normal
+                                        identifier = normal
                                         colPos = 0
                                         colspan = 6
                                     }
                                     3 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.right
+                                        identifier = right
                                         colPos = 2
                                         colspan = 3
                                     }
@@ -50,6 +55,7 @@ mod {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.contentafter
+                                        identifier = contentafter
                                         colPos = 9
                                         colspan = 12
                                     }
@@ -59,16 +65,19 @@ mod {
                                 columns {
                                     1 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer1
+                                        identifier = footer1
                                         colPos = 10
                                         colspan = 4
                                     }
                                     2 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer2
+                                        identifier = footer2
                                         colPos = 11
                                         colspan = 4
                                     }
                                     3 {
                                         name = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:backend_layout.column.footer3
+                                        identifier = footer3
                                         colPos = 12
                                         colspan = 4
                                     }
