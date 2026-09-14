@@ -26,7 +26,7 @@
                     <f:variable name="styles" value="{variantStyle -> f:format.trim()} {styles}"/>
                 </f:if>
             </f:for>
-            <f:asset.css identifier="{backgroundImage.id}" useNonce="1">{styles -> f:format.raw()}</f:asset.css>
+            <f:asset.css identifier="{backgroundImage.id}" csp="1">{styles -> f:format.raw()}</f:asset.css>
         </div>
     </div>
 </f:if>

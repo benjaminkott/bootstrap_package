@@ -34,7 +34,7 @@
                     <f:variable name="styles" value="{variantStyle -> f:format.trim()} {styles}"/>
                 </f:if>
             </f:for>
-            <f:asset.css identifier="{backgroundImageIdentifier}" useNonce="1">{styles -> f:format.raw()}</f:asset.css>
+            <f:asset.css identifier="{backgroundImageIdentifier}" csp="1">{styles -> f:format.raw()}</f:asset.css>
         </div>
     </div>
 </f:if>
