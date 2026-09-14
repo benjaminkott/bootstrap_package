@@ -1,0 +1,25 @@
+name: branchery
+repository: benjaminkott/ddev-branchery
+version: v0.2.0
+install_date: "2026-09-14T13:26:09+02:00"
+project_files:
+    - commands/host/branchery
+    - docker-compose.branchery.yaml
+    - web-entrypoint.d/branchery.sh
+global_files: []
+removal_actions:
+    - |
+      #ddev-description: Remove the generated files
+      rm -f "${DDEV_APPROOT}/.ddev/config.branchery.yaml" \
+            "${DDEV_APPROOT}/.ddev/docker-compose.branchery_norouter.yaml"
+      # The entry point is taken by DDEV itself: it carries its line and is listed as
+      # a project file. What is named here is what the install wrote beside it, and
+      # what an older Branchery installed. The state underneath is kept on purpose,
+      # and so is the image.
+      rm -rf "${DDEV_APPROOT}/.ddev/web-build/Dockerfile.branchery" \
+             "${DDEV_APPROOT}/.ddev/branchery/app" \
+             "${DDEV_APPROOT}/.ddev/branchery/docs" \
+             "${DDEV_APPROOT}/.ddev/branchery/scripts" \
+             "${DDEV_APPROOT}/.ddev/branchery/Dockerfile" \
+             "${DDEV_APPROOT}/.ddev/branchery/.dockerignore"
+      echo "The worktrees under ${DDEV_APPROOT}/.worktrees and their databases are kept."

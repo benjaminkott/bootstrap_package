@@ -1,0 +1,4 @@
+# How a worktree of this project is built; see `ddev branchery docs`.
+profile: typo3-app
+docroot: .build/public
+bin: .build/bin
