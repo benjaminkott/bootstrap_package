@@ -9,7 +9,7 @@ Installation
 Requirements
 ============
 
-* TYPO3 13.4 LTS or TYPO3 14
+* TYPO3 14.3 or TYPO3 15
 * PHP 8.2 or higher
 
 For general TYPO3 system requirements, please refer to the official

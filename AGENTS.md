@@ -40,6 +40,12 @@
 * Running them against MySQL instead means setting `typo3DatabaseDriver`
   and the four `typo3Database*` connection variables yourself — nothing
   in the repository sets them
+* `composer typo3:dev` — resolve the dependencies against the TYPO3
+  development major instead of the newest release; the local
+  installation runs on it, `composer.json` stays untouched
+* `b13/container` is not a dev dependency: it has no release for the
+  development major. The CI installs it in the cells whose TYPO3 major
+  it supports, see `ci.yml`
 * `composer cgl:ci` (check) · `composer cgl` (rewrites)
 * `composer phpstan` — `Build/phpstan.neon`
 * `composer changelog` · `composer set-version`

@@ -46,6 +46,15 @@ The extension comes with a ready to use DDEV Local configuration. Type
 ``ddev launch`` will open the browser and head to the testing website. You can
 use ``ddev launch typo3`` to get directly to the backend.
 
+``composer install`` resolves the newest TYPO3 release the extension
+declares. The local installation runs on the TYPO3 development major
+instead, which ``composer typo3:dev`` resolves without touching
+``composer.json``:
+
+.. code-block:: bash
+
+   ddev composer typo3:dev
+
 
 Build the frontend files
 ========================
