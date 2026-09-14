@@ -12,6 +12,10 @@ parameters:
 		- identifier: missingType.iterableValue
 		- identifier: cast.useless
 		- identifier: method.dynamicName
+		# b13/container is only installed where the TYPO3 major has a release of it, see ci.yml
+		-
+			identifier: class.notFound
+			path: %currentWorkingDirectory%/Configuration/TCA/Overrides/600_ext_container.php
 
 	paths:
 	- %currentWorkingDirectory%/Classes/
