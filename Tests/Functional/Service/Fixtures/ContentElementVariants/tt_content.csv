@@ -1,0 +1,5 @@
+"tt_content",,,,,
+,"uid","pid","sorting","CType","colPos","header"
+,1,1,256,"text",0,"in the main column of a two column layout"
+,2,2,256,"text",0,"in the main column without a layout"
+,3,2,512,"text",10,"in a footer column without a layout"

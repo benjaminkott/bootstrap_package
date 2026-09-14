@@ -1,0 +1,4 @@
+"pages",,,,,,,
+,"uid","pid","sorting","doktype","slug","title","backend_layout","backend_layout_next_level"
+,1,0,256,1,"/","Two columns","pagets__2_columns",""
+,2,1,256,1,"/no-layout","No layout","",""
