@@ -53,3 +53,9 @@ parameters:
 			identifier: identical.alwaysFalse
 			count: 1
 			path: ../Classes/ViewHelpers/TypoScript/ConstantViewHelper.php
+
+		-
+			message: '#^Class TYPO3\\CMS\\Core\\SystemResource\\SystemResourceFactory not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../Tests/Functional/Service/CompileServiceTest.php

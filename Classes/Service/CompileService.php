@@ -13,6 +13,8 @@ use BK2K\BootstrapPackage\Parser\ParserInterface;
 use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteSettings;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -39,7 +41,7 @@ class CompileService
      */
     public function getCompiledFile(ServerRequestInterface $request, string $file): ?string
     {
-        $absoluteFile = GeneralUtility::getFileAbsFileName($file);
+        $absoluteFile = $this->getAbsoluteFile($file);
         $configuration = TypoScriptUtility::getSetup($request)['plugin.']['tx_bootstrappackage.']['settings.'] ?? [];
 
         // Ensure cache directory exists
@@ -92,6 +94,26 @@ class CompileService
         }
 
         return null;
+    }
+
+    /**
+     * The compiler needs a file system path to follow the imports of a
+     * stylesheet, and getFileAbsFileName() can not resolve one from a
+     * file storage resource, so the file storage answers for those.
+     */
+    protected function getAbsoluteFile(string $file): string
+    {
+        if (str_starts_with($file, 'FAL:')) {
+            try {
+                $fileObject = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObjectFromCombinedIdentifier(substr($file, 4));
+                if ($fileObject !== null) {
+                    return $fileObject->getForLocalProcessing(false);
+                }
+            } catch (ResourceDoesNotExistException|\InvalidArgumentException) {
+            }
+        }
+
+        return GeneralUtility::getFileAbsFileName($file);
     }
 
     /**
