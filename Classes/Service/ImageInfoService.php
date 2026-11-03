@@ -27,6 +27,10 @@ final class ImageInfoService
     public function __invoke(AfterFileProcessingEvent $event): void
     {
         $processedFile = $event->getProcessedFile();
+        // A processed package resource has no original file to answer for
+        if (!$processedFile instanceof ProcessedFile) {
+            return;
+        }
         $publicUrl = $processedFile->getPublicUrl();
         if ($publicUrl !== null) {
             $this->processedFiles[$publicUrl] = $processedFile;

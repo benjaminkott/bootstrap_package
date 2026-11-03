@@ -109,6 +109,12 @@ parameters:
 			path: ../Configuration/TCA/Overrides/229_content_element_timeline.php
 
 		-
+			message: '#^Instanceof between TYPO3\\CMS\\Core\\Resource\\ProcessedFile and TYPO3\\CMS\\Core\\Resource\\ProcessedFile will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: ../Classes/Service/ImageInfoService.php
+
+		-
 			message: '''
 				#^Access to constant on deprecated class TYPO3\\CMS\\Install\\Updates\\DatabaseUpdatedPrerequisite\:
 				since v14\.0, will be removed in TYPO3 v15\.0\. Use \\TYPO3\\CMS\\Core\\Upgrades\\DatabaseUpdatedPrerequisite instead\.$#
