@@ -56,8 +56,9 @@ class SvgUtility
                 return '';
             }
 
-            // Disables the functionality to allow external entities to be loaded when parsing the XML, must be kept
-            $svgElement = simplexml_load_string($svgContent);
+            // Disables the functionality to allow external entities to be loaded when parsing the XML, must be kept.
+            // Editors write metadata libxml warns about; an SVG it cannot parse fails below.
+            $svgElement = simplexml_load_string($svgContent, \SimpleXMLElement::class, LIBXML_NOERROR | LIBXML_NOWARNING);
             if (!$svgElement instanceof \SimpleXMLElement) {
                 return '';
             }
