@@ -12,6 +12,9 @@ namespace BK2K\BootstrapPackage\Utility;
 
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Resource\FileInterface;
+use TYPO3\CMS\Core\SystemResource\Exception\SystemResourceException;
+use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
+use TYPO3\CMS\Core\SystemResource\Type\SystemResourceInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Service\ImageService;
 
@@ -40,13 +43,12 @@ class SvgUtility
         }
 
         try {
-            $imageService = self::getImageService();
-            $image = $imageService->getImage($src, $image, false);
-            if ($image->getProperty('extension') !== 'svg') {
+            $resource = self::getResource($src, $image);
+            if ($resource === null || $resource->getExtension() !== 'svg') {
                 return '';
             }
 
-            $svgContent = $image->getContents();
+            $svgContent = $resource->getContents();
             $svgContent = trim((string) preg_replace('/<script[\s\S]*?>[\s\S]*?<\/script>/i', '', $svgContent));
 
             // Exit if file does not contain content
@@ -76,7 +78,7 @@ class SvgUtility
             }
 
             return (string) $domXml->ownerDocument->saveXML($domXml->ownerDocument->documentElement);
-        } catch (ResourceDoesNotExistException $e) {
+        } catch (ResourceDoesNotExistException|SystemResourceException $e) {
             // thrown if file does not exist
             throw new \Exception($e->getMessage(), 1530601100, $e);
         } catch (\UnexpectedValueException $e) {
@@ -89,6 +91,20 @@ class SvgUtility
             // thrown if file storage does not exist
             throw new \Exception($e->getMessage(), 1530601103, $e);
         }
+    }
+
+    /**
+     * Files shipped with a package are not part of any file storage,
+     * so the System Resource API resolves them.
+     */
+    protected static function getResource(string $src, ?FileInterface $image): SystemResourceInterface|FileInterface|null
+    {
+        if (str_starts_with($src, 'EXT:') || str_starts_with($src, 'PKG:')) {
+            $resource = GeneralUtility::makeInstance(SystemResourceFactory::class)->createResource($src);
+            return $resource instanceof SystemResourceInterface ? $resource : null;
+        }
+
+        return self::getImageService()->getImage($src, $image, false);
     }
 
     /**
