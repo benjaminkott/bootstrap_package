@@ -15,6 +15,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Package\Exception\UnknownPackageException;
 use TYPO3\CMS\Core\Package\PackageManager;
+use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteSettings;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -98,8 +100,9 @@ class CompileService
 
     /**
      * The compiler needs a file system path to follow the imports of a
-     * stylesheet, and getFileAbsFileName() deprecates resolving one from
-     * a package resource, so the package manager answers for those.
+     * stylesheet. getFileAbsFileName() deprecates resolving one from a
+     * package resource and can not resolve a file storage resource, so
+     * the package manager and the file storage answer for those.
      */
     protected function getAbsoluteFile(string $file): string
     {
@@ -108,6 +111,15 @@ class CompileService
             try {
                 return GeneralUtility::makeInstance(PackageManager::class)->getPackage($packageName)->getPackagePath() . $path;
             } catch (UnknownPackageException) {
+            }
+        }
+        if (str_starts_with($file, 'FAL:')) {
+            try {
+                $fileObject = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObjectFromCombinedIdentifier(substr($file, 4));
+                if ($fileObject !== null) {
+                    return $fileObject->getForLocalProcessing(false);
+                }
+            } catch (ResourceDoesNotExistException|\InvalidArgumentException) {
             }
         }
 

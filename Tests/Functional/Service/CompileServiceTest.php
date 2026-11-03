@@ -19,6 +19,7 @@ use TYPO3\CMS\Core\EventDispatcher\NoopEventDispatcher;
 use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\SiteFinder;
+use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
 use TYPO3\CMS\Core\TypoScript\AST\AstBuilder;
 use TYPO3\CMS\Core\TypoScript\AST\Node\RootNode;
 use TYPO3\CMS\Core\TypoScript\FrontendTypoScript;
@@ -74,6 +75,42 @@ final class CompileServiceTest extends FunctionalTestCase
             $expectedDeclaration,
             (string) file_get_contents(Environment::getPublicPath() . '/' . $compiledFile)
         );
+    }
+
+    /**
+     * The page renderer hands a stylesheet from a file storage over as a
+     * FAL: resource identifier, and the compiler follows its imports from
+     * the file system.
+     */
+    #[DataProvider('stylesheetsFromFileStoragesAreCompiledDataProvider')]
+    #[Test]
+    public function stylesheetsFromFileStoragesAreCompiled(string $path): void
+    {
+        $directory = Environment::getPublicPath() . '/fileadmin/bootstrap-package';
+        GeneralUtility::mkdir_deep($directory);
+        file_put_contents($directory . '/_partial.scss', '$color: #ff0000;');
+        file_put_contents($directory . '/theme.scss', '@import "partial"; .storage { color: $color; }');
+        $resourceIdentifier = (string) $this->get(SystemResourceFactory::class)->createResource($path);
+        self::assertStringStartsWith('FAL:', $resourceIdentifier);
+
+        $compiledFile = GeneralUtility::makeInstance(CompileService::class)->getCompiledFile(
+            $this->buildRequest($this->createSiteWithSettings([])),
+            $resourceIdentifier
+        );
+
+        self::assertNotNull($compiledFile);
+        self::assertStringContainsString(
+            '.storage{color:#ff0000}',
+            (string) file_get_contents(Environment::getPublicPath() . '/' . $compiledFile)
+        );
+    }
+
+    public static function stylesheetsFromFileStoragesAreCompiledDataProvider(): array
+    {
+        return [
+            'relative path' => ['fileadmin/bootstrap-package/theme.scss'],
+            'absolute web path' => ['/fileadmin/bootstrap-package/theme.scss'],
+        ];
     }
 
     public static function booleanSettingsReachTheParserAsBooleansDataProvider(): array
