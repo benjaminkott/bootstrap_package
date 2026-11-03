@@ -58,6 +58,69 @@ webserver() {
 # var/docroots. One link per worktree pointing at its web directory, so every
 # project can have a docroot of its own and a new worktree is reachable right
 # away, without reloading the web server.
+#
+# The wildcard takes every name under the project's domain, the project's own
+# included: a hostname the project asked DDEV for as "<label>.<project>" is
+# matched here before the project's server block ever sees it, and served out
+# of a link of that name -- which nothing had made. So the project gets one.
+
+# The labels of the project's hostnames that stand directly under the wildcard,
+# out of the list DDEV routes, one to a line. The project's own name and the
+# wildcard itself are not among them; a hostname under another domain does not
+# meet the wildcard and needs nothing here.
+project_labels() {
+    local hostnames="$1" tld="$2" hostname
+    printf '%s' "$hostnames" | tr ',' '\n' | while IFS= read -r hostname; do
+        hostname="$(printf '%s' "$hostname" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')"
+        case "$hostname" in
+            ''|*'*'*) continue ;;
+        esac
+        [ "${hostname%.${tld}}" = "$hostname" ] && continue
+        hostname="${hostname%.${tld}}"
+        case "$hostname" in
+            *.*) continue ;;
+        esac
+        printf '%s\n' "$hostname"
+    done
+}
+
+# Links for those labels, all onto the project's own web directory, and the links
+# a previous start made for labels the project no longer has taken away. Told
+# apart from a worktree's links by where they point: nothing of a worktree's
+# points at the project.
+link_project_labels() {
+    local docroots="$1" target="$2" link name
+    shift 2
+    for link in "$docroots"/*; do
+        [ -L "$link" ] || continue
+        [ "$(readlink "$link")" = "$target" ] || continue
+        name="$(basename "$link")"
+        case " $* " in
+            *" $name "*) ;;
+            *) rm -f "$link" ;;
+        esac
+    done
+    for name in "$@"; do
+        ln -sfn "$target" "${docroots}/${name}"
+    done
+}
+
+# The other names a worktree is served under -- one for each of the project's
+# other hostnames, made by the application -- found by where they point, since
+# the map names the worktree alone.
+aliases_of() {
+    local docroots="$1" worktree="$2" target link name
+    [ -L "${docroots}/${worktree}" ] || return 0
+    target="$(readlink "${docroots}/${worktree}")"
+    for link in "$docroots"/*; do
+        [ -L "$link" ] || continue
+        name="$(basename "$link")"
+        [ "$name" = "$worktree" ] && continue
+        if [ "$(readlink "$link")" = "$target" ]; then
+            printf '%s\n' "$name"
+        fi
+    done
+}
 
 nginx_config() {
     cat <<EOF
@@ -224,18 +287,23 @@ server {
 EOF
 }
 
-apache_block() {
-    local worktree="$1" version="$2"
-    # Cover both views: the web server evaluates <Directory> against the path
-    # the docroot is reached through, while the files live in the worktree.
-    for path in "${DOCROOTS}/${worktree}" "/var/www/html/.worktrees/${worktree}"; do
-        cat <<EOF
+apache_directory() {
+    local path="$1" version="$2"
+    cat <<EOF
 <Directory "${path}">
     <FilesMatch "\\.ph(ar|p|tml)\$">
         SetHandler "proxy:unix:/run/php/php-fpm-${version}.sock|fcgi://localhost"
     </FilesMatch>
 </Directory>
 EOF
+}
+
+apache_block() {
+    local worktree="$1" version="$2"
+    # Cover both views: the web server evaluates <Directory> against the path
+    # the docroot is reached through, while the files live in the worktree.
+    for path in "${DOCROOTS}/${worktree}" "/var/www/html/.worktrees/${worktree}"; do
+        apache_directory "$path" "$version"
     done
 }
 
@@ -253,6 +321,12 @@ as_root() {
 
 vhosts() {
     mkdir -p "$DOCROOTS"
+    # Relative and out of .ddev, like the worktrees' own links: the directory has
+    # another absolute path in the container that makes those. The hostnames out
+    # of DDEV_HOSTNAME and not VIRTUAL_HOST, which says the same: this runs through
+    # sudo, and the container's sudoers keeps DDEV_* and drops the rest.
+    # shellcheck disable=SC2046
+    link_project_labels "$DOCROOTS" "../../../..${DDEV_DOCROOT:+/${DDEV_DOCROOT}}" $(project_labels "${DDEV_HOSTNAME:-}" "$tld")
 
     case "$(webserver)" in
         nginx)
@@ -387,6 +461,15 @@ php_versions() {
         else
             apache_block "$worktree" "$version" >> "${target}.tmp"
         fi
+        # The same version at every name the worktree answers to; the wildcard would
+        # otherwise serve the other addresses with the project's PHP.
+        while read -r alias; do
+            if [ "$server" = nginx ]; then
+                nginx_block "$alias" "$version" >> "${target}.tmp"
+            else
+                apache_directory "${DOCROOTS}/${alias}" "$version" >> "${target}.tmp"
+            fi
+        done < <(aliases_of "$DOCROOTS" "$worktree")
     done < <(wanted "$MAP" "$DOCROOTS" "$DEFAULT_PHP")
 
     mv "${target}.tmp" "$target"

@@ -11,7 +11,7 @@ services:
     #
     # Overridable for the one case that is not a release -- working on the add-on
     # itself. See tools/deploy.sh.
-    image: ${BRANCHERY_DOCKER_IMAGE:-ghcr.io/benjaminkott/ddev-branchery:v0.2.0}
+    image: ${BRANCHERY_DOCKER_IMAGE:-ghcr.io/benjaminkott/ddev-branchery:v0.4.0}
     restart: "no"
     # A process that collects what exits. The operations run as shells of their
     # own and end under a PID 1 that is a PHP server, which never waits for a
@@ -33,6 +33,8 @@ services:
       # The addresses of the worktrees hang under the project's domain, which is
       # the machine's to choose.
       - DDEV_TLD=${DDEV_TLD}
+      # nginx is not supported, and the interface says so where it serves.
+      - DDEV_WEBSERVER_TYPE=${DDEV_WEBSERVER_TYPE:-}
       # Which distribution the project lies in, where the developer works in WSL:
       # an editor outside it reaches the checkout by a name that carries this and
       # by no other, and nothing inside a container can read it. Empty everywhere
