@@ -40,7 +40,7 @@ $GLOBALS['TCA']['tt_content']['types']['external_media'] = array_replace_recursi
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;core.form.palettes:general;general,
                 --palette--;core.form.palettes:headers;headers,
-                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:field.palette.external_media;external_media,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:external_media;external_media,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;core.form.palettes:content_layout;frames,
                 --palette--;core.form.palettes:links_appearance;appearanceLinks,
