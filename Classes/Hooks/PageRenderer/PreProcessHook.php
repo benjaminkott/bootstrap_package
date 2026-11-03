@@ -10,6 +10,7 @@
 namespace BK2K\BootstrapPackage\Hooks\PageRenderer;
 
 use BK2K\BootstrapPackage\Service\CompileService;
+use BK2K\BootstrapPackage\Utility\TypoScriptUtility;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Http\ApplicationType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -35,6 +36,8 @@ class PreProcessHook
             return;
         }
 
+        $sourceMap = (bool) (TypoScriptUtility::getSetup($GLOBALS['TYPO3_REQUEST'])['plugin.']['tx_bootstrappackage.']['settings.']['cssSourceMapping'] ?? false);
+
         foreach (['cssLibs', 'cssFiles'] as $key) {
             $files = [];
             if (is_array($params[$key])) {
@@ -42,6 +45,11 @@ class PreProcessHook
                     $compiledFile = $this->getCompileService()->getCompiledFile($GLOBALS['TYPO3_REQUEST'], $file);
                     if ($compiledFile !== null) {
                         $settings['file'] = $compiledFile;
+                        if ($sourceMap) {
+                            // TYPO3 v13 would compress and concatenate the CSS away from its source map
+                            $settings['compress'] = false;
+                            $settings['excludeFromConcatenation'] = true;
+                        }
                         $files[$compiledFile] = $settings;
                     } else {
                         $files[$file] = $settings;
