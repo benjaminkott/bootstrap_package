@@ -1,0 +1,23 @@
+@import 'EXT:bootstrap_package/Configuration/Sets/ContentElements/TypoScript/Helper/ContentElement.typoscript'
+
+config {
+    disableAllHeaderCode = 1
+    debug = 0
+}
+
+page = PAGE
+page {
+    typeNum = 0
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select {
+            orderBy = sorting
+        }
+        renderObj = USER
+        renderObj {
+            userFunc = BK2K\BootstrapPackage\Tests\Functional\Service\Fixtures\ContentElementVariants\VariantWidths->render
+            settings < lib.contentElement.settings.responsiveimages
+        }
+    }
+}

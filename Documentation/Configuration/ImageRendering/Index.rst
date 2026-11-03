@@ -281,6 +281,78 @@ calculation process.
 
 
 
+Resolving Variants in PHP
+=========================
+
+Everything above is applied by the content element layout, which
+serves every element rendered through a template of this package. An
+Extbase plugin registered as a content element does not go that way:
+it is rendered through ``Generic.html``, which hands off to
+``tt_content.<CType>.20`` via ``f:cObject``. That call carries
+``data`` and ``table`` and nothing else, so the variants the layout
+calculated never reach the plugin's own rendering context, and an
+image rendered there falls back to whatever width its template hard
+codes.
+
+:php:`ContentElementVariantsService` answers the same question in
+PHP. Inject it and hand it the settings together with the content
+object of the element:
+
+.. code-block:: php
+
+   use BK2K\BootstrapPackage\Service\ContentElementVariantsService;
+   use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+
+   final class TeaserController extends ActionController
+   {
+       public function __construct(
+           private readonly ContentElementVariantsService $service,
+       ) {
+       }
+
+       public function listAction(): ResponseInterface
+       {
+           $cObj = $this->request->getAttribute('currentContentObject');
+           if (!$cObj instanceof ContentObjectRenderer) {
+               return $this->htmlResponse();
+           }
+
+           $variants = $this->service->getVariants($settings, $cObj);
+           // ...
+       }
+   }
+
+``$settings`` is the plain array below
+``lib.contentElement.settings.responsiveimages``. Read it from the
+full TypoScript through the configuration manager and convert it with
+:php:`TypoScriptService::convertTypoScriptArrayToPlainArray()`.
+
+What comes back is narrowed the way the layout narrows it: first by
+the backend layout column the element sits in, then by every
+container wrapped around it. An element in a container inside a page
+column arrives at the width of the box it actually occupies.
+
+An element that narrows further on its own — a grid with a column
+count, a layout that puts the image beside the text — applies those
+steps with :php:`narrow()`, which takes a configuration block of the
+same shape as the ones above:
+
+.. code-block:: php
+
+   $columns = $settings['contentelements']['my_element']['columns'];
+   $variants = $this->service->narrow($variants, $columns['3'] ?? null);
+
+Passing :php:`null` returns the variants unchanged, so a step that is
+not configured needs no branch around it.
+
+.. note::
+
+   The service resolves the box, not the markup. Turning the variants
+   into a ``srcset`` and a ``sizes`` attribute, or into ``picture``
+   and ``source`` elements, stays with the template that renders the
+   image.
+
+
 Crop Variants
 =============
 
