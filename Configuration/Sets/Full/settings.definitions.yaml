@@ -713,7 +713,7 @@ settings:
   # Settings
   plugin.bootstrap_package.settings.cssSourceMapping:
     label: 'CSS source mapping'
-    description: 'Create a CSS source map useful to debug CSS in browser developer tools. Note: CSS compression will be disabled.'
+    description: 'Create a CSS source map useful to debug CSS in browser developer tools.'
     category: BootstrapPackage.settings
     type: bool
     default: false
