@@ -1,7 +1,7 @@
 name: branchery
 repository: benjaminkott/ddev-branchery
-version: v0.2.0
-install_date: "2026-09-14T13:26:09+02:00"
+version: v0.4.0
+install_date: "2026-11-03T08:59:28+01:00"
 project_files:
     - commands/host/branchery
     - docker-compose.branchery.yaml
