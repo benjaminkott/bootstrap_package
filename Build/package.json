@@ -42,9 +42,5 @@
     "image": "./node_modules/.bin/grunt image",
     "js": "./node_modules/.bin/grunt js",
     "lint": "./node_modules/.bin/grunt lint"
-  },
-  "dependencies": {
-    "audit": "^0.0.6",
-    "fix": "^0.0.6"
   }
 }
