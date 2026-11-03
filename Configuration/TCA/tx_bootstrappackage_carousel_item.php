@@ -579,7 +579,7 @@ return [
                 'minitems' => 0,
                 'maxitems' => 1,
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [

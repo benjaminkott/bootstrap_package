@@ -127,7 +127,7 @@ return [
                 'allowed' => 'common-media-types',
                 'disallowed' => ['mp3', 'wav', 'flac', 'opus'],
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [

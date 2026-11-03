@@ -115,7 +115,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 'type' => 'file',
                 'allowed' => ['gif', 'png', 'svg'],
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.asset_references.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:asset_references.addFileReference',
                 ],
                 'overrideChildTca' => [
                     'types' => [
