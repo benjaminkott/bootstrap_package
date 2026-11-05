@@ -2,7 +2,7 @@
 // Section
 // --------------------------------------------------
 .section {
-    overflow: hidden;
+    overflow: clip;
 }
 .section-row {
     --section-columns: 12;
