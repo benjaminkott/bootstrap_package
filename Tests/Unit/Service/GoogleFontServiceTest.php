@@ -128,7 +128,7 @@ class GoogleFontServiceTest extends UnitTestCase
         $service = new GoogleFontService();
         $reflection = new \ReflectionMethod($service, 'isAllowedFontMimeType');
 
-        $response = $this->createMock(ResponseInterface::class);
+        $response = self::createStub(ResponseInterface::class);
         $response->method('getHeaderLine')->willReturnMap([
             ['Content-Type', $contentType],
         ]);

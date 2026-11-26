@@ -11,7 +11,7 @@ namespace BK2K\BootstrapPackage\Tests\Unit\DataProcessing;
 
 use BK2K\BootstrapPackage\DataProcessing\SkiplinkProcessor;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use Symfony\Component\DependencyInjection\Container;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -22,24 +22,24 @@ class SkiplinkProcessorTest extends UnitTestCase
 {
     protected ContentDataProcessor $contentDataProcessor;
     protected Container $container;
-    protected MockObject&DataProcessorRegistry $dataProcessorRegistryMock;
+    protected Stub&DataProcessorRegistry $dataProcessorRegistryStub;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->container = new Container();
-        $this->dataProcessorRegistryMock = $this->getMockBuilder(DataProcessorRegistry::class)->disableOriginalConstructor()->getMock();
-        $this->dataProcessorRegistryMock->method('getDataProcessor')->willReturn(null);
+        $this->dataProcessorRegistryStub = self::createStub(DataProcessorRegistry::class);
+        $this->dataProcessorRegistryStub->method('getDataProcessor')->willReturn(null);
         $this->contentDataProcessor = new ContentDataProcessor(
             $this->container,
-            $this->dataProcessorRegistryMock
+            $this->dataProcessorRegistryStub
         );
     }
 
     #[DataProvider('getProcessDataProvider')]
     public function testProcess(array $setup, array $expectation): void
     {
-        $contentObjectRendererStub = $this->createMock(ContentObjectRenderer::class);
+        $contentObjectRendererStub = self::createStub(ContentObjectRenderer::class);
         $contentObjectRendererStub->method('stdWrapValue')->willReturnCallback(
             fn (string $key, array $config): mixed => $config[$key] ?? ''
         );
