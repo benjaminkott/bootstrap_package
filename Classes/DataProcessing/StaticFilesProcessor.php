@@ -9,13 +9,17 @@
 
 namespace BK2K\BootstrapPackage\DataProcessing;
 
+use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
- * This processor generates a set of file objects.
+ * This processor generates a set of file objects. Files outside of all file
+ * storages, like EXT: paths, are public system resources where FAL does not
+ * resolve them.
  *
  * 10 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
  * 10 {
@@ -59,11 +63,17 @@ class StaticFilesProcessor implements DataProcessorInterface
         $images = [];
         if ($files !== []) {
             $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+            $systemResourceFactory = GeneralUtility::makeInstance(SystemResourceFactory::class);
             foreach ($files as $key => $file) {
                 $absFilename = GeneralUtility::getFileAbsFileName($file);
                 if (file_exists($absFilename)) {
-                    // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
-                    $images[$key] = $resourceFactory->retrieveFileOrFolderObject($file);
+                    try {
+                        // Do not use absolute file name to ensure correct path resolution from ResourceFactory.
+                        $images[$key] = $resourceFactory->retrieveFileOrFolderObject($file)
+                            ?? $systemResourceFactory->createPublicResource($file);
+                    } catch (ResourceDoesNotExistException) {
+                        $images[$key] = $systemResourceFactory->createPublicResource($file);
+                    }
                 }
             }
         }

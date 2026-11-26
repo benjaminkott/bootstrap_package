@@ -1,0 +1,23 @@
+config {
+    disableAllHeaderCode = 1
+    debug = 0
+}
+
+page = PAGE
+page {
+    typeNum = 0
+    10 = FLUIDTEMPLATE
+    10 {
+        file = EXT:bootstrap_package/Tests/Functional/DataProcessing/Fixtures/StaticFiles/StaticFiles.html
+        dataProcessing {
+            10 = BK2K\BootstrapPackage\DataProcessing\StaticFilesProcessor
+            10 {
+                files {
+                    extension = EXT:bootstrap_package/Resources/Public/Images/BootstrapPackage.svg
+                    storage = fileadmin/logo.svg
+                    missing = EXT:bootstrap_package/Resources/Public/Images/Missing.svg
+                }
+            }
+        }
+    }
+}
