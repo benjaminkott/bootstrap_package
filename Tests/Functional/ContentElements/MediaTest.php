@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Tests\Functional\ContentElements;
 
+use BK2K\BootstrapPackage\Tests\Functional\FixtureStorageTrait;
 use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
-use TYPO3\CMS\Core\Resource\StorageRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -28,6 +27,8 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 final class MediaTest extends FunctionalTestCase
 {
+    use FixtureStorageTrait;
+
     protected array $coreExtensionsToLoad = [
         'seo',
         'rte_ckeditor',
@@ -48,11 +49,7 @@ final class MediaTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Media/pages.csv');
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Media/tt_content.csv');
 
-        $storageRepository = $this->get(StorageRepository::class);
-        GeneralUtility::mkdir_deep($this->instancePath . '/fileadmin/');
-        $this->storage = $storageRepository->findByUid(
-            $storageRepository->createLocalStorage('fixture', 'fileadmin/', 'relative', '', true)
-        );
+        $this->storage = $this->createFixtureStorage();
 
         $onlineMedia = $this->createFile('video.youtube', 'zpOVYePk6mM');
         $this->attachToContentElement($onlineMedia, 1, 11);

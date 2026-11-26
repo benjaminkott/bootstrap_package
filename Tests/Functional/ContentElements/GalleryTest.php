@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Tests\Functional\ContentElements;
 
+use BK2K\BootstrapPackage\Tests\Functional\FixtureStorageTrait;
 use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
-use TYPO3\CMS\Core\Resource\StorageRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -28,6 +27,8 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 final class GalleryTest extends FunctionalTestCase
 {
+    use FixtureStorageTrait;
+
     private const BASE = 'http://localhost/';
 
     protected array $coreExtensionsToLoad = [
@@ -50,11 +51,7 @@ final class GalleryTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Gallery/pages.csv');
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Gallery/tt_content.csv');
 
-        $storageRepository = $this->get(StorageRepository::class);
-        GeneralUtility::mkdir_deep($this->instancePath . '/fileadmin/');
-        $this->storage = $storageRepository->findByUid(
-            $storageRepository->createLocalStorage('fixture', 'fileadmin/', 'relative', '', true)
-        );
+        $this->storage = $this->createFixtureStorage();
 
         foreach (range(1, 4) as $number) {
             $this->attachToContentElement($this->createFile('gallery-image-' . $number . '.png'), 1, $number);

@@ -11,11 +11,10 @@ declare(strict_types=1);
 
 namespace BK2K\BootstrapPackage\Tests\Functional\DataProcessing;
 
+use BK2K\BootstrapPackage\Tests\Functional\FixtureStorageTrait;
 use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
-use TYPO3\CMS\Core\Resource\StorageRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -26,6 +25,8 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 final class StaticFilesProcessorTest extends FunctionalTestCase
 {
+    use FixtureStorageTrait;
+
     protected array $coreExtensionsToLoad = [
         'seo',
         'rte_ckeditor',
@@ -43,8 +44,7 @@ final class StaticFilesProcessorTest extends FunctionalTestCase
 
         $this->importCSVDataSet(__DIR__ . '/Fixtures/StaticFiles/pages.csv');
 
-        GeneralUtility::mkdir_deep($this->instancePath . '/fileadmin/');
-        $this->get(StorageRepository::class)->createLocalStorage('fixture', 'fileadmin/', 'relative', '', true);
+        $this->createFixtureStorage();
         copy(
             __DIR__ . '/../../../Resources/Public/Images/BootstrapPackage.svg',
             $this->instancePath . '/fileadmin/logo.svg'
