@@ -133,7 +133,7 @@
             "phpunit -c Build/phpunit-functional.xml"
         ],
         "test:php:lint": [
-            "phplint"
+            "phplint lint"
         ],
         "test:php:unit": [
             "phpunit -c Build/phpunit-unit.xml"
